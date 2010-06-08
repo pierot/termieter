@@ -1,28 +1,30 @@
+# HISTORY
+######################################################################################################
+
+export HISTCONTROL=erasedups # Erase duplicates
+export HISTSIZE=5000 # resize history size
+
+shopt -s histappend # append to bash_history if Terminal.app quits
+
 # EDITOR
 ######################################################################################################
 
 export EDITOR='mate -w'
 
+# COLORS
+######################################################################################################
+
+export TERM="xterm-color"
+
+alias ls="ls -G"
+
+PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
+
 # SPECIAL FUNCTIONS
 ######################################################################################################
 
-netinfo ()
-{
-echo "--------------- Network Information ---------------"
-/sbin/ifconfig | awk /'inet addr/ {print $2}'
-echo ""
-/sbin/ifconfig | awk /'Bcast/ {print $3}'
-echo ""
-/sbin/ifconfig | awk /'inet addr/ {print $4}'
-# /sbin/ifconfig | awk /'HWaddr/ {print $4,$5}'
-echo "---------------------------------------------------"
-}
+export TERM="xterm-color"
 
-spin ()
-{
-echo -ne "${RED}-"
-echo -ne "${WHITE}\b|"    
-echo -ne "${BLUE}\bx"
-sleep .02
-echo -ne "${RED}\b+${NC}"
-}
+alias ls="ls -G"
+
+PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
