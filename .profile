@@ -1,12 +1,8 @@
-################################################################################################################
-# MACHINE SPECIFIC ALIASES
-if [ -f ~/.profile_alias ]; then
-source ~/.profile_alias
-fi
+# Profile settings, paths, aliases, belongs to machine
 
 ################################################################################################################
 # ALIASES
-# alias doc="cd ~/Documents/"
+alias clientrepos="cd ~/Documents/Dropbox/Private/work/Client\ Repos/"
 
 ################################################################################################################
 # PATH
