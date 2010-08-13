@@ -44,10 +44,9 @@ case $TERM in
   ;;
 esac
 
-PS1="${TITLEBAR}\
-$GREEN[$GREEN\$(date +%H:%M)$GREEN]\
-$GREEN[$GREEN\u@\h:\w$WHITE\$(parse_git_branch)$GREEN]\
-$GREEN\$ "
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 34 ]; then CurDir=${DIR:0:14}...${DIR:${#DIR}-17}; else CurDir=$DIR; fi'
+PS1="[$GREEN\u@\h:\$CurDir:$WHITE\$(parse_git_branch)$GREEN]\$GREEN\$  "
+#PS1="${TITLEBAR}\$GREEN[$GREEN\$(date +%H:%M)$GREEN]\$GREEN[$GREEN\u@\h:\w:$WHITE\$(parse_git_branch)$GREEN]\$GREEN\$ "
 PS2='> '
 PS4='+ '
 }
