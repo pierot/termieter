@@ -8,15 +8,15 @@ export HISTSIZE=5000 # resize history size
 
 shopt -s histappend # append to bash_history if Terminal.app quits
 
-# EDITOR
+# NATIVE ALIASES
 ######################################################################################################
 
 export EDITOR='mate -w'
 
+alias ls="ls -l"
+
 # COLORS
 ######################################################################################################
-
-alias ls="ls -l"
 
 function parse_git_branch {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
