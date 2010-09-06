@@ -16,7 +16,7 @@ export EDITOR='mate -w'
 # COLORS
 ######################################################################################################
 
-alias ls="ls -G"
+alias ls="ls -l"
 
 function parse_git_branch {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
