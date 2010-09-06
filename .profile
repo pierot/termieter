@@ -9,8 +9,8 @@ alias _projects="cd ~/Documents/Projects/"
 
 alias start_mongo="mongod run --config /usr/local/Cellar/mongodb/1.6.0-x86_64/mongod.conf --rest"
 
-alias show_hidden="defaults write com.apple.finder AppleShowAllFiles -bool true"
-alias hide_hidden="defaults write com.apple.finder AppleShowAllFiles -bool false"
+alias hidden_show="defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"
+alias hidden_hide="defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder"
 
 ################################################################################################################
 # PATH
