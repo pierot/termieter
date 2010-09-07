@@ -8,7 +8,19 @@ alias _dev="cd ~/Documents/Dropbox/Private/work/Development/"
 alias _clients="cd ~/Documents/Dropbox/Private/work/Clients/"
 alias _projects="cd ~/Documents/Projects/"
 
-alias start_mongo="mongod run --config /usr/local/Cellar/mongodb/1.6.0-x86_64/mongod.conf --rest"
+alias mongo-start="mongod run --config /usr/local/Cellar/mongodb/1.6.0-x86_64/mongod.conf --rest"
+
+alias mysql-start="launchctl load /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist"
+alias mysql-stop="launchctl unload /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist"
+
+alias apache-start="sudo apachectl start"
+alias apache-restart="sudo apachectl restart"
+alias apache-stop="sudo apachectl stop"
+
+alias apache-vhosts="mate /private/etc/apache2/extra/httpd-vhosts.conf"
+alias apache-config="mate /private/etc/apache2/httpd.conf"
+
+alias python-start="~/.termieter/scripts/python-serve-from-here.py b 8001"
 
 # PATH
 ################################################################################################################
@@ -27,8 +39,9 @@ export PATH
 # WORKING ENVIRONMENT	
 ################################################################################################################
 
-function init_env() {
-    COMMANDS=( "start_mongo" "_dev;clear" "_clientrepos;clear" )
+function init-env () {
+    COMMANDS=( "start-mongo" "-dev;clear" "-clientrepos;clear" )
+	#COMMANDS=( "start-apache;start-mysql;_dev;clear" "_clientrepos;clear" )
 	LENGTH=${#COMMANDS[@]}
 	COUNT=0
 	
@@ -53,3 +66,7 @@ function init_env() {
 			
 		done
 }
+
+# SPECIALS
+################################################################################################################
+. /Users/pieterm/Documents/Dropbox/Private/work/Development/Repositories/z/z.sh

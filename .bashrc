@@ -8,7 +8,7 @@ export HISTSIZE=5000 # resize history size
 
 shopt -s histappend # append to bash_history if Terminal.app quits
 
-# NATIVE ALIASES
+# ALIASES
 ######################################################################################################
 
 export EDITOR='mate -w'
@@ -26,12 +26,14 @@ alias flushdns="dscacheutil -flushcache" # Flush DNS cache
 alias gzip="gzip -9n" # set strongest compression level as ‘default’ for gzip
 alias ping="ping -c 5" # ping 5 times ‘by default’
 
-alias hidden_show="defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"
-alias hidden_hide="defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder"
+alias show-hidden="defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"
+alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder"
 
 alias redo='sudo \!-1' # redo last command with sudo
 
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
+
+alias hosts='mate /private/etc/hosts'
 
 # COLORS + PROMPT
 ######################################################################################################
