@@ -29,7 +29,7 @@ alias ping="ping -c 5" # ping 5 times ‘by default’
 alias show-hidden="defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"
 alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder"
 
-alias redo='sudo \!-1' # redo last command with sudo
+# alias redo='sudo \!-1' # redo last command with sudo
 
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
@@ -43,15 +43,16 @@ function parse_git_branch {
 }
 
 WHITE="\[\033[1;37m\]"
-LIGHT_BLUE="\[\033[1;34m\]"
-BLUE="\[\033[0;34m\]"
+LIGHT_BLUE="\[\033[1;36m\]"
+BLUE="\[\033[1;34m\]"
 LIGHT_RED="\[\033[1;31m\]"
 RED="\[\033[0;31m\]"
 LIGHT_GREEN="\[\033[1;32m\]"
 GREEN="\[\033[0;32m\]"
 
 PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 34 ]; then CurDir=${DIR:0:14}...${DIR:${#DIR}-17}; else CurDir=$DIR; fi'
-PS1="[$LIGHT_RED\u:\$CurDir:\$(parse_git_branch)$WHITE]\\$  "
+PS1="[$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE]\\$  "
+
 
 # SPECIAL FUNCTIONS
 ######################################################################################################
