@@ -16,6 +16,8 @@ export EDITOR='mate -w'
 alias ..="cd .."
 alias ...="cd .. ; cd .."
 
+alias cls="clear"
+
 alias ls="ls -Gl" # long list, excludes dot files
 alias ll="ls -Gla" # long list all, includes dot files
 
@@ -34,6 +36,8 @@ alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles -bool false
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
 alias hosts='mate /private/etc/hosts'
+
+alias hist='history | grep "$@"'
 
 # COLORS + PROMPT
 ######################################################################################################

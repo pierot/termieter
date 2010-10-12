@@ -12,6 +12,7 @@ alias mongo-start="mongod run --config /usr/local/Cellar/mongodb/1.6.0-x86_64/mo
 
 alias mysql-start="launchctl load /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist"
 alias mysql-stop="launchctl unload /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist"
+alias mysql-restart="mysql-stop | mysql-start"
 
 alias apache-start="sudo apachectl start"
 alias apache-restart="sudo apachectl restart"
@@ -35,6 +36,11 @@ export PATH
 ################################################################################################################
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+# RACK ENV
+################################################################################################################
+
+export RACK_ENV='development'
 
 # WORKING ENVIRONMENT	
 ################################################################################################################
@@ -69,4 +75,4 @@ function init-env () {
 
 # SPECIALS
 ################################################################################################################
-. /Users/pieterm/Documents/Dropbox/Private/work/Development/Repositories/z/z.sh
+. ~/.termieter/scripts/z.sh
