@@ -11,7 +11,7 @@ shopt -s histappend # append to bash_history if Terminal.app quits
 # ALIASES
 ######################################################################################################
 
-export EDITOR='mate -w'
+export EDITOR='nano'
 
 alias ..="cd .."
 alias ...="cd .. ; cd .."
@@ -56,7 +56,6 @@ GREEN="\[\033[0;32m\]"
 
 PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 34 ]; then CurDir=${DIR:0:14}...${DIR:${#DIR}-17}; else CurDir=$DIR; fi'
 PS1="[$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE]\\$  "
-
 
 # SPECIAL FUNCTIONS
 ######################################################################################################
