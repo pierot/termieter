@@ -11,7 +11,7 @@ shopt -s histappend # append to bash_history if Terminal.app quits
 # ALIASES
 ######################################################################################################
 
-export EDITOR='nano'
+export EDITOR='mate -w'
 
 alias ..="cd .."
 alias ...="cd .. ; cd .."
@@ -42,9 +42,14 @@ alias hist='history | grep "$@"'
 # COLORS + PROMPT
 ######################################################################################################
 
-function parse_git_branch {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+
 
 WHITE="\[\033[1;37m\]"
 LIGHT_BLUE="\[\033[1;36m\]"
