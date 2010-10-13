@@ -46,7 +46,7 @@ export RACK_ENV='development'
 ################################################################################################################
 
 function init-env () {
-    COMMANDS=( "start-mongo" "-dev;clear" "-clientrepos;clear" )
+  COMMANDS=( "start-mongo" "-dev;clear" "-clientrepos;clear" )
 	#COMMANDS=( "start-apache;start-mysql;_dev;clear" "_clientrepos;clear" )
 	LENGTH=${#COMMANDS[@]}
 	COUNT=0

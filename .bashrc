@@ -31,13 +31,15 @@ alias ping="ping -c 5" # ping 5 times ‘by default’
 alias show-hidden="defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"
 alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder"
 
-# alias redo='sudo \!-1' # redo last command with sudo
-
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
 alias hosts='mate /private/etc/hosts'
 
 alias hist='history | grep "$@"'
+
+svn-add-all() {
+	svn st | grep "^?" | awk '{$1=""; print $0}' | while read f; do svn add "$f"; done
+}
 
 # COLORS + PROMPT
 ######################################################################################################
@@ -49,7 +51,6 @@ function parse_git_dirty {
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
-
 
 WHITE="\[\033[1;37m\]"
 LIGHT_BLUE="\[\033[1;36m\]"
