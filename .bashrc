@@ -13,33 +13,29 @@ shopt -s histappend # append to bash_history if Terminal.app quits
 
 export EDITOR='mate -w'
 
-alias ..="cd .."
-alias ...="cd .. ; cd .."
+alias ..='cd ..'
+alias ...='cd .. ; cd ..'
 
-alias cls="clear"
+alias cls='clear'
 
-alias ls="ls -Gl" # long list, excludes dot files
-alias ll="ls -Gla" # long list all, includes dot files
+alias ls='ls -Gl' # long list, excludes dot files
+alias ll='ls -Gla' # long list all, includes dot files
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com" # my ip
-alias flushdns="dscacheutil -flushcache" # Flush DNS cache
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
+alias flushdns='dscacheutil -flushcache' # Flush DNS cache
 
-alias gzip="gzip -9n" # set strongest compression level as ‘default’ for gzip
-alias ping="ping -c 5" # ping 5 times ‘by default’
+alias gzip='gzip -9n' # set strongest compression level as ‘default’ for gzip
+alias ping='ping -c 5' # ping 5 times ‘by default’
 
-alias show-hidden="defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"
-alias hide-hidden="defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder"
+alias show-hidden='defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder'
+alias hide-hidden='defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder'
 
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
 alias hosts='mate /private/etc/hosts'
 
 alias hist='history | grep "$@"'
-
-svn-add-all() {
-	svn st | grep "^?" | awk '{$1=""; print $0}' | while read f; do svn add "$f"; done
-}
 
 # COLORS + PROMPT
 ######################################################################################################

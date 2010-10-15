@@ -3,27 +3,51 @@
 # ALIASES
 ################################################################################################################
 
-alias _clientrepos="cd ~/Documents/Dropbox/Private/work/Client\ Repos/"
-alias _dev="cd ~/Documents/Dropbox/Private/work/Development/"
-alias _clients="cd ~/Documents/Dropbox/Private/work/Clients/"
-alias _projects="cd ~/Documents/Projects/"
+alias termieter='cd ~/.termieter'
+alias termietere='mate .bashrc .profile'
+alias termieterc='source .profile .bashrc'
 
-alias mongo-start="mongod run --config /usr/local/Cellar/mongodb/1.6.0-x86_64/mongod.conf --rest"
+# ALIASES PATH
+################################################################################################################
 
-alias mysql-start="launchctl load /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist"
-alias mysql-stop="launchctl unload /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist"
-alias mysql-restart="mysql-stop | mysql-start"
+alias clientrepos='cd ~/Documents/Dropbox/Private/work/Client\ Repos/'
+alias dev='cd ~/Documents/Dropbox/Private/work/Development/'
+alias clients='cd ~/Documents/Dropbox/Private/work/Clients/'
+alias projects='cd ~/Documents/Projects/'
 
-alias apache-start="sudo apachectl start"
-alias apache-restart="sudo apachectl restart"
-alias apache-stop="sudo apachectl stop"
+# ALIASES SERVERS
+################################################################################################################
 
-alias apache-vhosts="mate /private/etc/apache2/extra/httpd-vhosts.conf"
-alias apache-config="mate /private/etc/apache2/httpd.conf"
+alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.6.0-x86_64/mongod.conf --rest'
 
-alias python-start="~/.termieter/scripts/python-serve-from-here.py b 8001"
+alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist'
+alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist'
+alias mysql-restart='mysql-stop | mysql-start'
 
-alias svn-status-all="~/.termieter/scripts/svnstatus.py $@"
+alias apache-start='sudo apachectl start'
+alias apache-restart='sudo apachectl restart'
+alias apache-stop='sudo apachectl stop'
+
+alias apache-vhosts='mate /private/etc/apache2/extra/httpd-vhosts.conf'
+alias apache-config='mate /private/etc/apache2/httpd.conf'
+
+alias python-start='~/.termieter/scripts/python-serve-from-here.py b 8001'
+
+# ALIASES SVN
+################################################################################################################
+
+alias svn-status-all='~/.termieter/scripts/svnstatus.py $@'
+
+#svn-add-all() {
+	#svn st | grep "^?" | awk '{$1=""; print $0}' | while read f; do svn add "$f"; done
+#}
+
+# ALIASES GIT
+################################################################################################################
+
+alias gst='git status'
+alias gcam='git commit -a -m "$@"'
+alias gpom='git push origin master'
 
 # PATH
 ################################################################################################################
