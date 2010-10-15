@@ -23,6 +23,8 @@ alias apache-config="mate /private/etc/apache2/httpd.conf"
 
 alias python-start="~/.termieter/scripts/python-serve-from-here.py b 8001"
 
+alias svn-status-all="~/.termieter/scripts/svnstatus.py $@"
+
 # PATH
 ################################################################################################################
 
