@@ -38,9 +38,9 @@ alias python-start='~/.termieter/scripts/python-serve-from-here.py b 8001'
 
 alias svn-status-all='~/.termieter/scripts/svnstatus.py $@'
 
-#svn-add-all() {
-	#svn st | grep "^?" | awk '{$1=""; print $0}' | while read f; do svn add "$f"; done
-#}
+svn-add-all() {
+	svn st | grep "^?" | awk '{$1=""; print $0}' | while read f; do svn add "$f"; done
+}
 
 # ALIASES GIT
 ################################################################################################################
