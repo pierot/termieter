@@ -49,6 +49,8 @@ alias gst='git status'
 alias gcam='git commit -a -m "$@"'
 alias gpom='git push origin master'
 
+alias gdocs='open "http://people.gnome.org/~federico/misc/git-cheat-sheet.txt" | open "http://about.digg.com/blog/10-useful-git-commands"'
+
 # PATH
 ################################################################################################################
 
