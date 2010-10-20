@@ -28,8 +28,8 @@ alias flushdns='dscacheutil -flushcache' # Flush DNS cache
 alias gzip='gzip -9n' # set strongest compression level as ‘default’ for gzip
 alias ping='ping -c 5' # ping 5 times ‘by default’
 
-alias show-hidden='defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder'
-alias hide-hidden='defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder'
+alias hidden-show='defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder'
+alias hidden-hide='defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder'
 
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 

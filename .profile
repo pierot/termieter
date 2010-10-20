@@ -10,7 +10,7 @@ alias termieterc='source ~/.termieter/.profile ~/.termieter/.bashrc'
 # ALIASES PATH
 ################################################################################################################
 
-alias clientrepos='cd ~/Documents/Dropbox/Private/work/Repos/'
+alias repos='cd ~/Documents/Dropbox/Private/work/Repos/'
 alias dev='cd ~/Documents/Dropbox/Private/work/Development/'
 alias clients='cd ~/Documents/Dropbox/Private/work/Clients/'
 alias projects='cd ~/Documents/Projects/'
