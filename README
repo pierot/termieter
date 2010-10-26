@@ -1,0 +1,2 @@
+Puts this in your user folder.
+Make a symlink from ~/.bash_profile to ~/.termieter/bash_profile
