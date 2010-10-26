@@ -4,8 +4,8 @@
 ################################################################################################################
 
 alias termieter='cd ~/.termieter'
-alias termietere='mate ~/.termieter/.bashrc ~/.termieter/.profile'
-alias termieterc='source ~/.termieter/.profile ~/.termieter/.bashrc'
+alias termietere='mate ~/.termieter/bashrc ~/.termieter/profile'
+alias termieterc='source ~/.termieter/profile ~/.termieter/bashrc'
 
 # ALIASES PATH
 ################################################################################################################
