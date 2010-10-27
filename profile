@@ -49,7 +49,9 @@ alias gst='git status'
 alias gcam='git commit -a -m "$@"'
 alias gpom='git push origin master'
 
-alias gdocs='open "http://people.gnome.org/~federico/misc/git-cheat-sheet.txt" | open "http://about.digg.com/blog/10-useful-git-commands"'
+alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
+
+alias gdocs='open "http://people.gnome.org/~federico/misc/git-cheat-sheet.txt" | open "http://about.digg.com/blog/10-useful-git-commands" | open "http://andyjeffries.co.uk/articles/25-tips-for-intermediate-git-users"'
 
 # PATH
 ################################################################################################################
