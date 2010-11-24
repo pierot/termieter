@@ -18,10 +18,10 @@ alias projects='cd ~/Documents/Projects/'
 # ALIASES SERVERS
 ################################################################################################################
 
-alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.6.0-x86_64/mongod.conf --rest'
+alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.6.3-x86_64/mongod.conf --rest'
 
-alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist'
-alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.1.49/com.mysql.mysqld.plist'
+alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.1.51/com.mysql.mysqld.plist'
+alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.1.51/com.mysql.mysqld.plist'
 alias mysql-restart='mysql-stop | mysql-start'
 
 alias apache-start='sudo apachectl start'
@@ -76,9 +76,8 @@ export RACK_ENV='development'
 # WORKING ENVIRONMENT	
 ################################################################################################################
 
-function init-env () {
-  COMMANDS=( "start-mongo" "-dev;clear" "-clientrepos;clear" )
-	#COMMANDS=( "start-apache;start-mysql;_dev;clear" "_clientrepos;clear" )
+function dev-cardigle () {
+  COMMANDS=( "cls;mongo-start" "cls;z 2010-cardigle;cls;rails s" "cls;z 2010-cardigle;mate .;cls" )
 	LENGTH=${#COMMANDS[@]}
 	COUNT=0
 	
