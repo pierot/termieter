@@ -48,7 +48,10 @@ svn-add-all() {
 alias gst='git status'
 alias gcam='git commit -a -m "$@"'
 alias gca='git commit -a'
+
 alias gpom='git push origin master'
+alias gpod='git push origin develop'
+alias gpos='git push origin staging'
 
 alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 
@@ -77,7 +80,7 @@ export RACK_ENV='development'
 ################################################################################################################
 
 function dev-cardigle () {
-  COMMANDS=( "cls;mongo-start" "cls;z 2010-cardigle;cls;rails s" "cls;z 2010-cardigle;mate .;cls" )
+  COMMANDS=( "cls;mongo-start" "cls;z 2010-cardigle;cls;rails s" "cls;z 2010-cardigle;mate .;cls" "cls;z 2010-cards-cardigle;mate .;cls" )
 	LENGTH=${#COMMANDS[@]}
 	COUNT=0
 	
