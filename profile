@@ -57,6 +57,11 @@ alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset
 
 alias gdocs='open "http://people.gnome.org/~federico/misc/git-cheat-sheet.txt" | open "http://about.digg.com/blog/10-useful-git-commands" | open "http://andyjeffries.co.uk/articles/25-tips-for-intermediate-git-users"'
 
+# GIT COMPLETION
+################################################################################################################
+
+[[ -s $HOME/.termieter/scripts/git-completion.sh ]] && source $HOME/.termieter/scripts/git-completion.sh
+
 # PATH
 ################################################################################################################
 
@@ -106,6 +111,7 @@ function dev-cardigle () {
 		done
 }
 
-# SPECIALS
+# Z
 ################################################################################################################
-. ~/.termieter/scripts/z.sh
+
+[[ -s $HOME/.termieter/scripts/z.sh ]] && source $HOME/.termieter/scripts/z.sh

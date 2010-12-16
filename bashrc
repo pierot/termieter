@@ -4,7 +4,8 @@
 ######################################################################################################
 
 export HISTCONTROL=erasedups # Erase duplicates
-export HISTSIZE=5000 # resize history size
+export HISTCONTROL=ignoreboth # Ignore same sucessive entries.
+export HISTSIZE=6000 # resize history size
 
 shopt -s histappend # append to bash_history if Terminal.app quits
 
@@ -35,7 +36,10 @@ alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
 alias hosts='mate /private/etc/hosts'
 
+alias fasterfaster='sudo rm -f /private/var/log/asl/*'
+
 alias hist='history | grep "$@"'
+alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
 # COLORS + PROMPT
 ######################################################################################################
@@ -57,6 +61,7 @@ LIGHT_GREEN="\[\033[1;32m\]"
 GREEN="\[\033[0;32m\]"
 
 PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 34 ]; then CurDir=${DIR:0:14}...${DIR:${#DIR}-17}; else CurDir=$DIR; fi'
+
 PS1="[$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE]\\$  "
 
 # SPECIAL FUNCTIONS
