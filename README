@@ -1,2 +1,9 @@
-Puts this in your user folder.
-Make a symlink from ~/.bash_profile to ~/.termieter/bash_profile
+Terminal (Mac OSX) config files
+
+Installation:
+
+	git clone git://github.com/pierot/termieter.git ~/.termieter
+
+Create symlinks:
+
+	ln -s ~/.termieter/bash_profile ~/.bash_profile

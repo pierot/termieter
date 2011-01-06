@@ -85,7 +85,7 @@ export RACK_ENV='development'
 ################################################################################################################
 
 function dev-cardigle () {
-  COMMANDS=( "cls;mongo-start" "cls;z 2010-cardigle;cls;rails s" "cls;z 2010-cardigle;mate .;cls" "cls;z 2010-cards-cardigle;mate .;cls" )
+  COMMANDS=( "clear;mongo-start" "clear;z 2010-cardigle;clear;rails s" "clear;z 2010-cardigle;mate .;clear" "clear;z 2010-cards-cardigle;mate .;clear" )
 	LENGTH=${#COMMANDS[@]}
 	COUNT=0
 	

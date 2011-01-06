@@ -17,8 +17,6 @@ export EDITOR='mate -w'
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
 
-alias cls='clear'
-
 alias ls='ls -Gl' # long list, excludes dot files
 alias ll='ls -Gla' # long list all, includes dot files
 
