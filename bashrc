@@ -17,8 +17,8 @@ export EDITOR='mate -w'
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
 
-alias ls='ls -Gl' # long list, excludes dot files
-alias ll='ls -Gla' # long list all, includes dot files
+alias ls='ls $LS_OPTIONS -Gl' # long list, excludes dot files
+alias ll='ls $LS_OPTIONS -Gla' # long list all, includes dot files
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
