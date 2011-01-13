@@ -18,7 +18,11 @@ shopt -s histappend # append to bash_history if Terminal.app quits
 # ALIASES
 ######################################################################################################
 
-export EDITOR='mate -w'
+if [[ `uname` == 'Darwin' ]]; then
+  export EDITOR='mate -w'
+elif [[ `uname` == 'Linux' ]]; then
+  export EDITOR='vim'
+fi
 
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
