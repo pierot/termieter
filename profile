@@ -20,8 +20,8 @@ alias projects='cd ~/Documents/Projects/'
 
 alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.6.3-x86_64/mongod.conf --rest'
 
-alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.1.51/com.mysql.mysqld.plist'
-alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.1.51/com.mysql.mysqld.plist'
+alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.1.54/com.mysql.mysqld.plist'
+alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.1.54/com.mysql.mysqld.plist'
 alias mysql-restart='mysql-stop | mysql-start'
 
 alias apache-start='sudo apachectl start'
@@ -85,7 +85,7 @@ export RACK_ENV='development'
 ################################################################################################################
 
 function dev-cardigle () {
-  COMMANDS=( "clear;mongo-start" "clear;z 2010-cardigle;clear;rails s" "clear;z 2010-cardigle;mate .;clear" "clear;z 2010-cards-cardigle;mate .;clear" )
+  COMMANDS=( "clear;z 2010-cardigle;clear;rails s" "clear;z 2010-cardigle;mate .;clear" "clear;z jules;clear" )
 	LENGTH=${#COMMANDS[@]}
 	COUNT=0
 	
