@@ -85,7 +85,7 @@ export RACK_ENV='development'
 ################################################################################################################
 
 function dev-cardigle () {
-  COMMANDS=( "clear;z 2010-cardigle;clear;rails s" "clear;z 2010-cardigle;mate .;clear" "clear;z jules;clear" )
+  COMMANDS=( "clear;z frritt;clear;rails s" "clear;z frritt;mate .;clear" "clear;z jules;clear" )
 	LENGTH=${#COMMANDS[@]}
 	COUNT=0
 	
