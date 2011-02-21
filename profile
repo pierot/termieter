@@ -33,6 +33,13 @@ alias apache-config='mate /private/etc/apache2/httpd.conf'
 
 alias python-start='~/.termieter/scripts/python-serve-from-here.py b 8001'
 
+# ALIASES RAILS
+################################################################################################################
+alias rs='rails s'
+alias rst='rails s thin'
+alias rkr='rake routes'
+alias rkdb='rake db:migrate'
+
 # ALIASES SVN
 ################################################################################################################
 
