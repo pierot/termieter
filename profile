@@ -4,7 +4,7 @@
 ################################################################################################################
 
 alias termieter='cd ~/.termieter'
-alias termietere='mate ~/.termieter/bashrc ~/.termieter/profile'
+alias termietere='mate ~/.termieter'
 alias termieterc='source ~/.termieter/profile ~/.termieter/bashrc'
 
 # ALIASES PATH
@@ -33,13 +33,6 @@ alias apache-config='mate /private/etc/apache2/httpd.conf'
 
 alias python-start='~/.termieter/scripts/python-serve-from-here.py b 8001'
 
-# ALIASES RAILS
-################################################################################################################
-alias rs='rails s'
-alias rst='rails s thin'
-alias rkr='rake routes'
-alias rkdb='rake db:migrate'
-
 # ALIASES SVN
 ################################################################################################################
 
@@ -64,16 +57,13 @@ alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset
 
 alias gdocs='open "http://people.gnome.org/~federico/misc/git-cheat-sheet.txt" | open "http://about.digg.com/blog/10-useful-git-commands" | open "http://andyjeffries.co.uk/articles/25-tips-for-intermediate-git-users"'
 
-# GIT COMPLETION
-################################################################################################################
-
-[[ -s $HOME/.termieter/scripts/git-completion.sh ]] && source $HOME/.termieter/scripts/git-completion.sh
-
 # PATH
 ################################################################################################################
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
+
+export PATH="$HOME/.termieter/scripts:$PATH" # Custom scripts 
 export PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}" # Setting PATH for MacPython 2.6
 
 export PATH
@@ -87,6 +77,7 @@ export PATH
 ################################################################################################################
 
 export RACK_ENV='development'
+export RAILS_ENV='development'
 
 # WORKING ENVIRONMENT	
 ################################################################################################################
@@ -99,7 +90,6 @@ function dev-cardigle () {
 	for command in "${COMMANDS[@]}"
 		do
 			COUNT=$((COUNT+1))
-
 			osascript <<-EOF
 		 		tell application "Terminal"
 					activate
@@ -114,11 +104,15 @@ function dev-cardigle () {
 					end if
 				end tell
 			EOF
-			
 		done
 }
 
-# Z
+################################################################################################################
+# SCRIPTS
 ################################################################################################################
 
+# Z
 [[ -s $HOME/.termieter/scripts/z.sh ]] && source $HOME/.termieter/scripts/z.sh
+
+# GIT COMPLETION
+[[ -s $HOME/.termieter/scripts/git-completion.sh ]] && source $HOME/.termieter/scripts/git-completion.sh

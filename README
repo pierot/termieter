@@ -7,3 +7,4 @@ Installation:
 Create symlinks:
 
 	ln -s ~/.termieter/bash_profile ~/.bash_profile
+	ln -s ~/.termieter/gitconfig .gitconfig

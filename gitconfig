@@ -1,0 +1,7 @@
+[user]
+	name = Pieter Michels
+	email = pieter@noort.be
+[color]
+	ui = auto
+[merge]
+	stat = true
