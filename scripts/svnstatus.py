@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 import os
 import os.path
 import hashlib
@@ -43,14 +42,12 @@ def recurse_path(path, **kwargs):
 	
 	for name in names:
 			pathname = os.path.join(path, name)
-			
 			try:
 					if os.path.isdir(pathname):
 						if not _has_file(pathname):
 							returnvals.extend(recurse_path(pathname, **kwargs))
 						else:
-							print "> Found repo, checking status (", pathname, ")"
-							
+							# print "Found repo, checking status (", pathname, ")"
 							_get_svn_status(pathname)
 			except (IOError, os.error), why:
 				errors.append((pathname, why))
@@ -68,20 +65,16 @@ def _has_file(path):
 
 def _get_svn_status(path):
 	abs_path = os.path.abspath(path)
-	# abs_path = abs_path.replace(' ', '\ ')
-	command = "svn st '" + abs_path + "'"
+	abs_path = abs_path.replace(' ', '\ ')
+	command = "svn st " + abs_path
 	proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
 	
 	proc.wait()
 	
 	if proc.returncode == 0:
 		data = proc.stdout.readline() #block / wait
-		
-		if not data:
-			print bcolors.OKGREEN + "Repository is up to date" + bcolors.ENDC
-		else:
-			print bcolors.OKBLUE + "" + data + bcolors.ENDC
-			
+		if len(data):
+			print bcolors.OKBLUE + "\tUPDATE REPO: " + abs_path + bcolors.ENDC
 		time.sleep(.1)
 	else:
 		print "svn status failed for ", path
