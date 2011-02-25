@@ -26,14 +26,15 @@ class bcolors:
 
 def main(argv):
 	try:
-		bla = os.listdir(argv)
+		print "Scanning folder for repositories..."
+		if(len(argv) > 1):
+			tmp = os.listdir(argv[1])
+			recurse_path(argv)
+		else:
+			recurse_path('.')
 	except (IOError, os.error):
 		print "ERROR, probably invalid parameter (invalid directory)"
 		return;
-
-	print "Scanning folder for repositories..."
-	
-	recurse_path(argv)
 
 def recurse_path(path, **kwargs):
 	names = os.listdir(path)
@@ -74,9 +75,9 @@ def _get_svn_status(path):
 	if proc.returncode == 0:
 		data = proc.stdout.readline() #block / wait
 		if len(data):
-			print bcolors.OKBLUE + "\tUPDATE REPO: " + abs_path + bcolors.ENDC
+			print bcolors.OKBLUE + "\tCOMMIT REPO: " + abs_path + bcolors.ENDC
 		time.sleep(.1)
 	else:
 		print "svn status failed for ", path
 
-main(sys.argv[1])
+main(sys.argv)
