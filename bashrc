@@ -19,7 +19,7 @@ shopt -s histappend # append to bash_history if Terminal.app quits
 ######################################################################################################
 
 if [[ `uname` == 'Darwin' ]]; then
-  export EDITOR='mate -w'
+  export EDITOR='mvim'
 elif [[ `uname` == 'Linux' ]]; then
   export EDITOR='vim'
 fi
@@ -68,7 +68,7 @@ RED="\[\033[0;31m\]"
 LIGHT_GREEN="\[\033[1;32m\]"
 GREEN="\[\033[0;32m\]"
 
-PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 34 ]; then CurDir=${DIR:0:14}...${DIR:${#DIR}-17}; else CurDir=$DIR; fi'
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-12}; else CurDir=$DIR; fi'
 
 PS1="[$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE]\\$  "
 

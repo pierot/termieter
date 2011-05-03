@@ -4,32 +4,32 @@
 ################################################################################################################
 
 alias termieter='cd ~/.termieter'
-alias termietere='mate ~/.termieter'
+alias termietere='vim ~/.termieter'
 alias termieterc='source ~/.termieter/profile ~/.termieter/bashrc'
 
 # ALIASES PATH
 ################################################################################################################
 
 alias repos='cd ~/Dropbox/Private/work/repos/'
-alias dev='cd ~/Dropbox/Private/work/development/'
+alias dev='cd ~/Dropbox/Private/work/dev/'
 alias clients='cd ~/Dropbox/Private/work/clients/'
 alias projects='cd ~/Documents/Projects/'
 
 # ALIASES SERVERS
 ################################################################################################################
 
-alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf --rest'
+alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.8.1-x86_64/mongod.conf --rest'
 
-alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.1.54/com.mysql.mysqld.plist'
-alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.1.54/com.mysql.mysqld.plist'
+alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.5.10/com.mysql.mysqld.plist'
+alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.5.10/com.mysql.mysqld.plist'
 alias mysql-restart='mysql-stop | mysql-start'
 
 alias apache-start='sudo apachectl start'
 alias apache-restart='sudo apachectl restart'
 alias apache-stop='sudo apachectl stop'
 
-alias apache-vhosts='mate /private/etc/apache2/extra/httpd-vhosts.conf'
-alias apache-config='mate /private/etc/apache2/httpd.conf'
+alias apache-vhosts='vim /private/etc/apache2/extra/httpd-vhosts.conf'
+alias apache-config='vim /private/etc/apache2/httpd.conf'
 
 # ALIASES SVN
 ################################################################################################################
@@ -72,11 +72,16 @@ export PATH
 export RACK_ENV='development'
 export RAILS_ENV='development'
 
+# VARS
+################################################################################################################
+
+export VIM_APP_DIR='/Volumes/data/Users/pieterm/Applications/MacVim-7_3-53/'
+
 # WORKING ENVIRONMENT	
 ################################################################################################################
 
 function dev-cardigle () {
-  COMMANDS=( "clear;z frritt;clear;rails s" "clear;z frritt;mate .;clear" "clear;z jules;clear" )
+  COMMANDS=( "clear;z frritt;clear;rails s thin" "clear;z frritt;mvim .;clear" "clear;z jules;clear" )
 	LENGTH=${#COMMANDS[@]}
 	COUNT=0
 	
