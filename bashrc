@@ -42,7 +42,7 @@ alias hidden-hide='defaults write com.apple.finder AppleShowAllFiles -bool false
 
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
-alias hosts='mate /private/etc/hosts'
+alias hosts='sudo vim /private/etc/hosts'
 
 alias fasterfaster='sudo rm -rf /private/var/log/asl/*'
 
