@@ -7,6 +7,8 @@ alias termieter='cd ~/.termieter'
 alias termietere='vim ~/.termieter'
 alias termieterc='source ~/.termieter/profile ~/.termieter/bashrc'
 
+alias r='rails'
+
 # ALIASES PATH
 ################################################################################################################
 
@@ -20,9 +22,13 @@ alias projects='cd ~/Documents/Projects/'
 
 alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.8.1-x86_64/mongod.conf --rest'
 
-alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.5.10/com.mysql.mysqld.plist'
-alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.5.10/com.mysql.mysqld.plist'
+alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.5.12/com.mysql.mysqld.plist'
+alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.5.12/com.mysql.mysqld.plist'
 alias mysql-restart='mysql-stop | mysql-start'
+
+alias postgresql-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias postgresql-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias posgresql-restart='postgresql-stop | postgresql-start'
 
 alias apache-start='sudo apachectl start'
 alias apache-restart='sudo apachectl restart'
@@ -55,9 +61,10 @@ alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
+export PATH="/usr/local/share/python:$PATH"
 
 export PATH="$HOME/.termieter/scripts:$PATH" # Custom scripts 
-export PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}" # Setting PATH for MacPython 2.6
+# export PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}" # Setting PATH for MacPython 2.6
 
 export PATH
 
@@ -71,6 +78,7 @@ export PATH
 
 export RACK_ENV='development'
 export RAILS_ENV='development'
+export PORT='3000'
 
 # VARS
 ################################################################################################################
