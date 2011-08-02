@@ -13,7 +13,7 @@ alias r='rails'
 ################################################################################################################
 
 alias repos='cd ~/Dropbox/Private/work/repos/'
-alias dev='cd ~/Dropbox/Private/work/dev/'
+alias dev='cd ~/Documents/Devel/'
 alias clients='cd ~/Dropbox/Private/work/clients/'
 alias projects='cd ~/Documents/Projects/'
 

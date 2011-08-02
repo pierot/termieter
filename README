@@ -7,4 +7,6 @@ Installation:
 Create symlinks:
 
 	ln -s ~/.termieter/bash_profile ~/.bash_profile
-	ln -s ~/.termieter/gitconfig .gitconfig
+	ln -s ~/.termieter/gitconfig ~/.gitconfig
+	ln -s ~/.termieter/screenrc ~/.screenrc
+	ln -s ~/.termieter/irbrc ~/.irbrc
