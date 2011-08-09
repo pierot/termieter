@@ -49,6 +49,15 @@ alias fasterfaster='sudo rm -rf /private/var/log/asl/*'
 alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
+# RVM
+################################################################################################################
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion # for RVM completion
+
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then source `brew --prefix`/etc/bash_completion.d/git-completion.bash; fi
+
 # COLORS + PROMPT
 ######################################################################################################
 
@@ -60,6 +69,10 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
+function parse_rvm_version {
+  ~/.rvm/bin/rvm-prompt | sed
+}
+
 WHITE="\[\033[1;37m\]"
 LIGHT_BLUE="\[\033[1;36m\]"
 BLUE="\[\033[1;34m\]"
@@ -68,11 +81,6 @@ RED="\[\033[0;31m\]"
 LIGHT_GREEN="\[\033[1;32m\]"
 GREEN="\[\033[0;32m\]"
 
-PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-12}; else CurDir=$DIR; fi'
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-12}; else CurDir=$DIR; fi;' 
 
-PS1="[$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE]\\$  "
-
-# SPECIAL FUNCTIONS
-######################################################################################################
-
-
+PS1="$LIGHT_GREEN($(parse_rvm_version))$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE\\$  "
