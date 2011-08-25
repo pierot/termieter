@@ -70,7 +70,8 @@ function parse_git_branch {
 }
 
 function parse_rvm_version {
-  ~/.rvm/bin/rvm-prompt | sed
+  rvm-prompt 2> /dev/null | sed
+  # ruby -v | sed 's/\([^(]*\).*/\1/'
 }
 
 WHITE="\[\033[1;37m\]"
@@ -84,3 +85,4 @@ GREEN="\[\033[0;32m\]"
 PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-12}; else CurDir=$DIR; fi;' 
 
 PS1="$LIGHT_GREEN($(parse_rvm_version))$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE\\$  "
+
