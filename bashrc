@@ -70,7 +70,7 @@ function parse_git_branch {
 }
 
 function parse_rvm_version {
-  rvm-prompt 2> /dev/null | sed
+  rvm-prompt 2> /dev/null | echo `sed`
   # ruby -v | sed 's/\([^(]*\).*/\1/'
 }
 
