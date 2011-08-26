@@ -18,11 +18,11 @@ shopt -s histappend # append to bash_history if Terminal.app quits
 # ALIASES
 ######################################################################################################
 
-if [[ `uname` == 'Darwin' ]]; then
-  export EDITOR='mvim'
-elif [[ `uname` == 'Linux' ]]; then
+# if [[ `uname` == 'Darwin' ]]; then
+  # export EDITOR='mvim'
+# elif [[ `uname` == 'Linux' ]]; then
   export EDITOR='vim'
-fi
+# fi
 
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
@@ -53,7 +53,6 @@ alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 ################################################################################################################
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion # for RVM completion
 
 if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then source `brew --prefix`/etc/bash_completion.d/git-completion.bash; fi
@@ -71,7 +70,6 @@ function parse_git_branch {
 
 function parse_rvm_version {
   rvm-prompt 2> /dev/null | echo `sed`
-  # ruby -v | sed 's/\([^(]*\).*/\1/'
 }
 
 WHITE="\[\033[1;37m\]"
@@ -84,5 +82,4 @@ GREEN="\[\033[0;32m\]"
 
 PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-12}; else CurDir=$DIR; fi;' 
 
-PS1="$LIGHT_GREEN($(parse_rvm_version))$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE\\$  "
-
+PS1="\033]0;\${DIR:${#DIR}-12}\007$LIGHT_GREEN($(parse_rvm_version))$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE\\$  "
