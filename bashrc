@@ -44,7 +44,7 @@ alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
 alias hosts='sudo vim /private/etc/hosts'
 
-alias fasterfaster='sudo rm -rf /private/var/log/asl/*'
+alias fasterfaster='sudo rm -rf /private/var/log/asl/*; sudo rm -rf /var/mail/*'
 
 alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
