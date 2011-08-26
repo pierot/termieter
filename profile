@@ -114,6 +114,3 @@ function dev-cardigle () {
 
 # Z
 [[ -s $HOME/.termieter/scripts/z.sh ]] && source $HOME/.termieter/scripts/z.sh
-
-# GIT COMPLETION
-[[ -s $HOME/.termieter/scripts/git-completion.sh ]] && source $HOME/.termieter/scripts/git-completion.sh

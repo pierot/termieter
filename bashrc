@@ -49,6 +49,13 @@ alias fasterfaster='sudo rm -rf /private/var/log/asl/*'
 alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
+alias screen='export SCREENPWD=$(pwd); /usr/bin/screen'
+case "$TERM" in 
+    'screen')
+         cd $SCREENPWD
+         ;; 
+esac
+
 # RVM
 ################################################################################################################
 
