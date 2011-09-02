@@ -1,4 +1,5 @@
 cd ~
+rm -rf .termieter
 git clone git://github.com/pierot/termieter.git ~/.termieter
 
 echo "Linking"
