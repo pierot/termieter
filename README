@@ -1,12 +1,5 @@
 Terminal (Mac OSX) config files
 
-Installation:
+Run following command in Terminal:
 
-	git clone git://github.com/pierot/termieter.git ~/.termieter
-
-Create symlinks:
-
-	ln -s ~/.termieter/bash_profile ~/.bash_profile
-	ln -s ~/.termieter/gitconfig ~/.gitconfig
-	ln -s ~/.termieter/screenrc ~/.screenrc
-	ln -s ~/.termieter/irbrc ~/.irbrc
+curl -L https://raw.github.com/pierot/termieter/master/install.sh -o - | sh
