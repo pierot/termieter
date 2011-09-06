@@ -1,7 +1,23 @@
 [user]
 	name = Pieter Michels
 	email = pieter@noort.be
+[apply]
+  whitespace = fix
 [color]
-	ui = auto
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 [merge]
+  log = true
 	stat = true
