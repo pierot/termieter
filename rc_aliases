@@ -37,7 +37,7 @@ esac
 
 alias termieter='cd ~/.termieter'
 alias termietere='vim ~/.termieter'
-alias termieterc='source ~/.termieter/profile ~/.termieter/bashrc'
+alias termieterc='source ~/.bash_profile'
 
 alias r='rails'
 
@@ -52,7 +52,10 @@ alias projects='cd ~/Documents/Projects/'
 # services
 ################################################################################################################
 
-alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.8.1-x86_64/mongod.conf --rest'
+alias backup='~/.backups/backup.sh'
+
+alias mongo-backup='mongodump --host=127.0.0.1:27017 --out=~/.backups/backups/mongodb/dag-`date +%u`'
+alias mongo-start='mongod run --config /usr/local/Cellar/mongodb/1.8.3-x86_64/mongod.conf --rest'
 
 alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.5.12/com.mysql.mysqld.plist'
 alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.5.12/com.mysql.mysqld.plist'
