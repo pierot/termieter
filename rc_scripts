@@ -1,6 +1,10 @@
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+if groups | grep -q rvm; then
+  source '/usr/local/lib/rvm'
+fi
+
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion # for RVM completion
 
 # Git completion
