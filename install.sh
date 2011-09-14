@@ -31,13 +31,7 @@ _print "Backup all previous files"
   mkdir -p ~/.bash_backup
 
   _back_file() {
-  	_print "~/$1"
-
-    if [ -f "~/$1" ]; then
-    	_print "Moving ~/$1 to ~/.bash_back"
-
-    	mv "~/$1" "~/.bash_backup/$1"
-    fi
+    [ -e "~/$1" ] && mv "~/$1" "~/.bash_backup/$1" 
   }
 
   _back_file ".bash_profile"
