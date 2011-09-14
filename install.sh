@@ -4,7 +4,7 @@ _print() {
   COL_BLUE="\x1b[34;01m"
   COL_RESET="\x1b[39;49;00m"
 
-  echo -e $COL_BLUE"\n$1\n"$COL_RESET
+  echo $COL_BLUE"\n$1\n"$COL_RESET
 } 
 
 _print "Installing termieter files ***********************"
