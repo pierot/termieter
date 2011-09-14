@@ -32,6 +32,8 @@ _print "Backup all previous files"
 
   _back_file() {
     if [ -f "~/$1" ]; then
+    	_print "Moving $1 to ~/.bash_back"
+
     	mv "~/$1" "~/.bash_backup/$1"
     fi
   }
