@@ -4,8 +4,8 @@ _print() {
   COL_BLUE="\x1b[34;01m"
   COL_RESET="\x1b[39;49;00m"
 
-  BLUE="\[\033[1;34m\]"
-  WHITE="\[\033[1;37m\]"
+  BLUE="\033[1;34m"
+  WHITE="\033[1;37m"
 
   echo $BLUE"\n$1\n"$WHITE
 } 
