@@ -6,7 +6,7 @@ function parse_git_dirty {
 }
 
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)] /"
 }
 
 function parse_rvm_version {
@@ -23,4 +23,6 @@ GREEN="\[\033[0;32m\]"
 
 PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-12}; else CurDir=$DIR; fi;' 
 
-PS1="\033]0;\${DIR:${#DIR}-12}\007$LIGHT_GREEN($(parse_rvm_version))$LIGHT_RED\u:\$CurDir:$LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE\\$  "
+# PS1="\033]0;\${DIR:${#DIR}-12}\007$LIGHT_GREEN($(parse_rvm_version))$LIGHT_RED\u:\$CurDir $LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE ∴ "
+#
+PS1="\033]0;\${DIR:${#DIR}-12}\007$LIGHT_GREEN`if [ "$(rvm-prompt i v)" != "" ]; then echo "$(rvm-prompt i v)"; fi`$WHITE ∴ $LIGHT_RED\u$WHITE ∴ $RED\$CurDir $LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE""∴ "
