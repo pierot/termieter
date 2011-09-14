@@ -59,4 +59,4 @@ _print "Symlinking all files"
 
     ln -sf ~/.termieter/irbrc ~/.irbrc
 
-_print "Installation finished **************************\n"
+_print "Installation finished **************************"
