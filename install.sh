@@ -35,6 +35,7 @@ _print "Backup all previous files"
   }
 
   _back_file ".bash_profile"
+  _back_file ".profile"
   _back_file ".bashrc"
   _back_file ".gitconfig"
   _back_file ".screenrc"
