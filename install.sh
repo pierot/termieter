@@ -7,7 +7,7 @@ _print() {
   BLUE="\033[1;34m"
   WHITE="\033[1;37m"
 
-  echo $BLUE"$1\n"$WHITE
+  echo $BLUE"$1"$WHITE
 } 
 
 _print "Installing termieter files ***********************"
