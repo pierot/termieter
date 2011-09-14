@@ -1,5 +1,6 @@
 Terminal (Mac OSX) config files
+===============================
 
 Run following command in Terminal:
 
-curl -L https://raw.github.com/pierot/termieter/master/install.sh -o - | sh
+`curl -Ls https://raw.github.com/pierot/termieter/master/install.sh -o - | sh`
