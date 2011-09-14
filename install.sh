@@ -4,10 +4,7 @@ _print() {
   COL_BLUE="\x1b[34;01m"
   COL_RESET="\x1b[39;49;00m"
 
-  BLUE="\[\033[1;34m\]"
-  WHITE="\[\033[1;37m\]"
-
-  echo -e $BLUE"\n$1\n"$WHITE
+  echo -e $COL_BLUE"\n$1\n"$COL_RESET
 } 
 
 _print "Installing termieter files ***********************"
@@ -30,10 +27,16 @@ _print "Backup all previous files"
   
   mkdir -p ~/.bash_backup
 
-  mv ~/.bash_profile ~/.bash_backup/bash_profile
-  mv ~/.bashrc ~/.bash_backup/bashrc
-  mv ~/.gitconfig ~/.bash_backup/gitconfig
-  mv ~/.screenrc ~/.bash_backup/screenrc
+  _back_file() {
+    if [ -f "~/$1" ]; then
+    	mv "~/$1" "~/.bash_backup/$1"
+    fi
+  }
+
+  _back_file ".bash_profile"
+  _back_file ".bashrc"
+  _back_file ".gitconfig"
+  _back_file ".screenrc"
 
 _print "Symlinking all files"
 
