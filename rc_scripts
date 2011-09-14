@@ -3,7 +3,12 @@
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion # for RVM completion
 
 # Git completion
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then source `brew --prefix`/etc/bash_completion.d/git-completion.bash; fi
+if command -v brew &>/dev/null
+then
+  if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then 
+    source `brew --prefix`/etc/bash_completion.d/git-completion.bash
+  fi
+fi
 
 # Z
 [[ -s $HOME/.termieter/scripts/z.sh ]] && source $HOME/.termieter/scripts/z.sh

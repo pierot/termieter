@@ -18,16 +18,17 @@ export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/share/python:$PATH"
 
 export PATH="$HOME/.termieter/scripts:$PATH" # Custom scripts 
-# export PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}" # Setting PATH for MacPython 2.6
 
 export PATH
 
 # RACK ENV
 ################################################################################################################
 
-export RACK_ENV='development'
-export RAILS_ENV='development'
-export PORT='3000'
+if [[ `uname` == 'Darwin' ]]; then
+  export RACK_ENV='development'
+  export RAILS_ENV='development'
+  export PORT='3000'
+fi
 
 # VARS
 ################################################################################################################
