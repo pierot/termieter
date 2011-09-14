@@ -28,17 +28,12 @@ alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 # screen
 ################################################################################################################
 
-alias screen='export SCREENPWD=$(pwd); /usr/bin/screen'
-alias s='screen'
-alias sp='screen'
+alias screen='export SCREENPWD=$(pwd); /usr/bin/screen -U'
 
 case "$TERM" in 
     'screen')
          cd $SCREENPWD
          ;; 
-    # 'sp')
-    #     vim .
-    #     ;;
 esac
 
 # Termieter

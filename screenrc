@@ -33,37 +33,11 @@ startup_message off 		# Turn off the splash screen
 
 defscrollback 30000 		# Use a 30000-line scrollback buffer ... the default is small
 
-termcapinfo xterm ti@:te@	# From http://www4.informatik.uni-erlangen.de/~jnweiger/screen-faq.html
-				# # Q: My xterm scrollbar does not work with screen.
-				# # A: The problem is that xterm will not allow scrolling if the alternate 
-				#      text buffer is selected. The standard definitions of the termcap 
-				#      initialize capabilities ti and te switch to and from the alternate 
-				#      text buffer. (The scrollbar also does not work when you start e.g. ‘vi’). 
-				#      You can tell screen not to use these initialisations by adding the line 
-				#      “termcapinfo xterm ti@:te@” to your ~/.screenrc file. 
+termcapinfo xterm-color|xterm|xterms|xs|rxvt ti@:te@ # For normal scrolling
 
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended." 	# A more useful message when detached, so you know how to get back!
 
 shell -$SHELL			# I dunno if this is actually required, but many/most .screenrc files include this
 
 # Caption Variable Reference
-#
-#
 caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
-
-# 
-# ---- [ Disabled Configuration Options ] ----
-#
-
-# vbell off # turn off visual bell ... keeping this on for now incase it's useful for pairing
-
-# caption always “%{kB}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kB}%?%+Lw%?”
-# hardstatus alwayslastline “%{BW}%16=%l %{BW}%50=%d/%m/%Y %{BW}%80=%c%=”
-#
-# vbell off
-# autodetach on
-# defscrollback 10000
-# startup_message off
-# pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
-# caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk} %H %{= rW} %l %{= Gk} %0c:%s %d/%m %{-}"
-# shell -$SHELL
