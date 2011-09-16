@@ -20,7 +20,14 @@ _print "Removing current termieter installation"
 
 _print "Check if 'git' exists"
 
-  hash git 2>&- || { _print "I require git but it's not installed. Aborting."; exit 1; }
+  hash git 2>&- || { 
+    if [[ `uname` == 'Darwin' ]]; then
+      _print "I require git but it's not installed. Aborting."; exit 1; 
+    elif [[ `uname` == 'Linux' ]]; then
+      sudo apt-get -qq -y git 
+    fi
+
+  }
 
 _print "Cloning into repo"
 
