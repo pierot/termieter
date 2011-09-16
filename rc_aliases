@@ -25,6 +25,8 @@ alias fasterfaster='sudo rm -rf /private/var/log/asl/*; sudo rm -rf /var/mail/*'
 alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
+function open-sesame() { cat ~/.ssh/id_rsa.pub | ssh $@ "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"; }
+
 # screen
 ################################################################################################################
 
