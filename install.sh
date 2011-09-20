@@ -17,6 +17,7 @@ _print "Check if 'git' exists"
   hash git 2>&- || { _error "I require git but it's not installed!"; $GIT_INSTALLED=0; }
 
   if $GIT_INSTALLED == 0
+  then
     while true
     do
       read -p "Do you want me to install git? (sudo needed) [Y/N] " RESP
