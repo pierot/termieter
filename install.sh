@@ -41,8 +41,7 @@ _print "Cloning into repo"
 
   git clone git://github.com/pierot/termieter.git ~/.termieter
 
-  if [ ! -d "~/.termieter" ]
-  then
+  if [ ! -d "./.termieter" ]; then
     _error "Termieter doesn't seem to be installed correctly. Aborting"
 
     exit 1
