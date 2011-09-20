@@ -25,6 +25,8 @@ _print "Check if 'git' exists"
         in
         [yY])
           _system_installs_install 'git'
+
+          GIT_INSTALLED=true
           break
           ;;
         [nN])
@@ -38,7 +40,9 @@ _print "Check if 'git' exists"
 
 _print "Cloning into repo"
 
-  git clone git://github.com/pierot/termieter.git ~/.termieter
+  if $GIT_INSTALLED; then
+    git clone git://github.com/pierot/termieter.git ~/.termieter
+  fi
 
   if [ ! -d "./.termieter" ]; then
     _error "Termieter doesn't seem to be installed correctly. Aborting"
