@@ -1,14 +1,6 @@
 #!/usr/bin/env bash
 
-_print() {
-  COL_BLUE="\x1b[34;01m"
-  COL_RESET="\x1b[39;49;00m"
-
-  BLUE="\033[1;34m"
-  WHITE="\033[1;37m"
-
-  echo $BLUE"$1"$WHITE
-} 
+wget -N --quiet https://raw.github.com/pierot/server-installer/master/lib.sh; . ./lib.sh
 
 _print "Installing termieter files ***********************"
 
@@ -20,42 +12,71 @@ _print "Removing current termieter installation"
 
 _print "Check if 'git' exists"
 
-  hash git 2>&- || { _print "I require git but it's not installed. Aborting."; exit 1; }
+  GIT_INSTALLED=1
+
+  hash git 2>&- || { _error "I require git but it's not installed!"; $GIT_INSTALLED=0; }
+
+  if $GIT_INSTALLED == 0
+    while true
+    do
+      read -p "Do you want me to install git? (sudo needed) [Y/N] " RESP
+
+      case $RESP
+        in
+        [yY])
+          _system_installs_install 'git'
+          break
+          ;;
+        [nN])
+          break
+          ;;
+        *)
+          echo "Please enter Y or N"
+      esac
+    done
+  fi
 
 _print "Cloning into repo"
 
   git clone git://github.com/pierot/termieter.git ~/.termieter
 
-_print "Backup all previous files"
-  
-  mkdir -p ~/.bash_backup
+  if [ ! -d "~/.termieter" ]
+  then
+    _error "Termieter doesn't seem to be installed correctly. Aborting"
 
-  _back_file() {
-    [ -e "$1" ] && mv "$1" ".bash_backup/$1" 
-  }
+    exit 1
+  else
+    _print "Backup all previous files"
+      
+      mkdir -p ~/.bash_backup
 
-  _back_file ".bash_profile"
-  _back_file ".profile"
-  _back_file ".bashrc"
-  _back_file ".gitconfig"
-  _back_file ".screenrc"
+      _back_file() {
+        [ -e "$1" ] && mv "$1" ".bash_backup/$1" 
+      }
 
-_print "Symlinking all files"
+      _back_file ".bash_profile"
+      _back_file ".profile"
+      _back_file ".bashrc"
+      _back_file ".gitconfig"
+      _back_file ".screenrc"
 
-  _print "\t.bash_profile"
+    _print "Symlinking all files"
 
-    ln -sf ~/.termieter/bash_profile ~/.bash_profile
+      _print "\t.bash_profile"
 
-  _print "\t.gitconfig"
+        ln -sf ~/.termieter/bash_profile ~/.bash_profile
 
-    ln -sf ~/.termieter/gitconfig ~/.gitconfig
+      _print "\t.gitconfig"
 
-  _print "\t.screenrc"
+        ln -sf ~/.termieter/gitconfig ~/.gitconfig
 
-    ln -sf ~/.termieter/screenrc ~/.screenrc
+      _print "\t.screenrc"
 
-  _print "\t.irbrc"
+        ln -sf ~/.termieter/screenrc ~/.screenrc
 
-    ln -sf ~/.termieter/irbrc ~/.irbrc
+      _print "\t.irbrc"
 
-_print "Installation finished **************************"
+        ln -sf ~/.termieter/irbrc ~/.irbrc
+
+    _print "Installation finished **************************"
+  fi
