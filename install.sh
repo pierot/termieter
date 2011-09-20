@@ -83,3 +83,5 @@ _print "Cloning into repo"
 
     _print "Installation finished **************************"
   fi
+
+_cleanup_lib
