@@ -12,12 +12,11 @@ _print "Removing current termieter installation"
 
 _print "Check if 'git' exists"
 
-  GIT_INSTALLED=1
+  GIT_INSTALLED=true
 
-  hash git 2>&- || { _error "I require git but it's not installed!"; $GIT_INSTALLED=0; }
+  hash git 2>&- || { _error "I require git but it's not installed!"; $GIT_INSTALLED=false; }
 
-  if $GIT_INSTALLED == 0
-  then
+  if ! $GIT_INSTALLED; then
     while true
     do
       read -p "Do you want me to install git? (sudo needed) [Y/N] " RESP
