@@ -14,7 +14,7 @@ _print "Check if 'git' exists"
 
   GIT_INSTALLED=true
 
-  hash git 2>&- || { _error "I require git but it's not installed!"; $GIT_INSTALLED=false; }
+  hash git 2>&- || { _error "I require git but it's not installed!"; GIT_INSTALLED=false; }
 
   if ! $GIT_INSTALLED; then
     while true
