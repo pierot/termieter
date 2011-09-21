@@ -32,7 +32,7 @@ while getopts :hd: opt; do
       _usage 
       ;; 
     d) 
-      install_dir=$HOME$OPTARG 
+      install_dir="$HOME/$OPTARG"
       ;; 
     *) 
       _error "Invalid option received" 
