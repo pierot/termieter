@@ -2,13 +2,57 @@
 
 wget -N --quiet https://raw.github.com/pierot/server-installer/master/lib.sh; . ./lib.sh
 
+############################################################################### 
+ 
+install_dir='.termieter'     
+ 
+############################################################################### 
+ 
+_usage() {                 
+  _print "                 
+ 
+Usage:              install.sh -d ['.termieter'] 
+ 
+Remote Usage:       bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter'] 
+ 
+Options: 
+  
+  -h                Show this message 
+  -d '.termieter'   Install directory (always in home folder)
+  " 
+ 
+  exit 0 
+}  
+ 
+############################################################################### 
+ 
+while getopts :hd: opt; do  
+  case $opt in 
+    h) 
+      _usage 
+      ;; 
+    d) 
+      install_dir=$OPTARG 
+      ;; 
+    *) 
+      _error "Invalid option received" 
+ 
+      _usage 
+
+      exit 0
+      ;;
+  esac 
+done
+
+############################################################################### 
+
 _print "Installing termieter files ***********************"
 
   cd ~
 
 _print "Removing current termieter installation"
 
-  rm -rf .termieter
+  rm -rf "$install_dir"
 
 _print "Check if 'git' exists"
 
@@ -24,6 +68,7 @@ _print "Check if 'git' exists"
       case $RESP
         in
         [yY])
+          _check_root
           _system_installs_install 'git'
 
           GIT_INSTALLED=true
@@ -41,10 +86,10 @@ _print "Check if 'git' exists"
 _print "Cloning into repo"
 
   if $GIT_INSTALLED; then
-    git clone git://github.com/pierot/termieter.git ~/.termieter
+    git clone git://github.com/pierot/termieter.git "~/$install_dir"
   fi
 
-  if [ ! -d "./.termieter" ]; then
+  if [ ! -d "./$install_dir" ]; then
     _error "Termieter doesn't seem to be installed correctly. Aborting"
 
     exit 1
@@ -67,19 +112,19 @@ _print "Cloning into repo"
 
       _print "\t.bash_profile"
 
-        ln -sf ~/.termieter/bash_profile ~/.bash_profile
+        ln -sf "~/$install_dir/bash_profile" ~/.bash_profile
 
       _print "\t.gitconfig"
 
-        ln -sf ~/.termieter/gitconfig ~/.gitconfig
+        ln -sf "~/$install_dir/gitconfig" ~/.gitconfig
 
       _print "\t.screenrc"
 
-        ln -sf ~/.termieter/screenrc ~/.screenrc
+        ln -sf "~/$install_dir/screenrc" ~/.screenrc
 
       _print "\t.irbrc"
 
-        ln -sf ~/.termieter/irbrc ~/.irbrc
+        ln -sf "~/$install_dir/irbrc" ~/.irbrc
 
     _print "Installation finished **************************"
   fi
