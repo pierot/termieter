@@ -18,7 +18,7 @@ Remote Usage:       bash <( curl -s https://raw.github.com/pierot/termieter/mast
 Options: 
   
   -h                Show this message 
-  -d '.termieter'   Install directory (always in home folder)
+  -d '.termieter'   Install directory (always in $HOME folder)
   " 
  
   exit 0 
@@ -32,7 +32,7 @@ while getopts :hd: opt; do
       _usage 
       ;; 
     d) 
-      install_dir=$OPTARG 
+      install_dir=$HOME$OPTARG 
       ;; 
     *) 
       _error "Invalid option received" 
@@ -86,10 +86,10 @@ _print "Check if 'git' exists"
 _print "Cloning into repo"
 
   if $GIT_INSTALLED; then
-    git clone git://github.com/pierot/termieter.git "~/$install_dir"
+    git clone git://github.com/pierot/termieter.git "$install_dir"
   fi
 
-  if [ ! -d "./$install_dir" ]; then
+  if [ ! -d "$install_dir" ]; then
     _error "Termieter doesn't seem to be installed correctly. Aborting"
 
     exit 1
@@ -112,19 +112,19 @@ _print "Cloning into repo"
 
       _print "\t.bash_profile"
 
-        ln -sf "~/$install_dir/bash_profile" ~/.bash_profile
+        ln -sf "$install_dir/bash_profile" ~/.bash_profile
 
       _print "\t.gitconfig"
 
-        ln -sf "~/$install_dir/gitconfig" ~/.gitconfig
+        ln -sf "$install_dir/gitconfig" ~/.gitconfig
 
       _print "\t.screenrc"
 
-        ln -sf "~/$install_dir/screenrc" ~/.screenrc
+        ln -sf "$install_dir/screenrc" ~/.screenrc
 
       _print "\t.irbrc"
 
-        ln -sf "~/$install_dir/irbrc" ~/.irbrc
+        ln -sf "$install_dir/irbrc" ~/.irbrc
 
     _print "Installation finished **************************"
   fi
