@@ -1,6 +1,6 @@
 [user]
-	name = Pieter Michels
-	email = pieter@noort.be
+  name = Pieter Michels
+  email = pieter@noort.be
 [apply]
   whitespace = fix
 [color]
@@ -21,3 +21,5 @@
 [merge]
   log = true
 	stat = true
+[core]
+  excludesfile = ~/.gitignore_global

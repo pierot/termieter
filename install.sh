@@ -103,6 +103,7 @@ _print "Cloning into repo"
       }
 
       _back_file ".bash_profile"
+      _back_file ".gitignore_global"
       _back_file ".profile"
       _back_file ".bashrc"
       _back_file ".gitconfig"
@@ -125,6 +126,10 @@ _print "Cloning into repo"
       _print "\t.irbrc"
 
         ln -sf "$install_dir/irbrc" ~/.irbrc
+
+      _print "\t.gitignore_global"
+
+        ln -sf "$install_dir/gitignore_global" ~/.gitignore_global
 
     _print "Installation finished **************************"
   fi
