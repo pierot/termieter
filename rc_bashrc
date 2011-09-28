@@ -15,14 +15,6 @@ SCM_HG_CHAR='☿'
 SVN='svn'
 SCM_SVN_CHAR='⑆'
 
-# WHITE="\[\033[1;37m\]"
-# LIGHT_BLUE="\[\033[1;36m\]"
-# BLUE="\[\033[1;34m\]"
-# LIGHT_RED="\[\033[1;31m\]"
-# RED="\[\033[0;31m\]"
-# LIGHT_GREEN="\[\033[1;32m\]"
-# GREEN="\[\033[0;32m\]"
-
 black="\[\e[0;30m\]"
 red="\[\e[0;31m\]"
 green="\[\e[0;32m\]"
@@ -131,7 +123,7 @@ function hg_prompt_info() {
     echo -e "$SEP$branch:${changeset#*:}$state"
 }
 
-PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-12}; else CurDir=$DIR; fi;' 
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:10}...${DIR:${#DIR}-10}; else CurDir=$DIR; fi;' 
 
 # PS1="\033]0;\${DIR:${#DIR}-12}\007$(parse_rvm_version)$LIGHT_RED\u$WHITE $SEP$RED\$CurDir $LIGHT_BLUE\$(parse_git_branch)$LIGHT_BLUE$WHITE$SEP"
 PS1="\033]0;\${DIR:${#DIR}-12}\007$green$(parse_rvm_version)$reset_color$red\u $SEP$reset_color$blue\$CurDir $cyan\$(scm_prompt_info)$reset_color$SEP$normal"

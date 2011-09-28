@@ -27,6 +27,8 @@ alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
 function open-sesame() { cat ~/.ssh/id_rsa.pub | ssh $@ "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"; }
 
+alias trash='~/.termieter/scripts/trash.sh $@'
+
 # screen
 ################################################################################################################
 

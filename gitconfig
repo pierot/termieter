@@ -23,3 +23,6 @@
 	stat = true
 [core]
   excludesfile = ~/.gitignore_global
+[github]
+	user = pierot
+	token = c9a84078efdf44e6cb4e534786f6991e
