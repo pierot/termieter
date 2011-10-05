@@ -33,5 +33,5 @@ fi
 # VARS
 ################################################################################################################
 
-export VIM_APP_DIR='/Volumes/data/Users/pieterm/Applications/MacVim-7_3-53/'
+export VIM_APP_DIR='/Volumes/data/Users/pieterm/Applications/MacVim/'
 

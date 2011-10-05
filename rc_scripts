@@ -14,6 +14,3 @@ then
     source `brew --prefix`/etc/bash_completion.d/git-completion.bash
   fi
 fi
-
-# Z
-[[ -s $HOME/.termieter/scripts/z.sh ]] && source $HOME/.termieter/scripts/z.sh
