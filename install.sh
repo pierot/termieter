@@ -112,32 +112,31 @@ _print "Cloning into repo"
     _print "Symlinking all files"
 
       _print "\t.bash_profile"
-
         ln -sf "$install_dir/bash_profile" ~/.bash_profile
 
       _print "\t.gitconfig"
-
         ln -sf "$install_dir/gitconfig" ~/.gitconfig
 
       _print "\t.screenrc"
-
         ln -sf "$install_dir/screenrc" ~/.screenrc
 
       _print "\t.irbrc"
-
         ln -sf "$install_dir/irbrc" ~/.irbrc
 
       _print "\t.gitignore_global"
-
         ln -sf "$install_dir/gitignore_global" ~/.gitignore_global
 
       _print "\t.vimrc"
-
         ln -sf "$install_dir/vimrc" ~/.vimrc.local
 
       _print "\t.gvimrc"
-
         ln -sf "$install_dir/gvimrc" ~/.gvimrc.local
+
+      _print "\t.gemrc"
+        ln -sf "$install_dir/gemrc" ~/.gemrc
+
+      _print "\t.rvmrc"
+        ln -sf "$install_dir/rvmrc" ~/.rvmrc
 
     _print "Installation finished **************************"
   fi
