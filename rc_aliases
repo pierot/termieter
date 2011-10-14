@@ -48,6 +48,7 @@ alias termietere='vim ~/.termieter'
 alias termieterc='source ~/.bash_profile'
 
 alias r='rails'
+alias be='bundle exec'
 
 # paths
 ################################################################################################################
@@ -85,11 +86,15 @@ alias apache-config='sudo vim /private/etc/apache2/httpd.conf'
 
 alias svn-status-all='~/.termieter/scripts/svnstatus.py $@'
 alias svn-up-all='~/.termieter/scripts/svnup.py $@'
+alias svns='svn st'
+alias svnc='svn commit -m "$@"'
+alias svnu='svn up'
 
 # git
 ################################################################################################################
 
 alias gst='git status'
+alias gp='git push "$@"'
 alias gcam='git commit -a -m "$@"'
 alias gca='git commit -a'
 

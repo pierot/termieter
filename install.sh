@@ -131,6 +131,14 @@ _print "Cloning into repo"
 
         ln -sf "$install_dir/gitignore_global" ~/.gitignore_global
 
+      _print "\t.vimrc"
+
+        ln -sf "$install_dir/vimrc" ~/.vimrc.local
+
+      _print "\t.gvimrc"
+
+        ln -sf "$install_dir/gvimrc" ~/.gvimrc.local
+
     _print "Installation finished **************************"
   fi
 
