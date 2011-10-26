@@ -99,7 +99,7 @@ _print "Cloning into repo"
       mkdir -p ~/.bash_backup
 
       _back_install() {
-        if [ ! -e "$1" ]; then
+        if [ ! -n "$1" ]; then
           _error "Error in install script. Aborting"
 
           exit 1
@@ -110,7 +110,7 @@ _print "Cloning into repo"
         fi
 
         if [ -f "$install_dir/symlinks/$1" ]; then
-          if [ -e "$2" ]; then
+          if [ -n "$2" ]; then
             ln -sf "$install_dir/symlinks/$1" "$HOME/.$2"
           else
             ln -sf "$install_dir/symlinks/$1" "$HOME/.$1"
