@@ -99,13 +99,20 @@ _print "Cloning into repo"
       mkdir -p ~/.bash_backup
 
       _back_file() {
+        _print "Backup $1"
         [ -e "$1" ] && mv ".$1" ".bash_backup/.$1" 
       }
 
       _install_file() {
-        [ -e "$1" ] && ln -sf "$install_dir/symlinks/$1" "~/.$1"
+        _print "Install $1"
 
-        _print "\t$1"
+        if [ -e "$1" ]; then
+          if [ -e "$2" ]; then
+            ln -sf "$install_dir/symlinks/$1" "~/.$2"
+          else
+            ln -sf "$install_dir/symlinks/$1" "~/.$1"
+          fi
+        fi
       }
 
       _back_install() {
@@ -120,10 +127,10 @@ _print "Cloning into repo"
       _back_install "gemrc"
       _back_install "gitconfig"
       _back_install "gitignore_global"
-      _back_install "gvimrc", "local"
+      _back_install "gvimrc", "gvimrc.local"
       _back_install "irbrc"
       _back_install "screenrc"
-      _back_install "vimrc", "local"
+      _back_install "vimrc", "vimrc.local"
 
     _print "Installation finished **************************"
   fi
