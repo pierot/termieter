@@ -21,14 +21,6 @@ export PATH="$HOME/.termieter/scripts:$PATH" # Custom scripts
 
 export PATH
 
-# RACK ENV
 ################################################################################################################
 
-if [[ `uname` == 'Darwin' ]]; then
-  export RACK_ENV='development'
-  export RAILS_ENV='development'
-  export PORT='3000'
-fi
-
-# VARS
-################################################################################################################
+export CLICOLOR=1;

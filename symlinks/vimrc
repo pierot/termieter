@@ -6,16 +6,21 @@
 " |                                                                         |
 " ---------------------------------------------------------------------------
 
-" colorscheme wombat
+" set background=dark
+" colorscheme solarized
+colorscheme ir_black
 
 " When moving up/down in wrapped lines, move 'screen' lines instead of
 " physical lines
-" nnoremap j gj
-" nnoremap k gk
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
-nnoremap ; : " map ; to : in normal mode
+" map ; to : in normal mode
+nnoremap ; : 
 
-set mouse=a " Enable mouse in all modes.
+set mouse=a " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set ttymouse=xterm " Set mouse type to xterm.
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
-set cursorline
+" set cursorline

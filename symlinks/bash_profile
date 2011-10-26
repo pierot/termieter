@@ -1,0 +1,11 @@
+export TRM=$HOME/.termieter
+
+for config_file in $TRM/**/*.sh
+do
+  source $config_file
+done
+
+for function_file in $TRM/**/functions/*.sh
+do
+  source $function_file
+done

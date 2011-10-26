@@ -1,10 +1,3 @@
-# svn add all
-svn-add-all() {
-	svn st | grep "^?" | awk '{$1=""; print $0}' | while read f; do svn add "$f"; done
-}
-
-# working env
-################################################################################################################
 function dev-cardigle () {
   COMMANDS=( "clear;z frritt;clear;rails s thin" "clear;z frritt;mvim .;clear" "clear;z jules;clear" )
 	LENGTH=${#COMMANDS[@]}
@@ -34,3 +27,5 @@ function dev-cardigle () {
 md() {
   mkdir -p "$@" && cd "$@"
 }
+
+alias trash='mv "$@" ~/.Trash/'

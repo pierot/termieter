@@ -123,7 +123,8 @@ function hg_prompt_info() {
     echo -e "$SEP$branch:${changeset#*:}$state"
 }
 
-PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${DIR:0:13} == "/Volumes/data" ]; then DIR=${DIR:13:${#DIR}-13}; fi; if [ ${#DIR} -gt 28 ]; then CurDir=${DIR:0:10}..${DIR:${#DIR}-15}; fi;' 
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${DIR:0:13} = "/Volumes/data" ]; then DIR=${DIR:13:${#DIR}-13}; fi; if [ ${#DIR} -gt 28 ]; then CurDir=${DIR:0:10}..${DIR:${#DIR}-15}; else CurDir=$DIR; fi;' 
+
+# PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:10}...${DIR:${#DIR}-10}; else CurDir=$DIR; fi;' 
 
 PS1="\[\033]0;\${DIR:${#DIR}-12}\007$green$(parse_rvm_version)$reset_color$red\u $SEP$reset_color$blue\$CurDir $cyan\$(scm_prompt_info)$reset_color$SEP$normal"
-

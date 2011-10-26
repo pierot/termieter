@@ -99,44 +99,31 @@ _print "Cloning into repo"
       mkdir -p ~/.bash_backup
 
       _back_file() {
-        [ -e "$1" ] && mv "$1" ".bash_backup/$1" 
+        [ -e "$1" ] && mv ".$1" ".bash_backup/.$1" 
       }
 
-      _back_file ".bash_profile"
-      _back_file ".gitignore_global"
-      _back_file ".profile"
-      _back_file ".bashrc"
-      _back_file ".gitconfig"
-      _back_file ".screenrc"
+      _install_file() {
+        [ -e "$1" ] && ln -sf "$install_dir/symlinks/$1" "~/.$1"
 
-    _print "Symlinking all files"
+        _print "\t$1"
+      }
 
-      _print "\t.bash_profile"
-        ln -sf "$install_dir/bash_profile" ~/.bash_profile
+      _back_install() {
+        _back_file $1
 
-      _print "\t.gitconfig"
-        ln -sf "$install_dir/gitconfig" ~/.gitconfig
+        _install_file $1, $2
+      }
 
-      _print "\t.screenrc"
-        ln -sf "$install_dir/screenrc" ~/.screenrc
-
-      _print "\t.irbrc"
-        ln -sf "$install_dir/irbrc" ~/.irbrc
-
-      _print "\t.gitignore_global"
-        ln -sf "$install_dir/gitignore_global" ~/.gitignore_global
-
-      _print "\t.vimrc"
-        ln -sf "$install_dir/vimrc" ~/.vimrc.local
-
-      _print "\t.gvimrc"
-        ln -sf "$install_dir/gvimrc" ~/.gvimrc.local
-
-      _print "\t.gemrc"
-        ln -sf "$install_dir/gemrc" ~/.gemrc
-
-      _print "\t.rvmrc"
-        ln -sf "$install_dir/rvmrc" ~/.rvmrc
+      _back_install "bash_profile"
+      _back_install "profile"
+      _back_install "bashrc"
+      _back_install "gemrc"
+      _back_install "gitconfig"
+      _back_install "gitignore_global"
+      _back_install "gvimrc", "local"
+      _back_install "irbrc"
+      _back_install "screenrc"
+      _back_install "vimrc", "local"
 
     _print "Installation finished **************************"
   fi
