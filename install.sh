@@ -98,32 +98,24 @@ _print "Cloning into repo"
       
       mkdir -p ~/.bash_backup
 
-      _back_file() {
-        if [ -e "$1" ]; then
-          _print "Backup $1"
+      _back_install() {
+        if [ ! -e "$1" ]; then
+          _error "Error in install script. Aborting"
 
+          exit 1
+        fi
+
+        if [ -f "$HOME/.$1" ]; then
           mv "$HOME/.$1" "$HOME/.bash_backup/.$1" 
         fi
-      }
 
-      _install_file() {
-        if [ -e "$1" ]; then
-          _print "Install $1"
-
+        if [ -f "$install_dir/symlinks/$1" ]; then
           if [ -e "$2" ]; then
-            _print "\t -> $2"
-
             ln -sf "$install_dir/symlinks/$1" "$HOME/.$2"
           else
             ln -sf "$install_dir/symlinks/$1" "$HOME/.$1"
           fi
         fi
-      }
-
-      _back_install() {
-        _back_file $1
-
-        _install_file $1 $2
       }
 
       _back_install "bash_profile"
