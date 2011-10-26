@@ -100,6 +100,7 @@ _print "Cloning into repo"
 
       _back_file() {
         _print "Backup $1"
+
         [ -e "$1" ] && mv ".$1" ".bash_backup/.$1" 
       }
 
@@ -118,7 +119,7 @@ _print "Cloning into repo"
       _back_install() {
         _back_file $1
 
-        _install_file $1, $2
+        _install_file $1 $2
       }
 
       _back_install "bash_profile"
@@ -127,10 +128,10 @@ _print "Cloning into repo"
       _back_install "gemrc"
       _back_install "gitconfig"
       _back_install "gitignore_global"
-      _back_install "gvimrc", "gvimrc.local"
+      _back_install "gvimrc" "gvimrc.local"
       _back_install "irbrc"
       _back_install "screenrc"
-      _back_install "vimrc", "vimrc.local"
+      _back_install "vimrc" "vimrc.local"
 
     _print "Installation finished **************************"
   fi
