@@ -101,7 +101,7 @@ _print "Cloning into repo"
       _back_file() {
         _print "Backup $1"
 
-        [ -e "$1" ] && mv ".$1" ".bash_backup/.$1" 
+        [ -e "$1" ] && mv "~/.$1" "~/.bash_backup/.$1" 
       }
 
       _install_file() {
