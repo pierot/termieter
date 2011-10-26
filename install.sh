@@ -99,41 +99,43 @@ _print "Cloning into repo"
       mkdir -p ~/.bash_backup
 
       _back_file() {
-        _print "Backup $1"
+        if [ -e "$1" ]; then
+          _print "Backup $1"
 
-        [ -e "$1" ] && mv "~/.$1" "~/.bash_backup/.$1" 
+          mv "$HOME/.$1" "$HOME/.bash_backup/.$1" 
+        fi
       }
 
       _install_file() {
-        _print "Install $1"
-
         if [ -e "$1" ]; then
+          _print "Install $1"
+
           if [ -e "$2" ]; then
             _print "\t-> $2"
 
-            ln -sf "$install_dir/symlinks/$1" "~/.$2"
+            ln -sf "$install_dir/symlinks/$1" "$HOME/.$2"
           else
-            ln -sf "$install_dir/symlinks/$1" "~/.$1"
+            ln -sf "$install_dir/symlinks/$1" "$HOME/.$1"
           fi
         fi
       }
 
-      _back_install() {
+      _b_install() {
         _back_file $1
 
         _install_file $1 $2
       }
 
-      _back_install "bash_profile"
-      _back_install "profile"
-      _back_install "bashrc"
-      _back_install "gemrc"
-      _back_install "gitconfig"
-      _back_install "gitignore" "gitignore"
-      _back_install "gvimrc" "gvimrc.local"
-      _back_install "irbrc"
-      _back_install "screenrc"
-      _back_install "vimrc" "vimrc.local"
+      _b_install "bash_profile"
+      _b_install "profile"
+      _b_install "bashrc"
+      _b_install "gemrc"
+      _b_install "gitconfig"
+      _b_install "gitignore" "gitignore"
+      _b_install "gvimrc" "gvimrc.local"
+      _b_install "irbrc"
+      _b_install "screenrc"
+      _b_install "vimrc" "vimrc.local"
 
     _print "Installation finished **************************"
   fi
