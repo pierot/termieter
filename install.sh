@@ -109,6 +109,8 @@ _print "Cloning into repo"
 
         if [ -e "$1" ]; then
           if [ -e "$2" ]; then
+            _print "\t-> $2"
+
             ln -sf "$install_dir/symlinks/$1" "~/.$2"
           else
             ln -sf "$install_dir/symlinks/$1" "~/.$1"
@@ -127,7 +129,7 @@ _print "Cloning into repo"
       _back_install "bashrc"
       _back_install "gemrc"
       _back_install "gitconfig"
-      _back_install "gitignore", "gitignore"
+      _back_install "gitignore" "gitignore"
       _back_install "gvimrc" "gvimrc.local"
       _back_install "irbrc"
       _back_install "screenrc"
