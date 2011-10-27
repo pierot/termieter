@@ -112,9 +112,9 @@ else
     fi
   }
 
-  for sym_file in "$install_dir/symlinks/*.*"
+  for sym_file in $install_dir/symlinks/*
   do
-    _back_install "$sym_file"
+    _back_install $sym_file
     # _back_install "bash_profile"
     # _back_install "profile"
     # _back_install "bashrc"
