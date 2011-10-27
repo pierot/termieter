@@ -91,6 +91,8 @@ else
   mkdir -p ~/.bash_backup
 
   _back_install() {
+    _print "Installing $1"
+
     if [ ! -n "$1" ]; then
       _error "Error in install script. Aborting"
 
@@ -110,7 +112,7 @@ else
     fi
   }
 
-  for sym_file in "$install_dir/symlinks/*"
+  for sym_file in "$install_dir/symlinks/*.*"
   do
     _back_install "$sym_file"
     # _back_install "bash_profile"
