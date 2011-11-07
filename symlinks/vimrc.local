@@ -9,6 +9,7 @@
 " set background=dark
 " colorscheme solarized
 colorscheme ir_black
+" colorscheme molokai
 
 " When moving up/down in wrapped lines, move 'screen' lines instead of
 " physical lines
@@ -26,3 +27,6 @@ set ttymouse=xterm " Set mouse type to xterm.
 " set cursorline
 
 let g:html_indent_tags = 'li\|p'
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
