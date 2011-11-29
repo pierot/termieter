@@ -20,10 +20,10 @@ alias ll='ls $LS_OPT -Gla' # long list all, includes dot files
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
-alias flushdns='dscacheutil -flushcache' # Flush DNS cache
+alias flushdns='echo "» dscacheutil -flushcache"; dscacheutil -flushcache' # Flush DNS cache
 
-alias gzip='gzip -9n' # set strongest compression level as ‘default’ for gzip
-alias ping='ping -c 5' # ping 5 times ‘by default’
+alias gzip='echo "» gzip -9n"; gzip -9n' # set strongest compression level as ‘default’ for gzip
+alias ping='echo "» pint -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias hidden-show='defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder'
 alias hidden-hide='defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder'
@@ -38,3 +38,5 @@ alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
 function open-sesame() { cat ~/.ssh/id_rsa.pub | ssh $@ "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"; }
+
+alias remove-spaces='for file in *; do mv "$file" "${file// /-}"; done'

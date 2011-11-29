@@ -1,15 +1,5 @@
 %w( rubygems pp irb/completion ).each { |lib| require lib }
 
-begin
-  require 'wirble'
-  Wirble.init
-  Wirble.colorize
-rescue LoadError
-  puts "Wirble not installed.  `sudo gem install wirble` to install."
-end
-
-# ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
-
 module Readline
   module History
     LOG = "#{ENV['HOME']}/.irb_history"

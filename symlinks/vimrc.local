@@ -27,6 +27,3 @@ set ttymouse=xterm " Set mouse type to xterm.
 " set cursorline
 
 let g:html_indent_tags = 'li\|p'
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
