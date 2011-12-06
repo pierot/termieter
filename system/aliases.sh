@@ -32,11 +32,5 @@ alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
 alias hosts='sudo vim /private/etc/hosts'
 
-alias fasterfaster='sudo rm -rf /private/var/log/asl/*; sudo rm -rf /var/mail/*'
-
 alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
-
-function open-sesame() { cat ~/.ssh/id_rsa.pub | ssh $@ "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"; }
-
-alias remove-spaces='for file in *; do mv "$file" "${file// /-}"; done'
