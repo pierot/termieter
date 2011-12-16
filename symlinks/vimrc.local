@@ -25,5 +25,6 @@ set mouse=a " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set ttymouse=xterm " Set mouse type to xterm.
 
 " set cursorline
+set list!
 
 let g:html_indent_tags = 'li\|p'

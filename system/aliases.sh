@@ -1,5 +1,6 @@
 alias termieter='cd ~/.termieter'
 alias termietere='cd ~/.termieter; vim .'
+alias vime='cd ~/.vim; vim .'
 alias reload!='. ~/.bash_profile'
 
 # paths
