@@ -13,10 +13,10 @@ colorscheme ir_black
 
 " When moving up/down in wrapped lines, move 'screen' lines instead of
 " physical lines
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
+" vnoremap j gj
+" vnoremap k gk
 
 " map ; to : in normal mode
 nnoremap ; : 
@@ -28,3 +28,6 @@ set ttymouse=xterm " Set mouse type to xterm.
 set list!
 
 let g:html_indent_tags = 'li\|p'
+
+" Clean Dreamweaver fuck ups
+map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
