@@ -2,14 +2,12 @@
 " |                                                                         |
 " |                         Proximity goes Vim!                             |
 " |                                                                         |
-" |  Here you can go crazy, this is your file!                              |
+" |                Here you can go crazy, this is your file!                |
 " |                                                                         |
 " ---------------------------------------------------------------------------
 
-" set background=dark
-" colorscheme solarized
-colorscheme ir_black
-" colorscheme molokai
+colorscheme molokai
+" set guifont=Monaco:h12
 
 " When moving up/down in wrapped lines, move 'screen' lines instead of
 " physical lines
@@ -18,16 +16,16 @@ colorscheme ir_black
 " vnoremap j gj
 " vnoremap k gk
 
-" map ; to : in normal mode
-nnoremap ; : 
+nnoremap ; :        " map ; to : in normal mode
 
-set mouse=a " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
-set ttymouse=xterm " Set mouse type to xterm.
+set mouse=a         " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
+set ttymouse=xterm  " Set mouse type to xterm.
 
-" set cursorline
-set list!
+set list!           " show hidden chars
 
 let g:html_indent_tags = 'li\|p'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>

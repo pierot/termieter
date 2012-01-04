@@ -1,14 +1,16 @@
 alias termieter='cd ~/.termieter'
 alias termietere='cd ~/.termieter; vim .'
+
 alias vime='cd ~/.vim; vim .'
+
 alias reload!='. ~/.bash_profile'
 
 # paths
 ################################################################################################################
 
-alias repos='cd ~/Dropbox/Private/work/repos/'
+alias repos='cd ~/Dropbox/Work/repos/'
 alias dev='cd ~/Documents/Devel/'
-alias clients='cd ~/Dropbox/Private/work/clients/'
+alias clients='cd ~/Dropbox/Work/clients/'
 alias projects='cd ~/Documents/Projects/'
 
 ################################################################################################################
@@ -27,9 +29,6 @@ alias flushdns='echo "» dscacheutil -flushcache"; dscacheutil -flushcache' # Fl
 alias gzip='echo "» gzip -9n"; gzip -9n' # set strongest compression level as ‘default’ for gzip
 alias ping='echo "» pint -c 5"; ping -c 5' # ping 5 times ‘by default’
 
-alias hidden-show='defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder'
-alias hidden-hide='defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder'
-
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
 alias hosts='sudo vim /private/etc/hosts'
@@ -38,3 +37,12 @@ alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
 alias v='vim .'
+
+# Clear temp files for a faster Terminal
+alias fasterfaster='sudo rm -rf /private/var/log/asl/*; sudo rm -rf /var/mail/*'
+
+# Remove spaces and replace by a dash
+alias remove-spaces='for file in *; do mv "$file" "${file// /-}"; done'
+
+# Trash a file from your Terminal
+alias trash='mv "$@" ~/.Trash/'
