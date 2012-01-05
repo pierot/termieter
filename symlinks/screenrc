@@ -16,27 +16,28 @@
 # 	/<tab>	Move between splits
 # 	/Q	Un-Split
 #
-#
 # Good cheatsheets and whatnot:
 #  * http://cheat.errtheblog.com/s/screen  <--- pretty awesome cheat sheet
-#
 
-# 
 # ---- [ Configuration ] ----
-#
 
-escape ^Zz                                                             # Instead of Control-a, make the escape/command character be Control-z (Ctrl-A is already a BASH command)
+shell -$SHELL			                                                       # I dunno if this is actually required, but many/most .screenrc files include this
 
-autodetach on 			                                                   # Autodetach session on hangup instead of terminating screen completely
+defutf8 on                                                               # make sure to use utf-8
 
-startup_message off 		                                               # Turn off the splash screen
+escape ^Zz                                                               # Instead of Control-a, make the escape/command character be Control-z (Ctrl-A is already a BASH command)
 
-defscrollback 30000 		                                               # Use a 30000-line scrollback buffer ... the default is small
+autodetach on 			                                                     # Autodetach session on hangup instead of terminating screen completely
 
-termcapinfo xterm-color|xterm|xterms|xs|rxvt ti@:te@                   # For normal scrolling
+startup_message off 		                                                 # Turn off the splash screen
 
-pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."        # A more useful message when detached, so you know how to get back!
+defscrollback 20000 		                                                 # Use a 30000-line scrollback buffer ... the default is small
 
-shell -$SHELL			                                                     # I dunno if this is actually required, but many/most .screenrc files include this
+termcapinfo xterm-color|xterm|xterms|xs|rxvt ti@:te@                     # For normal scrolling
+
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."          # A more useful message when detached, so you know how to get back!
 
 caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c" # Caption Variable Reference
+
+screen -t vim   0 vim .
+screen -t shell 1
