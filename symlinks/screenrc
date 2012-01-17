@@ -21,7 +21,7 @@
 
 # ---- [ Configuration ] ----
 
-shell -${SHELL}		                                                       # I dunno if this is actually required, but many/most .screenrc files include this
+shell -${SHELL}
 
 defutf8 on                                                               # make sure to use utf-8
 
@@ -39,5 +39,5 @@ pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."          # A mor
 
 caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c" # Caption Variable Reference
 
-# screen -t vim   0 vim .
-# screen -t shell 1
+screen -t vim   0 vim .
+screen -t shell 1
