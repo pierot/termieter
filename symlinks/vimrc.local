@@ -29,3 +29,5 @@ let g:html_indent_tags = 'li\|p'
 
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
+
+let g:SuperTabDefaultCompletionType = "<c-p>"

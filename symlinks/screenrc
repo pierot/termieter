@@ -31,9 +31,9 @@ autodetach on 			                                                     # Autodeta
 
 startup_message off 		                                                 # Turn off the splash screen
 
-defscrollback 20000 		                                                 # Use a 30000-line scrollback buffer ... the default is small
+defscrollback 30000 		                                                 # Use a 30000-line scrollback buffer ... the default is small
 
-termcapinfo xterm-color|xterm|xterms|xs|rxvt ti@:te@                     # For normal scrolling
+termcapinfo xterm*|xs|rxvt ti@:te@                                       # For normal scrolling
 
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."          # A more useful message when detached, so you know how to get back!
 

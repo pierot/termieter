@@ -1,5 +1,6 @@
 alias gst='echo "» git status"; git status'
 alias gp='echo "» git push"; git push "$@"'
+alias gph='echo "» git push heroku heroku:master"; git push heroku heroku:master'
 alias gcam='echo "» git commit -a -m"; git commit -a -m "$@"'
 alias gca='echo "» git commit -a"; git commit -a'
 
