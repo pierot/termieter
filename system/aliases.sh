@@ -18,9 +18,9 @@ alias projects='cd ~/Documents/Projects/'
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
 
-alias ls='ls $LS_OPT -Gl' # long list, excludes dot files
-alias ll='ls $LS_OPT -Gla' # long list all, includes dot files
-alias l='ll'
+alias ls='ls $LS_OPT' # long list, excludes dot files
+alias ll='ls $LS_OPT -GlA' # long list all, includes dot files
+alias l='ls $LS_OPT -AFo'
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
