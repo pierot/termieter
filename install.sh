@@ -115,16 +115,6 @@ else
   for sym_file in $install_dir/symlinks/*
   do
     _back_install $(basename $sym_file)
-    # _back_install "bash_profile"
-    # _back_install "profile"
-    # _back_install "bashrc"
-    # _back_install "gemrc"
-    # _back_install "gitconfig"
-    # _back_install "gitignore"
-    # _back_install "gvimrc.local"
-    # _back_install "irbrc"
-    # _back_install "screenrc"
-    # _back_install "vimrc.local"
   done
 
   _print "Installation finished"

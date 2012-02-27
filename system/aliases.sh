@@ -9,7 +9,7 @@ alias reload!='. ~/.bash_profile'
 ################################################################################################################
 
 alias repos='cd ~/Dropbox/Work/repos/'
-alias dev='cd ~/Documents/Devel/'
+alias dev='cd ~/Dropbox/Work/devel/'
 alias clients='cd ~/Dropbox/Work/clients/'
 alias projects='cd ~/Documents/Projects/'
 
