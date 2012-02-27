@@ -32,3 +32,6 @@ let g:html_indent_tags = 'li\|p'
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
 
 let g:SuperTabDefaultCompletionType = "<c-p>"
+
+" Sudo to write
+cmap w!! w !sudo tee % >/dev/null

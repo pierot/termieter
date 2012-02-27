@@ -27,7 +27,7 @@ defutf8 on                                                               # make 
 
 escape ^Zz                                                               # Instead of Control-a, make the escape/command character be Control-z (Ctrl-A is already a BASH command)
 
-autodetach on 			                                                     # Autodetach session on hangup instead of terminating screen completely
+# autodetach on 			                                                     # Autodetach session on hangup instead of terminating screen completely
 
 startup_message off 		                                                 # Turn off the splash screen
 
