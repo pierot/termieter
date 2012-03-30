@@ -1,6 +1,6 @@
-alias r='rails'
 alias be='echo "» bundle exec"; bundle exec'
 alias b='echo "» bundle"; bundle'
+alias r='echo "» be rails"; be rails'
 
 alias t='echo "» be rails s thin"; be rails s thin'
 

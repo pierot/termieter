@@ -1,0 +1,27 @@
+# account-hook imap://gmail/
+set imap_user = "pieter@noort.be"
+
+set smtp_url = "smtp://pieter@noort.be@smtp.gmail.com:587/"
+
+set from = "pieter@noort.be"
+set realname = "Pieter Michels"
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed="+[Gmail]/Drafts"
+
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+set move = no
+set timeout=15
+auto_view text/html
+
+set sort_aux = 'last-date-received'
+set imap_check_subscribed
+
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
