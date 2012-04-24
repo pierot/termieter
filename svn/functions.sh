@@ -7,4 +7,6 @@ svn-delete-all() {
 }
 
 alias svn-status-all='~/.termieter/svn/functions/svnstatus.py $@'
+
 alias svn-up-all='~/.termieter/svn/functions/svnup.py $@'
+alias svn-update-all='svn-up-all'

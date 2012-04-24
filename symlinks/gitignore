@@ -4,3 +4,10 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# RAILS #
+#####################
+.bundle
+log/*.log
+tmp/**/*
+.sass-cache

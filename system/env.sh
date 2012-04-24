@@ -25,4 +25,4 @@ export PATH
 
 export CLICOLOR=1;
 
-rvm use default >/dev/null
+# rvm use default >/dev/null

@@ -46,3 +46,7 @@ alias remove-spaces='for file in *; do mv "$file" "${file// /-}"; done'
 
 # Trash a file from your Terminal
 alias trash='mv "$@" ~/.Trash/'
+
+# SSH background color
+alias ssh='echo "» ssh-host-color-iterm"; ~/.termieter/system/functions/ssh-host-color-iterm'
+
