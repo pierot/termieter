@@ -4,16 +4,17 @@
 SCM_THEME_PROMPT_DIRTY=' ✗ '
 SCM_THEME_PROMPT_CLEAN=' ✓ '
 
-SEP='∴ '
+# SEP='∴ '
+SEP='⚡ '
 
 GIT='git'
-SCM_GIT_CHAR='±'
+SCM_GIT_CHAR='⚒ '
 
 HG='hg'
-SCM_HG_CHAR='☿'
+SCM_HG_CHAR='⚓ '
 
 SVN='svn'
-SCM_SVN_CHAR='⑆'
+SCM_SVN_CHAR='☢ '
 
 black="\[\e[0;30m\]"
 red="\[\e[0;31m\]"
@@ -91,41 +92,46 @@ function parse_ruby_version {
 
 function git_prompt_info {
   if [[ -n $(git status -s 2> /dev/null |grep -v ^# |grep -v "working directory clean") ]]; then
-      state=$SCM_THEME_PROMPT_DIRTY
+    state=$SCM_THEME_PROMPT_DIRTY
   else
-      state=$SCM_THEME_PROMPT_CLEAN
+    state=$SCM_THEME_PROMPT_CLEAN
   fi
+
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 
-  echo -e "$SEP${ref#refs/heads/}$state"
+  echo -e "$SCM_GIT_CHAR${ref#refs/heads/}$state"
 }
 
 function svn_prompt_info {
   if [[ -n $(svn status 2> /dev/null) ]]; then
-      state=$SCM_THEME_PROMPT_DIRTY
+    state=$SCM_THEME_PROMPT_DIRTY
   else
-      state=$SCM_THEME_PROMPT_CLEAN
+    state=$SCM_THEME_PROMPT_CLEAN
   fi
+
   ref=$(svn info 2> /dev/null | awk -F/ '/^URL:/ { for (i=0; i<=NF; i++) { if ($i == "branches" || $i == "tags" ) { print $(i+1); break }; if ($i == "trunk") { print $i; break } } }') || return
 
   [[ -z $ref ]] && return
-  echo -e "$SEP$ref$state"
+  echo -e "$SCM_SVN_CHAR$ref$state"
 }
 
 function hg_prompt_info() {
-    if [[ -n $(hg status 2> /dev/null) ]]; then
-        state=$SCM_THEME_PROMPT_DIRTY
-    else
-        state=$SCM_THEME_PROMPT_CLEAN
-    fi
-    branch=$(hg summary 2> /dev/null | grep branch | awk '{print $2}')
-    changeset=$(hg summary 2> /dev/null | grep parent | awk '{print $2}')
+  if [[ -n $(hg status 2> /dev/null) ]]; then
+    state=$SCM_THEME_PROMPT_DIRTY
+  else
+    state=$SCM_THEME_PROMPT_CLEAN
+  fi
 
-    echo -e "$SEP$branch:${changeset#*:}$state"
+  branch=$(hg summary 2> /dev/null | grep branch | awk '{print $2}')
+  changeset=$(hg summary 2> /dev/null | grep parent | awk '{print $2}')
+
+  echo -e "$SCM_HG_CHAR$branch:${changeset#*:}$state"
 }
 
-PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${DIR:0:13} = "/Volumes/data" ]; then DIR=${DIR:13:${#DIR}-13}; fi; if [ ${#DIR} -gt 28 ]; then CurDir=${DIR:0:10}..${DIR:${#DIR}-15}; else CurDir=$DIR; fi;' 
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${DIR:0:11} = "/Volumes/data" ]; then DIR=${DIR:11:${#DIR}-11}; fi; if [ ${#DIR} -gt 26 ]; then CurDir=${DIR:0:10}..${DIR:${#DIR}-13}; else CurDir=$DIR; fi;' 
 
 # PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 27 ]; then CurDir=${DIR:0:10}...${DIR:${#DIR}-10}; else CurDir=$DIR; fi;' 
 
 PS1="\[\033]0;\${DIR:${#DIR}-12}\007$green$(parse_ruby_version)$reset_color$red\u $SEP$reset_color$blue\$CurDir $cyan\$(scm_prompt_info)$reset_color$SEP$normal"
+PS1="\[\033[G\]$PS1" # http://jonisalonen.com/2012/your-bash-prompt-needs-this/?utm_source=hackernewsletter&utm_medium=email
+
