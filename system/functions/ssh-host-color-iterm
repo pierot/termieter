@@ -29,6 +29,8 @@ if [[ "$@" =~ tortuga ]]; then
    set_term_bgcolor 45 15 5
 elif [[ "$@" =~ localhost ]]; then
    set_term_bgcolor 45 15 5
+elif [[ "$@" =~ lokal ]]; then
+   set_term_bgcolor 25 10 5
 fi
 
 ssh $@

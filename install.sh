@@ -79,6 +79,8 @@ if ! $GIT_INSTALLED; then
   done
 fi
 
+hash wget 2>&- || { _error "I require wget but it's not installed!"; exit 1; }
+
 if $GIT_INSTALLED; then
   git clone git://github.com/pierot/termieter.git "$install_dir"
 fi

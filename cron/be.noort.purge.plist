@@ -6,10 +6,6 @@
     <string>be.noort.purge</string>
     <key>Program</key>
     <string>/usr/bin/purge</string>
-    <key>ProgramArguments</key>
-    <array>
-      <string>backup</string>
-    </array>
     <key>LowPriorityIO</key>
     <true/>
     <key>StartInterval</key>
