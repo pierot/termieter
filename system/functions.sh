@@ -4,9 +4,16 @@ md() {
 }
 
 # Copy your public ssh key to remote server for password-less login
-# Usage: ssh_sesame 'tortuga'
-function ssh_sesame () {
+# Usage: ssh-sesame 'tortuga'
+function ssh-sesame () {
   cat ~/.ssh/id_rsa.pub | ssh $@ "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys";
+}
+
+# Copy public ssh key
+function ssh-public () {
+  echo "» cat ~/.ssh/id_rsa.pub | pbcopy"
+
+  cat ~/.ssh/id_rsa.pub | pbcopy
 }
 
 # convert currency from command line

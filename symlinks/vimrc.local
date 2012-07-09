@@ -6,7 +6,7 @@
 " |                                                                         |
 " ---------------------------------------------------------------------------
 
-colorscheme molokai
+colorscheme Tomorrow-Night-Eighties
 " set guifont=Monaco:h12
 
 " When moving up/down in wrapped lines, move 'screen' lines instead of
