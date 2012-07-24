@@ -15,9 +15,6 @@ alias projects='cd ~/Documents/Projects/'
 
 ################################################################################################################
 
-alias ..='cd ..'
-alias ...='cd .. ; cd ..'
-
 alias ls='ls $LS_OPT' # long list, excludes dot files
 alias ll='ls $LS_OPT -GlA' # long list all, includes dot files
 alias l='ls $LS_OPT -AFo'
@@ -50,3 +47,5 @@ alias trash='mv "$@" ~/.Trash/'
 # SSH background color
 alias ssh='echo "» ssh-host-color-iterm"; ~/.termieter/system/functions/ssh-host-color-iterm'
 
+# Fix font caches
+alias fixfonts='echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"; atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping'
