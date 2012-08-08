@@ -134,4 +134,3 @@ PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${DIR:0:11} = "/Volumes/data
 
 PS1="\[\033]0;\${DIR:${#DIR}-12}\007$green$(parse_ruby_version)$reset_color$red\u $SEP$reset_color$blue\$CurDir $cyan\$(scm_prompt_info)$reset_color$SEP$normal"
 PS1="\[\033[G\]$PS1" # http://jonisalonen.com/2012/your-bash-prompt-needs-this/?utm_source=hackernewsletter&utm_medium=email
-
