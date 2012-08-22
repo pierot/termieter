@@ -49,3 +49,7 @@ alias ssh='echo "» ssh-host-color-iterm"; ~/.termieter/system/functions/ssh-hos
 
 # Fix font caches
 alias fixfonts='echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"; atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping'
+
+# Server
+alias server-config='vim ~/.ssh/config'
+alias server-keys='l ~/.servers/*'
