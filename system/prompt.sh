@@ -84,11 +84,11 @@ function scm_prompt_info {
 }
 
 function parse_ruby_version {
-  # if command -v rvm-prompt &>/dev/null; then
-  #   if [ "$(rvm-prompt i v)" != "" ]; then echo "$(rvm-prompt i v) $SEP"; fi
-  # fi
+  if [ -s "$HOME/.rvm/scripts/rvm" ]; then
+    if [ "$(rvm-prompt i v)" != "" ]; then echo "$(rvm-prompt i v) $SEP"; fi
+  fi
 
-  if command -v rbenv version &>/dev/null; then
+  if [ -s "$HOME/.rbenv/bin" ]; then
     echo "`rbenv version | sed -e 's/ .*//'` $SEP"
   fi
 }

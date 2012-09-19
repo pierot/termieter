@@ -1,24 +1,15 @@
-alias termieter='cd ~/.termieter'
-alias termietere='cd ~/.termieter; vim .'
+alias termieter="cd $TRM"
+alias termietere="cd $TRM; vim ."
 
 alias vime='cd ~/.vim; vim .'
 
 alias reload!='. ~/.bash_profile'
 
-# paths
 ################################################################################################################
 
-alias repos='cd ~/Dropbox/Work/repos/'
-alias github='cd ~/Dropbox/Work/repos/github/'
-alias dev='cd ~/Dropbox/Work/devel/'
-alias clients='cd ~/Dropbox/Work/clients/'
-alias projects='cd ~/Documents/Projects/'
-
-################################################################################################################
-
-alias ls='ls $LS_OPT' # long list, excludes dot files
-alias ll='ls $LS_OPT -GlA' # long list all, includes dot files
-alias l='ls $LS_OPT -AFo'
+alias ls='ls $LS_OPT' # long list, excludes dot files                                                                                                                                                       
+alias ll='ls $LS_OPT -GlA' # long list all, includes dot files                                                                                                                                              
+alias l='ls $LS_OPT -goFA' 
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
@@ -40,8 +31,21 @@ alias v='vim .'
 alias trash='mv "$@" ~/.Trash/'
 
 # SSH background color
-alias ssh='echo "» ssh-host-color-iterm"; ~/.termieter/system/functions/ssh-host-color-iterm'
+alias ssh="echo '» ssh-host-color-iterm'; $TRM/system/functions/ssh-host-color-iterm"
 
 # Server
-alias ssh-config='vim ~/.ssh/config'
-alias server-keys='l ~/.servers/*'
+alias ssh-config="vim $HOME/.ssh/config"
+alias server-keys="l $HOME/.servers/*"
+
+# paths
+################################################################################################################
+
+DROPOX="$HOME/Dropbox"
+
+if [ -d $DROPBOX ]; then
+  alias repos="cd $DROPBOX/Work/repos/"
+  alias github="cd $DROPBOX/Work/repos/github/"
+  alias dev="cd $DROPBOX/Work/devel/"
+  alias clients="cd $DROPBOX/Work/clients/"
+  alias projects="cd $HOME/Documents/Projects/"
+fi

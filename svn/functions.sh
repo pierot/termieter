@@ -6,7 +6,6 @@ svn-delete-all() {
   svn st | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %
 }
 
-alias svn-status-all='~/.termieter/svn/functions/svnstatus.py $@'
-
-alias svn-up-all='~/.termieter/svn/functions/svnup.py $@'
+alias svn-status-all="$TRM/svn/functions/svnstatus.py $@"
+alias svn-up-all="$TRM/svn/functions/svnup.py $@"
 alias svn-update-all='svn-up-all'
