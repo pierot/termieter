@@ -87,7 +87,10 @@ function parse_ruby_version {
   # if command -v rvm-prompt &>/dev/null; then
   #   if [ "$(rvm-prompt i v)" != "" ]; then echo "$(rvm-prompt i v) $SEP"; fi
   # fi
-  echo "`rbenv version | sed -e 's/ .*//'` $SEP"
+
+  if command -v rbenv version &>/dev/null; then
+    echo "`rbenv version | sed -e 's/ .*//'` $SEP"
+  fi
 }
 
 function git_prompt_info {

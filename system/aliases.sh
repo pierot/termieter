@@ -9,6 +9,7 @@ alias reload!='. ~/.bash_profile'
 ################################################################################################################
 
 alias repos='cd ~/Dropbox/Work/repos/'
+alias github='cd ~/Dropbox/Work/repos/github/'
 alias dev='cd ~/Dropbox/Work/devel/'
 alias clients='cd ~/Dropbox/Work/clients/'
 alias projects='cd ~/Documents/Projects/'
@@ -35,21 +36,12 @@ alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
 alias v='vim .'
 
-# Clear temp files for a faster Terminal
-alias fasterfaster='sudo rm -rf /private/var/log/asl/*; sudo rm -rf /var/mail/*'
-
-# Remove spaces and replace by a dash
-alias remove-spaces='for file in *; do mv "$file" "${file// /-}"; done'
-
 # Trash a file from your Terminal
 alias trash='mv "$@" ~/.Trash/'
 
 # SSH background color
 alias ssh='echo "» ssh-host-color-iterm"; ~/.termieter/system/functions/ssh-host-color-iterm'
 
-# Fix font caches
-alias fixfonts='echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"; atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping'
-
 # Server
-alias server-config='vim ~/.ssh/config'
+alias ssh-config='vim ~/.ssh/config'
 alias server-keys='l ~/.servers/*'

@@ -32,6 +32,28 @@ function host-dropbox() {
   ln -s `pwd` "$HOME/Dropbox/Public/www/projects"
 }
 
+# Clear temp files for a faster Terminal
+function fasterfaster() {
+  sudo rm -rf /private/var/log/asl/*
+  sudo rm -rf /var/mail/*
+}
+
+# Remove spaces and replace by a dash
+function removespaces() {
+  for file in *
+  do 
+    mv "$file" "${file// /-}"
+  done
+}
+
+# Fix font caches
+function fixfonts () {
+  echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
+  atsutil databases -removeUser
+  atsutil server -shutdown
+  atsutil server -ping
+}
+
 # Helper :)
 function listf () {
   cat "$HOME/.termieter/system/functions.sh"

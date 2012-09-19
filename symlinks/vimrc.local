@@ -24,10 +24,16 @@ set ttymouse=xterm  " Set mouse type to xterm.
 
 set list!           " show hidden chars
 
+" allow multiple pastes of the same content when pasting in visual mode.
+vnoremap p pgvy
+
 let g:html_indent_tags = 'li\|p'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let NERDTreeWinSize=35                " how wide nerdtree ought to be
+let NERDTreeMinimalUI=1               " don't need to the noise
+let NERDTreeDirArrows=1               " prettier arrows
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
 
