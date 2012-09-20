@@ -1,8 +1,8 @@
 # alias tt='tmux'
 alias t='tmux'
-alias t-k='t kill-server'
-alias t-a='t attach-session -t $@'
-alias t-l='t ls'
+alias tk='t kill-server'
+alias ta='t attach-session -t $@'
+alias tl='t ls'
 
 function tt() {
   # var for session name (to avoid repeated occurences)
