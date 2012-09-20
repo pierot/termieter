@@ -29,7 +29,7 @@ vnoremap p pgvy
 
 let g:html_indent_tags = 'li\|p'
 
-let NERDTreeWinSize=35                " how wide nerdtree ought to be
+" let NERDTreeWinSize=35                " how wide nerdtree ought to be
 let NERDTreeMinimalUI=1               " don't need to the noise
 let NERDTreeDirArrows=1               " prettier arrows
 
