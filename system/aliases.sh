@@ -40,7 +40,7 @@ alias server-keys="l $HOME/.servers/*"
 # paths
 ################################################################################################################
 
-DROPOX="$HOME/Dropbox"
+export DROPBOX=$HOME/Dropbox
 
 if [ -d $DROPBOX ]; then
   alias repos="cd $DROPBOX/Work/repos/"
