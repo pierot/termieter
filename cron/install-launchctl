@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+LCTL=$HOME/Library/LaunchAgents/
+
+echo "Copy $@ to $LCTL"
+
+  if [ -f $LCTL$@ ]; then
+    rm $LCTL$@
+  fi
+
+  cp $@ $LCTL$@
+
+echo "Load $@ in $LCTL"
+
+  cd $LCTL
+  launchctl load $@
+  cd -

@@ -24,6 +24,9 @@ set ttymouse=xterm  " Set mouse type to xterm.
 
 set list!           " show hidden chars
 
+" Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
+set shell=/bin/bash\ --login
+
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
 

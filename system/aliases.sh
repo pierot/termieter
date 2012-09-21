@@ -7,9 +7,10 @@ alias reload!='. ~/.bash_profile'
 
 ################################################################################################################
 
-alias ls='ls $LS_OPT' # long list, excludes dot files                                                                                                                                                       
-alias ll='ls $LS_OPT -GlA' # long list all, includes dot files                                                                                                                                              
-alias l='ls $LS_OPT -goFA' 
+alias ls='ls $LS_OPT' # long list, excludes dot files
+alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
+# alias l='ls $LS_OPT -goFA' 
+alias l='ls $LS_OPT -1AF' 
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip

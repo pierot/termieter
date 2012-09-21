@@ -1,4 +1,0 @@
-cp "$@" ~/Library/LaunchAgents/
-cd ~/Library/LaunchAgents/
-launchctl load "$@"
-cd -

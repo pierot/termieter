@@ -25,6 +25,8 @@ export PATH
 
 export CLICOLOR=1;
 
+export TZ='Europe/Brussels'; 
+
 if [[ `uname` == 'Darwin' ]]; then
   export LANG="it_IT.UTF-8"
   export LC_COLLATE="it_IT.UTF-8"
