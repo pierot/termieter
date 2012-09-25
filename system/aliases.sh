@@ -21,7 +21,11 @@ alias ping='echo "» pint -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias cwd='pwd | pbcopy' # copy current working directory to clipboard
 
-alias hosts='sudo vim /private/etc/hosts'
+if [[ `uname` == 'Darwin' ]]; then
+  alias hosts='sudo vim /private/etc/hosts'
+else
+  alias hosts='sudo vim /etc/hosts'
+fi
 
 alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
