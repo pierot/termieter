@@ -27,17 +27,17 @@ export CLICOLOR=1;
 
 export TZ='Europe/Brussels'; 
 
-# if [[ `uname` == 'Darwin' ]]; then
-  # export LANG="it_IT.UTF-8"
-  # export LC_COLLATE="it_IT.UTF-8"
-  # export LC_CTYPE="it_IT.UTF-8"
-  # export LC_MESSAGES="it_IT.UTF-8"
-  # export LC_MONETARY="it_IT.UTF-8"
-  # export LC_NUMERIC="it_IT.UTF-8"
-  # export LC_TIME="it_IT.UTF-8"
-  # export LC_ALL=
-# fi
-
 export LANGUAGE="en_US.UTF-8"
 export LANG="C"
 export LC_MESSAGES="C"
+
+if [[ `uname` == 'Darwin' ]]; then
+  export LANG="en_US.UTF-8"
+  export LC_COLLATE="en_US.UTF-8"
+  export LC_CTYPE="en_US.UTF-8"
+  export LC_MESSAGES="en_US.UTF-8"
+  export LC_MONETARY="en_US.UTF-8"
+  export LC_NUMERIC="en_US.UTF-8"
+  export LC_TIME="en_US.UTF-8"
+  export LC_ALL=
+fi
