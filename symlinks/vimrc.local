@@ -1,11 +1,3 @@
-" ---------------------------------------------------------------------------
-" |                                                                         |
-" |                         Proximity goes Vim!                             |
-" |                                                                         |
-" |                Here you can go crazy, this is your file!                |
-" |                                                                         |
-" ---------------------------------------------------------------------------
-
 colorscheme Tomorrow-Night-Eighties
 " set guifont=Monaco:h12
 
@@ -17,12 +9,16 @@ colorscheme Tomorrow-Night-Eighties
 " vnoremap k gk
 
 " map ; to : in normal mode
-nnoremap ; :        
+nnoremap ; :
 
-set mouse=a         " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
-set ttymouse=xterm  " Set mouse type to xterm.
+" Enable mouse in all modes. -> https://bitheap.org/mouseterm/
+set mouse=a
 
-set list!           " show hidden chars
+" Set mouse type to xterm.
+set ttymouse=xterm
+
+" show hidden chars
+set list!
 
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
 set shell=/bin/bash\ --login
@@ -30,16 +26,16 @@ set shell=/bin/bash\ --login
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
 
+" better indent for li and p
 let g:html_indent_tags = 'li\|p'
 
-" let NERDTreeWinSize=35                " how wide nerdtree ought to be
-let NERDTreeMinimalUI=1               " don't need to the noise
-let NERDTreeDirArrows=1               " prettier arrows
+" how wide nerdtree ought to be
+" let NERDTreeWinSize=35                
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
 
+" Ctrl P
 let g:SuperTabDefaultCompletionType = "<c-p>"
 
 " Sudo to write
@@ -47,3 +43,10 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+
+" Max line width
+set tw=80
+set textwidth=80
+set wrap
+set linebreak
+set showbreak=>>
