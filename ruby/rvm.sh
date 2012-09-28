@@ -5,4 +5,3 @@ if [ -s "$HOME/.rvm/scripts/rvm" ]; then
     source '/usr/local/lib/rvm'
   fi
 fi
-
