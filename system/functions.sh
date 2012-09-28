@@ -46,6 +46,14 @@ function removespaces() {
   done
 }
 
+# Remove underscore and replace by a dash
+function removeunderscore() {
+  for file in *
+  do 
+    mv "$file" "${file//_/-}"
+  done
+}
+
 # Fix font caches
 function fixfonts () {
   echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
