@@ -34,7 +34,7 @@ plugins=(git gem lol npm vagrant)
 if [[ `uname` == 'Darwin' ]]; then
   # nothing yet
 else
-  plugins+=(command-not-found)
+  # nothing yet
 fi
 
 source $ZSH/oh-my-zsh.sh
