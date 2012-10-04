@@ -60,9 +60,9 @@ if [[ `uname` == 'Darwin' ]]; then
     atsutil server -ping
   }
 
-else
+# else
   
-  :# LINUX
+  # LINUX
 
 
 fi

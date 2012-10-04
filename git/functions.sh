@@ -9,9 +9,9 @@ if [[ `uname` == 'Darwin' ]]; then
     fi
   fi
 
-else
+# else
 
-  :# LINUX
+  # LINUX
 
 
 fi
