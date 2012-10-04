@@ -1,17 +1,30 @@
 #!/usr/bin/env bash
 
-LCTL=$HOME/Library/LaunchAgents/
+if [[ `uname` == 'Darwin' ]]; then
 
-echo "Copy $@ to $LCTL"
+  # OSX
 
-  if [ -f $LCTL$@ ]; then
-    rm $LCTL$@
-  fi
+  LCTL=$HOME/Library/LaunchAgents/
 
-  cp $@ $LCTL$@
+  echo "Copy $@ to $LCTL"
 
-echo "Load $@ in $LCTL"
+    if [ -f $LCTL$@ ]; then
+      rm $LCTL$@
+    fi
 
-  cd $LCTL
-  launchctl load $@
-  cd -
+    cp $@ $LCTL$@
+
+  echo "Load $@ in $LCTL"
+
+    cd $LCTL
+    launchctl load $@
+    cd -
+
+else
+ 
+  # LINUX
+
+  echo "This will only works on OSX."
+
+  exit 1
+fi

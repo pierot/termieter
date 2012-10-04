@@ -6,26 +6,14 @@ md() {
 # Copy your public ssh key to remote server for password-less login
 # Usage: ssh-sesame 'tortuga'
 function ssh-sesame () {
-  cat ~/.ssh/id_rsa.pub | ssh $@ "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys";
+  cat "$HOME/.ssh/id_rsa.pub" | ssh $@ "mkdir -p $HOME/.ssh && cat >> $HOME/.ssh/authorized_keys";
 }
 
 # Copy public ssh key
 function ssh-public () {
-  echo "» cat ~/.ssh/id_rsa.pub | pbcopy"
+  echo "» cat $HOME/.ssh/id_rsa.pub | pbcopy"
 
-  cat ~/.ssh/id_rsa.pub | pbcopy
-}
-
-# convert currency from command line
-function curr () {
-  if [ $1 == 'all' ]; then
-    wget -qO- "http://hints.macworld.com/dlfiles/curr_units.txt"; echo ""
-  else
-    for i in $3
-    do
-      wget -qO- "http://www.google.com/finance/converter?a=$1&from=$2&to=$i&hl=en" |  sed '/res/!d;s/<[^>]*>//g';
-    done
-  fi
+  cat "$HOME/.ssh/id_rsa.pub" | pbcopy
 }
 
 function host-dropbox() {
@@ -39,7 +27,7 @@ function fasterfaster() {
 }
 
 # Remove spaces and replace by a dash
-function removespaces() {
+function remove-spaces() {
   for file in *
   do 
     mv "$file" "${file// /-}"
@@ -47,22 +35,34 @@ function removespaces() {
 }
 
 # Remove underscore and replace by a dash
-function removeunderscore() {
+function remove-underscore() {
   for file in *
   do 
     mv "$file" "${file//_/-}"
   done
 }
 
-# Fix font caches
-function fixfonts () {
-  echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
-  atsutil databases -removeUser
-  atsutil server -shutdown
-  atsutil server -ping
-}
-
 # Helper :)
 function listf () {
-  cat "$HOME/.termieter/system/functions.sh"
+  cat "$TRM/system/functions.sh"
 }
+
+if [[ `uname` == 'Darwin' ]]; then
+
+  # OSX
+
+  # Fix font caches
+  function fix-fonts () {
+    echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
+
+    atsutil databases -removeUser
+    atsutil server -shutdown
+    atsutil server -ping
+  }
+
+else
+  
+  :# LINUX
+
+
+fi
