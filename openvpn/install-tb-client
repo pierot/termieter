@@ -1,0 +1,30 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+  echo 'No config name / dir given!'
+  echo ''
+  echo 'Usage: `./install-client dir-path`'
+
+  exit 0
+fi
+
+SOURCE_NAME=`basename $1`
+SOURCE="$1/client"
+TARGET="$HOME/Library/Application Support/Tunnelblick/Configurations/$SOURCE_NAME"
+
+if [ -d "$TARGET" ]; then
+  rm -r "$TARGET"
+fi
+
+echo "Copy $SOURCE to $TARGET"
+
+cp -R "$SOURCE" "$TARGET"
+
+SEARCH="s/ca ca.crt/ca $SOURCE_NAME\/ca.crt/"
+perl -pi -e "$SEARCH" "$TARGET/client.conf"
+
+SEARCH="s/cert client.crt/cert $SOURCE_NAME\/client.crt/"
+perl -pi -e "$SEARCH" "$TARGET/client.conf"
+
+SEARCH="s/key client.key/key $SOURCE_NAME\/client.key/"
+perl -pi -e "$SEARCH" "$TARGET/client.conf"
