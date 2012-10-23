@@ -5,12 +5,12 @@ md() {
 
 # Copy your public ssh key to remote server for password-less login
 # Usage: ssh-sesame 'tortuga'
-function ssh-sesame () {
+function ssh-sesame() {
   cat "$HOME/.ssh/id_rsa.pub" | ssh $@ "mkdir -p $HOME/.ssh && cat >> $HOME/.ssh/authorized_keys";
 }
 
 # Copy public ssh key
-function ssh-public () {
+function ssh-public() {
   echo "» cat $HOME/.ssh/id_rsa.pub | pbcopy"
 
   cat "$HOME/.ssh/id_rsa.pub" | pbcopy
@@ -42,8 +42,13 @@ function remove-underscore() {
   done
 }
 
+# List all files interacting with ipv4-6 ports
+function list-files-ports() {
+  lsof -i
+}
+
 # Helper :)
-function listf () {
+function listf() {
   cat "$TRM/system/functions.sh"
 }
 
@@ -52,7 +57,7 @@ if [[ `uname` == 'Darwin' ]]; then
   # OSX
 
   # Fix font caches
-  function fix-fonts () {
+  function fix-fonts() {
     echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
 
     atsutil databases -removeUser
@@ -60,9 +65,16 @@ if [[ `uname` == 'Darwin' ]]; then
     atsutil server -ping
   }
 
-# else
+else
   
-  # LINUX
+  :# LINUX
 
+  function list-services() {
+    chkconfig --list | grep '3:on'
+  }
+
+  function active-connections() {
+    netstat -tulpn
+  }
 
 fi
