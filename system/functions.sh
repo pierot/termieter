@@ -77,7 +77,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
 else
   
-  :# LINUX
+  # LINUX
 
   function list-services() {
     chkconfig --list | grep '3:on'
