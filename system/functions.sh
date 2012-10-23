@@ -16,10 +16,6 @@ function ssh-public() {
   cat "$HOME/.ssh/id_rsa.pub" | pbcopy
 }
 
-function host-dropbox() {
-  ln -s `pwd` "$HOME/Dropbox/Public/www/projects"
-}
-
 # Clear temp files for a faster Terminal
 function fasterfaster() {
   sudo rm -rf /private/var/log/asl/*
@@ -44,7 +40,21 @@ function remove-underscore() {
 
 # List all files interacting with ipv4-6 ports
 function list-files-ports() {
+  echo "» lsof -i"
+
   lsof -i
+}
+
+function disk-space() {
+  echo "» df -h"
+
+  df -h
+}
+
+function dir-space() {
+  echo "» du -ch | grep total"
+
+  du -ch | grep total
 }
 
 # Helper :)
