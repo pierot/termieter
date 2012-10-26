@@ -1,5 +1,10 @@
+# Termieter directory
+export TRM=$HOME/.termieter
+
 # Path to your oh-my-zsh configuration.
-ZSH=$TRM/zsh/oh-my-zsh
+export ZSH=$TRM/zsh/oh-my-zsh
+
+export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -29,14 +34,34 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gem lol npm vagrant)
+plugins=(gem npm rbenv)
 
 if [[ `uname` == 'Darwin' ]]; then
   # nothing yet
 else
-  # nothing yet
+  plugins+=(command-not-found)
 fi
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# Colors for ls and autocompletion
+# eval $( gdircolors -b $ZSH/LS_COLORS )
+zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+# setopt extended_glob
+
+# Execute
+for config_file in $TRM/*/*.sh; do
+  source $config_file
+done
+
+for function_file in $TRM/*/functions/*.sh; do
+  source $function_file
+done
+
+alias reload!='. ~/.zshrc'

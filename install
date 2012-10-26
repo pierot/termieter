@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "WRONG!"
+exit 0
+
 wget -N --quiet https://raw.github.com/pierot/server-installer/master/lib.sh; . ./lib.sh
 
 ############################################################################### 
