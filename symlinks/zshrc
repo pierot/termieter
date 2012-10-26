@@ -39,7 +39,7 @@ plugins=(gem npm rbenv)
 if [[ `uname` == 'Darwin' ]]; then
   # nothing yet
 else
-  plugins+=(command-not-found)
+  # plugins+=(command-not-found)
 fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
