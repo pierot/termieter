@@ -5,6 +5,7 @@ export TRM=$HOME/.termieter
 export ZSH=$TRM/zsh/oh-my-zsh
 
 export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
+export SHELL=/bin/zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
