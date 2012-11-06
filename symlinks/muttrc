@@ -15,7 +15,7 @@ set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
 
 set move = no
-set timeout=15
+set timeout = 15
 auto_view text/html
 
 set sort_aux = 'last-date-received'

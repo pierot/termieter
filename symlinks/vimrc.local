@@ -50,3 +50,8 @@ set textwidth=80
 set wrap
 set linebreak
 set showbreak=>>
+
+" Highlight everyting that is longer than 80 chars
+highlight OverLength ctermbg=black ctermfg=white guibg=#592929
+match OverLength /\%81v.*/
+let c_space_errors=1
