@@ -23,10 +23,10 @@
     sudo rm -rf /var/mail/*
   }
 
-  # Create a new directory and enter it
-  md() {
-    mkdir -p "$@" && cd "$@"
-  }
+#   # Create a new directory and enter it
+#   md() {
+#     mkdir -p "$@" && cd "$@"
+#   }
 
 ###############################################################################
 # RENAMING
