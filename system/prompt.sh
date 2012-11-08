@@ -94,17 +94,19 @@ function parse_ruby_version {
   fi
 }
 
-function git_prompt_info {
-  if [[ -n $(git status -s 2> /dev/null |grep -v ^# |grep -v "working directory clean") ]]; then
-    state=$SCM_THEME_PROMPT_DIRTY
-  else
-    state=$SCM_THEME_PROMPT_CLEAN
-  fi
+if [[ $CURRENT_SHELL == 'bash' ]]; then
+  function git_prompt_info {
+    if [[ -n $(git status -s 2> /dev/null |grep -v ^# |grep -v "working directory clean") ]]; then
+      state=$SCM_THEME_PROMPT_DIRTY
+    else
+      state=$SCM_THEME_PROMPT_CLEAN
+    fi
 
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 
-  echo -e "$SCM_GIT_CHAR${ref#refs/heads/}$state"
-}
+    echo -e "$SCM_GIT_CHAR${ref#refs/heads/}$state"
+  }
+fi
 
 function svn_prompt_info {
   if [[ -n $(svn status 2> /dev/null) ]]; then
