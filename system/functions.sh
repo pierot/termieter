@@ -54,6 +54,10 @@ function list-files-ports() {
   lsof -i
 }
 
+function find-todos() {
+  find . -exec grep -Hin TODO {} \;
+}
+
 ###############################################################################
 # USAGE
 

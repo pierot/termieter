@@ -1,6 +1,6 @@
 export HISTCONTROL=erasedups # Erase duplicates
 export HISTCONTROL=ignoreboth # Ignore same sucessive entries.
-export HISTSIZE=6000 # resize history size
+export HISTSIZE=12500 # resize history size
 
 if [[ $CURRENT_SHELL == 'bash' ]]; then
   shopt -s histappend # append to bash_history if Terminal.app quits
@@ -12,6 +12,8 @@ fi
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/share/python:$PATH"
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
 
 export PATH
 
