@@ -1,0 +1,18 @@
+# MS Word documents
+application/msword; $TRM/mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+
+# Images
+image/jpg; $TRM/mutt/view_attachment.sh %s jpg
+image/jpeg; $TRM/mutt/view_attachment.sh %s jpg
+image/pjpeg; $TRM/mutt/view_attachment.sh %s jpg
+image/png; $TRM/mutt/view_attachment.sh %s png
+image/gif; $TRM/mutt/view_attachment.sh %s gif
+
+# PDFs
+application/pdf; $TRM/mutt/view_attachment.sh %s pdf
+
+# HTML
+text/html; $TRM/mutt/view_attachment.sh %s html
+
+# Unidentified files
+application/octet-stream; $TRM/mutt/view_attachment.sh %s "-"

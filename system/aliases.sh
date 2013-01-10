@@ -20,6 +20,9 @@ alias ping='echo "» pint -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
+alias msh-noort='mosh --ssh="ssh -p 33" root@noort.be'
+alias msh-info='open http://mosh.mit.edu/#about'
+
 alias v='vim .'
 
 # Server
