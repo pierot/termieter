@@ -13,6 +13,12 @@ export SHELL=/bin/zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+if [[ `uname` == 'Darwin' ]]; then
+  # nothing yet
+else
+  ZSH_THEME="bira"
+fi
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
