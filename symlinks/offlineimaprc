@@ -1,7 +1,7 @@
 [general]
 ui = ttyui
 accounts = PieterM
-pythonfile = ~/.termieter/mutt/offlineimap.py
+pythonfile = ~/.termieter/mutt/functions/offlineimap.py
 fsync = False
 
 [Account PieterM]
