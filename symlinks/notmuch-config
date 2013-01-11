@@ -7,7 +7,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=$HOME/Dropbox/Pieter/mail/noort.be
+path=/Users/pieterm/Dropbox/Pieter/mail/noort.be
 
 # User configuration
 #
@@ -44,7 +44,7 @@ other_email=pieter@wellconsidered.be;pieter.michels@telenet.be;pieter.michels@gm
 #
 [new]
 tags=unread;inbox;
-ignore=
+ignore=temp
 
 # Search configuration
 #
