@@ -1,18 +1,18 @@
 [general]
 ui = ttyui
-accounts = PieterM
+accounts = pieterm
 pythonfile = ~/.termieter/mutt/functions/offlineimap.py
 fsync = False
 
-[Account PieterM]
-localrepository = PieterM-Local
-remoterepository = PieterM-Remote
+[Account pieterm]
+localrepository = pieterm-Local
+remoterepository = pieterm-Remote
 status_backend = sqlite
 postsynchook = notmuch new
 
-[Repository PieterM-Local]
+[Repository pieterm-Local]
 type = Maildir
-localfolders = ~/Dropbox/Private/backups/mail-noort
+localfolders = ~/Dropbox/Pieter/mail/noort.be
 nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             'sent':    '[Gmail]/Sent Mail',
                             'flagged': '[Gmail]/Starred',
@@ -20,7 +20,7 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             'archive': '[Gmail]/All Mail',
                             }.get(folder, folder)
 
-[Repository PieterM-Remote]
+[Repository pieterm-Remote]
 maxconnections = 1
 type = Gmail
 cert_fingerprint = 6d1b5b5ee0180ab493b71d3b94534b5ab937d042

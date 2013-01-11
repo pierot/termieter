@@ -1,5 +1,5 @@
 # Paths ----------------------------------------------
-set folder           = ~/Dropbox/Private/backups/mail-noort               # mailbox location
+set folder           = ~/Dropbox/Pieter/mail/noort.be               # mailbox location
 set alias_file       = ~/.mutt/alias         # where to store aliases
 set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
@@ -135,9 +135,14 @@ set forward_quote                    # include message in forwards
 set editor = "vim"        # Use terminal Vim to compose email.
 
 set from     = "pieter@noort.be"
-set sendmail = "/usr/local/bin/msmtp -a PieterM"
+set sendmail = "/usr/local/bin/msmtp -a pieterm"
 set sendmail_wait = 0
 unset record
 
 bind compose p postpone-message
 bind index p recall-message
+
+bind index N search-opposite
+bind pager N search-opposite
+
+macro index a "<limit>all\n" "show all messages (undo limit)"

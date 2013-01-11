@@ -27,7 +27,6 @@ alias v='vim .'
 
 # Server
 alias ssh-config="vim $HOME/.ssh/config"
-alias server-keys="l $HOME/.servers/*"
 
 ################################################################################################################
 
@@ -49,9 +48,6 @@ if [[ `uname` == 'Darwin' ]]; then
 
   alias flushdns='echo "» dscacheutil -flushcache"; dscacheutil -flushcache' # Flush DNS cache
   alias hosts='sudo vim /private/etc/hosts'
-
-  # SSH background color
-  alias ssh="echo '» ssh-host-color-iterm'; $TRM/system/functions/ssh-host-color-iterm"
 
   # Trash a file from your Terminal
   alias trash='mv "$@" ~/.Trash/'

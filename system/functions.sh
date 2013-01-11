@@ -23,11 +23,6 @@
     sudo rm -rf /var/mail/*
   }
 
-#   # Create a new directory and enter it
-#   md() {
-#     mkdir -p "$@" && cd "$@"
-#   }
-
 ###############################################################################
 # RENAMING
 
@@ -47,16 +42,16 @@
     done
   }
 
-# List all files interacting with ipv4-6 ports
-function list-files-ports() {
-  echo "» lsof -i"
+  # List all files interacting with ipv4-6 ports
+  function list-files-ports() {
+    echo "» lsof -i"
 
-  lsof -i
-}
+    lsof -i
+  }
 
-function find-todos() {
-  find . -exec grep -Hin TODO {} \;
-}
+  function find-todos() {
+    find . -exec grep -Hin TODO {} \;
+  }
 
 ###############################################################################
 # USAGE
