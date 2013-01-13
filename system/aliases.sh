@@ -42,10 +42,7 @@ fi
 
 ################################################################################################################
 
-if [[ `uname` == 'Darwin' ]]; then
-  
-  # OSX
-
+if [[ $OS == 'OSX' ]]; then
   alias flushdns='echo "» dscacheutil -flushcache"; dscacheutil -flushcache' # Flush DNS cache
   alias hosts='sudo vim /private/etc/hosts'
 
@@ -54,12 +51,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
   # copy current working directory to clipboard
   alias cwd='pwd | pbcopy' 
-
 else
-
-  # LINUX
-
   alias hosts='sudo vim /etc/hosts'
   alias sys-update='sudo apt-get update && sudo apt-get upgrade'
-
 fi

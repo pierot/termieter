@@ -119,6 +119,12 @@ else
     _back_install $(basename $sym_file)
   done
 
+  cd $install_dir
+
+  _print "Fetching all submodules"
+
+  git submodule update --init
+
   _print "Installation finished"
 fi
 
