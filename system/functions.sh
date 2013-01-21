@@ -18,6 +18,7 @@ extract () {
     echo "'$1' is not a valid file"
   fi
 }
+
 ###############################################################################
 # SSH
 
@@ -29,7 +30,7 @@ function ssh-sesame() {
 
 # Print public ssh key
 function ssh-public() {
-  echo "» cat $HOME/.ssh/id_rsa.pub"
+  echoo "cat $HOME/.ssh/id_rsa.pub"
 
   cat "$HOME/.ssh/id_rsa.pub"
 }
@@ -64,7 +65,7 @@ function remove-underscore() {
 
 # List all files interacting with ipv4-6 ports
 function list-files-ports() {
-  echo "» lsof -i"
+  echoo "lsof -i"
 
   lsof -i
 }
@@ -86,7 +87,7 @@ function listf() {
 if [[ $OS == 'OSX' ]]; then
   # Fix font caches
   function fix-fonts() {
-    echo "» atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
+    echoo "atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
 
     atsutil databases -removeUser
     atsutil server -shutdown
@@ -95,7 +96,7 @@ if [[ $OS == 'OSX' ]]; then
 
   # Copy public ssh key
   function ssh-public-copy() {
-    echo "» cat $HOME/.ssh/id_rsa.pub | pbcopy"
+    echoo "cat $HOME/.ssh/id_rsa.pub | pbcopy"
 
     cat "$HOME/.ssh/id_rsa.pub" | pbcopy
   }

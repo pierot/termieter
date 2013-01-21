@@ -4,7 +4,6 @@
 SCM_THEME_PROMPT_DIRTY=' ✗ '
 SCM_THEME_PROMPT_CLEAN=' ✓ '
 
-# SEP='∴ '
 SEP='⚡ '
 
 GIT='git'

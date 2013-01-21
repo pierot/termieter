@@ -1,5 +1,6 @@
 export TRM=$HOME/.termieter
 export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
+export DROPBOX=$HOME/Dropbox
 
 if [[ `uname` == 'Darwin' ]]; then
   export OS='OSX'
@@ -7,6 +8,7 @@ else
   export OS='Linux'
 fi
 
+# LOAD ALL
 for config_file in $TRM/**/*.sh
 do
   source $config_file

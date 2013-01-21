@@ -14,14 +14,16 @@ alias l='ls $LS_OPT -1AFC'
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
 
-alias gzip='echo "» gzip -9n"; gzip -9n' # set strongest compression level as ‘default’ for gzip
-alias ping='echo "» pint -c 5"; ping -c 5' # ping 5 times ‘by default’
+alias gzip='echoo "gzip -9n"; gzip -9n' # set strongest compression level as ‘default’ for gzip
+alias ping='echoo "pint -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias hist='history | grep "$@"'
 alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
 
 alias msh-noort='mosh --ssh="ssh -p 33" root@noort.be'
 alias msh-info='open http://mosh.mit.edu/#about'
+
+alias echoo='printf "\e[0;37m» %s\e[0m\n" $@'
 
 alias v='vim .'
 
@@ -32,8 +34,6 @@ alias ssh-config="vim $HOME/.ssh/config"
 alias t="$TRM/system/functions/sjl-t/t.py --task-dir $HOME/Dropbox/Private/tasks --list tasks"
 
 ################################################################################################################
-
-export DROPBOX=$HOME/Dropbox
 
 if [ -d $DROPBOX ]; then
   alias repos="cd $DROPBOX/Work/repos/"
@@ -46,14 +46,14 @@ fi
 ################################################################################################################
 
 if [[ $OS == 'OSX' ]]; then
-  alias flushdns='echo "» dscacheutil -flushcache"; dscacheutil -flushcache' # Flush DNS cache
-  alias hosts='sudo vim /private/etc/hosts'
+  alias flushdns='echoo "dscacheutil -flushcache"; dscacheutil -flushcache' # Flush DNS cache
+  alias hosts='echoo "sudo vim /private/etc/hosts"; sudo vim /private/etc/hosts'
 
   # Trash a file from your Terminal
   alias trash='mv "$@" ~/.Trash/'
 
   # copy current working directory to clipboard
-  alias cwd='pwd | pbcopy' 
+  alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy' 
 else
   alias hosts='sudo vim /etc/hosts'
   alias sys-update='sudo apt-get update && sudo apt-get upgrade'

@@ -1,17 +1,17 @@
-# Termieter directory
 export TRM=$HOME/.termieter
+
+# Path to your oh-my-zsh configuration.
+export ZSH=$TRM/zsh/oh-my-zsh
+
+export DROPBOX=$HOME/Dropbox
+export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
+export SHELL=/bin/zsh
 
 if [[ `uname` == 'Darwin' ]]; then
   export OS='OSX'
 else
   export OS='Linux'
 fi
-
-# Path to your oh-my-zsh configuration.
-export ZSH=$TRM/zsh/oh-my-zsh
-
-export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
-export SHELL=/bin/zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -25,24 +25,42 @@ else
   ZSH_THEME="bira"
 fi
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
+
+# When listing options (by `setopt', `unsetopt', `set -o' or `set +o'),
+# those turned on by default appear in the list prefixed with `no'.
+# Hence (unless KSH_OPTION_PRINT is set), `setopt' shows all options
+# whose settings are changed from the default.
+#
+# Report the status of background jobs immediately, rather than
+# waiting until just before printing a prompt.
+setopt notify 
+
+# Print a carriage return just before printing a prompt in the line
+# editor. For example:
+#  $ echo foo
+#  foo
+#  $ echo -n foo
+#  $ setopt nopromptcr
+#  $ echo -n foo
+#  foo$
+setopt nopromptcr
+
+# Appends every command to the history file once it is executed
+setopt inc_append_history
+
+# Reloads the history whenever you use it
+setopt share_history
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -82,7 +100,11 @@ alias reload!='. ~/.zshrc'
 RPROMPT="$RPROMPT %{$FG[098]%}[$(t | wc -l | sed -e's/ *//')]%{$reset_color%}"
 
 function last_command() {
-  echo `history -1 | cut -d ' ' -f 3-20 | realiaser`
+  his=history
+  his=$(echo $his | tail -n 1)
+  his=$(echo $his | cut -d ' ' -f 2-20)
+
+  echo $(echo $his | realiaser)
 }
 
 RPROMPT="$RPROMPT %{$fg[$NCOLOR]%}%p $(last_command)%{$reset_color%}"
