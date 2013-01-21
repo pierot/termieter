@@ -20,7 +20,7 @@ export SHELL=/bin/zsh
 ZSH_THEME="robbyrussell"
 
 if [[ $OS == 'OSX' ]]; then
-  # nothing yet
+  ZSH_THEME="intheloop"
 else
   ZSH_THEME="bira"
 fi
@@ -78,3 +78,11 @@ for function_file in $TRM/*/functions/*.sh; do
 done
 
 alias reload!='. ~/.zshrc'
+
+RPROMPT="$RPROMPT %{$FG[098]%}[$(t | wc -l | sed -e's/ *//')]%{$reset_color%}"
+
+function last_command() {
+  echo `history -1 | cut -d ' ' -f 3-20 | realiaser`
+}
+
+RPROMPT="$RPROMPT %{$fg[$NCOLOR]%}%p $(last_command)%{$reset_color%}"

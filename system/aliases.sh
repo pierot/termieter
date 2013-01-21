@@ -28,6 +28,9 @@ alias v='vim .'
 # Server
 alias ssh-config="vim $HOME/.ssh/config"
 
+# SJL T
+alias t="$TRM/system/functions/sjl-t/t.py --task-dir $HOME/Dropbox/Private/tasks --list tasks"
+
 ################################################################################################################
 
 export DROPBOX=$HOME/Dropbox

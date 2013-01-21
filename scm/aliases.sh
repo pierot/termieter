@@ -22,6 +22,7 @@ alias gst='echo "» git status"; git status'
 alias gp='echo "» git push"; git push "$@"'
 alias gcam='echo "» git commit -a -m"; git commit -a -m "$@"'
 alias gall='echo "» git add ."; git add .'
+alias gsync='echo "» git stash\n» git pull\n» git stash pop\n"; git stash && git pull && git stash pop'
 
 alias gls='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 alias gll='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat'
