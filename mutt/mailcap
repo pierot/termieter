@@ -16,3 +16,10 @@ text/html; $TRM/mutt/functions/view_attachment %s html
 
 # Unidentified files
 application/octet-stream; $TRM/mutt/functions/view_attachment %s "-"
+
+application/x-gzip              ; unzip %s
+application/x-rar-compressed    ; rar v %s
+application/x-tar               ; tar xzf %s
+application/x-tar-gz            ; tar xzf %s
+application/x-zip-compressed    ; unzip %s
+application/zip                 ; unzip %s
