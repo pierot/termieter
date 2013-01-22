@@ -54,6 +54,11 @@ if [[ $OS == 'OSX' ]]; then
 
   # copy current working directory to clipboard
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy' 
+
+  # Spotlight
+  alias spotlight-stop='sudo mdutil -i off /'
+  alias spotlight-clear='sudo mdutil -E /'
+  alias spotlight-start='sudo mdutil -i on /'
 else
   alias hosts='sudo vim /etc/hosts'
   alias sys-update='sudo apt-get update && sudo apt-get upgrade'

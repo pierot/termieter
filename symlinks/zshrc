@@ -1,17 +1,7 @@
-export TRM=$HOME/.termieter
+source $HOME/.termieter/system/env
 
-# Path to your oh-my-zsh configuration.
-export ZSH=$TRM/zsh/oh-my-zsh
-
-export DROPBOX=$HOME/Dropbox
-export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
 export SHELL=/bin/zsh
-
-if [[ `uname` == 'Darwin' ]]; then
-  export OS='OSX'
-else
-  export OS='Linux'
-fi
+export ZSH=$TRM/zsh/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
