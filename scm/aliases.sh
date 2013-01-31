@@ -13,13 +13,14 @@ svn-delete-all() {
   svn st | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %
 }
 
-alias svn-status-all="$TRM/svn/functions/svnstatus.py $@"
-alias svn-up-all="$TRM/svn/functions/svnup.py $@"
+alias svn-status-all="$TRM/scm/functions/svnstatus.py $@"
+alias svn-up-all="$TRM/scm/functions/svnup.py $@"
 alias svn-update-all='svn-up-all'
 
 # GIT
 alias gst='echoo "git status"; git status'
 alias gp='echoo "git push"; git push "$@"'
+alias gpl='echoo "git pull"; git pull "$@"'
 alias gcam='echoo "git commit -a -m"; git commit -a -m "$@"'
 alias gall='echoo "git add ."; git add .'
 alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'

@@ -55,3 +55,9 @@ set showbreak=>>
 highlight OverLength ctermbg=black ctermfg=white guibg=#592929
 match OverLength /\%81v.*/
 let c_space_errors=1
+
+command! CleanWindowsShit :call CleanWindowsShit()<CR>
+
+function! CleanWindowsShit()
+  :%s///g
+endf

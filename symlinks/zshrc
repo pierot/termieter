@@ -88,13 +88,3 @@ done
 alias reload!='. ~/.zshrc'
 
 RPROMPT="$RPROMPT %{$FG[098]%}[$(t | wc -l | sed -e's/ *//')]%{$reset_color%}"
-
-function last_command() {
-  his=history
-  his=$(echo $his | tail -n 1)
-  his=$(echo $his | cut -d ' ' -f 2-20)
-
-  echo $(echo $his | realiaser)
-}
-
-RPROMPT="$RPROMPT %{$fg[$NCOLOR]%}%p $(last_command)%{$reset_color%}"
