@@ -1,8 +1,10 @@
 #!/bin/bash
+
 #######################
 # Usage
 usage() {
   echo "USAGE: ${0} -b | -r [backup_number]"
+
   exit 1
 }
 
@@ -10,8 +12,7 @@ usage() {
 # Config Variables
 max_backups=12
 ignore_session_list=""
-backup_dir=~/.tmux-resurrect/snapshot
-export PATH="${PATH}:/usr/local/bin"
+backup_dir=$HOME/.tmux-resurrect/snapshot
 
 #######################
 # Use prompt to get state of pane.
@@ -24,9 +25,12 @@ mimic_state() {
   if [ "${host}" != "$(hostname)" ] && [ "${host}" != "" ] ;then
     tmux send-keys -t ${pane_full} "ssh ${host}
     " #carriage return from previous line
-    echo "SSH'd to ${host} in ${pane_full}.  Sleeping 5 sec..."
+
+    echo "SSH'd to ${host} in ${pane_full}.  Sleeping 5 sec..." | logger
+
     sleep 5
   fi
+
   tmux send-keys -t ${pane_full} "cd ${working_dir}
   " #carriage return from previous line
 }
@@ -59,51 +63,65 @@ while [ ${1} ] ;do
 done
 
 if [ "${task}" = 'backup' ] ;then
-  ##Rotate previous backups.
+  ## Rotate previous backups.
   i=${max_backups}
+
   while [[ ${i} != 0 ]] ;do
     if [ -d ${backup_dir}.${i} ] ;then
       if [[ ${i} = ${max_backups} ]] ;then
+        ## Remove last backup
         rm -r ${backup_dir}.${i}
       else
+        ## Move all backups one up
         mv ${backup_dir}.${i} ${backup_dir}.$((${i}+1))
       fi
     fi
+
     i=$((${i}-1))
   done
+
+  ## Latest backup to one
   if [ -d ${backup_dir} ] ;then
     mv ${backup_dir} ${backup_dir}.1
   fi
 
-  ##Dump copy from all windows in all available tmux sessions.
   if [ ! -d ${backup_dir} ] ;then
     mkdir -p ${backup_dir}
   fi
+
+  ## Dump copy from all windows in all available tmux sessions.
   for session in $(tmux list-sessions | awk -F: '{print $1}') ;do
     for ignore_session in ${ignore_session_list} ;do
       if [ "${session}" = "${ignore_session}" ] ;then
         continue 2
       fi
     done
+
     session_size=$(tmux list-sessions | awk -F'[' '/^'${session}': / {print $2}' | awk -F']' '{print $1}')
+
     echo "${session_size}" >${backup_dir}/${session}.size
+
     for window in $(tmux list-windows -t ${session} | awk -F: '{print $1}') ;do
       for pane in $(tmux list-panes -t ${session}:${window} | awk -F: '{print $1}') ;do
-        ##backup pane layout
+        ## backup pane layout
         if [ ${pane} -gt 0 ] ;then
           tmux list-windows -t ${session} | awk -F'\\[layout ' '/^'${window}':/ {print $2}' | awk '{print $1}' | sed 's/\]$//' >${backup_dir}/${session}:${window}.layout
         fi
+
         pane_full=${session}:${window}.${pane}
-        ##figure out the editing mode so we can select text in history
+
+        ## figure out the editing mode so we can select text in history
         mode_keys=$(tmux show-window-options -g | awk '/^mode-keys/ {print $2}')
+
         if [ "${mode_keys}" = 'emacs' ] ;then
           tmux copy-mode -t ${session}:${window}.${pane} \; send-keys -t ${session}:${window}.${pane} 'M-<' 'C-Space' 'M->' 'C-e' 'M-w' \; save-buffer -b 0 ${backup_dir}/${pane_full} \; delete-buffer -b 0
         elif [ "${mode_keys}" = 'vi' ] ;then
           tmux copy-mode -t ${session}:${window}.${pane} \; send-keys -t ${session}:${window}.${pane} g Space G '$' Enter \; save-buffer -b 0 ${backup_dir}/${pane_full} \; delete-buffer -b 0
         fi
-        if [ ! -s ${backup_dir}/${pane_full} ] ;then
-          rm ${backup_dir}/${pane_full}
-        fi
+
+        # if [ ! -s ${backup_dir}/${pane_full} ] ;then
+          # rm ${backup_dir}/${pane_full}
+        # fi
       done
     done
   done

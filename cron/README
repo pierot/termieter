@@ -1,0 +1,4 @@
+Place crontabs per machine in tabs/.
+Install the crontab executing the following:
+
+$ crontab ~/.termieter/cron/tabs/#FILENAME#

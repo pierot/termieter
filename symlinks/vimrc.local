@@ -1,5 +1,4 @@
 colorscheme Tomorrow-Night-Eighties
-" set guifont=Monaco:h12
 
 " When moving up/down in wrapped lines, move 'screen' lines instead of
 " physical lines
@@ -7,9 +6,6 @@ colorscheme Tomorrow-Night-Eighties
 " nnoremap k gk
 " vnoremap j gj
 " vnoremap k gk
-
-" map ; to : in normal mode
-nnoremap ; :
 
 " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set mouse=a
@@ -23,14 +19,14 @@ set list!
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
 set shell=/bin/bash\ --login
 
+set ttyscroll=3
+set lazyredraw " to avoid scrolling problems
+
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
 
 " better indent for li and p
 let g:html_indent_tags = 'li\|p'
-
-" how wide nerdtree ought to be
-" let NERDTreeWinSize=35                
 
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
@@ -41,8 +37,8 @@ let g:SuperTabDefaultCompletionType = "<c-p>"
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
-" Extra syntax highlighting
-au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+" Syntax coloring lines that are too long just slows down the world
+set synmaxcol=256
 
 " Max line width
 set tw=80
@@ -55,9 +51,3 @@ set showbreak=>>
 highlight OverLength ctermbg=black ctermfg=white guibg=#592929
 match OverLength /\%81v.*/
 let c_space_errors=1
-
-command! CleanWindowsShit :call CleanWindowsShit()<CR>
-
-function! CleanWindowsShit()
-  :%s///g
-endf
