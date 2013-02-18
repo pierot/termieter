@@ -12,7 +12,7 @@ ZSH_THEME="robbyrussell"
 if [[ $OS == 'OSX' ]]; then
   ZSH_THEME="intheloop"
 else
-  ZSH_THEME="bira"
+  ZSH_THEME="mortalscumbag"
 fi
 
 # Set to this to use case-sensitive completion
@@ -60,7 +60,7 @@ plugins=(gem npm rbenv)
 if [[ $OS == 'OSX' ]]; then
   # nothing yet
 else
-  # plugins+=(command-not-found)
+  plugins+=(git)
 fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
@@ -87,4 +87,4 @@ done
 
 alias reload!='. ~/.zshrc'
 
-RPROMPT="$RPROMPT %{$FG[098]%}[$(t | wc -l | sed -e's/ *//')]%{$reset_color%}"
+# RPROMPT="$RPROMPT %{$FG[098]%}[$(t | wc -l | sed -e's/ *//')]%{$reset_color%}"
