@@ -18,7 +18,7 @@ function tt() {
   sn=`echo ${PWD##*/}`
 
   # This will also be the default cwd for new windows created
-  tmux new-session -d -s "$sn" "reattach-to-user-namespace -l bash vim ."
+  tmux new-session -d -s "$sn" "reattach-to-user-namespace -l vim ."
 
   # New window
   tmux new-window -t "$sn:2" "reattach-to-user-namespace -l $SHELL"
