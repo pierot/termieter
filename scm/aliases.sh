@@ -21,7 +21,7 @@ alias svn-update-all='svn-up-all'
 alias gst='echoo "git status"; git status'
 alias gp='echoo "git push"; git push "$@"'
 alias gpl='echoo "git pull"; git pull "$@"'
-alias gcam='echoo "git commit -a -m"; git commit -a -m "$@"'
+alias gcm='echoo "git commit -m"; git commit -m "$@"'
 alias gall='echoo "git add ."; git add .'
 alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'
 
@@ -33,14 +33,14 @@ alias gph='echoo "git push heroku heroku:master"; git push heroku heroku:master'
 alias gpstag='echoo "git push staging staging:master"; git push staging staging:master'
 alias gpprod='echoo "git push production production:master"; git push production production:master'
 
-if [[ $OS == 'OSX' ]]; then
-  # GIT
-  if command -v brew &>/dev/null
-  then
-    if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then 
-      source `brew --prefix`/etc/bash_completion.d/git-completion.bash
-    fi
-  fi
-# else
-  # LINUX
-fi
+# if [[ $OS == 'OSX' ]]; then
+#   # GIT
+#   if command -v brew &>/dev/null
+#   then
+#     if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then 
+#       source `brew --prefix`/etc/bash_completion.d/git-completion.bash
+#     fi
+#   fi
+# # else
+#   # LINUX
+# fi

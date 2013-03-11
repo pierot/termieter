@@ -10,7 +10,7 @@ export ZSH=$TRM/zsh/oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 if [[ $OS == 'OSX' ]]; then
-  ZSH_THEME="intheloop"
+  ZSH_THEME="bira"
 else
   ZSH_THEME="mortalscumbag"
 fi

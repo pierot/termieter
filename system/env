@@ -29,6 +29,7 @@ export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/share/python:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH="$TRM/system/functions:$PATH"
 
 export PATH
 
