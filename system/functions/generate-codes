@@ -7,15 +7,7 @@ class String
 end
 
 def String.random_alphanumeric(size=16)
-  chars = ('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a
-
-  chars.delete('i')
-  chars.delete('I')
-  chars.delete('o')
-  chars.delete('O')
-  chars.delete('l')
-  chars.delete('1')
-  chars.delete('0')
+  chars = (('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a) - %w(i I o O l 1 0)
 
   (0...size).collect { chars[Kernel.rand(chars.length)] }.join
 end
@@ -37,13 +29,13 @@ howmuch.times { |i| all << String.random_alphanumeric(10) }
 
 #####################################
 
-puts "Looking for duplicates."
-
-dups = all.select { |e| all.count(e) > 1 }.uniq
-dups.each { |dup| all.delete(dup) }
-
-puts "Duplicates:"
-p dups
+# puts "Looking for duplicates."
+# 
+# dups = all.select { |e| all.count(e) > 1 }.uniq
+# dups.each { |dup| all.delete(dup) }
+# 
+# puts "Duplicates:"
+# p dups
 
 #####################################
 

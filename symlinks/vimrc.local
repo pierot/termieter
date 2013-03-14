@@ -2,15 +2,13 @@
 Bundle 'tpope/vim-rails'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'maxbrunsfeld/vim-yankstack'
 
 colorscheme Tomorrow-Night-Eighties
 
-" When moving up/down in wrapped lines, move 'screen' lines instead of
-" physical lines
-" nnoremap j gj
-" nnoremap k gk
-" vnoremap j gj
-" vnoremap k gk
+" Yankstack
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set mouse=a
@@ -25,7 +23,6 @@ set list!
 set shell=/bin/bash\ --login
 
 set ttyscroll=3
-set lazyredraw " to avoid scrolling problems
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
@@ -35,9 +32,6 @@ let g:html_indent_tags = 'li\|p'
 
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
-
-" Ctrl P
-let g:SuperTabDefaultCompletionType = "<c-p>"
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
@@ -85,4 +79,3 @@ function! s:setRails()
   map <buffer> <leader>as :AS<cr>
   map <buffer> <leader>aa :R<cr>
 endfunction
-
