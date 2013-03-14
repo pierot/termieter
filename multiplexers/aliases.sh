@@ -1,4 +1,5 @@
 # TMUX
+alias t='tmux'
 alias tk='tmux kill-server'
 alias ta='tmux attach-session -t $@'
 alias tl='tmux ls'

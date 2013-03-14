@@ -29,9 +29,9 @@ alias gls='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset 
 alias gll='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat'
 alias glds='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
 
-alias gph='echoo "git push heroku heroku:master"; git push heroku heroku:master'
-alias gpstag='echoo "git push staging staging:master"; git push staging staging:master'
-alias gpprod='echoo "git push production production:master"; git push production production:master'
+# alias gph='echoo "git push heroku heroku:master"; git push heroku heroku:master'
+# alias gpstag='echoo "git push staging staging:master"; git push staging staging:master'
+# alias gpprod='echoo "git push production production:master"; git push production production:master'
 
 # if [[ $OS == 'OSX' ]]; then
 #   # GIT

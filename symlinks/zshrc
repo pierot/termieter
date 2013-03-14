@@ -86,5 +86,3 @@ for function_file in $TRM/*/functions/*.sh; do
 done
 
 alias reload!='. ~/.zshrc'
-
-# RPROMPT="$RPROMPT %{$FG[098]%}[$(t | wc -l | sed -e's/ *//')]%{$reset_color%}"

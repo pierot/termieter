@@ -14,27 +14,21 @@ alias l='ls $LS_OPT -1AFC'
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
 
-alias gzip='echoo "gzip -9n"; gzip -9n' # set strongest compression level as ‘default’ for gzip
-alias ping='echoo "pint -c 5"; ping -c 5' # ping 5 times ‘by default’
+alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias hist='history | grep "$@"'
-alias hist-sort='history | cut -c 8- | sort | uniq -c | sort -rn'
+alias hist-sort='echoo "history | cut -c 8- | sort | uniq -c | sort -rn"; history | cut -c 8- | sort | uniq -c | sort -rn'
 
 alias msh-noort='mosh --ssh="ssh -p 33" root@noort.be'
-alias msh-info='open http://mosh.mit.edu/#about'
 
 alias echoo='printf "\e[0;37m» %s\e[0m\n" $@'
 
 alias v='vim .'
 
-# Server
-alias ssh-config="vim $HOME/.ssh/config"
-
 ################################################################################################################
 
 if [ -d $DROPBOX ]; then
   alias repos="cd $DROPBOX/Work/repos/"
-  alias github="cd $DROPBOX/Work/repos/github/"
   alias dev="cd $DROPBOX/Work/devel/"
   alias clients="cd $DROPBOX/Work/clients/"
   alias projects="cd $HOME/Documents/Projects/"

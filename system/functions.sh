@@ -28,13 +28,6 @@ function ssh-sesame() {
   cat "$HOME/.ssh/id_rsa.pub" | ssh $@ "mkdir -p $HOME/.ssh && cat >> $HOME/.ssh/authorized_keys";
 }
 
-# Print public ssh key
-function ssh-public() {
-  echoo "cat $HOME/.ssh/id_rsa.pub"
-
-  cat "$HOME/.ssh/id_rsa.pub"
-}
-
 ###############################################################################
 # SYSTEM
 
@@ -92,13 +85,6 @@ if [[ $OS == 'OSX' ]]; then
     atsutil databases -removeUser
     atsutil server -shutdown
     atsutil server -ping
-  }
-
-  # Copy public ssh key
-  function ssh-public-copy() {
-    echoo "cat $HOME/.ssh/id_rsa.pub | pbcopy"
-
-    cat "$HOME/.ssh/id_rsa.pub" | pbcopy
   }
 else
   function list-services() {
