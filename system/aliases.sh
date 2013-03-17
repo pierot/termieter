@@ -24,6 +24,9 @@ alias msh-noort='mosh --ssh="ssh -p 33" root@noort.be'
 alias echoo='printf "\e[0;37m» %s\e[0m\n" $@'
 
 alias v='vim .'
+alias vi='vim'
+
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 ################################################################################################################
 
@@ -53,4 +56,7 @@ if [[ $OS == 'OSX' ]]; then
 else
   alias hosts='sudo vim /etc/hosts'
   alias sys-update='sudo apt-get update && sudo apt-get upgrade'
+
+  # http://dotfiles.org/~ghost1227/.bashrc
+  alias meminfo="echo -e '/proc/meminfo:\n';grep --color=auto '^[Mem|Swap]*[Free|Total]*:' /proc/meminfo && echo -e '\nfree -m:'; free -m"
 fi

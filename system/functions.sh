@@ -19,6 +19,31 @@ extract () {
   fi
 }
 
+# Whether or not we have a command
+# http://dotfiles.org/~steve/.bashrc
+have() {
+  type "$1" &> /dev/null
+}
+
+# Filter through running processes
+psgrep() {
+  ps aux | \grep -e "$@" | \grep -v "grep -e $@"
+}
+
+# Sort the "du" output and use human-readable units.
+# https://github.com/janmoesen/tilde/blob/master/.bash/commands
+duh() {
+  du -sk ${@:-*} | sort -n | while read size fname; do
+    for unit in KiB MiB GiB TiB PiB EiB ZiB YiB; do
+      if [ "$size" -lt 1024 ]; then
+        echo -e "${size} ${unit}\t${fname}"
+        break
+      fi
+      size=$((size/1024))
+    done
+  done
+}
+
 ###############################################################################
 # SSH
 
