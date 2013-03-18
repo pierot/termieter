@@ -22,7 +22,7 @@ set list!
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
 set shell=/bin/bash\ --login
 
-set ttyscroll=3
+" set ttyscroll=3
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
