@@ -6,7 +6,7 @@ if [ -f '/usr/local/share/python/virtualenvwrapper.sh' ]; then
   if [ `id -u` != '0' ]; then
     export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
     export VIRTUALENV_USE_DISTRIBUTE=1        # <-- Always use pip/distribute
-    export WORKON_HOME=$HOME/.virtualenvs       # <-- Where all virtualenvs will be stored
+    export WORKON_HOME=~/.virtualenvs       # <-- Where all virtualenvs will be stored
 
     source /usr/local/share/python/virtualenvwrapper.sh
 
@@ -28,8 +28,8 @@ fi
 if which rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 else
-  if [ -s "$HOME/.rbenv/bin" ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
+  if [ -s "~/.rbenv/bin" ]; then
+    export PATH="~/.rbenv/bin:$PATH"
 
     eval "$(rbenv init -)"
   elif [ -s "/usr/local/rbenv/bin" ]; then
@@ -40,8 +40,8 @@ else
 fi
 
 # RVM
-if [ -s "$HOME/.rvm/scripts/rvm" ]; then
-  . "$HOME/.rvm/scripts/rvm"
+if [ -s "~/.rvm/scripts/rvm" ]; then
+  . "~/.rvm/scripts/rvm"
 
   if groups | grep -q rvm; then
     source '/usr/local/lib/rvm'

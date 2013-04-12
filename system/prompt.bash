@@ -82,7 +82,7 @@ function scm_prompt_info {
 }
 
 function parse_ruby_version {
-  if [ -s "$HOME/.rvm/scripts/rvm" ]; then
+  if [ -s "~/.rvm/scripts/rvm" ]; then
     if [ "$(rvm-prompt i v)" != "" ]; then 
       echo "$(rvm-prompt i v) $SEP"
     fi

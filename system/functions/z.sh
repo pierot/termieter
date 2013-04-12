@@ -25,7 +25,7 @@
 
 _z() {
 
- local datafile="${_Z_DATA:-$HOME/.z}"
+ local datafile="${_Z_DATA:-~/.z}"
 
  # bail out if we don't own ~/.z (we're another user but our ENV is still set)
  [ -f "$datafile" -a ! -O "$datafile" ] && return

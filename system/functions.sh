@@ -50,7 +50,7 @@ duh() {
 # Copy your public ssh key to remote server for password-less login
 # Usage: ssh-sesame 'tortuga'
 function ssh-sesame() {
-  cat "$HOME/.ssh/id_rsa.pub" | ssh $@ "mkdir -p $HOME/.ssh && cat >> $HOME/.ssh/authorized_keys";
+  cat "~/.ssh/id_rsa.pub" | ssh $@ "mkdir -p .ssh && cat >> .ssh/authorized_keys";
 }
 
 ###############################################################################

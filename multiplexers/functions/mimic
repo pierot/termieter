@@ -12,7 +12,7 @@ usage() {
 # Config Variables
 max_backups=12
 ignore_session_list=""
-backup_dir=$HOME/.tmux-resurrect/snapshot
+backup_dir=~/.tmux-resurrect/snapshot
 
 #######################
 # Use prompt to get state of pane.

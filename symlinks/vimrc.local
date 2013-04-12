@@ -1,6 +1,6 @@
 " Bundles
 Bundle 'tpope/vim-rails'
-" Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'tpope/vim-dispatch'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'maxbrunsfeld/vim-yankstack'
 

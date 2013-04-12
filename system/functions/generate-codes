@@ -13,19 +13,45 @@ def String.random_alphanumeric(size=16)
 end
 
 all = []
+howmuch = 10000
+length = 10
+path = 'foo'
 
-# HOW MUCH
-howmuch = Integer(ARGV[0]) || 10000
+def usage(s)
+  $stderr.puts(s)
+  $stderr.puts("Usage: #{File.basename($0)}: [-l <logfile] [-q] file ...")
 
-# PATH
-path = ARGV[1] || 'foo'
+  exit(2)
+end
+
+$quiet   = false
+$logfile = nil
+
+loop do
+  case ARGV[0]
+    when '-c'
+      ARGV.shift
+      howmuch = Integer(ARGV.shift)
+    when '-l'
+      ARGV.shift
+      length = Integer(ARGV.shift)
+    when '-p'
+      ARGV.shift
+      path = ARGV.shift
+    when /^-/
+      usage("Unknown option: #{ARGV[0].inspect}")
+    else 
+      break
+    end
+end
+
 path = './' + path
 
 #####################################
 
-puts "Generating #{howmuch} codes."
+puts "Generating #{howmuch} codes with length #{length}."
 
-howmuch.times { |i| all << String.random_alphanumeric(10) }
+howmuch.times { |i| all << String.random_alphanumeric(length) }
 
 #####################################
 

@@ -1,9 +1,9 @@
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
 
-alias vime="cd $HOME/.vim; vim ."
+alias vime="cd ~/.vim; vim ."
 
-alias reload!=". $HOME/.bash_profile"
+alias reload!=". ~/.bash_profile"
 
 ################################################################################################################
 
@@ -34,7 +34,7 @@ if [ -d $DROPBOX ]; then
   alias repos="cd $DROPBOX/Work/repos/"
   alias dev="cd $DROPBOX/Work/devel/"
   alias clients="cd $DROPBOX/Work/clients/"
-  alias projects="cd $HOME/Documents/Projects/"
+  alias projects="cd ~/Documents/Projects/"
 fi
 
 ################################################################################################################

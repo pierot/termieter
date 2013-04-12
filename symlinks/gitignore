@@ -1,9 +1,31 @@
-.DS_Store?
+# OS X
 .DS_Store
+.idea
+.Spotlight-V100
+.Trashes
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# Windows
+Desktop.ini
+Thumbs.db
+
+# version control
+.svn
+.svn/*
+
+# SASS
+.sass-cache
+.rvmrc
+
+# Symfony console
+*.php~
+
+# Ruby
 .bundle
+
+# General
 log/*.log
 tmp/**/*
-.sass-cache
+

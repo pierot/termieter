@@ -1,4 +1,4 @@
-source $HOME/.termieter/system/env
+source ~/.termieter/system/env
 
 export SHELL=/bin/bash
 

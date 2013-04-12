@@ -21,6 +21,8 @@
 [merge]
   log = true
 	stat = true
+[diff]
+  algorithm = histogram
 [core]
   excludesfile = ~/.gitignore
 [github]
