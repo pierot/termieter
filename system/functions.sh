@@ -19,6 +19,10 @@ extract () {
   fi
 }
 
+mdtopdf() {
+  pandoc $1 | wkhtmltopdf - $2
+}
+
 # Whether or not we have a command
 # http://dotfiles.org/~steve/.bashrc
 have() {
@@ -68,7 +72,7 @@ function fasterfaster() {
 # Remove spaces and replace by a dash
 function remove-spaces() {
   for file in *
-  do 
+  do
     mv "$file" "${file// /-}"
   done
 }
@@ -76,7 +80,7 @@ function remove-spaces() {
 # Remove underscore and replace by a dash
 function remove-underscore() {
   for file in *
-  do 
+  do
     mv "$file" "${file//_/-}"
   done
 }

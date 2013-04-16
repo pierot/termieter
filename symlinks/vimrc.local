@@ -3,8 +3,14 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-dispatch'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'maxbrunsfeld/vim-yankstack'
+Bundle 'jnwhiteh/vim-golang'
 
 colorscheme Tomorrow-Night-Eighties
+
+" Go syntax
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
 
 " Yankstack
 nmap <leader>p <Plug>yankstack_substitute_older_paste
@@ -56,7 +62,7 @@ cmap w!! w !sudo tee % >/dev/null
 " au Syntax * RainbowParenthesesLoadRound
 " au Syntax * RainbowParenthesesLoadSquare
 " au Syntax * RainbowParenthesesLoadBraces
-" 
+"
 " map <leader>R :RainbowParenthesesToggle<CR>
 
 " Commands for vim-rails *****************************************************

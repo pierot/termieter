@@ -1,5 +1,22 @@
+have() {
+  type "$1" &> /dev/null
+}
+
 # NODEJS
 export NODE_PATH="/usr/local/lib/node_modules"
+
+if have go; then
+  function setup_gopaths() {
+    local GOPATH=`which go`
+    local GODIR=`dirname $GOPATH`
+    local GOPATH_BREW_RELATIVE=`readlink $GOPATH`
+    local GOPATH_BREW=`dirname $GOPATH_BREW_RELATIVE`
+
+    export GOROOT=`cd $GODIR; cd $GOPATH_BREW/..; pwd`
+  }
+
+  setup_gopaths
+fi
 
 # PYTHON
 if [ -f '/usr/local/share/python/virtualenvwrapper.sh' ]; then
@@ -25,7 +42,7 @@ if [[ $OS == 'OSX' ]]; then
 fi
 
 # RBENV
-if which rbenv &> /dev/null; then
+if have rbenv; then
   eval "$(rbenv init -)"
 else
   if [ -s "~/.rbenv/bin" ]; then
