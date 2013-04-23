@@ -9,7 +9,7 @@ alias reload!=". ~/.bash_profile"
 
 alias ls='ls $LS_OPT' # long list, excludes dot files
 alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
-alias l='ls $LS_OPT -1AFC' 
+alias l='ls $LS_OPT -1AFC'
 
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'" # Get readable list of network IPs
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
@@ -21,7 +21,7 @@ alias hist-sort='echoo "history | cut -c 8- | sort | uniq -c | sort -rn"; histor
 
 alias msh-noort='mosh --ssh="ssh -p 33" root@noort.be'
 
-alias echoo='printf "\e[0;37m» %s\e[0m\n" $@'
+alias echoo='printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $2'
 
 alias v='vim .'
 alias vi='vim'
@@ -47,12 +47,15 @@ if [[ $OS == 'OSX' ]]; then
   alias trash='mv "$@" ~/.Trash/'
 
   # copy current working directory to clipboard
-  alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy' 
+  alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
 
   # Spotlight
   alias spotlight-stop='sudo mdutil -i off /'
   alias spotlight-clear='sudo mdutil -E /'
   alias spotlight-start='sudo mdutil -i on /'
+
+  # Sleepimage
+  alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 else
   alias hosts='sudo vim /etc/hosts'
   alias sys-update='sudo apt-get update && sudo apt-get upgrade'

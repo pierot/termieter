@@ -19,8 +19,28 @@ extract () {
   fi
 }
 
+confirm() {
+  read -q response\?"¿ Are you sure? [y/n] "
+  case "$response" in
+    [yY][eE][sS]|[yY])
+      echo "\n\x1b[33;01m☼ win\x1b[39;49;00m"
+
+      "$@"
+      ;;
+    *)
+      echo "\n\x1b[31;01m× loser\x1b[39;49;00m"
+      ;;
+  esac
+}
+
 mdtopdf() {
   pandoc $1 | wkhtmltopdf - $2
+}
+
+udc() {
+  d=`date -r $1 '+%Y-%m-%d %H:%M:%S'`
+
+  echoo $d
 }
 
 # Whether or not we have a command

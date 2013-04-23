@@ -27,7 +27,7 @@ path=/Users/pieterm/Dropbox/Pieter/mail/noort.be
 [user]
 name=Pieter Michels
 primary_email=pieter@noort.be
-other_email=pieter@wellconsidered.be;pieter.michels@telenet.be;pieter.michels@gmail.com;
+other_email=pieter@wellconsidered.be;pieter.michels@gmail.com;
 
 # Configuration for "notmuch new"
 #

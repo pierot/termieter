@@ -3,14 +3,15 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-dispatch'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'jnwhiteh/vim-golang'
+" Bundle 'jnwhiteh/vim-golang'
+" Bundle 'terryma / vim-multiple-cursors'
 
 colorscheme Tomorrow-Night-Eighties
 
 " Go syntax
-set rtp+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
+" set rtp+=$GOROOT/misc/vim
+" filetype plugin indent on
+" syntax on
 
 " Yankstack
 nmap <leader>p <Plug>yankstack_substitute_older_paste
