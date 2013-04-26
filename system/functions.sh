@@ -37,12 +37,6 @@ mdtopdf() {
   pandoc $1 | wkhtmltopdf - $2
 }
 
-udc() {
-  d=`date -r $1 '+%Y-%m-%d %H:%M:%S'`
-
-  echoo $d
-}
-
 # Whether or not we have a command
 # http://dotfiles.org/~steve/.bashrc
 have() {
@@ -134,6 +128,12 @@ if [[ $OS == 'OSX' ]]; then
     atsutil databases -removeUser
     atsutil server -shutdown
     atsutil server -ping
+  }
+
+  udc() {
+    d=`date -r $1 '+%Y-%m-%d %H:%M:%S'`
+
+    echoo $d
   }
 else
   function list-services() {
