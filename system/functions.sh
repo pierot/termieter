@@ -19,6 +19,12 @@ extract () {
   fi
 }
 
+ssh-tunnel() {
+  echoo "Tunneling: localport $1 maps to remote $2 for host $3"
+
+  ssh -L $1':localhost:'$2 $3
+}
+
 confirm() {
   read -q response\?"¿ Are you sure? [y/n] "
   case "$response" in

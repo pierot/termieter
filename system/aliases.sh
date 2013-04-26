@@ -21,7 +21,10 @@ alias hist-sort='echoo "history | cut -c 8- | sort | uniq -c | sort -rn"; histor
 
 alias msh-noort='mosh --ssh="ssh -p 33" root@noort.be'
 
-alias echoo='printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $2'
+echoo() {
+  printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $1
+}
+# alias echoo='printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $2'
 
 alias v='vim .'
 alias vi='vim'
