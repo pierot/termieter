@@ -118,6 +118,12 @@ alias svn-update-all='svn-up-all'
 
 ###############################################################################
 
+# GIT
+alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'
+alias gpp='echoo "git commit --allow-empty -m [deploy: production]; git push"; git commit --allow-empty -m "[deploy: production]"; git push'
+
+###############################################################################
+
 # TMUX
 alias t='tmux'
 alias tk='tmux kill-server'
