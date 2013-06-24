@@ -120,7 +120,7 @@ function find-todos() {
 # Helper :)
 
 function listf() {
-  cat "$TRM/system/functions.sh"
+  cat "$TRM/bash/system/functions.sh"
 }
 
 ###############################################################################

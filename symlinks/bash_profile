@@ -1,18 +1,23 @@
-source ~/.termieter/system/env
+source ~/.termieter/env
 
 export SHELL=/bin/bash
 
-for config_file in $TRM/**/*.sh
+for config_file in $TRM/bash/**/*.sh
 do
   source $config_file
 done
 
-for config_file in $TRM/**/*.bash
+for config_file in $TRM/bash/**/*.bash
 do
   source $config_file
 done
 
-for function_file in $TRM/**/functions/*.sh
+for function_file in $FT/*.sh
+do
+  source $function_file
+done
+
+for function_file in $TRM/bash/*/functions/*.sh
 do
   source $function_file
 done

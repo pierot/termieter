@@ -2,49 +2,49 @@
 
 wget -N --quiet https://raw.github.com/pierot/server-installer/master/lib.sh; . ./lib.sh
 
-############################################################################### 
- 
-install_dir='.termieter'     
- 
-############################################################################### 
- 
-_usage() {                 
-  _print "                 
- 
-Usage:              install.sh -d ['.termieter'] 
- 
-Remote Usage:       bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter'] 
- 
-Options: 
-  
-  -h                Show this message 
+###############################################################################
+
+install_dir='.termieter'
+
+###############################################################################
+
+_usage() {
+  _print "
+
+Usage:              install.sh -d ['.termieter']
+
+Remote Usage:       bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter']
+
+Options:
+
+  -h                Show this message
   -d '.termieter'   Install directory (always in $HOME folder)
-  " 
- 
-  exit 0 
-}  
- 
-############################################################################### 
- 
-while getopts :hd: opt; do  
-  case $opt in 
-    h) 
-      _usage 
-      ;; 
-    d) 
+  "
+
+  exit 0
+}
+
+###############################################################################
+
+while getopts :hd: opt; do
+  case $opt in
+    h)
+      _usage
+      ;;
+    d)
       install_dir="$HOME/$OPTARG"
-      ;; 
-    *) 
-      _error "Invalid option received" 
- 
-      _usage 
+      ;;
+    *)
+      _error "Invalid option received"
+
+      _usage
 
       exit 0
       ;;
-  esac 
+  esac
 done
 
-############################################################################### 
+###############################################################################
 
 cd ~
 
@@ -102,7 +102,7 @@ else
     fi
 
     if [ -f "$HOME/.$1" ]; then
-      mv "$HOME/.$1" "$HOME/.bash_backup/.$1" 
+      mv "$HOME/.$1" "$HOME/.bash_backup/.$1"
     fi
 
     if [ -f "$install_dir/symlinks/$1" ]; then
@@ -129,3 +129,24 @@ else
 fi
 
 _cleanup_lib
+
+while true
+do
+  read -p "Do you want me to switch to zsh as default shell? (sudo needed) [Y/N] " RESP
+
+  case $RESP
+    in
+    [yY])
+      _check_root
+
+      sudo chsh -s /bin/zsh
+
+      break
+      ;;
+    [nN])
+      break
+      ;;
+    *)
+      echo "Please enter Y or N"
+  esac
+done

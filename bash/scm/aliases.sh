@@ -13,8 +13,8 @@ svn-delete-all() {
   svn st | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %
 }
 
-alias svn-status-all="$TRM/scm/functions/svnstatus.py $@"
-alias svn-up-all="$TRM/scm/functions/svnup.py $@"
+alias svn-status-all="$FT/svnstatus.py $@"
+alias svn-up-all="$FT/svnup.py $@"
 alias svn-update-all='svn-up-all'
 
 # GIT

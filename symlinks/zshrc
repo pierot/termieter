@@ -1,4 +1,4 @@
-source ~/.termieter/system/env
+source ~/.termieter/env
 
 export SHELL=/bin/zsh
 export ZSH=$TRM/zsh/oh-my-zsh
@@ -7,7 +7,7 @@ export ZSH=$TRM/zsh/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 if [[ $OS == 'OSX' ]]; then
   ZSH_THEME="bira"
@@ -55,17 +55,17 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gem npm rbenv)
+plugins=(git ) # gem npm rbenv)
 
 if [[ $OS == 'OSX' ]]; then
   # nothing yet
 else
-  plugins+=(git)
+  # plugins+=(git)
 fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# autoload -U compinit
+# compinit
 
 # Colors for ls and autocompletion
 # eval $( gdircolors -b $ZSH/LS_COLORS )
@@ -75,13 +75,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # setopt extended_glob
 
-# Execute
-for config_file in $TRM/*/*.sh; do
-  source $config_file
-done
-
-for function_file in $TRM/*/functions/*.sh; do
-  source $function_file
-done
+source $TRM/zsh/base.sh
 
 alias reload!='. ~/.zshrc'
