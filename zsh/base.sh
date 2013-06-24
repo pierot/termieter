@@ -141,7 +141,7 @@ function tt-mail() {
 }
 
 function tt() {
-  tt-mail
+  # tt-mail
 
   # var for session name (to avoid repeated occurences)
   sn=`echo ${PWD##*/}`
@@ -159,18 +159,6 @@ function tt() {
 
 # for tmux: export 256color
 [ -n "$TMUX" ] && export TERM=screen-256color
-
-###############################################################################
-
-# SCREEN
-alias screen='export SCREENPWD=$(pwd); /usr/bin/screen -U -T $TERM'
-alias s='export SCREENPWD=$(pwd); /usr/bin/screen -U -T $TERM'
-
-case "$TERM" in
-  'screen')
-     cd $SCREENPWD
-     ;;
-esac
 
 ###############################################################################
 

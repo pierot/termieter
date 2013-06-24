@@ -1,3 +1,3 @@
 #!/bin/sh
 
-export PATH=$TRM/multiplexers/functions:$PATH
+export PATH=$FT:$PATH
