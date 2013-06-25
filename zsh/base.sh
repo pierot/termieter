@@ -17,8 +17,8 @@ function fasterfaster() {
 
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
-alias vime="cd ~/.vim; vim ."
 
+alias vime="cd ~/.vim; vim ."
 alias v='vim .'
 alias vi='vim'
 
