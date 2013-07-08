@@ -2,3 +2,5 @@ set transparency=1
 
 set lines=55
 set columns=190
+
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12

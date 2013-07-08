@@ -1,16 +1,28 @@
 " Bundles
-" Bundle 'maxbrunsfeld/vim-yankstack'
+Bundle "Shougo/neocomplete.vim"
 
-colorscheme Tomorrow-Night-Eighties
+colorscheme mango
 
-" Go syntax
-" set rtp+=$GOROOT/misc/vim
-" filetype plugin indent on
-" syntax on
+set background=dark     " you can use `dark` or `light` as your background
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 
-" Yankstack
-" nmap <leader>p <Plug>yankstack_substitute_older_paste
-" nmap <leader>P <Plug>yankstack_substitute_newer_paste
+" :hi CursorLine   guibg=#000000 gui=none
+:hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
+:hi LineNr       font='monospace 8' guifg=#BCBCBC guibg=#232526
+
+set cursorline
+
+color mango
+
+syntax on
+
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Highlights erased twice Press Esc
+nmap <ESC> <ESC>;nohlsearch <CR>
 
 " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set mouse=a
@@ -19,7 +31,7 @@ set mouse=a
 set ttymouse=xterm
 
 " show hidden chars
-set list!
+" set list!
 
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
 set shell=/bin/bash\ --login
@@ -32,6 +44,9 @@ vnoremap p pgvy
 " better indent for li and p
 let g:html_indent_tags = 'li\|p'
 
+" show number of matches after a search
+nmap ,c :%s///gn<cr>
+
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
 
@@ -39,7 +54,7 @@ map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 " Syntax coloring lines that are too long just slows down the world
-" set synmaxcol=256
+set synmaxcol=256
 
 " Max line width
 " set tw=80
@@ -49,14 +64,6 @@ cmap w!! w !sudo tee % >/dev/null
 " set showbreak=>>
 
 " Highlight everyting that is longer than 80 chars
-" highlight OverLength ctermbg=black ctermfg=white guibg=#592929
-" match OverLength /\%81v.*/
-" let c_space_errors=1
-
-" Rainbow Parentheses ********************************************************
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
-"
-" map <leader>R :RainbowParenthesesToggle<CR>
+highlight OverLength ctermbg=16 ctermfg=41 guibg=#292929
+match OverLength /\%81v.*/
+let c_space_errors=1
