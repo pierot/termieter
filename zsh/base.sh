@@ -28,6 +28,7 @@ alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias msh-noort='mosh --ssh="ssh -p 33" pierot@noort.be'
+alias msh-janitor='mosh pierot@janitor'
 
 alias hosts='sudo vim /etc/hosts'
 
@@ -121,6 +122,8 @@ alias svn-update-all='svn-up-all'
 # GIT
 alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'
 alias gpp='echoo "git commit --allow-empty -m [deploy: production]; git push"; git commit --allow-empty -m "[deploy: production]"; git push'
+
+alias gcm='git commit -m'
 
 ###############################################################################
 

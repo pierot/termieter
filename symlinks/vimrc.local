@@ -1,5 +1,5 @@
 " Bundles
-Bundle "Shougo/neocomplete.vim"
+" Bundle "Shougo/neocomplete.vim"
 
 colorscheme mango
 
@@ -17,9 +17,9 @@ color mango
 syntax on
 
 " Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#enable_at_startup = 1
+" " Set minimum syntax keyword length.
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Highlights erased twice Press Esc
 nmap <ESC> <ESC>;nohlsearch <CR>
