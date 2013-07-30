@@ -36,13 +36,14 @@ if [ -d $DROPBOX ]; then
   alias repos="cd $DROPBOX/Work/repos/"
   alias dev="cd $DROPBOX/Work/devel/"
   alias clients="cd $DROPBOX/Work/clients/"
-  alias projects="cd ~/Documents/Projects/"
 fi
 
 ###############################################################################
 
 if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
+
+  alias projects="cd ~/Documents/Projects/"
 
   alias mutt='cd ~/Downloads && mutt'
 

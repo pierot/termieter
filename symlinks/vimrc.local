@@ -1,12 +1,11 @@
 " Bundles
-" Bundle "Shougo/neocomplete.vim"
+" Bundle ""
 
 colorscheme mango
 
 set background=dark     " you can use `dark` or `light` as your background
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 
-" :hi CursorLine   guibg=#000000 gui=none
 :hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 :hi LineNr       font='monospace 8' guifg=#BCBCBC guibg=#232526
 
@@ -14,12 +13,7 @@ set cursorline
 
 color mango
 
-syntax on
-
-" Use neocomplete.
-" let g:neocomplete#enable_at_startup = 1
-" " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" syntax on
 
 " Highlights erased twice Press Esc
 nmap <ESC> <ESC>;nohlsearch <CR>
@@ -34,7 +28,7 @@ set ttymouse=xterm
 " set list!
 
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
-set shell=/bin/bash\ --login
+set shell=/bin/zsh\ --login
 
 " set ttyscroll=3
 
