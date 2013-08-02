@@ -16,7 +16,7 @@ color mango
 " syntax on
 
 " Highlights erased twice Press Esc
-nmap <ESC> <ESC>;nohlsearch <CR>
+" nmap <ESC> <ESC>;nohlsearch <CR>
 
 " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set mouse=a
