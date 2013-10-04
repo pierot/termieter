@@ -57,3 +57,14 @@ else
 	export LS_OPT='--color=auto'
 fi
 
+################################################################################
+
+if [ -f '~/.nvm/nvm.sh' ]; then
+  source ~/.nvm/nvm.sh
+fi
+
+export PATH="$HOME/.parts/autoparts/bin:$PATH"
+
+if type parts &> /dev/null; then
+  eval "$(parts init -)"
+fi
