@@ -34,6 +34,13 @@ let g:airline_powerline_fonts=1
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
 set shell=/bin/zsh\ --login
 
+"
+" == End or start of line in Insert Mode ====================================
+" Like in Terminal
+
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
+
 " ===========================================================================
 
 " allow multiple pastes of the same content when pasting in visual mode.
