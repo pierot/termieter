@@ -77,6 +77,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # setopt extended_glob
 
+# Pure prompt
+autoload -U promptinit && promptinit
+prompt pure
+
 source $TRM/zsh/base.sh
 
 alias reload!='. ~/.zshrc'
