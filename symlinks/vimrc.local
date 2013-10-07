@@ -1,5 +1,7 @@
 " Bundles
-" Bundle ""
+Bundle 'bling/vim-airline'
+
+" == Colors =================================================================
 
 " colorscheme mango
 
@@ -13,10 +15,7 @@ set cursorline
 
 c" olor mango
 
-" syntax on
-
-" Highlights erased twice Press Esc
-" nmap <ESC> <ESC>;nohlsearch <CR>
+" == Mouse ==================================================================
 
 " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set mouse=a
@@ -24,13 +23,25 @@ set mouse=a
 " Set mouse type to xterm.
 set ttymouse=xterm
 
-" show hidden chars
-" set list!
+" == Airline ==================================================================
+
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
+let g:airline_powerline_fonts=1
+" set timeout timeoutlen=100 ttimeoutlen=50
+
+" == Shell ==================================================================
 
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
 set shell=/bin/zsh\ --login
 
-" set ttyscroll=3
+"
+" == End or start of line in Insert Mode ====================================
+" Like in Terminal
+
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
+
+" ===========================================================================
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
@@ -39,25 +50,24 @@ vnoremap p pgvy
 let g:html_indent_tags = 'li\|p'
 
 " show number of matches after a search
-nmap ,c :%s///gn<cr>
+nmap <leader>c :%s///gn<cr>
 
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
 
-" Sudo to write
-cmap w!! w !sudo tee % >/dev/null
+" Search TODOS in coffee
+map <leader>m :Ack TODO --coffee<cr>
 
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=256
-
-" Max line width
-" set tw=80
-" set textwidth=80
-" set wrap
-" set linebreak
-" set showbreak=>>
 
 " Highlight everyting that is longer than 80 chars
 highlight OverLength ctermbg=16 ctermfg=41 guibg=#292929
 match OverLength /\%81v.*/
 let c_space_errors=1
+
+" Ag
+" brew install the_silver_searcher
+" pacman -S the_silver_searcher
+" apt-get install silversearcher-ag
+let g:ackprg = 'ag --nogroup --nocolor --column'

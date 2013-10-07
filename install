@@ -119,11 +119,29 @@ else
     _back_install $(basename $sym_file)
   done
 
+  mkdir -p "$install_dir/zsh/oh-my-zsh/functions"
+  ln -sf "$install_dir/zsh/pure.sh" "$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
+
   cd $install_dir
 
-  _print "Fetching all submodules"
+  while true
+  do
+    read -p "Do you want me to fetch all submodules? [Y/N] " RESP
 
-  git submodule update --init
+    case $RESP
+      in
+      [yY])
+        git submodule update --init
+
+        break
+        ;;
+      [nN])
+        break
+        ;;
+      *)
+        echo "Please enter Y or N"
+    esac
+  done
 
   _print "Installation finished"
 fi
