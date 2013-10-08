@@ -127,6 +127,8 @@ else
 
   _print "Init pure prompt"
 
+  cd $HOME
+
   if [ ! -d "zsh/oh-my-zsh/functions" ]; then
     mkdir "zsh/oh-my-zsh/functions"
   fi
