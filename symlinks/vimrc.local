@@ -3,7 +3,7 @@ Bundle 'bling/vim-airline'
 
 " == Colors =================================================================
 
-colorscheme mango
+" colorscheme mango
 
 set background=dark     " you can use `dark` or `light` as your background
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
@@ -13,7 +13,7 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 
 set cursorline
 
-color mango
+c" olor mango
 
 " == Mouse ==================================================================
 
