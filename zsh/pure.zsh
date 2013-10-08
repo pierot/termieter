@@ -54,7 +54,6 @@ prompt_pure_precmd() {
 	unset cmd_timestamp
 }
 
-
 prompt_pure_setup() {
 	prompt_opts=(cr subst percent)
 
