@@ -121,9 +121,12 @@ else
 
   cd $install_dir
 
+  _print "Init submodules"
+
   git submodule update --init
 
-  # Install pure
+  _print "Init pure prompt"
+
   mkdir -p "$install_dir/zsh/oh-my-zsh/functions"
   ln -sf "$install_dir/zsh/pure.zsh" "$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
 

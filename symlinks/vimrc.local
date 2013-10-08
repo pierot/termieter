@@ -3,7 +3,7 @@ Bundle 'bling/vim-airline'
 
 " == Colors =================================================================
 
-" colorscheme mango
+colorscheme mango
 
 set background=dark     " you can use `dark` or `light` as your background
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
@@ -13,7 +13,7 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 
 set cursorline
 
-c" olor mango
+color mango
 
 " == Mouse ==================================================================
 
@@ -34,7 +34,6 @@ let g:airline_powerline_fonts=1
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
 set shell=/bin/zsh\ --login
 
-"
 " == End or start of line in Insert Mode ====================================
 " Like in Terminal
 
@@ -54,9 +53,6 @@ nmap <leader>c :%s///gn<cr>
 
 " Clean Dreamweaver fuck ups
 map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
-
-" Search TODOS in coffee
-map <leader>m :Ack TODO --coffee<cr>
 
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=256
