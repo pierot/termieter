@@ -133,7 +133,7 @@ else
 
   cd $HOME
 
-  ln -sf "$install_dir/zsh/pure.zsh" "zsh/oh-my-zsh/functions/prompt_pure_setup"
+  ln -sf "$install_dir/zsh/pure.zsh" "$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
 
   _print "Installation finished"
 fi
