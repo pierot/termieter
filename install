@@ -127,8 +127,11 @@ else
 
   _print "Init pure prompt"
 
-  mkdir -p "$install_dir/zsh/oh-my-zsh/functions"
-  ln -sf "$install_dir/zsh/pure.zsh" "$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
+  if [ ! -d "zsh/oh-my-zsh/functions" ]; then
+    mkdir "zsh/oh-my-zsh/functions"
+  fi
+
+  ln -sf "zsh/pure.zsh" "zsh/oh-my-zsh/functions/prompt_pure_setup"
 
   _print "Installation finished"
 fi
