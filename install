@@ -119,8 +119,9 @@ else
     _back_install $(basename $sym_file)
   done
 
+  # Install pure
   mkdir -p "$install_dir/zsh/oh-my-zsh/functions"
-  ln -sf "$install_dir/zsh/pure.sh" "$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
+  ln -sf "$install_dir/zsh/pure.zsh" "$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
 
   cd $install_dir
 
