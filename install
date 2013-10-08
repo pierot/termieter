@@ -127,11 +127,11 @@ else
 
   _print "Init pure prompt"
 
-  cd $HOME
-
   if [ ! -d "zsh/oh-my-zsh/functions" ]; then
     mkdir "zsh/oh-my-zsh/functions"
   fi
+
+  cd $HOME
 
   ln -sf "$install_dir/zsh/pure.zsh" "zsh/oh-my-zsh/functions/prompt_pure_setup"
 
