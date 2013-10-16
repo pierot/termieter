@@ -1,6 +1,14 @@
-set transparency=1
+colorscheme mango
 
-set lines=55
-set columns=190
+set transparency=0
 
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
+set lines=40
+set columns=120
+
+set guifont=Menlo:h18
+
+set background=dark
+
+set cursorline
+
+color mango

@@ -6,6 +6,7 @@ Bundle 'bling/vim-airline'
 colorscheme mango
 
 set background=dark     " you can use `dark` or `light` as your background
+
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 
 :hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
@@ -32,7 +33,7 @@ let g:airline_powerline_fonts=1
 " == Shell ==================================================================
 
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
-set shell=/bin/zsh\ --login
+" set shell=/bin/zsh\ --login
 
 " == End or start of line in Insert Mode ====================================
 " Like in Terminal
