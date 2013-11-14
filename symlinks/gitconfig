@@ -1,6 +1,6 @@
 [user]
-  name = Pieter Michels
-  email = pieter@noort.be
+	name = Pieter Michels
+	email = pieter@noort.be
 [apply]
   whitespace = fix
 [color]
@@ -24,10 +24,16 @@
 [diff]
   algorithm = histogram
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/pieterm/.gitignore
 [github]
 	user = pierot
 	token = c9a84078efdf44e6cb4e534786f6991e
 [push]
 	default = current
 [alias]
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Volumes/SourceTree/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
