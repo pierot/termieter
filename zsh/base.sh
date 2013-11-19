@@ -18,12 +18,13 @@ function fasterfaster() {
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
 
+alias vimd="cd ~/.vim"
 alias vime="cd ~/.vim; vim ."
 
 alias v='vim .'
 alias vi='vim'
 
-alias l='ls $LS_OPT -1AFC'
+# alias l='ls $LS_OPT -1AFC'
 
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
@@ -136,13 +137,13 @@ alias tk='tmux kill-server'
 alias ta='tmux attach-session -t $@'
 alias tl='tmux ls'
 
-source "$FT/reattach-to-user-namespace.sh"
+test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
 function tt-mail() {
   tmux has-session -t mutt 2>/dev/null
 
   if [ "$?" -eq 1 ] ; then
-    tmux new-session -d -s "mutt" "reattach-to-user-namespace -l $SHELL"
+    tmux new-session -d -s "mutt" "$tmux_wrapper -l $SHELL"
   fi
 }
 
@@ -153,10 +154,11 @@ function tt() {
   sn=`echo ${PWD##*/}`
 
   # This will also be the default cwd for new windows created
-  tmux new-session -d -s "$sn" "reattach-to-user-namespace -l vim ."
+  # tmux new-session -d -s "$sn" "$tmux_wrapper vim ."
+  tmux new-session -d -s "$sn" "$tmux_wrapper -l $SHELL"
 
   # New window
-  tmux new-window -t "$sn:2" "reattach-to-user-namespace -l $SHELL"
+  tmux new-window -t "$sn:2" "$tmux_wrapper -l $SHELL"
 
   # Select window #1 and attach to the session
   tmux select-window -t "$sn:1"
