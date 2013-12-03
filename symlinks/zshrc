@@ -69,8 +69,12 @@ fi
 # autoload -U compinit
 # compinit
 
+zstyle ':completion:*' menu yes=long select
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
 # Colors for ls and autocompletion
-# eval $( gdircolors -b $ZSH/LS_COLORS )
+eval $( gdircolors -b $ZSH/../LS_COLORS )
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
 source $ZSH/oh-my-zsh.sh

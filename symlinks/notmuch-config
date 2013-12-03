@@ -43,8 +43,8 @@ other_email=pieter@wellconsidered.be;pieter.michels@gmail.com;
 #		be ignored, independent of its depth/location in the mail store.
 #
 [new]
-tags=unread;inbox;
-ignore=temp
+tags=unread;inbox;new;
+ignore=temp;.mbsyncstate;.uidvalidity;
 
 # Search configuration
 #
@@ -56,7 +56,7 @@ ignore=temp
 #		query will override that exclusion.
 #
 [search]
-exclude_tags=
+exclude_tags=deleted;spam;
 
 # Maildir compatibility configuration
 #
