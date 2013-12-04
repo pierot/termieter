@@ -62,7 +62,6 @@ sub notifier_it {
     my $notifier_on_nick = Irssi::settings_get_str('notifier_on_nick');
 
     my $current_nick = $server->{nick};
-
     if($filter) {
       return 0 if $data !~ /$filter/;
     }
@@ -71,7 +70,6 @@ sub notifier_it {
     }
 
     $title = $title . " " . $channel;
-
     do_notifier($server, $title, $data);
 }
 
@@ -128,17 +126,17 @@ sub notifier_privmsg {
 }
 
 # Hook me up
-Irssi::settings_add_str('misc', 'notifier_on_regex', 'pierot');      # false
+Irssi::settings_add_str('misc', 'notifier_on_regex', 0);      # false
 Irssi::settings_add_str('misc', 'notifier_channel_regex', 0); # false
-Irssi::settings_add_str('misc', 'notifier_on_nick', 0);       # true
-Irssi::settings_add_str('misc', 'notifier_on_privmsg', 1);    # false
-# Irssi::signal_add('message public', 'notifier_message');
+Irssi::settings_add_str('misc', 'notifier_on_nick', 1);       # true
+Irssi::settings_add_str('misc', 'notifier_on_privmsg', 0);    # false
+Irssi::signal_add('message public', 'notifier_message');
 Irssi::signal_add('message private', 'notifier_message');
 Irssi::signal_add('message own_public', 'notifier_message');
 Irssi::signal_add('message own_private', 'notifier_message');
-# Irssi::signal_add('message join', 'notifier_join');
-# Irssi::signal_add('message part', 'notifier_part');
-# Irssi::signal_add('message quit', 'notifier_quit');
-# Irssi::signal_add('message invite', 'notifier_invite');
-# Irssi::signal_add('message topic', 'notifier_topic');
+Irssi::signal_add('message join', 'notifier_join');
+Irssi::signal_add('message part', 'notifier_part');
+Irssi::signal_add('message quit', 'notifier_quit');
+Irssi::signal_add('message invite', 'notifier_invite');
+Irssi::signal_add('message topic', 'notifier_topic');
 Irssi::signal_add('event privmsg', 'notifier_privmsg');
