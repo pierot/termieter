@@ -133,7 +133,7 @@ statusbar = {
         barstart = { priority = "100"; };
         time = { };
 
-        user = { priority = "-1"; };
+        # user = { priority = "-1"; };
         # added my current nick here b/c it was the only useful
         # item in the disabled bar
 
@@ -159,13 +159,6 @@ statusbar = {
       };
     };
 
-    awl_0 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_0 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 
@@ -179,7 +172,11 @@ settings = {
     recode_fallback = "CP1252";
   };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { emphasis = "OFF"; theme = "pbrisbin"; };
+  "fe-common/core" = {
+    emphasis = "OFF";
+    theme = "pbrisbin";
+    hilight_color = "%Y %4";
+  };
   "perl/core/scripts" = {
     awl_block = "15";
     awl_fancy_abbrev = "head";
@@ -189,7 +186,9 @@ settings = {
     awl_position = "0";
     awl_sbar_maxlength = "on";
     awl_maxlines = "3";
-    notifier_on_regex = "(pieter|pierot|michels)";
+    awl_prefer_name = "yes";
+    awl_separator = "\\ - ";
+    notifier_on_regex = "(pieter|pierot|michels|noort)";
   };
   "irc/core" = { alternate_nick = "Pieter Michels"; };
 };
@@ -208,7 +207,9 @@ logs = { };
 
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
-  2 = {
+  2 = { name = "hi"; sticky = "yes"; };
+  3 = {
+    name = "bbdo-digital";
     items = (
       {
         type = "CHANNEL";
@@ -218,7 +219,8 @@ windows = {
       }
     );
   };
-  3 = {
+  4 = {
+    name = "beanstalk";
     items = (
       {
         type = "CHANNEL";
@@ -228,7 +230,8 @@ windows = {
       }
     );
   };
-  4 = {
+  5 = {
+    name = "logging";
     items = (
       {
         type = "CHANNEL";
@@ -238,7 +241,8 @@ windows = {
       }
     );
   };
-  5 = {
+  6 = {
+    name = "panic-room";
     items = (
       {
         type = "CHANNEL";
@@ -248,9 +252,52 @@ windows = {
       }
     );
   };
-  6 = { name = "hilight"; sticky = "yes"; };
+  7 = {
+    name = "priv-jeroendp";
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "XMPP";
+        name = "28509_185385@chat.hipchat.com/windows";
+        tag = "hipchat";
+      }
+    );
+  };
+  8 = {
+    name = "nodejs";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#node.js";
+        tag = "freenode";
+      }
+    );
+  };
+  9 = {
+    name = "doc-cloud";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#documentcloud";
+        tag = "freenode";
+      }
+    );
+  };
+  10 = {
+    name = "priv-jeroenb";
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "XMPP";
+        name = "28509_180485@chat.hipchat.com/";
+        tag = "hipchat";
+      }
+    );
+  };
 };
 mainwindows = {
-  1 = { first_line = "5"; lines = "42"; };
-  6 = { first_line = "1"; lines = "4"; };
+  10 = { first_line = "5"; lines = "42"; };
+  2 = { first_line = "1"; lines = "4"; };
 };

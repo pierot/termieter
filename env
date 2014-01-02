@@ -60,12 +60,12 @@ fi
 ################################################################################
 # Nitrous.io
 
-export PATH="$HOME/.parts/autoparts/bin:$PATH"
-
-if type parts &> /dev/null; then
-  eval "$(parts init -)"
-fi
-
-[[ -f "~/.nvm/nvm.sh" ]] && source "~/.nvm/nvm.sh"
+# export PATH="$HOME/.parts/autoparts/bin:$PATH"
+#
+# if type parts &> /dev/null; then
+#   eval "$(parts init -)"
+# fi
+#
+# [[ -f "~/.nvm/nvm.sh" ]] && source "~/.nvm/nvm.sh"
 
 ################################################################################

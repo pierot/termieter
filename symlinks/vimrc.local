@@ -1,5 +1,6 @@
 " Bundles
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-rails'
 
 " == Colors =================================================================
 
