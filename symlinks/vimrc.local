@@ -1,5 +1,6 @@
 " Bundles
 Bundle 'bling/vim-airline'
+Bundle 'paranoida/vim-airlineish'
 Bundle 'tpope/vim-rails'
 
 " == Colors =================================================================
@@ -29,7 +30,8 @@ set ttymouse=xterm
 
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 let g:airline_powerline_fonts=1
-" set timeout timeoutlen=100 ttimeoutlen=50
+set ttimeoutlen=50
+let g:airline_theme = 'airlineish'
 
 " == Shell ==================================================================
 

@@ -24,6 +24,8 @@ alias vime="cd ~/.vim; vim ."
 alias v='vim .'
 alias vi='vim'
 
+alias be='bundle exec'
+
 # alias l='ls $LS_OPT -1AFC'
 
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
