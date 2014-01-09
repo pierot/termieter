@@ -1,0 +1,12 @@
+#!/usr/bin/ruby
+
+require 'rubygems'
+require 'irb/completion'
+require 'irb/ext/save-history'
+require 'interactive_editor'
+
+IRB.conf[:SAVE_HISTORY] = 300
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+IRB.conf[:PROMPT_MODE]  = :SIMPLE
+
+ARGV.concat [ "--readline", "--prompt-mode", "simple" ]

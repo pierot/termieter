@@ -202,7 +202,10 @@ settings = {
     awl_maxlines = "3";
     awl_prefer_name = "yes";
     awl_separator = "\\ - ";
-    notifier_on_regex = "(pieter|pierot|michels|noort)";
+    notifier_on_regex_old = "(pieter|pierot|michels|noort)";
+    notifier_on_regex = ".*";
+    notifier_channel_regex = "(?=^(?:(?!(Node\.js|documentcloud)).)*$).*";
+    notifier_on_privmsg = 1;
   };
   "irc/core" = { alternate_nick = "Pieter Michels"; };
 };
@@ -289,7 +292,7 @@ windows = {
     );
   };
   9 = {
-    name = "doc-cloud";
+    name = "documentcloud";
     items = (
       {
         type = "CHANNEL";
