@@ -10,3 +10,4 @@
 :verbose: true
 install: --no-ri --no-rdoc --env-shebang
 update: --no-ri --no-rdoc --env-shebang
+gem: --no-ri --no-rdoc

@@ -166,13 +166,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 
@@ -204,8 +197,8 @@ settings = {
     awl_separator = "\\ - ";
     notifier_on_regex_old = "(pieter|pierot|michels|noort)";
     notifier_on_regex = ".*";
-    notifier_channel_regex = "(?=^(?:(?!(Node\.js|documentcloud)).)*$).*";
-    notifier_on_privmsg = 1;
+    notifier_channel_regex = "(?=^(?:(?!(Node.js|documentcloud)).)*$).*";
+    notifier_on_privmsg = "1";
   };
   "irc/core" = { alternate_nick = "Pieter Michels"; };
 };
@@ -270,17 +263,6 @@ windows = {
     );
   };
   7 = {
-    name = "priv-jeroendp";
-    items = (
-      {
-        type = "QUERY";
-        chat_type = "XMPP";
-        name = "28509_185385@chat.hipchat.com/windows";
-        tag = "hipchat";
-      }
-    );
-  };
-  8 = {
     name = "nodejs";
     items = (
       {
@@ -291,7 +273,7 @@ windows = {
       }
     );
   };
-  9 = {
+  8 = {
     name = "documentcloud";
     items = (
       {
@@ -299,17 +281,6 @@ windows = {
         chat_type = "IRC";
         name = "#documentcloud";
         tag = "freenode";
-      }
-    );
-  };
-  10 = {
-    name = "priv-jeroenb";
-    items = (
-      {
-        type = "QUERY";
-        chat_type = "XMPP";
-        name = "28509_180485@chat.hipchat.com/";
-        tag = "hipchat";
       }
     );
   };
