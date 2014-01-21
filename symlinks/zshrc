@@ -55,12 +55,11 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gitfast npm urltools vagrant)
-# plugins+=(bundler composer gem knife rbenv)
-# plugins+=(fabric virtualenvwrapper)
+plugins=(gitfast npm urltools vagrant docker gem bundler)
 
 if [[ $OS == 'OSX' ]]; then
-  # nothing yet
+  # plugins+=(git)
+  alias dircolors='gdircolors'
 else
   # plugins+=(git)
 fi
@@ -74,7 +73,7 @@ zstyle ':completion:*' use-cache yes
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # Colors for ls and autocompletion
-eval $( gdircolors -b $ZSH/../LS_COLORS )
+eval $( dircolors -b $ZSH/../LS_COLORS )
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
 source $ZSH/oh-my-zsh.sh

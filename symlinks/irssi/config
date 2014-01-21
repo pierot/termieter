@@ -1,5 +1,4 @@
 servers = (
-  { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; },
   {
     address = "irc.freenode.net";
     chatnet = "freenode";
@@ -16,16 +15,14 @@ servers = (
 );
 
 chatnets = {
-  SILC = { type = "SILC"; };
-
   freenode = { type = "IRC"; };
-
   hipchat = { type = "XMPP"; nick = "28509_180484@chat.hipchat.com"; };
 };
 
 channels = (
   { name = "#node.js"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#documentcloud"; chatnet = "freenode"; autojoin = "yes"; },
+
   { name = "#dart"; chatnet = "freenode"; autojoin = "no"; },
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "no"; },
   { name = "#haskell"; chatnet = "freenode"; autojoin = "no"; },
@@ -159,13 +156,6 @@ statusbar = {
       };
     };
 
-    awl_0 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_0 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 
@@ -205,6 +195,7 @@ settings = {
 
 hilights = (
   { text = "@pierot"; color = "%M"; nick = "no"; word = "yes"; },
+  { text = "pieterm"; color = "%M"; nick = "no"; word = "yes"; },
   { text = "noort.be"; color = "%M"; nick = "no"; word = "no"; },
   { text = "pierot"; color = "%M"; nick = "no"; word = "yes"; },
   { text = "Michels"; color = "%M"; nick = "no"; word = "yes"; },
@@ -285,7 +276,4 @@ windows = {
     );
   };
 };
-mainwindows = {
-  10 = { first_line = "5"; lines = "42"; };
-  2 = { first_line = "1"; lines = "4"; };
-};
+mainwindows = { 2 = { first_line = "1"; lines = "4"; }; };

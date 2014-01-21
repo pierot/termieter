@@ -71,3 +71,11 @@ let c_space_errors=1
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Highlight words to avoid in production
+highlight TechWordsToAvoid ctermbg=red ctermfg=white
+match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+autocmd BufWinLeave * call clearmatches()
