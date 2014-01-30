@@ -1,0 +1,5 @@
+#Triggers file version 1.0
+-publics -regexp 'Message from unknown participant ' -replace '' 
+-all -nocase -regexp 'committed' -replace '[CM]' 
+-all -nocase -regexp 'shit' -replace 'sh*t' 
+-all -nocase -regexp '<.+?>' -replace '' 

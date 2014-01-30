@@ -28,7 +28,6 @@ alias be='bundle exec'
 
 # alias l='ls $LS_OPT -1AFC'
 
-alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # my ip
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias msh-noort='mosh --ssh="ssh -p 33" pierot@noort.be'
