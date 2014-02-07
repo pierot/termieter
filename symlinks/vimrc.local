@@ -2,6 +2,7 @@
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
 Bundle 'tpope/vim-rails'
+Bundle 'jnwhiteh/vim-golang'
 
 " == Colors =================================================================
 
@@ -33,6 +34,21 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 let g:airline_powerline_fonts=1
 set ttimeoutlen=50
 let g:airline_theme = 'airlineish'
+
+" == Golang ==================================================================
+" Clear filetype flags before changing runtimepath to force Vim to reload them.
+filetype off
+filetype plugin indent off
+
+set runtimepath+=$GOROOT/misc/vim
+
+filetype plugin indent on
+
+syntax on
+
+" A popular configuration is to gofmt Go source files when they are saved.
+" To do that, add this line to the end of your $HOME/.vimrc.
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " == Shell ==================================================================
 
