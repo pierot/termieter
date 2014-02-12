@@ -185,3 +185,15 @@ else
     eval "$(rbenv init -)"
   fi
 fi
+
+###############################################################################
+
+# GO
+
+if [[ `uname` == 'Darwin' ]]; then
+  export GOPATH="$DROPBOX/Work/devel/go"
+  export PATH="$PATH:$GOPATH/bin"
+else
+  # Go on linux
+  export PATH=$PATH:/usr/local/go/bin
+fi
