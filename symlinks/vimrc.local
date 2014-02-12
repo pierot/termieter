@@ -6,19 +6,17 @@ Bundle 'jnwhiteh/vim-golang'
 
 " == Colors =================================================================
 
-colorscheme mango
+colorscheme Tomorrow-Night-Eighties
 
-set background=dark     " you can use `dark` or `light` as your background
+" set background=dark     " you can use `dark` or `light` as your background
 
-" set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
-set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
+" set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
+set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 
 :hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 :hi LineNr       font='monospace 8' guifg=#BCBCBC guibg=#232526
 
 set cursorline
-
-color mango
 
 " == Mouse ==================================================================
 
