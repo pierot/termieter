@@ -1,8 +1,5 @@
 " Bundles
-Bundle 'bling/vim-airline'
-Bundle 'paranoida/vim-airlineish'
 Bundle 'tpope/vim-rails'
-Bundle 'jnwhiteh/vim-golang'
 
 " == Colors =================================================================
 
@@ -18,21 +15,6 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 
 set cursorline
 
-" == Mouse ==================================================================
-
-" Enable mouse in all modes. -> https://bitheap.org/mouseterm/
-set mouse=a
-
-" Set mouse type to xterm.
-set ttymouse=xterm
-
-" == Airline ==================================================================
-
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
-let g:airline_powerline_fonts=1
-set ttimeoutlen=50
-let g:airline_theme = 'airlineish'
-
 " == Golang ==================================================================
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
@@ -45,10 +27,6 @@ filetype plugin indent on
 
 syntax on
 
-" A popular configuration is to gofmt Go source files when they are saved.
-" To do that, add this line to the end of your $HOME/.vimrc.
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
 " == Shell ==================================================================
 
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
@@ -57,41 +35,15 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 " == End or start of line in Insert Mode ====================================
 " Like in Terminal
 
-inoremap <C-e> <C-o>$
-inoremap <C-a> <C-o>0
+" inoremap <C-e> <C-o>$
+" inoremap <C-a> <C-o>0
 
 " ===========================================================================
 
-" allow multiple pastes of the same content when pasting in visual mode.
-vnoremap p pgvy
-
 " better indent for li and p
-let g:html_indent_tags = 'li\|p'
-
-" show number of matches after a search
-nmap <leader>c :%s///gn<cr>
-
-" Clean Dreamweaver fuck ups
-map <leader>q :%s/\v(\w)(:)(\S)/\1\2 \3/g<cr>
-
-" Syntax coloring lines that are too long just slows down the world
-set synmaxcol=256
+" let g:html_indent_tags = 'li\|p'
 
 " Highlight everyting that is longer than 80 chars
 highlight OverLength ctermbg=16 ctermfg=41 guibg=#292929
 match OverLength /\%81v.*/
 let c_space_errors=1
-
-" Ag
-" brew install the_silver_searcher
-" pacman -S the_silver_searcher
-" apt-get install silversearcher-ag
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" Highlight words to avoid in production
-highlight TechWordsToAvoid ctermbg=red ctermfg=white
-match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd BufWinLeave * call clearmatches()
