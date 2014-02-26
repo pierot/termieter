@@ -13,7 +13,7 @@ function fasterfaster() {
   sudo rm -rf /var/mail/*
 }
 
-###############################################################################
+##########################################################
 
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
@@ -25,8 +25,6 @@ alias v='vim .'
 alias vi='vim'
 
 alias be='bundle exec'
-
-# alias l='ls $LS_OPT -1AFC'
 
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 
@@ -40,7 +38,7 @@ if [ -d $DROPBOX ]; then
   alias clients="cd $DROPBOX/Work/clients/"
 fi
 
-###############################################################################
+##########################################################
 
 if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
@@ -69,6 +67,11 @@ if [[ $OS == 'OSX' ]]; then
   alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.13/homebrew.mxcl.mysql.plist'
   alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.13/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
+
+  # POSTGRESQL
+  alias postgresql-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+  alias postgresql-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+  alias posgresql-restart='postgresql-stop | postgresql-start'
 
   # APACHE
   alias apache-start='sudo apachectl start'
@@ -99,7 +102,7 @@ else
   }
 fi
 
-###############################################################################
+##########################################################
 
 # SVN
 export SVN_EDITOR='vim'
@@ -120,7 +123,7 @@ alias svn-status-all="$FT/svnstatus.py $@"
 alias svn-up-all="$FT/functions/svnup.py $@"
 alias svn-update-all='svn-up-all'
 
-###############################################################################
+##########################################################
 
 # GIT
 alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'
@@ -130,7 +133,7 @@ alias gcm='git commit -m'
 alias glod='gl origin develop'
 alias glom='gl origin master'
 
-###############################################################################
+##########################################################
 
 # TMUX
 alias t='tmux'
@@ -169,7 +172,7 @@ function tt() {
 # for tmux: export 256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-###############################################################################
+##########################################################
 
 # RBENV
 if have rbenv; then
@@ -186,14 +189,16 @@ else
   fi
 fi
 
-###############################################################################
+##########################################################
 
 # GO
 
 if [[ `uname` == 'Darwin' ]]; then
   export GOPATH="$DROPBOX/Work/devel/go"
-  export PATH="$PATH:$GOPATH/bin"
 else
   # Go on linux
+  export GOPATH="$HOME/projects/go"
   export PATH=$PATH:/usr/local/go/bin
 fi
+
+export PATH="$PATH:$GOPATH/bin"
