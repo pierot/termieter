@@ -3,7 +3,8 @@ Bundle 'tpope/vim-rails'
 
 " == Colors =================================================================
 
-colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow-Night-Eighties
+colorscheme molokai
 
 " set background=dark     " you can use `dark` or `light` as your background
 

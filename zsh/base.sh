@@ -201,4 +201,5 @@ else
   export PATH=$PATH:/usr/local/go/bin
 fi
 
+export GOROOT="/usr/local/go"
 export PATH="$PATH:$GOPATH/bin"
