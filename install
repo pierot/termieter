@@ -136,6 +136,16 @@ else
   _print "Installation finished"
 fi
 
+hash gdircolors 2>&- || { _error "I require coreutils but it's not installed! Trying to .."; CORE_UTILS_INSTALLED=false; }
+
+if ! $CORE_UTILS_INSTALLED; then
+  hash brew 2>&- || { _error "I require homebrew but it's not installed! No gdircolors for you!"; HOMEBREW_INSTALLED=false; }
+
+  if $HOMEBREW_INSTALLED; then
+    brew install coreutils
+  fi
+fi
+
 _cleanup_lib
 
 while true
