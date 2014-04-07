@@ -88,18 +88,6 @@ else
   function active-connections() {
     netstat -tulpn
   }
-
-  function iptables-clear() {
-    iptables -F
-    iptables -X
-    iptables -t nat -F
-    iptables -t nat -X
-    iptables -t mangle -F
-    iptables -t mangle -X
-    iptables -P INPUT ACCEPT
-    iptables -P OUTPUT ACCEPT
-    iptables -P FORWARD ACCEPT
-  }
 fi
 
 ##########################################################
@@ -129,7 +117,6 @@ alias svn-update-all='svn-up-all'
 alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'
 alias gpp='echoo "git commit --allow-empty -m [deploy: production]; git push"; git commit --allow-empty -m "[deploy: production]"; git push'
 
-alias gcm='git commit -m'
 alias glod='gl origin develop'
 alias glom='gl origin master'
 
@@ -192,7 +179,6 @@ fi
 ##########################################################
 
 # GO
-
 if [[ `uname` == 'Darwin' ]]; then
   export GOPATH="$DROPBOX/Work/devel/go"
 else

@@ -4,9 +4,9 @@ Bundle 'tpope/vim-rails'
 " == Colors =================================================================
 
 " colorscheme Tomorrow-Night-Eighties
-colorscheme molokai
+colorscheme hemisu
 
-" set background=dark     " you can use `dark` or `light` as your background
+set background=dark     " you can use `dark` or `light` as your background
 
 " set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14

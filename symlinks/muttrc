@@ -27,10 +27,10 @@ set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
 
 # Sidebar Patch --------------------------------------
-set sidebar_delim   = '  │'
-set sidebar_visible = yes
-set sidebar_width   = 24
-color sidebar_new color221 color233
+# set sidebar_delim   = '  │'
+# set sidebar_visible = yes
+# set sidebar_width   = 24
+# color sidebar_new color221 color233
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
@@ -48,7 +48,7 @@ hdr_order from: to: cc: date: subject:  # and in this order
 set spoolfile = "+INBOX"
 
 # Alternate email addresses.
-alternates pieter@wellconsidered.be
+# alternates pieter@wellconsidered.be
 
 # Mailboxes to show in the sidebar.
 mailboxes +INBOX \
@@ -91,9 +91,9 @@ macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 # Sidebar Navigation ---------------------------------
-bind index,pager <down>   sidebar-next
-bind index,pager <up>     sidebar-prev
-bind index,pager <right>  sidebar-open
+# bind index,pager <down>   sidebar-next
+# bind index,pager <up>     sidebar-prev
+# bind index,pager <right>  sidebar-open
 
 # Pager View Options ---------------------------------
 set pager_index_lines = 10 # number of index lines to show

@@ -12,7 +12,7 @@ def get_keychain_pass(account=None, server=None):
 
   command = "sudo -u `whoami` %(security)s -v %(command)s -g -a %(account)s -s %(server)s %(keychain)s" % params
   output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
-  outtext = [l for l in output.splitlines() 
-      if l.startswith('password: ')][0]
+  outtext = [l for l in output.splitlines()
+    if l.startswith('password: ')][0]
 
   return re.match(r'password: "(.*)"', outtext).group(1)
