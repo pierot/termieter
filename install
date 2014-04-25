@@ -36,7 +36,6 @@ while getopts :hd: opt; do
       ;;
     *)
       _error "Invalid option received"
-
       _usage
 
       exit 0
@@ -157,7 +156,7 @@ do
     [yY])
       _check_root
 
-      sudo chsh -s /bin/zsh
+      sudo chsh -s /bin/zsh $USER
 
       break
       ;;
