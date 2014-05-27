@@ -33,6 +33,7 @@ alias msh-noort='mosh --ssh="ssh -p 33" pierot@noort.be'
 alias hosts='sudo vim /etc/hosts'
 
 if [ -d $DROPBOX ]; then
+  alias work="cd $DROPBOX/Work/"
   alias archive="cd $DROPBOX/Work/archive/"
   alias repos="cd $DROPBOX/Work/repos/"
   alias dev="cd $DROPBOX/Work/devel/"
