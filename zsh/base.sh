@@ -33,6 +33,7 @@ alias msh-noort='mosh --ssh="ssh -p 33" pierot@noort.be'
 alias hosts='sudo vim /etc/hosts'
 
 if [ -d $DROPBOX ]; then
+  alias archive="cd $DROPBOX/Work/archive/"
   alias repos="cd $DROPBOX/Work/repos/"
   alias dev="cd $DROPBOX/Work/devel/"
   alias clients="cd $DROPBOX/Work/clients/"
@@ -179,8 +180,8 @@ fi
 ##########################################################
 
 # GO
-if [[ `uname` == 'Darwin' ]]; then
-  export GOPATH="$DROPBOX/Work/devel/go"
+if [[ $OS == 'OSX' ]]; then
+  export GOPATH="$DROPBOX/Work/go"
 else
   # Go on linux
   export GOPATH="$HOME/projects/go"

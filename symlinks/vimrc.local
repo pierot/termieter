@@ -33,18 +33,7 @@ set cursorline
 " Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
 " set shell=/bin/zsh\ --login
 
-" == End or start of line in Insert Mode ====================================
-" Like in Terminal
-
-" inoremap <C-e> <C-o>$
-" inoremap <C-a> <C-o>0
-
-" ===========================================================================
-
-" better indent for li and p
-" let g:html_indent_tags = 'li\|p'
-
-" Highlight everyting that is longer than 80 chars
+" Highlight everyting that is longer than 100 chars
 highlight OverLength ctermbg=16 ctermfg=41 guibg=#292929
-match OverLength /\%81v.*/
+match OverLength /\%101v.*/
 let c_space_errors=1
