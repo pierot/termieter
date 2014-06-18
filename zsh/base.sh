@@ -122,6 +122,17 @@ alias gpp='echoo "git commit --allow-empty -m [deploy: production]; git push"; g
 alias glod='gl origin develop'
 alias glom='gl origin master'
 
+git-status-all() {
+  for gitdir in `find . -name .git`;
+  do
+    workdir=$(dirname $gitdir);
+    echo;
+    echo $workdir;
+    git --git-dir=$gitdir --work-tree=$workdir status;
+    echo "###########################################"
+  done
+}
+
 ##########################################################
 
 # TMUX
