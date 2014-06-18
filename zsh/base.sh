@@ -125,11 +125,16 @@ alias glom='gl origin master'
 git-status-all() {
   for gitdir in `find . -name .git`;
   do
-    workdir=$(dirname $gitdir);
-    echo;
-    echo $workdir;
-    git --git-dir=$gitdir --work-tree=$workdir status;
-    echo "###########################################"
+    local workdir=$(dirname $gitdir);
+    local gitout="`git -c color.status=always --git-dir=$gitdir --work-tree=$workdir status`";
+
+    if [[ ! $gitout =~ .*nothing\ to\ commit,\ working\ directory\ clean.* ]];
+    then
+      echo;
+      echo $workdir;
+      echo $gitout;
+      echo "###########################################";
+    fi
   done
 }
 
@@ -202,3 +207,11 @@ fi
 
 export GOROOT="/usr/local/go"
 export PATH="$PATH:$GOPATH/bin"
+
+##########################################################
+
+# ANDROID
+export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/platform-tools"
+export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
+
+##########################################################
