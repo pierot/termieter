@@ -117,7 +117,31 @@ alias svn-update-all='svn-up-all'
 
 # GIT
 alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'
-alias gpp='echoo "git commit --allow-empty -m [deploy: production]; git push"; git commit --allow-empty -m "[deploy: production]"; git push'
+# alias gpp='echoo "git commit --allow-empty -m [deploy: production]; git push"; git commit --allow-empty -m "[deploy: production]"; git push'
+
+gpp() {
+  # Grunt
+  if have grunt; then
+    local gruntout="`grunt`";
+
+    if [[ ! $gruntout =~ .*Unable\ to\ find\ local\ grunt.* ]]; then
+      echoo "grunt production";
+
+      grunt production;
+
+      echoo "git add .; git commit;";
+
+      git add .;
+      gc -m 'grunt production';
+    fi
+  fi
+
+  # Git
+  echoo "git commit --allow-empty -m [deploy: production]; git push";
+
+  git commit --allow-empty -m "[deploy: production]";
+  git push
+}
 
 alias glod='gl origin develop'
 alias glom='gl origin master'
@@ -208,10 +232,17 @@ fi
 export GOROOT="/usr/local/go"
 export PATH="$PATH:$GOPATH/bin"
 
+alias godir="cd $GOPATH"
+
 ##########################################################
 
 # ANDROID
 export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/platform-tools"
 export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
+
+##########################################################
+
+# GRUNT
+eval "$(grunt --completion=zsh)"
 
 ##########################################################
