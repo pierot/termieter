@@ -1,7 +1,6 @@
 var http = require('http');
 
 function claim_data(licenseplate) {
-	var client = http.createClient(80, 'parking.proximity.bbdo.be');
 	var data = 'LICENCEPLATE=' + licenseplate + '&btnClaim=Claim+spot';
 
 	var headers = {
@@ -12,7 +11,13 @@ function claim_data(licenseplate) {
 	  'Origin': 'http://parking.proximity.bbdo.be'
 	};
 
-	var request = client.request('POST', '/Claim/Claim', headers);
+	var request = http.request({
+	  port: 80,
+	  host: 'parking.proximity.bbdo.be',
+	  method: 'POST',
+	  path: '/Claim/Claim',
+	  headers: headers
+  });
 
 	request.on('response', function(response) {
 	  response.setEncoding('utf8');
