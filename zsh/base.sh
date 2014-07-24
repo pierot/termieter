@@ -227,13 +227,12 @@ fi
 # GO
 if [[ $OS == 'OSX' ]]; then
   export GOPATH="$DROPBOX/Work/go"
+  export GOROOT="/usr/local/go"
 else
-  # Go on linux
+  export GOROOT="/usr/lib/go"
   export GOPATH="$HOME/go"
-  export PATH=$PATH:/usr/local/go/bin
 fi
 
-export GOROOT="/usr/local/go"
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
 alias godir="cd $GOPATH"
