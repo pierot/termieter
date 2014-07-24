@@ -55,7 +55,8 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gitfast npm urltools vagrant docker gem bundler)
+
+plugins=(gitfast npm urltools vagrant gem bundler cabal cp go mosh)
 
 if [[ $OS == 'OSX' ]]; then
   # plugins+=(git)

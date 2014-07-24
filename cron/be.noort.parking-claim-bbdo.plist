@@ -8,14 +8,11 @@
   <key>ProgramArguments</key>
   <array>
     <string>/usr/local/bin/node</string>
-    <string>~/.termieter/cron/extra/parking.js</string>
+    <string>/Volumes/data/Users/pieterm/.termieter/cron/extra/parking.js</string>
   </array>
 
-	<key>StartCalendarInterval</key>
-	<dict>
-		<key>Minute</key>
-		<integer>59</integer>
-	</dict>
+	<key>StartInterval</key>
+  <integer>3600</integer>
 
   <key>RunAtLoad</key>
   <true/>

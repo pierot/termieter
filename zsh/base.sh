@@ -15,6 +15,10 @@ function fasterfaster() {
 
 ##########################################################
 
+alias ls='ls $LS_OPT' # long list, excludes dot files
+alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
+alias l='ls $LS_OPT -1AFC'
+
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
 
@@ -225,12 +229,12 @@ if [[ $OS == 'OSX' ]]; then
   export GOPATH="$DROPBOX/Work/go"
 else
   # Go on linux
-  export GOPATH="$HOME/projects/go"
+  export GOPATH="$HOME/go"
   export PATH=$PATH:/usr/local/go/bin
 fi
 
 export GOROOT="/usr/local/go"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
 alias godir="cd $GOPATH"
 
@@ -244,5 +248,10 @@ export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
 
 # GRUNT
 eval "$(grunt --completion=zsh)"
+
+##########################################################
+
+# HASKELL
+export PATH="$PATH:$HOME/.cabal/bin"
 
 ##########################################################

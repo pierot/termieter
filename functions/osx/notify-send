@@ -1,0 +1,3 @@
+#!/bin/bash
+
+terminal-notifier -title "Vagrant VM" -message "$*"

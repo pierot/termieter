@@ -6,6 +6,8 @@ if [[ $OS == 'OSX' ]]; then
   echo "Copy $@ to $LCTL"
 
     if [ -f $LCTL$@ ]; then
+      echo "First remove old version of $@ in $LCTL"
+
       rm $LCTL$@
     fi
 
@@ -14,7 +16,10 @@ if [[ $OS == 'OSX' ]]; then
   echo "Load $@ in $LCTL"
 
     cd $LCTL
+
+    launchctl unload $@
     launchctl load $@
+
     cd -
 else
   echo "This will only works on OSX."

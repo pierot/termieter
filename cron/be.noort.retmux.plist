@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+  <string>be.noort.retmux</string>
+
+  <key>Program</key>
+  <string>/Volumes/data/Users/pieterm/.termieter/cron/extra/retmux.sh</string>
+
+	<key>StartInterval</key>
+  <integer>15</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/retmux.err</string>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/retmux.out</string>
+</dict>
+</plist>

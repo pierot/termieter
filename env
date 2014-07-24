@@ -13,7 +13,7 @@ else
   export OS='Linux'
 fi
 
-################################################################################
+###########################################################
 
 export HISTCONTROL=ignoreboth # Ignore same sucessive entries.
 export HISTSIZE=15000 # resize history size
@@ -23,7 +23,7 @@ if [[ $CURRENT_SHELL == 'bash' ]]; then
   shopt -s histappend # append to bash_history if Terminal.app quits
 fi
 
-################################################################################
+###########################################################
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
@@ -31,9 +31,13 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="/usr/local/share/python:$PATH"
 export PATH="$TRM/functions:$PATH"
 
+if [[ $OS == 'OSX' ]]; then
+  export PATH="$TRM/functions/osx:$PATH"
+fi
+
 export PATH
 
-################################################################################
+###########################################################
 
 export CLICOLOR=1;
 
@@ -49,7 +53,7 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL=
 
-################################################################################
+###########################################################
 
 if [[ $OS == 'OSX' ]]; then
 	export LS_OPT=''
@@ -57,4 +61,4 @@ else
 	export LS_OPT='--color=auto'
 fi
 
-################################################################################
+###########################################################
