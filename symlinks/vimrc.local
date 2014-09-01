@@ -1,5 +1,13 @@
 " Bundles
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-obsession'
+
+" Neocomplete
+Bundle 'Shougo/neocomplete.vim'
+
+" == Neocomplete ===============================
+
+let g:neocomplete#enable_at_startup = 1
 
 " == Colors =================================================================
 
@@ -15,23 +23,6 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 :hi LineNr       font='monospace 8' guifg=#BCBCBC guibg=#232526
 
 set cursorline
-
-" == Golang ==================================================================
-
-" Clear filetype flags before changing runtimepath to force Vim to reload them.
-" filetype off
-" filetype plugin indent off
-"
-" set runtimepath+=$GOROOT/misc/vim
-"
-" filetype plugin indent on
-"
-" syntax on
-
-" == Shell ==================================================================
-
-" Set the shell Vim uses for external commands to bash in such a way that it'll source ~/.bash_profile
-" set shell=/bin/zsh\ --login
 
 " Highlight everyting that is longer than 100 chars
 highlight OverLength ctermbg=16 ctermfg=41 guibg=#292929

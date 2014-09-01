@@ -28,6 +28,8 @@ alias vime="cd ~/.vim; vim ."
 alias v='vim .'
 alias vi='vim'
 
+alias va='vagrant'
+
 alias be='bundle exec'
 
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
@@ -121,7 +123,6 @@ alias svn-update-all='svn-up-all'
 
 # GIT
 alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'
-# alias gpp='echoo "git commit --allow-empty -m [deploy: production]; git push"; git commit --allow-empty -m "[deploy: production]"; git push'
 
 gpp() {
   # Grunt

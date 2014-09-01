@@ -7,10 +7,16 @@ echo -n "Retmux Start" | logger
 #
 # python -c "import os; import sys; sys.stdout.write(os.getenv('HOME'))" | logger
 
-sudo -u pieterm /usr/local/bin/retmux -b
+whoami | logger
+
+/usr/local/bin/tmux list-sessions | logger
+# su pieterm -c '/usr/local/bin/tmux list-sessions' | logger
+
+# sudo -u pieterm /usr/local/bin/retmux -b
 # /usr/local/bin/retmux -b | logger
 
 echo -n "Retmux Done" | logger
+echo -n " " | logger
 
 # while read line
 # do

@@ -135,6 +135,12 @@ else
   _print "Installation finished"
 fi
 
+if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
+  _success "tmux-resurrect is already installed"
+else
+  git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect
+fi
+
 hash gdircolors 2>&- || { _error "I require coreutils but it's not installed! Trying to .."; CORE_UTILS_INSTALLED=false; }
 
 if ! $CORE_UTILS_INSTALLED; then
