@@ -247,7 +247,9 @@ export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
 ##########################################################
 
 # GRUNT
-eval "$(grunt --completion=zsh)"
+if have rbenv; then
+  eval "$(grunt --completion=zsh)"
+fi
 
 ##########################################################
 

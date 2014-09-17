@@ -1,3 +1,4 @@
+$('.m-leaderboard').remove();
 $("#bumpOverlay").remove();
 $("#topadvertorialwrap").remove();
 $("#bumpModal, .bumpModal").remove();
