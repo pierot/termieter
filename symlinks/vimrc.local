@@ -1,7 +1,17 @@
 " Bundles
 " Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-obsession'
-Bundle 'wakatime/vim-wakatime'
+
+" == Neocomplete ===============================
+if has("unix")
+  let s:uname = system("uname")
+
+  if s:uname == "Darwin\n"
+
+    Bundle 'wakatime/vim-wakatime'
+
+  endif
+endif
 
 " Neocomplete
 " Bundle 'Shougo/neocomplete.vim'
