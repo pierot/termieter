@@ -124,6 +124,12 @@ else
 
   git submodule update --init
 
+  _print "Init custom plugins"
+
+  if [ ! -d "zsh/oh-my-zsh/custom/plugins" ]; then
+    mkdir "zsh/oh-my-zsh/custom/plugins"
+  fi
+
   _print "Init pure prompt"
 
   if [ ! -d "zsh/oh-my-zsh/functions" ]; then
