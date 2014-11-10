@@ -1,5 +1,4 @@
 " Bundles
-" Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-obsession'
 
 " == Neocomplete ===============================

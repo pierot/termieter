@@ -6,3 +6,6 @@ ruby=.rb
 
 --type-set
 rb=.rb
+
+# Always color, even if piping to a another program
+--color

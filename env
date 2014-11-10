@@ -55,10 +55,10 @@ export LC_ALL=
 
 ###########################################################
 
+export LS_OPT='--color=auto'
+
 if [[ $OS == 'OSX' ]]; then
 	export LS_OPT=''
-else
-	export LS_OPT='--color=auto'
 fi
 
 ###########################################################

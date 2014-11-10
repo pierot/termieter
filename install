@@ -45,14 +45,8 @@ done
 
 ###############################################################################
 
-cd ~
-
-_print "Removing current termieter installation"
-
-rm -rf "$install_dir"
-
+# Git
 GIT_INSTALLED=true
-
 hash git 2>&- || { _error "I require git but it's not installed!"; GIT_INSTALLED=false; }
 
 if ! $GIT_INSTALLED; then
@@ -78,7 +72,16 @@ if ! $GIT_INSTALLED; then
   done
 fi
 
+# WGet
 hash wget 2>&- || { _error "I require wget but it's not installed!"; exit 1; }
+
+###############################################################################
+
+cd ~
+
+_print "Removing current termieter installation"
+
+rm -rf "$install_dir"
 
 if $GIT_INSTALLED; then
   git clone git://github.com/pierot/termieter.git "$install_dir"
@@ -88,58 +91,60 @@ if [ ! -d "$install_dir" ]; then
   _error "Termieter doesn't seem to be installed correctly. Aborting"
 
   exit 1
-else
-  mkdir -p ~/.bash_backup
-
-  _back_install() {
-    _print "Installing $1"
-
-    if [ ! -n "$1" ]; then
-      _error "Error in install script. Aborting"
-
-      exit 1
-    fi
-
-    if [ -f "$HOME/.$1" ]; then
-      mv "$HOME/.$1" "$HOME/.bash_backup/.$1"
-    fi
-
-    if [ -f "$install_dir/symlinks/$1" ]; then
-      if [ -n "$2" ]; then
-        ln -sf "$install_dir/symlinks/$1" "$HOME/.$2"
-      else
-        ln -sf "$install_dir/symlinks/$1" "$HOME/.$1"
-      fi
-    fi
-  }
-
-  for sym_file in $install_dir/symlinks/*
-  do
-    _back_install $(basename $sym_file)
-  done
-
-  cd $install_dir
-
-  _print "Init submodules"
-
-  git submodule update --init
-
-  _print "Init custom plugins"
-
-  if [ ! -d "zsh/oh-my-zsh/custom/plugins" ]; then
-    mkdir "zsh/oh-my-zsh/custom/plugins"
-  fi
-
-  _print "Init pure prompt"
-
-  if [ ! -d "zsh/oh-my-zsh/functions" ]; then
-    mkdir "zsh/oh-my-zsh/functions"
-  fi
-
-  ln -sf "$HOME/$install_dir/zsh/pure.zsh" "$HOME/$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
-
-  _print "Installation finished"
 fi
+
+###############################################################################
+
+mkdir -p ~/.bash_backup
+
+_back_install() {
+  _print "Installing $1"
+
+  if [ ! -n "$1" ]; then
+    _error "Error in install script. Aborting"
+
+    exit 1
+  fi
+
+  if [ -f "$HOME/.$1" ]; then
+    mv "$HOME/.$1" "$HOME/.bash_backup/.$1"
+  fi
+
+  if [ -f "$install_dir/symlinks/$1" ]; then
+    if [ -n "$2" ]; then
+      ln -sf "$install_dir/symlinks/$1" "$HOME/.$2"
+    else
+      ln -sf "$install_dir/symlinks/$1" "$HOME/.$1"
+    fi
+  fi
+}
+
+for sym_file in $install_dir/symlinks/*
+do
+  _back_install $(basename $sym_file)
+done
+
+###############################################################################
+
+cd $install_dir
+
+_print "Init submodules"
+
+git submodule update --init
+
+_print "Init custom plugins"
+
+if [ ! -d "zsh/oh-my-zsh/custom/plugins" ]; then
+  mkdir "zsh/oh-my-zsh/custom/plugins"
+fi
+
+_print "Init pure prompt"
+
+if [ ! -d "zsh/oh-my-zsh/functions" ]; then
+  mkdir "zsh/oh-my-zsh/functions"
+fi
+
+ln -sf "$HOME/$install_dir/zsh/pure.zsh" "$HOME/$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
 
 if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
   _success "tmux-resurrect is already installed"
@@ -179,3 +184,5 @@ do
       echo "Please enter Y or N"
   esac
 done
+
+_print "Installation finished"
