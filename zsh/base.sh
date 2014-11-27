@@ -148,6 +148,10 @@ gpp() {
 alias glod='gl origin develop'
 alias glom='gl origin master'
 
+function gcmm() {
+  gc -m "$*"
+}
+
 git-status-all() {
   for gitdir in `find . -name .git`;
   do
