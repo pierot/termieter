@@ -69,8 +69,8 @@ if [[ $OS == 'OSX' ]]; then
   }
 
   # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.19/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.19/homebrew.mxcl.mysql.plist'
+  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.21/homebrew.mxcl.mysql.plist'
+  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.21/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
 
   # POSTGRESQL
@@ -147,6 +147,7 @@ gpp() {
 
 alias glod='gl origin develop'
 alias glom='gl origin master'
+alias gcm='gc -m $@'
 
 function gcmm() {
   gc -m "$*"
