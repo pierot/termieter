@@ -43,6 +43,17 @@ if [ -d $DROPBOX ]; then
   alias dev="cd $DROPBOX/Work/devel/"
 fi
 
+function randcolor() {
+  colors=("DarkSlateGray" "Green" "MediumPurple" "OliveDrab" "DeekSkyBlue")
+
+  RANDOM=$$$(date +%s)
+  selectedColor=${colors[$RANDOM % ${#colors[@]} ]}
+
+  echoo "wasko -p $selectedColor"
+
+  wasko -p $selectedColor
+}
+
 ##########################################################
 
 if [[ $OS == 'OSX' ]]; then
@@ -69,8 +80,8 @@ if [[ $OS == 'OSX' ]]; then
   }
 
   # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.21/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.21/homebrew.mxcl.mysql.plist'
+  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist'
+  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
 
   # POSTGRESQL

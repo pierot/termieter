@@ -1,3 +1,4 @@
 .DS_Store
 **/config.autosave
 tmux/tmux-resurrect
+tmux/tmux-resurrect-auto
