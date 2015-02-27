@@ -1,7 +1,6 @@
 " Bundles
 Bundle 'tpope/vim-obsession'
 
-" == Neocomplete ===============================
 if has("unix")
   let s:uname = system("uname")
 
@@ -11,13 +10,6 @@ if has("unix")
 
   endif
 endif
-
-" Neocomplete
-" Bundle 'Shougo/neocomplete.vim'
-
-" == Neocomplete ===============================
-
-" let g:neocomplete#enable_at_startup = 1
 
 " == Colors =================================================================
 

@@ -71,13 +71,13 @@ if [[ $OS == 'OSX' ]]; then
   # Sleepimage
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
-  function fix-fonts() {
-    echoo "atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
-
-    atsutil databases -removeUser
-    atsutil server -shutdown
-    atsutil server -ping
-  }
+  # function fix-fonts() {
+  #   echoo "atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
+  #
+  #   atsutil databases -removeUser
+  #   atsutil server -shutdown
+  #   atsutil server -ping
+  # }
 
   # MYSQL
   alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist'
@@ -85,9 +85,9 @@ if [[ $OS == 'OSX' ]]; then
   alias mysql-restart='mysql-stop | mysql-start'
 
   # POSTGRESQL
-  alias postgresql-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-  alias postgresql-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-  alias posgresql-restart='postgresql-stop | postgresql-start'
+  # alias postgresql-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+  # alias postgresql-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+  # alias posgresql-restart='postgresql-stop | postgresql-start'
 
   # APACHE
   alias apache-start='sudo apachectl start'
@@ -158,9 +158,13 @@ gpp() {
 
 alias glod='gl origin develop'
 alias glom='gl origin master'
-alias gcm='gc -m $@'
+# alias gcm='gc -m $@'
 
 function gcmm() {
+  gc -m "$*"
+}
+
+function gcm() {
   gc -m "$*"
 }
 

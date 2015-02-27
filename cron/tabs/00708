@@ -1,5 +1,0 @@
-# crontab 'file'
-# <minute> <hour> <month-day> <month> <week-day>
-
-# * * * * * say 'prox'
-0 6-23 * * 1-7 ~/.termieter/multiplexers/functions/mimic -b | sed '/.*/d'
