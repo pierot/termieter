@@ -83,8 +83,10 @@ _print "Removing current termieter installation"
 
 rm -rf "$install_dir"
 
-if $GIT_INSTALLED; then
-  git clone git://github.com/pierot/termieter.git "$install_dir"
+if [ ! -d "$install_dir" ]; then
+  if $GIT_INSTALLED; then
+    git clone git://github.com/pierot/termieter.git "$install_dir"
+  fi
 fi
 
 if [ ! -d "$install_dir" ]; then

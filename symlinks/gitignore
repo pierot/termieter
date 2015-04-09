@@ -1,5 +1,5 @@
 # OS X
-.DS_Store
+.DS_Store*
 .idea
 .Spotlight-V100
 .Trashes
@@ -17,7 +17,6 @@ Thumbs.db
 
 # SASS
 .sass-cache
-.rvmrc
 
 # Symfony console
 *.php~
@@ -29,3 +28,7 @@ Thumbs.db
 log/*.log
 tmp/**/*
 
+# Temporary
+*.swp
+*.swo
+*~
