@@ -19,17 +19,12 @@ alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias hist='history | grep "$@"'
 alias hist-sort='echoo "history | cut -c 8- | sort | uniq -c | sort -rn"; history | cut -c 8- | sort | uniq -c | sort -rn'
 
-alias msh-noort='mosh --ssh="ssh -p 33" pierot@noort.be'
-
 echoo() {
   printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $1
 }
-# alias echoo='printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $2'
 
 alias v='vim .'
 alias vi='vim'
-
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 ################################################################################################################
 
