@@ -1,5 +1,6 @@
 " Bundles
 Bundle 'tpope/vim-obsession'
+Bundle 'altercation/vim-colors-solarized'
 
 if has("unix")
   let s:uname = system("uname")
@@ -13,10 +14,12 @@ endif
 
 " == Colors =================================================================
 
-" colorscheme Tomorrow-Night-Eighties
-colorscheme hemisu
+set background=light
+colorscheme solarized
+let g:solarized_termcolors=256
 
-set background=dark     " you can use `dark` or `light` as your background
+" colorscheme hemisu
+" set background=dark
 
 " set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14

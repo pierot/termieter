@@ -80,8 +80,8 @@ if [[ $OS == 'OSX' ]]; then
   # }
 
   # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.23/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.23/homebrew.mxcl.mysql.plist'
+  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.24/homebrew.mxcl.mysql.plist'
+  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.24/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
 
   # POSTGRESQL
