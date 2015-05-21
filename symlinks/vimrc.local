@@ -1,6 +1,7 @@
 " Bundles
 Bundle 'tpope/vim-obsession'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'mxw/vim-jsx'
 
 if has("unix")
   let s:uname = system("uname")
@@ -11,6 +12,10 @@ if has("unix")
 
   endif
 endif
+
+" == VIM JSX =================================================================
+
+let g:jsx_ext_required = 0
 
 " == Colors =================================================================
 
