@@ -19,12 +19,12 @@ let g:jsx_ext_required = 0
 
 " == Colors =================================================================
 
-set background=light
-colorscheme solarized
-let g:solarized_termcolors=256
+" set background=light
+" colorscheme solarized
+" let g:solarized_termcolors=256
 
-" colorscheme hemisu
-" set background=dark
+colorscheme hemisu
+set background=dark
 
 " set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
