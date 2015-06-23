@@ -1,6 +1,6 @@
 " Bundles
 Bundle 'tpope/vim-obsession'
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'altercation/vim-colors-solarized'
 Bundle 'mxw/vim-jsx'
 
 if has("unix")
