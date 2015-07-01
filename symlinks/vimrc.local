@@ -23,8 +23,8 @@ let g:jsx_ext_required = 0
 " colorscheme solarized
 " let g:solarized_termcolors=256
 
-colorscheme hemisu
-set background=dark
+" colorscheme hemisu
+" set background=dark
 
 syntax off
 syntax on               " Enable syntax highlighting
@@ -34,6 +34,9 @@ filetype off
 filetype on             " /!\ doesn't play well with compatible mode
 filetype plugin on      " trigger file type specific plugins
 filetype indent on      " indent based on file type syntax
+
+" set background=dark
+colorscheme pt_black
 
 " set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
