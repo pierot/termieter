@@ -12,10 +12,10 @@ do
   source $config_file
 done
 
-for function_file in $FT/*.sh
-do
-  source $function_file
-done
+#for function_file in $FT/*.sh
+#do
+#  source $function_file
+#done
 
 #for function_file in $TRM/bash/*/functions/*.sh
 #do
