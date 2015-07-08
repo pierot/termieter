@@ -17,7 +17,7 @@ do
   source $function_file
 done
 
-for function_file in $TRM/bash/*/functions/*.sh
-do
-  source $function_file
-done
+#for function_file in $TRM/bash/*/functions/*.sh
+#do
+#  source $function_file
+#done
