@@ -1,24 +1,3 @@
-extract () {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1     ;;
-      *.tar.gz)    tar xzf $1     ;;
-      *.bz2)       bunzip2 $1     ;;
-      *.rar)       unrar e $1     ;;
-      *.gz)        gunzip $1      ;;
-      *.tar)       tar xf $1      ;;
-      *.tbz2)      tar xjf $1     ;;
-      *.tgz)       tar xzf $1     ;;
-      *.zip)       unzip $1       ;;
-      *.Z)         uncompress $1  ;;
-      *.7z)        7z x $1        ;;
-      *)     echo "'$1' cannot be extracted via extract()" ;;
-     esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
 ssh-tunnel() {
   echoo "Tunneling: localport $1 maps to remote $2 for host $3"
 
@@ -37,10 +16,6 @@ confirm() {
       echo "\n\x1b[31;01m× loser\x1b[39;49;00m"
       ;;
   esac
-}
-
-mdtopdf() {
-  pandoc $1 | wkhtmltopdf - $2
 }
 
 # Whether or not we have a command
@@ -117,25 +92,9 @@ function find-todos() {
 }
 
 ###############################################################################
-# Helper :)
-
-function listf() {
-  cat "$TRM/bash/system/functions.sh"
-}
-
-###############################################################################
 # OS
 
 if [[ $OS == 'OSX' ]]; then
-  # Fix font caches
-  function fix-fonts() {
-    echoo "atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
-
-    atsutil databases -removeUser
-    atsutil server -shutdown
-    atsutil server -ping
-  }
-
   udc() {
     d=`date -r $1 '+%Y-%m-%d %H:%M:%S'`
 

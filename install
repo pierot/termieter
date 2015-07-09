@@ -1,6 +1,53 @@
 #!/usr/bin/env bash
 
-wget -N --quiet https://raw.github.com/pierot/server-installer/master/lib.sh; . ./lib.sh
+export DEBIAN_FRONTEND=noninteractive
+
+# COLORS
+COL_BLUE="\x1b[34;01m"
+COL_RESET="\x1b[39;49;00m"
+COL_RED="\x1b[31;01m"
+COL_YELLOW="\x1b[33;01m"
+COL_GRAY="\x1b[0;37m"
+
+# TEMP DIR FOR INSTALLS
+temp_dir='/tmp/src'
+mkdir -p $temp_dir
+
+_redirect_stdout() {
+  exec > >(tee "log-$1.log")
+}
+
+_print_h1() {
+  printf $COL_BLUE"\n▽ $1\n"$COL_RESET
+}
+
+_print_h2() {
+  printf $COL_YELLOW"\n× $1\n"$COL_RESET
+}
+
+_print() {
+  printf $COL_GRAY"\n$1\n"$COL_RESET
+}
+
+_error() {
+  _print $COL_RED"Error:\n$1\n"
+}
+
+_system_installs_install() {
+	[[ -z "$1" ]] && return 1
+
+  _print_h2 "Install $1"
+
+  sudo DEBIAN_FRONTEND=noninteractive apt-get -qq -y -f install $1
+}
+
+_check_root() {
+  if [ $(/usr/bin/id -u) != "0" ]; then
+    _error 'Must be run by root user'
+
+    exit 0
+  fi
+}
 
 ###############################################################################
 
@@ -73,7 +120,7 @@ if ! $GIT_INSTALLED; then
 fi
 
 # WGet
-hash wget 2>&- || { _error "I require wget but it's not installed!"; exit 1; }
+# hash wget 2>&- || { _error "I require wget but it's not installed!"; exit 1; }
 
 ###############################################################################
 
@@ -170,8 +217,6 @@ if ! $CORE_UTILS_INSTALLED; then
     brew install coreutils
   fi
 fi
-
-_cleanup_lib
 
 while true
 do

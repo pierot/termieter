@@ -28,15 +28,6 @@ alias vi='vim'
 
 ################################################################################################################
 
-if [ -d $DROPBOX ]; then
-  alias repos="cd $DROPBOX/Work/repos/"
-  alias dev="cd $DROPBOX/Work/devel/"
-  alias clients="cd $DROPBOX/Work/clients/"
-  alias projects="cd ~/Documents/Projects/"
-fi
-
-################################################################################################################
-
 if [[ $OS == 'OSX' ]]; then
   alias flushdns='echoo "dscacheutil -flushcache"; dscacheutil -flushcache' # Flush DNS cache
   alias hosts='echoo "sudo vim /private/etc/hosts"; sudo vim /private/etc/hosts'

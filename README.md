@@ -1,16 +1,9 @@
-Terminal config files
-=====================
+# Terminal config files
 
 Run following command:
 
 `bash <( curl -s https://raw.github.com/pierot/termieter/master/install )`
 
-Vim config
-==========
+# Vim config
 
-See https://github.com/proximitybbdo/vim
-
-Irssi config
-============
-
-See bitbucket
+See https://github.com/jackjoe/vim
