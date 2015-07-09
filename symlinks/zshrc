@@ -56,14 +56,18 @@ setopt share_history
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(gitfast npm urltools ansible vagrant gem cabal cp go mosh docker node rsync)
+# System
+plugins=(gitfast urltools ansible vagrant cp mosh docker rsync)
+
+# Programming
+plugins=(composer npm gem cabal go node grunt laravel5)
 
 if [[ $OS == 'OSX' ]]; then
   plugins+=(zsh-syntax-highlighting)
 
   alias dircolors='gdircolors'
 else
-  # plugins+=(git)
+  plugins+=(debian)
 fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
