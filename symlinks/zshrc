@@ -60,7 +60,7 @@ setopt share_history
 plugins=(gitfast urltools ansible vagrant cp mosh docker rsync)
 
 # Programming
-plugins=(composer npm gem cabal go node grunt laravel5)
+plugins+=(composer npm gem cabal go node grunt laravel5)
 
 if [[ $OS == 'OSX' ]]; then
   plugins+=(zsh-syntax-highlighting)
