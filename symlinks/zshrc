@@ -86,9 +86,11 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # setopt extended_glob
 
-# Pure prompt
-autoload -U promptinit && promptinit
-prompt pure
+if [[ $OS == 'OSX' ]]; then
+  # Pure prompt
+  autoload -U promptinit && promptinit
+  prompt pure
+fi
 
 source $TRM/zsh/base.sh
 
