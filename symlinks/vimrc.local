@@ -2,6 +2,9 @@
 " Bundle 'tpope/vim-obsession'
 " Bundle 'altercation/vim-colors-solarized'
 Bundle 'mxw/vim-jsx'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'rstacruz/vim-ultisnips-css'
 
 if has("unix")
   let s:uname = system("uname")
@@ -16,6 +19,12 @@ endif
 " == VIM JSX =================================================================
 
 let g:jsx_ext_required = 0
+
+" == Snippets ================================================================
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " == Colors =================================================================
 
