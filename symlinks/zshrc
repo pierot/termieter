@@ -9,11 +9,11 @@ export ZSH=$TRM/zsh/oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# if [[ $OS == 'OSX' ]]; then
-#   ZSH_THEME="bira"
-# else
-#   ZSH_THEME="mortalscumbag"
-# fi
+if [[ $OS == 'OSX' ]]; then
+  # ZSH_THEME="bira"
+else
+  ZSH_THEME="mortalscumbag"
+fi
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -71,8 +71,8 @@ else
 fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
-# autoload -U compinit
-# compinit
+autoload -U compinit
+compinit
 
 zstyle ':completion:*' menu yes=long select
 zstyle ':completion:*' use-cache yes
@@ -86,11 +86,9 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # setopt extended_glob
 
-if [[ $OS == 'OSX' ]]; then
-  # Pure prompt
-  autoload -U promptinit && promptinit
-  prompt pure
-fi
+# Pure prompt
+# autoload -U promptinit && promptinit
+# prompt pure
 
 source $TRM/zsh/base.sh
 
