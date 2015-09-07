@@ -32,9 +32,6 @@ alias vime="cd ~/.vim; vim ."
 alias v='vim .'
 alias vi='vim'
 
-alias va='vagrant'
-alias be='bundle exec'
-
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias hosts='sudo vim /etc/hosts'
@@ -47,23 +44,10 @@ if [ -d $DROPBOX ]; then
   alias dev="cd $DROPBOX/Work/devel/"
 fi
 
-function randcolor() {
-  colors=("DarkSlateGray" "Green" "MediumPurple" "OliveDrab" "DeekSkyBlue")
-
-  RANDOM=$$$(date +%s)
-  selectedColor=${colors[$RANDOM % ${#colors[@]} ]}
-
-  echoo "wasko -p $selectedColor"
-
-  wasko -p $selectedColor
-}
-
 ##########################################################
 
 if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
-
-  alias projects="cd ~/Documents/Projects/"
 
   alias mutt='cd ~/Downloads && mutt'
 
