@@ -1,10 +1,9 @@
 " Bundles
-" Bundle 'tpope/vim-obsession'
-" Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-obsession'
 Bundle 'mxw/vim-jsx'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'rstacruz/vim-ultisnips-css'
+" Bundle 'SirVer/ultisnips'
+" Bundle 'honza/vim-snippets'
+" Bundle 'rstacruz/vim-ultisnips-css'
 
 if has("unix")
   let s:uname = system("uname")
@@ -16,15 +15,19 @@ if has("unix")
   endif
 endif
 
+" == Escape ==================================================================
+
+imap jj <Esc>
+
 " == VIM JSX =================================================================
 
 let g:jsx_ext_required = 0
 
 " == Snippets ================================================================
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " == Colors =================================================================
 
@@ -32,36 +35,19 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " colorscheme solarized
 " let g:solarized_termcolors=256
 
-" colorscheme hemisu
-" set background=dark
-
-" == Be sure  ===============================================================
-
-syntax off
-syntax on               " Enable syntax highlighting
-syntax enable 		      " Enable syntax hl
-
-filetype off
-filetype on             " /!\ doesn't play well with compatible mode
-filetype plugin on      " trigger file type specific plugins
-filetype indent on      " indent based on file type syntax
-
-" == Colors =================================================================
-
-" set background=dark
-colorscheme pt_black
+colorscheme hemisu
+set background=dark
 
 " == Fonts ==================================================================
 
-" set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
-set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+" set guifont=Sauce\ Code\ Powerline\ Light:h14
 
-:hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
-:hi LineNr       font='monospace 8' guifg=#BCBCBC guibg=#232526
+" :hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
+" :hi LineNr       font='monospace 8' guifg=#BCBCBC guibg=#232526
+"
+" set cursorline
 
-set cursorline
-
-" Highlight everyting that is longer than 100 chars
+" Highlight everyting that is longer than 120 chars
 highlight OverLength ctermbg=16 ctermfg=41 guibg=#292929
-match OverLength /\%101v.*/
+match OverLength /\%121v.*/
 let c_space_errors=1

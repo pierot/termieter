@@ -119,9 +119,6 @@ if ! $GIT_INSTALLED; then
   done
 fi
 
-# WGet
-# hash wget 2>&- || { _error "I require wget but it's not installed!"; exit 1; }
-
 ###############################################################################
 
 cd ~
@@ -191,21 +188,10 @@ if [ ! -d "zsh/oh-my-zsh/functions" ]; then
   mkdir "zsh/oh-my-zsh/functions"
 fi
 
-# _print "Init pure prompt"
-
-# ln -sf "$HOME/$install_dir/zsh/pure.zsh" "$HOME/$install_dir/zsh/oh-my-zsh/functions/prompt_pure_setup"
-# ln -sf "$HOME/$install_dir/zsh/async.zsh" "$HOME/$install_dir/zsh/oh-my-zsh/functions/async"
-
 if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
   _success "tmux-resurrect is already installed"
 else
   git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect
-fi
-
-if [ -d "$HOME/$install_dir/tmux/tmux-resurrect-auto" ] ; then
-  _success "tmux-resurrect is already installed-auto"
-else
-  git clone https://github.com/tmux-plugins/tmux-resurrect-auto $HOME/$install_dir/tmux/tmux-resurrect-auto
 fi
 
 hash gdircolors 2>&- || { _error "I require coreutils but it's not installed! Trying to .."; CORE_UTILS_INSTALLED=false; }

@@ -59,23 +59,10 @@ if [[ $OS == 'OSX' ]]; then
   # Sleepimage
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
-  # function fix-fonts() {
-  #   echoo "atsutil databases -removeUser; atsutil server -shutdown; atsutil server -ping"
-  #
-  #   atsutil databases -removeUser
-  #   atsutil server -shutdown
-  #   atsutil server -ping
-  # }
-
   # MYSQL
   alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.24/homebrew.mxcl.mysql.plist'
   alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.24/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
-
-  # POSTGRESQL
-  # alias postgresql-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-  # alias postgresql-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-  # alias posgresql-restart='postgresql-stop | postgresql-start'
 
   # APACHE
   alias apache-start='sudo apachectl start'
@@ -118,8 +105,6 @@ alias svn-update-all='svn-up-all'
 ##########################################################
 
 # GIT
-alias gsync='echoo "git stash"; echoo "git pull"; echoo "git stash pop"; git stash && git pull && git stash pop'
-
 gpp() {
   # Grunt
   if have grunt; then
@@ -145,8 +130,8 @@ gpp() {
 }
 
 alias glod='gl origin develop'
+alias glos='gl origin staging'
 alias glom='gl origin master'
-# alias gcm='gc -m $@'
 
 function gcmm() {
   gc -m "$*"
