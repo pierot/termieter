@@ -4,6 +4,7 @@ Bundle 'mxw/vim-jsx'
 " Bundle 'SirVer/ultisnips'
 " Bundle 'honza/vim-snippets'
 " Bundle 'rstacruz/vim-ultisnips-css'
+Bundle 'morhetz/gruvbox'
 
 if has("unix")
   let s:uname = system("uname")
@@ -31,21 +32,11 @@ let g:jsx_ext_required = 0
 
 " == Colors =================================================================
 
-" set background=light
-" colorscheme solarized
-" let g:solarized_termcolors=256
-
-colorscheme hemisu
+colorscheme gruvbox
+let g:gruvbox_contrast_dark="dark"
 set background=dark
 
 " == Fonts ==================================================================
-
-" set guifont=Sauce\ Code\ Powerline\ Light:h14
-
-" :hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
-" :hi LineNr       font='monospace 8' guifg=#BCBCBC guibg=#232526
-"
-" set cursorline
 
 " Highlight everyting that is longer than 120 chars
 highlight OverLength ctermbg=16 ctermfg=41 guibg=#292929
