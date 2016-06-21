@@ -8,11 +8,6 @@ have() {
   type "$1" &> /dev/null
 }
 
-function fasterfaster() {
-  sudo rm -rf /private/var/log/asl/*
-  sudo rm -rf /var/mail/*
-}
-
 ##########################################################
 
 alias ls='ls $LS_OPT' # long list, excludes dot files
@@ -49,7 +44,7 @@ fi
 if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
 
-  alias mutt='cd ~/Downloads && mutt'
+  # alias mutt='cd ~/Downloads && mutt'
 
   # Spotlight
   alias spotlight-stop='sudo mdutil -i off /'
@@ -60,8 +55,8 @@ if [[ $OS == 'OSX' ]]; then
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
   # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.6.24/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.6.24/homebrew.mxcl.mysql.plist'
+  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.11/homebrew.mxcl.mysql.plist'
+  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.11/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
 
   # APACHE
@@ -105,30 +100,6 @@ alias svn-update-all='svn-up-all'
 ##########################################################
 
 # GIT
-gpp() {
-  # Grunt
-  if have grunt; then
-    local gruntout="`grunt`";
-
-    if [[ ! $gruntout =~ .*Unable\ to\ find\ local\ grunt.* ]]; then
-      echoo "grunt production";
-
-      grunt production;
-
-      echoo "git add .; git commit;";
-
-      git add .;
-      gc -m 'grunt production';
-    fi
-  fi
-
-  # Git
-  echoo "git commit --allow-empty -m [deploy: production]; git push";
-
-  git commit --allow-empty -m "[deploy: production]";
-  git push
-}
-
 alias glod='gl origin develop'
 alias glos='gl origin staging'
 alias glom='gl origin master'
@@ -167,13 +138,13 @@ alias tl='tmux ls'
 
 test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
-function tt-mail() {
-  tmux has-session -t mutt 2>/dev/null
-
-  if [ "$?" -eq 1 ] ; then
-    tmux new-session -d -s "mutt" "$tmux_wrapper -l $SHELL"
-  fi
-}
+# function tt-mail() {
+#   tmux has-session -t mutt 2>/dev/null
+#
+#   if [ "$?" -eq 1 ] ; then
+#     tmux new-session -d -s "mutt" "$tmux_wrapper -l $SHELL"
+#   fi
+# }
 
 function tt() {
   # tt-mail
@@ -231,8 +202,10 @@ alias godir="cd $GOPATH"
 ##########################################################
 
 # ANDROID
-export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/platform-tools"
-export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
+# export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/platform-tools"
+# export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
+
+export ANDROID_HOME=/usr/local/opt/android-sdk
 
 ##########################################################
 
@@ -240,10 +213,5 @@ export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
 if have grunt; then
   eval "$(grunt --completion=zsh)"
 fi
-
-##########################################################
-
-# HASKELL
-export PATH="$PATH:$HOME/.cabal/bin"
 
 ##########################################################

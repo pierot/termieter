@@ -18,6 +18,7 @@ fi
 export HISTCONTROL=ignoreboth # Ignore same sucessive entries.
 export HISTSIZE=15000 # resize history size
 export HISTIGNORE="ls:l:ll:&:[bf]g:exit:pwd:clear:reload\!:[ \t]*"
+export HISTTIMEFORMAT="%d/%m/%y %T "
 
 if [[ $CURRENT_SHELL == 'bash' ]]; then
   shopt -s histappend # append to bash_history if Terminal.app quits
@@ -29,6 +30,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="$HOME/.node/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
 
 export PATH
 
