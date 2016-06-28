@@ -1,7 +1,6 @@
 " Bundles
 Bundle 'tpope/vim-obsession'
 Bundle 'mxw/vim-jsx'
-" Bundle 'morhetz/gruvbox'
 Bundle 'mhinz/vim-signify'
 
 if has("unix")
@@ -29,10 +28,6 @@ let g:jsx_ext_required = 0
 
 colorscheme dracula
 set background=light
-
-" colorscheme gruvbox
-" let g:gruvbox_contrast_dark="dark"
-" set background=dark
 
 " == Fonts =========================================================
 
