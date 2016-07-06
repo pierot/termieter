@@ -8,7 +8,7 @@ if has("unix")
 
   if s:uname == "Darwin\n"
 
-    Bundle 'wakatime/vim-wakatime'
+    " Bundle 'wakatime/vim-wakatime'
 
   endif
 endif

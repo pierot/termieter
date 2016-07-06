@@ -39,6 +39,8 @@ if [ -d $DROPBOX ]; then
   alias dev="cd $DROPBOX/Work/devel/"
 fi
 
+alias largest_files='sudo du -ha / | sort -n -r | head -n 10'
+
 ##########################################################
 
 if [[ $OS == 'OSX' ]]; then
