@@ -24,6 +24,8 @@ alias termietere="cd $TRM; vim ."
 alias vimd="cd ~/.vim"
 alias vime="cd ~/.vim; vim ."
 
+alias hype="vim ~/.hyperterm.js"
+
 alias v='vim .'
 alias vi='vim'
 
@@ -57,17 +59,14 @@ if [[ $OS == 'OSX' ]]; then
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
   # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.11/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.11/homebrew.mxcl.mysql.plist'
+  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.16/homebrew.mxcl.mysql.plist'
+  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.16/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
 
   # APACHE
-  alias apache-start='sudo apachectl start'
-  alias apache-restart='sudo apachectl restart'
-  alias apache-stop='sudo apachectl stop'
-
   alias apache-vhosts='sudo vim /private/etc/apache2/extra/httpd-vhosts.conf'
   alias apache-config='sudo vim /private/etc/apache2/httpd.conf'
+  alias apache24-config='sudo vim /usr/local/etc/apache2/2.4/httpd.conf'
 else
   function list-services() {
     chkconfig --list | grep '3:on'

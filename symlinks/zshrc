@@ -5,12 +5,12 @@ export ZSH=$TRM/zsh/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bira"
 
 if [[ $OS == 'OSX' ]]; then
   # ZSH_THEME="bira"
 else
-  ZSH_THEME="mortalscumbag"
+  ZSH_THEME="dallas"
 fi
 
 # Set to this to use case-sensitive completion
@@ -56,10 +56,11 @@ setopt share_history
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 # System
-plugins=(gitfast urltools ansible vagrant cp mosh docker rsync)
+plugins=(gitfast urltools cp rsync)
+# plugins=(ansible vagrant mosh docker)
 
 # Programming
-plugins+=(composer npm gem cabal go node grunt laravel5)
+plugins+=(composer npm cabal go node laravel5)
 
 if [[ $OS == 'OSX' ]]; then
   plugins+=(zsh-syntax-highlighting)
