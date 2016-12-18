@@ -4,13 +4,13 @@ alias tk='tmux kill-server'
 alias ta='tmux attach-session -t $@'
 alias tl='tmux ls'
 
-function tt-mail() {
-  tmux has-session -t mutt 2>/dev/null
-  if [ "$?" -eq 1 ] ; then
-    tmux new-session -d -s "mutt" "reattach-to-user-namespace -l $SHELL"
-  fi
-  # tmux attach-session -t "mutt"
-}
+# function tt-mail() {
+#   tmux has-session -t mutt 2>/dev/null
+#   if [ "$?" -eq 1 ] ; then
+#     tmux new-session -d -s "mutt" "reattach-to-user-namespace -l $SHELL"
+#   fi
+#   # tmux attach-session -t "mutt"
+# }
 
 function tt() {
   tt-mail
@@ -36,8 +36,8 @@ function tt() {
 alias screen='export SCREENPWD=$(pwd); /usr/bin/screen -U -T $TERM'
 alias s='export SCREENPWD=$(pwd); /usr/bin/screen -U -T $TERM'
 
-case "$TERM" in 
+case "$TERM" in
   'screen')
      cd $SCREENPWD
-     ;; 
+     ;;
 esac

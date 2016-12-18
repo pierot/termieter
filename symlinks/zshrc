@@ -56,11 +56,11 @@ setopt share_history
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 # System
-plugins=(gitfast urltools cp rsync)
-# plugins=(ansible vagrant mosh docker)
+plugins=(gitfast urltools cp rsync ansible docker)
+# plugins=( vagrant mosh)
 
 # Programming
-plugins+=(composer npm cabal go node laravel5)
+plugins+=(composer npm cabal go node laravel5 mix-fast)
 
 if [[ $OS == 'OSX' ]]; then
   plugins+=(zsh-syntax-highlighting)

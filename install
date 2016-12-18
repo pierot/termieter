@@ -34,7 +34,7 @@ _error() {
 }
 
 _system_installs_install() {
-	[[ -z "$1" ]] && return 1
+  [[ -z "$1" ]] && return 1
 
   _print_h2 "Install $1"
 

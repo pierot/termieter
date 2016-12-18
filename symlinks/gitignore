@@ -24,6 +24,9 @@ Thumbs.db
 # Ruby
 .bundle
 
+# Elixir
+.mix_tasks
+
 # General
 log/*.log
 tmp/**/*

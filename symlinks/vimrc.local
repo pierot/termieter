@@ -1,14 +1,14 @@
 " Bundles
-Bundle 'tpope/vim-obsession'
-Bundle 'mhinz/vim-signify'
+" Bundle 'tpope/vim-obsession'
+" Bundle 'mhinz/vim-signify'
 
-if has("unix")
-  let s:uname = system("uname")
-
-  if s:uname == "Darwin\n"
-
-  endif
-endif
+" if has("unix")
+"   let s:uname = system("uname")
+"
+"   if s:uname == "Darwin\n"
+"
+"   endif
+" endif
 
 " == Escape ========================================================
 
@@ -24,12 +24,13 @@ let g:jsx_ext_required = 0
 
 " == Colors ========================================================
 
-colorscheme hemisu
+" colorscheme hemisu
+colorscheme pt_black
 " colorscheme nofrils-sepia
 " let g:nofrils_strbackgrounds=1
 
 " colorscheme dracula
-set background=light
+" set background=light
 
 " == Fonts =========================================================
 

@@ -190,7 +190,7 @@ fi
 # GO
 if [[ $OS == 'OSX' ]]; then
   export GOPATH="$DROPBOX/Work/go"
-  export GOROOT="/usr/local/go"
+  export GOROOT="/usr/local/opt/go/libexec"
 else
   export GOROOT="/usr/lib/go"
   export GOPATH="$HOME/go"
@@ -211,8 +211,8 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 ##########################################################
 
 # GRUNT
-if have grunt; then
-  eval "$(grunt --completion=zsh)"
-fi
+# if have grunt; then
+#   eval "$(grunt --completion=zsh)"
+# fi
 
 ##########################################################
