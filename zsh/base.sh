@@ -24,8 +24,6 @@ alias termietere="cd $TRM; vim ."
 alias vimd="cd ~/.vim"
 alias vime="cd ~/.vim; vim ."
 
-alias hype="vim ~/.hyperterm.js"
-
 alias v='vim .'
 alias vi='vim'
 
@@ -59,8 +57,8 @@ if [[ $OS == 'OSX' ]]; then
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
   # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.16/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.16/homebrew.mxcl.mysql.plist'
+  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.17/homebrew.mxcl.mysql.plist'
+  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.17/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
 
   # APACHE
@@ -104,6 +102,7 @@ alias svn-update-all='svn-up-all'
 alias glod='gl origin develop'
 alias glos='gl origin staging'
 alias glom='gl origin master'
+alias gcompile='git add . && gcmm compile'
 
 function gcmm() {
   gc -m "$*"
@@ -206,13 +205,6 @@ alias godir="cd $GOPATH"
 # export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/platform-tools"
 # export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
 
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
-##########################################################
-
-# GRUNT
-# if have grunt; then
-#   eval "$(grunt --completion=zsh)"
-# fi
+# export ANDROID_HOME=/usr/local/opt/android-sdk
 
 ##########################################################

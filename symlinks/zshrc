@@ -20,7 +20,7 @@ fi
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -57,7 +57,6 @@ setopt share_history
 
 # System
 plugins=(gitfast urltools cp rsync ansible docker)
-# plugins=( vagrant mosh)
 
 # Programming
 plugins+=(composer npm cabal go node laravel5 mix-fast)

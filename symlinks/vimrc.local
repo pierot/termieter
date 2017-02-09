@@ -1,6 +1,4 @@
 " Bundles
-" Bundle 'tpope/vim-obsession'
-" Bundle 'mhinz/vim-signify'
 
 " if has("unix")
 "   let s:uname = system("uname")
@@ -12,25 +10,21 @@
 
 " == Escape ========================================================
 
-imap jj <Esc>
+" imap jj <Esc>
 
 " Leave insert mode when upping or downing
 " inoremap <silent> <Up> <ESC><Up>
 " inoremap <silent> <Down> <ESC><Down>
 
-" == VIM JSX =======================================================
-
-let g:jsx_ext_required = 0
-
 " == Colors ========================================================
 
-" colorscheme hemisu
-colorscheme pt_black
+" colorscheme pt_black
 " colorscheme nofrils-sepia
 " let g:nofrils_strbackgrounds=1
 
-" colorscheme dracula
-" set background=light
+set background=dark
+colorscheme vimbrant
+highlight ColorColumn ctermbg=7
+highlight ColorColumn guibg=Gray
 
 " == Fonts =========================================================
-
