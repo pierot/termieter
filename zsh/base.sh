@@ -57,8 +57,8 @@ if [[ $OS == 'OSX' ]]; then
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
   # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.17/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.17/homebrew.mxcl.mysql.plist'
+  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.18/homebrew.mxcl.mysql.plist'
+  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.18/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
 
   # APACHE
@@ -103,6 +103,7 @@ alias glod='gl origin develop'
 alias glos='gl origin staging'
 alias glom='gl origin master'
 alias gcompile='git add . && gcmm compile'
+alias gmerge='git add . && gcmm merge'
 
 function gcmm() {
   gc -m "$*"

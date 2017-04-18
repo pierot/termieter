@@ -18,13 +18,10 @@
 
 " == Colors ========================================================
 
-" colorscheme pt_black
+colorscheme pt_black
 " colorscheme nofrils-sepia
 " let g:nofrils_strbackgrounds=1
 
 set background=dark
-colorscheme vimbrant
-highlight ColorColumn ctermbg=7
-highlight ColorColumn guibg=Gray
 
 " == Fonts =========================================================
