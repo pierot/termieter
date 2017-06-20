@@ -57,8 +57,8 @@ if [[ $OS == 'OSX' ]]; then
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
   # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.18/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.18/homebrew.mxcl.mysql.plist'
+  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.18_1/homebrew.mxcl.mysql.plist'
+  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.18_1/homebrew.mxcl.mysql.plist'
   alias mysql-restart='mysql-stop | mysql-start'
 
   # APACHE
@@ -105,6 +105,10 @@ alias glom='gl origin master'
 alias gcompile='git add . && gcmm compile'
 alias gmerge='git add . && gcmm merge'
 
+function gpo() {
+  git pull origin $*
+}
+
 function gcmm() {
   gc -m "$*"
 }
@@ -147,23 +151,23 @@ test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 #   fi
 # }
 
-function tt() {
-  # tt-mail
-
-  # var for session name (to avoid repeated occurences)
-  sn=`echo ${PWD##*/}`
-
-  # This will also be the default cwd for new windows created
-  # tmux new-session -d -s "$sn" "$tmux_wrapper vim ."
-  tmux new-session -d -s "$sn" "$tmux_wrapper -l $SHELL"
-
-  # New window
-  tmux new-window -t "$sn:2" "$tmux_wrapper -l $SHELL"
-
-  # Select window #1 and attach to the session
-  tmux select-window -t "$sn:1"
-  tmux -2 attach-session -t "$sn"
-}
+# function tt() {
+#   # tt-mail
+#
+#   # var for session name (to avoid repeated occurences)
+#   sn=`echo ${PWD##*/}`
+#
+#   # This will also be the default cwd for new windows created
+#   # tmux new-session -d -s "$sn" "$tmux_wrapper vim ."
+#   tmux new-session -d -s "$sn" "$tmux_wrapper -l $SHELL"
+#
+#   # New window
+#   tmux new-window -t "$sn:2" "$tmux_wrapper -l $SHELL"
+#
+#   # Select window #1 and attach to the session
+#   tmux select-window -t "$sn:1"
+#   tmux -2 attach-session -t "$sn"
+# }
 
 # for tmux: export 256color
 [ -n "$TMUX" ] && export TERM=screen-256color
@@ -171,19 +175,17 @@ function tt() {
 ##########################################################
 
 # RBENV
-if have rbenv; then
-  eval "$(rbenv init -)"
-else
-  if [ -s "~/.rbenv/bin" ]; then
-    export PATH="~/.rbenv/bin:$PATH"
-
-    eval "$(rbenv init -)"
-  elif [ -s "/usr/local/rbenv/bin" ]; then
-    export PATH="/usr/local/rbenv/bin:$PATH"
-
-    eval "$(rbenv init -)"
-  fi
-fi
+# if have rbenv; then
+#   eval "$(rbenv init -)"
+# else
+#   if [ -s "~/.rbenv/bin" ]; then
+#     export PATH="$PATH:$HOME/.rbenv/bin"
+#     eval "$(rbenv init -)"
+#   elif [ -s "/usr/local/rbenv/bin" ]; then
+#     export PATH="$PATH:/usr/local/rbenv/bin"
+#     eval "$(rbenv init -)"
+#   fi
+# fi
 
 ##########################################################
 
@@ -203,9 +205,21 @@ alias godir="cd $GOPATH"
 ##########################################################
 
 # ANDROID
-# export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/platform-tools"
-# export PATH="$PATH:$DROPBOX/Work/devel/Android/sdk/tools"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$HOME/Library/Android/sdk/tools"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/emulator"
 
-# export ANDROID_HOME=/usr/local/opt/android-sdk
+##########################################################
+
+# NODE
+export PATH="$PATH:/usr/local/share/npm/bin"
+export PATH="$PATH:$HOME/.node/bin"
+
+##########################################################
+
+# HASKELL
+export PATH="$PATH:$HOME/.cabal/bin"
 
 ##########################################################
