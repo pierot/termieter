@@ -1,13 +1,3 @@
 source ~/.termieter/env
 
 export SHELL=/bin/bash
-
-for config_file in $TRM/bash/**/*.sh
-do
-  source $config_file
-done
-
-for config_file in $TRM/bash/**/*.bash
-do
-  source $config_file
-done

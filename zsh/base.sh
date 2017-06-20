@@ -80,22 +80,6 @@ fi
 # SVN
 export SVN_EDITOR='vim'
 
-alias svns='svn st'
-alias svnc='svn commit -m "$@"'
-alias svnu='svn up'
-
-svn-add-all() {
-  svn st | grep "^?" | awk '{$1=""; print $0}' | while read f; do svn add "$f"; done
-}
-
-svn-delete-all() {
-  svn st | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %
-}
-
-alias svn-status-all="$FT/svnstatus.py $@"
-alias svn-up-all="$FT/functions/svnup.py $@"
-alias svn-update-all='svn-up-all'
-
 ##########################################################
 
 # GIT
@@ -145,7 +129,6 @@ test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
 # function tt-mail() {
 #   tmux has-session -t mutt 2>/dev/null
-#
 #   if [ "$?" -eq 1 ] ; then
 #     tmux new-session -d -s "mutt" "$tmux_wrapper -l $SHELL"
 #   fi
@@ -221,5 +204,15 @@ export PATH="$PATH:$HOME/.node/bin"
 
 # HASKELL
 export PATH="$PATH:$HOME/.cabal/bin"
+
+##########################################################
+
+# FASTLANE
+export PATH="$PATH:$HOME/.fastlane/bin"
+
+##########################################################
+
+# MYSQL
+export PATH="$PATH:/usr/local/mysql/bin"
 
 ##########################################################

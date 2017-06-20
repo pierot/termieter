@@ -59,7 +59,7 @@ setopt share_history
 plugins=(gitfast urltools cp rsync ansible docker)
 
 # Programming
-plugins+=(composer npm cabal go node laravel5 mix-fast)
+plugins+=(composer npm go laravel5 mix-fast)
 
 if [[ $OS == 'OSX' ]]; then
   plugins+=(zsh-syntax-highlighting)
@@ -89,6 +89,3 @@ source $ZSH/oh-my-zsh.sh
 source $TRM/zsh/base.sh
 
 alias reload!='. ~/.zshrc'
-
-export PATH="$HOME/.fastlane/bin:$PATH"
-
