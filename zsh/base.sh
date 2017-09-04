@@ -258,3 +258,9 @@ export PATH="$PATH:$HOME/.fastlane/bin"
 export PATH="$PATH:/usr/local/mysql/bin"
 
 ##########################################################
+
+# Google Cloud SDK
+if [[ $OS == 'OSX' ]]; then
+  source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
+else
+fi
