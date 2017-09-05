@@ -130,6 +130,7 @@ alias glos='gl origin staging'
 alias glom='gl origin master'
 alias gcompile='git add . && gcmm compile'
 alias gmerge='git add . && gcmm merge'
+alias gpp='git commit --allow-empty -m "[deploy:production]"'
 
 function gpo() {
   git pull origin $*
