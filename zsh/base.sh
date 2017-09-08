@@ -56,10 +56,6 @@ alias ls='ls $LS_OPT' # long list, excludes dot files
 alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
 alias l='ls $LS_OPT -1AFC'
 
-if [[ $OS == 'OSX' ]]; then
-  alias cat='ccat'
-fi
-
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
 
@@ -87,6 +83,7 @@ alias largest_files='sudo du -ha / | sort -n -r | head -n 10'
 
 if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
+  alias cat='ccat'
 
   # alias mutt='cd ~/Downloads && mutt'
 
