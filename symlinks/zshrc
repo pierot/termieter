@@ -57,7 +57,7 @@ setopt share_history
 plugins=(gitfast cp rsync docker)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins=(urltools ansible)
+  plugins+=(urltools ansible)
   plugins+=(zsh-syntax-highlighting)
   plugins+=(composer npm go laravel5 mix-fast)
 
