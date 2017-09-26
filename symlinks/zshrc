@@ -54,10 +54,10 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(cp rsync docker)
+plugins=(gitfast cp rsync docker)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins=(gitfast urltools ansible)
+  plugins=(urltools ansible)
   plugins+=(zsh-syntax-highlighting)
   plugins+=(composer npm go laravel5 mix-fast)
 
