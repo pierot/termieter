@@ -69,11 +69,12 @@ alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias hosts='sudo vim /etc/hosts'
 
+if [ -d "$HOME/Work/jackjoe/" ]; then
+  alias jackjoe="cd $HOME/Work/jackjoe/"
+fi
+
 if [ -d $DROPBOX ]; then
-  alias work="cd $DROPBOX/Work/"
-  alias archive="cd $DROPBOX/Work/archive/"
   alias repos="cd $DROPBOX/Work/repos/"
-  alias jackjoe="cd $DROPBOX/Work/jackjoe/"
   alias dev="cd $DROPBOX/Work/devel/"
 fi
 
@@ -84,8 +85,6 @@ alias largest_files='sudo du -ha / | sort -n -r | head -n 10'
 if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
   alias cat='ccat'
-
-  # alias mutt='cd ~/Downloads && mutt'
 
   # Spotlight
   alias spotlight-stop='sudo mdutil -i off /'
@@ -167,31 +166,6 @@ alias tl='tmux ls'
 
 test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
-# function tt-mail() {
-#   tmux has-session -t mutt 2>/dev/null
-#   if [ "$?" -eq 1 ] ; then
-#     tmux new-session -d -s "mutt" "$tmux_wrapper -l $SHELL"
-#   fi
-# }
-
-# function tt() {
-#   # tt-mail
-#
-#   # var for session name (to avoid repeated occurences)
-#   sn=`echo ${PWD##*/}`
-#
-#   # This will also be the default cwd for new windows created
-#   # tmux new-session -d -s "$sn" "$tmux_wrapper vim ."
-#   tmux new-session -d -s "$sn" "$tmux_wrapper -l $SHELL"
-#
-#   # New window
-#   tmux new-window -t "$sn:2" "$tmux_wrapper -l $SHELL"
-#
-#   # Select window #1 and attach to the session
-#   tmux select-window -t "$sn:1"
-#   tmux -2 attach-session -t "$sn"
-# }
-
 # for tmux: export 256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
@@ -214,7 +188,7 @@ test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
 # GO
 if [[ $OS == 'OSX' ]]; then
-  export GOPATH="$DROPBOX/Work/go"
+  export GOPATH="$HOME/Work/go"
   export GOROOT="/usr/local/opt/go/libexec"
 else
   export GOROOT="/usr/lib/go"
