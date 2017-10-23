@@ -103,6 +103,7 @@ if [[ $OS == 'OSX' ]]; then
   alias apache-vhosts='vim ~/Dropbox/Work/local-config/httpd-vhosts.conf'
   alias apache2-config='sudo vim /private/etc/apache2/httpd.conf'
   alias apache24-config='sudo vim /usr/local/etc/apache2/2.4/httpd.conf'
+  alias apache-config='sudo vim /usr/local/etc/httpd/httpd.conf'
 else
   function list-services() {
     chkconfig --list | grep '3:on'
