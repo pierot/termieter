@@ -15,22 +15,21 @@ fi
 ###########################################################
 
 export HISTCONTROL=ignoreboth # Ignore same sucessive entries.
-export HISTSIZE=15000 # resize history size
+export HISTSIZE=15000         # resize history size
 export HISTIGNORE="ls:l:ll:&:[bf]g:exit:pwd:clear:reload\!:[ \t]*"
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 if [[ $CURRENT_SHELL == 'bash' ]]; then
-  shopt -s histappend # append to bash_history if Terminal.app quits
+  shopt -s histappend         # append to bash_history if Terminal quits
 fi
 
 ###########################################################
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH
 
 ###########################################################
 
-export CLICOLOR=1;
+export CLICOLOR=1
 
 ###########################################################
 

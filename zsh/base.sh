@@ -231,6 +231,11 @@ export PATH="$PATH:/usr/local/mysql/bin"
 
 ##########################################################
 
+# FZF fuzzy finder
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+##########################################################
+
 # Google Cloud SDK
 if [[ $OS == 'OSX' ]]; then
   source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
