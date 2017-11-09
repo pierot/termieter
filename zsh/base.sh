@@ -215,6 +215,9 @@ export PATH="$PATH:$ANDROID_HOME/emulator"
 export PATH="$PATH:/usr/local/share/npm/bin"
 export PATH="$PATH:$HOME/.node/bin"
 
+alias n="npm"
+alias nr="npm run"
+
 ##########################################################
 
 # HASKELL
@@ -229,6 +232,11 @@ export PATH="$PATH:$HOME/.fastlane/bin"
 
 # MYSQL
 export PATH="$PATH:/usr/local/mysql/bin"
+
+##########################################################
+
+# YARN
+export PATH="$HOME/.yarn/bin:$PATH"
 
 ##########################################################
 
