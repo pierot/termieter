@@ -69,6 +69,10 @@ alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias hosts='sudo vim /etc/hosts'
 
+function compresspdf() {
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
+}
+
 if [ -d "$HOME/Work/jackjoe/" ]; then
   alias jackjoe="cd $HOME/Work/jackjoe/"
 fi
