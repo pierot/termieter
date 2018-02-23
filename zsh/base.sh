@@ -266,6 +266,8 @@ fi
 
 # Google Cloud SDK
 if [[ $OS == 'OSX' ]]; then
-  source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
+  if [ -d "$DROPBOX/Work/devel/google-coud-sdk" ]; then
+    source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
+  fi
 else
 fi
