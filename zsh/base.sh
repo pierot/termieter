@@ -69,6 +69,8 @@ alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 
 alias hosts='sudo vim /etc/hosts'
 
+alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
+
 if [ -d "$HOME/Work/jackjoe/" ]; then
   alias jackjoe="cd $HOME/Work/jackjoe/"
 fi
