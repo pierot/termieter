@@ -107,6 +107,7 @@ if [[ $OS == 'OSX' ]]; then
   # APACHE
   alias apache-vhosts='vim ~/Dropbox/Work/local-config/httpd-vhosts.conf'
   alias apache-config='sudo vim /usr/local/etc/httpd/httpd.conf'
+  alias php-error-tail='tail -f /usr/local/var/log/httpd/error_log'
 else
   function list-services() {
     chkconfig --list | grep '3:on'
