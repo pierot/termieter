@@ -141,7 +141,7 @@ cd $install_dir
 
 _print "Init submodules"
 
-git submodule update --init
+git submodule update --init -q
 
 _print "Init custom plugins"
 
@@ -156,7 +156,7 @@ fi
 if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
   _success "tmux-resurrect is already installed"
 else
-  git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect
+  git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
 fi
 
 ###############################################################################
