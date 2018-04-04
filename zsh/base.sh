@@ -67,6 +67,7 @@ alias vi='vim'
 
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
+alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
 
 alias hosts='sudo vim /etc/hosts'
 
@@ -120,8 +121,9 @@ fi
 
 ##########################################################
 
-# SVN
+# EDITORS
 export SVN_EDITOR='vim'
+export EDITOR=vim
 
 ##########################################################
 
@@ -268,6 +270,8 @@ fi
 
 # Google Cloud SDK
 if [[ $OS == 'OSX' ]]; then
-  source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
+  if [ -d "$DROPBOX/Work/devel/google-coud-sdk" ]; then
+    source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
+  fi
 else
 fi
