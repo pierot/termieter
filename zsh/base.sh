@@ -70,6 +70,7 @@ alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)"
 alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
 
 alias hosts='sudo vim /etc/hosts'
+alias m='mosh'
 
 function compresspdf() {
   gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
