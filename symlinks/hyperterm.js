@@ -4,7 +4,8 @@ module.exports = {
     fontSize: 18,
 
     // font family with optional fallbacks
-    fontFamily: '"Source Code Pro for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily:
+      '"Source Code Pro for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color (hex)
     cursorColor: '#F81CE5',
@@ -45,12 +46,12 @@ module.exports = {
       '#0066ff',
       '#cc00ff',
       '#00ffff',
-      '#ffffff'
+      '#ffffff',
     ],
 
     hyperclean: {
       // hideTabs: true
-    }
+    },
   },
 
   // a list of plugins to fetch and install from npm
@@ -59,12 +60,10 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [
-    
-  ],
+  plugins: [],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: []
-};
+  localPlugins: [],
+}
