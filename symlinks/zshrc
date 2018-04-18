@@ -59,7 +59,7 @@ plugins=(gitfast cp rsync docker)
 if [[ $OS == 'OSX' ]]; then
   plugins+=(urltools ansible)
   plugins+=(zsh-syntax-highlighting)
-  plugins+=(composer npm go laravel5 mix-fast)
+  plugins+=(composer npm yarn go laravel5 mix-fast)
 
   alias dircolors='gdircolors'
 else
@@ -88,3 +88,10 @@ source $TRM/zsh/base.sh
 alias reload!='. ~/.zshrc'
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/sls.zsh

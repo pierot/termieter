@@ -98,11 +98,6 @@ if [[ $OS == 'OSX' ]]; then
   # Sleepimage
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
-  # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.19/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.19/homebrew.mxcl.mysql.plist'
-  alias mysql-restart='mysql-stop | mysql-start'
-
   # APACHE
   alias apache-vhosts='vim ~/Dropbox/Work/local-config/httpd-vhosts.conf'
   alias apache-config='sudo vim /usr/local/etc/httpd/httpd.conf'
