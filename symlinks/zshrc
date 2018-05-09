@@ -87,3 +87,10 @@ source $ZSH/oh-my-zsh.sh
 source $TRM/zsh/base.sh
 
 alias reload!='. ~/.zshrc'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/sls.zsh
