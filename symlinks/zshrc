@@ -3,12 +3,15 @@ source ~/.termieter/env
 export SHELL=/bin/zsh
 export ZSH=$TRM/zsh/oh-my-zsh
 
+# Set custom zsh directory
+ZSH_CUSTOM="$TRM/zsh/custom"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="bureau"
 
 if [[ $OS == 'OSX' ]]; then
-  # ZSH_THEME="bira"
+  ZSH_THEME="bureau-local"
 else
   ZSH_THEME="dallas"
 fi
