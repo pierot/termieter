@@ -1,5 +1,7 @@
 " Bundles
 
+Plugin 'wakatime/vim-wakatime'
+
 " if has("unix")
 "   let s:uname = system("uname")
 "
