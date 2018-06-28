@@ -1,6 +1,5 @@
-[user]
-	name = Pieter Michels
-	email = pieter@noort.be
+[include]
+  path = ~/.gitconfig.local
 [apply]
   whitespace = fix
 [color]

@@ -163,6 +163,10 @@ _back_install() {
       ln -sf "$install_dir/symlinks/$1" "$HOME/.$1"
     fi
   fi
+
+  _print "Symlink user specific gitconfig"
+
+  ln -sf "$install_dir/users/$USER" "$HOME/.gitconfig.local"
 }
 
 for sym_file in $install_dir/symlinks/*
