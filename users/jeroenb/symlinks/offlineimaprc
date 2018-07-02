@@ -1,0 +1,86 @@
+[general]
+ui = basic
+accounts = jeroen-jackjoe.be,antenno
+pythonfile = $TRM/mutt/offlineimap.py
+fsync = False
+
+[Account jeroen-jackjoe.be]
+localrepository = jeroen-jackjoe.be-local
+remoterepository = jeroen-jackjoe.be-remote
+postsynchook = notmuch new
+
+[Account antenno]
+localrepository = antenno-local
+remoterepository = antenno-remote
+postsynchook = notmuch new
+
+[Repository jeroen-jackjoe.be-local]
+type = Maildir
+localfolders = ~/.mail/jeroen-jackjoe.be
+nametrans = lambda folder: {'drafts':    '[Gmail]/Drafts',
+                            'sent':      '[Gmail]/Sent Mail',
+                            'spam':      '[Gmail]/Spam',
+                            'starred':   '[Gmail]/Starred',
+                            'trash':     '[Gmail]/Trash',
+                            'archive':   '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository jeroen-jackjoe.be-remote]
+maxconnections = 5
+type = Gmail
+remoteuser = jeroen@jackjoe.be
+remotepasseval = get_keychain_pass(account="jeroen@jackjoe.be", server="imap.gmail.com", user="jeroenb")
+realdelete = no
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+ssl = true
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'starred',
+                            '[Gmail]/Spam':      'spam',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Important',
+                                             '[Gmail]/hosting.hosting-tech'
+                                             '[Gmail]/active'
+                                             'active','prospect','hosting.hosting-tech'
+                                              ]
+
+[Repository antenno-local]
+type = Maildir
+localfolders = ~/.mail/antenno
+nametrans = lambda folder: {'drafts':    'Drafts',
+                            'sent':      'Sent Items',
+                            'spam':      'Junk Email',
+                            'starred':   'Starred',
+                            'trash':     'Deleted Items',
+                            'archive':   'Archive',
+                            }.get(folder, folder)
+
+[Repository antenno-remote]
+maxconnections = 10
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = jeroen.bourgois@antenno.be
+remotepasseval = get_keychain_pass(account="jeroen.bourgois@antenno.be", server="outlook.office365.com", user="jeroenb")
+realdelete = no
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+ssl = true
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+# Folders to skip during sync.
+folderfilter = lambda foldername: foldername not in ['Deleted Items',
+                                                     'Contacts',
+                                                     'Journal',
+                                                     'Scheduled',
+                                                     'Tasks',
+                                                     'Notes',
+                                                     'Calendar',
+                                                     'Clutter',
+                                                     'Trash'
+                                                     ]
+nametrans = lambda folder: {'Drafts':        'drafts', 'Sent Items':    'sent',
+                            'Junk Email':    'spam',
+                            'Deleted Items': 'trash',
+                            'Archive':       'archive',
+                            }.get(folder, folder)

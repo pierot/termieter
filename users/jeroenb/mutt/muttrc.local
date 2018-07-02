@@ -1,0 +1,25 @@
+# Account Settings -----------------------------------
+
+# Default inbox.
+set spoolfile = "+jeroen-jackjoe.be/INBOX"
+
+# Mailboxes to show in the sidebar.
+mailboxes "+-- Jack+Joe -------------" \
+          +jeroen-jackjoe.be/INBOX \
+          +jeroen-jackjoe.be/archive \
+          +jeroen-jackjoe.be/starred \
+          +jeroen-jackjoe.be/spam \
+          +jeroen-jackjoe.be/sent \
+          +jeroen-jackjoe.be/drafts \
+          +temporary/search \
+          "+-- Antenno -------------" \
+          +antenno/INBOX \
+          +antenno/archive \
+          +antenno/spam \
+          +antenno/sent \
+          +antenno/drafts \
+
+folder-hook jeroen-jackjoe.be/* source $TRM/users/jeroenb/mutt/accounts/jackjoe/config
+folder-hook antenno/* source $TRM/users/jeroenb/mutt/accounts/antenno/config
+
+source $TRM/users/jeroenb/mutt/accounts/jackjoe/config

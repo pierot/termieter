@@ -1,0 +1,18 @@
+# vim: ft=rc:
+
+set from      = "Jeroen Bourgois <jeroen@jackjoe.be>"
+set sendmail  = "/usr/local/bin/msmtp -a jeroen@jackjoe.be"
+set signature = $TRM/users/jeroenb/mutt/accounts/jackjoe/signature
+
+# Other special folders.
+set mbox      = "+jeroen-jackjoe.be/archive"
+set postponed = "+jeroen-jackjoe.be/drafts"
+
+# GMail Macros ---------------------------------------
+macro index,pager A "<save-message>=jeroen-jackjoe.be/archive<enter>" "Archive Message"
+macro index,pager !  <save-message>=jeroen-jackjoe.be/spam<enter><enter> "Report spam"
+macro index gi "<change-folder>=jeroen-jackjoe.be/INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=jeroen-jackjoe.be/archive<enter>" "Go to all mail"
+macro index gd "<change-folder>=jeroen-jackjoe.be/drafts<enter>" "Go to drafts"
+macro index gs "<change-folder>=jeroen-jackjoe.be/starred<enter>"	"Go to 'Starred'"
+folder-hook +jeroen-jackjoe.be/INBOX 'macro index,pager y "<save-message>=jeroen-jackjoe.be/archive<enter><enter>" "Archive conversation"'
