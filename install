@@ -1,142 +1,107 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-export DEBIAN_FRONTEND=noninteractive
+# Major changes:
 
-# COLORS
+# Git
+# The script does no longer help with installing git, since this might be different accross systems. Moreover, most of our (Jack + Joe) base systems all have git installed, so this is no longer an option. If you do not have git installed, the script will abort with exit status 1
+#
+# Not interactive
+# All interactive commands have been replaced with arguments, making it easier to integrate with automation. Also the script does not provide the change to zsh anymore.
+
+SCRIPT=`basename ${BASH_SOURCE[0]}`
+
+# Colors
+COL_GREEN="\x1b[32;01m"
 COL_BLUE="\x1b[34;01m"
 COL_RESET="\x1b[39;49;00m"
 COL_RED="\x1b[31;01m"
 COL_YELLOW="\x1b[33;01m"
 COL_GRAY="\x1b[0;37m"
 
-# TEMP DIR FOR INSTALLS
-temp_dir='/tmp/src'
+# Temp dir for installs
+temp_dir='/tmp/termieter/src'
 mkdir -p $temp_dir
 
-_redirect_stdout() {
-  exec > >(tee "log-$1.log")
+function _usage {
+cat <<EOF
+  $*
+  Usage:          ./install [options]
+
+  Options:
+
+    -h  --help           Show this message
+    -d, --directory      Install directory (always in $HOME folder) [.termieter]
+
+  Remote usage:
+
+    bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh  ) [-d '.termieter']
+
+EOF
+exit 0
 }
 
+# Print helpers
 _print_h1() {
-  printf $COL_BLUE"\n▽ $1\n"$COL_RESET
+  printf $COL_GREEN"\n🤴  $1"$COL_RESET
 }
 
 _print_h2() {
-  printf $COL_YELLOW"\n× $1\n"$COL_RESET
+  printf $COL_YELLOW"\n× $1"$COL_RESET
 }
 
 _print() {
-  printf $COL_GRAY"\n$1\n"$COL_RESET
+  printf "\n$1"
 }
 
 _error() {
   _print $COL_RED"Error:\n$1\n"
 }
 
-_system_installs_install() {
-  [[ -z "$1" ]] && return 1
+# variables
+install_dir=".termieter"
+with_git=false
 
-  _print_h2 "Install $1"
-
-  sudo DEBIAN_FRONTEND=noninteractive apt-get -qq -y -f install $1
-}
-
-_check_root() {
-  if [ $(/usr/bin/id -u) != "0" ]; then
-    _error 'Must be run by root user'
-
-    exit 0
-  fi
-}
-
-###############################################################################
-
-install_dir='.termieter'
-
-###############################################################################
-
-_usage() {
-  _print "
-
-Usage:              install.sh -d ['.termieter']
-
-Remote Usage:       bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter']
-
-Options:
-
-  -h                Show this message
-  -d '.termieter'   Install directory (always in $HOME folder)
-  "
-
-  exit 0
-}
-
-###############################################################################
-
-while getopts :hd: opt; do
-  case $opt in
+# parse opts
+OPTSPEC="p:d:v:h-:"
+while getopts "$OPTSPEC" FLAG; do
+  case $FLAG in
+    -)
+      case "$OPTARG" in
+        directory) install_dir=$OPTARG;;
+      esac;;
+    d)
+      install_dir=$OPTARG
+      ;;
     h)
       _usage
       ;;
-    d)
-      install_dir="$HOME/$OPTARG"
-      ;;
-    *)
-      _error "Invalid option received"
+    \?) #unrecognized option - show help
+      printf \\n"Option -${BOLD}$OPTARG${OFF} not allowed."
       _usage
-
-      exit 0
       ;;
   esac
 done
 
 ###############################################################################
 
-# Git
-GIT_INSTALLED=true
-hash git 2>&- || { _error "I require git but it's not installed!"; GIT_INSTALLED=false; }
-
-if ! $GIT_INSTALLED; then
-  while true
-  do
-    read -p "Do you want me to install git? (sudo needed) [Y/N] " RESP
-
-    case $RESP
-      in
-      [yY])
-        _check_root
-        _system_installs_install 'git'
-
-        GIT_INSTALLED=true
-        break
-        ;;
-      [nN])
-        break
-        ;;
-      *)
-        echo "Please enter Y or N"
-    esac
-  done
-fi
+# Check for git
+hash git 2>&- || { _error "I require git but it's not installed!"; exit 1; }
 
 ###############################################################################
 
+# Remove previous termieter installation if present at the same location as $install_dir
 cd ~
 
-_print "Removing current termieter installation"
-
-rm -rf "$install_dir"
-
-if [ ! -d "$install_dir" ]; then
-  if $GIT_INSTALLED; then
-    git clone git://github.com/pierot/termieter.git "$install_dir"
-  fi
+_print "Checking for existing termieter installation.."
+if [ -d "$install_dir" ]; then
+  _print_h2 "Existing installation found, removing..."
+  rm -rf "$install_dir"
+  _print_h2 "Previous version removed"
 fi
 
+_print "Cloning termieter.."
 if [ ! -d "$install_dir" ]; then
-  _error "Termieter doesn't seem to be installed correctly. Aborting"
-
-  exit 1
+  git clone git://github.com/pierot/termieter.git "$install_dir"
 fi
 
 ###############################################################################
@@ -180,7 +145,7 @@ cd $install_dir
 
 _print "Init submodules"
 
-git submodule update --init
+git submodule update --init -q
 
 _print "Init custom plugins"
 
@@ -195,38 +160,12 @@ fi
 if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
   _success "tmux-resurrect is already installed"
 else
-  git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect
+  git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
 fi
 
-hash gdircolors 2>&- || { _error "I require coreutils but it's not installed! Trying to .."; CORE_UTILS_INSTALLED=false; }
+###############################################################################
 
-if ! $CORE_UTILS_INSTALLED; then
-  hash brew 2>&- || { _error "I require homebrew but it's not installed! No gdircolors for you!"; HOMEBREW_INSTALLED=false; }
-
-  if $HOMEBREW_INSTALLED; then
-    brew install coreutils
-  fi
-fi
-
-while true
-do
-  read -p "Do you want me to switch to zsh as default shell? (sudo needed) [Y/N] " RESP
-
-  case $RESP
-    in
-    [yY])
-      _check_root
-
-      sudo chsh -s /bin/zsh $USER
-
-      break
-      ;;
-    [nN])
-      break
-      ;;
-    *)
-      echo "Please enter Y or N"
-  esac
-done
-
-_print "Installation finished"
+_print_h1 "Installation finished"
+_print " Do not forget to switch to zsh as the default shell"
+_print_h2 " \$ sudo chsh -s /bin/zsh $USER"
+_print ""

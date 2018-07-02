@@ -66,8 +66,11 @@ alias v='vim .'
 alias vi='vim'
 
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
+alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
+alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
 
 alias hosts='sudo vim /etc/hosts'
+alias m='mosh'
 
 function compresspdf() {
   gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
@@ -98,14 +101,10 @@ if [[ $OS == 'OSX' ]]; then
   # Sleepimage
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
-  # MYSQL
-  alias mysql-start='launchctl load /usr/local/Cellar/mysql/5.7.19/homebrew.mxcl.mysql.plist'
-  alias mysql-stop='launchctl unload /usr/local/Cellar/mysql/5.7.19/homebrew.mxcl.mysql.plist'
-  alias mysql-restart='mysql-stop | mysql-start'
-
   # APACHE
   alias apache-vhosts='vim ~/Dropbox/Work/local-config/httpd-vhosts.conf'
   alias apache-config='sudo vim /usr/local/etc/httpd/httpd.conf'
+  alias php-error-tail='tail -f /usr/local/var/log/httpd/error_log'
 else
   function list-services() {
     chkconfig --list | grep '3:on'
@@ -118,8 +117,9 @@ fi
 
 ##########################################################
 
-# SVN
+# EDITORS
 export SVN_EDITOR='vim'
+export EDITOR=vim
 
 ##########################################################
 
@@ -194,8 +194,8 @@ if [[ $OS == 'OSX' ]]; then
   export GOPATH="$HOME/Work/go"
   export GOROOT="/usr/local/opt/go/libexec"
 else
-  export GOROOT="/usr/lib/go"
   export GOPATH="$HOME/go"
+  export GOROOT="/usr/lib/go"
 fi
 
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
@@ -206,8 +206,7 @@ alias godir="cd $GOPATH"
 
 # ANDROID
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$PATH:$HOME/Library/Android/sdk/tools"
-export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/emulator"
 
@@ -242,6 +241,11 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 ##########################################################
 
+# ERLANG / ELIXIR
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+##########################################################
+
 # fzf via Homebrew
 if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/key-bindings.zsh
@@ -266,6 +270,8 @@ fi
 
 # Google Cloud SDK
 if [[ $OS == 'OSX' ]]; then
-  source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
+  if [ -d "$DROPBOX/Work/devel/google-coud-sdk" ]; then
+    source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
+  fi
 else
 fi
