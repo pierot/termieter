@@ -22,3 +22,5 @@ The install script can receive some parameters, as shown in its help:
 # Vim config
 
 See https://github.com/jackjoe/vim
+
+# By
