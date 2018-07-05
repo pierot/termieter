@@ -142,14 +142,14 @@ _back_install_user() {
   fi
 
   if [ -f "$HOME/.$1" ]; then
-    mv "$HOME/.$1" "$HOME/.bash_backup/.$1"
+    mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
   fi
 
-  if [ -f "$install_dir/symlinks/$1.local" ]; then
+  if [ -f "$install_dir/users/$HOME/$1" ]; then
     if [ -n "$2" ]; then
-      ln -sf "$install_dir/symlinks/$1" "$HOME/.$2.local"
+      ln -sf "$install_dir/users/$HOME/$1" "$HOME/.$2.local"
     else
-      ln -sf "$install_dir/symlinks/$1" "$HOME/.$1.local"
+      ln -sf "$install_dir/users/$HOME/$1" "$HOME/.$1.local"
     fi
   fi
 }
