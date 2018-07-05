@@ -145,11 +145,11 @@ _back_install_user() {
     mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
   fi
 
-  if [ -f "$install_dir/users/$HOME/$1" ]; then
+  if [ -f "$install_dir/users/$USER/$1" ]; then
     if [ -n "$2" ]; then
-      ln -sf "$install_dir/users/$HOME/$1" "$HOME/.$2.local"
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$2.local"
     else
-      ln -sf "$install_dir/users/$HOME/$1" "$HOME/.$1.local"
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1.local"
     fi
   fi
 }
