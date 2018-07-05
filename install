@@ -133,8 +133,30 @@ for sym_file in $install_dir/symlinks/*; do
   _back_install $(basename $sym_file)
 done
 
-_print "Symlink user specific gitconfig"
-ln -sf "$install_dir/users/$USER/gitconfig" "$HOME/.gitconfig.local"
+_back_install_user() {
+  _print "Installing user $1"
+
+  if [ ! -n "$1" ]; then
+    _error "Error in install script. Aborting"
+    exit 1
+  fi
+
+  if [ -f "$HOME/.$1" ]; then
+    mv "$HOME/.$1" "$HOME/.bash_backup/.$1"
+  fi
+
+  if [ -f "$install_dir/symlinks/$1.local" ]; then
+    if [ -n "$2" ]; then
+      ln -sf "$install_dir/symlinks/$1" "$HOME/.$2.local"
+    else
+      ln -sf "$install_dir/symlinks/$1" "$HOME/.$1.local"
+    fi
+  fi
+}
+
+for sym_file in $install_dir/users/$USER/*; do
+  _back_install_user $(basename $sym_file)
+done
 
 ###############################################################################
 
