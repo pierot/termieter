@@ -141,7 +141,7 @@ _back_install_user() {
     exit 1
   fi
 
-  if [ -f "$HOME/.$1" ]; then
+  if [ -f "$HOME/.$1.local" ]; then
     mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
   fi
 
