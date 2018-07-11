@@ -1,6 +1,5 @@
-[user]
-	name = Pieter Michels
-	email = pieter@noort.be
+[include]
+  path = ~/.gitconfig.local
 [apply]
   whitespace = fix
 [color]
@@ -21,18 +20,15 @@
   untracked = cyan
 [merge]
   log = true
-	stat = true
+  stat = true
 [diff]
   algorithm = histogram
   tool = vimdiff
 [core]
-	excludesfile = ~/.gitignore
-	mode = progress
-	editor = vim
+  excludesfile = ~/.gitignore
+  mode = progress
+  editor = vim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-[github]
-	user = pierot
-	token = c9a84078efdf44e6cb4e534786f6991e
 [push]
-	default = current
+  default = current
 [alias]

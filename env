@@ -30,9 +30,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 ###########################################################
 
 export CLICOLOR=1
-
-###########################################################
-
 export LS_OPT='--color=auto'
 
 if [[ $OS == 'OSX' ]]; then
