@@ -72,6 +72,8 @@ alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
 alias hosts='sudo vim /etc/hosts'
 alias m='mosh'
 
+alias did="vim +'normal Go' +'r!date' ~/Dropbox/did.txt"
+
 function compresspdf() {
   gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
 }
@@ -129,6 +131,7 @@ alias glos='gl origin staging'
 alias glom='gl origin master'
 alias gcompile='git add . && gcmm compile'
 alias gmerge='git add . && gcmm merge'
+alias gbump='git add . && gcmm bump version'
 alias gpp='git commit --allow-empty -m "[deploy:production]"'
 
 function gpo() {

@@ -1,6 +1,7 @@
 " Bundles
 
 Plugin 'wakatime/vim-wakatime'
+Plugin 'mhinz/vim-signify'
 
 " if has("unix")
 "   let s:uname = system("uname")
@@ -20,10 +21,12 @@ Plugin 'wakatime/vim-wakatime'
 
 " == Colors ========================================================
 
-colorscheme pt_black
+colorscheme iceberg
+
+" colorscheme pt_black
+" set background=dark
+
 " colorscheme nofrils-sepia
 " let g:nofrils_strbackgrounds=1
-
-set background=dark
 
 " == Fonts =========================================================
