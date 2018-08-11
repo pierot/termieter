@@ -73,6 +73,7 @@ alias hosts='sudo vim /etc/hosts'
 alias m='mosh'
 
 alias did="vim +'normal Go' +'r!date' ~/Dropbox/did.txt"
+alias headers="curl -I -s -X GET"
 
 function compresspdf() {
   gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
