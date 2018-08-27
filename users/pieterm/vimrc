@@ -2,6 +2,7 @@
 
 Plugin 'wakatime/vim-wakatime'
 Plugin 'mhinz/vim-signify'
+Plugin 'ryanoasis/vim-devicons'
 
 " if has("unix")
 "   let s:uname = system("uname")
@@ -10,6 +11,14 @@ Plugin 'mhinz/vim-signify'
 "
 "   endif
 " endif
+
+" == ALE ===========================================================
+
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 
 " == Escape ========================================================
 
