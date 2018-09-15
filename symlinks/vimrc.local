@@ -1,0 +1,4 @@
+Plugin 'wakatime/vim-wakatime'
+Plugin 'ryanoasis/vim-devicons'
+
+colorscheme iceberg
