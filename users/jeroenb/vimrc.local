@@ -1,0 +1,21 @@
+" Bundles
+
+Plugin 'wakatime/vim-wakatime'
+Plugin 'mhinz/vim-signify'
+Plugin 'ryanoasis/vim-devicons'
+
+" == ALE ===========================================================
+
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+
+" == Colors ========================================================
+
+colorscheme iceberg
+colorscheme mango
+
+" colorscheme pt_black
+" set background=dark
