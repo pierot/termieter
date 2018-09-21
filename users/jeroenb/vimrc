@@ -14,8 +14,8 @@ let g:ale_lint_on_enter = 0
 
 " == Colors ========================================================
 
-colorscheme iceberg
+" colorscheme iceberg
 colorscheme mango
 
 " colorscheme pt_black
-" set background=dark
+set background=dark
