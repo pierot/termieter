@@ -3,10 +3,15 @@
 # Major changes:
 
 # Git
-# The script does no longer help with installing git, since this might be different accross systems. Moreover, most of our (Jack + Joe) base systems all have git installed, so this is no longer an option. If you do not have git installed, the script will abort with exit status 1
+# The script does no longer help with installing git, since this might be
+# different accross systems. Moreover, most of our (Jack + Joe) base
+# systems all have git installed, so this is no longer an option.
+# If you do not have git installed, the script will abort with exit status 1
 #
 # Not interactive
-# All interactive commands have been replaced with arguments, making it easier to integrate with automation. Also the script does not provide the change to zsh anymore.
+# All interactive commands have been replaced with arguments, making it
+# easier to integrate with automation. Also the script does not provide
+# the change to zsh anymore.
 
 SCRIPT=`basename ${BASH_SOURCE[0]}`
 
