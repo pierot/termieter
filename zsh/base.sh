@@ -65,6 +65,8 @@ alias vime="cd ~/.vim; vim ."
 alias v='vim .'
 alias vi='vim'
 
+alias yy='yarn && yarn upgrade'
+
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
 alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
