@@ -33,6 +33,5 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
 endif
 
 " colorscheme pt_black
-=======
 colorscheme mango
 set background=dark
