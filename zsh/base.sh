@@ -286,6 +286,15 @@ fi
 
 ##########################################################
 
+# ASDF
+if [ -e ~/.asdf ]; then
+  export PATH="$HOME/.fzf/bin:$PATH"
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+fi
+
+##########################################################
+
 if [ -e ~/.base.sh.local ]; then
   source ~/.base.sh.local
 fi
