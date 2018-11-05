@@ -47,6 +47,10 @@ if [[ $OS == 'OSX' ]]; then
     # sending messages and opening windows for replies
     defaults write com.apple.Mail DisableSendAnimations -bool true
     defaults write com.apple.Mail DisableReplyAnimations -bool true
+
+    # Keyrepeat
+    defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+    defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
   fi
 fi
 
@@ -65,6 +69,9 @@ alias vime="cd ~/.vim; vim ."
 alias v='vim .'
 alias vi='vim'
 
+alias n="npm"
+alias nr="npm run"
+
 alias yy='yarn && yarn upgrade'
 
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
@@ -74,7 +81,6 @@ alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
 alias hosts='sudo vim /etc/hosts'
 alias m='mosh'
 
-alias did="vim +'normal Go' +'r!date' ~/Dropbox/did.txt"
 alias headers="curl -I -s -X GET"
 
 function compresspdf() {
@@ -135,7 +141,6 @@ alias glom='gl origin master'
 alias gcompile='git add . && gcmm compile'
 alias gmerge='git add . && gcmm merge'
 alias gbump='git add . && gcmm bump version'
-alias gpp='git commit --allow-empty -m "[deploy:production]"'
 
 function gpo() {
   git pull origin $*
@@ -222,9 +227,6 @@ export PATH="$PATH:$ANDROID_HOME/emulator"
 export PATH="$PATH:/usr/local/share/npm/bin"
 export PATH="$PATH:$HOME/.node/bin"
 
-alias n="npm"
-alias nr="npm run"
-
 ##########################################################
 
 # HASKELL
@@ -280,4 +282,10 @@ if [[ $OS == 'OSX' ]]; then
     source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
   fi
 else
+fi
+
+##########################################################
+
+if [ -e ~/.base.sh.local ]; then
+  source ~/.base.sh.local
 fi
