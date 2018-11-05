@@ -1,3 +1,5 @@
 source ~/.termieter/env
 
 export SHELL=/bin/bash
+
+export PATH="$HOME/.cargo/bin:$PATH"
