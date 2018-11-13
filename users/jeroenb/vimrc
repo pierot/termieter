@@ -3,7 +3,7 @@
 Plugin 'wakatime/vim-wakatime'
 Plugin 'mhinz/vim-signify'
 Plugin 'ryanoasis/vim-devicons'
-" Plugin 'vim-easy-align'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'elm.vim'
 Plugin 'dracula/vim'
 
