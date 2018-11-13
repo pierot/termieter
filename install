@@ -35,6 +35,7 @@ cat <<EOF
   Options:
 
     -h  --help           Show this message
+    -u, --update         Update local setup (no cloning, no removing)
     -d, --directory      Install directory (always in $HOME folder) [.termieter]
 
   Remote usage:
@@ -65,20 +66,25 @@ _error() {
 # variables
 install_dir=".termieter"
 with_git=false
+update=0
 
 # parse opts
-OPTSPEC="p:d:v:h-:"
+OPTSPEC="d:h-:u"
 while getopts "$OPTSPEC" FLAG; do
   case $FLAG in
     -)
       case "$OPTARG" in
         directory) install_dir=$OPTARG;;
+        update) skip_clone=1
       esac;;
     d)
       install_dir=$OPTARG
       ;;
     h)
       _usage
+      ;;
+    u)
+      update=1
       ;;
     \?) #unrecognized option - show help
       printf \\n"Option -${BOLD}$OPTARG${OFF} not allowed."
@@ -97,16 +103,18 @@ hash git 2>&- || { _error "I require git but it's not installed!"; exit 1; }
 # Remove previous termieter installation if present at the same location as $install_dir
 cd ~
 
-_print "Checking for existing termieter installation.."
-if [ -d "$install_dir" ]; then
-  _print_h2 "Existing installation found, removing..."
-  rm -rf "$install_dir"
-  _print_h2 "Previous version removed"
-fi
+if [ "$u" -eq 0  ]; then
+  _print "Checking for existing termieter installation.."
+  if [ -d "$install_dir" ]; then
+    _print_h2 "Existing installation found, removing..."
+    rm -rf "$install_dir"
+    _print_h2 "Previous version removed"
+  fi
 
-_print "Cloning termieter.."
-if [ ! -d "$install_dir" ]; then
-  git clone git://github.com/pierot/termieter.git "$install_dir"
+  _print "Cloning termieter.."
+  if [ ! -d "$install_dir" ]; then
+    git clone git://github.com/pierot/termieter.git "$install_dir"
+  fi
 fi
 
 ###############################################################################
