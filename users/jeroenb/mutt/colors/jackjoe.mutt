@@ -1,0 +1,37 @@
+# vim: ft=muttrc:
+
+color body          white           default     "^[^>].*" # all but quoted (naive)
+color body          brightblue      default     "(https?|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color body          brightblue      default     "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body          brightblue      default     "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color hdrdefault    brightblack     default
+color index         white           default     "~N"
+color indicator     magenta         default
+color signature     brightblack     default
+color index         cyan            default     "~f pieter"
+color status        magenta         default
+
+color quoted        blue            default
+color quoted1       cyan            default
+color quoted2       yellow          default
+color quoted3       red             default
+color quoted4       brightred       default
+
+color signature     brightgreen     default
+color bold          black           default
+color underline     black           default
+color normal        brightblack     default
+
+color body          brightcyan      default     "[;:][-o][)/(|]"    # emoticons
+color body          brightcyan      default     "[;:][)(|]"         # emoticons
+color body          brightcyan      default     "[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|\
+                                                 |FWIW|vbg|GD&R|HTH|HTHBE|IMHO|IMNSHO|\
+                                                 |IRL|RTFM|ROTFL|ROFL|YMMV)[*]?"
+color body          brightcyan      default     "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body          brightcyan      default     "[ ]?[*][^*]*[*][ ]" # more emoticon?
+
+# Border lines.
+color body          brightblue      default     "( *[-+=#*~_]){6,}"
+
+# yes, an insance URL regex
+color body          blue             default      "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
