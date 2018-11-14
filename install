@@ -159,7 +159,9 @@ _back_install_user() {
   fi
 
   if [ -f "$install_dir/users/$USER/$1" ]; then
-    if [ -n "$2" ]; then
+    if [ "$1" == "offlineimaprc" ]; then
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
+    elif [ -n "$2" ]; then
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$2.local"
     else
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1.local"

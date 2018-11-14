@@ -1,0 +1,17 @@
+# this uses the view_attachment script found in ~/.mutt/view_attachment.sh
+# this is meant for an OS X system
+application/x-msexcel     ; $TRM/mutt/view_attachment.sh %s
+application/ms-exc        ; $TRM/mutt/view_attachment.sh %s
+application/excel         ; $TRM/mutt/view_attachment.sh %s
+application/msexcel       ; $TRM/mutt/view_attachment.sh %s
+application/vnd.ms-exc    ; $TRM/mutt/view_attachment.sh %s
+application/vnd.ms-excel  ; $TRM/mutt/view_attachment.sh %s
+application/msword        ; $TRM/mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+image/jpeg                ; $TRM/mutt/view_attachment.sh %s jpg
+image/pjpeg               ; $TRM/mutt/view_attachment.sh %s jpg
+image/png                 ; $TRM/mutt/view_attachment.sh %s png
+image/gif                 ; $TRM/mutt/view_attachment.sh %s gif
+application/pdf           ; $TRM/mutt/view_attachment.sh %s pdf
+application/octet-stream  ; $TRM/mutt/view_attachment.sh %s "-"
+text/html                 ; links %s; nametemplate=%s.html
+text/html                 ; links -dump %s; nametemplate=%s.html; copiousoutput
