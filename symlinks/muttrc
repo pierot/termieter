@@ -25,7 +25,7 @@ unset record
 # Sidebar Patch --------------------------------------
 #  set sidebar_delim   = '  │'
 set sidebar_visible = yes
-set sidebar_width   = 24
+set sidebar_width   = 20
 color sidebar_new color221 color233
 
 # Status Bar -----------------------------------------
@@ -75,8 +75,10 @@ set auto_tag = yes                         # apply to thread
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # Index Key Bindings ---------------------------------
-# bind index gg       first-entry
-# bind index G        last-entry
+bind index g        noop
+bind pager g        noop
+bind index gg       first-entry
+bind index G        last-entry
 
 bind index R        group-reply
 bind index <tab>    sync-mailbox

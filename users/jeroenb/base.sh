@@ -11,3 +11,9 @@ alias vimdiff='nvim -d'
 alias oldvim="/usr/local/bin/vim"
 
 ###################################
+
+# neomutt
+alias mutt="neomutt"
+alias m="neomutt"
+
+export TRMU=~/.termieter/users/jeroenb

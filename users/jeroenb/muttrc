@@ -1,44 +1,44 @@
 # Paths ----------------------------------------------
 set folder           = ~/.mail               # mailbox location
-set alias_file       = $TRM/mutt/alias         # where to store aliases
-set header_cache     = $TRM/mutt/cache/headers # where to store headers
-set message_cachedir = $TRM/mutt/cache/bodies  # where to store bodies
-set certificate_file = $TRM/mutt/certificates  # where to store certs
-set mailcap_path     = $TRM/mutt/mailcap       # entries for filetypes
-set tmpdir           = $TRM/mutt/tmp          # where to keep tmp files
-
+set alias_file       = $TRMU/mutt/alias         # where to store aliases
+set header_cache     = $TRMU/mutt/cache/headers # where to store headers
+set message_cachedir = $TRMU/mutt/cache/bodies  # where to store bodies
+set certificate_file = $TRMU/mutt/certificates  # where to store certs
+set mailcap_path     = $TRMU/mutt/mailcap       # entries for filetypes
+set tmpdir           = $TRMU/mutt/tmp          # where to keep tmp files
 
 # Compose View Options -------------------------------
 set realname = "Jeroen Bourgois"     # who am i?
 
 # Colors ---------------------------------------------
-source $TRM/users/jeroenb/mutt/colors/badwolf.muttrc
+source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
+# source $TRM/users/jeroenb/mutt/colors/mutt-colors-solarized-light-256.muttrc
 
 # Account Settings -----------------------------------
 
 # Default inbox.
-set spoolfile = "+jeroen-jackjoe.be/INBOX"
+set spoolfile = "+jackjoe/INBOX"
 
 # Mailboxes to show in the sidebar.
-mailboxes "+-- Jack+Joe -------------" \
-          +jeroen-jackjoe.be/INBOX \
-          +jeroen-jackjoe.be/archive \
-          +jeroen-jackjoe.be/starred \
-          +jeroen-jackjoe.be/spam \
-          +jeroen-jackjoe.be/sent \
-          +jeroen-jackjoe.be/drafts \
+mailboxes "+-- Jack+Joe ---------" \
+          +jackjoe/INBOX \
+          +jackjoe/archive \
+          +jackjoe/starred \
+          +jackjoe/spam \
+          +jackjoe/sent \
+          +jackjoe/drafts \
           +temporary/search \
-          "+-- Antenno -------------" \
+          "+-- Antenno ----------" \
           +antenno/INBOX \
           +antenno/archive \
           +antenno/spam \
           +antenno/sent \
           +antenno/drafts \
 
-folder-hook jeroen-jackjoe.be/* source $TRM/users/jeroenb/mutt/accounts/jackjoe/config
-folder-hook antenno/* source $TRM/users/jeroenb/mutt/accounts/antenno/config
+folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
+folder-hook antenno/* source $TRMU/mutt/accounts/antenno/config
 
-source $TRM/users/jeroenb/mutt/accounts/jackjoe/config
+source $TRMU/mutt/accounts/jackjoe/config
 
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
