@@ -1,12 +1,12 @@
 [general]
 ui = basic
-accounts = jeroen-jackjoe.be,antenno
+accounts = jackjoe,antenno
 pythonfile = $TRM/users/jeroenb/mutt/offlineimap.py
 fsync = False
 
-[Account jeroen-jackjoe.be]
-localrepository = jeroen-jackjoe.be-local
-remoterepository = jeroen-jackjoe.be-remote
+[Account jackjoe]
+localrepository = jackjoe-local
+remoterepository = jackjoe-remote
 postsynchook = notmuch new
 
 [Account antenno]
@@ -14,9 +14,9 @@ localrepository = antenno-local
 remoterepository = antenno-remote
 postsynchook = notmuch new
 
-[Repository jeroen-jackjoe.be-local]
+[Repository jackjoe-local]
 type = Maildir
-localfolders = ~/.mail/jeroen-jackjoe.be
+localfolders = ~/.mail/jackjoe
 nametrans = lambda folder: {'drafts':    '[Gmail]/Drafts',
                             'sent':      '[Gmail]/Sent Mail',
                             'spam':      '[Gmail]/Spam',
@@ -25,8 +25,8 @@ nametrans = lambda folder: {'drafts':    '[Gmail]/Drafts',
                             'archive':   '[Gmail]/All Mail',
                             }.get(folder, folder)
 
-[Repository jeroen-jackjoe.be-remote]
-maxconnections = 5
+[Repository jackjoe-remote]
+maxconnections = 10
 type = Gmail
 remoteuser = jeroen@jackjoe.be
 remotepasseval = get_keychain_pass(account="jeroen@jackjoe.be", server="imap.gmail.com")
