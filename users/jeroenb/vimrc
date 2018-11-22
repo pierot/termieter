@@ -4,7 +4,7 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'mhinz/vim-signify'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'elm.vim'
-Plugin 'dracula/vim'
+Plugin 'dracula/vim', { 'as': 'dracula' }
 
 " == ALE ===========================================================
 
@@ -38,6 +38,8 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
-" colorscheme pt_black
-colorscheme mango
-set background=dark
+color dracula
+
+if (has("termguicolors"))
+  set termguicolors
+endif
