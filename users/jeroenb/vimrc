@@ -3,9 +3,8 @@
 Plugin 'wakatime/vim-wakatime'
 Plugin 'mhinz/vim-signify'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-easy-align'
 Plugin 'elm.vim'
-Plugin 'dracula/vim'
+Plugin 'dracula/vim', { 'as': 'dracula' }
 
 " == ALE ===========================================================
 
@@ -32,6 +31,15 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
   nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
 endif
 
-" colorscheme pt_black
-colorscheme mango
-set background=dark
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+
+color dracula
+
+if (has("termguicolors"))
+  set termguicolors
+endif

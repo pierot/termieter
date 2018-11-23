@@ -1,0 +1,23 @@
+# vim: ft=rc:
+
+set from      = "Jeroen Bourgois <jeroen.bourgois@antenno.be>"
+set sendmail  = "/usr/local/bin/msmtp -a jeroen.bourgois@antenno.be"
+set signature = $TRM/users/jeroenb/mutt/accounts/antenno/signature
+
+# Other special folders.
+set mbox      = "+antenno/archive"
+set postponed = "+antenno/drafts"
+
+bind index gi noop
+bind index gd noop
+bind index ga noop
+bind index gg noop
+bind index g noop
+
+# GMail Macros ---------------------------------------
+macro index,pager A "<save-message>=antenno/archive<enter>" "Archive Message"
+macro index,pager !  <save-message>=antenno/spam<enter><enter> "Report spam"
+macro index gi "<change-folder>=antenno/INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=antenno/archive<enter>" "Go to all mail"
+macro index gd "<change-folder>=antenno/drafts<enter>" "Go to drafts"
+folder-hook +antenno/INBOX 'macro index,pager y "<save-message>=antenno/archive<enter><enter>" "Archive conversation"'

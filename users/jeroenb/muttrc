@@ -1,0 +1,77 @@
+# Paths ----------------------------------------------
+set folder           = ~/.mail               # mailbox location
+set alias_file       = $TRMU/mutt/alias         # where to store aliases
+set header_cache     = $TRMU/mutt/cache/headers # where to store headers
+set message_cachedir = $TRMU/mutt/cache/bodies  # where to store bodies
+set certificate_file = $TRMU/mutt/certificates  # where to store certs
+set mailcap_path     = $TRMU/mutt/mailcap       # entries for filetypes
+set tmpdir           = $TRMU/mutt/tmp          # where to keep tmp files
+set display_filter   = $TRMU/mutt/alias_me.sh
+
+# Compose View Options -------------------------------
+set realname = "Jeroen Bourgois"     # who am i?
+
+# Colors ---------------------------------------------
+source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
+# source $TRM/users/jeroenb/mutt/colors/mutt-colors-solarized-light-256.muttrc
+
+# Account Settings -----------------------------------
+
+# Default inbox.
+set spoolfile = "+jackjoe/INBOX"
+
+# Mailboxes to show in the sidebar.
+mailboxes "+-- Jack+Joe ---------" \
+          +jackjoe/INBOX \
+          +jackjoe/archive \
+          +jackjoe/starred \
+          +jackjoe/spam \
+          +jackjoe/sent \
+          +jackjoe/drafts \
+          +temporary/search \
+          "+-- Antenno ----------" \
+          +antenno/INBOX \
+          +antenno/archive \
+          +antenno/spam \
+          +antenno/sent \
+          +antenno/drafts \
+
+folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
+folder-hook antenno/* source $TRMU/mutt/accounts/antenno/config
+
+source $TRMU/mutt/accounts/jackjoe/config
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Sync email
+macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+
+# Shared Macros --------------------------------------
+
+# GMail Macros ---------------------------------------
+bind  editor <space> noop
+bind  index,pager c mail #Compose
+bind  generic     x  tag-entry		 # select conversation
+bind  index       x  tag-thread	   # select conversation
+bind  pager       x  tag-message   # select conversation
+bind  index,pager s  flag-message  # star a message
+bind  index,pager \# delete-thread # delete
+# bind  index,pager l  copy-message	 # label
+bind  index,pager V  save-message  # move to
+macro index,pager I  <set-flag>O	 "Mark as read"
+macro index,pager U  <clear-flag>O "Mark as unread"
+
+# Search ---------------------------------------------
+macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+
+# Contact aliases
+# brew install contacts
+set alias_file		= $TRM/users/jeroenb/mutt/aliases
+set sort_alias		= alias
+set reverse_alias	= yes
+set reverse_name	= yes
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+bind editor <Tab> complete-query
+bind editor ^T    complete
