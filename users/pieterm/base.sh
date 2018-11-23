@@ -1,13 +1,19 @@
 ###################################
 # NeoVIM switch
 
-export EDITOR=nvim
+have() {
+  type "$1" &> /dev/null
+}
 
-alias v="nvim ."
-alias vim="nvim"
-alias vi="nvim"
-alias vimdiff='nvim -d'
+if have nvim; then
+  export EDITOR=nvim
 
-alias oldvim="/usr/local/bin/vim"
+  alias v="nvim ."
+  alias vim="nvim"
+  alias vi="nvim"
+  alias vimdiff='nvim -d'
+
+  alias oldvim="/usr/local/bin/vim"
+fi
 
 ###################################
