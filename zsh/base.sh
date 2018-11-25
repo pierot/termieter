@@ -181,7 +181,7 @@ alias tl='tmux ls'
 test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
 # for tmux: export 256color
-[ -n "$TMUX" ] && export TERM=screen-256color
+# [ -n "$TMUX" ] && export TERM=screen-256color
 
 ##########################################################
 
