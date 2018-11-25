@@ -192,7 +192,7 @@ if [ ! -d "zsh/oh-my-zsh/functions" ]; then
 fi
 
 if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
-  _success "tmux-resurrect is already installed"
+  _print "tmux-resurrect is already installed"
 else
   git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
 fi
