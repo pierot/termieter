@@ -103,7 +103,7 @@ hash git 2>&- || { _error "I require git but it's not installed!"; exit 1; }
 # Remove previous termieter installation if present at the same location as $install_dir
 cd ~
 
-if [ "$u" -eq 0  ]; then
+if [ "$update" -eq 0  ]; then
   _print "Checking for existing termieter installation.."
   if [ -d "$install_dir" ]; then
     _print_h2 "Existing installation found, removing..."
@@ -192,7 +192,7 @@ if [ ! -d "zsh/oh-my-zsh/functions" ]; then
 fi
 
 if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
-  _success "tmux-resurrect is already installed"
+  _print "tmux-resurrect is already installed"
 else
   git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
 fi

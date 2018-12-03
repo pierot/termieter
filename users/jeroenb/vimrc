@@ -5,6 +5,9 @@ Plugin 'mhinz/vim-signify'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'elm.vim'
 Plugin 'dracula/vim', { 'as': 'dracula' }
+Plugin 'jreybert/vimagit'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " == ALE ===========================================================
 
