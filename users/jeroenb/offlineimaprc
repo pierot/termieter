@@ -8,11 +8,15 @@ fsync = False
 localrepository = jackjoe-local
 remoterepository = jackjoe-remote
 postsynchook = notmuch new
+autorefresh = 10
+holdconnectionopen = yes
 
 [Account antenno]
 localrepository = antenno-local
 remoterepository = antenno-remote
 postsynchook = notmuch new
+autorefresh = 120
+holdconnectionopen = no
 
 [Repository jackjoe-local]
 type = Maildir
