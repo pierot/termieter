@@ -34,6 +34,8 @@ let g:ale_lint_on_enter = 0
 
 " == Colors ========================================================
 
+" colorscheme dank-neon
+
 colorscheme pt_black
 set background=dark
 
