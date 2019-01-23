@@ -65,7 +65,6 @@ _error() {
 
 # variables
 install_dir=".termieter"
-with_git=false
 update=0
 
 # parse opts

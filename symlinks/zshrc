@@ -8,7 +8,7 @@ ZSH_CUSTOM="$TRM/zsh/custom"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="bureau"
+# ZSH_THEME="bureau"
 
 if [[ $OS == 'OSX' ]]; then
   ZSH_THEME="bureau-local"
@@ -60,9 +60,9 @@ setopt share_history
 plugins=(urltools gitfast docker)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins+=(urltools ansible)
+  plugins+=(ansible)
   plugins+=(zsh-syntax-highlighting)
-  plugins+=(composer npm yarn go laravel5 mix-fast)
+  plugins+=(composer npm yarn go mix-fast)
 
   alias dircolors='gdircolors'
 else
@@ -89,10 +89,3 @@ source $ZSH/oh-my-zsh.sh
 source $TRM/zsh/base.sh
 
 alias reload!='. ~/.zshrc'
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/sls.zsh

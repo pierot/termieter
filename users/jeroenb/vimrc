@@ -1,8 +1,6 @@
 " Bundles
 
 Plugin 'wakatime/vim-wakatime'
-Plugin 'mhinz/vim-signify'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'elm.vim'
 Plugin 'dracula/vim', { 'as': 'dracula' }
 Plugin 'jreybert/vimagit'
