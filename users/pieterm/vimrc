@@ -15,6 +15,14 @@ if has('nvim')
   map P <Plug>(miniyank-autoPut)
 endif
 
+" == Airline =======================================================
+
+" remove the filetype part
+let g:airline_section_x=''
+let g:airline_section_y=''
+" remove separators for empty sections
+let g:airline_skip_empty_sections = 1
+
 " == ALE ===========================================================
 
 " Write this in your vimrc file
