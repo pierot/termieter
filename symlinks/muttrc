@@ -17,6 +17,8 @@ set thorough_search      # strip headers and eval mimes before searching
 set copy = no            # do not copy sent mail, Gmail smtp already does this.
 set arrow_cursor
 auto_view text/html      # Open html messages in a browser
+set mime_forward         # forward attachments
+set mime_forward_rest=yes
 
 set edit_headers        = yes
 set sendmail_wait       = 0
