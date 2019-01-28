@@ -8,7 +8,7 @@ ZSH_CUSTOM="$TRM/zsh/custom"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# ZSH_THEME="bureau"
+ZSH_THEME="bureau"
 
 if [[ $OS == 'OSX' ]]; then
   ZSH_THEME="bureau-local"
