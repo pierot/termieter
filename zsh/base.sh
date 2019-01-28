@@ -143,6 +143,7 @@ export EDITOR=vim
 alias glod='gl origin develop'
 alias glos='gl origin staging'
 alias glom='gl origin master'
+alias gap='git add -p'
 
 alias gmerge='git add . && gcmm merge'
 alias gcompile='git add . && gcmm compile'
