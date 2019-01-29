@@ -8,7 +8,7 @@ ZSH_CUSTOM="$TRM/zsh/custom"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# ZSH_THEME="bureau"
+ZSH_THEME="bureau"
 
 if [[ $OS == 'OSX' ]]; then
   ZSH_THEME="bureau-local"
@@ -80,6 +80,8 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 # Colors for ls and autocompletion
 eval $( dircolors -b $ZSH/../LS_COLORS )
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
+
+source ~/.zshrc.local
 
 source $ZSH/oh-my-zsh.sh
 
