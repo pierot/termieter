@@ -1,2 +1,7 @@
-ZSH_THEME="miloshadzic"
-ZSH_THEME="muse"
+ZSH_THEME="kolo"
+
+PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+
+# The simplest approach to emulate bash's $PROMPT_COMMAND
+prmptcmd() { eval "$PROMPT_COMMAND" }
+precmd_functions=(prmptcmd)
