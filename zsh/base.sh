@@ -76,12 +76,11 @@ alias yy='yarn && yarn upgrade'
 
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
+alias curlh="curl -I -s -X GET"
 alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
 
 alias hosts='sudo vim /etc/hosts'
 alias m='mosh'
-
-alias headers="curl -I -s -X GET"
 
 function compresspdf() {
   gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
@@ -144,8 +143,10 @@ export EDITOR=vim
 alias glod='gl origin develop'
 alias glos='gl origin staging'
 alias glom='gl origin master'
-alias gcompile='git add . && gcmm compile'
+alias gap='git add -p'
+
 alias gmerge='git add . && gcmm merge'
+alias gcompile='git add . && gcmm compile'
 alias gbump='git add . && gcmm bump version'
 
 function gpo() {
@@ -179,8 +180,7 @@ git-status-all() {
 ##########################################################
 
 # TMUX
-alias tmux="tmux -2"  # for 256color
-alias tmux="tmux -u"  # to get rid of unicode rendering problem
+alias tmux="tmux -2u"  # 2: for 256color u: to get rid of unicode rendering problem
 alias t="tmux"
 alias tk="tmux kill-server"
 alias ta="tmux attach-session -t $@"
@@ -224,10 +224,10 @@ alias godir="cd $GOPATH"
 ##########################################################
 
 # ANDROID
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
-export PATH="$PATH:$ANDROID_HOME/tools"
-export PATH="$PATH:$ANDROID_HOME/emulator"
+# export ANDROID_HOME="$HOME/Library/Android/sdk"
+# export PATH="$PATH:$ANDROID_HOME/platform-tools"
+# export PATH="$PATH:$ANDROID_HOME/tools"
+# export PATH="$PATH:$ANDROID_HOME/emulator"
 
 ##########################################################
 

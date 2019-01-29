@@ -60,9 +60,9 @@ setopt share_history
 plugins=(urltools gitfast docker)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins+=(urltools ansible)
+  plugins+=(ansible)
   plugins+=(zsh-syntax-highlighting)
-  plugins+=(composer npm yarn go laravel5 mix-fast)
+  plugins+=(composer npm yarn go mix-fast)
 
   alias dircolors='gdircolors'
 else
@@ -80,6 +80,8 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 # Colors for ls and autocompletion
 eval $( dircolors -b $ZSH/../LS_COLORS )
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
+
+source ~/.zshrc.local
 
 source $ZSH/oh-my-zsh.sh
 
