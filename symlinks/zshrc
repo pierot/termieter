@@ -95,4 +95,4 @@ alias reload!='. ~/.zshrc'
 [[ -f /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/sls.zsh
+[[ -f /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/sls.zshexport PATH="/usr/local/opt/mysql@5.7/bin:$PATH"

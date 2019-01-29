@@ -124,6 +124,12 @@ else
   function active-connections() {
     netstat -tulpn
   }
+
+  function fix-apt() {
+    sudo rm /var/lib/apt/lists/lock
+    sudo rm /var/cache/apt/archives/lock
+    sudo rm /var/lib/dpkg/lock
+  }
 fi
 
 ##########################################################
@@ -173,10 +179,12 @@ git-status-all() {
 ##########################################################
 
 # TMUX
-alias t='tmux'
-alias tk='tmux kill-server'
-alias ta='tmux attach-session -t $@'
-alias tl='tmux ls'
+alias tmux="tmux -2"  # for 256color
+alias tmux="tmux -u"  # to get rid of unicode rendering problem
+alias t="tmux"
+alias tk="tmux kill-server"
+alias ta="tmux attach-session -t $@"
+alias tl="tmux ls"
 
 test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 

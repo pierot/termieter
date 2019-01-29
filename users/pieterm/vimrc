@@ -37,10 +37,8 @@ let g:ale_elixir_elixir_ls_release = '~/Dropbox/Work/devel/elixir-ls/rel'
 
 " == Colors ========================================================
 
-colorscheme iceberg
-
-" colorscheme pt_black
-" set background=dark
+colorscheme pt_black
+set background=dark
 
 " colorscheme nofrils-sepia
 " let g:nofrils_strbackgrounds=1
