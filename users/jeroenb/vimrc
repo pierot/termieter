@@ -3,7 +3,7 @@
 Plugin 'wakatime/vim-wakatime'
 Plugin 'elm.vim'
 Plugin 'dracula/vim', { 'as': 'dracula' }
-Plugin 'jreybert/vimagit'
+" Plugin 'jreybert/vimagit'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -43,6 +43,19 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+
+inoremap <S-Up> <Nop>
+inoremap <S-Down> <Nop>
+inoremap <S-Left> <Nop>
+inoremap <S-Right> <Nop>
+
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 
 color dracula
 

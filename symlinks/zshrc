@@ -1,4 +1,4 @@
-source ~/.termieter/env
+source $HOME/.termieter/env
 
 export SHELL=/bin/zsh
 export ZSH=$TRM/zsh/oh-my-zsh
@@ -45,7 +45,7 @@ setopt notify
 #  $ setopt nopromptcr
 #  $ echo -n foo
 #  foo$
-setopt nopromptcr
+# setopt nopromptcr
 
 # Save timestamp in history
 setopt extendedhistory
@@ -81,20 +81,11 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 eval $( dircolors -b $ZSH/../LS_COLORS )
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
-source ~/.zshrc.local
-
-source $ZSH/oh-my-zsh.sh
-
 # Customize to your needs...
 # setopt extended_glob
 
+source $HOME/.zshrc.local
+source $ZSH/oh-my-zsh.sh
 source $TRM/zsh/base.sh
 
-alias reload!='. ~/.zshrc'
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pieterm/Work/jackjoe/floodlight-runner/node_modules/tabtab/.completions/sls.zshexport PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+alias reload!='. $HOME/.zshrc'
