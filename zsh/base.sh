@@ -181,10 +181,10 @@ git-status-all() {
 
 # TMUX
 alias tmux="tmux -2u"  # 2: for 256color u: to get rid of unicode rendering problem
-alias t="tmux"
 alias tk="tmux kill-server"
 alias ta="tmux attach-session -t $@"
 alias tl="tmux ls"
+alias tn="tmux new -d -c '$PWD' -s $@"
 
 test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
@@ -259,6 +259,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 # ERLANG / ELIXIR
 export ERL_AFLAGS="-kernel shell_history enabled"
+alias mt="source .env.test && mix test $a"
 
 ##########################################################
 
