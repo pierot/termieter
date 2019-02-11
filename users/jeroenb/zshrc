@@ -1,7 +1,5 @@
 ZSH_THEME="kolo"
 
-set LC_ALL="en_US.UTF-8"
-
 PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # The simplest approach to emulate bash's $PROMPT_COMMAND

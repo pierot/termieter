@@ -26,8 +26,6 @@ fi
 # OSX Defaults
 H=$(date +%H)
 if [[ $OS == 'OSX' ]]; then
-  export LC_ALL=en_US.UTF-8
-  export LANG=en_US.UTF-8
   if [[ $H == 8 ]]; then
     # Keyrepeat
     defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
