@@ -1,5 +1,7 @@
 ZSH_THEME="kolo"
 
+set LC_ALL="en_US.UTF-8"
+
 PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # The simplest approach to emulate bash's $PROMPT_COMMAND
@@ -11,6 +13,6 @@ precmd_functions=(prmptcmd)
 # https://github.com/chrishunt/dot-files/blob/master/.zshrc
 if which tmux 2>&1 >/dev/null; then
   if [ $TERM != "screen-256color" ] && [ $TERM != "screen" ]; then
-    tmux -2u attach-session -t _hack || tmux -2u new -s _hack; exit
+    tmux attach -t _hack || tmux new -s _hack; exit
   fi
 fi
