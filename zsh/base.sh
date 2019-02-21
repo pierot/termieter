@@ -184,7 +184,11 @@ alias tmux="tmux -2u"  # 2: for 256color u: to get rid of unicode rendering prob
 alias tk="tmux kill-server"
 alias ta="tmux attach-session -t $@"
 alias tl="tmux ls"
-alias tn="tmux new -d -c '$PWD' -s $@"
+# alias tn="tmux new -d -c '$PWD' -s $@"
+
+function tn() {
+  tmux new -d -c "$PWD" -s "$*"
+}
 
 test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
