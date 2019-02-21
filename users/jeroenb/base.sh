@@ -23,16 +23,4 @@ fi
 
 ###################################
 
-# OSX Defaults
-H=$(date +%H)
-if [[ $OS == 'OSX' ]]; then
-  export LANG=en_US
-  if [[ $H == 8 ]]; then
-    # Keyrepeat
-    defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
-  fi
-fi
-
-###################################
-
 export TRMU=~/.termieter/users/jeroenb
