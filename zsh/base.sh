@@ -144,6 +144,7 @@ alias glod='gl origin develop'
 alias glos='gl origin staging'
 alias glom='gl origin master'
 alias gap='git add -p'
+alias gcs='git checkout staging'
 
 alias gmerge='git add . && gcmm merge'
 alias gcompile='git add . && gcmm compile'
@@ -263,6 +264,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 # ERLANG / ELIXIR
 export ERL_AFLAGS="-kernel shell_history enabled"
+alias mr="make run"
 alias mt="source .env.test && mix test $a"
 
 ##########################################################
