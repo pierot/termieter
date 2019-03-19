@@ -89,3 +89,10 @@ source $ZSH/oh-my-zsh.sh
 source $TRM/zsh/base.sh
 
 alias reload!='. $HOME/.zshrc'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/jeroenb/Work/jackjoe/menage-pdf-generator/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jeroenb/Work/jackjoe/menage-pdf-generator/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/jeroenb/Work/jackjoe/menage-pdf-generator/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jeroenb/Work/jackjoe/menage-pdf-generator/node_modules/tabtab/.completions/sls.zsh
