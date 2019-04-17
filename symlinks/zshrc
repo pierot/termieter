@@ -61,7 +61,7 @@ plugins=(urltools gitfast docker)
 
 if [[ $OS == 'OSX' ]]; then
   plugins+=(ansible)
-  plugins+=(zsh-syntax-highlighting)
+  # plugins+=(zsh-syntax-highlighting)
   plugins+=(composer npm yarn go mix-fast)
 
   alias dircolors='gdircolors'
