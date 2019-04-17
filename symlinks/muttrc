@@ -93,7 +93,7 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 # Sidebar Navigation ---------------------------------
 bind index,pager \cp sidebar-prev # \cj equals return...
 bind index,pager \cn sidebar-next
-bind index,pager \cl sidebar-open
+bind index,pager \el sidebar-open
 # bind index,pager \cn sidebar-scroll-up
 # bind index,pager \cv sidebar-scroll-down
 macro index b '<enter-command>toggle sidebar_visible<enter>'
