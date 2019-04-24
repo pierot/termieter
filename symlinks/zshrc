@@ -16,12 +16,6 @@ else
   ZSH_THEME="dallas"
 fi
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
 
@@ -37,16 +31,6 @@ COMPLETION_WAITING_DOTS="true"
 # waiting until just before printing a prompt.
 setopt notify
 
-# Print a carriage return just before printing a prompt in the line
-# editor. For example:
-#  $ echo foo
-#  foo
-#  $ echo -n foo
-#  $ setopt nopromptcr
-#  $ echo -n foo
-#  foo$
-# setopt nopromptcr
-
 # Save timestamp in history
 setopt extendedhistory
 # Appends every command to the history file once it is executed
@@ -60,9 +44,7 @@ setopt share_history
 plugins=(urltools gitfast docker)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins+=(ansible)
-  # plugins+=(zsh-syntax-highlighting)
-  plugins+=(composer git gitfast npm yarn go mix-fast)
+  plugins+=(ansible composer git gitfast npm yarn go mix-fast)
 
   alias dircolors='gdircolors'
 else
@@ -81,21 +63,8 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 eval $( dircolors -b $ZSH/../LS_COLORS )
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
-# Customize to your needs...
-# setopt extended_glob
-
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 source $ZSH/oh-my-zsh.sh
 source $TRM/zsh/base.sh
 
 alias reload!='. $HOME/.zshrc'
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/pieterm/Work/jackjoe/phd-floodlight-runner/node_modules/tabtab/.completions/slss.zsh
