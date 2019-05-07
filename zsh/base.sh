@@ -140,10 +140,17 @@ export EDITOR=vim
 ##########################################################
 
 # GIT
+alias gl='git pull'
+alias gp='git push'
+alias gc='git commit'
+alias gco='git checkout'
+
 alias glod='gl origin develop'
 alias glos='gl origin staging'
 alias glom='gl origin master'
+
 alias gap='git add -p'
+alias gst='git status'
 alias gcs='git checkout staging'
 
 alias gmerge='git add . && gcmm merge'
