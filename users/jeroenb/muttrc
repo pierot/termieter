@@ -13,7 +13,7 @@ set realname = "Jeroen Bourgois"     # who am i?
 
 # Colors ---------------------------------------------
 source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
-# source $TRM/users/jeroenb/mutt/colors/mutt-colors-solarized-light-256.muttrc
+# source $TRM/users/jeroenb/mutt/colors/custom.muttrc
 
 # Account Settings -----------------------------------
 
