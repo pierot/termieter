@@ -19,7 +19,7 @@ source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
 
 # Default inbox.
 set spoolfile = "+jackjoe/INBOX"
-
+#
 # Mailboxes to show in the sidebar.
 mailboxes "+-- Jack+Joe ---------" \
           +jackjoe/INBOX \
@@ -63,8 +63,25 @@ bind  index,pager V  save-message  # move to
 macro index,pager I  <set-flag>O	 "Mark as read"
 macro index,pager U  <clear-flag>O "Mark as unread"
 
+bind index gi noop
+bind index gd noop
+bind index ga noop
+bind index gg noop
+bind index g noop
+
+# prevent bind warning (https://neomutt.org/guide/configuration.html#bind-warnings)
+bind index g  noop
+bind index gg first-entry
+
 # Search ---------------------------------------------
 macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+
+# notmuch bindings
+bind index,pager \ noop
+macro index,pager \\\\ "<vfolder-from-query>" # looks up a hand made query
+
+# ctrl u searches for URLs
+macro pager \cu |urlview\n
 
 # Contact aliases
 # brew install contacts
