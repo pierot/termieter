@@ -17,9 +17,9 @@ macro index gd "<change-folder>=jackjoe/drafts<enter>" "Go to drafts"
 folder-hook +jackjoe/INBOX 'macro index,pager y "<save-message>=jackjoe/archive<enter><enter>" "Archive conversation"'
 
 # notmuch
-set nm_default_uri="notmuch:////Users/jeroenb/.mail" # path to the maildir
+set nm_default_uri="notmuch:////Users/jeroenb/.mail/jackjoe" # path to the maildir
 set spoolfile = ~/.mail/jackjoe/INBOX
-set record = ~/.mail/sent
-set postponed = ~/.mail/drafts
+set record = ~/.mail/jackjoe/sent
+set postponed = ~/.mail/jackjoe/drafts
 set mbox_type = Maildir
-set folder = ~/.mail/
+set folder = ~/.mail/jackjoe
