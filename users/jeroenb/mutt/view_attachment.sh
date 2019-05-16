@@ -57,7 +57,7 @@
 #
 
 # the tmp directory to use.
-tmpdir="/tmp/mutt_attach"
+tmpdir="$TRMU/mutt/tmp"
 
 # the name of the debug file if debugging is turned on.
 debug_file=$tmpdir/debug
