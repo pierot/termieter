@@ -1,28 +1,38 @@
-# this uses the view_attachment script found in ~/.mutt/view_attachment.sh
-# this is meant for an OS X system
-image/jpeg                ; $TRMU/mutt/view_attachment.sh %s jpg
-image/pjpeg               ; $TRMU/mutt/view_attachment.sh %s jpg
-image/png                 ; $TRMU/mutt/view_attachment.sh %s png
-image/gif                 ; $TRMU/mutt/view_attachment.sh %s gif
-application/pdf           ; $TRMU/mutt/view_attachment.sh %s pdf
-application/octet-stream  ; $TRMU/mutt/view_attachment.sh %s "-"
+## this uses the view_attachment script found in /.mutt/view_attachment.sh
+## this is meant for an OS X system
 
-# MS office documents
-application/excel         ; $TRMU/mutt/view_attachment.sh %s "-" '/Applications/Numbers.app'
-application/ms-exc        ; $TRMU/mutt/view_attachment.sh %s "-" '/Applications/Numbers.app'
-application/msword        ; $TRMU/mutt/view_attachment.sh %s "-" '/Applications/Pages.app'
-application/vnd.ms-exc    ; $TRMU/mutt/view_attachment.sh %s "-" '/Applications/Numbers.app'
-application/vnd.ms-excel  ; $TRMU/mutt/view_attachment.sh %s "-" '/Applications/Numbers.app'
-application/x-msexcel     ; $TRMU/mutt/view_attachment.sh %s "-" '/Applications/Numbers.app'
-application/mspowerpoint  ; $TRMU/mutt/view_attachment.sh %s "-" '/Applications/Keynote.app'
+# MS Excel
+# this will use the default xls spreadsheet handler from open
+application/x-msexcel; $TRMU/mutt/view_attachment.sh %s doc
+application/ms-exc; $TRMU/mutt/view_attachment.sh %s doc
+application/excel; $TRMU/mutt/view_attachment.sh %s doc
+application/msexcel; $TRMU/mutt/view_attachment.sh %s doc
+application/vnd.ms-exc; $TRMU/mutt/view_attachment.sh %s doc
+application/vnd.ms-excel; $TRMU/mutt/view_attachment.sh %s doc
 
-text/html                 ; $TRMU/mutt/view_attachment.sh %s "-" '/Applications/Firefox.app'
-text/html                 ; links %s; nametemplate=%s.html
-text/html                 ; links -dump %s; nametemplate=%s.html; copiousoutput
+# MS Word
+# use textedit to open .doc files as it's more light-weight
+application/msword; $TRMU/mutt/view_attachment.sh %s doc
 
-application/vnd.openxmlformats-officedocument.wordprocessingml.document          ; $TRMU/mutt/view_attachment.sh %s
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet                ; $TRMU/mutt/view_attachment.sh %s
-application/vnd.openxmlformats-officedocument.presentationml.presentation        ; $TRMU/mutt/view_attachment.sh %s
-application/vnd.openxmlformats-officedocument.presentationml.slideshow           ; $TRMU/mutt/view_attachment.sh %s
-application/vnd.openxmlformats-officedocument.presentationml.template            ; $TRMU/mutt/view_attachment.sh %s
-application/vnd.ms-powerpoint                                                    ; $TRMU/mutt/view_attachment.sh %s
+# docx
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; $TRMU/mutt/view_attachment.sh %s doc
+# xlsx
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; $TRMU/mutt/view_attachment.sh %s xls
+
+# Images
+image/jpeg; $TRMU/mutt/view_attachment.sh %s jpg
+image/pjpeg; $TRMU/mutt/view_attachment.sh %s jpg
+image/png; $TRMU/mutt/view_attachment.sh %s png
+image/gif; $TRMU/mutt/view_attachment.sh %s gif
+
+# PDF
+application/pdf; $TRMU/mutt/view_attachment.sh %s pdf
+
+# HTML
+text/html; $TRMU/mutt/view_attachment.sh %s html
+
+# plain text
+text/plain; tmux split-window -v view %s && sleep 1
+
+# Unidentified.
+application/octet-stream; $TRMU/mutt/view_attachment.sh %s "-"

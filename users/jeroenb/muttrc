@@ -74,7 +74,7 @@ bind index g  noop
 bind index gg first-entry
 
 # Search ---------------------------------------------
-macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+# macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
 
 # notmuch bindings
 bind pager \\ noop
