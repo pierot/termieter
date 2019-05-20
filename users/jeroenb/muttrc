@@ -6,20 +6,20 @@ set message_cachedir = $TRMU/mutt/cache/bodies  # where to store bodies
 set certificate_file = $TRMU/mutt/certificates  # where to store certs
 set mailcap_path     = $TRMU/mutt/mailcap       # entries for filetypes
 set tmpdir           = $TRMU/mutt/tmp          # where to keep tmp files
-set display_filter   = $TRMU/mutt/alias_me.sh
+# set display_filter   = $TRMU/mutt/alias_me.sh
 
 # Compose View Options -------------------------------
 set realname = "Jeroen Bourgois"     # who am i?
 
 # Colors ---------------------------------------------
 source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
-# source $TRM/users/jeroenb/mutt/colors/mutt-colors-solarized-light-256.muttrc
+# source $TRM/users/jeroenb/mutt/colors/custom.muttrc
 
 # Account Settings -----------------------------------
 
 # Default inbox.
 set spoolfile = "+jackjoe/INBOX"
-
+#
 # Mailboxes to show in the sidebar.
 mailboxes "+-- Jack+Joe ---------" \
           +jackjoe/INBOX \
@@ -63,8 +63,26 @@ bind  index,pager V  save-message  # move to
 macro index,pager I  <set-flag>O	 "Mark as read"
 macro index,pager U  <clear-flag>O "Mark as unread"
 
+bind index gi noop
+bind index gd noop
+bind index ga noop
+bind index gg noop
+bind index g noop
+
+# prevent bind warning (https://neomutt.org/guide/configuration.html#bind-warnings)
+bind index g  noop
+bind index gg first-entry
+
 # Search ---------------------------------------------
-macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+# macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+
+# notmuch bindings
+bind pager \\ noop
+# bind index,pager \ noop
+macro index,pager \\\\ "<vfolder-from-query>" # looks up a hand made query
+
+# ctrl u searches for URLs
+macro pager \cu |urlview\n
 
 # Contact aliases
 # brew install contacts

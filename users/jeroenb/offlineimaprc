@@ -1,21 +1,21 @@
 [general]
-ui = basic
-accounts = jackjoe,antenno
+ui = ttyui
+accounts = antenno,jackjoe
+maxsyncaccounts = 2
 pythonfile = $TRM/users/jeroenb/mutt/offlineimap.py
-fsync = False
 
 [Account jackjoe]
 localrepository = jackjoe-local
 remoterepository = jackjoe-remote
 postsynchook = notmuch new
-autorefresh = 1
-holdconnectionopen = yes
+autorefresh = 5
+holdconnectionopen = no
 
 [Account antenno]
 localrepository = antenno-local
 remoterepository = antenno-remote
 postsynchook = notmuch new
-autorefresh = 120
+autorefresh = 5
 holdconnectionopen = no
 
 [Repository jackjoe-local]

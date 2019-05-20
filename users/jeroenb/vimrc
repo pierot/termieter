@@ -6,6 +6,7 @@ Plugin 'dracula/vim', { 'as': 'dracula' }
 " Plugin 'jreybert/vimagit'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'neomutt/neomutt.vim'
 
 " == ALE ===========================================================
 
