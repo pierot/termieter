@@ -76,11 +76,13 @@ set sort_re                                # thread based on regex
 set auto_tag = yes                         # apply to thread
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
+# prevent bind warning (https://neomutt.org/guide/configuration.html#bind-warnings)
+bind index g  noop
+bind index gg first-entry
+
 # Index Key Bindings ---------------------------------
-bind index g        noop
-bind pager g        noop
-bind index gg       first-entry
 bind index G        last-entry
+bind pager g        noop
 
 bind index R        group-reply
 bind index <tab>    sync-mailbox
@@ -93,9 +95,7 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 # Sidebar Navigation ---------------------------------
 bind index,pager \cp sidebar-prev # \cj equals return...
 bind index,pager \cn sidebar-next
-bind index,pager \el sidebar-open
-# bind index,pager \cn sidebar-scroll-up
-# bind index,pager \cv sidebar-scroll-down
+bind index,pager m sidebar-open
 macro index b '<enter-command>toggle sidebar_visible<enter>'
 macro pager b '<enter-command>toggle sidebar_visible<enter>'
 
@@ -122,6 +122,7 @@ bind pager R  group-reply
 
 # View attachments properly.
 bind attach <return> view-mailcap
+bind attach <enter> view-mailcap
 
 # Personal -------------------------------------------
 source ~/.muttrc.local
