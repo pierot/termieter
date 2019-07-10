@@ -290,6 +290,12 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 ##########################################################
 
+# IC4C
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+##########################################################
+
 # ERLANG / ELIXIR
 export ERL_AFLAGS="-kernel shell_history enabled"
 alias mr="make run"

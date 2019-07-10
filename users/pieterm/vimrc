@@ -15,6 +15,17 @@ if has('nvim')
   map P <Plug>(miniyank-autoPut)
 endif
 
+" == Coc ===========================================================
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
 " == Airline =======================================================
 
 " remove the filetype part
@@ -30,7 +41,6 @@ let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
-" let g:ale_elixir_elixir_ls_release = '~/Dropbox/Work/devel/elixir-ls/rel'
 
 " == Escape ========================================================
 
