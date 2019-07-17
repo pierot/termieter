@@ -96,11 +96,6 @@ alias vime="cd ~/.vim; vim ."
 alias v='vim .'
 alias vi='vim'
 
-alias n="npm"
-alias nr="npm run"
-
-alias yy='yarn && yarn upgrade'
-
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
 alias curlh="curl -I -s -X GET"
@@ -226,7 +221,7 @@ test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
 ##########################################################
 
-# RBENV
+# Ruby
 # if have rbenv; then
 #   eval "$(rbenv init -)"
 # else
@@ -238,6 +233,8 @@ test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 #     eval "$(rbenv init -)"
 #   fi
 # fi
+
+export PATH="$PATH:/Library/Ruby/Gems/2.3.0"
 
 ##########################################################
 
@@ -264,10 +261,6 @@ alias godir="cd $GOPATH"
 
 ##########################################################
 
-# NODE
-export PATH="$PATH:/usr/local/share/npm/bin"
-export PATH="$PATH:$HOME/.node/bin"
-
 ##########################################################
 
 # HASKELL
@@ -287,6 +280,15 @@ export PATH="$PATH:/usr/local/mysql/bin"
 
 # YARN
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# NODE
+export PATH="$PATH:/usr/local/share/npm/bin"
+export PATH="$PATH:$HOME/.node/bin"
+
+alias n="npm"
+alias nr="npm run"
+
+alias yy='yarn && yarn upgrade'
 
 ##########################################################
 
