@@ -1,5 +1,7 @@
 " Bundles
 
+"call plug#begin()
+
 " if has("unix")
 "   let s:uname = system("uname")
 "
@@ -14,6 +16,8 @@ if has('nvim')
   map p <Plug>(miniyank-autoput)
   map P <Plug>(miniyank-autoPut)
 endif
+
+"call plug#end()
 
 " == Airline =======================================================
 
