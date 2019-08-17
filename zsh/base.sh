@@ -221,6 +221,13 @@ test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
 ##########################################################
 
+function connect_traefik() {
+	echo "http://localhost:9446"
+	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
+}
+
+##########################################################
+
 # Ruby
 # if have rbenv; then
 #   eval "$(rbenv init -)"
