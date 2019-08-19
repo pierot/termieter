@@ -1,5 +1,7 @@
 " Bundles
 
+"call plug#begin()
+
 " if has("unix")
 "   let s:uname = system("uname")
 "
@@ -10,10 +12,12 @@
 
 " Yank fix (temp)
 if has('nvim')
-  Plugin 'bfredl/nvim-miniyank'
+  Plug 'bfredl/nvim-miniyank'
   map p <Plug>(miniyank-autoput)
   map P <Plug>(miniyank-autoPut)
 endif
+
+"call plug#end()
 
 " == Airline =======================================================
 
@@ -22,15 +26,6 @@ let g:airline_section_x=''
 let g:airline_section_y=''
 " remove separators for empty sections
 let g:airline_skip_empty_sections = 1
-
-" == ALE ===========================================================
-
-" Write this in your vimrc file
-let g:ale_lint_on_text_changed = 'never'
-" You can disable this option too
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
-" let g:ale_elixir_elixir_ls_release = '~/Dropbox/Work/devel/elixir-ls/rel'
 
 " == Escape ========================================================
 

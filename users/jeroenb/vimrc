@@ -1,20 +1,12 @@
 " Bundles
 
-Plugin 'wakatime/vim-wakatime'
-Plugin 'elm.vim'
-Plugin 'dracula/vim', { 'as': 'dracula' }
-" Plugin 'jreybert/vimagit'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'neomutt/neomutt.vim'
-
-" == ALE ===========================================================
-
-" Write this in your vimrc file
-let g:ale_lint_on_text_changed = 'never'
-" You can disable this option too
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
+Plug 'wakatime/vim-wakatime'
+Plug 'lambdatoast/elm.vim'
+Plug 'dracula/vim'
+" Plug 'jreybert/vimagit'
+Plug 'easymotion/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'neomutt/neomutt.vim'
 
 " == Colors ========================================================
 
@@ -57,8 +49,6 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup END
-
-color dracula
 
 if (has("termguicolors"))
   set termguicolors
