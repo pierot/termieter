@@ -1,14 +1,3 @@
-" Bundles
-
-Plug 'wakatime/vim-wakatime'
-Plug 'lambdatoast/elm.vim'
-Plug 'dracula/vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'jreybert/vimagit'
-Plug 'easymotion/vim-easymotion'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'neomutt/neomutt.vim'
-
 " == Colors ========================================================
 
 " copy current file name (relative/absolute) to system clipboard
@@ -55,4 +44,4 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme dracula
+color dracula
