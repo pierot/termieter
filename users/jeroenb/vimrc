@@ -1,14 +1,11 @@
+" == ALE ===========================================================
 " Bundles
 
-Plugin 'wakatime/vim-wakatime'
-Plugin 'elm.vim'
-Plugin 'dracula/vim', { 'as': 'dracula' }
-" Plugin 'jreybert/vimagit'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'neomutt/neomutt.vim'
-
-" == ALE ===========================================================
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'jreybert/vimagit'
+Plug 'easymotion/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'neomutt/neomutt.vim'
 
 " Write this in your vimrc file
 let g:ale_lint_on_text_changed = 'never'
@@ -58,7 +55,11 @@ inoremap <S-Right> <Nop>
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
-color dracula
+" color dracula
+
+" elm + vim-polyglot
+" let g:polyglot_disabled = ['elm']
+let g:elm_format_autosave = 1
 
 if (has("termguicolors"))
   set termguicolors
