@@ -1,5 +1,13 @@
 # FUNCTIONS
 
+largest_files() {
+  sudo du -ha / | sort -n -r | head -n 10
+}
+
+compresspdf() {
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
+}
+
 echoo() {
   printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $1
 }
@@ -7,6 +15,25 @@ echoo() {
 have() {
   type "$1" &> /dev/null
 }
+
+# Create a data URL from a file
+dataurl() {
+  local mimeType=$(file -b --mime-type "$1")
+  if [[ $mimeType == text/* ]]; then
+    mimeType="${mimeType};charset=utf-8"
+  fi
+  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
+
+if [[ $OS == 'OSX' ]]; then
+  changeMac() {
+    local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+    sudo ifconfig en0 ether $mac
+    sudo ifconfig en0 down
+    sudo ifconfig en0 up
+    echo "Your new physical address is $mac"
+  }
+fi
 
 ##########################################################
 
@@ -69,11 +96,6 @@ alias vime="cd ~/.vim; vim ."
 alias v='vim .'
 alias vi='vim'
 
-alias n="npm"
-alias nr="npm run"
-
-alias yy='yarn && yarn upgrade'
-
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
 alias curlh="curl -I -s -X GET"
@@ -81,10 +103,6 @@ alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
 
 alias hosts='sudo vim /etc/hosts'
 alias m='mosh'
-
-function compresspdf() {
-  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
-}
 
 if [ -d "$HOME/Work/jackjoe/" ]; then
   alias jackjoe="cd $HOME/Work/jackjoe/"
@@ -94,8 +112,6 @@ if [ -d $DROPBOX ]; then
   alias repos="cd $DROPBOX/Work/repos/"
   alias dev="cd $DROPBOX/Work/devel/"
 fi
-
-alias largest_files='sudo du -ha / | sort -n -r | head -n 10'
 
 ##########################################################
 
@@ -205,7 +221,14 @@ test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
 ##########################################################
 
-# RBENV
+function connect_traefik() {
+	echo "http://localhost:9446"
+	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
+}
+
+##########################################################
+
+# Ruby
 # if have rbenv; then
 #   eval "$(rbenv init -)"
 # else
@@ -217,6 +240,8 @@ test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 #     eval "$(rbenv init -)"
 #   fi
 # fi
+
+export PATH="$PATH:/Library/Ruby/Gems/2.3.0"
 
 ##########################################################
 
@@ -243,10 +268,6 @@ alias godir="cd $GOPATH"
 
 ##########################################################
 
-# NODE
-export PATH="$PATH:/usr/local/share/npm/bin"
-export PATH="$PATH:$HOME/.node/bin"
-
 ##########################################################
 
 # HASKELL
@@ -266,6 +287,21 @@ export PATH="$PATH:/usr/local/mysql/bin"
 
 # YARN
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# NODE
+export PATH="$PATH:/usr/local/share/npm/bin"
+export PATH="$PATH:$HOME/.node/bin"
+
+alias n="npm"
+alias nr="npm run"
+
+alias yy='yarn && yarn upgrade'
+
+##########################################################
+
+# IC4C
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 ##########################################################
 

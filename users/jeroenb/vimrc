@@ -1,18 +1,3 @@
-" == ALE ===========================================================
-" Bundles
-
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'jreybert/vimagit'
-Plug 'easymotion/vim-easymotion'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'neomutt/neomutt.vim'
-
-" Write this in your vimrc file
-let g:ale_lint_on_text_changed = 'never'
-" You can disable this option too
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
-
 " == Colors ========================================================
 
 " copy current file name (relative/absolute) to system clipboard
@@ -47,7 +32,7 @@ inoremap <S-Down> <Nop>
 inoremap <S-Left> <Nop>
 inoremap <S-Right> <Nop>
 
-:set number relativenumber
+set number relativenumber
 
 :augroup numbertoggle
 :  autocmd!
@@ -64,3 +49,5 @@ let g:elm_format_autosave = 1
 if (has("termguicolors"))
   set termguicolors
 endif
+
+color dracula
