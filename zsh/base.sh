@@ -228,6 +228,19 @@ function connect_traefik() {
 
 ##########################################################
 
+# Mix (Elixir)
+
+alias mho="mix hex.outdated"
+alias mdg="mix deps.get"
+alias mdu="mix deps.update"
+alias mdc="mix deps.clean --all"
+
+function mpr() {
+  mix phx.routes | grep "$*"
+}
+
+##########################################################
+
 # Ruby
 # if have rbenv; then
 #   eval "$(rbenv init -)"
