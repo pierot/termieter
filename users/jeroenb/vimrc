@@ -34,11 +34,17 @@ inoremap <S-Right> <Nop>
 
 set number relativenumber
 
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-augroup END
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+" color dracula
+
+" elm + vim-polyglot
+" let g:polyglot_disabled = ['elm']
+let g:elm_format_autosave = 1
 
 if (has("termguicolors"))
   set termguicolors

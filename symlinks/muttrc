@@ -16,7 +16,6 @@ set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
 set copy = no            # do not copy sent mail, Gmail smtp already does this.
 set arrow_cursor
-auto_view text/html      # Open html messages in a browser
 set mime_forward         # forward attachments
 set mime_forward_rest=yes
 
@@ -44,9 +43,8 @@ hdr_order from: to: cc: date: subject:  # and in this order
 set forward_format      = "Fwd: %s"                                    # when forwarding email, simply add a Fwd to the subject
 set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set fast_reply                                                         # do not ask for to, subject, etc when replying
-auto_view text/html                                                    # autoview html
-# alternative_order text/plain text/enriched text/html                 # save html for last
-# alternative_order text/enriched text/plain text/html text
+auto_view text/html                                                    # Open html messages in a browser
+alternative_order text/plain text/enriched text/html                   # save html for last
 
 # Compose View Options -------------------------------
 set realname = ""                    # who am i?

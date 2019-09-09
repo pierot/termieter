@@ -2,7 +2,6 @@
 
 Plug 'wakatime/vim-wakatime'
 Plug 'lambdatoast/elm.vim'
-Plug 'dracula/vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'jreybert/vimagit'
 Plug 'easymotion/vim-easymotion'
