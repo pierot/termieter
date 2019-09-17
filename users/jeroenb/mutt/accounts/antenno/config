@@ -7,3 +7,5 @@ set signature = $TRM/users/jeroenb/mutt/accounts/antenno/signature
 # Other special folders.
 set mbox      = "+antenno/archive"
 set postponed = "+antenno/drafts"
+
+macro index gai "<change-folder>=antenno/INBOX<enter>" "Go to inbox"
