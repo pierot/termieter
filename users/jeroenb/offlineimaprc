@@ -36,6 +36,7 @@ remoteuser = jeroen@jackjoe.be
 remotepasseval = get_keychain_pass(account="jeroen@jackjoe.be", server="imap.gmail.com")
 realdelete = no
 auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+ssl_version = tls1_2
 ssl = true
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
