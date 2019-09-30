@@ -3,6 +3,7 @@
 set from      = "Jeroen Bourgois <jeroen@jackjoe.be>"
 set sendmail  = "/usr/local/bin/msmtp -a jeroen@jackjoe.be"
 set signature = $TRM/users/jeroenb/mutt/accounts/jackjoe/signature
+set mbox_type = Maildir
 
 # Other special folders.
 set mbox      = "+jackjoe/archive"
@@ -17,9 +18,9 @@ macro index gd "<change-folder>=jackjoe/drafts<enter>" "Go to drafts"
 folder-hook +jackjoe/INBOX 'macro index,pager y "<save-message>=jackjoe/archive<enter><enter>" "Archive conversation"'
 
 # notmuch
- set nm_default_uri="notmuch:////Users/jeroenb/.mail/jackjoe" # path to the maildir
-set spoolfile = ~/.mail/jackjoe/INBOX
-# set record = ~/.mail/jackjoe/sent
-# set postponed = ~/.mail/jackjoe/drafts
-# set mbox_type = Maildir
-# set folder = ~/.mail/jackjoe
+set nm_default_uri="notmuch:////Users/jeroenb/Mail/jackjoe" # path to the maildir
+set spoolfile = ~/Mail/jackjoe/INBOX
+# set record = ~/Mail/jackjoe/sent
+# set mbox = ~/Mail/jackjoe/drafts
+# set postponed = ~/Mail/jackjoe/drafts
+# set folder = ~/Mail/jackjoe

@@ -20,7 +20,7 @@ holdconnectionopen = no
 
 [Repository jackjoe-local]
 type = Maildir
-localfolders = ~/.mail/jackjoe
+localfolders = ~/Mail/jackjoe
 nametrans = lambda folder: {'drafts':    '[Gmail]/Drafts',
                             'sent':      '[Gmail]/Sent Mail',
                             'spam':      '[Gmail]/Spam',
@@ -54,7 +54,7 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Important',
 
 [Repository antenno-local]
 type = Maildir
-localfolders = ~/.mail/antenno
+localfolders = ~/Mail/antenno
 nametrans = lambda folder: {'drafts':    'Drafts',
                             'sent':      'Sent Items',
                             'spam':      'Junk Email',

@@ -1,11 +1,11 @@
 # Paths ----------------------------------------------
-set folder           = ~/.mail               # mailbox location
+set folder           = ~/Mail                   # mailbox location
 set alias_file       = $TRMU/mutt/alias         # where to store aliases
 set header_cache     = $TRMU/mutt/cache/headers # where to store headers
 set message_cachedir = $TRMU/mutt/cache/bodies  # where to store bodies
 set certificate_file = $TRMU/mutt/certificates  # where to store certs
 set mailcap_path     = $TRMU/mutt/mailcap       # entries for filetypes
-set tmpdir           = $TRMU/mutt/tmp          # where to keep tmp files
+set tmpdir           = $TRMU/mutt/tmp           # where to keep tmp files
 # set display_filter   = $TRMU/mutt/alias_me.sh
 
 # Compose View Options -------------------------------
@@ -74,7 +74,7 @@ bind index g  noop
 bind index gg first-entry
 
 # Search ---------------------------------------------
-macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/Mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
 
 # notmuch bindings
 bind pager \\ noop
@@ -86,10 +86,14 @@ macro pager \cu |urlview\n
 
 # Contact aliases
 # brew install contacts
-set alias_file		= $TRM/users/jeroenb/mutt/aliases
-set sort_alias		= alias
-set reverse_alias	= yes
-set reverse_name	= yes
+# set alias_file		= $TRM/users/jeroenb/mutt/aliases
+# set sort_alias		= alias
+# set reverse_alias	= yes
+# set reverse_name	= yes
+# set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+# bind editor <Tab> complete-query
+# bind editor ^T    complete
+
 set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 bind editor <Tab> complete-query
 bind editor ^T    complete
