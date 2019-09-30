@@ -10,6 +10,7 @@ set tmpdir           = $TRMU/mutt/tmp           # where to keep tmp files
 
 # Compose View Options -------------------------------
 set realname = "Jeroen Bourgois"     # who am i?
+set editor = "nvim"
 
 # Colors ---------------------------------------------
 source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
