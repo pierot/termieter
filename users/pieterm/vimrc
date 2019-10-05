@@ -11,11 +11,11 @@
 " endif
 
 " Yank fix (temp)
-if has('nvim')
-  Plug 'bfredl/nvim-miniyank'
-  map p <Plug>(miniyank-autoput)
-  map P <Plug>(miniyank-autoPut)
-endif
+" if has('nvim')
+"   Plug 'bfredl/nvim-miniyank'
+"   map p <Plug>(miniyank-autoput)
+"   map P <Plug>(miniyank-autoPut)
+" endif
 
 "call plug#end()
 
