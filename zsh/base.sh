@@ -119,6 +119,10 @@ if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
   alias cat='ccat'
 
+  # ssh
+  alias sshconf='sudo vim ~/.ssh/config'
+  alias sshe='cd ~/.ssh'
+
   # Spotlight
   alias spotlight-stop='sudo mdutil -i off /'
   alias spotlight-clear='sudo mdutil -E /'

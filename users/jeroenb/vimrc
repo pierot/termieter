@@ -18,9 +18,7 @@ inoremap <S-Left> <Nop>
 inoremap <S-Right> <Nop>
 
 :nmap <F1> <nop>
-
-" CoC
-let g:coc_global_extensions = ['coc-eslint','coc-flow', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists']
+:inoremap <F1> <nop>
 
 " set number relativenumber
 
