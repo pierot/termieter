@@ -118,6 +118,7 @@ fi
 if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
   alias cat='ccat'
+  alias zzz='pmset sleepnow'
 
   # ssh
   alias sshconf='sudo vim ~/.ssh/config'
