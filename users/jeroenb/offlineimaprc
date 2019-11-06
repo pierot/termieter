@@ -8,14 +8,14 @@ pythonfile = $TRM/users/jeroenb/mutt/offlineimap.py
 localrepository = jackjoe-local
 remoterepository = jackjoe-remote
 postsynchook = notmuch new
-autorefresh = 5
+autorefresh = 0.5
 holdconnectionopen = no
 
 [Account antenno]
 localrepository = antenno-local
 remoterepository = antenno-remote
 postsynchook = notmuch new
-autorefresh = 5
+autorefresh = 0.5
 holdconnectionopen = no
 
 [Repository jackjoe-local]
