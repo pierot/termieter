@@ -38,4 +38,5 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-color dracula
+" color dracula
+color madeofcode
