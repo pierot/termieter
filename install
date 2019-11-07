@@ -160,6 +160,8 @@ _back_install_user() {
   if [ -f "$install_dir/users/$USER/$1" ]; then
     if [ "$1" == "offlineimaprc" ]; then
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
+    elif [ "$1" == "mbsyncrc" ]; then
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
     elif [ "$1" == "notmuch-config" ]; then
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
     elif [ -n "$2" ]; then
