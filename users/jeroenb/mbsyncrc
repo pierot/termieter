@@ -1,0 +1,73 @@
+#################################
+##### Account Jack + Joe ########
+#################################
+
+IMAPAccount jackjoe
+Host imap.gmail.com
+User jeroen@jackjoe.be
+PassCmd "security find-internet-password -s 'imap.gmail.com' -a 'jeroen@jackjoe.be' -w"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+# CertificateFile ~/dotfiles/office/certificates.crt
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+# Remote storage
+IMAPStore jackjoe-remote
+Account jackjoe
+
+# Local storage
+MaildirStore jackjoe-local
+Path ~/Mail/jackjoe/
+Inbox ~/Mail/jackjoe/INBOX
+
+Channel jackjoe-inbox
+Master :jackjoe-remote:"INBOX"
+Slave :jackjoe-local:INBOX
+Create Both
+Expunge Both
+
+Channel jackjoe-archive
+Master :jackjoe-remote:"[Gmail]/All Mail"
+Slave :jackjoe-local:archive
+Create Both
+Expunge Both
+
+Channel jackjoe-drafts
+Master :jackjoe-remote:"[Gmail]/Drafts"
+Slave :jackjoe-local:drafts
+Create Both
+Expunge Both
+
+Channel jackjoe-sent
+Master :jackjoe-remote:"[Gmail]/Sent Mail"
+Slave :jackjoe-local:sent
+Create Both
+Expunge Both
+
+Channel jackjoe-spam
+Master :jackjoe-remote:"[Gmail]/Spam"
+Slave :jackjoe-local:junk
+Create Both
+Expunge Both
+
+Channel jackjoe-starred
+Master :jackjoe-remote:"[Gmail]/Starred"
+Slave :jackjoe-local:starred
+Create Both
+Expunge Both
+
+Channel jackjoe-trash
+Master :jackjoe-remote:"[Gmail]/Trash"
+Slave :jackjoe-local:trash
+Create Both
+Expunge Both
+
+Group jackjoe
+Channel jackjoe-inbox
+Channel jackjoe-archive
+Channel jackjoe-starred
+Channel jackjoe-drafts
+Channel jackjoe-sent
+Channel jackjoe-trash
+Channel jackjoe-junk

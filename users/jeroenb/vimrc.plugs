@@ -6,6 +6,7 @@ Plug 'jreybert/vimagit'
 Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neomutt/neomutt.vim'
+Plug 'tpope/vim-fugitive'
 
 " Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
