@@ -162,6 +162,10 @@ _back_install_user() {
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
     elif [ "$1" == "mbsyncrc" ]; then
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
+    elif [ "$1" == "yabairc" ]; then
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
+    elif [ "$1" == "skhdrc" ]; then
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
     elif [ "$1" == "notmuch-config" ]; then
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
     elif [ -n "$2" ]; then
