@@ -52,6 +52,7 @@ mailboxes "+-- Jack+Joe ---------" \
           +jackjoe/junk \
           +jackjoe/sent \
           +jackjoe/drafts \
+          +jackjoe/trash \
           +temporary/search \
           # "+-- Antenno ----------" \
           # +antenno/INBOX \
