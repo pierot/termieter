@@ -23,5 +23,6 @@ fi
 
 ###################################
 
-/bin/bash $TRM/bin/macos.sh
 export TRMU=~/.termieter/users/jeroenb
+
+# /bin/bash $TRMU/bin/macos.sh
