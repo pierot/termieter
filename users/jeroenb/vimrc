@@ -17,8 +17,16 @@ inoremap <S-Down> <Nop>
 inoremap <S-Left> <Nop>
 inoremap <S-Right> <Nop>
 
-:nmap <F1> <nop>
-:inoremap <F1> <nop>
+inoremap <F1> <Esc>
+noremap <F1> :call MapF1()<CR>
+
+function! MapF1()
+  if &buftype == "help"
+    exec 'quit'
+  else
+    exec 'help'
+  endif
+endfunction
 
 " set number relativenumber
 
