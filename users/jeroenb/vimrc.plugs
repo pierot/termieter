@@ -7,18 +7,4 @@ Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-fugitive'
-
-" Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-tslint', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'} " mru and stuff
-" Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'} " color highlighting
-" Plug 'neoclide/coc-tag', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-ultisnips', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-elixir', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'neoclide/coc-phpcs', {'do': 'yarn install --frozen-lockfile'}
+Plug 'ryanoasis/vim-devicons'
