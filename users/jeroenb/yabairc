@@ -49,13 +49,15 @@ yabai -m config window_gap                   10
 
 # rules
 yabai -m rule --add app=Kitty space=1
-yabai -m rule --add app="^Firefox$" space=^2 manage=off
+yabai -m rule --add app="^Firefox$" space=^2
 yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app=Mail space=2
-yabai -m rule --add app="Spotify" space=4 manage=off grid=3:3:0:1:1:1
-yabai -m rule --add app="^System Preferences$" manage=off border=off
-yabai -m rule --add app=Preview manage=off border=off
+yabai -m rule --add app=Mail space=3
+yabai -m rule --add app="Spotify" space=5 manage=off grid=3:3:0:1:1:1
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app=Preview manage=off
 yabai -m rule --add app="1Password" manage=off
+yabai -m rule --add app="Trello" space=4
+yabai -m rule --add app="Slack" space=4
 yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="App Store" manage=off
 yabai -m rule --add app="The Unarchiver" manage=off
