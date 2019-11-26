@@ -1,6 +1,6 @@
 # open terminal
 hyper - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
-hyper - f : open "/Applications/Firefox Developer Edition.app"
+hyper - b : open "/Applications/Firefox Developer Edition.app"
 hyper - t : open "/Applications/Kitty.app"
 hyper - o : open "/Applications/Trello.app"
 hyper - s : open "/Applications/Slack.app"
@@ -30,13 +30,13 @@ alt + cmd - l : yabai -m window --warp east
 hyper - 0 : yabai -m space --balance
 
 # make floating window fill screen
-# shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
+shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
 
 # make floating window fill left-half of screen
-# shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
+shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 
 # make floating window fill right-half of screen
-# shift + alt - right  : yabai -m window --grid 1:2:1:0:1:1
+hyper - right  : yabai -m window --grid 1:2:1:0:1:1
 
 # create desktop, move window and follow focus
 shift + cmd - n : yabai -m space --create;\
@@ -111,8 +111,9 @@ alt - e : yabai -m window --toggle split
 alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
-# toggle sticky
+alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
 alt - s : yabai -m window --toggle sticky
+alt - o : yabai -m window --toggle topmost
 
 # toggle sticky, float and resize to picture-in-picture size
 alt - p : yabai -m window --toggle sticky;\
