@@ -8,7 +8,6 @@ yabai -m config status_bar                   on
 yabai -m config status_bar_text_font         "Menlo:Regular:12.0"
 yabai -m config status_bar_icon_font         "Iosevka Nerd Font:Bold:14.0"
 yabai -m config status_bar_space_icon_strip      J+J   6 7 8 9 10
-yabai -m config status_bar_power_icon_strip   
 yabai -m config status_bar_space_icon        
 yabai -m config status_bar_clock_icon        
 
