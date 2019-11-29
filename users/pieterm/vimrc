@@ -1,24 +1,3 @@
-" Bundles
-
-"call plug#begin()
-
-" if has("unix")
-"   let s:uname = system("uname")
-"
-"   if s:uname == "Darwin\n"
-"
-"   endif
-" endif
-
-" Yank fix (temp)
-" if has('nvim')
-"   Plug 'bfredl/nvim-miniyank'
-"   map p <Plug>(miniyank-autoput)
-"   map P <Plug>(miniyank-autoPut)
-" endif
-
-"call plug#end()
-
 " == Airline =======================================================
 
 " remove the filetype part
@@ -27,20 +6,12 @@ let g:airline_section_y=''
 " remove separators for empty sections
 let g:airline_skip_empty_sections = 1
 
-" == Escape ========================================================
-
-" imap jj <Esc>
-
-" Leave insert mode when upping or downing
-" inoremap <silent> <Up> <ESC><Up>
-" inoremap <silent> <Down> <ESC><Down>
-
 " == Colors ========================================================
 
-" colorscheme dank-neon
-
-colorscheme pt_black
-set background=dark
+colorscheme badwolf
+" colorscheme pt_black
+" colorscheme hemisu
+" set background=dark
 
 " colorscheme nofrils-sepia
 " let g:nofrils_strbackgrounds=1
