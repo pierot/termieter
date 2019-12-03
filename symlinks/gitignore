@@ -25,6 +25,7 @@ Thumbs.db
 
 # Elixir
 .mix_tasks
+.elixir_ls
 
 # General
 log/*.log
