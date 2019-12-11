@@ -146,7 +146,7 @@ for sym_file in $install_dir/symlinks/*; do
 done
 
 _back_install_user() {
-  _print "Installing user $1"
+  _print "Installing $USER $1"
 
   if [ ! -n "$1" ]; then
     _error "Error in install script. Aborting"
@@ -178,6 +178,36 @@ _back_install_user() {
 
 for sym_file in $install_dir/users/$USER/*; do
   _back_install_user $(basename $sym_file)
+done
+
+# ~/.config install
+if [ ! -d "$HOME/.config" ]; then
+  mkdir "$HOME/.config"
+fi
+
+_config_install_user() {
+  _print "Installing $USER ~/.config/$1"
+
+  if [ ! -n "$1" ]; then
+    _error "Error in install script. Aborting"
+    exit 1
+  fi
+
+  if [ -f "$HOME/.$1.local" ]; then
+    mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
+  fi
+
+  if [ -f "$install_dir/users/$USER/config/$1" ] || [ -d "$install_dir/users/$USER/config/$1" ]; then
+    if [ -n "$2" ]; then
+      ln -sf "$install_dir/users/$USER/config/$1" "$HOME/.config/$2"
+    else
+      ln -sf "$install_dir/users/$USER/config/$1" "$HOME/.config/$1"
+    fi
+  fi
+}
+
+for sym_file in $install_dir/users/$USER/config/*; do
+  _config_install_user $(basename $sym_file)
 done
 
 ###############################################################################
