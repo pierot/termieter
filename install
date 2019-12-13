@@ -36,7 +36,7 @@ cat <<EOF
 
     -h  --help           Show this message
     -u, --update         Update local setup (no cloning, no removing)
-    -d, --directory      Install directory (always in $HOME folder) [.termieter]
+    -d, --directory      Install directory [~/.termieter]
 
   Remote usage:
 
@@ -64,7 +64,7 @@ _error() {
 }
 
 # variables
-install_dir=".termieter"
+install_dir="$HOME/.termieter"
 update=0
 
 # parse opts
@@ -146,7 +146,7 @@ for sym_file in $install_dir/symlinks/*; do
 done
 
 _back_install_user() {
-  _print "Installing user $1"
+  _print "Installing $USER $1"
 
   if [ ! -n "$1" ]; then
     _error "Error in install script. Aborting"
@@ -155,6 +155,12 @@ _back_install_user() {
 
   if [ -f "$HOME/.$1.local" ]; then
     mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
+  fi
+
+  if [ -d "$install_dir/users/$USER/$1" ]; then
+    if [ "$1" == "bin" ]; then
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/$1"
+    fi
   fi
 
   if [ -f "$install_dir/users/$USER/$1" ]; then
@@ -178,6 +184,33 @@ _back_install_user() {
 
 for sym_file in $install_dir/users/$USER/*; do
   _back_install_user $(basename $sym_file)
+done
+
+# ~/.config install
+if [ ! -d "$HOME/.config" ]; then
+  mkdir "$HOME/.config"
+fi
+
+_config_install_user() {
+  _print "Installing $USER ~/.config/$1"
+
+  if [ ! -n "$1" ]; then
+    _error "Error in install script. Aborting"
+    exit 1
+  fi
+
+  if [ -f "$HOME/.$1.local" ]; then
+    mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
+  fi
+
+  if [ -f "$install_dir/users/$USER/config/$1" ] || [ -d "$install_dir/users/$USER/config/$1" ]; then
+    rm -rf "$HOME/.config/$1"
+    ln -sf "$install_dir/users/$USER/config/$1" "$HOME/.config/$1"
+  fi
+}
+
+for sym_file in $install_dir/users/$USER/config/*; do
+  _config_install_user $(basename $sym_file)
 done
 
 ###############################################################################
