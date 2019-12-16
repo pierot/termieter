@@ -25,10 +25,15 @@ export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
 export DROPBOX=$HOME/Dropbox
 export IAMJACK="$HOME/Dropbox/iamjack"
 export XDG_CONFIG_HOME="$HOME/.config"
+
 alias dev="cd $HOME/Work/"
 alias dropbox="cd $DROPBOX"
 alias invoicing="cd $IAMJACK/Income"
 alias iamjack="cd $IAMJACK"
+
+export PATH="$HOME/bin/:$PATH"
+
+source $HOME/bin/tmux.sh
 
 ###################################
 

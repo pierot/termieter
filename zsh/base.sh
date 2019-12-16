@@ -235,13 +235,13 @@ function connect_traefik() {
 
 # Mix (Elixir)
 
-alias mho="mix hex.outdated"
-alias mdg="mix deps.get"
-alias mdu="mix deps.update"
-alias mdc="mix deps.clean --all"
+alias mho="source .env && mix hex.outdated"
+alias mdg="source .env && mix deps.get"
+alias mdu="source .env && mix deps.update"
+alias mdc="source .env && mix deps.clean --all"
 
 function mpr() {
-  mix phx.routes | grep "$*"
+  source .env && mix phx.routes | grep "$*"
 }
 
 ##########################################################
@@ -278,23 +278,13 @@ alias godir="cd $GOPATH"
 
 ##########################################################
 
-# ANDROID
-# export ANDROID_HOME="$HOME/Library/Android/sdk"
-# export PATH="$PATH:$ANDROID_HOME/platform-tools"
-# export PATH="$PATH:$ANDROID_HOME/tools"
-# export PATH="$PATH:$ANDROID_HOME/emulator"
-
-##########################################################
-
-##########################################################
-
 # HASKELL
 export PATH="$PATH:$HOME/.cabal/bin"
 
 ##########################################################
 
 # FASTLANE
-export PATH="$PATH:$HOME/.fastlane/bin"
+# export PATH="$PATH:$HOME/.fastlane/bin"
 
 ##########################################################
 
