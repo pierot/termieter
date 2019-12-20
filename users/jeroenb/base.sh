@@ -21,8 +21,9 @@ if have neomutt; then
   alias m="neomutt"
 fi
 
-###################################
-
-export TRMU=~/.termieter/users/jeroenb
+alias dev="cd $HOME/Work/"
+alias dropbox="cd $DROPBOX"
+alias invoicing="cd $IAMJACK/Income"
+alias iamjack="cd $IAMJACK"
 
 # /bin/bash $TRMU/bin/macos.sh

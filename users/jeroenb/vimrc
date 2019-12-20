@@ -42,8 +42,6 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 " :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 " :augroup END
 
-" color dracula
-
 " elm + vim-polyglot
 " let g:polyglot_disabled = ['elm']
 let g:elm_format_autosave = 1
@@ -52,5 +50,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+set laststatus=0
+
 " color dracula
 color madeofcode
+" color nofrils-dark

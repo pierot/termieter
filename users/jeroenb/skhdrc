@@ -119,3 +119,7 @@ alt - o : yabai -m window --toggle topmost
 # toggle sticky, float and resize to picture-in-picture size
 alt - p : yabai -m window --toggle sticky;\
           yabai -m window --grid 5:5:4:0:1:1
+
+.blacklist [
+  "Finder"
+]
