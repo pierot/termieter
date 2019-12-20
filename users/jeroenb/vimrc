@@ -55,3 +55,4 @@ set laststatus=0
 " color dracula
 color madeofcode
 " color nofrils-dark
+hi Normal guibg=NONE ctermbg=NONE
