@@ -24,7 +24,7 @@ set $terminal kitty
 # Set Mod
 set $mod Mod1
 # set $mod Mod4
-exec --no-startup-id xset r rate 50 50
+exec --no-startup-id xset r rate 150 150
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -307,7 +307,7 @@ exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
 # exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
-exec_always --no-startup-id sbxkb
+# exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
