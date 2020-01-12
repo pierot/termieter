@@ -8,45 +8,45 @@ module.exports = {
       '"Source Code Pro for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color (hex)
-    cursorColor: '#F81CE5',
+    cursorColor: "#F81CE5",
 
     // color of the text
-    foregroundColor: '#fff',
+    foregroundColor: "#fff",
 
     // terminal background color
-    backgroundColor: '#000',
+    backgroundColor: "#000",
 
     // border color (window, tabs)
-    borderColor: '#333',
+    borderColor: "#333",
 
     // custom css to embed in the main window
-    css: '',
+    css: "",
 
     // custom css to embed in the terminal window
-    termCSS: '',
+    termCSS: "",
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '0 0px',
+    padding: "0 0px",
 
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
     colors: [
-      '#000000',
-      '#ff0000',
-      '#33ff00',
-      '#ffff00',
-      '#0066ff',
-      '#cc00ff',
-      '#00ffff',
-      '#d0d0d0',
-      '#808080',
-      '#ff0000',
-      '#33ff00',
-      '#ffff00',
-      '#0066ff',
-      '#cc00ff',
-      '#00ffff',
-      '#ffffff',
+      "#000000",
+      "#ff0000",
+      "#33ff00",
+      "#ffff00",
+      "#0066ff",
+      "#cc00ff",
+      "#00ffff",
+      "#d0d0d0",
+      "#808080",
+      "#ff0000",
+      "#33ff00",
+      "#ffff00",
+      "#0066ff",
+      "#cc00ff",
+      "#00ffff",
+      "#ffffff",
     ],
 
     hyperclean: {
