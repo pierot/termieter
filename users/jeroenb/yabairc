@@ -7,9 +7,9 @@
 yabai -m config status_bar                   on
 yabai -m config status_bar_text_font         "Menlo:Regular:12.0"
 yabai -m config status_bar_icon_font         "Iosevka Nerd Font:Bold:14.0"
-yabai -m config status_bar_space_icon_strip      J+J   6 7 8 9 10
-yabai -m config status_bar_space_icon        
-yabai -m config status_bar_clock_icon        
+yabai -m config status_bar_space_icon_strip  1 2 3 4 5 6 7 8 9 10
+# yabai -m config status_bar_space_icon        
+# yabai -m config status_bar_clock_icon        
 
 # bar settings
 # yabai -m config status_bar_text_font         "Helvetica Neue:Bold:12.0"
@@ -49,6 +49,8 @@ yabai -m config window_gap                   20
 # rules
 yabai -m rule --add app=Kitty space=1
 yabai -m rule --add app="^Firefox$" space=^2
+yabai -m rule --add app="^Firefox*" space=^2
+yabai -m rule --add app="^Firefox Developer Editition$" space=^2
 yabai -m rule --add app=Mail space=3
 yabai -m rule --add app="Spotify" space=5 manage=off
 # grid=8:8:0:1:1:1

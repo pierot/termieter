@@ -1,0 +1,4 @@
+" Theme
+Plug 'itchyny/landscape.vim'
+" Statusline
+Plug 'itchyny/lightline.vim'

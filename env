@@ -6,6 +6,10 @@ if [[ $CURRENT_SHELL == '-bash' ]]; then
   export CURRENT_SHELL='bash'
 fi
 
+if [[ $CURRENT_SHELL == '-zsh' ]]; then
+  export CURRENT_SHELL='zsh'
+fi
+
 if [[ `uname` == 'Darwin' ]]; then
   export OS='OSX'
 else

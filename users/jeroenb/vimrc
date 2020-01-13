@@ -52,6 +52,10 @@ endif
 
 set laststatus=0
 
+" suddenly I need this for ack and fzf to work (08/01/2020)
+set shell=bash
+
 " color dracula
 color madeofcode
 " color nofrils-dark
+hi Normal guibg=NONE ctermbg=NONE
