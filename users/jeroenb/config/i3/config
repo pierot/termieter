@@ -23,7 +23,7 @@ set $terminal kitty
 
 # Set Mod
 # set $mod Mod4
-exec --no-startup-id xset r rate 150 250
+exec --no-startup-id xset r rate 500 250
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
