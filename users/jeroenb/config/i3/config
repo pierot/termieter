@@ -213,10 +213,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
@@ -298,8 +296,6 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# nitrogen = wallpaper UI
-# exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
@@ -313,7 +309,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always feh --bg-scale ~/Pictures
-exec --no-startup-id setxkbmap us -option 'grp:alt_shift_toggle'
+# exec --no-startup-id setxkbmap us -option 'grp:alt_shift_toggle'
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -455,7 +451,6 @@ mode "$mode_gaps_outer" {
 #assign apps to workspaces
 assign [class = "kitty"] 1
 assign [class = "Firefox"] 2
-
 
 # Alsa controls
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
