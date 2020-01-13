@@ -1,14 +1,14 @@
-" == Airline =======================================================
+" == Lightline =========================
 
-" remove the filetype part
-let g:airline_section_x=''
-let g:airline_section_y=''
-" remove separators for empty sections
-let g:airline_skip_empty_sections = 1
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+let g:lightline = {
+      \ 'colorscheme': 'landscape',
+      \ }
 
 " == Colors ========================================================
 
-colorscheme badwolf
+colorscheme landscape
+" colorscheme badwolf
 " colorscheme pt_black
 " colorscheme hemisu
 " set background=dark

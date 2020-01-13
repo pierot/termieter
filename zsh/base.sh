@@ -133,7 +133,7 @@ if [[ $OS == 'OSX' ]]; then
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
   # APACHE
-  alias apache-vhosts='vim ~/Dropbox/Work/local-config/httpd-vhosts.conf'
+  alias apache-vhosts='sudo vim /usr/local/etc/httpd/extra/httpd-vhosts.conf'
   alias apache-config='sudo vim /usr/local/etc/httpd/httpd.conf'
   alias php-error-tail='tail -f /usr/local/var/log/httpd/error_log'
 else

@@ -1,2 +1,4 @@
-Plug 'bling/vim-airline'
-" set laststatus=0
+" Theme
+Plug 'itchyny/landscape.vim'
+" Statusline
+Plug 'itchyny/lightline.vim'

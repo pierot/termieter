@@ -45,8 +45,8 @@ set sidebar_indent_string = '  ''
 set sidebar_format = "%B %* [%?N?%N / ?%S]"
 
 # Mailboxes to show in the sidebar.
-# mailboxes "+-- Jack+Joe ---------" \
-#           +jackjoe/INBOX \
+mailboxes "+-- Jack+Joe ---------" \
+          +jackjoe/INBOX \
 #           +jackjoe/archive \
 #           +jackjoe/starred \
 #           +jackjoe/junk \
