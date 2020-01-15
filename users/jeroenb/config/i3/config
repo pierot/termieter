@@ -7,7 +7,7 @@
 
 # Variables {{{
 set $mod Mod1
-set $sup Mod4
+# set $sup Mod4
 set $terminal kitty
 # set $workspace1  ""
 # set $workspace2  ""
@@ -22,9 +22,8 @@ set $terminal kitty
 # }}}
 
 # Set Mod
-set $mod Mod1
 # set $mod Mod4
-exec --no-startup-id xset r rate 150 150
+exec --no-startup-id xset r rate 500 250
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -34,18 +33,18 @@ default_floating_border normal
 
 # Hide borders
 # hide_edge_borders none
-hide_edge_borders vertical
+hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
-font pango:System San Fransisco Display 13
+font pango:System San Fransisco Display 11
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:System San Fransisco Display 13
+font xft:System San Fransisco Display 11
 
 # #		font pango:DejaVu Sans Mono, Awesome 8
 
@@ -214,10 +213,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
@@ -299,8 +296,6 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# nitrogen = wallpaper UI
-# exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
@@ -314,7 +309,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always feh --bg-scale ~/Pictures
-exec --no-startup-id setxkbmap us -option 'grp:alt_shift_toggle'
+# exec --no-startup-id setxkbmap us -option 'grp:alt_shift_toggle'
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -382,7 +377,8 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #1E90FF #556064 #80FFF9 #2F3D44
+  #client.focused          #1E90FF #556064 #80FFF9 #2F3D44
+  client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
   client.focused_inactive #1E90FF #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
@@ -455,7 +451,6 @@ mode "$mode_gaps_outer" {
 #assign apps to workspaces
 assign [class = "kitty"] 1
 assign [class = "Firefox"] 2
-
 
 # Alsa controls
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
