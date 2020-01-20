@@ -1,13 +1,14 @@
 export TRM=~/.termieter
+
 export DROPBOX=~/Dropbox
 export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
 
 if [[ $CURRENT_SHELL == '-bash' ]]; then
-  export CURRENT_SHELL='bash'
+  export CURRENT_SHELL='/bin/bash'
 fi
 
 if [[ $CURRENT_SHELL == '-zsh' ]]; then
-  export CURRENT_SHELL='zsh'
+  export CURRENT_SHELL='/bin/zsh'
 fi
 
 if [[ `uname` == 'Darwin' ]]; then
