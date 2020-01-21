@@ -1,21 +1,11 @@
 " == Colors ========================================================
 
-" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+" tests
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
-
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
-inoremap <S-Up> <Nop>
-inoremap <S-Down> <Nop>
-inoremap <S-Left> <Nop>
-inoremap <S-Right> <Nop>
 
 inoremap <F1> <Esc>
 noremap <F1> :call MapF1()<CR>
@@ -31,8 +21,6 @@ endfunction
 " icons
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
-" let g:NERDTreeDirArrowExpandable = "\u00a0"
-" let g:NERDTreeDirArrowCollapsible = "\u00a0"
 
 " set number relativenumber
 
@@ -42,8 +30,6 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 " :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 " :augroup END
 
-" elm + vim-polyglot
-" let g:polyglot_disabled = ['elm']
 let g:elm_format_autosave = 1
 
 if (has("termguicolors"))
@@ -57,5 +43,8 @@ set shell=bash
 
 " color dracula
 color madeofcode
+" colorscheme landscape
+
 " color nofrils-dark
+" no bg
 hi Normal guibg=NONE ctermbg=NONE
