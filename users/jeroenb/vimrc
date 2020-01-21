@@ -42,8 +42,8 @@ set laststatus=0
 set shell=bash
 
 " color dracula
-" color madeofcode
-colorscheme landscape
+color madeofcode
+" colorscheme landscape
 
 " color nofrils-dark
 " no bg
