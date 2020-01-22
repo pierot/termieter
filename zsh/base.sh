@@ -108,11 +108,6 @@ if [ -d "$HOME/Work/jackjoe/" ]; then
   alias jackjoe="cd $HOME/Work/jackjoe/"
 fi
 
-if [ -d $DROPBOX ]; then
-  alias repos="cd $DROPBOX/Work/repos/"
-  alias dev="cd $DROPBOX/Work/devel/"
-fi
-
 ##########################################################
 
 if [[ $OS == 'OSX' ]]; then
@@ -213,7 +208,6 @@ alias tmux="tmux -2u"  # 2: for 256color u: to get rid of unicode rendering prob
 alias tk="tmux kill-server"
 alias ta="tmux attach-session -t $@"
 alias tl="tmux ls"
-# alias tn="tmux new -d -c '$PWD' -s $@"
 
 function tn() {
   tmux new -d -c "$PWD" -s "$*"
@@ -243,6 +237,9 @@ alias mdc="source .env && mix deps.clean --all"
 function mpr() {
   source .env && mix phx.routes | grep "$*"
 }
+
+alias mr="make run"
+alias mt="source .env.test && mix test $a"
 
 ##########################################################
 
@@ -283,11 +280,6 @@ export PATH="$PATH:$HOME/.cabal/bin"
 
 ##########################################################
 
-# FASTLANE
-# export PATH="$PATH:$HOME/.fastlane/bin"
-
-##########################################################
-
 # MYSQL
 export PATH="$PATH:/usr/local/mysql/bin"
 
@@ -315,8 +307,6 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 # ERLANG / ELIXIR
 export ERL_AFLAGS="-kernel shell_history enabled"
-alias mr="make run"
-alias mt="source .env.test && mix test $a"
 
 ##########################################################
 
