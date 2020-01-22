@@ -2,11 +2,10 @@
 
 Plug 'lambdatoast/elm.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'jreybert/vimagit'
 Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'ryanoasis/vim-devicons'
-Plug 'robertmeta/nofrils'
+" Plug 'itchyny/landscape.vim'
