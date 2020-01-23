@@ -8,15 +8,7 @@ nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
 inoremap <F1> <Esc>
-noremap <F1> :call MapF1()<CR>
-
-function! MapF1()
-  if &buftype == "help"
-    exec 'quit'
-  else
-    exec 'help'
-  endif
-endfunction
+nmap <F1> <Nop>
 
 " icons
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
@@ -45,6 +37,5 @@ set shell=bash
 color madeofcode
 " colorscheme landscape
 
-" color nofrils-dark
 " no bg
 hi Normal guibg=NONE ctermbg=NONE
