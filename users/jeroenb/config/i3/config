@@ -8,7 +8,7 @@
 # Variables {{{
 set $mod Mod1
 # set $sup Mod4
-set $terminal kitty
+set $terminal i3-sensible-terminal
 # set $workspace1  ""
 # set $workspace2  ""
 # set $workspace3  ""
