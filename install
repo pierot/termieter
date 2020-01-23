@@ -158,7 +158,9 @@ _back_install_user() {
   fi
 
   if [ -d "$install_dir/users/$USER/$1" ]; then
-    if [ "$1" == "bin" ]; then
+    if [[ "$1" == "bin" && ! -L "$HOME/$1" ]]; then
+      echo ""
+      printf "link $install_dir/users/$USER/$1  -> $HOME/$1"
       ln -sf "$install_dir/users/$USER/$1" "$HOME/$1"
     fi
   fi
