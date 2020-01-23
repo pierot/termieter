@@ -8,7 +8,7 @@ set delete
 
 # Other special folders.
 set mbox      = "+jackjoe/archive"
-set spoolfile = "+jackjoe/archive"
+set spoolfile = "+jackjoe/INBOX"
 set postponed = "+jackjoe/drafts"
 set trash     = "+jackjoe/trash"
 set record      = "+jackjoe/sent"
@@ -20,6 +20,19 @@ macro index gi "<change-folder>=jackjoe/INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder>=jackjoe/archive<enter>" "Go to all mail"
 macro index gd "<change-folder>=jackjoe/drafts<enter>" "Go to drafts"
 folder-hook +jackjoe/INBOX 'macro index,pager y "<save-message>=jackjoe/archive<enter><enter>" "Archive conversation"'
+
+
+folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
+
+# Mailboxes
+named-mailboxes "JACK+JOE ==============" "+jackjoe/INBOX"
+mailboxes +jackjoe/INBOX \
+          +jackjoe/archive \
+          +jackjoe/starred \
+          +jackjoe/junk \
+          +jackjoe/sent \
+          +jackjoe/drafts \
+          +jackjoe/trash \
 
 # notmuch
 set nm_default_uri="notmuch:////Users/jeroenb/Mail/jackjoe" # path to the maildir

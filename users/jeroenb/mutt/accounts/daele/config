@@ -21,5 +21,17 @@ macro index ga "<change-folder>=daele/archive<enter>" "Go to all mail"
 macro index gd "<change-folder>=daele/drafts<enter>" "Go to drafts"
 folder-hook +daele/INBOX 'macro index,pager y "<save-message>=daele/archive<enter><enter>" "Archive conversation"'
 
+folder-hook daele/* source $TRMU/mutt/accounts/daele/config
+
+# Mailboxes
+named-mailboxes "DAELE    ==============" "+daele/INBOX"
+mailboxes +daele/INBOX \
+          +daele/archive \
+          +daele/starred \
+          +daele/junk \
+          +daele/sent \
+          +daele/drafts \
+          +daele/trash \
+
 # notmuch
 set nm_default_uri="notmuch:////Users/jeroenb/Mail/daele" # path to the maildir
