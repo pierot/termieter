@@ -1,10 +1,6 @@
 ###################################
 # NeoVIM switch
 
-have() {
-  type "$1" &> /dev/null
-}
-
 if have nvim; then
   export EDITOR=nvim
 
@@ -17,3 +13,8 @@ if have nvim; then
 fi
 
 ###################################
+
+if [ -d $DROPBOX ]; then
+  alias repos="cd $DROPBOX/Work/repos/"
+  alias dev="cd $DROPBOX/Work/devel/"
+fi

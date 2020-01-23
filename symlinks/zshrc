@@ -39,10 +39,10 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(urltools gitfast docker)
+plugins=(urltools gitfast docker git gitfast)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins+=(ansible composer git gitfast npm yarn go mix-fast)
+  plugins+=(ansible composer npm yarn go mix-fast)
 
   alias dircolors='gdircolors'
 else
@@ -66,16 +66,6 @@ source $ZSH/oh-my-zsh.sh
 source $TRM/zsh/base.sh
 
 alias reload!='. $HOME/.zshrc'
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/pieterm/Work/jackjoe/menage-pdf/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/pieterm/Work/jackjoe/menage-pdf/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/pieterm/Work/jackjoe/menage-pdf/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pieterm/Work/jackjoe/menage-pdf/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/pieterm/Work/jackjoe/menage-pdf/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/pieterm/Work/jackjoe/menage-pdf/node_modules/tabtab/.completions/slss.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

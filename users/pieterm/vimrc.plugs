@@ -2,5 +2,3 @@
 Plug 'itchyny/landscape.vim'
 " Statusline
 Plug 'itchyny/lightline.vim'
-
-" Plug 'liuchengxu/vista.vim'
