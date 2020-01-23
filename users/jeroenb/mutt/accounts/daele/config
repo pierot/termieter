@@ -23,6 +23,8 @@ folder-hook +daele/INBOX 'macro index,pager y "<save-message>=daele/archive<ente
 
 folder-hook daele/* source $TRMU/mutt/accounts/daele/config
 
+color status yellow default
+
 # Mailboxes
 named-mailboxes "DAELE    ==============" "+daele/INBOX"
 mailboxes +daele/INBOX \

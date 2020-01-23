@@ -21,8 +21,7 @@ macro index ga "<change-folder>=jackjoe/archive<enter>" "Go to all mail"
 macro index gd "<change-folder>=jackjoe/drafts<enter>" "Go to drafts"
 folder-hook +jackjoe/INBOX 'macro index,pager y "<save-message>=jackjoe/archive<enter><enter>" "Archive conversation"'
 
-
-folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
+color status cyan default
 
 # Mailboxes
 named-mailboxes "JACK+JOE ==============" "+jackjoe/INBOX"
@@ -36,3 +35,5 @@ mailboxes +jackjoe/INBOX \
 
 # notmuch
 set nm_default_uri="notmuch:////Users/jeroenb/Mail/jackjoe" # path to the maildir
+
+# folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config

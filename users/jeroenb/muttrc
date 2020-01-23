@@ -10,21 +10,10 @@ set tmpdir           = $TRMU/mutt/tmp           # where to keep tmp files
 
 # Compose View Options -------------------------------
 set realname = "Jeroen Bourgois"     # who am i?
-set editor = "nvim"
-set envelope_from                    # which from?
-set edit_headers                     # show headers when composing
-set fast_reply                       # skip to compose when replying
-set askcc                            # ask for CC:
-set fcc_attach                       # save attachments with the body
-set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
-set reverse_name                     # reply as whomever it was to
-set include                          # include message in replies
-set forward_quote                    # include message in forwards
 set text_flowed
-unset mime_forward                   # forward attachments as part of body
 
 # Colors ---------------------------------------------
 source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
@@ -36,24 +25,25 @@ source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
 set spoolfile = "+jackjoe/INBOX"
 
 # sidebar patch config
-set sidebar_visible
 set sidebar_short_path
 set sidebar_folder_indent
-set sidebar_width = 25
 set sidebar_divider_char = ' | '
 set sidebar_indent_string = '  ''
-set sidebar_format = " %D %B %* [%?N?%N / ?%S]"
+set sidebar_format = " %B %* [%?N?%N / ?%S]"
 set sidebar_folder_indent = true
 
 # Macros for switching accounts
-macro index <f2> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/jackjoe<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/daele<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/jackjoe/config<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/daele/config<enter><change-folder>!<enter>'
+
+# folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
+# folder-hook daele/*     source $TRMU/mutt/accounts/daele/config
 
 # folder-hook antenno/* source $TRMU/mutt/accounts/antenno/config
 
 # default account
+source $TRMU/mutt/accounts/daele/config
 source $TRMU/mutt/accounts/jackjoe/config
-# folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
 
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"

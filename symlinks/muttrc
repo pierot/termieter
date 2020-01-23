@@ -1,5 +1,5 @@
 # Various --------------------------------------------
-set editor = "vim"
+set editor = "nvim"
 
 # Basic Options --------------------------------------
 set wait_key = no        # shut up, mutt
@@ -26,7 +26,7 @@ unset record
 # Sidebar Patch --------------------------------------
 #  set sidebar_delim   = '  │'
 set sidebar_visible = yes
-set sidebar_width   = 20
+set sidebar_width   = 25
 color sidebar_new color221 color233
 
 # Status Bar -----------------------------------------
@@ -73,6 +73,11 @@ set uncollapse_jump                        # don't collapse on an unread message
 set sort_re                                # thread based on regex
 set auto_tag = yes                         # apply to thread
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+color hdrdefault white black  # headers white on black
+color header brightgreen black ^From:  # sender's name in green
+color quoted cyan black  # quoted text in blue
+color signature red black   # signature in red
 
 # prevent bind warning (https://neomutt.org/guide/configuration.html#bind-warnings)
 bind index g  noop
