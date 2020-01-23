@@ -7,8 +7,9 @@
 
 # Variables {{{
 set $mod Mod1
-set $terminal kitty
-# set $workspace8  "8"
+# set $sup Mod4
+set $terminal i3-sensible-terminal
+# set $workspace1  ""
 # }}}
 
 # delay / repeat
