@@ -77,14 +77,14 @@ Channel jackjoe-junk
 #################################
 
 IMAPAccount daele
-Host imap.gmail.com
+Host mail.iamjack.be
 User jeroen@daele.be
-PassCmd "security find-internet-password -s 'imap.gmail.com' -a 'jeroen@daele.be' -w"
+PassCmd "security find-internet-password -s 'mail.iamjack.be' -a 'jeroen@daele.be' -w"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1.2
 # CertificateFile ~/dotfiles/office/certificates.crt
-CertificateFile /usr/local/etc/openssl/cert.pem
+# CertificateFile /usr/local/etc/openssl/cert.pem
 
 # Remote storage
 IMAPStore daele-remote
@@ -96,52 +96,9 @@ Path ~/Mail/daele/
 Inbox ~/Mail/daele/INBOX
 
 Channel daele-inbox
-Master :daele-remote:"INBOX"
-Slave :daele-local:INBOX
-Create Both
-Expunge Both
-
-Channel daele-archive
-Master :daele-remote:"[Gmail]/All Mail"
-Slave :daele-local:archive
-Create Both
-Expunge Both
-
-Channel daele-drafts
-Master :daele-remote:"[Gmail]/Drafts"
-Slave :daele-local:drafts
-Create Both
-Expunge Both
-
-Channel daele-sent
-Master :daele-remote:"[Gmail]/Sent Mail"
-Slave :daele-local:sent
-Create Both
-Expunge Both
-
-Channel daele-spam
-Master :daele-remote:"[Gmail]/Spam"
-Slave :daele-local:junk
-Create Both
-Expunge Both
-
-Channel daele-starred
-Master :daele-remote:"[Gmail]/Starred"
-Slave :daele-local:starred
-Create Both
-Expunge Both
-
-Channel daele-trash
-Master :daele-remote:"[Gmail]/Trash"
-Slave :daele-local:trash
-Create Both
-Expunge Both
-
-Group daele
-Channel daele-inbox
-Channel daele-archive
-Channel daele-starred
-Channel daele-drafts
-Channel daele-sent
-Channel daele-trash
-Channel daele-junk
+Master :daele-remote:
+Slave :daele-local:
+Create Slave
+SyncState *
+Sync Pull
+Patterns *

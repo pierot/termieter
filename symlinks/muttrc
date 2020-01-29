@@ -21,7 +21,11 @@ set mime_forward_rest=yes
 
 set edit_headers        = yes
 set sendmail_wait       = 0
+set sleep_time          = 0
 unset record
+
+# Caching --------------------------------------------
+set header_cache_backend = lmdb
 
 # Sidebar Patch --------------------------------------
 #  set sidebar_delim   = '  │'

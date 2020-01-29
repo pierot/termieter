@@ -8,10 +8,10 @@ set delete
 
 # Other special folders.
 set mbox      = "+daele/archive"
-set spoolfile = "+daele/archive"
+set spoolfile = "+daele/INBOX"
 set postponed = "+daele/drafts"
 set trash     = "+daele/trash"
-set record      = "+daele/sent"
+set record    = "+daele/sent"
 
 # GMail Macros ---------------------------------------
 macro index,pager A "<save-message>=daele/archive<enter>" "Archive Message"
@@ -28,12 +28,11 @@ color status yellow default
 # Mailboxes
 named-mailboxes "DAELE    ==============" "+daele/INBOX"
 mailboxes +daele/INBOX \
-          +daele/archive \
-          +daele/starred \
-          +daele/junk \
-          +daele/sent \
-          +daele/drafts \
-          +daele/trash \
+          +daele/Archive \
+          +daele/Spam \
+          +daele/Sent \
+          +daele/Drafts \
+          +daele/Trash \
 
 # notmuch
 set nm_default_uri="notmuch:////Users/jeroenb/Mail/daele" # path to the maildir

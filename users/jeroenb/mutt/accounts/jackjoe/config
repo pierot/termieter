@@ -11,7 +11,7 @@ set mbox      = "+jackjoe/archive"
 set spoolfile = "+jackjoe/INBOX"
 set postponed = "+jackjoe/drafts"
 set trash     = "+jackjoe/trash"
-set record      = "+jackjoe/sent"
+set record    = "+jackjoe/sent"
 
 # GMail Macros ---------------------------------------
 macro index,pager A "<save-message>=jackjoe/archive<enter>" "Archive Message"
