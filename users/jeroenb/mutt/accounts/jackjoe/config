@@ -1,7 +1,7 @@
 # vim: ft=rc:
 
 set from      = "Jeroen Bourgois <jeroen@jackjoe.be>"
-set sendmail  = "/usr/local/bin/msmtp -a jeroen@jackjoe.be"
+set sendmail  = "/usr/local/bin/msmtp -a jackjoe"
 set signature = $TRM/users/jeroenb/mutt/accounts/jackjoe/signature
 set mbox_type = Maildir
 set delete
