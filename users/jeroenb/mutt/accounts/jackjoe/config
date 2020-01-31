@@ -36,4 +36,4 @@ mailboxes +jackjoe/INBOX \
 # notmuch
 set nm_default_uri="notmuch:////Users/jeroenb/Mail/jackjoe" # path to the maildir
 
-# folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
+folder-hook jackjoe source $TRMU/mutt/accounts/jackjoe/config

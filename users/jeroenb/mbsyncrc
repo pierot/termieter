@@ -100,5 +100,5 @@ Master :daele-remote:
 Slave :daele-local:
 Create Slave
 SyncState *
-Sync Pull
+Sync All
 Patterns *
