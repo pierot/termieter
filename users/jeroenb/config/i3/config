@@ -514,7 +514,7 @@ bindsym XF86AudioLowerVolume exec amixer set Master 5%-; exec pkill  -RTMIN+10 i
 # # finds out, if available)
 bar {
   font pango:DejaVu Sans Mono, Awesome 8
-    status_command i3blocks
+    # status_command i3blocks
     colors {
       background #23313D
         separator #757575
