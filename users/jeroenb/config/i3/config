@@ -27,11 +27,12 @@ bindsym $mod+u border none
 bindsym $mod+y border pixel 2
 bindsym $mod+n border normal
 
-font pango:System San Fransisco Display 11
-
+# font pango:SFSN Display 11
+font pango:JetBrains Mono 12
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:System San Fransisco Display 11
+# font xft:SFNS Display 11
+font xft:JetBrains Mono 12
 
 # #		font pango:DejaVu Sans Mono, Awesome 8
 
@@ -65,7 +66,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+Ctrl+b exec kitty -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F4 exec pcmanfm
 bindsym $mod+F3 exec ranger
@@ -513,7 +514,7 @@ bindsym XF86AudioLowerVolume exec amixer set Master 5%-; exec pkill  -RTMIN+10 i
 # # Start i3bar to display a workspace bar (plus the system information i3status
 # # finds out, if available)
 bar {
-  font pango:DejaVu Sans Mono, Awesome 8
+  # font xft:Jetbrains Mono 11
     # status_command i3blocks
     colors {
       background #23313D
