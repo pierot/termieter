@@ -2,17 +2,16 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Tweaked by jeroenb
-
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 
 # Variables {{{
+# mod1 by default is alt on Surface Go
 set $mod Mod1
 # set $sup Mod4
 set $terminal i3-sensible-terminal
-# set $workspace1  ""
 # }}}
 
-# delay / repeat
+# key delay / repeat
 exec --no-startup-id xset r rate 100 350
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -32,9 +31,8 @@ font pango:JetBrains Mono 12
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font xft:SFNS Display 11
+# font pango:DejaVu Sans Mono, Awesome 8
 font xft:JetBrains Mono 12
-
-# #		font pango:DejaVu Sans Mono, Awesome 8
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -70,18 +68,15 @@ bindsym $mod+Ctrl+b exec kitty -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F4 exec pcmanfm
 bindsym $mod+F3 exec ranger
-# bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
-# bindsym $mod+t exec --no-startup-id pkill compton
-# bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-# bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym $mod+p exec --no-startup-id i3-scrot
 bindsym $mod+Shift+p --release exec --no-startup-id i3-scrot -w
-# bindsym $mod+Mod1+p --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
-# focus_follows_mouse no
+# bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+# bindsym $mod+t exec --no-startup-id pkill compton
+# bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+# bindsym $mod+Mod1+p --release exec --no-startup-id i3-scrot -s
 
 # change focus
 bindsym $mod+j focus left
@@ -89,23 +84,11 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -278,10 +261,10 @@ bindsym $mod+9 exec --no-startup-id blurlock
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
+exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
 # exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
@@ -289,7 +272,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always feh --bg-scale ~/Pictures
-exec --no-startup-id setxkbmap us #-option 'grp:alt_shift_toggle'
+exec --no-startup-id setxkbmap us -option caps:escape #-option 'grp:alt_shift_toggle'
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -325,9 +308,9 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	i3bar_command i3bar
+	# i3bar_command i3bar
 	status_command i3status
-	position top
+	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
@@ -443,11 +426,6 @@ bindsym XF86AudioLowerVolume exec amixer set Master 5%-; exec pkill  -RTMIN+10 i
 # -------------> some rice!
 
 
-
-
-
-
-
 # ##########################################
 #
 # #Scrolling - doesn't work
@@ -513,18 +491,18 @@ bindsym XF86AudioLowerVolume exec amixer set Master 5%-; exec pkill  -RTMIN+10 i
 #
 # # Start i3bar to display a workspace bar (plus the system information i3status
 # # finds out, if available)
-bar {
+# bar {
   # font xft:Jetbrains Mono 11
     # status_command i3blocks
-    colors {
-      background #23313D
-        separator #757575
-#                  border             background         text
-        focused_workspace  $inactive-bg-color $bg-color          $text-color
-        inactive_workspace $bg-color 	      $bg-color      	 $text-color
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-    }
-}
+#     colors {
+#       background #23313D
+#         separator #757575
+# #                  border             background         text
+#         focused_workspace  $inactive-bg-color $bg-color          $text-color
+#         inactive_workspace $bg-color 	      $bg-color      	 $text-color
+#         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#     }
+# }
 #
 # # Media player controls
 # bindsym XF86AudioPlay exec playerctl play
