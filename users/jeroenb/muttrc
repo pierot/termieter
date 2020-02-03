@@ -42,8 +42,8 @@ macro index <f3> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/daele/
 # folder-hook antenno/* source $TRMU/mutt/accounts/antenno/config
 
 # default account
-source $TRMU/mutt/accounts/daele/config
 source $TRMU/mutt/accounts/jackjoe/config
+source $TRMU/mutt/accounts/daele/config
 
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
