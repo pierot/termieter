@@ -261,7 +261,8 @@ bindsym $mod+9 exec --no-startup-id blurlock
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
+# exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
+exec --no-startup-id xrandr --output eDP1 --mode 1680x1050
 # exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
@@ -271,7 +272,7 @@ exec --no-startup-id xrandr --output eDP1 --mode 1920x1080
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always feh --bg-scale ~/Pictures
+# exec_always feh --bg-scale ~/Pictures
 exec --no-startup-id setxkbmap us -option caps:escape #-option 'grp:alt_shift_toggle'
 
 
