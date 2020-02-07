@@ -1,12 +1,18 @@
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export EDITOR=/usr/bin/nano
+export EDITOR="nvim"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
-export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
+if [[ $OS == 'OSX' ]]; then
+  export BROWSER="firefox"
+else
+  export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
+fi
+
 export DROPBOX=$HOME/Dropbox
 export IAMJACK="$HOME/Dropbox/iamjack"
 export XDG_CONFIG_HOME="$HOME/.config"
-export TERMINAL=kitty
+export TERMINAL="kitty"
+export FILE="ranger"
 export PATH="$HOME/bin/:$PATH"
 export TRMU=~/.termieter/users/jeroenb
 export SHELL=$CURRENT_SHELL

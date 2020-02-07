@@ -1,17 +1,17 @@
 # vim: ft=rc:
 
 set from      = "Jeroen Bourgois <jeroen@daele.be>"
-set sendmail  = "/usr/local/bin/msmtp -a jeroen@daele.be"
+set sendmail  = "/usr/local/bin/msmtp -a daele"
 set signature = $TRM/users/jeroenb/mutt/accounts/daele/signature
 set mbox_type = Maildir
 set delete
 
 # Other special folders.
-set mbox      = "+daele/archive"
-set spoolfile = "+daele/archive"
-set postponed = "+daele/drafts"
-set trash     = "+daele/trash"
-set record      = "+daele/sent"
+set mbox      = "+daele/Archive"
+set spoolfile = "+daele/INBOX"
+set postponed = "+daele/Drafts"
+set trash     = "+daele/Trash"
+set record    = "+daele/Sent"
 
 # GMail Macros ---------------------------------------
 macro index,pager A "<save-message>=daele/archive<enter>" "Archive Message"
@@ -21,19 +21,19 @@ macro index ga "<change-folder>=daele/archive<enter>" "Go to all mail"
 macro index gd "<change-folder>=daele/drafts<enter>" "Go to drafts"
 folder-hook +daele/INBOX 'macro index,pager y "<save-message>=daele/archive<enter><enter>" "Archive conversation"'
 
-folder-hook daele/* source $TRMU/mutt/accounts/daele/config
 
 color status yellow default
 
 # Mailboxes
 named-mailboxes "DAELE    ==============" "+daele/INBOX"
 mailboxes +daele/INBOX \
-          +daele/archive \
-          +daele/starred \
-          +daele/junk \
-          +daele/sent \
-          +daele/drafts \
-          +daele/trash \
+          +daele/Archive \
+          +daele/Spam \
+          +daele/Sent \
+          +daele/Drafts \
+          +daele/Trash \
 
 # notmuch
 set nm_default_uri="notmuch:////Users/jeroenb/Mail/daele" # path to the maildir
+
+# folder-hook daele/* source $TRMU/mutt/accounts/daele/config

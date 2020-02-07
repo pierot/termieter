@@ -7,8 +7,9 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
-inoremap <F1> <Esc>
-nmap <F1> <Nop>
+" inoremap <F1> <Esc>
+" nmap <F1> <Nop>
+" map <F1> :!tig %<CR>
 
 " icons
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
