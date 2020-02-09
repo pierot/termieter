@@ -167,11 +167,9 @@ alias glom='gl origin master'
 
 alias gap='git add -p'
 alias gst='git status'
-alias gcs='git checkout staging'
 
-alias gmerge='git add . && gcmm merge'
-alias gcompile='git add . && gcmm compile'
-alias gbump='git add . && gcmm bump version'
+alias gmerge='git add . && gcmm chore: merge'
+alias gbump='git add . && gcmm chore: bump versions'
 
 function gpo() {
   git pull origin $*

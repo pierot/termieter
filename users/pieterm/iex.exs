@@ -1,36 +1,3 @@
-# IEx.configure colors: [enabled: true]
-# IEx.configure colors: [ eval_result: [ :cyan, :bright ] ]
-# IO.puts(IO.ANSI.red_background() <> IO.ANSI.white() <> " ❄❄ go go Elixir ❄❄ " <> IO.ANSI.reset())
-
-# Application.put_env(:elixir, :ansi_enabled, true)
-#
-# IEx.configure(
-#   colors: [
-#     eval_result: [:green, :bright],
-#     eval_error: [[:red, :bright, "Bug Bug ..!!"]],
-#     eval_info: [:yellow, :bright]
-#   ],
-#   default_prompt:
-#     [
-#       # ANSI CHA, move cursor to column 1
-#       "\e[G",
-#       :green,
-#       "%prefix",
-#       :white,
-#       "|",
-#       :blue,
-#       "%counter",
-#       :white,
-#       "|",
-#       :red,
-#       # plain string
-#       "▶",
-#       :reset
-#     ]
-#     |> IO.ANSI.format()
-#     |> IO.chardata_to_string()
-# )
-
 import_if_available(Ecto.Query)
 import_if_available(Ecto.Changeset)
 
@@ -50,6 +17,9 @@ defmodule AC do
         boolean: [:light_blue],
         nil: [:magenta, :bright]
       ],
+      eval_result: [:green, :bright],
+      eval_error: [[:red, :bright, "Bug Bug ..!!"]],
+      eval_info: [:yellow, :bright],
       ls_directory: :cyan,
       ls_device: :yellow,
       doc_code: :green,
@@ -58,17 +28,17 @@ defmodule AC do
       doc_title: [:cyan, :bright, :underline]
     ],
     default_prompt:
-      [
+    [
         # ANSI CHA, move cursor to column 1
-        "\e[G",
-        :light_magenta,
+      "\e[G",
+      :light_magenta,
         # plain string
-        "🧪 iex",
-        ">",
-        :white,
-        :reset
-      ]
-      |> IO.ANSI.format()
-      |> IO.chardata_to_string()
-  )
+      "iex",
+      ">",
+      :white,
+      :reset
+    ]
+    |> IO.ANSI.format()
+    |> IO.chardata_to_string()
+      )
 end
