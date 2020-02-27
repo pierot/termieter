@@ -48,9 +48,7 @@ yabai -m config window_gap                   20
 
 # rules
 yabai -m rule --add app=Kitty space=1
-yabai -m rule --add app="^Firefox$" space=^2
-yabai -m rule --add app="^Firefox*" space=^2
-yabai -m rule --add app="^Firefox Developer Editition$" space=^2
+yabai -m rule --add app="*Firefox*" space=^2
 yabai -m rule --add app=Mail space=3
 yabai -m rule --add app="Spotify" space=5 manage=off
 # grid=8:8:0:1:1:1
