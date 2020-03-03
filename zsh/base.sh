@@ -284,7 +284,7 @@ export PATH="$PATH:/usr/local/mysql/bin"
 ##########################################################
 
 # YARN
-export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # NODE
 export PATH="$PATH:/usr/local/share/npm/bin"
@@ -342,7 +342,6 @@ fi
 
 # ASDF
 if [ -e ~/.asdf ]; then
-  export PATH="$HOME/.fzf/bin:$PATH"
   source $HOME/.asdf/asdf.sh
   source $HOME/.asdf/completions/asdf.bash
 fi
