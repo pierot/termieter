@@ -53,6 +53,8 @@ fi
 autoload -U compinit
 compinit
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 zstyle ':completion:*' menu yes=long select
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*:functions' ignored-patterns '_*'
@@ -68,5 +70,3 @@ source $TRM/zsh/base.sh
 alias reload!='. $HOME/.zshrc'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
