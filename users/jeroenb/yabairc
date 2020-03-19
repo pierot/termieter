@@ -60,5 +60,6 @@ yabai -m rule --add app="Slack" space=4
 # yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="App Store" manage=off
 yabai -m rule --add app="The Unarchiver" manage=off
+yabai -m rule --add app="QuickTime Player" manage=off
 
 echo "yabai configuration loaded.."
