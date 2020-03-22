@@ -2,3 +2,8 @@
 Plug 'itchyny/landscape.vim'
 " Statusline
 Plug 'itchyny/lightline.vim'
+" Nerdtree
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+" tComment
+Plug 'vim-scripts/tComment'
