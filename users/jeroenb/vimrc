@@ -7,13 +7,9 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
-" inoremap <F1> <Esc>
-" nmap <F1> <Nop>
-" map <F1> :!tig %<CR>
-
-" icons
-"let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
-"let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+inoremap <F1> <Esc>
+nmap <F1> <Nop>
+map <F1> :!tig %<CR>
 
 " set number relativenumber
 
@@ -37,6 +33,17 @@ set shell=bash
 " color dracula
 color madeofcode
 " colorscheme landscape
+
+" color column
+" set colorcolumn=80
+" so $VIMRUNTIME/syntax/colortest.vim
+" set highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+" cursor line toggle
+:hi CursorLine   cterm=NONE ctermbg=lightmagenta ctermfg=white
+:hi CursorColumn cterm=NONE ctermbg=lightmagenta ctermfg=white
+:nnoremap <Leader>c :set cursorline!<CR>
+:nnoremap <Leader>cc :set cursorcolumn!<CR>
 
 " no bg
 hi Normal guibg=NONE ctermbg=NONE
