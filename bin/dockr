@@ -1,16 +1,15 @@
 #!/bin/bash -e
 
-# version:      0.1
+# version:      0.2
 # created:      01/04/2020
 # last update:  07/04/2020
 # author:       Jack + Joe
 
 APP_NAME=""
-IP=""
+IP="LOCAL"
 USER="jackjoe"
 APP_DIR=""
 TRAEFIK_DIR="/app/traefik"
-IS_LOCAL=0
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -23,13 +22,12 @@ Usage: [OPTIONS] COMMAND
 
 Options:
 
-  -i, --ip string         IP of remote machine (default 'localhost')
-  -d, --appdir string     Location of the app on the remote machine
-  -u, --user string       User connecting (default 'jackjoe')
   -a, --app  string       Name of the app
-
-Flags:
-  -l, --local             Tool is run on the remote host itself
+  -d, --appdir string     Location of the app on the remote machine - only needed
+                          for [start], [restart] and [nuke] commands
+  -i, --ip string         IP of remote machine. Defaults to 'LOCAL', which
+                          should be used when running on the target machine
+  -u, --user string       User connecting (default 'jackjoe')
 
 Commands:
   status            Return the status of the active container for the app
@@ -72,10 +70,6 @@ do
       shift # past argument
       shift # past value
       ;;
-    -l|--local)
-      IS_LOCAL=1
-      shift # past argument
-      ;;
     *)
       COMMAND+=("$1")
       shift # Remove generic argument from processing
@@ -89,22 +83,17 @@ if [ -z "$APP_NAME" ] ; then
   exit
 fi
 
-if [ -z "$IP" ] && [ "$IS_LOCAL" == "0" ]; then
-  usage
-  exit
-fi
-
 # do commands
 case $COMMAND in
   status)
-    if [ "$IS_LOCAL" == 1 ]; then
+    if [ "$IP" == "LOCAL" ]; then
     sudo docker ps --filter name=$APP_NAME --format "table {{.Names}}\t{{.Status}}\t{{.CreatedAt}}\t{{.Ports}}"
     else
     ssh -q $USER@$IP "sudo docker ps --filter name=$APP_NAME --format \"table {{.Names}}\t{{.Status}}\t{{.CreatedAt}}\t{{.Ports}}\""
     fi
     ;;
   connect)
-    if [ "$IS_LOCAL" == 1 ]; then
+    if [ "$IP" == "LOCAL" ]; then
       echo "Searching for $APP_NAME..."
       CONTAINER=$(sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1)
       echo "Connecting to container $CONTAINER"
@@ -119,7 +108,7 @@ case $COMMAND in
     fi
     ;;
   stop)
-    if [ "$IS_LOCAL" == 1 ]; then
+    if [ "$IP" == "LOCAL" ]; then
       echo "Searching for $APP_NAME..."
       sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1 | xargs -I{} sudo docker stop {}
     else
@@ -130,7 +119,7 @@ case $COMMAND in
     echo -e "${GREEN}Stopped app container: ${NC} $CONTAINER"
     ;;
   start)
-    if [ "$IS_LOCAL" == 1 ]; then
+    if [ "$IP" == "LOCAL" ]; then
       echo "Searching for $APP_NAME..."
       cd $APP_DIR && sudo ./script/deploy.sh
     else
@@ -141,7 +130,7 @@ case $COMMAND in
     echo -e "${GREEN}Started app container: ${NC} $CONTAINER"
     ;;
   restart)
-    if [ "$IS_LOCAL" == 1 ]; then
+    if [ "$IP" == "LOCAL" ]; then
       echo "Finding app directory for $APP_NAME ($APP_DIR)..."
       if [ ! -e $APP_DIR ]; then
         echo "Restarting docker container..."
@@ -165,7 +154,7 @@ case $COMMAND in
     fi
     ;;
   nuke)
-    if [ "$IS_LOCAL" == 1 ]; then
+    if [ "$IP" == "LOCAL" ]; then
       echo "Finding traefik directory for $APP_NAME..."
       if [ ! -e $TRAEFIK_DIR ]; then
         echo "Restarting traefik..."
