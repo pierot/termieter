@@ -170,6 +170,7 @@ alias gst='git status'
 
 alias gmerge='git add . && gcmm chore: merge'
 alias gbump='git add . && gcmm chore: bump versions'
+alias gcleanup='git add . && gcmm chore: cleanup'
 
 function gpo() {
   git pull origin $*
