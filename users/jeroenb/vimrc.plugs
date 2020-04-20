@@ -1,11 +1,9 @@
 " Bundles
-
-Plug 'lambdatoast/elm.vim'
+" Plug 'lambdatoast/elm.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
-Plug 'ryanoasis/vim-devicons'
-" Plug 'itchyny/landscape.vim'
+Plug 'tpope/vim-commentary'
+Plug 'slashmili/alchemist.vim'

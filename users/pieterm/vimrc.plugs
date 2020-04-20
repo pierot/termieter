@@ -2,3 +2,5 @@
 Plug 'itchyny/landscape.vim'
 " Statusline
 Plug 'itchyny/lightline.vim'
+" tComment
+Plug 'vim-scripts/tComment'

@@ -42,7 +42,7 @@ setopt share_history
 plugins=(urltools gitfast docker git gitfast)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins+=(ansible composer npm yarn go mix-fast)
+  plugins+=(ansible npm yarn mix-fast)
 
   alias dircolors='gdircolors'
 else

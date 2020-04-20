@@ -1,0 +1,185 @@
+#!/bin/bash -e
+
+# version:      0.2
+# created:      01/04/2020
+# last update:  07/04/2020
+# author:       Jack + Joe
+
+APP_NAME=""
+IP="LOCAL"
+USER="jackjoe"
+APP_DIR=""
+TRAEFIK_DIR="/app/traefik"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+usage() {
+  cat <<-EOF
+Usage: [OPTIONS] COMMAND
+
+Options:
+
+  -a, --app  string       Name of the app
+  -d, --appdir string     Location of the app on the remote machine - only needed
+                          for [start], [restart] and [nuke] commands
+  -i, --ip string         IP of remote machine. Defaults to 'LOCAL', which
+                          should be used when running on the target machine
+  -u, --user string       User connecting (default 'jackjoe')
+
+Commands:
+  status            Return the status of the active container for the app
+  connect           Connect to the remote Elixir app
+  restart           Restart the app container
+  stop              Stop the app
+  start             Start the app
+  nuke              Complete start/stop cycle for the traefik stack
+
+EOF
+return;
+}
+
+while [[ $# -gt 0 ]]
+do
+  key="$1"
+
+  case $key in
+    -h|--help)
+      usage
+      exit
+      ;;
+    -i|--ip)
+      IP="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -u|--user)
+      USER="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -a|--app)
+      APP_NAME="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -d|--appdir)
+      APP_DIR="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    *)
+      COMMAND+=("$1")
+      shift # Remove generic argument from processing
+      ;;
+  esac
+done
+
+# check required variables
+if [ -z "$APP_NAME" ] ; then
+  usage
+  exit
+fi
+
+# do commands
+case $COMMAND in
+  status)
+    if [ "$IP" == "LOCAL" ]; then
+    sudo docker ps --filter name=$APP_NAME --format "table {{.Names}}\t{{.Status}}\t{{.CreatedAt}}\t{{.Ports}}"
+    else
+    ssh -q $USER@$IP "sudo docker ps --filter name=$APP_NAME --format \"table {{.Names}}\t{{.Status}}\t{{.CreatedAt}}\t{{.Ports}}\""
+    fi
+    ;;
+  connect)
+    if [ "$IP" == "LOCAL" ]; then
+      echo "Searching for $APP_NAME..."
+      CONTAINER=$(sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1)
+      echo "Connecting to container $CONTAINER"
+      sudo docker exec -i -t $CONTAINER /bin/bash -c './bin/production remote'
+    else
+      echo "Connecting to IP $IP as $USER..."
+      echo "Searching for $APP_NAME..."
+      CONTAINER=$(ssh -q $USER@$IP 'sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1')
+      echo -e "${GREEN}Found app container: ${NC} $CONTAINER"
+      echo "Connecting to container $CONTAINER"
+      ssh -o 'RequestTTY force'  $USER@$IP "sudo docker exec -i -t $CONTAINER /bin/bash -c './bin/production remote'"
+    fi
+    ;;
+  stop)
+    if [ "$IP" == "LOCAL" ]; then
+      echo "Searching for $APP_NAME..."
+      sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1 | xargs -I{} sudo docker stop {}
+    else
+      echo "Connecting to IP $IP as $USER..."
+      echo "Searching for $APP_NAME..."
+      CONTAINER=$(ssh -q $USER@$IP 'sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1 | xargs -I{} sudo docker stop {}')
+    fi
+    echo -e "${GREEN}Stopped app container: ${NC} $CONTAINER"
+    ;;
+  start)
+    if [ "$IP" == "LOCAL" ]; then
+      echo "Searching for $APP_NAME..."
+      cd $APP_DIR && sudo ./script/deploy.sh
+    else
+      echo "Connecting to IP $IP as $USER..."
+      echo "Searching for $APP_NAME..."
+      ssh $USER@$IP "cd $APP_DIR && sudo ./script/deploy.sh"
+    fi
+    echo -e "${GREEN}Started app container: ${NC} $CONTAINER"
+    ;;
+  restart)
+    if [ "$IP" == "LOCAL" ]; then
+      echo "Finding app directory for $APP_NAME ($APP_DIR)..."
+      if [ ! -e $APP_DIR ]; then
+        echo "Restarting docker container..."
+        cd $APP_DIR && sudo ./script/deploy.sh
+        echo -e "${GREEN}Docker container restarted${NC}"
+      else
+        echo -e "${RED}Error:${NC} app dir not found."
+        exit
+      fi
+    else
+      echo "Connecting to IP $IP as $USER..."
+      echo "Finding app directory for $APP_NAME ($APP_DIR)..."
+      if [ ! -e $APP_DIR ]; then
+        echo "Restarting docker container..."
+        ssh $USER@$IP "cd $APP_DIR && sudo ./script/deploy.sh"
+        echo -e "${GREEN}Docker container restarted${NC}"
+      else
+        echo -e "${RED}Error:${NC} app dir not found."
+        exit
+      fi
+    fi
+    ;;
+  nuke)
+    if [ "$IP" == "LOCAL" ]; then
+      echo "Finding traefik directory for $APP_NAME..."
+      if [ ! -e $TRAEFIK_DIR ]; then
+        echo "Restarting traefik..."
+        cd $TRAEFIK_DIR && sudo docker-compose restart
+        echo -e "${GREEN}Docker container restarted${NC}"
+      else
+        echo -e "${RED}Error:${NC} app dir not found."
+        exit
+      fi
+    else
+      echo "Connecting to IP $IP as $USER..."
+      echo "Finding traefik directory for $APP_NAME..."
+      if [ ! -e $TRAEFIK_DIR ]; then
+        echo "Restarting traefik..."
+        ssh $USER@$IP "cd $TRAEFIK_DIR && sudo docker-compose restart"
+        echo -e "${GREEN}Docker container restarted${NC}"
+      else
+        echo -e "${RED}Error:${NC} app dir not found."
+        exit
+      fi
+    fi
+    ;;
+  *)
+    echo "Invalid command '$COMMAND'"
+    echo ""
+    usage
+    exit
+esac

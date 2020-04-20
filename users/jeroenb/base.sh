@@ -26,4 +26,7 @@ alias dropbox="cd $DROPBOX"
 alias invoicing="cd $IAMJACK/Income"
 alias iamjack="cd $IAMJACK"
 
+# Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # /bin/bash $TRMU/bin/macos.sh
