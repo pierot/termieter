@@ -9,9 +9,10 @@ nmap <silent> t<C-g> :TestVisit<CR>
 
 inoremap <F1> <Esc>
 nmap <F1> <Nop>
-map <F1> :!tig %<CR>
 
-" set number relativenumber
+color madeofme
+
+ " Enable F2 key for toggling pastemode" set number relativenumber
 
 " :augroup numbertoggle
 " :  autocmd!
@@ -25,25 +26,10 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-set laststatus=0
-
 " suddenly I need this for ack and fzf to work (08/01/2020)
 set shell=bash
 
-" color dracula
-color madeofcode
-" colorscheme landscape
-
-" color column
-" set colorcolumn=80
-" so $VIMRUNTIME/syntax/colortest.vim
-" set highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 " cursor line toggle
-:hi CursorLine   cterm=NONE ctermbg=lightmagenta ctermfg=white
-:hi CursorColumn cterm=NONE ctermbg=lightmagenta ctermfg=white
-:nnoremap <Leader>c :set cursorline!<CR>
-:nnoremap <Leader>cc :set cursorcolumn!<CR>
-
-" no bg
-hi Normal guibg=NONE ctermbg=NONE
+nnoremap <Leader>c :set cursorline!<CR>
+nnoremap <Leader>cc :set cursorcolumn!<CR>
+set cursorline

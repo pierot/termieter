@@ -1,5 +1,8 @@
 PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
+ZSH_THEME="tonotdo"
+
+
 # The simplest approach to emulate bash's $PROMPT_COMMAND
 prmptcmd() { eval "$PROMPT_COMMAND" }
 precmd_functions=(prmptcmd)
