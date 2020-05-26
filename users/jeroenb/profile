@@ -19,10 +19,4 @@ export PATH="$HOME/bin/:$PATH"
 export TRMU=~/.termieter/users/jeroenb
 export SHELL=$CURRENT_SHELL
 
-# python
-echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 . $HOME/bin/tmux.sh
