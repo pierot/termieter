@@ -4,14 +4,14 @@ hyper - b : open "/Applications/Firefox Developer Edition.app"
 hyper - t : open "/Applications/Kitty.app"
 hyper - o : open "/Applications/Trello.app"
 hyper - s : open "/Applications/Slack.app"
-hyper - m : open "/Applications/Spotify.app"
+hyper - p : open "/Applications/Spotify.app"
 hyper - a : open -a /Applications/Audacity.app"
 
 # focus window
-hyper - h : yabai -m window --focus west
-hyper - j : yabai -m window --focus south
-hyper - k : yabai -m window --focus north
-hyper - l : yabai -m window --focus east
+# hyper - h : yabai -m window --focus west
+# hyper - j : yabai -m window --focus south
+# hyper - k : yabai -m window --focus north
+# hyper - l : yabai -m window --focus east
 
 # swap window
 ctrl + alt - h : yabai -m window --swap west
