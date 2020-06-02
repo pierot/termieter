@@ -23,8 +23,14 @@ fi
 
 alias dev="cd $HOME/Work/"
 alias dropbox="cd $DROPBOX"
+alias db="cd $DROPBOX"
 alias invoicing="cd $IAMJACK/Income"
 alias iamjack="cd $IAMJACK"
+alias jj="cd $HOME/Work/jackjoe"
+alias gj="cd $HOME/Work/jackjoe"
+alias gd="cd $HOME/Downloads"
+alias gD="cd $HOME/Desktop"
+alias gdb="cd $DROPBOX"
 
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
