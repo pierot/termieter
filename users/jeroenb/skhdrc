@@ -4,7 +4,7 @@ hyper - b : open "/Applications/Firefox Developer Edition.app"
 hyper - t : open "/Applications/Kitty.app"
 hyper - o : open "/Applications/Trello.app"
 hyper - s : open "/Applications/Slack.app"
-hyper - m : open "/Applications/Spotify.app"
+hyper - p : open "/Applications/Spotify.app"
 hyper - a : open -a /Applications/Audacity.app"
 
 # focus window
@@ -45,12 +45,12 @@ alt + cmd - l : yabai -m window --warp east
 #                   yabai -m space --focus $(echo ${id:10:${#id}-10})
 #
 # # create desktop and follow focus
-# hyper - n : yabai -m space --create;\
-#                   index="$(yabai -m query --displays --display | jq '.spaces[-1]')" && \
-#                   yabai -m space --focus "${index}"
+hyper - c : yabai -m space --create;\
+                  index="$(yabai -m query --displays --display | jq '.spaces[-1]')" && \
+                  yabai -m space --focus "${index}"
 #
 # # destroy desktop
-# hyper - w : yabai -m space --destroy
+hyper - w : yabai -m space --destroy
 #
 # # # fast focus desktop
 # # hyper - x : yabai -m space --focus recent
@@ -96,10 +96,10 @@ hyper - f6 : yabai -m window --space  6; yabai -m space --focus 6
 # ctrl + alt - l : yabai -m window --insert east
 #
 # # rotate tree
-# alt - r : yabai -m space --rotate 90
+alt - r : yabai -m space --rotate 90
 # hyper - r : yabai -m space --rotate 90
-# hyper - y : yabai -m space --mirror y-axis
-# hyper - x : yabai -m space --mirror x-axis
+hyper - y : yabai -m space --mirror y-axis
+hyper - x : yabai -m space --mirror x-axis
 #
 # toggle window fullscreen zoom
 hyper - f : yabai -m window --toggle zoom-fullscreen
@@ -120,6 +120,4 @@ alt - o : yabai -m window --toggle topmost
 alt - p : yabai -m window --toggle sticky;\
           yabai -m window --grid 5:5:4:0:1:1
 
-.blacklist [
-  "Finder"
-]
+# .blacklist []

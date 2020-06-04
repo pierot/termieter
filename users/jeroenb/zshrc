@@ -1,17 +1,20 @@
-PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+# PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
-# The simplest approach to emulate bash's $PROMPT_COMMAND
-prmptcmd() { eval "$PROMPT_COMMAND" }
-precmd_functions=(prmptcmd)
+# ZSH_THEME="tonotdo"
 
-# User configuration
-# Always work in a tmux session if tmux is installed
-# https://github.com/chrishunt/dot-files/blob/master/.zshrc
-# if which tmux 2>&1 >/dev/null; then
-#   if [ $TERM != "screen-256color" ] && [ $TERM != "screen" ]; then
-#     # tmux attach -t _hack || tmux new -s _hack; exit
-#     tmux -2u attach-session -t _hack || tmux -2u new -s _hack; exit
-#   fi
-# fi
+
+# # The simplest approach to emulate bash's $PROMPT_COMMAND
+# prmptcmd() { eval "$PROMPT_COMMAND" }
+# precmd_functions=(prmptcmd)
+
+# # User configuration
+# # Always work in a tmux session if tmux is installed
+# # https://github.com/chrishunt/dot-files/blob/master/.zshrc
+# # if which tmux 2>&1 >/dev/null; then
+# #   if [ $TERM != "screen-256color" ] && [ $TERM != "screen" ]; then
+# #     # tmux attach -t _hack || tmux new -s _hack; exit
+# #     tmux -2u attach-session -t _hack || tmux -2u new -s _hack; exit
+# #   fi
+# # fi
 
 . $HOME/.profile.local
