@@ -1,7 +1,17 @@
 {
   "coc.preferences.autoTrigger": "trigger",
   "coc.preferences.timeout": 300,
-  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "graphql"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "graphql",
+    "php"
+  ],
   "tslint.enable": false,
   "tsserver.enable": false,
   "prettier.tabWidth": 2,
