@@ -1,0 +1,79 @@
+2020-06-03 22:23:40	Sentry	FunctionClauseError (https://sentry.io/organizations/jack-joe/issues/1707740638/?referrer=slack)
+2020-06-03 22:23:40		no function clause matching in Enum.to_sort_fun/1
+2020-06-03 22:23:40		JUSTIFIED-C4 via https://sentry.io/settings/jack-joe/projects/justified/alerts/rules/738600/ (Slack) | Today at 22:23
+2020-06-04 09:13:44	Sentry	exit (https://sentry.io/organizations/jack-joe/issues/1708525193/?referrer=slack)
+2020-06-04 09:13:44		** (exit) exited in: :gen_server.call(:file_server_2, {:list_dir, '/opt/app/lib/menage-0.9.0/priv/static/js'})
+2020-06-04 09:13:44		** (EXIT) time out
+2020-06-04 09:13:44		MENAGE-9D via https://sentry.io/settings/jack-joe/projects/menage/alerts/rules/738593/ (Slack) | Today at 09:13
+2020-06-04 10:15:21	Sentry	FunctionClauseError (https://sentry.io/organizations/jack-joe/issues/1398795182/?referrer=slack)
+2020-06-04 10:15:21		no function clause matching in Sentry.capture_message/2
+2020-06-04 10:15:21		MENAGE-7R via https://sentry.io/settings/jack-joe/projects/menage/alerts/rules/738593/ (Slack) | Today at 10:15
+2020-06-04 14:44:05	Sentry	MyXQL.Error (https://sentry.io/organizations/jack-joe/issues/1675434284/?referrer=slack)
+2020-06-04 14:44:05		(1146) (ER_NO_SUCH_TABLE) Table 'justified_staging.cases' doesn't exist
+2020-06-04 14:44:05		JUSTIFIED-BD via https://sentry.io/settings/jack-joe/projects/justified/alerts/rules/738600/ (Slack) | Today at 14:44
+2020-06-04 15:38:31	Sentry	MyXQL.Error (https://sentry.io/organizations/jack-joe/issues/1709062306/?referrer=slack)
+2020-06-04 15:38:31		(1054) (ER_BAD_FIELD_ERROR) Unknown column 'c0.solvabiliteit_datum_resultaat_manueel' in 'field list'
+2020-06-04 15:38:31		JUSTIFIED-C5 via https://sentry.io/settings/jack-joe/projects/justified/alerts/rules/738600/ (Slack) | Today at 15:38
+2020-06-04 15:38:31	Sentry	MyXQL.Error (https://sentry.io/organizations/jack-joe/issues/1709062310/?referrer=slack)
+2020-06-04 15:38:31		(1054) (ER_BAD_FIELD_ERROR) Unknown column 'c0.solvabiliteit_datum_resultaat_manueel' in 'field list'
+2020-06-04 15:38:31		JUSTIFIED-C6 via https://sentry.io/settings/jack-joe/projects/justified/alerts/rules/738600/ (Slack) | Today at 15:38
+2020-06-04 15:38:38	Sentry	Error (https://sentry.io/organizations/jack-joe/issues/1581058996/?referrer=slack)
+2020-06-04 15:38:38		No error message
+2020-06-04 15:38:38		JUSTIFIED-9N via https://sentry.io/settings/jack-joe/projects/justified/alerts/rules/738600/ (Slack) | Today at 15:38
+2020-06-04 15:38:57	AppSignal :]	https://appsignal.com/jack-plus-joe-2/sites/5bba654debad6444acef2fc1/incidents/225?timestamp=2020-06-04T13%3A38%3A24Z (MyXQL.Error (#225)) occurred on Justified (production), in namespace "web"
+2020-06-04 15:38:57		```MyXQL.Error: (1054) (ER_BAD_FIELD_ERROR) Unknown column 'c0.solvabiliteit_datum_resultaat_manueel' in 'field list'
+2020-06-04 15:38:57		(ecto_sql 3.4.4) lib/ecto/adapters/sql.ex:593: Ecto.Adapters.SQL.raise_sql_call_error/1
+2020-06-04 15:38:57		(ecto_sql 3.4.4) lib/ecto/adapters/sql.ex:526: Ecto.Adapters.SQL.execute/5
+2020-06-04 15:38:57		(ecto 3.4.4) lib/ecto/repo/queryable.ex:192: Ecto.Repo.Queryable.execute/4
+2020-06-04 15:38:57		(ecto 3.4.4) lib/ecto/repo/queryable.ex:17: Ecto.Repo.Queryable.all/3
+2020-06-04 15:38:57		(ecto 3.4.4) lib/ecto/repo/queryable.ex:112: Ecto.Repo.Queryable.one/3```
+2020-06-04 15:38:57		Action: JustifiedApi.CaseController#show
+2020-06-04 15:38:57		Request method: GET
+2020-06-04 15:38:57		Path: /api/cases/2EZB6GE
+2020-06-04 15:38:57		Hostname: f7b4481c61c7
+2020-06-04 15:38:57		Revision: 632ea02
+2020-06-04 15:38:57		Exception occurred today at 15:38
+2020-06-04 17:52:18	Statping :]	Your Statping service https://app.accurat.ai/api (Accurat API Prod) is now back online and meets your expected responses.
+2020-06-04 17:52:18		Statping
+2020-06-04 17:52:19	Statping :]	Your Statping service https://search.tenderwolf.com/search? (TW search production) is now back online and meets your expected responses.
+2020-06-04 17:52:19		Statping
+2020-06-04 18:02:38	Sentry	MyXQL.Error (https://sentry.io/organizations/jack-joe/issues/1709378479/?referrer=slack)
+2020-06-04 18:02:38		(1451) (ER_ROW_IS_REFERENCED_2) Cannot delete or update a parent row: a foreign key constraint fails (`cream_staging`.`assets`, CONSTRAINT `assets_matching_asset_id_fkey` FOREIGN KEY (`matching_asset_id`) REFERENCES `assets` (`id`))
+2020-06-04 18:02:38		CREAM-39 via https://sentry.io/settings/jack-joe/projects/cream/alerts/rules/738601/ (Slack) | Today at 18:02
+2020-06-04 18:03:57	Sentry	Plug.Conn.AlreadySentError (https://sentry.io/organizations/jack-joe/issues/1663035406/?referrer=slack)
+2020-06-04 18:03:57		the response was already sent
+2020-06-04 18:03:57		CREAM-34 via https://sentry.io/settings/jack-joe/projects/cream/alerts/rules/738601/ (Slack) | Today at 18:03
+2020-06-04 18:22:09	Sentry	Plug.Conn.AlreadySentError (https://sentry.io/organizations/jack-joe/issues/1506440584/?referrer=slack)
+2020-06-04 18:22:09		the response was already sent
+2020-06-04 18:22:09		CREAM-2B via https://sentry.io/settings/jack-joe/projects/cream/alerts/rules/738601/ (Slack) | Today at 18:21
+2020-06-04 19:38:00	Zapier :]	Failed Mailgun delivery
+2020-06-04 19:38:00		Sender: mailto:no-reply@m.micmacminuscule.be (no-reply@m.micmacminuscule.be)
+2020-06-04 19:38:00		Recipient: mailto:renatevanderbekeb@gmail.com (renatevanderbekeb@gmail.com)
+2020-06-04 19:38:00		Subject: Bestelbevestiging Mic Mac Minuscule
+2020-06-04 20:16:20	Sentry	Bamboo.ApiError (https://sentry.io/organizations/jack-joe/issues/1068057768/?referrer=slack)
+2020-06-04 20:16:20		:timeout
+2020-06-04 20:16:20		MENAGE-4N via https://sentry.io/settings/jack-joe/projects/menage/alerts/rules/738593/ (Slack) | Today at 20:16
+2020-06-04 20:37:49	Zapier :]	Failed Mailgun delivery
+2020-06-04 20:37:49		Sender: mailto:no-reply@m.micmacminuscule.be (no-reply@m.micmacminuscule.be)
+2020-06-04 20:37:49		Recipient: mailto:rajaa_bakhat@gmail.com (rajaa_bakhat@gmail.com)
+2020-06-04 20:37:49		Subject: Bestelbevestiging Mic Mac Minuscule
+2020-06-05 08:14:16	Sentry	ErrorException (https://sentry.io/organizations/jack-joe/issues/1421061254/?referrer=slack)
+2020-06-05 08:14:16		Trying to get property 'meta' of non-object
+2020-06-05 08:14:16		TENDERWOLF-3QX via https://sentry.io/settings/jack-joe/projects/tenderwolf/alerts/rules/439105/ (Slack) | Today at 08:14
+2020-06-05 11:16:47	Sentry	Bamboo.ApiError (https://sentry.io/organizations/jack-joe/issues/1068057768/?referrer=slack)
+2020-06-05 11:16:47		:timeout
+2020-06-05 11:16:47		MENAGE-4N via https://sentry.io/settings/jack-joe/projects/menage/alerts/rules/738593/ (Slack) | Today at 11:16
+2020-06-05 11:24:12	Statping :]	Your Statping service https://accurat.ai (Accurat Wordpress) is now back online and meets your expected responses.
+2020-06-05 11:24:12		Statping
+2020-06-05 11:24:12	Statping :]	Your Statping service https://menage.micmacminuscule.be/health (Menage prod) is now back online and meets your expected responses.
+2020-06-05 11:24:12		Statping
+2020-06-05 11:34:31	Sentry	payment.webhook.generic_error (https://sentry.io/organizations/jack-joe/issues/1711019512/?referrer=slack)
+2020-06-05 11:34:31		MENAGE-9E via https://sentry.io/settings/jack-joe/projects/menage/alerts/rules/738593/ (Slack) | Today at 11:34
+2020-06-05 11:34:39	Sentry	Error (https://sentry.io/organizations/jack-joe/issues/1602738777/?referrer=slack)
+2020-06-05 11:34:39		MENAGE-8W via https://sentry.io/settings/jack-joe/projects/menage/alerts/rules/738593/ (Slack) | Today at 11:34
+2020-06-05 11:47:29	Sentry	Bamboo.ApiError (https://sentry.io/organizations/jack-joe/issues/1544501895/?referrer=slack)
+2020-06-05 11:47:29		:timeout
+2020-06-05 11:47:29		JUSTIFIED-8F via https://sentry.io/settings/jack-joe/projects/justified/alerts/rules/738600/ (Slack) | Today at 11:47
+2020-06-05 11:50:47	Sentry	Bamboo.ApiError (https://sentry.io/organizations/jack-joe/issues/1068057768/?referrer=slack)
+2020-06-05 11:50:47		:timeout
+2020-06-05 11:50:47		MENAGE-4N via https://sentry.io/settings/jack-joe/projects/menage/alerts/rules/738593/ (Slack) | Today at 11:50

@@ -1,0 +1,554 @@
+2020-04-04 17:30:15	-->	jeroenb (jeroenb) has joined #app-bot
+2020-04-06 04:00:00	Phoenix_App	PhdTagChecker::staging Created Batch 349
+2020-04-06 04:00:00	Phoenix_App	Hannibal Segments Export (staging)
+2020-04-06 04:00:00	Phoenix_App	```App: 1, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/42010a840002.csv>
+2020-04-06 04:00:00	Phoenix_App	App: 2, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/bde0e992.csv>
+2020-04-06 04:00:00	Phoenix_App	App: 3, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/fff000ddd.csv>
+2020-04-06 04:00:00	Phoenix_App	App: 4, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.csv>
+2020-04-06 04:00:00	Phoenix_App	App: 5, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.csv>
+2020-04-06 04:00:00	Phoenix_App	App: 6, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.csv>
+2020-04-06 04:00:00	Phoenix_App	```
+2020-04-06 04:00:00	Phoenix_App	PhdTagChecker::production Created Batch 1165
+2020-04-06 04:00:00	Phoenix_App	PhdTagChecker::production Created Batch 1164
+2020-04-06 04:00:00	Phoenix_App	PhdTagChecker::staging Created Batch 350
+2020-04-06 04:00:02	Phoenix_App	Hannibal Segments Export (production)
+2020-04-06 04:00:02	Phoenix_App	```App: 1, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/42010a840002.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 2, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/bde0e992.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 3, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/fff000ddd.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 4, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/7d3106c0-be30-4791-8c66-653f01402e9c.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 5, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/e2557967-2833-4a55-9579-ab2c5277016e.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 6, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 7, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 8, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/135af47a-34f4-4f92-b920-c9f016316aa0.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 9, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/a265c782-3356-4ced-8d0f-6ba1e322745d.csv>
+2020-04-06 04:00:02	Phoenix_App	App: 10, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.csv>
+2020-04-06 04:00:02	Phoenix_App	```
+2020-04-06 04:55:09	Phoenix_App	PhdTagChecker::production Finished Batch 1164
+2020-04-06 05:00:00	Phoenix_App	Hannibal Geofences Export (staging)
+2020-04-06 05:00:00	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/42010a840002.json>
+2020-04-06 05:00:00	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/bde0e992.json>
+2020-04-06 05:00:00	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/fff000ddd.json>
+2020-04-06 05:00:00	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.json>
+2020-04-06 05:00:00	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.json>
+2020-04-06 05:00:00	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.json>
+2020-04-06 05:00:00	Phoenix_App	```
+2020-04-06 05:00:00	Phoenix_App	Hannibal Geofences Export (production)
+2020-04-06 05:00:00	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/42010a840002.json>
+2020-04-06 05:00:00	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/bde0e992.json>
+2020-04-06 05:00:00	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/fff000ddd.json>
+2020-04-06 05:00:00	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7d3106c0-be30-4791-8c66-653f01402e9c.json>
+2020-04-06 05:00:00	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/e2557967-2833-4a55-9579-ab2c5277016e.json>
+2020-04-06 05:00:00	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.json>
+2020-04-06 05:00:00	Phoenix_App	App: 7, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.json>
+2020-04-06 05:00:00	Phoenix_App	App: 8, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/135af47a-34f4-4f92-b920-c9f016316aa0.json>
+2020-04-06 05:00:00	Phoenix_App	App: 9, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/a265c782-3356-4ced-8d0f-6ba1e322745d.json>
+2020-04-06 05:00:00	Phoenix_App	App: 10, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.json>
+2020-04-06 05:00:00	Phoenix_App	```
+2020-04-06 06:01:50	Phoenix_App	PhdTagChecker::production Finished Batch 1165
+2020-04-06 07:00:03	incoming-webhook	> Message
+2020-04-06 07:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-06 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-06 07:00:05	incoming-webhook	> Message
+2020-04-06 07:00:05	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 07:00:05	incoming-webhook	> Message
+2020-04-06 07:00:05	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 07:00:12	incoming-webhook	> Message
+2020-04-06 07:00:12	incoming-webhook	> DAILY :: EmailDailyService Send done in 7280ms
+2020-04-06 07:00:14	incoming-webhook	> Message
+2020-04-06 07:00:14	incoming-webhook	> DAILY :: EmailDailyService Send done in 9085ms
+2020-04-06 07:01:53	incoming-webhook	> Message
+2020-04-06 07:01:53	incoming-webhook	> DAILY :: EmailDailyService Send done in 110567ms
+2020-04-06 07:20:00	Phoenix_App	PHDCodeChecker batch started (batch: 238)
+2020-04-06 07:30:02	incoming-webhook	> Message
+2020-04-06 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 07:30:02	incoming-webhook	> Message
+2020-04-06 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 07:30:02	incoming-webhook	> Message
+2020-04-06 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 07:30:02	incoming-webhook	> Message
+2020-04-06 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send done in 375ms
+2020-04-06 07:30:02	incoming-webhook	> Message
+2020-04-06 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send done in 306ms
+2020-04-06 07:30:03	incoming-webhook	> Message
+2020-04-06 07:30:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 1952ms
+2020-04-06 07:38:11	Phoenix_App	PHDCodeChecker batch 238 finished (fb: 0, dcm_general: 117, dcm_conversions: 0, sa360: 1085)
+2020-04-06 08:00:02	incoming-webhook	> Message
+2020-04-06 08:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 08:00:03	incoming-webhook	> Message
+2020-04-06 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 08:00:03	Phoenix_App	PhdTagChecker::production Batch Report 1164 sent
+2020-04-06 08:00:03	incoming-webhook	> Message
+2020-04-06 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-06 08:00:03	incoming-webhook	> Message
+2020-04-06 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 547ms
+2020-04-06 08:00:03	incoming-webhook	> Message
+2020-04-06 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 456ms
+2020-04-06 08:00:04	incoming-webhook	> Message
+2020-04-06 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1835ms
+2020-04-06 08:00:07	Phoenix_App	PhdTagChecker::production Batch Report 1165 sent
+2020-04-06 08:00:52	Phoenix_App	PhdTagChecker::staging Batch Report 347 sent
+2020-04-06 08:01:10	Phoenix_App	PhdTagChecker::staging Batch Report 348 sent
+2020-04-06 08:16:43	Phoenix_App	PhdTagChecker::staging Finished Batch 349
+2020-04-06 08:23:31	Phoenix_App	FlashTalking BatchWorker - work is done 265
+2020-04-06 08:23:31	Phoenix_App	==> FlashTalking finished batch 265
+2020-04-06 09:00:30	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-06 10:43:54	Phoenix_App	PhdTagChecker::staging Finished Batch 350
+2020-04-06 16:00:41	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-07 07:20:00	Phoenix_App	PHDCodeChecker batch started (batch: 153)
+2020-04-07 07:20:00	Phoenix_App	PHDCodeChecker batch started (batch: 239)
+2020-04-07 07:27:23	Phoenix_App	PHDCodeChecker batch 239 finished (fb: 0, dcm_general: 159, dcm_conversions: 0, sa360: 1085)
+2020-04-07 07:30:02	incoming-webhook	> Message
+2020-04-07 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-07 07:30:02	incoming-webhook	> Message
+2020-04-07 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-07 07:30:02	incoming-webhook	> Message
+2020-04-07 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-07 07:30:03	incoming-webhook	> Message
+2020-04-07 07:30:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 301ms
+2020-04-07 07:30:03	incoming-webhook	> Message
+2020-04-07 07:30:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 264ms
+2020-04-07 07:30:05	incoming-webhook	> Message
+2020-04-07 07:30:05	incoming-webhook	> DAILY :: EmailDailyService Send done in 1757ms
+2020-04-07 08:00:01	Phoenix_App	PhdTagChecker::production Batch Report 1166 sent
+2020-04-07 08:00:01	Phoenix_App	PhdTagChecker::staging Batch Report 351 sent
+2020-04-07 08:00:02	Phoenix_App	PhdTagChecker::staging Batch Report 350 sent
+2020-04-07 08:00:02	incoming-webhook	> Message
+2020-04-07 08:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-07 08:00:03	Phoenix_App	PhdTagChecker::production Batch Report 1167 sent
+2020-04-07 08:00:04	incoming-webhook	> Message
+2020-04-07 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1788ms
+2020-04-07 08:00:06	incoming-webhook	> Message
+2020-04-07 08:00:06	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-07 08:00:06	incoming-webhook	> Message
+2020-04-07 08:00:06	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-07 08:00:07	incoming-webhook	> Message
+2020-04-07 08:00:07	incoming-webhook	> DAILY :: EmailDailyService Send done in 713ms
+2020-04-07 08:00:07	incoming-webhook	> Message
+2020-04-07 08:00:07	incoming-webhook	> DAILY :: EmailDailyService Send done in 1006ms
+2020-04-07 08:24:24	Phoenix_App	FlashTalking BatchWorker - work is done 266
+2020-04-07 08:24:24	Phoenix_App	==> FlashTalking finished batch 266
+2020-04-07 08:34:20	Phoenix_App	PhdTagChecker::staging Finished Batch 352
+2020-04-07 09:00:25	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-07 13:58:43	--	irc: disconnected from server
+2020-04-07 14:19:15	-->	jeroenb (jeroenb) has joined #app-bot
+2020-04-07 16:00:22	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-07 23:46:49	Phoenix_App	PHDCodeChecker batch started (batch: 240)
+2020-04-07 23:48:21	Phoenix_App	PHDCodeChecker batch 240 finished (fb: 0, dcm_general: 0, dcm_conversions: 0, sa360: 79639)
+2020-04-08 07:49:52	-->	jeroenb (jeroenb) has joined #app-bot
+2020-04-08 08:00:02	Phoenix_App	PhdTagChecker::production Batch Report 1168 sent
+2020-04-08 08:00:02	incoming-webhook	> Message
+2020-04-08 08:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-08 08:00:02	incoming-webhook	> Message
+2020-04-08 08:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-08 08:00:03	incoming-webhook	> Message
+2020-04-08 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 680ms
+2020-04-08 08:00:03	incoming-webhook	> Message
+2020-04-08 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-08 08:00:03	incoming-webhook	> Message
+2020-04-08 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 745ms
+2020-04-08 08:00:04	incoming-webhook	> Message
+2020-04-08 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1918ms
+2020-04-08 08:00:05	Phoenix_App	PhdTagChecker::production Batch Report 1169 sent
+2020-04-08 08:00:07	Phoenix_App	PhdTagChecker::staging Batch Report 353 sent
+2020-04-08 08:00:11	Phoenix_App	PhdTagChecker::staging Batch Report 352 sent
+2020-04-08 08:24:19	Phoenix_App	FlashTalking BatchWorker - work is done 267
+2020-04-08 08:24:19	Phoenix_App	==> FlashTalking finished batch 267
+2020-04-08 08:33:36	Phoenix_App	PhdTagChecker::staging Finished Batch 354
+2020-04-08 09:00:21	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-08 16:00:18	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-09 04:55:17	Phoenix_App	PhdTagChecker::production Finished Batch 1170
+2020-04-09 08:00:01	Phoenix_App	PhdTagChecker::production Batch Report 1170 sent
+2020-04-09 08:00:01	Phoenix_App	PhdTagChecker::staging Batch Report 355 sent
+2020-04-09 08:00:02	Phoenix_App	PhdTagChecker::staging Batch Report 354 sent
+2020-04-09 08:00:03	Phoenix_App	PhdTagChecker::production Batch Report 1171 sent
+2020-04-09 08:24:40	Phoenix_App	FlashTalking BatchWorker - work is done 268
+2020-04-09 08:24:40	Phoenix_App	==> FlashTalking finished batch 268
+2020-04-09 08:36:10	Phoenix_App	PhdTagChecker::staging Finished Batch 356
+2020-04-09 09:00:06	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-09 11:04:33	incoming-webhook	> Message
+2020-04-09 11:04:33	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-09 11:07:03	incoming-webhook	> Message
+2020-04-09 11:07:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 149166ms
+2020-04-09 16:00:17	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-10 08:00:02	Phoenix_App	PhdTagChecker::production Batch Report 1172 sent
+2020-04-10 08:00:02	Phoenix_App	PhdTagChecker::staging Batch Report 357 sent
+2020-04-10 08:00:03	incoming-webhook	> Message
+2020-04-10 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-10 08:00:04	Phoenix_App	PhdTagChecker::production Batch Report 1173 sent
+2020-04-10 08:00:04	incoming-webhook	> Message
+2020-04-10 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1798ms
+2020-04-10 08:00:06	Phoenix_App	PhdTagChecker::staging Batch Report 356 sent
+2020-04-10 08:24:54	Phoenix_App	FlashTalking BatchWorker - work is done 269
+2020-04-10 08:24:54	Phoenix_App	==> FlashTalking finished batch 269
+2020-04-10 08:37:31	Phoenix_App	PhdTagChecker::staging Finished Batch 358
+2020-04-10 09:00:31	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-10 16:00:20	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-12 06:01:00	Phoenix_App	PhdTagChecker::production Finished Batch 1177
+2020-04-12 16:00:14	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-13 06:00:55	Phoenix_App	PhdTagChecker::production Finished Batch 1179
+2020-04-13 07:00:01	incoming-webhook	> Message
+2020-04-13 07:00:01	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-13 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-13 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-13 08:40:20	Phoenix_App	PhdTagChecker::staging Finished Batch 364
+2020-04-13 09:00:21	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-14 08:00:02	Phoenix_App	PhdTagChecker::production Batch Report 1180 sent
+2020-04-14 08:00:02	incoming-webhook	> Message
+2020-04-14 08:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-14 08:00:03	Phoenix_App	PhdTagChecker::staging Batch Report 365 sent
+2020-04-14 08:00:04	incoming-webhook	> Message
+2020-04-14 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1840ms
+2020-04-14 08:00:04	Phoenix_App	PhdTagChecker::production Batch Report 1181 sent
+2020-04-14 08:00:05	Phoenix_App	PhdTagChecker::staging Batch Report 364 sent
+2020-04-14 08:24:48	Phoenix_App	FlashTalking BatchWorker - work is done 273
+2020-04-14 08:24:48	Phoenix_App	==> FlashTalking finished batch 273
+2020-04-14 08:42:27	Phoenix_App	PhdTagChecker::staging Finished Batch 366
+2020-04-14 09:00:14	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-14 16:03:16	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-15 07:30:02	incoming-webhook	> Message
+2020-04-15 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-15 07:30:04	incoming-webhook	> Message
+2020-04-15 07:30:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1862ms
+2020-04-15 08:00:01	Phoenix_App	PhdTagChecker::production Batch Report 1182 sent
+2020-04-15 08:00:02	Phoenix_App	PhdTagChecker::staging Batch Report 367 sent
+2020-04-15 08:00:03	incoming-webhook	> Message
+2020-04-15 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-15 08:00:03	Phoenix_App	PhdTagChecker::production Batch Report 1183 sent
+2020-04-15 08:00:04	Phoenix_App	PhdTagChecker::staging Batch Report 366 sent
+2020-04-15 08:00:05	incoming-webhook	> Message
+2020-04-15 08:00:05	incoming-webhook	> DAILY :: EmailDailyService Send done in 1916ms
+2020-04-15 08:23:02	Phoenix_App	FlashTalking BatchWorker - work is done 274
+2020-04-15 08:23:03	Phoenix_App	==> FlashTalking finished batch 274
+2020-04-15 08:42:14	Phoenix_App	PhdTagChecker::staging Finished Batch 368
+2020-04-15 09:00:18	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-15 15:14:44	--	irc: disconnected from server
+2020-04-16 08:52:40	-->	jeroenb (jeroenb) has joined #app-bot
+2020-04-16 09:00:31	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-16 16:00:31	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-17 04:00:00	Phoenix_App	PhdTagChecker::production Created Batch 1186
+2020-04-17 04:00:00	Phoenix_App	PhdTagChecker::staging Created Batch 371
+2020-04-17 04:00:00	Phoenix_App	PhdTagChecker::production Created Batch 1187
+2020-04-17 04:00:00	Phoenix_App	PhdTagChecker::staging Created Batch 372
+2020-04-17 04:00:00	Phoenix_App	Hannibal Segments Export (staging)
+2020-04-17 04:00:00	Phoenix_App	```App: 1, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/42010a840002.csv>
+2020-04-17 04:00:00	Phoenix_App	App: 2, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/bde0e992.csv>
+2020-04-17 04:00:00	Phoenix_App	App: 3, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/fff000ddd.csv>
+2020-04-17 04:00:00	Phoenix_App	App: 4, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.csv>
+2020-04-17 04:00:00	Phoenix_App	App: 5, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.csv>
+2020-04-17 04:00:00	Phoenix_App	App: 6, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.csv>
+2020-04-17 04:00:00	Phoenix_App	```
+2020-04-17 04:00:03	Phoenix_App	Hannibal Segments Export (production)
+2020-04-17 04:00:03	Phoenix_App	```App: 1, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/42010a840002.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 2, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/bde0e992.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 3, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/fff000ddd.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 4, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/7d3106c0-be30-4791-8c66-653f01402e9c.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 5, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/e2557967-2833-4a55-9579-ab2c5277016e.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 6, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 7, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 8, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/135af47a-34f4-4f92-b920-c9f016316aa0.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 9, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/a265c782-3356-4ced-8d0f-6ba1e322745d.csv>
+2020-04-17 04:00:03	Phoenix_App	App: 10, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.csv>
+2020-04-17 04:00:03	Phoenix_App	```
+2020-04-17 04:54:39	Phoenix_App	PhdTagChecker::production Finished Batch 1186
+2020-04-17 05:00:00	Phoenix_App	Hannibal Geofences Export (staging)
+2020-04-17 05:00:00	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/42010a840002.json>
+2020-04-17 05:00:00	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/bde0e992.json>
+2020-04-17 05:00:00	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/fff000ddd.json>
+2020-04-17 05:00:00	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.json>
+2020-04-17 05:00:00	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.json>
+2020-04-17 05:00:00	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.json>
+2020-04-17 05:00:00	Phoenix_App	```
+2020-04-17 05:00:01	Phoenix_App	Hannibal Geofences Export (production)
+2020-04-17 05:00:01	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/42010a840002.json>
+2020-04-17 05:00:01	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/bde0e992.json>
+2020-04-17 05:00:01	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/fff000ddd.json>
+2020-04-17 05:00:01	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7d3106c0-be30-4791-8c66-653f01402e9c.json>
+2020-04-17 05:00:01	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/e2557967-2833-4a55-9579-ab2c5277016e.json>
+2020-04-17 05:00:01	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.json>
+2020-04-17 05:00:01	Phoenix_App	App: 7, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.json>
+2020-04-17 05:00:01	Phoenix_App	App: 8, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/135af47a-34f4-4f92-b920-c9f016316aa0.json>
+2020-04-17 05:00:01	Phoenix_App	App: 9, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/a265c782-3356-4ced-8d0f-6ba1e322745d.json>
+2020-04-17 05:00:01	Phoenix_App	App: 10, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.json>
+2020-04-17 05:00:01	Phoenix_App	```
+2020-04-17 06:00:27	Phoenix_App	PhdTagChecker::production Finished Batch 1187
+2020-04-17 07:00:02	incoming-webhook	> Message
+2020-04-17 07:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-17 07:00:05	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-17 07:00:05	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-17 07:02:47	incoming-webhook	> Message
+2020-04-17 07:02:47	incoming-webhook	> DAILY :: EmailDailyService Send done in 164861ms
+2020-04-17 07:20:00	Phoenix_App	PHDCOdeChecker - Unfinished and outdated batch, forcing to finish (batch id: 156)
+2020-04-17 07:20:00	Phoenix_App	PHDCodeChecker batch started (batch: 244)
+2020-04-17 07:30:02	incoming-webhook	> Message
+2020-04-17 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-17 07:30:04	incoming-webhook	> Message
+2020-04-17 07:30:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1821ms
+2020-04-17 07:34:41	Phoenix_App	PHDCodeChecker batch 244 finished (fb: 0, dcm_general: 48, dcm_conversions: 0, sa360: 1085)
+2020-04-17 07:45:00	Phoenix_App	PhdTagChecker::staging Finished Batch 371
+2020-04-17 07:58:48	--	irc: disconnected from server
+2020-04-17 08:01:20	-->	jeroenb (jeroenb) has joined #app-bot
+2020-04-17 08:23:11	Phoenix_App	FlashTalking BatchWorker - work is done 276
+2020-04-17 08:23:11	Phoenix_App	==> FlashTalking finished batch 276
+2020-04-17 09:00:20	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-17 11:18:46	Phoenix_App	PhdTagChecker::staging Finished Batch 372
+2020-04-17 16:00:29	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-18 04:54:26	Phoenix_App	PhdTagChecker::production Finished Batch 1188
+2020-04-18 04:59:59	Phoenix_App	Hannibal Geofences Export (staging)
+2020-04-18 04:59:59	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/42010a840002.json>
+2020-04-18 04:59:59	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/bde0e992.json>
+2020-04-18 04:59:59	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/fff000ddd.json>
+2020-04-18 04:59:59	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.json>
+2020-04-18 04:59:59	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.json>
+2020-04-18 04:59:59	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.json>
+2020-04-18 04:59:59	Phoenix_App	```
+2020-04-18 04:59:59	Phoenix_App	Hannibal Geofences Export (production)
+2020-04-18 04:59:59	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/42010a840002.json>
+2020-04-18 04:59:59	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/bde0e992.json>
+2020-04-18 04:59:59	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/fff000ddd.json>
+2020-04-18 04:59:59	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7d3106c0-be30-4791-8c66-653f01402e9c.json>
+2020-04-18 04:59:59	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/e2557967-2833-4a55-9579-ab2c5277016e.json>
+2020-04-18 04:59:59	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.json>
+2020-04-18 04:59:59	Phoenix_App	App: 7, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.json>
+2020-04-18 04:59:59	Phoenix_App	App: 8, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/135af47a-34f4-4f92-b920-c9f016316aa0.json>
+2020-04-18 04:59:59	Phoenix_App	App: 9, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/a265c782-3356-4ced-8d0f-6ba1e322745d.json>
+2020-04-18 04:59:59	Phoenix_App	App: 10, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.json>
+2020-04-18 04:59:59	Phoenix_App	```
+2020-04-18 11:25:11	Phoenix_App	PhdTagChecker::staging Finished Batch 374
+2020-04-19 04:00:00	Phoenix_App	PhdTagChecker::production Created Batch 1190
+2020-04-19 04:00:00	Phoenix_App	PhdTagChecker::staging Created Batch 375
+2020-04-19 04:00:00	Phoenix_App	PhdTagChecker::production Created Batch 1191
+2020-04-19 04:00:00	Phoenix_App	Hannibal Segments Export (staging)
+2020-04-19 04:00:00	Phoenix_App	```App: 1, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/42010a840002.csv>
+2020-04-19 04:00:00	Phoenix_App	App: 2, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/bde0e992.csv>
+2020-04-19 04:00:00	Phoenix_App	App: 3, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/fff000ddd.csv>
+2020-04-19 04:00:00	Phoenix_App	App: 4, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.csv>
+2020-04-19 04:00:00	Phoenix_App	App: 5, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.csv>
+2020-04-19 04:00:00	Phoenix_App	App: 6, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.csv>
+2020-04-19 04:00:00	Phoenix_App	```
+2020-04-19 04:00:00	Phoenix_App	PhdTagChecker::staging Created Batch 376
+2020-04-19 04:00:02	Phoenix_App	Hannibal Segments Export (production)
+2020-04-19 04:00:02	Phoenix_App	```App: 1, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/42010a840002.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 2, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/bde0e992.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 3, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/fff000ddd.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 4, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/7d3106c0-be30-4791-8c66-653f01402e9c.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 5, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/e2557967-2833-4a55-9579-ab2c5277016e.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 6, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 7, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 8, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/135af47a-34f4-4f92-b920-c9f016316aa0.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 9, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/a265c782-3356-4ced-8d0f-6ba1e322745d.csv>
+2020-04-19 04:00:02	Phoenix_App	App: 10, URL: <https://storage.googleapis.com/accurat-belgium-private/segments/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.csv>
+2020-04-19 04:00:02	Phoenix_App	```
+2020-04-19 04:54:31	Phoenix_App	PhdTagChecker::production Finished Batch 1190
+2020-04-19 05:00:00	Phoenix_App	Hannibal Geofences Export (staging)
+2020-04-19 05:00:00	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/42010a840002.json>
+2020-04-19 05:00:00	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/bde0e992.json>
+2020-04-19 05:00:00	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/fff000ddd.json>
+2020-04-19 05:00:00	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.json>
+2020-04-19 05:00:00	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.json>
+2020-04-19 05:00:00	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.json>
+2020-04-19 05:00:00	Phoenix_App	```
+2020-04-19 05:00:01	Phoenix_App	Hannibal Geofences Export (production)
+2020-04-19 05:00:01	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/42010a840002.json>
+2020-04-19 05:00:01	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/bde0e992.json>
+2020-04-19 05:00:01	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/fff000ddd.json>
+2020-04-19 05:00:01	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7d3106c0-be30-4791-8c66-653f01402e9c.json>
+2020-04-19 05:00:01	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/e2557967-2833-4a55-9579-ab2c5277016e.json>
+2020-04-19 05:00:01	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.json>
+2020-04-19 05:00:01	Phoenix_App	App: 7, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.json>
+2020-04-19 05:00:01	Phoenix_App	App: 8, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/135af47a-34f4-4f92-b920-c9f016316aa0.json>
+2020-04-19 05:00:01	Phoenix_App	App: 9, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/a265c782-3356-4ced-8d0f-6ba1e322745d.json>
+2020-04-19 05:00:01	Phoenix_App	App: 10, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.json>
+2020-04-19 05:00:01	Phoenix_App	```
+2020-04-19 06:01:13	Phoenix_App	PhdTagChecker::production Finished Batch 1191
+2020-04-19 07:00:02	incoming-webhook	> Message
+2020-04-19 07:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-19 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-19 07:00:04	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-19 07:01:13	incoming-webhook	> Message
+2020-04-19 07:01:13	incoming-webhook	> DAILY :: EmailDailyService Send done in 71538ms
+2020-04-19 07:20:00	Phoenix_App	PHDCodeChecker batch started (batch: 246)
+2020-04-19 07:20:00	Phoenix_App	PHDCodeChecker batch started (batch: 157)
+2020-04-19 07:30:02	incoming-webhook	> Message
+2020-04-19 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-19 07:30:04	incoming-webhook	> Message
+2020-04-19 07:30:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1864ms
+2020-04-19 07:36:56	Phoenix_App	PHDCodeChecker batch 246 finished (fb: 0, dcm_general: 50, dcm_conversions: 0, sa360: 1085)
+2020-04-19 07:52:51	Phoenix_App	PhdTagChecker::staging Finished Batch 375
+2020-04-19 08:00:02	incoming-webhook	> Message
+2020-04-19 08:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-19 08:00:02	Phoenix_App	PhdTagChecker::production Batch Report 1190 sent
+2020-04-19 08:00:04	incoming-webhook	> Message
+2020-04-19 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1904ms
+2020-04-19 08:00:06	Phoenix_App	PhdTagChecker::production Batch Report 1191 sent
+2020-04-19 08:00:29	Phoenix_App	PhdTagChecker::staging Batch Report 375 sent
+2020-04-19 08:00:41	Phoenix_App	PhdTagChecker::staging Batch Report 374 sent
+2020-04-19 08:23:14	Phoenix_App	FlashTalking BatchWorker - work is done 278
+2020-04-19 08:23:14	Phoenix_App	==> FlashTalking finished batch 278
+2020-04-19 09:00:21	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-20 07:30:27	incoming-webhook	> Message
+2020-04-20 07:30:27	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-20 07:30:27	incoming-webhook	> Message
+2020-04-20 07:30:27	incoming-webhook	> DAILY :: EmailDailyService Send done in 1886ms
+2020-04-20 09:00:27	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-20 11:17:55	Phoenix_App	PhdTagChecker::staging Finished Batch 378
+2020-04-20 16:00:40	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-21 07:02:34	incoming-webhook	> Message
+2020-04-21 07:02:34	incoming-webhook	> DAILY :: EmailDailyService Send done in 152624ms
+2020-04-21 09:00:36	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-21 16:00:22	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-22 07:03:10	incoming-webhook	> Message
+2020-04-22 07:03:10	incoming-webhook	> DAILY :: EmailDailyService Send done in 189426ms
+2020-04-22 08:23:27	Phoenix_App	FlashTalking BatchWorker - work is done 281
+2020-04-22 08:23:27	Phoenix_App	==> FlashTalking finished batch 281
+2020-04-22 09:00:19	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-22 16:00:31	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-23 09:00:27	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-23 16:00:27	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-24 07:00:02	incoming-webhook	> Message
+2020-04-24 07:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-24 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-24 07:00:04	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-24 08:00:05	incoming-webhook	> Message
+2020-04-24 08:00:05	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-24 08:00:05	incoming-webhook	> Message
+2020-04-24 08:00:05	incoming-webhook	> DAILY :: EmailDailyService Send done in 1913ms
+2020-04-24 09:00:29	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-24 16:00:31	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-26 05:00:00	Phoenix_App	Hannibal Geofences Export (staging)
+2020-04-26 05:00:00	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/42010a840002.json>
+2020-04-26 05:00:00	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/bde0e992.json>
+2020-04-26 05:00:00	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/fff000ddd.json>
+2020-04-26 05:00:00	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.json>
+2020-04-26 05:00:00	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.json>
+2020-04-26 05:00:01	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.json>
+2020-04-26 05:00:01	Phoenix_App	```
+2020-04-26 05:00:01	Phoenix_App	Hannibal Geofences Export (production)
+2020-04-26 05:00:01	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/42010a840002.json>
+2020-04-26 05:00:01	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/bde0e992.json>
+2020-04-26 05:00:01	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/fff000ddd.json>
+2020-04-26 05:00:01	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7d3106c0-be30-4791-8c66-653f01402e9c.json>
+2020-04-26 05:00:01	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/e2557967-2833-4a55-9579-ab2c5277016e.json>
+2020-04-26 05:00:01	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.json>
+2020-04-26 05:00:01	Phoenix_App	App: 7, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.json>
+2020-04-26 05:00:01	Phoenix_App	App: 8, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/135af47a-34f4-4f92-b920-c9f016316aa0.json>
+2020-04-26 05:00:01	Phoenix_App	App: 9, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/a265c782-3356-4ced-8d0f-6ba1e322745d.json>
+2020-04-26 05:00:01	Phoenix_App	App: 10, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.json>
+2020-04-26 05:00:01	Phoenix_App	```
+2020-04-26 07:00:01	incoming-webhook	> Message
+2020-04-26 07:00:01	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-26 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-26 07:00:06	incoming-webhook	> Message
+2020-04-26 07:00:06	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 07:00:07	incoming-webhook	> Message
+2020-04-26 07:00:07	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 07:00:16	incoming-webhook	> Message
+2020-04-26 07:00:16	incoming-webhook	> DAILY :: EmailDailyService Send done in 8394ms
+2020-04-26 07:00:17	incoming-webhook	> Message
+2020-04-26 07:00:17	incoming-webhook	> DAILY :: EmailDailyService Send done in 10874ms
+2020-04-26 07:01:26	incoming-webhook	> Message
+2020-04-26 07:01:26	incoming-webhook	> DAILY :: EmailDailyService Send done in 84769ms
+2020-04-26 07:20:00	Phoenix_App	PHDCodeChecker batch started (batch: 253)
+2020-04-26 07:20:00	Phoenix_App	PHDCOdeChecker - Unfinished and outdated batch, forcing to finish (batch id: 159)
+2020-04-26 07:27:06	Phoenix_App	PHDCodeChecker batch 253 finished (fb: 0, dcm_general: 40, dcm_conversions: 0, sa360: 1085)
+2020-04-26 07:30:02	incoming-webhook	> Message
+2020-04-26 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 07:30:02	incoming-webhook	> Message
+2020-04-26 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 07:30:02	incoming-webhook	> Message
+2020-04-26 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 07:30:02	incoming-webhook	> Message
+2020-04-26 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send done in 333ms
+2020-04-26 07:30:02	incoming-webhook	> Message
+2020-04-26 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send done in 314ms
+2020-04-26 07:30:04	incoming-webhook	> Message
+2020-04-26 07:30:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 1913ms
+2020-04-26 08:00:03	incoming-webhook	> Message
+2020-04-26 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 08:00:03	incoming-webhook	> Message
+2020-04-26 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 08:00:04	incoming-webhook	> Message
+2020-04-26 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-26 08:00:05	incoming-webhook	> Message
+2020-04-26 08:00:05	incoming-webhook	> DAILY :: EmailDailyService Send done in 978ms
+2020-04-26 08:00:05	incoming-webhook	> Message
+2020-04-26 08:00:05	incoming-webhook	> DAILY :: EmailDailyService Send done in 865ms
+2020-04-26 08:00:05	incoming-webhook	> Message
+2020-04-26 08:00:05	incoming-webhook	> DAILY :: EmailDailyService Send done in 1899ms
+2020-04-26 08:24:19	Phoenix_App	FlashTalking BatchWorker - work is done 285
+2020-04-26 08:24:19	Phoenix_App	==> FlashTalking finished batch 285
+2020-04-26 09:00:20	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-27 05:00:00	Phoenix_App	Hannibal Geofences Export (staging)
+2020-04-27 05:00:00	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/42010a840002.json>
+2020-04-27 05:00:00	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/bde0e992.json>
+2020-04-27 05:00:00	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/fff000ddd.json>
+2020-04-27 05:00:00	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/e984bb0e-ad59-4318-bd48-be58b15163aa.json>
+2020-04-27 05:00:00	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/baeda453-7cea-4fcd-9b39-de9126b22f81.json>
+2020-04-27 05:00:00	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/staging/6e5e03a5-fd46-4bc1-a7fb-ce1aca4c9b61.json>
+2020-04-27 05:00:00	Phoenix_App	```
+2020-04-27 05:00:00	Phoenix_App	Hannibal Geofences Export (production)
+2020-04-27 05:00:00	Phoenix_App	```App: 1, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/42010a840002.json>
+2020-04-27 05:00:00	Phoenix_App	App: 2, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/bde0e992.json>
+2020-04-27 05:00:00	Phoenix_App	App: 3, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/fff000ddd.json>
+2020-04-27 05:00:00	Phoenix_App	App: 4, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7d3106c0-be30-4791-8c66-653f01402e9c.json>
+2020-04-27 05:00:00	Phoenix_App	App: 5, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/e2557967-2833-4a55-9579-ab2c5277016e.json>
+2020-04-27 05:00:00	Phoenix_App	App: 6, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/021e3fe3-67a2-4b3d-9743-70c1aa7e835d.json>
+2020-04-27 05:00:00	Phoenix_App	App: 7, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/7adbac90-eb2a-42f1-accf-2f2e00c11bd3.json>
+2020-04-27 05:00:00	Phoenix_App	App: 8, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/135af47a-34f4-4f92-b920-c9f016316aa0.json>
+2020-04-27 05:00:00	Phoenix_App	App: 9, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/a265c782-3356-4ced-8d0f-6ba1e322745d.json>
+2020-04-27 05:00:00	Phoenix_App	App: 10, State: ok, URL: <https://storage.googleapis.com/accurat-belgium-private/geofences/production/517de6d4-62a8-44c7-8c6d-ec0944f135b9.json>
+2020-04-27 05:00:00	Phoenix_App	```
+2020-04-27 07:00:03	incoming-webhook	> Message
+2020-04-27 07:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-27 07:00:03	Phoenix_App	PHDCodeChecker DCM Sent - profile 3012995, report 140690609 :: OK
+2020-04-27 07:00:08	incoming-webhook	> Message
+2020-04-27 07:00:08	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 07:00:08	incoming-webhook	> Message
+2020-04-27 07:00:08	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 07:00:16	incoming-webhook	> Message
+2020-04-27 07:00:16	incoming-webhook	> DAILY :: EmailDailyService Send done in 7912ms
+2020-04-27 07:00:18	incoming-webhook	> Message
+2020-04-27 07:00:18	incoming-webhook	> DAILY :: EmailDailyService Send done in 9507ms
+2020-04-27 07:01:31	incoming-webhook	> Message
+2020-04-27 07:01:31	incoming-webhook	> DAILY :: EmailDailyService Send done in 88354ms
+2020-04-27 07:20:00	Phoenix_App	PHDCodeChecker batch started (batch: 254)
+2020-04-27 07:28:23	Phoenix_App	PHDCodeChecker batch 254 finished (fb: 0, dcm_general: 36, dcm_conversions: 0, sa360: 1085)
+2020-04-27 07:30:01	incoming-webhook	> Message
+2020-04-27 07:30:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 07:30:03	incoming-webhook	> Message
+2020-04-27 07:30:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 07:30:03	incoming-webhook	> Message
+2020-04-27 07:30:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 07:30:03	incoming-webhook	> Message
+2020-04-27 07:30:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 311ms
+2020-04-27 07:30:03	incoming-webhook	> Message
+2020-04-27 07:30:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 286ms
+2020-04-27 07:30:03	incoming-webhook	> Message
+2020-04-27 07:30:03	incoming-webhook	> DAILY :: EmailDailyService Send done in 1978ms
+2020-04-27 08:00:02	incoming-webhook	> Message
+2020-04-27 08:00:02	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 08:00:03	incoming-webhook	> Message
+2020-04-27 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 08:00:03	incoming-webhook	> Message
+2020-04-27 08:00:03	incoming-webhook	> DAILY :: EmailDailyService Send start
+2020-04-27 08:00:04	incoming-webhook	> Message
+2020-04-27 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 439ms
+2020-04-27 08:00:04	incoming-webhook	> Message
+2020-04-27 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 458ms
+2020-04-27 08:00:04	incoming-webhook	> Message
+2020-04-27 08:00:04	incoming-webhook	> DAILY :: EmailDailyService Send done in 2041ms
+2020-04-27 08:25:45	Phoenix_App	FlashTalking BatchWorker - work is done 286
+2020-04-27 08:25:45	Phoenix_App	==> FlashTalking finished batch 286
+2020-04-27 09:00:30	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-27 16:00:48	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-28 09:00:44	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-04-28 09:07:19	--	irc: disconnected from server
+2020-04-28 09:57:51	-->	jeroenb (jeroenb) has joined #app-bot
+2020-05-18 08:13:24	-->	jeroenb (jeroenb) has joined #app-bot
+2020-05-18 08:23:53	Phoenix_App	FlashTalking BatchWorker - work is done 307
+2020-05-18 08:23:53	Phoenix_App	==> FlashTalking finished batch 307
+2020-05-18 09:00:27	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-05-18 16:00:47	Phoenix_App	MailgunLogger logged events for 5 accounts
+2020-05-19 09:00:37	Phoenix_App	MailgunLogger logged events for 5 accounts

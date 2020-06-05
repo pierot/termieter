@@ -1,0 +1,111 @@
+2020-06-04 10:49:52	Trello :]	Card moved: "https://trello.com/c/dny6RV4t (Er gaat iets mis bij het syncen van de selectiecriteria van Cesano (client_id 1714))" from list "Hotfix" to list "In Progress"
+2020-06-04 10:49:54	Trello :]	New member https://trello.com/pierot (pierot) added to card "https://trello.com/c/dny6RV4t (Er gaat iets mis bij het syncen van de selectiecriteria van Cesano (client_id 1714))"
+2020-06-04 14:23:32	Trello :]	New comment on card "https://trello.com/c/dny6RV4t (Er gaat iets mis bij het syncen van de selectiecriteria van Cesano (client_id 1714))" by pierot
+2020-06-04 14:23:32		@pieterjandeprest
+2020-06-04 14:23:32		Ik weet wat er is gebeurd. 
+2020-06-04 14:23:32		Enoch heeft bij die persoon (in trial) landen toegevoegd. Dat is prima, dat hoort ook zo. Maar hij heeft ook Belgie als lang toegevoegd. Dat was/is onnodig omdat die persoon zich sowieso voor Belgie registreert.
+2020-06-04 14:23:32		Wat wij doen bij een downgrade is alle landen verwijderen. Normaal verwijderen wij BE niet omdat dat geen 'land' (apart) is. In dit geval dus wel. Bij latere hernieuwingen is dat ook zo steeds gegaan.
+2020-06-04 14:23:35	Trello :]	Card moved: "https://trello.com/c/dny6RV4t (Er gaat iets mis bij het syncen van de selectiecriteria van Cesano (client_id 1714))" from list "In Progress" to list "To Test"
+2020-06-04 14:23:38	Trello :]	Card moved: "https://trello.com/c/P1xFALnv (Mail om het einde van de proefperiode aan te kondigen in foute taal bij Terraelec (client_id 1710))" from list "Hotfix" to list "In Progress"
+2020-06-04 14:23:40	Trello :]	New member https://trello.com/pierot (pierot) added to card "https://trello.com/c/P1xFALnv (Mail om het einde van de proefperiode aan te kondigen in foute taal bij Terraelec (client_id 1710))"
+2020-06-04 14:23:54	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "Sprint" to list "Hotfix"
+2020-06-04 14:47:01	Trello :]	New member https://trello.com/jeroenbourgois (Jeroen Bourgois) added to card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)"
+2020-06-04 14:47:15	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "Hotfix" to list "In Progress"
+2020-06-04 15:00:17	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Jeroen Bourgois
+2020-06-04 15:00:17		@pieterjandeprest waar exact zou je dit blokje willen tussenvoegen? Is ook enkel de eerste zin niet voldoende? Want we hebben nu als afsluiter al 'Wil je de selectie verder verkennen of bewerken, ga dan naar je TenderWolf dashboard.', dat lijkt mij goed te kunnen volgen op bovenstaande eerste zin?
+2020-06-04 15:13:16	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Pieter-Jan Deprest
+2020-06-04 15:13:16		@jeroenbourgois Je hebt gelijk dat enkel het eerste zinnetje goed is.
+2020-06-04 15:13:16		Het idee is dat het enkel getoond wordt in mails die worden afgekapt. De zin moet er dan komen vlak na de lijst van publicaties, dus nog voor 'Wil je de selectie verder verkennen of bewerken, ga dan naar je TenderWolf dashboard.'
+2020-06-04 15:13:51	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Jeroen Bourgois
+2020-06-04 15:13:51		@pieterjandeprest yes, zo zag ik het ook, komt in orde.
+2020-06-04 15:13:58	Trello :]	New comment on card "https://trello.com/c/dny6RV4t (Er gaat iets mis bij het syncen van de selectiecriteria van Cesano (client_id 1714))" by Pieter-Jan Deprest
+2020-06-04 15:13:58		@pierot Ok, bedankt. Ik geef door aan Enoch dat hij "België" niet moet toevoegen.
+2020-06-04 15:14:04	Trello :]	Card moved: "https://trello.com/c/dny6RV4t (Er gaat iets mis bij het syncen van de selectiecriteria van Cesano (client_id 1714))" from list "To Test" to list "Done"
+2020-06-04 15:30:05	Trello :]	New comment on card "https://trello.com/c/P1xFALnv (Mail om het einde van de proefperiode aan te kondigen in foute taal bij Terraelec (client_id 1710))" by pierot
+2020-06-04 15:30:05		@pieterjandeprest 
+2020-06-04 15:30:05		De trial e-mails werden nog op basis van de taal van de klant verstuurd. Dat principe kennen we eigenlijk niet meer, waardoor de e-mail in het nederlands toekwam. Dit is nu aangepast naar de taal van de 'owner', in dit geval Frans dus.
+2020-06-04 15:30:09	Trello :]	Card moved: "https://trello.com/c/P1xFALnv (Mail om het einde van de proefperiode aan te kondigen in foute taal bij Terraelec (client_id 1710))" from list "In Progress" to list "To Test"
+2020-06-04 16:01:06	Trello :]	Card moved: "https://trello.com/c/P1xFALnv (Mail om het einde van de proefperiode aan te kondigen in foute taal bij Terraelec (client_id 1710))" from list "To Test" to list "To staging"
+2020-06-04 21:59:14	Trello :]	Card moved: "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" from list "Sprint" to list "In Progress"
+2020-06-04 22:11:29	Trello :]	New comment on card "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" by pierot
+2020-06-04 22:11:29		@pieterjandeprest
+2020-06-04 22:11:29		MailGun raadt zelf aan om nooit rechtstreeks met je hoofddomein e-mails te versturen, maar eerder een subdomein te gebruiken (jouw puntje 2). Voor andere klanten gebruiken we daar steeds `m.DOMAIN.TLD`. In dit geval `http://m.tenderwolf.com (m.tenderwolf.com)`.
+2020-06-04 22:11:29		Zo kan je dus perfect downtime vermijden.
+2020-06-04 22:11:29		Zet ik alles klaar? Ik kan zelf de DNS records aanmaken aangezien dat nu via Cloudflare gaat (niet via Combell).
+2020-06-05 08:26:03	Trello :]	New comment on card "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" by Pieter-Jan Deprest
+2020-06-05 08:26:03		@pierot Ja, zet maar klaar. Is het dan de bedoeling dat ik nog iets wijzig ergens? Of kan jij aan alles?
+2020-06-05 08:26:25	Trello :]	Card moved: "https://trello.com/c/ln425l0K (Op IE: back toets brengt je niet terug op de positie waar je zat in de zoekresultaten)" from list "Fixes & Requests" to list "Backlog"
+2020-06-05 08:32:23	Trello :]	New comment on card "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" by pierot
+2020-06-05 08:32:23		@pieterjandeprest normaal niet. Tenzij jullie mailgun ook gebruiken voor verzenden van e-mails? Kan zijn dat er nieuwe api keys komen.
+2020-06-05 08:41:23	Trello :]	New comment on card "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" by Pieter-Jan Deprest
+2020-06-05 08:41:23		@pierot Nee, MailGun wordt enkel gebruikt door jullie voor de updatemail, proefperiodemails e.d. en vanuit http://tenderwolf.com (tenderwolf.com) voor het delen van publicaties.
+2020-06-05 09:15:21	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "In Progress" to list "To staging"
+2020-06-05 09:15:59	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Jeroen Bourgois
+2020-06-05 09:15:59		@pieterjandeprest dit staat op staging, maar is wat moeilijk te testen uiteraad... kan je op staging bij 1 van je eigen gebruikers voorzien dat die >100 publicaties zal krijgen?
+2020-06-05 09:19:51	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Pieter-Jan Deprest
+2020-06-05 09:19:51		@jeroenbourgois Ja, moet wel lukken. Een free gebruiker krijgt er zoveel.
+2020-06-05 09:24:42	Trello :]	New comment on card "https://trello.com/c/IdlIbRBs ([S15] Implementatie nieuwe API Confederatie Bouw)" by Pieter-Jan Deprest
+2020-06-05 09:24:42		@pierot Kan je de nieuwe copy er nog inzetten?
+2020-06-05 09:25:08	Trello :]	Card moved: "https://trello.com/c/IdlIbRBs ([S15] Implementatie nieuwe API Confederatie Bouw)" from list "To staging" to list "In Progress"
+2020-06-05 09:28:51	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "To staging" to list "Ready for production"
+2020-06-05 09:29:24	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Jeroen Bourgois
+2020-06-05 09:29:24		@pieterjandeprest ok, ik moet nog een aanpassing doen voor de free users, dan moet het klaar staan om te testen, ik sleep het zo terug.
+2020-06-05 09:29:30	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "Ready for production" to list "To Test"
+2020-06-05 09:29:31	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "To Test" to list "In Progress"
+2020-06-05 09:30:04	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Pieter-Jan Deprest
+2020-06-05 09:30:04		@jeroenbourgois Juist getest met een betalende gebruiker, daar was het alvast in orde.
+2020-06-05 09:30:37	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Jeroen Bourgois
+2020-06-05 09:30:37		@pieterjandeprest ok goed nieuws! Free nog niet, want de code was nog niet juist. Komt eraan.
+2020-06-05 09:43:59	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Jeroen Bourgois
+2020-06-05 09:43:59		@pieterjandeprest ok done. Je kan ze best alletwee nog eens testen (free/paid), ik heb de copy nog aangepast zodat het aantal dynamisch is, ifv het maximum in de code.
+2020-06-05 09:45:20	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "In Progress" to list "To staging"
+2020-06-05 09:55:06	Trello :]	Checklist item "Tag toevoegen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:55:06	Trello :]	Checklist item "Tag verwijderen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:55:07	Trello :]	Checklist item "Publicatie verwijderen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:55:08	Trello :]	Checklist item "Publicatie toevoegen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:55:09	Trello :]	Checklist item "Tag toevoegen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:55:09	Trello :]	Checklist item "Tag verwijderen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:55:10	Trello :]	Checklist item "Publicatie toevoegen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:55:11	Trello :]	Checklist item "Publicatie verwijderen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:55:16	Trello :]	Checklist item "Random filters testen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:57:36	Trello :]	Checklist item "Backspace testen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:57:37	Trello :]	Checklist item "Vrij zoeken" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:57:41	Trello :]	Checklist item "Label toevoegen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:57:41	Trello :]	Checklist item "Label verwijderen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:57:42	Trello :]	Checklist item "Labelcategorie aanmaken" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:57:42	Trello :]	Checklist item "Labelcategorie verwijderen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:57:44	Trello :]	Checklist item "Label verplaatsen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 09:57:48	Trello :]	Card moved: "https://trello.com/c/HXZ3bY0S (Wanneer iemand geen labels heeft, zijn alle publicaties zichtbaar op de labelpagina. Ook die van andere landen.)" from list "To staging" to list "Ready for production"
+2020-06-05 09:58:30	Trello :]	New comment on card "https://trello.com/c/P1xFALnv (Mail om het einde van de proefperiode aan te kondigen in foute taal bij Terraelec (client_id 1710))" by Pieter-Jan Deprest
+2020-06-05 09:58:30		Ik vind dit wat moeilijk te testen, ik ga er vanuit gaan dat dit in orde is.
+2020-06-05 09:58:33	Trello :]	Card moved: "https://trello.com/c/P1xFALnv (Mail om het einde van de proefperiode aan te kondigen in foute taal bij Terraelec (client_id 1710))" from list "To staging" to list "Ready for production"
+2020-06-05 10:02:31	Trello :]	Checklist item "Publicatie delen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:03:03	Trello :]	Checklist item "Officiële publicatie downloaden" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:03:03	Trello :]	Checklist item "'Back' testen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:03:04	Trello :]	Checklist item "Navigatiebalk testen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:03:04	Trello :]	Checklist item "Inhoudstafel testen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:03:26	Trello :]	Checklist item "Notitie toevoegen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:03:29	Trello :]	Checklist item "Addendum downloaden" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:04:23	Trello :]	Checklist item "CPV wijzigen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:04:25	Trello :]	Checklist item "NUTS wijzigen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:04:25	Trello :]	Checklist item "Cues wijzigen" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 10:20:36	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Pieter-Jan Deprest
+2020-06-05 10:20:36		Werkt for free, maar in het Engels staat er nu "%recipient.maxed_out%"
+2020-06-05 10:24:45	Trello :]	Card moved: "https://trello.com/c/IdlIbRBs ([S15] Implementatie nieuwe API Confederatie Bouw)" from list "In Progress" to list "To Test"
+2020-06-05 10:24:47	Trello :]	Card moved: "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" from list "In Progress" to list "To Test"
+2020-06-05 10:43:14	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "To staging" to list "In Progress"
+2020-06-05 10:47:42	Trello :]	New comment on card "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" by pierot
+2020-06-05 10:47:42		@pieterjandeprest je zal zien dat de afzender 'mailto:info@m.tenderwolf.com (info@m.tenderwolf.com)' is maar ik heb de reply-to ingesteld op 'mailto:info@tenderwolf.com (info@tenderwolf.com)'.
+2020-06-05 10:47:44	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "In Progress" to list "To Test"
+2020-06-05 11:57:52	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Pieter-Jan Deprest
+2020-06-05 11:57:52		@card ik heb dit nog steeds voor engels, alleen staat het nu in camel case: `%recipient.maxedOut%`
+2020-06-05 11:59:04	Trello :]	Card moved: "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" from list "To Test" to list "In Progress"
+2020-06-05 11:59:08	Trello :]	New comment on card "https://trello.com/c/xDEATsyK (Copy toevoegen aan de updatemail onderaan wanneer er meer dan 100 publicaties zijn)" by Jeroen Bourgois
+2020-06-05 11:59:08		Verdorie zeg :D ik controlleer het no eens!
+2020-06-05 12:01:49	Trello :]	Card moved: "https://trello.com/c/IdlIbRBs ([S15] Implementatie nieuwe API Confederatie Bouw)" from list "To Test" to list "Ready for production"
+2020-06-05 12:03:50	Trello :]	New comment on card "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" by Pieter-Jan Deprest
+2020-06-05 12:03:50		@pierot kunnen we dat later terugzetten naar mailto:info@tenderwolf.com (info@tenderwolf.com)? Ik denk dat er verschillende gebruikers dat adres hebben gewhitelist en dat door het adres te veranderen onze mail weer in spam zou kunnen terecht komen.
+2020-06-05 12:03:50		Verzenden van e-mails werkt alleszins
+2020-06-05 12:06:26	Trello :]	Checklist item "Registreer (default)" on card "https://trello.com/c/9krdQEE5 (Before deploy checklists)" was completed by Pieter-Jan Deprest
+2020-06-05 12:09:32	Trello :]	New comment on card "https://trello.com/c/XJm51Eif (Verplaatsen domein MailGun)" by pierot
+2020-06-05 12:09:32		@pieterjandeprest Dat kan, maar dat is niet per se aan te raden. Idealiter is de domein van het verzendadres hetzelfde als het verzenddomein.

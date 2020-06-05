@@ -1,0 +1,79 @@
+2020-06-03 16:00:36	PhoenixApp :]	MailgunLogger logged events for 5 accounts
+2020-06-04 08:00:02	TenderWolf - test :]	Message
+2020-06-04 08:00:02		DAILY :: EmailDailyService Send start
+2020-06-04 08:00:02		Level: INFO
+2020-06-04 08:00:02	TenderWolf - test :]	Message
+2020-06-04 08:00:02		DAILY :: EmailDailyService Send done in 369ms
+2020-06-04 08:00:02		Level: INFO
+2020-06-04 08:00:03	TenderWolf - production :]	Message
+2020-06-04 08:00:03		DAILY :: EmailDailyService Send start
+2020-06-04 08:00:03		Level: INFO
+2020-06-04 08:00:03	TenderWolf - staging :]	Message
+2020-06-04 08:00:03		DAILY :: EmailDailyService Send start
+2020-06-04 08:00:03		Level: INFO
+2020-06-04 08:00:03	TenderWolf - staging :]	Message
+2020-06-04 08:00:03		DAILY :: EmailDailyService Send done in 1329ms
+2020-06-04 08:00:03		Level: INFO
+2020-06-04 08:00:05	TenderWolf - production :]	Message
+2020-06-04 08:00:05		DAILY :: EmailDailyService Send done in 2112ms
+2020-06-04 08:00:05		Level: INFO
+2020-06-04 09:00:32	PhoenixApp :]	MailgunLogger logged events for 5 accounts
+2020-06-04 16:00:32	PhoenixApp :]	MailgunLogger logged events for 5 accounts
+2020-06-05 07:20:00	PhoenixApp :]	PHDCodeChecker batch started (batch: 291)
+2020-06-05 08:00:03	TenderWolf - production :]	Message
+2020-06-05 08:00:03		DAILY :: EmailDailyService Send start
+2020-06-05 08:00:03		Level: INFO
+2020-06-05 08:00:05	TenderWolf - production :]	Message
+2020-06-05 08:00:05		DAILY :: EmailDailyService Send done in 2110ms
+2020-06-05 08:00:05		Level: INFO
+2020-06-05 08:00:07	TenderWolf - staging :]	Message
+2020-06-05 08:00:07		DAILY :: EmailDailyService Send start
+2020-06-05 08:00:07		Level: INFO
+2020-06-05 08:00:07	TenderWolf - test :]	Message
+2020-06-05 08:00:07		DAILY :: EmailDailyService Send start
+2020-06-05 08:00:07		Level: INFO
+2020-06-05 08:00:08	TenderWolf - test :]	Message
+2020-06-05 08:00:08		DAILY :: EmailDailyService Send done in 876ms
+2020-06-05 08:00:08		Level: INFO
+2020-06-05 08:00:08	TenderWolf - staging :]	Message
+2020-06-05 08:00:08		DAILY :: EmailDailyService Send done in 1340ms
+2020-06-05 08:00:08		Level: INFO
+2020-06-05 08:24:37	PhoenixApp :]	FlashTalking BatchWorker - work is done 325
+2020-06-05 08:24:37	PhoenixApp :]	==> FlashTalking finished batch 325
+2020-06-05 09:00:38	PhoenixApp :]	MailgunLogger logged events for 5 accounts
+2020-06-05 09:26:28	TenderWolf - staging :]	Message
+2020-06-05 09:26:28		DAILY :: EmailDailyService Send start
+2020-06-05 09:26:28		Level: INFO
+2020-06-05 09:26:31	TenderWolf - staging :]	Message
+2020-06-05 09:26:31		DAILY :: EmailDailyService Send done in 3057ms
+2020-06-05 09:26:31		Level: INFO
+2020-06-05 09:28:09	TenderWolf - staging :]	Message
+2020-06-05 09:28:09		DAILY :: EmailDailyService Send start
+2020-06-05 09:28:09		Level: INFO
+2020-06-05 09:28:09	TenderWolf - staging :]	Message
+2020-06-05 09:28:09		DAILY :: EmailDailyService Send done in 293ms
+2020-06-05 09:28:09		Level: INFO
+2020-06-05 09:54:46	TenderWolf - staging :]	Message
+2020-06-05 09:54:46		DAILY :: EmailDailyService Send start
+2020-06-05 09:54:46		Level: INFO
+2020-06-05 09:54:49	TenderWolf - staging :]	Message
+2020-06-05 09:54:49		DAILY :: EmailDailyService Send done in 2986ms
+2020-06-05 09:54:49		Level: INFO
+2020-06-05 10:00:13	TenderWolf - staging :]	Message
+2020-06-05 10:00:13		DAILY :: EmailDailyService Send start
+2020-06-05 10:00:13		Level: INFO
+2020-06-05 10:00:43	TenderWolf - staging :]	Message
+2020-06-05 10:00:43		DAILY :: EmailDailyService Send start
+2020-06-05 10:00:43		Level: INFO
+2020-06-05 10:18:19	TenderWolf - staging :]	Message
+2020-06-05 10:18:19		DAILY :: EmailDailyService Send start
+2020-06-05 10:18:19		Level: INFO
+2020-06-05 10:18:21	TenderWolf - staging :]	Message
+2020-06-05 10:18:21		DAILY :: EmailDailyService Send done in 1997ms
+2020-06-05 10:18:21		Level: INFO
+2020-06-05 11:56:16	TenderWolf - staging :]	Message
+2020-06-05 11:56:16		DAILY :: EmailDailyService Send start
+2020-06-05 11:56:16		Level: INFO
+2020-06-05 11:56:18	TenderWolf - staging :]	Message
+2020-06-05 11:56:18		DAILY :: EmailDailyService Send done in 1996ms
+2020-06-05 11:56:18		Level: INFO

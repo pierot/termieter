@@ -1,0 +1,269 @@
+2020-06-03 23:01:46	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/e1fc2990b38e9ae9d8c1d17cdd032559c80cf188...c7cc6594ac2de7b4c539a4cf8c89debb609ab172 (Compare changes))
+2020-06-03 23:01:46		https://gitlab.com/jackjoe/justified/justified/-/commit/01a4f896bebc3f60820da3de77130b0e26912a0a (01a4f896): cleanup - Jeroen Bourgois
+2020-06-03 23:01:46		https://gitlab.com/jackjoe/justified/justified/-/commit/bc775d857e776378237c36c0a6d012b5b1bb2672 (bc775d85): Merge branch 'develop' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) into develop - Jeroen Bourgois
+2020-06-03 23:01:46		https://gitlab.com/jackjoe/justified/justified/-/commit/c7cc6594ac2de7b4c539a4cf8c89debb609ab172 (c7cc6594): fix: sort for verhuisd - Jeroen Bourgois
+2020-06-03 23:11:40	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/c7cc6594ac2de7b4c539a4cf8c89debb609ab172...04a4ab20c3ce0c0509917cf57648fffc357caa9c (Compare changes))
+2020-06-03 23:11:40		https://gitlab.com/jackjoe/justified/justified/-/commit/04a4ab20c3ce0c0509917cf57648fffc357caa9c (04a4ab20): fix: alter label - Jeroen Bourgois
+2020-06-03 23:17:18	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152601889 has passed in 15:28 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152601889)
+2020-06-03 23:17:18		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-03 23:17:18		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/c7cc6594ac2de7b4c539a4cf8c89debb609ab172 (fix: sort for verhuisd)
+2020-06-03 23:17:18		Justified App | Today at 23:17
+2020-06-03 23:28:42	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152604724 has passed in 17:05 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152604724)
+2020-06-03 23:28:42		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-03 23:28:42		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/04a4ab20c3ce0c0509917cf57648fffc357caa9c (fix: alter label)
+2020-06-03 23:28:42		Justified App | Today at 23:28
+2020-06-03 23:57:36	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/04a4ab20c3ce0c0509917cf57648fffc357caa9c...bf54f1bf4edae8d507b910d9762db3c027beba4c (Compare changes))
+2020-06-03 23:57:36		https://gitlab.com/jackjoe/justified/justified/-/commit/bf54f1bf4edae8d507b910d9762db3c027beba4c (bf54f1bf): feat: remove Datum kolom - Jeroen Bourgois
+2020-06-04 00:12:40	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152614655 has passed in 14:59 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152614655)
+2020-06-04 00:12:40		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 00:12:40		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/bf54f1bf4edae8d507b910d9762db3c027beba4c (feat: remove Datum kolom)
+2020-06-04 00:12:40		Justified App | Today at 00:12
+2020-06-04 00:26:39	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/bf54f1bf4edae8d507b910d9762db3c027beba4c...669001ea13f0968c678be9cddabb0b3eb7a68401 (Compare changes))
+2020-06-04 00:26:39		https://gitlab.com/jackjoe/justified/justified/-/commit/669001ea13f0968c678be9cddabb0b3eb7a68401 (669001ea): feat: update export_cbb - Jeroen Bourgois
+2020-06-04 00:27:43	GitLab :]	Jeroen (jeroenbourgois) edited https://gitlab.com/jackjoe/justified/justified/-/wikis/processes/Start-flow (wiki page) in https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App): *Start flow*
+2020-06-04 00:27:43		Update Start flow
+2020-06-04 00:42:05	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152620888 has passed in 15:22 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152620888)
+2020-06-04 00:42:05		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 00:42:05		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/669001ea13f0968c678be9cddabb0b3eb7a68401 (feat: update export_cbb)
+2020-06-04 00:42:05		Justified App | Today at 00:42
+2020-06-04 08:40:01	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/669001ea13f0968c678be9cddabb0b3eb7a68401...edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24 (Compare changes))
+2020-06-04 08:40:01		https://gitlab.com/jackjoe/justified/justified/-/commit/5358e6b0c1cacbe4f07ad1eb8ddf7d1fb577192a (5358e6b0): feat: move agenda link - Jeroen Bourgois
+2020-06-04 08:40:01		https://gitlab.com/jackjoe/justified/justified/-/commit/edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24 (edee4662): feat: improve error message details on CBB import - Jeroen Bourgois
+2020-06-04 08:55:42	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24...606e7127cf3f8ce070c115e03f0bfe28d2e0a604 (Compare changes))
+2020-06-04 08:55:42		https://gitlab.com/jackjoe/justified/justified/-/commit/606e7127cf3f8ce070c115e03f0bfe28d2e0a604 (606e7127): fix: save beslagberichten_aantal even when beslagberichten is empty - Jeroen Bourgois
+2020-06-04 08:56:09	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152718082 has passed in 16:06 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152718082)
+2020-06-04 08:56:09		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 08:56:09		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24 (feat: improve error message details on CBB import)
+2020-06-04 08:56:09		Justified App | Today at 08:56
+2020-06-04 09:11:16	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152721876 has passed in 15:32 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152721876)
+2020-06-04 09:11:16		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 09:11:16		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/606e7127cf3f8ce070c115e03f0bfe28d2e0a604 (fix: save beslagberichten_aantal even when beslagberichten is empty)
+2020-06-04 09:11:16		Justified App | Today at 09:11
+2020-06-04 09:19:35	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/606e7127cf3f8ce070c115e03f0bfe28d2e0a604...5ccb9f956825d992fffb6606b6ebef4db5837e5c (Compare changes))
+2020-06-04 09:19:35		https://gitlab.com/jackjoe/justified/justified/-/commit/5ccb9f956825d992fffb6606b6ebef4db5837e5c (5ccb9f95): feat: add reason column to export cbb - Jeroen Bourgois
+2020-06-04 09:25:48	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/5ccb9f956825d992fffb6606b6ebef4db5837e5c...88257014c33e08b706cda2fcafa0898bc4706bb2 (Compare changes))
+2020-06-04 09:25:48		https://gitlab.com/jackjoe/justified/justified/-/commit/057d2435b4402dd789ba4d76bfedefbf5ed44efd (057d2435): feat: make verhuisd check case insensitive - Jeroen Bourgois
+2020-06-04 09:25:48		https://gitlab.com/jackjoe/justified/justified/-/commit/88257014c33e08b706cda2fcafa0898bc4706bb2 (88257014): feat: refactor address verhuisd check and trim content - Jeroen Bourgois
+2020-06-04 09:28:45	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/88257014c33e08b706cda2fcafa0898bc4706bb2...2b2fb89210441b48cfcb8ead4a76e3e82d2793b8 (Compare changes))
+2020-06-04 09:28:45		https://gitlab.com/jackjoe/justified/justified/-/commit/2b2fb89210441b48cfcb8ead4a76e3e82d2793b8 (2b2fb892): chore: bump versions - Jeroen Bourgois
+2020-06-03 23:57:36	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/04a4ab20c3ce0c0509917cf57648fffc357caa9c...bf54f1bf4edae8d507b910d9762db3c027beba4c (Compare changes))
+2020-06-03 23:57:36		https://gitlab.com/jackjoe/justified/justified/-/commit/bf54f1bf4edae8d507b910d9762db3c027beba4c (bf54f1bf): feat: remove Datum kolom - Jeroen Bourgois
+2020-06-04 00:12:40	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152614655 has passed in 14:59 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152614655)
+2020-06-04 00:12:40		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 00:12:40		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/bf54f1bf4edae8d507b910d9762db3c027beba4c (feat: remove Datum kolom)
+2020-06-04 00:12:40		Justified App | Today at 00:12
+2020-06-04 00:26:39	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/bf54f1bf4edae8d507b910d9762db3c027beba4c...669001ea13f0968c678be9cddabb0b3eb7a68401 (Compare changes))
+2020-06-04 00:26:39		https://gitlab.com/jackjoe/justified/justified/-/commit/669001ea13f0968c678be9cddabb0b3eb7a68401 (669001ea): feat: update export_cbb - Jeroen Bourgois
+2020-06-04 00:27:43	GitLab :]	Jeroen (jeroenbourgois) edited https://gitlab.com/jackjoe/justified/justified/-/wikis/processes/Start-flow (wiki page) in https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App): *Start flow*
+2020-06-04 00:27:43		Update Start flow
+2020-06-04 00:42:05	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152620888 has passed in 15:22 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152620888)
+2020-06-04 00:42:05		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 00:42:05		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/669001ea13f0968c678be9cddabb0b3eb7a68401 (feat: update export_cbb)
+2020-06-04 00:42:05		Justified App | Today at 00:42
+2020-06-04 08:40:01	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/669001ea13f0968c678be9cddabb0b3eb7a68401...edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24 (Compare changes))
+2020-06-04 08:40:01		https://gitlab.com/jackjoe/justified/justified/-/commit/5358e6b0c1cacbe4f07ad1eb8ddf7d1fb577192a (5358e6b0): feat: move agenda link - Jeroen Bourgois
+2020-06-04 08:40:01		https://gitlab.com/jackjoe/justified/justified/-/commit/edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24 (edee4662): feat: improve error message details on CBB import - Jeroen Bourgois
+2020-06-04 08:55:42	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24...606e7127cf3f8ce070c115e03f0bfe28d2e0a604 (Compare changes))
+2020-06-04 08:55:42		https://gitlab.com/jackjoe/justified/justified/-/commit/606e7127cf3f8ce070c115e03f0bfe28d2e0a604 (606e7127): fix: save beslagberichten_aantal even when beslagberichten is empty - Jeroen Bourgois
+2020-06-04 08:56:09	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152718082 has passed in 16:06 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152718082)
+2020-06-04 08:56:09		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 08:56:09		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24 (feat: improve error message details on CBB import)
+2020-06-04 08:56:09		Justified App | Today at 08:56
+2020-06-04 09:11:16	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152721876 has passed in 15:32 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152721876)
+2020-06-04 09:11:16		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 09:11:16		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/606e7127cf3f8ce070c115e03f0bfe28d2e0a604 (fix: save beslagberichten_aantal even when beslagberichten is empty)
+2020-06-04 09:11:16		Justified App | Today at 09:11
+2020-06-04 09:19:35	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/606e7127cf3f8ce070c115e03f0bfe28d2e0a604...5ccb9f956825d992fffb6606b6ebef4db5837e5c (Compare changes))
+2020-06-04 09:19:35		https://gitlab.com/jackjoe/justified/justified/-/commit/5ccb9f956825d992fffb6606b6ebef4db5837e5c (5ccb9f95): feat: add reason column to export cbb - Jeroen Bourgois
+2020-06-04 09:25:48	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/5ccb9f956825d992fffb6606b6ebef4db5837e5c...88257014c33e08b706cda2fcafa0898bc4706bb2 (Compare changes))
+2020-06-04 09:25:48		https://gitlab.com/jackjoe/justified/justified/-/commit/057d2435b4402dd789ba4d76bfedefbf5ed44efd (057d2435): feat: make verhuisd check case insensitive - Jeroen Bourgois
+2020-06-04 09:25:48		https://gitlab.com/jackjoe/justified/justified/-/commit/88257014c33e08b706cda2fcafa0898bc4706bb2 (88257014): feat: refactor address verhuisd check and trim content - Jeroen Bourgois
+2020-06-04 09:28:45	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/88257014c33e08b706cda2fcafa0898bc4706bb2...2b2fb89210441b48cfcb8ead4a76e3e82d2793b8 (Compare changes))
+2020-06-04 09:28:45		https://gitlab.com/jackjoe/justified/justified/-/commit/2b2fb89210441b48cfcb8ead4a76e3e82d2793b8 (2b2fb892): chore: bump versions - Jeroen Bourgois
+2020-06-04 09:47:26	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152730904 has passed in 21:35 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152730904)
+2020-06-04 09:47:26		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 09:47:26		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/88257014c33e08b706cda2fcafa0898bc4706bb2 (feat: refactor address verhuisd check and trim content)
+2020-06-04 09:47:26		Justified App | Today at 09:47
+2020-06-04 09:48:18	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152731701 has failed in 19:30 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152731701/failures)
+2020-06-04 09:48:18		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 09:48:18		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/2b2fb89210441b48cfcb8ead4a76e3e82d2793b8 (chore: bump versions)
+2020-06-04 09:48:18		Failed stage: https://gitlab.com/jackjoe/justified/justified/-/pipelines/152731701/failures (deploy)
+2020-06-04 09:48:18		Failed job: https://gitlab.com/jackjoe/justified/justified/-/jobs/580633984 (deploy_staging)
+2020-06-04 09:48:18		Justified App | Today at 09:48
+2020-06-04 10:31:59	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/2b2fb89210441b48cfcb8ead4a76e3e82d2793b8...d0782ace2f2b7f1aa8a248c5cb886b02f7014051 (Compare changes))
+2020-06-04 10:31:59		https://gitlab.com/jackjoe/justified/justified/-/commit/de274d71af467877e370dd69a64bea597936ae9a (de274d71): chore: case raw date fields - Pieter Michels
+2020-06-04 10:31:59		https://gitlab.com/jackjoe/justified/justified/-/commit/d0782ace2f2b7f1aa8a248c5cb886b02f7014051 (d0782ace): Merge branch 'develop' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) into develop - Pieter Michels
+2020-06-04 10:34:31	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152731701 has passed in 16:47 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152731701)
+2020-06-04 10:34:31		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 10:34:31		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/2b2fb89210441b48cfcb8ead4a76e3e82d2793b8 (chore: bump versions)
+2020-06-04 10:34:31		Justified App | Today at 10:34
+2020-06-04 10:47:34	GitLab :]	Pieter Michels (pietermi): Pipeline #152754149 has passed in 15:33 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152754149)
+2020-06-04 10:47:34		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 10:47:34		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/d0782ace2f2b7f1aa8a248c5cb886b02f7014051 (Merge branch 'develop' of gitlab.com:jackjoe/justified/justified into develop)
+2020-06-04 10:47:34		Justified App | Today at 10:47
+2020-06-04 13:26:45	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/d0782ace2f2b7f1aa8a248c5cb886b02f7014051...586c28f8feef22a21d76922dadfe60f4e7875d83 (Compare changes))
+2020-06-04 13:26:45		https://gitlab.com/jackjoe/justified/justified/-/commit/586c28f8feef22a21d76922dadfe60f4e7875d83 (586c28f8): chore: disable signup email - Pieter Michels
+2020-06-04 13:42:25	GitLab :]	Pieter Michels (pietermi): Pipeline #152828196 has passed in 15:37 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152828196)
+2020-06-04 13:42:25		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 13:42:25		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/586c28f8feef22a21d76922dadfe60f4e7875d83 (chore: disable signup email)
+2020-06-04 13:42:25		Justified App | Today at 13:42
+2020-06-04 15:10:52	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/586c28f8feef22a21d76922dadfe60f4e7875d83...46a4f090d32dad1b16d16fbf2fa999773b0f1e78 (Compare changes))
+2020-06-04 15:10:52		https://gitlab.com/jackjoe/justified/justified/-/commit/a14e92e00a099da74b2bbe122731a86b37a8d828 (a14e92e0): fix: no 0 by default for beslagberichten_aantal - Jeroen Bourgois
+2020-06-04 15:10:52		https://gitlab.com/jackjoe/justified/justified/-/commit/46a4f090d32dad1b16d16fbf2fa999773b0f1e78 (46a4f090): Merge branch 'develop' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) into develop - Jeroen Bourgois
+2020-06-04 15:22:03	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/master (master) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/27a1cc873dd1771431493724835a26916a873527...46a4f090d32dad1b16d16fbf2fa999773b0f1e78 (Compare changes))
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/ba59828f8f12356b59c153171b380e558ead48bd (ba59828f): chore: title account views - Pieter Michels
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/e1fc2990b38e9ae9d8c1d17cdd032559c80cf188 (e1fc2990): feat: bosses on client group - Pieter Michels
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/01a4f896bebc3f60820da3de77130b0e26912a0a (01a4f896): cleanup - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/bc775d857e776378237c36c0a6d012b5b1bb2672 (bc775d85): Merge branch 'develop' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) into develop - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/c7cc6594ac2de7b4c539a4cf8c89debb609ab172 (c7cc6594): fix: sort for verhuisd - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/04a4ab20c3ce0c0509917cf57648fffc357caa9c (04a4ab20): fix: alter label - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/bf54f1bf4edae8d507b910d9762db3c027beba4c (bf54f1bf): feat: remove Datum kolom - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/669001ea13f0968c678be9cddabb0b3eb7a68401 (669001ea): feat: update export_cbb - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/5358e6b0c1cacbe4f07ad1eb8ddf7d1fb577192a (5358e6b0): feat: move agenda link - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/edee4662ace8d9b65e5e069ac5f0aecdd5b1dd24 (edee4662): feat: improve error message details on CBB import - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/606e7127cf3f8ce070c115e03f0bfe28d2e0a604 (606e7127): fix: save beslagberichten_aantal even when beslagberichten is empty - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/5ccb9f956825d992fffb6606b6ebef4db5837e5c (5ccb9f95): feat: add reason column to export cbb - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/057d2435b4402dd789ba4d76bfedefbf5ed44efd (057d2435): feat: make verhuisd check case insensitive - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/88257014c33e08b706cda2fcafa0898bc4706bb2 (88257014): feat: refactor address verhuisd check and trim content - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/2b2fb89210441b48cfcb8ead4a76e3e82d2793b8 (2b2fb892): chore: bump versions - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/de274d71af467877e370dd69a64bea597936ae9a (de274d71): chore: case raw date fields - Pieter Michels
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/d0782ace2f2b7f1aa8a248c5cb886b02f7014051 (d0782ace): Merge branch 'develop' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) into develop - Pieter Michels
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/586c28f8feef22a21d76922dadfe60f4e7875d83 (586c28f8): chore: disable signup email - Pieter Michels
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/a14e92e00a099da74b2bbe122731a86b37a8d828 (a14e92e0): fix: no 0 by default for beslagberichten_aantal - Jeroen Bourgois
+2020-06-04 15:22:03		https://gitlab.com/jackjoe/justified/justified/-/commit/46a4f090d32dad1b16d16fbf2fa999773b0f1e78 (46a4f090): Merge branch 'develop' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) into develop - Jeroen Bourgois
+2020-06-04 15:25:16	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/develop (develop) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/5ac42576a8de3de5c9d6fbf55024771a86d6f342...46d63911bfe168001892a77e9dec5b868ee5d751 (Compare changes))
+2020-06-04 15:25:16		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/46d63911bfe168001892a77e9dec5b868ee5d751 (46d63911): feat: add maxed out copy to daily email - Jeroen Bourgois
+2020-06-04 15:25:28	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152871261 has passed in 14:33 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152871261)
+2020-06-04 15:25:28		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 15:25:28		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/46a4f090d32dad1b16d16fbf2fa999773b0f1e78 (Merge branch 'develop' of gitlab.com:jackjoe/justified/justified into develop)
+2020-06-04 15:25:28		Justified App | Today at 15:25
+2020-06-04 15:30:40	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/develop (develop) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/46d63911bfe168001892a77e9dec5b868ee5d751...e5e1b8613778cbbe6ba19f470f2e314f337462fe (Compare changes))
+2020-06-04 15:30:40		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/8c562ca508ff003c2f2e1e25e865cd47095003de (8c562ca5): fix: trial email languages based on owner - Pieter Michels
+2020-06-04 15:30:40		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/e5e1b8613778cbbe6ba19f470f2e314f337462fe (e5e1b861): Merge branch 'develop' of http://gitlab.com:jackjoe/datawoods/tenderwolf (gitlab.com:jackjoe/datawoods/tenderwolf) into develop - Pieter Michels
+2020-06-04 15:37:45	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/develop (develop) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/e5e1b8613778cbbe6ba19f470f2e314f337462fe...426475eb080eb46e24c8902d47743885ede5d003 (Compare changes))
+2020-06-04 15:37:45		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/426475eb080eb46e24c8902d47743885ede5d003 (426475eb): chore: bump versions - Pieter Michels
+2020-06-04 15:38:54	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152880623 has passed in 16:48 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152880623)
+2020-06-04 15:38:54		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/master (master)
+2020-06-04 15:38:54		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/46a4f090d32dad1b16d16fbf2fa999773b0f1e78 (Merge branch 'develop' of gitlab.com:jackjoe/justified/justified into develop)
+2020-06-04 15:38:54		Justified App | Today at 15:38
+2020-06-04 15:40:58	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/46a4f090d32dad1b16d16fbf2fa999773b0f1e78...65ea8c24edbad3bd749fb07945d6ebc9ef0ef772 (Compare changes))
+2020-06-04 15:40:58		https://gitlab.com/jackjoe/justified/justified/-/commit/65ea8c24edbad3bd749fb07945d6ebc9ef0ef772 (65ea8c24): chore: cleanup kickstarters - Pieter Michels
+2020-06-04 15:57:50	GitLab :]	Pieter Michels (pietermi): Pipeline #152888882 has passed in 16:50 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152888882)
+2020-06-04 15:57:50		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 15:57:50		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/65ea8c24edbad3bd749fb07945d6ebc9ef0ef772 (chore: cleanup kickstarters)
+2020-06-04 15:57:50		Justified App | Today at 15:57
+2020-06-04 16:47:26	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/65ea8c24edbad3bd749fb07945d6ebc9ef0ef772...20b22edbb358c1b6e6d0597d5c34e91e8becd4bb (Compare changes))
+2020-06-04 16:47:26		https://gitlab.com/jackjoe/justified/justified/-/commit/20b22edbb358c1b6e6d0597d5c34e91e8becd4bb (20b22edb): fix: sb email not being saved - Jeroen Bourgois
+2020-06-04 16:52:13	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/mic-mac-minuscule/menage/commits/develop (develop) of https://gitlab.com/jackjoe/mic-mac-minuscule/menage (Jack Joe / Mic Mac Minuscule / Menage) (https://gitlab.com/jackjoe/mic-mac-minuscule/menage/compare/631a0a58686dc8d39fddcb6af6a3f5f68ea79aae...c7f00ea9a2583c1558f8f7850db1ac84170f66f5 (Compare changes))
+2020-06-04 16:52:13		https://gitlab.com/jackjoe/mic-mac-minuscule/menage/-/commit/c7f00ea9a2583c1558f8f7850db1ac84170f66f5 (c7f00ea9): chore: extra mailto fields voor factuur aanvragen - Pieter Michels
+2020-06-04 16:53:50	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/20b22edbb358c1b6e6d0597d5c34e91e8becd4bb...c5750c727c620676d97e25fc7ab39b9b1eb7fcb5 (Compare changes))
+2020-06-04 16:53:50		https://gitlab.com/jackjoe/justified/justified/-/commit/c5750c727c620676d97e25fc7ab39b9b1eb7fcb5 (c5750c72): chore: remove marquees - Jeroen Bourgois
+2020-06-04 17:04:21	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152920506 has passed in 16:51 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152920506)
+2020-06-04 17:04:21		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 17:04:21		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/20b22edbb358c1b6e6d0597d5c34e91e8becd4bb (fix: sb email not being saved)
+2020-06-04 17:04:21		Justified App | Today at 17:04
+2020-06-04 17:07:48	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152923382 has failed in 13:55 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152923382/failures)
+2020-06-04 17:07:48		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 17:07:48		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/c5750c727c620676d97e25fc7ab39b9b1eb7fcb5 (chore: remove marquees)
+2020-06-04 17:07:48		Failed stage: https://gitlab.com/jackjoe/justified/justified/-/pipelines/152923382/failures (prepare)
+2020-06-04 17:07:48		Failed jobs: https://gitlab.com/jackjoe/justified/justified/-/jobs/581514545 (test_elixir), https://gitlab.com/jackjoe/justified/justified/-/jobs/581514544 (build_staging)
+2020-06-04 17:07:48		Justified App | Today at 17:07
+2020-06-04 18:11:46	GitLab :]	Jeroen (jeroenbourgois): Pipeline #152923382 has failed in 06:58 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/152923382/failures)
+2020-06-04 18:11:46		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-04 18:11:46		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/c5750c727c620676d97e25fc7ab39b9b1eb7fcb5 (chore: remove marquees)
+2020-06-04 18:11:46		Failed stage: https://gitlab.com/jackjoe/justified/justified/-/pipelines/152923382/failures (prepare)
+2020-06-04 18:11:46		Failed jobs: https://gitlab.com/jackjoe/justified/justified/-/jobs/581666504 (test_elixir), https://gitlab.com/jackjoe/justified/justified/-/jobs/581666496 (build_staging)
+2020-06-04 18:11:46		Justified App | Today at 18:11
+2020-06-04 21:58:29	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/mic-mac-minuscule/menage/commits/master (master) of https://gitlab.com/jackjoe/mic-mac-minuscule/menage (Jack Joe / Mic Mac Minuscule / Menage) (https://gitlab.com/jackjoe/mic-mac-minuscule/menage/compare/68e811128c4a2ea5f5413f5a2fa752941c52ef9c...c7f00ea9a2583c1558f8f7850db1ac84170f66f5 (Compare changes))
+2020-06-04 21:58:29		https://gitlab.com/jackjoe/mic-mac-minuscule/menage/-/commit/3fac38524d82f80cf61c9047d1091ed2d7d32a2b (3fac3852): chore: bump versions - Pieter Michels
+2020-06-04 21:58:29		https://gitlab.com/jackjoe/mic-mac-minuscule/menage/-/commit/ed0340dfe06233aba9ad3bf470f97af8930dd93c (ed0340df): chore: cleanup - Jeroen Bourgois
+2020-06-04 21:58:29		https://gitlab.com/jackjoe/mic-mac-minuscule/menage/-/commit/beb08c289e977dcba7ba16dd3963ee5d9134e050 (beb08c28): feat: different no_availability copy when list with sugar but too late - Jeroen Bourgois
+2020-06-04 21:58:29		https://gitlab.com/jackjoe/mic-mac-minuscule/menage/-/commit/631a0a58686dc8d39fddcb6af6a3f5f68ea79aae (631a0a58): fix: product out of set - Pieter Michels
+2020-06-04 21:58:29		https://gitlab.com/jackjoe/mic-mac-minuscule/menage/-/commit/c7f00ea9a2583c1558f8f7850db1ac84170f66f5 (c7f00ea9): chore: extra mailto fields voor factuur aanvragen - Pieter Michels
+2020-06-04 22:20:52	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/master (master) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/46a4f090d32dad1b16d16fbf2fa999773b0f1e78...97fa595ecfc382f0f9afa1cbacea12f13f302a66 (Compare changes))
+2020-06-04 22:20:52		https://gitlab.com/jackjoe/justified/justified/-/commit/97fa595ecfc382f0f9afa1cbacea12f13f302a66 (97fa595e): chore: cleanup actions for onvindbaar scenario - Pieter Michels
+2020-06-04 22:21:28	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/master (master) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/97fa595ecfc382f0f9afa1cbacea12f13f302a66...5954996cdbfb416561d704e27da76757ede3e2ad (Compare changes))
+2020-06-04 22:21:28		https://gitlab.com/jackjoe/justified/justified/-/commit/5954996cdbfb416561d704e27da76757ede3e2ad (5954996c): chore: cleanup - Pieter Michels
+2020-06-04 22:35:04	GitLab :]	Pieter Michels (pietermi): Pipeline #153032757 has passed in 13:29 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/153032757)
+2020-06-04 22:35:04		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/master (master)
+2020-06-04 22:35:04		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/5954996cdbfb416561d704e27da76757ede3e2ad (chore: cleanup)
+2020-06-04 22:35:04		Justified App | Today at 22:35
+2020-06-05 07:59:33	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/master (master) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/5954996cdbfb416561d704e27da76757ede3e2ad...895037316538e2ffadc38804b566a571d7487438 (Compare changes))
+2020-06-05 07:59:33		https://gitlab.com/jackjoe/justified/justified/-/commit/234ff47df2e356bb7367ae210bce4a15352a2fa5 (234ff47d): fix: remove puple warning marquee in the start flow - Jeroen Bourgois
+2020-06-05 07:59:33		https://gitlab.com/jackjoe/justified/justified/-/commit/cdbfc42c74ee5d3679b80c4200e0c61e6313b756 (cdbfc42c): Merge branch 'master' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) - Jeroen Bourgois
+2020-06-05 07:59:33		https://gitlab.com/jackjoe/justified/justified/-/commit/895037316538e2ffadc38804b566a571d7487438 (89503731): chore: bump versions - Jeroen Bourgois
+2020-06-05 08:12:25	GitLab :]	Jeroen (jeroenbourgois): Pipeline #153143798 has passed in 12:46 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/153143798)
+2020-06-05 08:12:25		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/master (master)
+2020-06-05 08:12:25		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/895037316538e2ffadc38804b566a571d7487438 (chore: bump versions)
+2020-06-05 08:12:25		Justified App | Today at 08:12
+2020-06-05 08:51:38	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/c5750c727c620676d97e25fc7ab39b9b1eb7fcb5...291d75b13dc3f4335fbb4acc6369d76d321fd6ca (Compare changes))
+2020-06-05 08:51:38		https://gitlab.com/jackjoe/justified/justified/-/commit/97fa595ecfc382f0f9afa1cbacea12f13f302a66 (97fa595e): chore: cleanup actions for onvindbaar scenario - Pieter Michels
+2020-06-05 08:51:38		https://gitlab.com/jackjoe/justified/justified/-/commit/5954996cdbfb416561d704e27da76757ede3e2ad (5954996c): chore: cleanup - Pieter Michels
+2020-06-05 08:51:38		https://gitlab.com/jackjoe/justified/justified/-/commit/234ff47df2e356bb7367ae210bce4a15352a2fa5 (234ff47d): fix: remove puple warning marquee in the start flow - Jeroen Bourgois
+2020-06-05 08:51:38		https://gitlab.com/jackjoe/justified/justified/-/commit/cdbfc42c74ee5d3679b80c4200e0c61e6313b756 (cdbfc42c): Merge branch 'master' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) - Jeroen Bourgois
+2020-06-05 08:51:38		https://gitlab.com/jackjoe/justified/justified/-/commit/895037316538e2ffadc38804b566a571d7487438 (89503731): chore: bump versions - Jeroen Bourgois
+2020-06-05 08:51:38		https://gitlab.com/jackjoe/justified/justified/-/commit/67843bc794c82ad7bddc176f2db09cb9d9e24c00 (67843bc7): fix: end tag - Jeroen Bourgois
+2020-06-05 08:51:38		https://gitlab.com/jackjoe/justified/justified/-/commit/291d75b13dc3f4335fbb4acc6369d76d321fd6ca (291d75b1): Merge branch 'master' into develop - Jeroen Bourgois
+2020-06-05 09:00:35	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/staging (staging) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/c5909f07c9f1bebfa93eadd812e1221f73374f09...426475eb080eb46e24c8902d47743885ede5d003 (Compare changes))
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/55a26a5a2a21f90d3e6d932cf98e6ca0b173d674 (55a26a5a): chore: cleanup - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/29d280806565da7630c2a281fce8deddebbb47d0 (29d28080): chore: bump versions - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/7fc5694576652c03170488f6287206ed1a953d37 (7fc56945): refactor: remove start of specific confed bouw signup flow and merge with regular flow - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/e4916ed546250513af6d06950979a4c74ff8f38d (e4916ed5): chore: start conf bouw ws integration - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/ccddbd05498b8fc24f16fc609cf7c0aaeb45a658 (ccddbd05): chore: conf bouw prefill - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/8fb27e5800d01b39b8c058073ebdcd0a3063f34b (8fb27e58): fix: end search after quitting empty tag search - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/2726e6c311d50a9ba5f6c4484dd0f5b8bf508e4e (2726e6c3): feat: add spinnable button - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/317a19cc3e017317bfdfcacfffaa929fc9d8ebd5 (317a19cc): chore: bump versions - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/5ac42576a8de3de5c9d6fbf55024771a86d6f342 (5ac42576): chore: bump versions - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/46d63911bfe168001892a77e9dec5b868ee5d751 (46d63911): feat: add maxed out copy to daily email - Jeroen Bourgois
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/8c562ca508ff003c2f2e1e25e865cd47095003de (8c562ca5): fix: trial email languages based on owner - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/e5e1b8613778cbbe6ba19f470f2e314f337462fe (e5e1b861): Merge branch 'develop' of http://gitlab.com:jackjoe/datawoods/tenderwolf (gitlab.com:jackjoe/datawoods/tenderwolf) into develop - Pieter Michels
+2020-06-05 09:00:35		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/426475eb080eb46e24c8902d47743885ede5d003 (426475eb): chore: bump versions - Pieter Michels
+2020-06-05 09:04:12	GitLab :]	Jeroen (jeroenbourgois): Pipeline #153155134 has passed in 12:31 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/153155134)
+2020-06-05 09:04:12		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-05 09:04:12		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/291d75b13dc3f4335fbb4acc6369d76d321fd6ca (Merge branch 'master' into develop)
+2020-06-05 09:04:12		Justified App | Today at 09:04
+2020-06-05 09:55:16	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/291d75b13dc3f4335fbb4acc6369d76d321fd6ca...0281b3f1e98008919c2ccdd440120ff105bf73d6 (Compare changes))
+2020-06-05 09:55:16		https://gitlab.com/jackjoe/justified/justified/-/commit/0281b3f1e98008919c2ccdd440120ff105bf73d6 (0281b3f1): chore: spacing - Jeroen Bourgois
+2020-06-05 09:56:13	GitLab :]	Jeroen removed branch feature/i18next from https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App)
+2020-06-05 09:56:31	GitLab :]	Jeroen removed branch feature/pricing-apr-2019 from https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App)
+2020-06-05 09:57:04	GitLab :]	Jeroen removed branch feature/react-dropzone from https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App)
+2020-06-05 09:57:24	GitLab :]	Jeroen removed branch feature/do_auto_process from https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App)
+2020-06-05 10:04:44	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/develop (develop) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/426475eb080eb46e24c8902d47743885ede5d003...c4bb102bba56e6acbdad1887d4f1346f676488d7 (Compare changes))
+2020-06-05 10:04:44		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/16c847e7b73665c11d2872ba6f1b2a4053e5d062 (16c847e7): chore: change mailgun to EU - Pieter Michels
+2020-06-05 10:04:44		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/c4bb102bba56e6acbdad1887d4f1346f676488d7 (c4bb102b): chore: bump versions - Pieter Michels
+2020-06-05 10:08:21	GitLab :]	Jeroen (jeroenbourgois): Pipeline #153173258 has passed in 11:57 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/153173258)
+2020-06-05 10:08:21		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-05 10:08:21		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/0281b3f1e98008919c2ccdd440120ff105bf73d6 (chore: spacing)
+2020-06-05 10:08:21		Justified App | Today at 10:07
+2020-06-05 10:09:57	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/staging (staging) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/0a5d7a5e69cda52d66d06a09e928bdaf8659c92d...941a981449016f30172f76849a4bcdb776b4f4c8 (Compare changes))
+2020-06-05 10:09:57		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/941a981449016f30172f76849a4bcdb776b4f4c8 (941a9814): fix: locale bug - Jeroen Bourgois
+2020-06-05 10:15:15	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/develop (develop) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/c4bb102bba56e6acbdad1887d4f1346f676488d7...c07b353ceba0fc005bef5d0bfa5232f9d25eb647 (Compare changes))
+2020-06-05 10:15:15		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/c07b353ceba0fc005bef5d0bfa5232f9d25eb647 (c07b353c): chore: copy signup confed bouw - Pieter Michels
+2020-06-05 10:15:30	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/staging (staging) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/941a981449016f30172f76849a4bcdb776b4f4c8...79e08d906f5ce8267d1eee6727c4277c0d9f2023 (Compare changes))
+2020-06-05 10:15:30		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/16c847e7b73665c11d2872ba6f1b2a4053e5d062 (16c847e7): chore: change mailgun to EU - Pieter Michels
+2020-06-05 10:15:30		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/c4bb102bba56e6acbdad1887d4f1346f676488d7 (c4bb102b): chore: bump versions - Pieter Michels
+2020-06-05 10:15:30		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/c07b353ceba0fc005bef5d0bfa5232f9d25eb647 (c07b353c): chore: copy signup confed bouw - Pieter Michels
+2020-06-05 10:15:30		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/79e08d906f5ce8267d1eee6727c4277c0d9f2023 (79e08d90): Merge branch 'develop' into staging - Pieter Michels
+2020-06-05 10:21:34	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/staging (staging) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/79e08d906f5ce8267d1eee6727c4277c0d9f2023...1456357c13971d61625e7f69ffa4279d05393c8d (Compare changes))
+2020-06-05 10:21:34		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/1456357c13971d61625e7f69ffa4279d05393c8d (1456357c): chore: en copy - Pieter Michels
+2020-06-05 10:34:14	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/staging (staging) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/1456357c13971d61625e7f69ffa4279d05393c8d...32a05eb98a7de83cc6bc8b4e16a856f69b280d49 (Compare changes))
+2020-06-05 10:34:14		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/32a05eb98a7de83cc6bc8b4e16a856f69b280d49 (32a05eb9): chore: proper reply-to - Pieter Michels
+2020-06-05 10:57:28	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/staging (staging) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/32a05eb98a7de83cc6bc8b4e16a856f69b280d49...652e969b05aebcd1401c407dc4d47b0d28213653 (Compare changes))
+2020-06-05 10:57:28		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/61bcfb07fe3d33bb854b9529bdc9c88eb1dca025 (61bcfb07): fix: copy key - Jeroen Bourgois
+2020-06-05 10:57:28		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/652e969b05aebcd1401c407dc4d47b0d28213653 (652e969b): Merge branch 'staging' of http://gitlab.com:jackjoe/datawoods/tenderwolf (gitlab.com:jackjoe/datawoods/tenderwolf) into staging - Jeroen Bourgois
+2020-06-05 11:15:11	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/0281b3f1e98008919c2ccdd440120ff105bf73d6...5adfe781b5385123e2c7e699475d2f30baed6373 (Compare changes))
+2020-06-05 11:15:11		https://gitlab.com/jackjoe/justified/justified/-/commit/83dee0f8d76a26e8d4f68ca75881275a82919dda (83dee0f8): Merge branch 'master' into develop - Pieter Michels
+2020-06-05 11:15:11		https://gitlab.com/jackjoe/justified/justified/-/commit/e7093915376271b435b7cc831b5361546055c36b (e7093915): feat: manage users as boss or client group boss - Pieter Michels
+2020-06-05 11:15:11		https://gitlab.com/jackjoe/justified/justified/-/commit/5adfe781b5385123e2c7e699475d2f30baed6373 (5adfe781): Merge branch 'develop' of http://gitlab.com:jackjoe/justified/justified (gitlab.com:jackjoe/justified/justified) into develop - Pieter Michels
+2020-06-05 11:27:26	GitLab :]	Pieter Michels (pietermi): Pipeline #153207196 has passed in 12:12 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/153207196)
+2020-06-05 11:27:26		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-05 11:27:26		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/5adfe781b5385123e2c7e699475d2f30baed6373 (Merge branch 'develop' of gitlab.com:jackjoe/justified/justified into develop)
+2020-06-05 11:27:26		Justified App | Today at 11:27
+2020-06-05 11:39:51	GitLab :]	Pieter Michels pushed to branch https://gitlab.com/jackjoe/justified/justified/commits/develop (develop) of https://gitlab.com/jackjoe/justified/justified (Jack Joe / Justified / Justified App) (https://gitlab.com/jackjoe/justified/justified/compare/5adfe781b5385123e2c7e699475d2f30baed6373...637fd89ef803691d2b6ad407a0708a7cc5317f4d (Compare changes))
+2020-06-05 11:39:51		https://gitlab.com/jackjoe/justified/justified/-/commit/637fd89ef803691d2b6ad407a0708a7cc5317f4d (637fd89e): feat: show schuldseiser for client in inbox when multiple clients - Pieter Michels
+2020-06-05 11:51:58	GitLab :]	Pieter Michels (pietermi): Pipeline #153217449 has passed in 12:01 (https://gitlab.com/jackjoe/justified/justified/-/pipelines/153217449)
+2020-06-05 11:51:58		Branch: https://gitlab.com/jackjoe/justified/justified/-/commits/develop (develop)
+2020-06-05 11:51:58		Commit: https://gitlab.com/jackjoe/justified/justified/-/commit/637fd89ef803691d2b6ad407a0708a7cc5317f4d (feat: show schuldseiser for client in inbox when multiple clients)
+2020-06-05 11:51:58		Justified App | Today at 11:51
+2020-06-05 12:50:59	GitLab :]	Jeroen pushed to branch https://gitlab.com/jackjoe/datawoods/tenderwolf/commits/staging (staging) of https://gitlab.com/jackjoe/datawoods/tenderwolf (Jack Joe / DataWoods / TenderWolf) (https://gitlab.com/jackjoe/datawoods/tenderwolf/compare/652e969b05aebcd1401c407dc4d47b0d28213653...3b554bf88f80637aae184a2f91a634ff12c6e2ab (Compare changes))
+2020-06-05 12:50:59		https://gitlab.com/jackjoe/datawoods/tenderwolf/-/commit/3b554bf88f80637aae184a2f91a634ff12c6e2ab (3b554bf8): fix copy - Jeroen Bourgois

@@ -1,0 +1,111 @@
+2020-06-03 23:55:17	jeroenb	q
+2020-06-04 08:00:03	Common :]	There are no events today
+2020-06-04 08:33:29	jeroenb	Zullen we de licentie van TablePlus vernieuwen? We krijgen nu geen updates meer. Op zich geen probleem, mijn huidige versie werkt prima.
+2020-06-04 08:37:36	pieterm	Mag wel ja
+2020-06-04 08:43:23	jeroenb	Alles goed anders :)?
+2020-06-04 08:46:43	jeroenb	Terug 3 seats? Dat hoeft voor mij niet, de versie op mijn laptop gebruik ik bijna nooit, die hoeft niet cutting edge te zijn
+2020-06-04 08:59:45	pieterm	2 is dan goed ja
+2020-06-04 08:59:51	pieterm	Sorry, ff iets aan het lezen
+2020-06-04 09:00:18	IFTTT :]	It's time to fill in those timesheets! :sweat_drops: :deciduous_tree:
+2020-06-04 09:03:43	jeroenb	np
+2020-06-04 09:04:07	jeroenb	Oei... 
+2020-06-04 09:04:08	jeroenb	You are renewing TablePlus with less devices than your current license. Any devices you don’t renew will no longer have access to TablePlus and the app will revert back to the Free version. Please note, this process cannot be reversed.
+2020-06-04 09:04:24	jeroenb	Dat is mss dan ook niet ideaal...
+2020-06-04 09:04:25	pieterm	En wat is de free version eigenlijk?
+2020-06-04 09:04:31	jeroenb	geen idee ;) eens kijken
+2020-06-04 09:05:15	jeroenb	The free trial is limited to 2 opened tabs, 2 opened windows, 2 advanced filters at a time
+2020-06-04 09:05:31	jeroenb	Dan toch drie? 't Is wel zijn geld waard als product vind ik.
+2020-06-04 09:05:35	pieterm	doen
+2020-06-04 09:05:44	jeroenb	Laatste maanden ook zeer stabiel wat crashes ofzo betreft
+2020-06-04 09:05:53	jeroenb	Enkel die 'sync' was beetje flauw ;)
+2020-06-04 09:11:43	pieterm	Absoluut
+2020-06-04 09:14:21	jeroenb	Ok gelukt hier, je moet wel even de applicatie herstarten.
+2020-06-04 09:14:22	Slackbot	What is that crazy shit you saying?!
+2020-06-04 09:21:45	jeroenb	Lukt het met de kaartjes bij u?
+2020-06-04 09:23:28	pieterm	ja sorry, ff met architect aan de lijn
+2020-06-04 09:23:45	pieterm	ja, die dd/dt lijst .. dat is toch maar een een gesukkel om dat goed te krijgen
+2020-06-04 09:23:52	pieterm	ik ga die solvabiliteit omzetten naar een tabel
+2020-06-04 09:23:56	pieterm	ben daar nu aan bezig
+2020-06-04 09:24:04	pieterm	om 10u sluiten we Justified ff af hé :wink:
+2020-06-04 09:24:48	jeroenb	Yes, ik ben ook aan het laatste bezig!
+2020-06-04 09:26:09	pieterm	weet je wat ‘raar’ is: text-sm werkt niet
+2020-06-04 09:26:15	pieterm	want onze font size is al text-sm
+2020-06-04 09:26:23	pieterm	tenzij dat dat een conflict is met bootstrap
+2020-06-04 09:26:33	pieterm	dus als je kleine tekst wil moet je al text-xs gebruiken
+2020-06-04 09:29:28	jeroenb	Ah dat is wel wat stom ja. Maar je kan in die tailwind config dat allemaal aanpassen en bijsturen he, dat is echt een handige tool.
+2020-06-04 09:29:52	jeroenb	Eigenlijk zijn er een rits defaults, en daar kan je die overschrijven of mergen. Font sizes, kleuren, ...
+2020-06-04 09:30:59	jeroenb	Zal ik de FAQ van slimerven inlopen?
+2020-06-04 09:31:15	pieterm	is goed
+2020-06-04 09:43:55	jeroenb	Ze hebben de vragen ondergebracht in categorieen, ik zal dat aanhouden?
+2020-06-04 09:44:07	pieterm	Ik zou dat wel doen
+2020-06-04 10:32:10	pieterm	pfff, sukkalre
+2020-06-04 10:36:40	jeroenb	amai hier ook al :s
+2020-06-04 10:36:48	jeroenb	met ssl / mixed content op slimerven 
+2020-06-04 10:39:17	jeroenb	wth nu is het ineens opgelost :s
+2020-06-04 10:40:35	jeroenb	Moet ik bij u ook even helpen kijken?
+2020-06-04 10:49:42	pieterm	ring ring
+2020-06-04 10:52:11	jeroenb	knock knock
+2020-06-04 10:52:18	jeroenb	--> password please :)
+2020-06-04 10:52:32	pieterm	322560
+2020-06-04 10:53:28	jeroenb	nope :( 
+2020-06-04 10:53:37	jeroenb	alez zeg, die onboarding is echt frustrerend he :P
+2020-06-04 10:53:41	pieterm	https://us02web.zoom.us/j/89530852027?pwd=TkhVZ0o3ZHF3YWp0ZE5idThzM0Q3QT09
+2020-06-04 10:53:48	pieterm	7kqnZD
+2020-06-04 10:55:59	pieterm	https://wolk-antwerp.com/
+2020-06-04 13:12:21	jeroenb	back van de kapper
+2020-06-04 13:12:27	jeroenb	moet ik in de call joinen?
+2020-06-04 13:24:31	pieterm	het antwoord is nee :slightly_smiling_face:
+2020-06-04 13:24:36	pieterm	we mogen nu productie deploy doen
+2020-06-04 13:25:00	pieterm	wacht
+2020-06-04 13:25:40	pieterm	toch liever na demo die hij om 14u geeft
+2020-06-04 13:25:45	pieterm	demo omgeving mag ook weg trouwens
+2020-06-04 13:26:16	jeroenb	Ok
+2020-06-04 13:26:28	jeroenb	Ik eet nog even en ben dan aan bureau
+2020-06-04 13:26:35	jeroenb	Bijna klaar 
+2020-06-04 13:26:46	pieterm	ok
+2020-06-04 13:32:08	jeroenb	ok b
+2020-06-04 14:03:25	pieterm	Hij vond Cooler Master een goedkoop merk :smile: en had er zelf 650w in gestoken
+2020-06-04 14:03:47	jeroenb	ah, dat weten we dan ook weer. Dus toch 650w, stevig stukje meer…
+2020-06-04 14:04:09	jeroenb	Dan heeft het constant aan staan en toch wat load hier en daar wat zwaar gewogen op de huidige voeding
+2020-06-04 14:20:33	jeroenb	straks eens overleggen qua visualisatie van de FAQ
+2020-06-04 14:23:46	pieterm	ok
+2020-06-04 14:41:15	jeroenb	zeg maar wanneer het past
+2020-06-04 14:41:22	pieterm	nu
+2020-06-04 17:57:57	pieterm	TOWER IS BACK
+2020-06-04 17:57:59	pieterm	/gif rocket
+2020-06-04 17:58:00	RightGIF :]	https://techcrunch.com/wp-content/uploads/2020/03/starlink-launch-3-18.gif?w\u003d730\u0026crop\u003d1
+2020-06-04 18:05:58	jeroenb	yes ik kon het zien op Telegram ook :D
+2020-06-04 22:21:34	jeroenb	is het goed dat ik nog een deploy doe van Justified, dus dev > prod?
+2020-06-04 22:21:45	jeroenb	volgens mij is er nog niet echt iets gedaan sinds deze NM?
+2020-06-05 08:00:02	Common :]	There are no events today
+2020-06-05 08:45:56	pieterm	ja dus :slightly_smiling_face:
+2020-06-05 08:47:32	jeroenb	de kaartjes waar jij op werkt voor TW, kunnen die ook op staging gebeuren? Want ik denk dat die e-mails op test helemaal niet goed getest gaan kunnen worden, anders zou ik dev > staging mergen
+2020-06-05 08:51:20	pieterm	ja, dat mag op staging ja
+2020-06-05 08:53:06	jeroenb	ok, dit was dan ongeveer te verwachten?
+2020-06-05 08:53:14	jeroenb	https://www.dropbox.com/s/sggsi0alwe1ow2m/Screenshot%202020-06-05%2008.53.10.png?dl=0
+2020-06-05 08:57:30	pieterm	ah ja! conf bouw :smile:
+2020-06-05 08:59:24	jeroenb	ok, gewoon om zeker te zijn :D
+2020-06-05 08:59:43	jeroenb	dat mag ook al naar staging dan? Wellicht niet zo'n probleem he
+2020-06-05 09:00:15	pieterm	go
+2020-06-05 09:01:11	IFTTT :]	It's time to fill in those timesheets! :sweat_drops: :deciduous_tree:
+2020-06-05 09:40:28	jeroenb	damn, die nieuwe single van Run The Jewels kon niet meer 'timely' komen denk ik 
+2020-06-05 09:40:48	jeroenb	Hoorde die net op stubru, ben nu naar het album aan het luisteren (stiekem grote fan van RTJ :D )
+2020-06-05 09:41:20	jeroenb	in een repeat van wel 10 keer "look at all these slave masters, posing on your dollar bills" 
+2020-06-05 09:41:32	pieterm	Dat is een naam die mij niets zegt ..
+2020-06-05 09:41:38	jeroenb	Serieus :s
+2020-06-05 09:41:51	jeroenb	dat is nu niet bepaald -14 jaar hoor :P
+2020-06-05 09:42:11	jeroenb	soit, tis ook geen Kanye West qua populariteit :) 
+2020-06-05 09:42:49	jeroenb	Anyway, dat zinnetje dreunt er wel in
+2020-06-05 10:26:36	pieterm	ik ben bijna klaar met TW
+2020-06-05 10:37:47	jeroenb	ik ook
+2020-06-05 10:42:14	pieterm	ik geraak niet meer op tenderwolf staging server
+2020-06-05 10:43:18	jeroenb	oi, op de server zelf dan?
+2020-06-05 10:43:27	jeroenb	ik moet even wat bankzaken in orde doen hier...
+2020-06-05 10:43:35	pieterm	tuurlijk
+2020-06-05 10:57:46	jeroenb	Ok, done.
+2020-06-05 11:00:34	jeroenb	Ik ga nu verder met de client upload, goed?
+2020-06-05 11:04:43	jeroenb	staging deploys falen nu ook op TW, we hebben dat nog wel gehad na een reboot, niet?
+2020-06-05 11:04:44	Slackbot	Rebooten, hahahah, plooier!
+2020-06-05 11:05:09	pieterm	ja, ik kijk direct, ben al ff met Justified bezig
+2020-06-05 11:52:23	pieterm	ff overleggen?
+2020-06-05 11:55:09	jeroenb	yes

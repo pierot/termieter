@@ -1,0 +1,1284 @@
+2020-04-04 17:28:59		New key binding (context "default"): meta2-1;5P => /bar scroll buflist * -100%
+2020-04-04 17:28:59		New key binding (context "default"): meta2-1;5Q => /bar scroll buflist * +100%
+2020-04-04 17:28:59		New key binding (context "default"): meta-meta-OQ => /bar scroll buflist * e
+2020-04-04 17:28:59		New key binding (context "default"): meta2-1;3Q => /bar scroll buflist * e
+2020-04-04 17:28:59		New key binding (context "default"): meta2-1;3P => /bar scroll buflist * b
+2020-04-04 17:28:59		New key binding (context "default"): meta-meta-OP => /bar scroll buflist * b
+2020-04-04 17:28:59		New key binding (context "default"): meta-OQ => /bar scroll buflist * +100%
+2020-04-04 17:28:59		New key binding (context "default"): meta-OP => /bar scroll buflist * -100%
+2020-04-04 17:28:59		New key binding (context "default"): meta-meta2-12~ => /bar scroll buflist * e
+2020-04-04 17:28:59		New key binding (context "default"): meta-meta2-11~ => /bar scroll buflist * b
+2020-04-04 17:28:59		New key binding (context "default"): meta2-12^ => /bar scroll buflist * +100%
+2020-04-04 17:28:59		New key binding (context "default"): meta2-12~ => /bar scroll buflist * +100%
+2020-04-04 17:28:59		New key binding (context "default"): meta2-11^ => /bar scroll buflist * -100%
+2020-04-04 17:28:59		New key binding (context "default"): meta2-11~ => /bar scroll buflist * -100%
+2020-04-04 17:28:59		Plugins loaded: alias, buflist, charset, exec, fifo, fset, irc, logger, lua, perl, python, relay, ruby, script, spell, tcl, trigger, xfer
+2020-04-04 17:29:18		irc: server added: irslackd_workspace
+2020-04-04 17:29:25		Option changed: irc.server.irslackd_workspace.ssl = on  (default if null: off)
+2020-04-04 17:29:54		Option changed: irc.server.irslackd_workspace.ssl_fingerprint = "D387ABEEC561C2CCF6D1025E25C45428B2CB9CB26C91DD4F21D072FFFB642E3F26E2126E787A6664FCC4B78CB362E32ADDB47A031FB99B8584D74B29630CB056"  (default if null: "")
+2020-04-04 17:30:06		Option changed: irc.server.irslackd_workspace.password = "xoxp-2166297958-2166117247-1045121205463-a600bf79c008a4b56265c9e779b7601d"  (default if null: "")
+2020-04-08 07:41:16	=!=	Error: unknown command "/autojoin" (type /help for help)
+2020-04-08 07:41:21	=!=	Error: unknown command "/autojoin" (type /help for help)
+2020-04-08 07:41:27		Layout of buffers+windows stored in "default" (current layout: default)
+2020-04-08 07:41:30		Options saved to sec.conf
+2020-04-08 07:41:30		Options saved to weechat.conf
+2020-04-08 07:41:30		Options saved to plugins.conf
+2020-04-08 07:41:30		Options saved to charset.conf
+2020-04-08 07:41:30		Options saved to logger.conf
+2020-04-08 07:41:30		Options saved to exec.conf
+2020-04-08 07:41:30		Options saved to trigger.conf
+2020-04-08 07:41:30		Options saved to spell.conf
+2020-04-08 07:41:30		Options saved to alias.conf
+2020-04-08 07:41:30		Options saved to buflist.conf
+2020-04-08 07:41:30		Options saved to fifo.conf
+2020-04-08 07:41:30		Options saved to xfer.conf
+2020-04-08 07:41:30		Options saved to irc.conf
+2020-04-08 07:41:30		Options saved to relay.conf
+2020-04-08 07:41:30		Options saved to tcl.conf
+2020-04-08 07:41:30		Options saved to python.conf
+2020-04-08 07:41:30		Options saved to lua.conf
+2020-04-08 07:41:30		Options saved to perl.conf
+2020-04-08 07:41:30		Options saved to ruby.conf
+2020-04-08 07:41:30		Options saved to script.conf
+2020-04-08 07:41:30		Options saved to fset.conf
+2020-04-08 07:42:25		Plugins loaded: alias, buflist, charset, exec, fifo, fset, irc, logger, lua, perl, python, relay, ruby, script, spell, tcl, trigger, xfer
+2020-04-08 07:43:34	=!=	irc: command "restart" must be executed on irc buffer (server, channel or private)
+2020-04-08 07:45:30		python scripts loaded: autojoin
+2020-04-08 07:45:30		Plugins loaded: alias, buflist, charset, exec, fifo, fset, irc, logger, lua, perl, python, relay, ruby, script, spell, tcl, trigger, xfer
+2020-04-08 07:49:02		python scripts loaded: autojoin
+2020-04-08 07:49:02		Plugins loaded: alias, buflist, charset, exec, fifo, fset, irc, logger, lua, perl, python, relay, ruby, script, spell, tcl, trigger, xfer
+2020-04-08 07:49:04		All servers:
+2020-04-08 07:49:04		   irslackd_workspace
+2020-04-08 07:49:43	=!=	irc: command "join" must be executed on connected irc server
+2020-04-08 07:50:45		Option changed: weechat.plugin.autoload = "*,!guile,!javascript,!lua,!php,!tcl,!perl,!fifo,!xfer"  (default: "*")
+2020-05-18 08:06:20		python scripts loaded: autojoin
+2020-05-18 08:06:20		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-18 08:06:26	=!=	You can not write text in this buffer
+2020-05-18 08:06:27	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-05-18 08:10:22		python scripts loaded: autojoin
+2020-05-18 08:10:22		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-18 08:10:41	=!=	You can not write text in this buffer
+2020-05-18 08:13:17		python scripts loaded: autojoin
+2020-05-18 08:13:17		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-18 08:13:20	=!=	You can not write text in this buffer
+2020-05-19 12:33:53		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:33:53		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:33:53		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:33:53		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:33:53	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:33:53		python scripts loaded: autojoin
+2020-05-19 12:33:53		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:34:45		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:34:45		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:34:45		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:34:45		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:34:45	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:34:45		python scripts loaded: autojoin
+2020-05-19 12:34:45		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:35:57		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:35:57		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:35:57		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:35:57		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:35:57	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:35:57		python scripts loaded: autojoin
+2020-05-19 12:35:57		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:36:51		['/Users/jeroenb/.weechat/python', '', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python38.zip', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/lib-dynload', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages']
+2020-05-19 12:41:29		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:41:29		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:41:29		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:41:29		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:41:29	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:41:29		python scripts loaded: autojoin
+2020-05-19 12:41:29		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:41:40		['/Users/jeroenb/.weechat/python', '', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python38.zip', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/lib-dynload', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages']
+2020-05-19 12:45:38		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:45:38		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:45:38		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:45:38		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:45:38	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:45:38		python scripts loaded: autojoin
+2020-05-19 12:45:38		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:45:40	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-05-19 12:46:26		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:46:26		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:46:26		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:46:26		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:46:26	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:46:26		python scripts loaded: autojoin
+2020-05-19 12:46:26		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:46:44		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:46:44		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:46:44		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:46:44		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:46:44	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:46:44		python scripts loaded: autojoin
+2020-05-19 12:46:44		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:46:48		['/Users/jeroenb/.weechat/python', '', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python38.zip', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/lib-dynload', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages']
+2020-05-19 12:47:32	=!=	You can not write text in this buffer
+2020-05-19 12:47:33	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-05-19 12:48:01		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:48:01		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:48:01		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:48:01		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:48:01	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:48:01		python scripts loaded: autojoin
+2020-05-19 12:48:01		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:48:06		['/Users/jeroenb/.weechat/python', '', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python38.zip', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/lib-dynload', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages']
+2020-05-19 12:49:13		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:49:13		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:49:13		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:49:13		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:49:13	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:49:13		python scripts loaded: autojoin
+2020-05-19 12:49:13		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:49:24		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:49:24		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:49:24		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:49:24		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:49:24	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:49:24		python scripts loaded: autojoin
+2020-05-19 12:49:24		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:52:30		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 12:52:30		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 12:52:30		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 12:52:30		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-05-19 12:52:30	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 12:52:30		python scripts loaded: autojoin
+2020-05-19 12:52:30		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 12:56:05		['/Users/jeroenb/.weechat/python', '', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python38.zip', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/lib-dynload', '/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages']
+2020-05-19 13:08:08		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 13:08:08		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 13:08:08		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 13:08:08		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-05-19 13:08:08	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 13:08:08		python scripts loaded: autojoin
+2020-05-19 13:08:08		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 13:08:10	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-05-19 13:08:12		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-19 13:08:12		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-19 13:08:12		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-19 13:08:12		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-05-19 13:08:12	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-19 13:08:12		python scripts loaded: autojoin
+2020-05-19 13:08:12		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-19 13:08:13	=!=	Error: unknown command "/qit" (type /help for help)
+2020-05-20 09:16:23		python: stdout/stderr (?): Traceback (most recent call last):
+2020-05-20 09:16:23		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-05-20 09:16:23		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-05-20 09:16:23		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-05-20 09:16:23	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-05-20 09:16:23		python scripts loaded: autojoin
+2020-05-20 09:16:23		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-05-20 09:16:48	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-05-20 09:16:49	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-03 11:49:05		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 11:49:05		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 11:49:05		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 11:49:05		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 11:49:05	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 11:49:05		python scripts loaded: autojoin
+2020-06-03 11:49:05		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 11:49:09	=!=	You can not write text in this buffer
+2020-06-03 11:49:13	=!=	You can not write text in this buffer
+2020-06-03 13:41:23		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 13:41:23		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 13:41:23		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 13:41:23		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 13:41:23	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 13:41:23		python scripts loaded: autojoin
+2020-06-03 13:41:23		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 13:53:21		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 13:53:21		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 13:53:21		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 13:53:21		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 13:53:21	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 13:53:21		python scripts loaded: autojoin
+2020-06-03 13:53:21		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 13:53:28	=!=	You can not write text in this buffer
+2020-06-03 13:53:42		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 13:53:42		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 13:53:42		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 13:53:42		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 13:53:42	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 13:53:42		python scripts loaded: autojoin
+2020-06-03 13:53:42		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 13:55:26		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 13:55:26		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 13:55:26		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 13:55:26		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 13:55:26	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 13:55:26		python scripts loaded: autojoin
+2020-06-03 13:55:26		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 13:56:01		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 13:56:01		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 13:56:01		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 13:56:01		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 13:56:01	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 13:56:01		python scripts loaded: autojoin
+2020-06-03 13:56:01		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 13:56:06	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-03 13:56:23		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 13:56:23		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 13:56:23		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 13:56:23		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 13:56:23	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 13:56:23		python scripts loaded: autojoin
+2020-06-03 13:56:23		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 13:56:30	=!=	You can not write text in this buffer
+2020-06-03 13:58:16		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 13:58:16		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 13:58:16		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 13:58:16		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 13:58:16	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 13:58:16		python scripts loaded: autojoin
+2020-06-03 13:58:16		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 13:59:29		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 13:59:29		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 13:59:29		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 13:59:29		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 13:59:29	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 13:59:29		python scripts loaded: autojoin
+2020-06-03 13:59:29		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 14:04:22	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-03 14:04:24		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 14:04:24		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 14:04:24		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 14:04:24		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 14:04:24	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 14:04:24		python scripts loaded: autojoin
+2020-06-03 14:04:24		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 14:04:53		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 14:04:53		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 14:04:53		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 14:04:53		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 14:04:53	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 14:04:53		python scripts loaded: autojoin
+2020-06-03 14:04:53		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 14:15:40		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, relay, ruby, script, spell, trigger
+2020-06-03 14:15:47	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-03 14:17:58		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 14:17:58		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 14:17:58		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 14:17:58		python: stdout/stderr (?): ImportError: cannot import name 'ABNF' from 'websocket' (/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/websocket/__init__.py)
+2020-06-03 14:17:58	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 14:17:58		python scripts loaded: autojoin
+2020-06-03 14:17:58		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 14:18:01	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-03 14:23:15		New key binding (context "mouse"): @chat(python.*):button2 => hsignal:slack_mouse
+2020-06-03 14:23:15		New key binding (context "cursor"): @chat(python.*):M => hsignal:slack_cursor_message
+2020-06-03 14:23:15		New key binding (context "cursor"): @chat(python.*):L => hsignal:slack_cursor_linkarchive
+2020-06-03 14:23:15		New key binding (context "cursor"): @chat(python.*):R => hsignal:slack_cursor_reply
+2020-06-03 14:23:15		New key binding (context "cursor"): @chat(python.*):D => hsignal:slack_cursor_delete
+2020-06-03 14:23:15		New key binding (context "cursor"): @chat(python.*):T => hsignal:slack_cursor_thread
+2020-06-03 14:23:15		Connecting to 1 slack team.
+2020-06-03 14:23:15		python scripts loaded: autojoin, slack
+2020-06-03 14:23:15		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 14:23:15		ERROR: Failed connecting to Slack with token INSERT VALID KE... KEY HERE!: invalid_auth
+2020-06-03 14:23:15		ERROR: Token does not look like a valid Slack token. Ensure it is a valid token and not just a OAuth code.
+2020-06-03 14:24:29	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-03 16:07:09		Connecting to 1 slack team.
+2020-06-03 16:07:09		python scripts loaded: autojoin, slack
+2020-06-03 16:07:09		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 16:07:10		ERROR: Failed connecting to Slack with token INSERT VALID KE... KEY HERE!: invalid_auth
+2020-06-03 16:07:10		ERROR: Token does not look like a valid Slack token. Ensure it is a valid token and not just a OAuth code.
+2020-06-03 16:16:31		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 16:16:31		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 16:16:31		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 16:16:31		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 16:16:31	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 16:16:31		python scripts loaded: autojoin
+2020-06-03 16:16:31		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 16:17:00		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 16:17:00		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 16:17:00		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 16:17:00		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 16:17:00	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 16:17:00		python scripts loaded: autojoin
+2020-06-03 16:17:00		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 16:17:12		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 16:17:12		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 16:17:12		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 16:17:12		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 16:17:12	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 16:17:12		python scripts loaded: autojoin
+2020-06-03 16:17:12		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 16:17:53		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 16:17:53		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 16:17:53		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 16:17:53		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 16:17:53	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 16:17:53		python scripts loaded: autojoin
+2020-06-03 16:17:53		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 16:18:10		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 16:18:10		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 16:18:10		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 16:18:10		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 16:18:10	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 16:18:10		python scripts loaded: autojoin
+2020-06-03 16:18:10		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 16:20:16		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 16:20:16		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 16:20:16		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 16:20:16		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 16:20:16	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 16:20:16		python scripts loaded: autojoin
+2020-06-03 16:20:16		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 16:20:57		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 16:20:57		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 16:20:57		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 16:20:57		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 16:20:57	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 16:20:57		python scripts loaded: autojoin
+2020-06-03 16:20:57		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 23:21:36		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 23:21:36		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 23:21:36		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 23:21:36		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 23:21:36	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:21:36		python scripts loaded: autojoin
+2020-06-03 23:21:36		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 23:21:39	=!=	Error: unknown command "/slack" (type /help for help)
+2020-06-03 23:21:49		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 23:21:49		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 23:21:49		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 23:21:49		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 23:21:49	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:21:49		python scripts loaded: autojoin
+2020-06-03 23:21:49		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 23:22:55	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-03 23:30:31		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 23:30:31		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/test.py", line 1, in <module>
+2020-06-03 23:30:31		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 23:30:31		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 23:30:31	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/test.py"
+2020-06-03 23:30:31		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 23:30:31		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 23:30:31		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 23:30:31		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 23:30:31	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:30:31		python scripts loaded: autojoin
+2020-06-03 23:30:31		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 23:30:32	=!=	You can not write text in this buffer
+2020-06-03 23:30:34		python: loading script "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:30:34		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 23:30:34		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 23:30:34		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 23:30:34		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 23:30:34	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:30:37		python: loading script "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:30:37		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 23:30:37		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 23:30:37		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 23:30:37		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 23:30:37	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:30:39	=!=	Error with command "/python -v" (help on command: /help python)
+2020-06-03 23:30:49		[python]  /python  list|listfull [<name>]
+2020-06-03 23:30:49		                   load [-q] <filename>
+2020-06-03 23:30:49		                   autoload
+2020-06-03 23:30:49		                   reload|unload [-q] [<name>]
+2020-06-03 23:30:49		                   eval [-o|-oc] <code>
+2020-06-03 23:30:49		                   version
+2020-06-03 23:30:49		list/load/unload scripts
+2020-06-03 23:30:49		    list: list loaded scripts
+2020-06-03 23:30:49		listfull: list loaded scripts (verbose)
+2020-06-03 23:30:49		    load: load a script
+2020-06-03 23:30:49		autoload: load all scripts in "autoload" directory
+2020-06-03 23:30:49		  reload: reload a script (if no name given, unload all scripts, then load all scripts in "autoload" directory)
+2020-06-03 23:30:49		  unload: unload a script (if no name given, unload all scripts)
+2020-06-03 23:30:49		filename: script (file) to load
+2020-06-03 23:30:49		      -q: quiet mode: do not display messages
+2020-06-03 23:30:49		    name: a script name (name used in call to "register" function)
+2020-06-03 23:30:49		    eval: evaluate source code and display result on current buffer
+2020-06-03 23:30:49		      -o: send evaluation result to the buffer without executing commands
+2020-06-03 23:30:49		     -oc: send evaluation result to the buffer and execute commands
+2020-06-03 23:30:49		    code: source code to evaluate
+2020-06-03 23:30:49		 version: display the version of interpreter used
+2020-06-03 23:30:49		Without argument, this command lists all loaded scripts.
+2020-06-03 23:30:56		python: 3.8.3
+2020-06-03 23:43:08	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-03 23:43:11		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 23:43:11		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/test.py", line 1, in <module>
+2020-06-03 23:43:11		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 23:43:11		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 23:43:11	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/test.py"
+2020-06-03 23:43:12		python: stdout/stderr (?): Traceback (most recent call last):
+2020-06-03 23:43:12		python: stdout/stderr (?):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 35, in <module>
+2020-06-03 23:43:12		python: stdout/stderr (?):     from websocket import ABNF, create_connection, WebSocketConnectionClosedException
+2020-06-03 23:43:12		python: stdout/stderr (?): ModuleNotFoundError: No module named 'websocket'
+2020-06-03 23:43:12	=!=	python: unable to parse file "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:43:12		python scripts loaded: autojoin
+2020-06-03 23:43:12		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 23:53:39	=!=	python: function "register" not found (or failed) in file "/Users/jeroenb/.weechat/python/autoload/test.py"
+2020-06-03 23:53:39		Connecting to 1 slack team.
+2020-06-03 23:53:39		python scripts loaded: autojoin, slack
+2020-06-03 23:53:39		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-03 23:53:40		ERROR: Failed connecting to Slack with token INSERT VALID KE... KEY HERE!: invalid_auth
+2020-06-03 23:53:40		ERROR: Token does not look like a valid Slack token. Ensure it is a valid token and not just a OAuth code.
+2020-06-03 23:53:46		### Connecting to a Slack team with OAuth ###
+2020-06-03 23:53:46		Note that by default GitHub Pages will see a temporary code used to create your token (but not the token itself). If you're worried about this, you can use the -nothirdparty option, though the process will be a bit less user friendly.
+2020-06-03 23:53:46		1) Paste this link into a browser: https://slack.com/oauth/authorize?client_id=2468770254.51917335286&scope=client&redirect_uri=https%3A%2F%2Fwee-slack.github.io%2Fwee-slack%2Foauth
+2020-06-03 23:53:46		2) Select the team you wish to access from wee-slack in your browser. If you want to add multiple teams, you will have to repeat this whole process for each team.
+2020-06-03 23:53:46		3) Click "Authorize" in the browser.
+2020-06-03 23:53:46		   If you get a message saying you are not authorized to install wee-slack, the team has restricted Slack app installation and you will have to request it from an admin. To do that, go to https://my.slack.com/apps/A1HSZ9V8E-wee-slack and click "Request to Install".
+2020-06-03 23:53:46		4) The web page will show a command in the form `/slack register <code>`. Run this command in weechat.
+2020-06-03 23:54:26		python: stdout/stderr (slack): Traceback (most recent call last):
+2020-06-03 23:54:26		python: stdout/stderr (slack):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 163, in wrapper
+2020-06-03 23:54:26		python: stdout/stderr (slack):     return f(*decode_from_utf8(args), **decode_from_utf8(kwargs))
+2020-06-03 23:54:26		python: stdout/stderr (slack):   File "/Users/jeroenb/.weechat/python/autoload/wee_slack.py", line 3956, in register_callback
+2020-06-03 23:54:26		python: stdout/stderr (slack):     d = json.loads(out)
+2020-06-03 23:54:26		python: stdout/stderr (slack):   File "/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/__init__.py", line 357, in loads
+2020-06-03 23:54:26		python: stdout/stderr (slack):     return _default_decoder.decode(s)
+2020-06-03 23:54:26		python: stdout/stderr (slack):   File "/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/decoder.py", line 337, in decode
+2020-06-03 23:54:26		python: stdout/stderr (slack):     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+2020-06-03 23:54:26		python: stdout/stderr (slack):   File "/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/decoder.py", line 355, in raw_decode
+2020-06-03 23:54:26		python: stdout/stderr (slack):     raise JSONDecodeError("Expecting value", s, err.value) from None
+2020-06-03 23:54:26		python: stdout/stderr (slack): json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-06-03 23:54:26	=!=	python: error in function "register_callback"
+2020-06-03 23:54:28	=!=	You can not write text in this buffer
+2020-06-03 23:54:30		Success! Added team "Jack + Joe"
+2020-06-03 23:54:30		Please reload wee-slack with: /python reload slack
+2020-06-03 23:54:30		If you want to add another team you can repeat this process from step 1 before reloading wee-slack.
+2020-06-03 23:54:37		python: unloading script "slack"
+2020-06-03 23:54:37		python: script "slack" unloaded
+2020-06-03 23:54:37		python: loading script "/Users/jeroenb/.weechat/python/autoload/wee_slack.py"
+2020-06-03 23:54:37		python: registered script "slack", version 2.6.0 (Extends weechat for typing notification/search/etc on slack.com)
+2020-06-03 23:54:37		Connecting to 1 slack team.
+2020-06-03 23:54:41		Options saved to sec.conf
+2020-06-03 23:54:41		Options saved to weechat.conf
+2020-06-03 23:54:41		Options saved to plugins.conf
+2020-06-03 23:54:41		Options saved to charset.conf
+2020-06-03 23:54:41		Options saved to logger.conf
+2020-06-03 23:54:41		Options saved to exec.conf
+2020-06-03 23:54:41		Options saved to trigger.conf
+2020-06-03 23:54:41		Options saved to spell.conf
+2020-06-03 23:54:41		Options saved to alias.conf
+2020-06-03 23:54:41		Options saved to buflist.conf
+2020-06-03 23:54:41		Options saved to irc.conf
+2020-06-03 23:54:41		Options saved to relay.conf
+2020-06-03 23:54:41		Options saved to python.conf
+2020-06-03 23:54:41		Options saved to ruby.conf
+2020-06-03 23:54:41		Options saved to script.conf
+2020-06-03 23:54:41		Options saved to fset.conf
+2020-06-03 23:55:23	=!=	python: function "register" not found (or failed) in file "/Users/jeroenb/.weechat/python/autoload/test.py"
+2020-06-03 23:55:23		Connecting to 1 slack team.
+2020-06-03 23:55:23		python scripts loaded: autojoin, slack
+2020-06-03 23:55:23		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-04 22:27:10		Option changed: weechat.bar.status.color_bg = 22  (default: blue)
+2020-06-04 22:27:25		Option changed: weechat.bar.status.color_bg = 44  (default: blue)
+2020-06-04 22:27:39		Option changed: weechat.bar.status.color_bg = 24  (default: blue)
+2020-06-04 22:27:46		Options saved to sec.conf
+2020-06-04 22:27:46		Options saved to weechat.conf
+2020-06-04 22:27:46		Options saved to plugins.conf
+2020-06-04 22:27:46		Options saved to charset.conf
+2020-06-04 22:27:46		Options saved to logger.conf
+2020-06-04 22:27:46		Options saved to exec.conf
+2020-06-04 22:27:46		Options saved to trigger.conf
+2020-06-04 22:27:46		Options saved to spell.conf
+2020-06-04 22:27:46		Options saved to alias.conf
+2020-06-04 22:27:46		Options saved to buflist.conf
+2020-06-04 22:27:46		Options saved to irc.conf
+2020-06-04 22:27:46		Options saved to relay.conf
+2020-06-04 22:27:46		Options saved to python.conf
+2020-06-04 22:27:46		Options saved to ruby.conf
+2020-06-04 22:27:46		Options saved to script.conf
+2020-06-04 22:27:46		Options saved to fset.conf
+2020-06-04 22:28:21	=!=	Error: option "weechat.bar.status.title_bg" not found
+2020-06-04 22:28:46	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-04 22:29:07		Option changed: weechat.bar.title.color_bg = 22  (default: blue)
+2020-06-04 22:29:10		Option changed: weechat.bar.title.color_bg = 24  (default: blue)
+2020-06-04 22:29:22		Option changed: weechat.bar.buflist.color_bg = 24  (default: default)
+2020-06-04 22:29:25		Option changed: weechat.bar.buflist.color_bg = 0  (default: default)
+2020-06-04 22:29:27		Option changed: weechat.bar.buflist.color_bg = 1  (default: default)
+2020-06-04 22:29:30		Option changed: weechat.bar.buflist.color_bg = 2  (default: default)
+2020-06-04 22:29:32		Option changed: weechat.bar.buflist.color_bg = 3  (default: default)
+2020-06-04 22:29:33		Option changed: weechat.bar.buflist.color_bg = 4  (default: default)
+2020-06-04 22:29:35		Option changed: weechat.bar.buflist.color_bg = 5  (default: default)
+2020-06-04 22:29:37		Option changed: weechat.bar.buflist.color_bg = 6  (default: default)
+2020-06-04 22:29:38		Option changed: weechat.bar.buflist.color_bg = 7  (default: default)
+2020-06-04 22:29:40		Option changed: weechat.bar.buflist.color_bg = 8  (default: default)
+2020-06-04 22:29:41		Option changed: weechat.bar.buflist.color_bg = 9  (default: default)
+2020-06-04 22:29:42		Option changed: weechat.bar.buflist.color_bg = 10  (default: default)
+2020-06-04 22:29:43		Option changed: weechat.bar.buflist.color_bg = 1011  (default: default)
+2020-06-04 22:29:45		Option changed: weechat.bar.buflist.color_bg = 1011  (default: default)
+2020-06-04 22:30:23		Options saved to sec.conf
+2020-06-04 22:30:23		Options saved to weechat.conf
+2020-06-04 22:30:23		Options saved to plugins.conf
+2020-06-04 22:30:23		Options saved to charset.conf
+2020-06-04 22:30:23		Options saved to logger.conf
+2020-06-04 22:30:23		Options saved to exec.conf
+2020-06-04 22:30:23		Options saved to trigger.conf
+2020-06-04 22:30:23		Options saved to spell.conf
+2020-06-04 22:30:23		Options saved to alias.conf
+2020-06-04 22:30:23		Options saved to buflist.conf
+2020-06-04 22:30:23		Options saved to irc.conf
+2020-06-04 22:30:23		Options saved to relay.conf
+2020-06-04 22:30:23		Options saved to python.conf
+2020-06-04 22:30:23		Options saved to ruby.conf
+2020-06-04 22:30:23		Options saved to script.conf
+2020-06-04 22:30:23		Options saved to fset.conf
+2020-06-04 22:32:17	=!=	Error: option "weechat.bar.status.title_bg" not found
+2020-06-04 22:32:28		Option changed: weechat.bar.status.color_bg = 60  (default: blue)
+2020-06-04 22:33:11		Option changed: weechat.bar.title.color_bg = 60  (default: blue)
+2020-06-04 22:33:47		Option changed: weechat.color.chat_delimiters = 29  (default: green)
+2020-06-04 22:33:59		Option changed: weechat.color.separator = 60  (default: blue)
+2020-06-04 22:34:02		Option changed: weechat.color.separator = 60  (default: blue)
+2020-06-04 22:34:18	=!=	Error with command "/window vsplit" (help on command: /help window)
+2020-06-04 22:35:07	=!=	Too few arguments for command "/query" (help on command: /help query)
+2020-06-04 22:35:11	=!=	python: function "register" not found (or failed) in file "/Users/jeroenb/.weechat/python/autoload/test.py"
+2020-06-04 22:35:11		Connecting to 1 slack team.
+2020-06-04 22:35:11		python scripts loaded: autojoin, slack
+2020-06-04 22:35:11		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-04 22:35:29		Option changed: weechat.bar.title.color_bg = 60
+2020-06-04 22:35:35		Option changed: weechat.bar.status.color_bg = 60
+2020-06-04 22:35:38		Option changed: weechat.bar.status.color_bg = 17  (default: 60)
+2020-06-04 22:35:42		Option changed: weechat.bar.status.color_bg = 18  (default: 60)
+2020-06-04 22:35:44		Option changed: weechat.bar.status.color_bg = 16  (default: 60)
+2020-06-04 22:35:54		Option changed: weechat.bar.status.color_fg = 18  (default: default)
+2020-06-04 22:35:57		Option changed: weechat.bar.status.color_fg = 24  (default: default)
+2020-06-04 22:36:00		Option changed: weechat.bar.status.color_fg = 20  (default: default)
+2020-06-04 22:36:01		Option changed: weechat.bar.status.color_fg = 2  (default: default)
+2020-06-04 22:36:14		Option changed: weechat.bar.status.color_fg = default
+2020-06-04 22:36:33		Option changed: weechat.bar.status.color_bg = 90  (default: 60)
+2020-06-04 22:36:35		Option changed: weechat.bar.status.color_bg = 91  (default: 60)
+2020-06-04 22:36:36		Option changed: weechat.bar.status.color_bg = 92  (default: 60)
+2020-06-04 22:36:39		Option changed: weechat.bar.status.color_bg = 89  (default: 60)
+2020-06-04 22:36:41		Option changed: weechat.bar.status.color_bg = 80  (default: 60)
+2020-06-04 22:36:44		Option changed: weechat.bar.status.color_bg = 81  (default: 60)
+2020-06-04 22:36:48		Option changed: weechat.bar.status.color_bg = 79  (default: 60)
+2020-06-04 22:36:57		Option changed: weechat.bar.status.color_bg = 70  (default: 60)
+2020-06-04 22:36:59		Option changed: weechat.bar.status.color_bg = 73  (default: 60)
+2020-06-04 22:37:01		Option changed: weechat.bar.status.color_bg = 74  (default: 60)
+2020-06-04 22:37:02		Option changed: weechat.bar.status.color_bg = 74  (default: 60)
+2020-06-04 22:37:04		Option changed: weechat.bar.status.color_bg = 60
+2020-06-04 22:37:06		Option changed: weechat.bar.status.color_bg = 61  (default: 60)
+2020-06-04 22:37:07		Option changed: weechat.bar.status.color_bg = 62  (default: 60)
+2020-06-04 22:37:12		Option changed: weechat.bar.status.color_bg = 59  (default: 60)
+2020-06-04 22:37:14		Option changed: weechat.bar.status.color_bg = 58  (default: 60)
+2020-06-04 22:37:15		Option changed: weechat.bar.status.color_bg = 60
+2020-06-04 22:37:18		Option changed: weechat.bar.status.color_bg = 20  (default: 60)
+2020-06-04 22:37:41		Option changed: weechat.bar.status.color_bg = 17  (default: 60)
+2020-06-04 22:37:43		Option changed: weechat.bar.status.color_bg = 18  (default: 60)
+2020-06-04 22:37:44		Option changed: weechat.bar.status.color_bg = 16  (default: 60)
+2020-06-04 22:37:50		Option changed: weechat.bar.status.color_fg = 60  (default: default)
+2020-06-04 22:37:51		Option changed: weechat.bar.status.color_fg = 61  (default: default)
+2020-06-04 22:37:53		Option changed: weechat.bar.status.color_fg = 62  (default: default)
+2020-06-04 22:37:54		Option changed: weechat.bar.status.color_fg = 63  (default: default)
+2020-06-04 22:37:55		Option changed: weechat.bar.status.color_fg = 64  (default: default)
+2020-06-04 22:37:58		Option changed: weechat.bar.status.color_fg = 70  (default: default)
+2020-06-04 22:38:00		Option changed: weechat.bar.status.color_fg = 80  (default: default)
+2020-06-04 22:38:05		Options saved to sec.conf
+2020-06-04 22:38:05		Options saved to weechat.conf
+2020-06-04 22:38:05		Options saved to plugins.conf
+2020-06-04 22:38:05		Options saved to charset.conf
+2020-06-04 22:38:05		Options saved to logger.conf
+2020-06-04 22:38:05		Options saved to exec.conf
+2020-06-04 22:38:05		Options saved to trigger.conf
+2020-06-04 22:38:05		Options saved to spell.conf
+2020-06-04 22:38:05		Options saved to alias.conf
+2020-06-04 22:38:05		Options saved to buflist.conf
+2020-06-04 22:38:05		Options saved to irc.conf
+2020-06-04 22:38:05		Options saved to relay.conf
+2020-06-04 22:38:05		Options saved to python.conf
+2020-06-04 22:38:05		Options saved to ruby.conf
+2020-06-04 22:38:05		Options saved to script.conf
+2020-06-04 22:38:05		Options saved to fset.conf
+2020-06-04 22:38:23		Option changed: weechat.bar.title.color_bg = 48  (default: 60)
+2020-06-04 22:38:28		Option changed: weechat.bar.status.color_fg = 48  (default: default)
+2020-06-04 22:38:35		Option changed: weechat.bar.title.color_bg = 17  (default: 60)
+2020-06-04 22:38:38		Option changed: weechat.bar.title.color_bg = 16  (default: 60)
+2020-06-04 22:38:46		Options saved to sec.conf
+2020-06-04 22:38:46		Options saved to weechat.conf
+2020-06-04 22:38:46		Options saved to plugins.conf
+2020-06-04 22:38:46		Options saved to charset.conf
+2020-06-04 22:38:46		Options saved to logger.conf
+2020-06-04 22:38:46		Options saved to exec.conf
+2020-06-04 22:38:46		Options saved to trigger.conf
+2020-06-04 22:38:46		Options saved to spell.conf
+2020-06-04 22:38:46		Options saved to alias.conf
+2020-06-04 22:38:46		Options saved to buflist.conf
+2020-06-04 22:38:46		Options saved to irc.conf
+2020-06-04 22:38:46		Options saved to relay.conf
+2020-06-04 22:38:46		Options saved to python.conf
+2020-06-04 22:38:46		Options saved to ruby.conf
+2020-06-04 22:38:46		Options saved to script.conf
+2020-06-04 22:38:46		Options saved to fset.conf
+2020-06-04 22:39:03		Option changed: weechat.look.prefix_join = "▬▬▶"  (default: "-->")
+2020-06-04 22:39:07		Option changed: weechat.look.prefix_quit = "◀▬▬"  (default: "<--")
+2020-06-04 22:39:20		Option changed: weechat.look.prefix_suffix = "│"  (default: "|")
+2020-06-04 22:39:28		Options saved to sec.conf
+2020-06-04 22:39:28		Options saved to weechat.conf
+2020-06-04 22:39:28		Options saved to plugins.conf
+2020-06-04 22:39:28		Options saved to charset.conf
+2020-06-04 22:39:28		Options saved to logger.conf
+2020-06-04 22:39:28		Options saved to exec.conf
+2020-06-04 22:39:28		Options saved to trigger.conf
+2020-06-04 22:39:28		Options saved to spell.conf
+2020-06-04 22:39:28		Options saved to alias.conf
+2020-06-04 22:39:28		Options saved to buflist.conf
+2020-06-04 22:39:28		Options saved to irc.conf
+2020-06-04 22:39:28		Options saved to relay.conf
+2020-06-04 22:39:28		Options saved to python.conf
+2020-06-04 22:39:28		Options saved to ruby.conf
+2020-06-04 22:39:28		Options saved to script.conf
+2020-06-04 22:39:28		Options saved to fset.conf
+2020-06-05 12:59:09	=!=	python: function "register" not found (or failed) in file "/Users/jeroenb/.termieter/users/jeroenb/config/weechat/python/autoload/test.py"
+2020-06-05 12:59:09		Connecting to 1 slack team.
+2020-06-05 12:59:09		python scripts loaded: autojoin, slack
+2020-06-05 12:59:09		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-05 12:59:49	=!=	python: function "register" not found (or failed) in file "/Users/jeroenb/.termieter/users/jeroenb/config/weechat/python/autoload/test.py"
+2020-06-05 12:59:49		Connecting to 1 slack team.
+2020-06-05 12:59:49		python scripts loaded: autojoin, slack
+2020-06-05 12:59:49		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-05 13:00:09	=!=	Error: option "buffer.hotlist_highlight" not found
+2020-06-05 13:01:44	=!=	Error: option "weechat.bar.buflist.buffer.hotlist_highlight" not found
+2020-06-05 13:01:48	=!=	Error: option "weechat.bar.buflist.hotlist_highlight" not found
+2020-06-05 13:03:50		Option changed: buflist.format.buffer_current = "${color:,237}${if:${buffer.number}==${buffer.next_buffer.number} || ${buffer.number}==${buffer.prev_buffer.number}?${color:white}♻: }${format_number}${format_nick_prefix}${color_hotlist}${indent}${cutscr:+15,+,${format_name}}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:04:15		Option changed: buflist.format.buffer_current = "${color:,237}${if:${buffer.number}==${buffer.next_buffer.number} || ${buffer.number}==${buffer.prev_buffer.number}?${color:white}: }${format_number}${format_nick_prefix}${color_hotlist}${indent}${cutscr:+15,+,${format_name}}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:04:26		Option changed: buflist.format.buffer_current = "${color:,23}${if:${buffer.number}==${buffer.next_buffer.number} || ${buffer.number}==${buffer.prev_buffer.number}?${color:white}: }${format_number}${format_nick_prefix}${color_hotlist}${indent}${cutscr:+15,+,${format_name}}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:04:34		Option changed: buflist.format.buffer_current = "${color:,68}${if:${buffer.number}==${buffer.next_buffer.number} || ${buffer.number}==${buffer.prev_buffer.number}?${color:white}: }${format_number}${format_nick_prefix}${color_hotlist}${indent}${cutscr:+15,+,${format_name}}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:04:40		Option changed: buflist.format.buffer_current = "${color:,48}${if:${buffer.number}==${buffer.next_buffer.number} || ${buffer.number}==${buffer.prev_buffer.number}?${color:white}: }${format_number}${format_nick_prefix}${color_hotlist}${indent}${cutscr:+15,+,${format_name}}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:05:16		Option changed: buflist.format.buffer_current = "${color:,48}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:05:19		Option changed: buflist.format.buffer_current = "${color:,49}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:05:24		Option changed: buflist.format.buffer_current = "${color:,1}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:05:30		Option changed: buflist.format.buffer_current = "${color:,33}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:05:32		Option changed: buflist.format.buffer_current = "${color:,30}"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:06:04		Option changed: buflist.format.buffer_current = ""${color:,30}" color_hotlist 23"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:06:07		Option changed: buflist.format.buffer_current = ""${color:,30}" color_hotlist 2"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:06:09		Option changed: buflist.format.buffer_current = ""${color:,30}" color_hotlist 8"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:06:16		Option changed: buflist.format.buffer_current = ""${color:,30}",color_hotlist 8"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:06:22		Option changed: buflist.format.buffer_current = "color:30,color_hotlist 8"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:06:27		Option changed: buflist.format.buffer_current = "color:3"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:06:30		Option changed: buflist.format.buffer_current = "color 3"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:06:33	=!=	Error: option "buflist.format.buffer_current.color" not found
+2020-06-05 13:06:36	=!=	Error: option "buflist.format.buffer_current.color" not found
+2020-06-05 13:06:58		Option changed: buflist.format.buffer_current = "color 29"  (default: "${color:,blue}${format_buffer}")
+2020-06-05 13:07:22	=!=	You can not write text in this buffer
+2020-06-05 13:07:23		Option changed: buflist.format.buffer = "${if:${buffer.number}==${buffer.next_buffer.number} || ${buffer.number}==${buffer.prev_buffer.number}?+: }${format_number}${indent}${format_nick_prefix}${color_hotlist}${cut:12,+,${name}}"  (default: "${format_number}${indent}${format_nick_prefix}${color_hotlist}${format_name}")
+2020-06-05 13:07:31	=!=	python: function "register" not found (or failed) in file "/Users/jeroenb/.termieter/users/jeroenb/config/weechat/python/autoload/test.py"
+2020-06-05 13:07:32		Connecting to 1 slack team.
+2020-06-05 13:07:32		python scripts loaded: autojoin, slack
+2020-06-05 13:07:32		Plugins loaded: alias, buflist, charset, exec, fset, irc, logger, python, relay, ruby, script, spell, trigger
+2020-06-05 13:07:54		Options reloaded from sec.conf
+2020-06-05 13:07:54		Options reloaded from weechat.conf
+2020-06-05 13:07:54		Options reloaded from plugins.conf
+2020-06-05 13:07:54		Options reloaded from charset.conf
+2020-06-05 13:07:54		Options reloaded from logger.conf
+2020-06-05 13:07:54		Options reloaded from exec.conf
+2020-06-05 13:07:54		Options reloaded from trigger.conf
+2020-06-05 13:07:54		Options reloaded from spell.conf
+2020-06-05 13:07:54		Options reloaded from alias.conf
+2020-06-05 13:07:54		Options reloaded from buflist.conf
+2020-06-05 13:07:54		Options reloaded from irc.conf
+2020-06-05 13:07:54		Options reloaded from relay.conf
+2020-06-05 13:07:54		Options reloaded from python.conf
+2020-06-05 13:07:54		Options reloaded from ruby.conf
+2020-06-05 13:07:54		Options reloaded from script.conf
+2020-06-05 13:07:54		Options reloaded from fset.conf
+2020-06-05 13:08:39		Options reloaded from sec.conf
+2020-06-05 13:08:39		Options reloaded from weechat.conf
+2020-06-05 13:08:39		Options reloaded from plugins.conf
+2020-06-05 13:08:39		Options reloaded from charset.conf
+2020-06-05 13:08:39		Options reloaded from logger.conf
+2020-06-05 13:08:39		Options reloaded from exec.conf
+2020-06-05 13:08:39		Options reloaded from trigger.conf
+2020-06-05 13:08:39		Options reloaded from spell.conf
+2020-06-05 13:08:39		Options reloaded from alias.conf
+2020-06-05 13:08:39		Options reloaded from buflist.conf
+2020-06-05 13:08:39		Options reloaded from irc.conf
+2020-06-05 13:08:39		Options reloaded from relay.conf
+2020-06-05 13:08:39		Options reloaded from python.conf
+2020-06-05 13:08:39		Options reloaded from ruby.conf
+2020-06-05 13:08:39		Options reloaded from script.conf
+2020-06-05 13:08:39		Options reloaded from fset.conf
+2020-06-05 13:08:53		Options reloaded from sec.conf
+2020-06-05 13:08:53		Options reloaded from weechat.conf
+2020-06-05 13:08:53		Options reloaded from plugins.conf
+2020-06-05 13:08:53		Options reloaded from charset.conf
+2020-06-05 13:08:53		Options reloaded from logger.conf
+2020-06-05 13:08:53		Options reloaded from exec.conf
+2020-06-05 13:08:53		Options reloaded from trigger.conf
+2020-06-05 13:08:53		Options reloaded from spell.conf
+2020-06-05 13:08:53		Options reloaded from alias.conf
+2020-06-05 13:08:53		Options reloaded from buflist.conf
+2020-06-05 13:08:53		Options reloaded from irc.conf
+2020-06-05 13:08:53		Options reloaded from relay.conf
+2020-06-05 13:08:53		Options reloaded from python.conf
+2020-06-05 13:08:53		Options reloaded from ruby.conf
+2020-06-05 13:08:53		Options reloaded from script.conf
+2020-06-05 13:08:53		Options reloaded from fset.conf
+2020-06-05 13:09:08		Options reloaded from sec.conf
+2020-06-05 13:09:08		Options reloaded from weechat.conf
+2020-06-05 13:09:08		Options reloaded from plugins.conf
+2020-06-05 13:09:08		Options reloaded from charset.conf
+2020-06-05 13:09:08		Options reloaded from logger.conf
+2020-06-05 13:09:08		Options reloaded from exec.conf
+2020-06-05 13:09:08		Options reloaded from trigger.conf
+2020-06-05 13:09:08		Options reloaded from spell.conf
+2020-06-05 13:09:08		Options reloaded from alias.conf
+2020-06-05 13:09:08		Options reloaded from buflist.conf
+2020-06-05 13:09:08		Options reloaded from irc.conf
+2020-06-05 13:09:08		Options reloaded from relay.conf
+2020-06-05 13:09:08		Options reloaded from python.conf
+2020-06-05 13:09:08		Options reloaded from ruby.conf
+2020-06-05 13:09:08		Options reloaded from script.conf
+2020-06-05 13:09:08		Options reloaded from fset.conf
+2020-06-05 13:09:25		Options reloaded from sec.conf
+2020-06-05 13:09:25		Options reloaded from weechat.conf
+2020-06-05 13:09:25		Options reloaded from plugins.conf
+2020-06-05 13:09:25		Options reloaded from charset.conf
+2020-06-05 13:09:25		Options reloaded from logger.conf
+2020-06-05 13:09:25		Options reloaded from exec.conf
+2020-06-05 13:09:25		Options reloaded from trigger.conf
+2020-06-05 13:09:25		Options reloaded from spell.conf
+2020-06-05 13:09:25		Options reloaded from alias.conf
+2020-06-05 13:09:25		Options reloaded from buflist.conf
+2020-06-05 13:09:25		Options reloaded from irc.conf
+2020-06-05 13:09:25		Options reloaded from relay.conf
+2020-06-05 13:09:25		Options reloaded from python.conf
+2020-06-05 13:09:25		Options reloaded from ruby.conf
+2020-06-05 13:09:25		Options reloaded from script.conf
+2020-06-05 13:09:25		Options reloaded from fset.conf
+2020-06-05 13:09:28		Options reloaded from sec.conf
+2020-06-05 13:09:28		Options reloaded from weechat.conf
+2020-06-05 13:09:28		Options reloaded from plugins.conf
+2020-06-05 13:09:28		Options reloaded from charset.conf
+2020-06-05 13:09:28		Options reloaded from logger.conf
+2020-06-05 13:09:28		Options reloaded from exec.conf
+2020-06-05 13:09:28		Options reloaded from trigger.conf
+2020-06-05 13:09:28		Options reloaded from spell.conf
+2020-06-05 13:09:28		Options reloaded from alias.conf
+2020-06-05 13:09:28		Options reloaded from buflist.conf
+2020-06-05 13:09:28		Options reloaded from irc.conf
+2020-06-05 13:09:28		Options reloaded from relay.conf
+2020-06-05 13:09:28		Options reloaded from python.conf
+2020-06-05 13:09:28		Options reloaded from ruby.conf
+2020-06-05 13:09:28		Options reloaded from script.conf
+2020-06-05 13:09:28		Options reloaded from fset.conf
+2020-06-05 13:09:38		Options reloaded from sec.conf
+2020-06-05 13:09:38		Options reloaded from weechat.conf
+2020-06-05 13:09:38		Options reloaded from plugins.conf
+2020-06-05 13:09:38		Options reloaded from charset.conf
+2020-06-05 13:09:38		Options reloaded from logger.conf
+2020-06-05 13:09:38		Options reloaded from exec.conf
+2020-06-05 13:09:38		Options reloaded from trigger.conf
+2020-06-05 13:09:38		Options reloaded from spell.conf
+2020-06-05 13:09:38		Options reloaded from alias.conf
+2020-06-05 13:09:38		Options reloaded from buflist.conf
+2020-06-05 13:09:38		Options reloaded from irc.conf
+2020-06-05 13:09:38		Options reloaded from relay.conf
+2020-06-05 13:09:38		Options reloaded from python.conf
+2020-06-05 13:09:38		Options reloaded from ruby.conf
+2020-06-05 13:09:38		Options reloaded from script.conf
+2020-06-05 13:09:38		Options reloaded from fset.conf
+2020-06-05 13:10:07		Options reloaded from sec.conf
+2020-06-05 13:10:07		Options reloaded from weechat.conf
+2020-06-05 13:10:07		Options reloaded from plugins.conf
+2020-06-05 13:10:07		Options reloaded from charset.conf
+2020-06-05 13:10:07		Options reloaded from logger.conf
+2020-06-05 13:10:07		Options reloaded from exec.conf
+2020-06-05 13:10:07		Options reloaded from trigger.conf
+2020-06-05 13:10:07		Options reloaded from spell.conf
+2020-06-05 13:10:07		Options reloaded from alias.conf
+2020-06-05 13:10:07		Options reloaded from buflist.conf
+2020-06-05 13:10:07		Options reloaded from irc.conf
+2020-06-05 13:10:07		Options reloaded from relay.conf
+2020-06-05 13:10:07		Options reloaded from python.conf
+2020-06-05 13:10:07		Options reloaded from ruby.conf
+2020-06-05 13:10:07		Options reloaded from script.conf
+2020-06-05 13:10:07		Options reloaded from fset.conf
+2020-06-05 13:10:30		Options reloaded from sec.conf
+2020-06-05 13:10:30		Options reloaded from weechat.conf
+2020-06-05 13:10:30		Options reloaded from plugins.conf
+2020-06-05 13:10:30		Options reloaded from charset.conf
+2020-06-05 13:10:30		Options reloaded from logger.conf
+2020-06-05 13:10:30		Options reloaded from exec.conf
+2020-06-05 13:10:30		Options reloaded from trigger.conf
+2020-06-05 13:10:30		Options reloaded from spell.conf
+2020-06-05 13:10:30		Options reloaded from alias.conf
+2020-06-05 13:10:30		Options reloaded from buflist.conf
+2020-06-05 13:10:30		Options reloaded from irc.conf
+2020-06-05 13:10:30		Options reloaded from relay.conf
+2020-06-05 13:10:30		Options reloaded from python.conf
+2020-06-05 13:10:30		Options reloaded from ruby.conf
+2020-06-05 13:10:30		Options reloaded from script.conf
+2020-06-05 13:10:30		Options reloaded from fset.conf
+2020-06-05 13:10:34		Options reloaded from sec.conf
+2020-06-05 13:10:34		Options reloaded from weechat.conf
+2020-06-05 13:10:34		Options reloaded from plugins.conf
+2020-06-05 13:10:34		Options reloaded from charset.conf
+2020-06-05 13:10:34		Options reloaded from logger.conf
+2020-06-05 13:10:34		Options reloaded from exec.conf
+2020-06-05 13:10:34		Options reloaded from trigger.conf
+2020-06-05 13:10:34		Options reloaded from spell.conf
+2020-06-05 13:10:34		Options reloaded from alias.conf
+2020-06-05 13:10:34		Options reloaded from buflist.conf
+2020-06-05 13:10:34		Options reloaded from irc.conf
+2020-06-05 13:10:34		Options reloaded from relay.conf
+2020-06-05 13:10:34		Options reloaded from python.conf
+2020-06-05 13:10:34		Options reloaded from ruby.conf
+2020-06-05 13:10:34		Options reloaded from script.conf
+2020-06-05 13:10:34		Options reloaded from fset.conf
+2020-06-05 13:10:40		Options reloaded from sec.conf
+2020-06-05 13:10:40		Options reloaded from weechat.conf
+2020-06-05 13:10:40		Options reloaded from plugins.conf
+2020-06-05 13:10:40		Options reloaded from charset.conf
+2020-06-05 13:10:40		Options reloaded from logger.conf
+2020-06-05 13:10:40		Options reloaded from exec.conf
+2020-06-05 13:10:40		Options reloaded from trigger.conf
+2020-06-05 13:10:40		Options reloaded from spell.conf
+2020-06-05 13:10:40		Options reloaded from alias.conf
+2020-06-05 13:10:40		Options reloaded from buflist.conf
+2020-06-05 13:10:40		Options reloaded from irc.conf
+2020-06-05 13:10:40		Options reloaded from relay.conf
+2020-06-05 13:10:40		Options reloaded from python.conf
+2020-06-05 13:10:40		Options reloaded from ruby.conf
+2020-06-05 13:10:40		Options reloaded from script.conf
+2020-06-05 13:10:40		Options reloaded from fset.conf
+2020-06-05 13:10:51		Options reloaded from sec.conf
+2020-06-05 13:10:51		Options reloaded from weechat.conf
+2020-06-05 13:10:51		Options reloaded from plugins.conf
+2020-06-05 13:10:51		Options reloaded from charset.conf
+2020-06-05 13:10:51		Options reloaded from logger.conf
+2020-06-05 13:10:51		Options reloaded from exec.conf
+2020-06-05 13:10:51		Options reloaded from trigger.conf
+2020-06-05 13:10:51		Options reloaded from spell.conf
+2020-06-05 13:10:51		Options reloaded from alias.conf
+2020-06-05 13:10:51		Options reloaded from buflist.conf
+2020-06-05 13:10:51		Options reloaded from irc.conf
+2020-06-05 13:10:51		Options reloaded from relay.conf
+2020-06-05 13:10:51		Options reloaded from python.conf
+2020-06-05 13:10:51		Options reloaded from ruby.conf
+2020-06-05 13:10:51		Options reloaded from script.conf
+2020-06-05 13:10:51		Options reloaded from fset.conf
+2020-06-05 13:11:00		Options reloaded from sec.conf
+2020-06-05 13:11:00		Options reloaded from weechat.conf
+2020-06-05 13:11:00		Options reloaded from plugins.conf
+2020-06-05 13:11:00		Options reloaded from charset.conf
+2020-06-05 13:11:00		Options reloaded from logger.conf
+2020-06-05 13:11:00		Options reloaded from exec.conf
+2020-06-05 13:11:00		Options reloaded from trigger.conf
+2020-06-05 13:11:00		Options reloaded from spell.conf
+2020-06-05 13:11:00		Options reloaded from alias.conf
+2020-06-05 13:11:00		Options reloaded from buflist.conf
+2020-06-05 13:11:00		Options reloaded from irc.conf
+2020-06-05 13:11:00		Options reloaded from relay.conf
+2020-06-05 13:11:00		Options reloaded from python.conf
+2020-06-05 13:11:00		Options reloaded from ruby.conf
+2020-06-05 13:11:00		Options reloaded from script.conf
+2020-06-05 13:11:00		Options reloaded from fset.conf
+2020-06-05 13:11:06		Options reloaded from sec.conf
+2020-06-05 13:11:07		Options reloaded from weechat.conf
+2020-06-05 13:11:07		Options reloaded from plugins.conf
+2020-06-05 13:11:07		Options reloaded from charset.conf
+2020-06-05 13:11:07		Options reloaded from logger.conf
+2020-06-05 13:11:07		Options reloaded from exec.conf
+2020-06-05 13:11:07		Options reloaded from trigger.conf
+2020-06-05 13:11:07		Options reloaded from spell.conf
+2020-06-05 13:11:07		Options reloaded from alias.conf
+2020-06-05 13:11:07		Options reloaded from buflist.conf
+2020-06-05 13:11:07		Options reloaded from irc.conf
+2020-06-05 13:11:07		Options reloaded from relay.conf
+2020-06-05 13:11:07		Options reloaded from python.conf
+2020-06-05 13:11:07		Options reloaded from ruby.conf
+2020-06-05 13:11:07		Options reloaded from script.conf
+2020-06-05 13:11:07		Options reloaded from fset.conf
+2020-06-05 13:11:13		Options reloaded from sec.conf
+2020-06-05 13:11:13		Options reloaded from weechat.conf
+2020-06-05 13:11:13		Options reloaded from plugins.conf
+2020-06-05 13:11:13		Options reloaded from charset.conf
+2020-06-05 13:11:13		Options reloaded from logger.conf
+2020-06-05 13:11:13		Options reloaded from exec.conf
+2020-06-05 13:11:13		Options reloaded from trigger.conf
+2020-06-05 13:11:13		Options reloaded from spell.conf
+2020-06-05 13:11:13		Options reloaded from alias.conf
+2020-06-05 13:11:13		Options reloaded from buflist.conf
+2020-06-05 13:11:13		Options reloaded from irc.conf
+2020-06-05 13:11:13		Options reloaded from relay.conf
+2020-06-05 13:11:13		Options reloaded from python.conf
+2020-06-05 13:11:13		Options reloaded from ruby.conf
+2020-06-05 13:11:13		Options reloaded from script.conf
+2020-06-05 13:11:13		Options reloaded from fset.conf
+2020-06-05 13:11:22		Options reloaded from sec.conf
+2020-06-05 13:11:22		Options reloaded from weechat.conf
+2020-06-05 13:11:22		Options reloaded from plugins.conf
+2020-06-05 13:11:22		Options reloaded from charset.conf
+2020-06-05 13:11:22		Options reloaded from logger.conf
+2020-06-05 13:11:22		Options reloaded from exec.conf
+2020-06-05 13:11:22		Options reloaded from trigger.conf
+2020-06-05 13:11:22		Options reloaded from spell.conf
+2020-06-05 13:11:22		Options reloaded from alias.conf
+2020-06-05 13:11:22		Options reloaded from buflist.conf
+2020-06-05 13:11:22		Options reloaded from irc.conf
+2020-06-05 13:11:22		Options reloaded from relay.conf
+2020-06-05 13:11:22		Options reloaded from python.conf
+2020-06-05 13:11:22		Options reloaded from ruby.conf
+2020-06-05 13:11:22		Options reloaded from script.conf
+2020-06-05 13:11:22		Options reloaded from fset.conf
+2020-06-05 13:11:37		Options reloaded from sec.conf
+2020-06-05 13:11:37		Options reloaded from weechat.conf
+2020-06-05 13:11:37		Options reloaded from plugins.conf
+2020-06-05 13:11:37		Options reloaded from charset.conf
+2020-06-05 13:11:37		Options reloaded from logger.conf
+2020-06-05 13:11:37		Options reloaded from exec.conf
+2020-06-05 13:11:37		Options reloaded from trigger.conf
+2020-06-05 13:11:37		Options reloaded from spell.conf
+2020-06-05 13:11:37		Options reloaded from alias.conf
+2020-06-05 13:11:37		Options reloaded from buflist.conf
+2020-06-05 13:11:37		Options reloaded from irc.conf
+2020-06-05 13:11:37		Options reloaded from relay.conf
+2020-06-05 13:11:37		Options reloaded from python.conf
+2020-06-05 13:11:37		Options reloaded from ruby.conf
+2020-06-05 13:11:37		Options reloaded from script.conf
+2020-06-05 13:11:37		Options reloaded from fset.conf
+2020-06-05 13:11:42		Options reloaded from sec.conf
+2020-06-05 13:11:42		Options reloaded from weechat.conf
+2020-06-05 13:11:42		Options reloaded from plugins.conf
+2020-06-05 13:11:42		Options reloaded from charset.conf
+2020-06-05 13:11:42		Options reloaded from logger.conf
+2020-06-05 13:11:42		Options reloaded from exec.conf
+2020-06-05 13:11:42		Options reloaded from trigger.conf
+2020-06-05 13:11:42		Options reloaded from spell.conf
+2020-06-05 13:11:42		Options reloaded from alias.conf
+2020-06-05 13:11:42		Options reloaded from buflist.conf
+2020-06-05 13:11:42		Options reloaded from irc.conf
+2020-06-05 13:11:42		Options reloaded from relay.conf
+2020-06-05 13:11:42		Options reloaded from python.conf
+2020-06-05 13:11:42		Options reloaded from ruby.conf
+2020-06-05 13:11:42		Options reloaded from script.conf
+2020-06-05 13:11:42		Options reloaded from fset.conf
+2020-06-05 13:11:45		Options reloaded from sec.conf
+2020-06-05 13:11:45		Options reloaded from weechat.conf
+2020-06-05 13:11:45		Options reloaded from plugins.conf
+2020-06-05 13:11:45		Options reloaded from charset.conf
+2020-06-05 13:11:45		Options reloaded from logger.conf
+2020-06-05 13:11:45		Options reloaded from exec.conf
+2020-06-05 13:11:45		Options reloaded from trigger.conf
+2020-06-05 13:11:45		Options reloaded from spell.conf
+2020-06-05 13:11:45		Options reloaded from alias.conf
+2020-06-05 13:11:45		Options reloaded from buflist.conf
+2020-06-05 13:11:45		Options reloaded from irc.conf
+2020-06-05 13:11:45		Options reloaded from relay.conf
+2020-06-05 13:11:45		Options reloaded from python.conf
+2020-06-05 13:11:45		Options reloaded from ruby.conf
+2020-06-05 13:11:45		Options reloaded from script.conf
+2020-06-05 13:11:45		Options reloaded from fset.conf
+2020-06-05 13:11:51		Options reloaded from sec.conf
+2020-06-05 13:11:51		Options reloaded from weechat.conf
+2020-06-05 13:11:51		Options reloaded from plugins.conf
+2020-06-05 13:11:51		Options reloaded from charset.conf
+2020-06-05 13:11:51		Options reloaded from logger.conf
+2020-06-05 13:11:51		Options reloaded from exec.conf
+2020-06-05 13:11:51		Options reloaded from trigger.conf
+2020-06-05 13:11:51		Options reloaded from spell.conf
+2020-06-05 13:11:51		Options reloaded from alias.conf
+2020-06-05 13:11:51		Options reloaded from buflist.conf
+2020-06-05 13:11:51		Options reloaded from irc.conf
+2020-06-05 13:11:51		Options reloaded from relay.conf
+2020-06-05 13:11:51		Options reloaded from python.conf
+2020-06-05 13:11:51		Options reloaded from ruby.conf
+2020-06-05 13:11:51		Options reloaded from script.conf
+2020-06-05 13:11:51		Options reloaded from fset.conf
+2020-06-05 13:11:57		Options reloaded from sec.conf
+2020-06-05 13:11:57		Options reloaded from weechat.conf
+2020-06-05 13:11:57		Options reloaded from plugins.conf
+2020-06-05 13:11:57		Options reloaded from charset.conf
+2020-06-05 13:11:57		Options reloaded from logger.conf
+2020-06-05 13:11:57		Options reloaded from exec.conf
+2020-06-05 13:11:57		Options reloaded from trigger.conf
+2020-06-05 13:11:57		Options reloaded from spell.conf
+2020-06-05 13:11:57		Options reloaded from alias.conf
+2020-06-05 13:11:57		Options reloaded from buflist.conf
+2020-06-05 13:11:57		Options reloaded from irc.conf
+2020-06-05 13:11:57		Options reloaded from relay.conf
+2020-06-05 13:11:57		Options reloaded from python.conf
+2020-06-05 13:11:57		Options reloaded from ruby.conf
+2020-06-05 13:11:57		Options reloaded from script.conf
+2020-06-05 13:11:57		Options reloaded from fset.conf
+2020-06-05 13:12:00		Options reloaded from sec.conf
+2020-06-05 13:12:00		Options reloaded from weechat.conf
+2020-06-05 13:12:00		Options reloaded from plugins.conf
+2020-06-05 13:12:00		Options reloaded from charset.conf
+2020-06-05 13:12:00		Options reloaded from logger.conf
+2020-06-05 13:12:00		Options reloaded from exec.conf
+2020-06-05 13:12:00		Options reloaded from trigger.conf
+2020-06-05 13:12:00		Options reloaded from spell.conf
+2020-06-05 13:12:00		Options reloaded from alias.conf
+2020-06-05 13:12:00		Options reloaded from buflist.conf
+2020-06-05 13:12:00		Options reloaded from irc.conf
+2020-06-05 13:12:00		Options reloaded from relay.conf
+2020-06-05 13:12:00		Options reloaded from python.conf
+2020-06-05 13:12:00		Options reloaded from ruby.conf
+2020-06-05 13:12:00		Options reloaded from script.conf
+2020-06-05 13:12:00		Options reloaded from fset.conf
+2020-06-05 13:12:04		Options reloaded from sec.conf
+2020-06-05 13:12:04		Options reloaded from weechat.conf
+2020-06-05 13:12:04		Options reloaded from plugins.conf
+2020-06-05 13:12:04		Options reloaded from charset.conf
+2020-06-05 13:12:04		Options reloaded from logger.conf
+2020-06-05 13:12:04		Options reloaded from exec.conf
+2020-06-05 13:12:04		Options reloaded from trigger.conf
+2020-06-05 13:12:04		Options reloaded from spell.conf
+2020-06-05 13:12:04		Options reloaded from alias.conf
+2020-06-05 13:12:04		Options reloaded from buflist.conf
+2020-06-05 13:12:04		Options reloaded from irc.conf
+2020-06-05 13:12:04		Options reloaded from relay.conf
+2020-06-05 13:12:04		Options reloaded from python.conf
+2020-06-05 13:12:04		Options reloaded from ruby.conf
+2020-06-05 13:12:04		Options reloaded from script.conf
+2020-06-05 13:12:04		Options reloaded from fset.conf
+2020-06-05 13:12:19		Options reloaded from sec.conf
+2020-06-05 13:12:19		Options reloaded from weechat.conf
+2020-06-05 13:12:19		Options reloaded from plugins.conf
+2020-06-05 13:12:19		Options reloaded from charset.conf
+2020-06-05 13:12:19		Options reloaded from logger.conf
+2020-06-05 13:12:19		Options reloaded from exec.conf
+2020-06-05 13:12:19		Options reloaded from trigger.conf
+2020-06-05 13:12:19		Options reloaded from spell.conf
+2020-06-05 13:12:19		Options reloaded from alias.conf
+2020-06-05 13:12:19		Options reloaded from buflist.conf
+2020-06-05 13:12:19		Options reloaded from irc.conf
+2020-06-05 13:12:19		Options reloaded from relay.conf
+2020-06-05 13:12:19		Options reloaded from python.conf
+2020-06-05 13:12:19		Options reloaded from ruby.conf
+2020-06-05 13:12:19		Options reloaded from script.conf
+2020-06-05 13:12:19		Options reloaded from fset.conf
+2020-06-05 13:12:28		Options reloaded from sec.conf
+2020-06-05 13:12:28		Options reloaded from weechat.conf
+2020-06-05 13:12:28		Options reloaded from plugins.conf
+2020-06-05 13:12:28		Options reloaded from charset.conf
+2020-06-05 13:12:28		Options reloaded from logger.conf
+2020-06-05 13:12:28		Options reloaded from exec.conf
+2020-06-05 13:12:28		Options reloaded from trigger.conf
+2020-06-05 13:12:28		Options reloaded from spell.conf
+2020-06-05 13:12:28		Options reloaded from alias.conf
+2020-06-05 13:12:28		Options reloaded from buflist.conf
+2020-06-05 13:12:28		Options reloaded from irc.conf
+2020-06-05 13:12:28		Options reloaded from relay.conf
+2020-06-05 13:12:28		Options reloaded from python.conf
+2020-06-05 13:12:28		Options reloaded from ruby.conf
+2020-06-05 13:12:28		Options reloaded from script.conf
+2020-06-05 13:12:28		Options reloaded from fset.conf
+2020-06-05 13:12:37		Options reloaded from sec.conf
+2020-06-05 13:12:37		Options reloaded from weechat.conf
+2020-06-05 13:12:37		Options reloaded from plugins.conf
+2020-06-05 13:12:37		Options reloaded from charset.conf
+2020-06-05 13:12:37		Options reloaded from logger.conf
+2020-06-05 13:12:37		Options reloaded from exec.conf
+2020-06-05 13:12:37		Options reloaded from trigger.conf
+2020-06-05 13:12:37		Options reloaded from spell.conf
+2020-06-05 13:12:37		Options reloaded from alias.conf
+2020-06-05 13:12:37		Options reloaded from buflist.conf
+2020-06-05 13:12:37		Options reloaded from irc.conf
+2020-06-05 13:12:37		Options reloaded from relay.conf
+2020-06-05 13:12:37		Options reloaded from python.conf
+2020-06-05 13:12:37		Options reloaded from ruby.conf
+2020-06-05 13:12:37		Options reloaded from script.conf
+2020-06-05 13:12:37		Options reloaded from fset.conf
+2020-06-05 13:12:43		Options reloaded from sec.conf
+2020-06-05 13:12:43		Options reloaded from weechat.conf
+2020-06-05 13:12:43		Options reloaded from plugins.conf
+2020-06-05 13:12:43		Options reloaded from charset.conf
+2020-06-05 13:12:43		Options reloaded from logger.conf
+2020-06-05 13:12:43		Options reloaded from exec.conf
+2020-06-05 13:12:43		Options reloaded from trigger.conf
+2020-06-05 13:12:43		Options reloaded from spell.conf
+2020-06-05 13:12:43		Options reloaded from alias.conf
+2020-06-05 13:12:43		Options reloaded from buflist.conf
+2020-06-05 13:12:43		Options reloaded from irc.conf
+2020-06-05 13:12:43		Options reloaded from relay.conf
+2020-06-05 13:12:43		Options reloaded from python.conf
+2020-06-05 13:12:43		Options reloaded from ruby.conf
+2020-06-05 13:12:43		Options reloaded from script.conf
+2020-06-05 13:12:43		Options reloaded from fset.conf
+2020-06-05 13:13:06		Options reloaded from sec.conf
+2020-06-05 13:13:06		Options reloaded from weechat.conf
+2020-06-05 13:13:06		Options reloaded from plugins.conf
+2020-06-05 13:13:06		Options reloaded from charset.conf
+2020-06-05 13:13:06		Options reloaded from logger.conf
+2020-06-05 13:13:06		Options reloaded from exec.conf
+2020-06-05 13:13:06		Options reloaded from trigger.conf
+2020-06-05 13:13:06		Options reloaded from spell.conf
+2020-06-05 13:13:06		Options reloaded from alias.conf
+2020-06-05 13:13:06		Options reloaded from buflist.conf
+2020-06-05 13:13:06		Options reloaded from irc.conf
+2020-06-05 13:13:06		Options reloaded from relay.conf
+2020-06-05 13:13:06		Options reloaded from python.conf
+2020-06-05 13:13:06		Options reloaded from ruby.conf
+2020-06-05 13:13:06		Options reloaded from script.conf
+2020-06-05 13:13:06		Options reloaded from fset.conf
+2020-06-05 13:13:21		Options reloaded from sec.conf
+2020-06-05 13:13:21		Options reloaded from weechat.conf
+2020-06-05 13:13:21		Options reloaded from plugins.conf
+2020-06-05 13:13:21		Options reloaded from charset.conf
+2020-06-05 13:13:21		Options reloaded from logger.conf
+2020-06-05 13:13:21		Options reloaded from exec.conf
+2020-06-05 13:13:21		Options reloaded from trigger.conf
+2020-06-05 13:13:21		Options reloaded from spell.conf
+2020-06-05 13:13:21		Options reloaded from alias.conf
+2020-06-05 13:13:21		Options reloaded from buflist.conf
+2020-06-05 13:13:21		Options reloaded from irc.conf
+2020-06-05 13:13:21		Options reloaded from relay.conf
+2020-06-05 13:13:21		Options reloaded from python.conf
+2020-06-05 13:13:21		Options reloaded from ruby.conf
+2020-06-05 13:13:21		Options reloaded from script.conf
+2020-06-05 13:13:21		Options reloaded from fset.conf
+2020-06-05 13:13:25		Options reloaded from sec.conf
+2020-06-05 13:13:25		Options reloaded from weechat.conf
+2020-06-05 13:13:25		Options reloaded from plugins.conf
+2020-06-05 13:13:25		Options reloaded from charset.conf
+2020-06-05 13:13:25		Options reloaded from logger.conf
+2020-06-05 13:13:25		Options reloaded from exec.conf
+2020-06-05 13:13:25		Options reloaded from trigger.conf
+2020-06-05 13:13:25		Options reloaded from spell.conf
+2020-06-05 13:13:25		Options reloaded from alias.conf
+2020-06-05 13:13:25		Options reloaded from buflist.conf
+2020-06-05 13:13:25		Options reloaded from irc.conf
+2020-06-05 13:13:25		Options reloaded from relay.conf
+2020-06-05 13:13:25		Options reloaded from python.conf
+2020-06-05 13:13:25		Options reloaded from ruby.conf
+2020-06-05 13:13:25		Options reloaded from script.conf
+2020-06-05 13:13:25		Options reloaded from fset.conf
+2020-06-05 13:13:42		Options reloaded from sec.conf
+2020-06-05 13:13:42		Options reloaded from weechat.conf
+2020-06-05 13:13:42		Options reloaded from plugins.conf
+2020-06-05 13:13:42		Options reloaded from charset.conf
+2020-06-05 13:13:42		Options reloaded from logger.conf
+2020-06-05 13:13:42		Options reloaded from exec.conf
+2020-06-05 13:13:42		Options reloaded from trigger.conf
+2020-06-05 13:13:42		Options reloaded from spell.conf
+2020-06-05 13:13:42		Options reloaded from alias.conf
+2020-06-05 13:13:42		Options reloaded from buflist.conf
+2020-06-05 13:13:42		Options reloaded from irc.conf
+2020-06-05 13:13:42		Options reloaded from relay.conf
+2020-06-05 13:13:42		Options reloaded from python.conf
+2020-06-05 13:13:42		Options reloaded from ruby.conf
+2020-06-05 13:13:42		Options reloaded from script.conf
+2020-06-05 13:13:42		Options reloaded from fset.conf
+2020-06-05 13:13:46		Options reloaded from sec.conf
+2020-06-05 13:13:47		Options reloaded from weechat.conf
+2020-06-05 13:13:47		Options reloaded from plugins.conf
+2020-06-05 13:13:47		Options reloaded from charset.conf
+2020-06-05 13:13:47		Options reloaded from logger.conf
+2020-06-05 13:13:47		Options reloaded from exec.conf
+2020-06-05 13:13:47		Options reloaded from trigger.conf
+2020-06-05 13:13:47		Options reloaded from spell.conf
+2020-06-05 13:13:47		Options reloaded from alias.conf
+2020-06-05 13:13:47		Options reloaded from buflist.conf
+2020-06-05 13:13:47		Options reloaded from irc.conf
+2020-06-05 13:13:47		Options reloaded from relay.conf
+2020-06-05 13:13:47		Options reloaded from python.conf
+2020-06-05 13:13:47		Options reloaded from ruby.conf
+2020-06-05 13:13:47		Options reloaded from script.conf
+2020-06-05 13:13:47		Options reloaded from fset.conf
+2020-06-05 13:15:06		Options reloaded from sec.conf
+2020-06-05 13:15:06		Options reloaded from weechat.conf
+2020-06-05 13:15:06		Options reloaded from plugins.conf
+2020-06-05 13:15:06		Options reloaded from charset.conf
+2020-06-05 13:15:06		Options reloaded from logger.conf
+2020-06-05 13:15:06		Options reloaded from exec.conf
+2020-06-05 13:15:06		Options reloaded from trigger.conf
+2020-06-05 13:15:06		Options reloaded from spell.conf
+2020-06-05 13:15:06		Options reloaded from alias.conf
+2020-06-05 13:15:06		Options reloaded from buflist.conf
+2020-06-05 13:15:06		Options reloaded from irc.conf
+2020-06-05 13:15:06		Options reloaded from relay.conf
+2020-06-05 13:15:06		Options reloaded from python.conf
+2020-06-05 13:15:06		Options reloaded from ruby.conf
+2020-06-05 13:15:06		Options reloaded from script.conf
+2020-06-05 13:15:06		Options reloaded from fset.conf
+2020-06-05 13:15:09		Options reloaded from sec.conf
+2020-06-05 13:15:10		Options reloaded from weechat.conf
+2020-06-05 13:15:10		Options reloaded from plugins.conf
+2020-06-05 13:15:10		Options reloaded from charset.conf
+2020-06-05 13:15:10		Options reloaded from logger.conf
+2020-06-05 13:15:10		Options reloaded from exec.conf
+2020-06-05 13:15:10		Options reloaded from trigger.conf
+2020-06-05 13:15:10		Options reloaded from spell.conf
+2020-06-05 13:15:10		Options reloaded from alias.conf
+2020-06-05 13:15:10		Options reloaded from buflist.conf
+2020-06-05 13:15:10		Options reloaded from irc.conf
+2020-06-05 13:15:10		Options reloaded from relay.conf
+2020-06-05 13:15:10		Options reloaded from python.conf
+2020-06-05 13:15:10		Options reloaded from ruby.conf
+2020-06-05 13:15:10		Options reloaded from script.conf
+2020-06-05 13:15:10		Options reloaded from fset.conf
+2020-06-05 13:15:15		Options reloaded from sec.conf
+2020-06-05 13:15:15		Options reloaded from weechat.conf
+2020-06-05 13:15:15		Options reloaded from plugins.conf
+2020-06-05 13:15:15		Options reloaded from charset.conf
+2020-06-05 13:15:15		Options reloaded from logger.conf
+2020-06-05 13:15:15		Options reloaded from exec.conf
+2020-06-05 13:15:15		Options reloaded from trigger.conf
+2020-06-05 13:15:15		Options reloaded from spell.conf
+2020-06-05 13:15:15		Options reloaded from alias.conf
+2020-06-05 13:15:15		Options reloaded from buflist.conf
+2020-06-05 13:15:15		Options reloaded from irc.conf
+2020-06-05 13:15:15		Options reloaded from relay.conf
+2020-06-05 13:15:15		Options reloaded from python.conf
+2020-06-05 13:15:15		Options reloaded from ruby.conf
+2020-06-05 13:15:15		Options reloaded from script.conf
+2020-06-05 13:15:15		Options reloaded from fset.conf
+2020-06-05 13:15:23		Options reloaded from sec.conf
+2020-06-05 13:15:23		Options reloaded from weechat.conf
+2020-06-05 13:15:23		Options reloaded from plugins.conf
+2020-06-05 13:15:23		Options reloaded from charset.conf
+2020-06-05 13:15:23		Options reloaded from logger.conf
+2020-06-05 13:15:23		Options reloaded from exec.conf
+2020-06-05 13:15:23		Options reloaded from trigger.conf
+2020-06-05 13:15:23		Options reloaded from spell.conf
+2020-06-05 13:15:23		Options reloaded from alias.conf
+2020-06-05 13:15:23		Options reloaded from buflist.conf
+2020-06-05 13:15:23		Options reloaded from irc.conf
+2020-06-05 13:15:23		Options reloaded from relay.conf
+2020-06-05 13:15:23		Options reloaded from python.conf
+2020-06-05 13:15:23		Options reloaded from ruby.conf
+2020-06-05 13:15:23		Options reloaded from script.conf
+2020-06-05 13:15:23		Options reloaded from fset.conf
+2020-06-05 13:17:06		Options reloaded from sec.conf
+2020-06-05 13:17:06		Options reloaded from weechat.conf
+2020-06-05 13:17:06		Options reloaded from plugins.conf
+2020-06-05 13:17:06		Options reloaded from charset.conf
+2020-06-05 13:17:06		Options reloaded from logger.conf
+2020-06-05 13:17:06		Options reloaded from exec.conf
+2020-06-05 13:17:06		Options reloaded from trigger.conf
+2020-06-05 13:17:06		Options reloaded from spell.conf
+2020-06-05 13:17:06		Options reloaded from alias.conf
+2020-06-05 13:17:06		Options reloaded from buflist.conf
+2020-06-05 13:17:06		Options reloaded from irc.conf
+2020-06-05 13:17:06		Options reloaded from relay.conf
+2020-06-05 13:17:06		Options reloaded from python.conf
+2020-06-05 13:17:06		Options reloaded from ruby.conf
+2020-06-05 13:17:06		Options reloaded from script.conf
+2020-06-05 13:17:06		Options reloaded from fset.conf
+2020-06-05 13:17:16		Options reloaded from sec.conf
+2020-06-05 13:17:16		Options reloaded from weechat.conf
+2020-06-05 13:17:16		Options reloaded from plugins.conf
+2020-06-05 13:17:16		Options reloaded from charset.conf
+2020-06-05 13:17:16		Options reloaded from logger.conf
+2020-06-05 13:17:16		Options reloaded from exec.conf
+2020-06-05 13:17:16		Options reloaded from trigger.conf
+2020-06-05 13:17:16		Options reloaded from spell.conf
+2020-06-05 13:17:16		Options reloaded from alias.conf
+2020-06-05 13:17:16		Options reloaded from buflist.conf
+2020-06-05 13:17:16		Options reloaded from irc.conf
+2020-06-05 13:17:16		Options reloaded from relay.conf
+2020-06-05 13:17:16		Options reloaded from python.conf
+2020-06-05 13:17:16		Options reloaded from ruby.conf
+2020-06-05 13:17:16		Options reloaded from script.conf
+2020-06-05 13:17:16		Options reloaded from fset.conf
+2020-06-05 13:17:28		Options reloaded from sec.conf
+2020-06-05 13:17:28		Options reloaded from weechat.conf
+2020-06-05 13:17:28		Options reloaded from plugins.conf
+2020-06-05 13:17:28		Options reloaded from charset.conf
+2020-06-05 13:17:28		Options reloaded from logger.conf
+2020-06-05 13:17:28		Options reloaded from exec.conf
+2020-06-05 13:17:28		Options reloaded from trigger.conf
+2020-06-05 13:17:28		Options reloaded from spell.conf
+2020-06-05 13:17:28		Options reloaded from alias.conf
+2020-06-05 13:17:28		Options reloaded from buflist.conf
+2020-06-05 13:17:28		Options reloaded from irc.conf
+2020-06-05 13:17:28		Options reloaded from relay.conf
+2020-06-05 13:17:28		Options reloaded from python.conf
+2020-06-05 13:17:28		Options reloaded from ruby.conf
+2020-06-05 13:17:28		Options reloaded from script.conf
+2020-06-05 13:17:28		Options reloaded from fset.conf
