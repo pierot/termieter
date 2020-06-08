@@ -46,21 +46,24 @@ yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
 # rules
-yabai -m rule --add app=Kitty space=1
+yabai -m rule --add app="kitty" space=2
 yabai -m rule --add app="^Firefox*" space=^2
 yabai -m rule --add app="^Firefox*" title="^Opening .*$" manage=off
 yabai -m rule --add app="^Firefox*" title="^File Upload$" manage=off
-yabai -m rule --add app=Mail space=3
-yabai -m rule --add app=Spotify space=6 manage=off
+yabai -m rule --add app="Mail" space=3
+yabai -m rule --add app="Spotify" space=5 manage=off
 # grid=8:8:0:1:1:1
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app=Preview manage=off
 yabai -m rule --add app="1Password" manage=off
 yabai -m rule --add app="Trello" space=4
 yabai -m rule --add app="Slack" space=4
+yabai -m rule --add app="TablePlus" space=3
 # yabai -m rule --add app="Finder" manage=off
+yabai -m rule --add app="^GIMP*" manage=off
 yabai -m rule --add app="App Store" manage=off
 yabai -m rule --add app="The Unarchiver" manage=off
 yabai -m rule --add app="QuickTime Player" manage=off
+yabai -m rule --add app="Harvest" manage=off
 
 echo "yabai configuration loaded.."
