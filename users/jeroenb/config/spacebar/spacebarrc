@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+spacebar -m config text_font         "SF Pro Display:Regular:13.0"
+
+# yabai -m config status_bar_text_font         "Menlo:Regular:12.0"
+spacebar -m config icon_font         "FuraCode Nerd Font:Regular:12.0"
+spacebar -m config background_color  0xff090a1c
+spacebar -m config foreground_color  0xffa8a8a8
+spacebar -m config space_icon_strip  I II III IV V VI VII VIII IX X
+spacebar -m config power_icon_strip   
+spacebar -m config space_icon        
+spacebar -m config clock_icon        
+spacebar -m config clock_format      "%d/%m/%y %R"
+
+echo "spacebar configuration loaded.."
