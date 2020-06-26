@@ -4,3 +4,7 @@ Plug 'itchyny/landscape.vim'
 Plug 'itchyny/lightline.vim'
 " tComment
 Plug 'vim-scripts/tComment'
+" Show colors for hex, rgb, names
+Plug 'ap/vim-css-color'
+" Rainbow parentheses
+Plug 'luochen1990/rainbow'
