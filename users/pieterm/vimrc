@@ -13,6 +13,8 @@ let g:lightline = {
 
 let g:loaded_ruby_provider = 0
 
+let g:rainbow_active = 1
+
 " == Colors ========================================================
 
 colorscheme landscape

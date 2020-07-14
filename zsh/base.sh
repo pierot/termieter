@@ -169,7 +169,9 @@ alias gap='git add -p'
 alias gst='git status'
 
 alias gmerge='git add . && gcmm chore: merge'
+alias gcompile='git add . && gcmm chore: compile'
 alias gbump='git add . && gcmm chore: bump versions'
+alias gcleanup='git add . && gcmm chore: cleanup'
 
 function gpo() {
   git pull origin $*
@@ -255,6 +257,10 @@ alias mt="source .env.test && mix test $a"
 # fi
 
 export PATH="$PATH:/Library/Ruby/Gems/2.3.0"
+
+##########################################################
+
+alias python=/usr/local/bin/python3
 
 ##########################################################
 
