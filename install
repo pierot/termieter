@@ -63,6 +63,13 @@ _error() {
   _print $COL_RED"Error:\n$1\n"
 }
 
+_contains_element() {
+  local e match="$1"
+  shift
+  for e; do [[ "$e" == "$match" ]] && return 0; done
+  return 1
+}
+
 # variables
 install_dir="$HOME/.termieter"
 update=0
@@ -160,28 +167,18 @@ _back_install_user() {
   if [ -d "$install_dir/users/$USER/$1" ]; then
     if [[ "$1" == "bin" && ! -L "$HOME/$1" ]]; then
       echo ""
-      printf "link $install_dir/users/$USER/$1  -> $HOME/$1"
+      printf "link $install_dir/users/$USER/$1 -> $HOME/$1"
       ln -sf "$install_dir/users/$USER/$1" "$HOME/$1"
     fi
   fi
 
   if [ -f "$install_dir/users/$USER/$1" ]; then
-    if [ "$1" == "offlineimaprc" ]; then
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
-    elif [ "$1" == "msmtprc" ]; then
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
-    elif [ "$1" == "mbsyncrc" ]; then
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
-    elif [ "$1" == "yabairc" ]; then
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
-    elif [ "$1" == "skhdrc" ]; then
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
-    elif [ "$1" == "notmuch-config" ]; then
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
-    elif [ -n "$2" ]; then
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$2.local"
-    else
+    locals=("vimrc.plugs" "vimrc" "gvimrc" "gitconfig" "zshrc" "tmux.conf")
+
+    if [ _contains_element "$1" "${locals[@]}" ]; then
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1.local"
+    else
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
     fi
   fi
 }
