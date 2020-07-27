@@ -176,7 +176,10 @@ _back_install_user() {
     locals=("vimrc.plugs" "vimrc" "gvimrc" "gitconfig" "zshrc" "tmux.conf")
 
     if _contains_element "$1" "${locals[@]}"; then
+      echo "local file $1"
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1.local"
+    elif [ -n "$2" ]; then
+      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$2"
     else
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
     fi
