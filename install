@@ -175,7 +175,7 @@ _back_install_user() {
   if [ -f "$install_dir/users/$USER/$1" ]; then
     locals=("vimrc.plugs" "vimrc" "gvimrc" "gitconfig" "zshrc" "tmux.conf")
 
-    if [ _contains_element "$1" "${locals[@]}" ]; then
+    if _contains_element "$1" "${locals[@]}"; then
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1.local"
     else
       ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
