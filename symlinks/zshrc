@@ -70,3 +70,5 @@ source $TRM/zsh/base.sh
 alias reload!='. $HOME/.zshrc'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /Users/jeroenb/.config/broot/launcher/bash/br
