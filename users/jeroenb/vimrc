@@ -10,6 +10,7 @@ nmap <silent> t<C-g> :TestVisit<CR>
 inoremap <F1> <Esc>
 nmap <F1> <Nop>
 
+" color madeofme
 color madeofme
 
  " Enable F2 key for toggling pastemode" set number relativenumber
