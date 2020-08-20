@@ -34,3 +34,9 @@ set shell=bash
 nnoremap <Leader>c :set cursorline!<CR>
 nnoremap <Leader>cc :set cursorcolumn!<CR>
 set cursorline
+
+" open current file in gitk, F1 (useless key anyway, who needs help?)
+map <F1> :!tig %<CR>
+map <leader>t :!tig %<CR>
+
+" command! Tig "!tig %"

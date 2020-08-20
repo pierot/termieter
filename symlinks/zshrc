@@ -42,7 +42,7 @@ setopt share_history
 plugins=(urltools gitfast docker git gitfast)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins+=(ansible npm yarn mix-fast)
+  plugins+=(ansible yarn mix-fast)
 
   alias dircolors='gdircolors'
 else
@@ -71,4 +71,4 @@ alias reload!='. $HOME/.zshrc'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/jeroenb/.config/broot/launcher/bash/br
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
