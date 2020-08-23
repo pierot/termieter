@@ -39,3 +39,9 @@ map <F1> :!tig %<CR>
 map <leader>t :!tig %<CR>
 
 " command! Tig "!tig %"
+
+" == git (fugitive) ==================================================
+
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gl :Gpull<CR>
