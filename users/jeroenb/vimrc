@@ -34,11 +34,7 @@ nnoremap <Leader>c :set cursorline!<CR>
 nnoremap <Leader>cc :set cursorcolumn!<CR>
 set cursorline
 
-" open current file in gitk, F1 (useless key anyway, who needs help?)
-map <F1> :!tig %<CR>
-map <leader>t :!tig %<CR>
-
-" command! Tig "!tig %"
+set signcolumn=number " combine sign and number gutter
 
 " == git (fugitive) ==================================================
 

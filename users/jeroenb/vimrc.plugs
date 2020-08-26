@@ -4,6 +4,7 @@
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'justinmk/vim-sneak'
 " Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
 " Plug 'slashmili/alchemist.vim'
