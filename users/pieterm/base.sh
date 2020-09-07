@@ -18,3 +18,5 @@ if [ -d $DROPBOX ]; then
   alias repos="cd $DROPBOX/Work/repos/"
   alias dev="cd $DROPBOX/Work/devel/"
 fi
+
+alias python=/usr/local/bin/python3.8

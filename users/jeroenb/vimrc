@@ -33,3 +33,11 @@ set shell=bash
 nnoremap <Leader>c :set cursorline!<CR>
 nnoremap <Leader>cc :set cursorcolumn!<CR>
 set cursorline
+
+set signcolumn=number " combine sign and number gutter
+
+" == git (fugitive) ==================================================
+
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gl :Gpull<CR>

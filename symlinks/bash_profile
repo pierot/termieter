@@ -1,3 +1,5 @@
 source ~/.termieter/env
 
 export SHELL=/bin/bash
+
+source /Users/jeroenb/.config/broot/launcher/bash/br

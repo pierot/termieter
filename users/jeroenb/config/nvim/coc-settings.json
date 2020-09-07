@@ -1,7 +1,16 @@
 {
   "coc.preferences.autoTrigger": "trigger",
   "coc.preferences.timeout": 300,
-  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "graphql"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "graphql"
+  ],
   "tslint.enable": false,
   "tsserver.enable": false,
   "prettier.tabWidth": 2,
@@ -13,5 +22,6 @@
   "prettier.arrowParens": "avoid",
   "prettier.semi": false,
   "prettier.trailingComma": "es5",
-  "prettier.parser": "babylon"
+  "prettier.parser": "babylon",
+  "css.enable": false
 }
