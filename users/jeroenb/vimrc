@@ -1,26 +1,10 @@
-" == Colors ========================================================
-
-" tests
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
-
 inoremap <F1> <Esc>
 nmap <F1> <Nop>
 
 color madeofme
+" colorscheme landscape
 
- " Enable F2 key for toggling pastemode" set number relativenumber
-
-" :augroup numbertoggle
-" :  autocmd!
-" :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-" :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-" :augroup END
-
-let g:elm_format_autosave = 1
+let g:rainbow_active = 1
 
 if (has("termguicolors"))
   set termguicolors

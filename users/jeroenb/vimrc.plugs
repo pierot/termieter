@@ -1,13 +1,9 @@
-" Bundles
-" Plug 'lambdatoast/elm.vim'
-" Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'justinmk/vim-sneak'
-" Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
-" Plug 'slashmili/alchemist.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-" Plug 'arcticicestudio/nord-vim'
+Plug 'itchyny/landscape.vim'
+Plug 'luochen1990/rainbow'
