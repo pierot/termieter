@@ -4,8 +4,6 @@ nmap <F1> <Nop>
 color madeofme
 " colorscheme landscape
 
-let g:rainbow_active = 1
-
 if (has("termguicolors"))
   set termguicolors
 endif
