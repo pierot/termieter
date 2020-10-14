@@ -11,6 +11,9 @@ endif
 " suddenly I need this for ack and fzf to work (08/01/2020)
 set shell=bash
 
+" ayu, when I am feeling light
+let ayucolor="light"
+
 " cursor line toggle
 nnoremap <Leader>c :set cursorline!<CR>
 nnoremap <Leader>cc :set cursorcolumn!<CR>
