@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #
-# version:      0.2.0
+# version:      0.3.0
 # created:      01/04/2020
 # last update:  14/05/2020
 # author:       Jack + Joe
@@ -14,6 +14,9 @@
 # - added version command
 # - added help command
 # - expanded status command to work without app name
+#
+# 0.3 (14/10/2020)
+# - fixed variable interpolation in ssh command (https://github.com/pierot/termieter/issues/5)
 
 APP_NAME=""
 IP="LOCAL"
@@ -126,7 +129,7 @@ case $COMMAND in
     else
       echo "Connecting to IP $IP as $USER..."
       echo "Searching for $APP_NAME..."
-      CONTAINER=$(ssh -q $USER@$IP 'sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1')
+      CONTAINER=$(ssh -q $USER@$IP 'f() { sudo docker ps --format "{{.Names}}" | grep "$1" | head -n 1 }; f "'"$APP_NAME"'"')
       echo -e "${GREEN}Found app container: ${NC} $CONTAINER"
       echo "Connecting to container $CONTAINER"
       ssh -o 'RequestTTY force'  $USER@$IP "sudo docker exec -i -t $CONTAINER /bin/bash -c './bin/production remote'"
@@ -139,7 +142,7 @@ case $COMMAND in
     else
       echo "Connecting to IP $IP as $USER..."
       echo "Searching for $APP_NAME..."
-      CONTAINER=$(ssh -q $USER@$IP 'sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1 | xargs -I{} sudo docker stop {}')
+      CONTAINER=$(ssh -q $USER@$IP 'f() { sudo docker ps --format "{{.Names}}" | grep "$1" | head -n 1 | xargs -I{} sudo docker stop }; f "'"$APP_NAME"'"')
     fi
     echo -e "${GREEN}Stopped app container: ${NC} $CONTAINER"
     ;;

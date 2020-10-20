@@ -1,26 +1,8 @@
-" == Colors ========================================================
-
-" tests
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
-
 inoremap <F1> <Esc>
 nmap <F1> <Nop>
 
 color madeofme
-
- " Enable F2 key for toggling pastemode" set number relativenumber
-
-" :augroup numbertoggle
-" :  autocmd!
-" :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-" :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-" :augroup END
-
-let g:elm_format_autosave = 1
+" colorscheme landscape
 
 if (has("termguicolors"))
   set termguicolors
@@ -29,12 +11,15 @@ endif
 " suddenly I need this for ack and fzf to work (08/01/2020)
 set shell=bash
 
+" ayu, when I am feeling light
+let ayucolor="light"
+
 " cursor line toggle
 nnoremap <Leader>c :set cursorline!<CR>
 nnoremap <Leader>cc :set cursorcolumn!<CR>
 set cursorline
 
-set signcolumn=number " combine sign and number gutter
+" set signcolumn=number " combine sign and number gutter
 
 " == git (fugitive) ==================================================
 
