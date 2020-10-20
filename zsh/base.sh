@@ -150,7 +150,7 @@ fi
 ##########################################################
 
 # EDITORS
-export SVN_EDITOR='vim'
+export SVN_EDITOR='nvim'
 export EDITOR=vim
 
 ##########################################################
@@ -172,6 +172,7 @@ alias gmerge='git add . && gcmm chore: merge'
 alias gcompile='git add . && gcmm chore: compile'
 alias gbump='git add . && gcmm chore: bump versions'
 alias gcleanup='git add . && gcmm chore: cleanup'
+alias gammend='git commit --amend --no-edit'
 
 function gpo() {
   git pull origin $*
