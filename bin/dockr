@@ -1,8 +1,13 @@
 #!/bin/bash -e
 #
+# Dockr
+#
+# Utility wrapper around our Docker/Traefik/Elixir/PHX stack
+# Makes 'dropping in' running Elixir apps easier.
+#
 # version:      0.3.0
 # created:      01/04/2020
-# last update:  14/05/2020
+# last update:  14/10/2020
 # author:       Jack + Joe
 #
 # CHANGELOG
