@@ -36,7 +36,7 @@ NC='\033[0m' # No Color
 
 usage() {
   cat <<-EOF
-Usage: [OPTIONS] COMMAND
+Usage: dockr [OPTIONS] COMMAND
 
 Options:
 
