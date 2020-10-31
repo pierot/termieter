@@ -39,7 +39,6 @@ usage() {
 Usage: dockr [OPTIONS] COMMAND
 
 Options:
-
   -a, --app  string       Name of the app
   -d, --appdir string     Location of the app on the remote machine - only needed
                           for [start], [restart] and [nuke] commands
