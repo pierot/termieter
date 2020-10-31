@@ -116,7 +116,7 @@ if [[ $OS == 'OSX' ]]; then
   alias zzz='pmset sleepnow'
 
   # ssh
-  alias sshconf='sudo vim ~/.ssh/config'
+  alias sshconf='sudo nvim ~/.ssh/config'
   alias sshe='cd ~/.ssh'
 
   # Spotlight
