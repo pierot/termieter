@@ -5,7 +5,7 @@
 # Utility wrapper around our Docker/Traefik/Elixir/PHX stack
 # Makes 'dropping in' running Elixir apps easier.
 #
-# version:      0.3.0
+# version:      0.3
 # created:      01/04/2020
 # last update:  14/10/2020
 # author:       Jack + Joe
@@ -116,7 +116,7 @@ case $COMMAND in
     usage
     ;;
   version)
-    echo "Dockr version 0.2.0, build May 14 2020"
+    echo "Dockr version 0.3, build October 14 2020"
     ;;
   status)
     if [ "$IP" == "LOCAL" ]; then
