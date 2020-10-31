@@ -45,7 +45,8 @@ Options:
                           for [start], [restart] and [nuke] commands
   -i, --ip string         IP of remote machine. Defaults to 'LOCAL', which
                           should be used when running on the target machine
-  -u, --user string       User connecting (default 'jackjoe')
+  -u, --user string       User connecting (default "jackjoe")
+  -h, --help              This screen
 
 Commands:
   status            Return the status of the active container for the app
