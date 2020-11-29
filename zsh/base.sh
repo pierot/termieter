@@ -328,10 +328,14 @@ if [ -e ~/.fzf ]; then
 fi
 
 # fzf + ag configuration
-if have fzf && have rg; then
-  # no need to set anything
-elif have fzf && have ag && ! have rg; then
-  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+if have fzf; then
+  if have fd; then
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  elif have rg; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden -g !.git'
+  elif have ag; then
+    export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+  fi
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
