@@ -228,6 +228,9 @@ function connect_traefik() {
 
 ##########################################################
 
+# ERLANG / ELIXIR
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # Mix (Elixir)
 
 alias mho="source .env && mix hex.outdated"
@@ -293,6 +296,8 @@ export PATH="$PATH:/usr/local/mysql/bin"
 # YARN
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+alias yy='yarn && yarn upgrade'
+
 # NODE
 export PATH="$PATH:/usr/local/share/npm/bin"
 export PATH="$PATH:$HOME/.node/bin"
@@ -300,18 +305,11 @@ export PATH="$PATH:$HOME/.node/bin"
 alias n="npm"
 alias nr="npm run"
 
-alias yy='yarn && yarn upgrade'
-
 ##########################################################
 
 # IC4C
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-
-##########################################################
-
-# ERLANG / ELIXIR
-export ERL_AFLAGS="-kernel shell_history enabled"
 
 ##########################################################
 
@@ -329,7 +327,9 @@ if [ -e ~/.fzf ]; then
 fi
 
 # fzf + ag configuration
-if have fzf && have ag; then
+if have fzf && have rg; then
+  # no need to set anything
+elif have fzf && have ag && ! have rg; then
   export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
