@@ -21,7 +21,6 @@ macro index ga "<change-folder>=daele/archive<enter>" "Go to all mail"
 macro index gd "<change-folder>=daele/drafts<enter>" "Go to drafts"
 folder-hook +daele/INBOX 'macro index,pager y "<save-message>=daele/archive<enter><enter>" "Archive conversation"'
 
-
 color status yellow default
 
 # Mailboxes
