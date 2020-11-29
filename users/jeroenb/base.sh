@@ -5,6 +5,10 @@ have() {
   type "$1" &> /dev/null
 }
 
+function cd {
+  builtin cd "$@" && ls -lF
+}
+
 if have nvim; then
   export EDITOR=nvim
 
