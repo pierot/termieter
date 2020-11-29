@@ -83,9 +83,10 @@ fi
 
 ##########################################################
 
-alias ls='ls $LS_OPT' # long list, excludes dot files
+alias ls='ls $LS_OPT'       # long list, excludes dot files
 alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
 alias l='ls $LS_OPT -1AFC'
+alias mv='mv -i'            # prevents accidental overwrite
 
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
