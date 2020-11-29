@@ -21,6 +21,19 @@ set cursorline
 
 " set signcolumn=number " combine sign and number gutter
 
+" == Lightline =========================
+
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'method' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
 " == git (fugitive) ==================================================
 
 nnoremap <leader>gs :Gstatus<CR>
