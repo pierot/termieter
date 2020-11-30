@@ -3,7 +3,7 @@
 set from      = "Jeroen Bourgois <jeroen@daele.be>"
 set sendmail  = "/usr/local/bin/msmtp -a daele"
 set signature = $TRM/users/jeroenb/mutt/accounts/daele/signature
-set mbox_type = Maildir
+set copy      = yes
 set delete
 
 # Other special folders.
@@ -13,7 +13,7 @@ set postponed = "+daele/Drafts"
 set trash     = "+daele/Trash"
 set record    = "+daele/Sent"
 
-# GMail Macros ---------------------------------------
+# Macros
 macro index,pager A "<save-message>=daele/archive<enter>" "Archive Message"
 macro index,pager !  <save-message>=daele/spam<enter><enter> "Report spam"
 macro index gi "<change-folder>=daele/INBOX<enter>" "Go to inbox"
