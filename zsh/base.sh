@@ -168,6 +168,7 @@ alias glom='gl origin master'
 alias gap='git add -p'
 alias gst='git status'
 
+alias gdoc='git add . && gcmm docs: add documentation'
 alias gmerge='git add . && gcmm chore: merge'
 alias gcompile='git add . && gcmm chore: compile'
 alias gbump='git add . && gcmm chore: bump versions'
