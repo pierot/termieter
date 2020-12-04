@@ -5,10 +5,14 @@ have() {
   type "$1" &> /dev/null
 }
 
+function cd {
+  builtin cd "$@" && ls -lF
+}
+
 if have nvim; then
   export EDITOR=nvim
 
-  alias v="nvim ."
+  alias v="nvim"
   alias vim="nvim"
   alias vi="nvim"
   alias vimdiff='nvim -d'
@@ -40,5 +44,3 @@ export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
 
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# /bin/bash $TRMU/bin/macos.sh

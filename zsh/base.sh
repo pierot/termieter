@@ -83,9 +83,10 @@ fi
 
 ##########################################################
 
-alias ls='ls $LS_OPT' # long list, excludes dot files
+alias ls='ls $LS_OPT'       # long list, excludes dot files
 alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
 alias l='ls $LS_OPT -1AFC'
+alias mv='mv -i'            # prevents accidental overwrite
 
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
@@ -116,7 +117,7 @@ if [[ $OS == 'OSX' ]]; then
   alias zzz='pmset sleepnow'
 
   # ssh
-  alias sshconf='sudo vim ~/.ssh/config'
+  alias sshconf='sudo nvim ~/.ssh/config'
   alias sshe='cd ~/.ssh'
 
   # Spotlight
@@ -229,6 +230,9 @@ function connect_traefik() {
 
 ##########################################################
 
+# ERLANG / ELIXIR
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # Mix (Elixir)
 
 alias mho="source .env && mix hex.outdated"
@@ -294,6 +298,8 @@ export PATH="$PATH:/usr/local/mysql/bin"
 # YARN
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+alias yy='yarn && yarn upgrade'
+
 # NODE
 export PATH="$PATH:/usr/local/share/npm/bin"
 export PATH="$PATH:$HOME/.node/bin"
@@ -301,18 +307,11 @@ export PATH="$PATH:$HOME/.node/bin"
 alias n="npm"
 alias nr="npm run"
 
-alias yy='yarn && yarn upgrade'
-
 ##########################################################
 
 # IC4C
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-
-##########################################################
-
-# ERLANG / ELIXIR
-export ERL_AFLAGS="-kernel shell_history enabled"
 
 ##########################################################
 
@@ -330,8 +329,14 @@ if [ -e ~/.fzf ]; then
 fi
 
 # fzf + ag configuration
-if have fzf && have ag; then
-  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+if have fzf; then
+  if have fd; then
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  elif have rg; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden -g !.git'
+  elif have ag; then
+    export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+  fi
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi

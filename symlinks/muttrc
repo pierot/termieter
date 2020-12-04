@@ -14,7 +14,7 @@ unset mark_old           # read/new is good enough for me
 set beep_new             # bell on new mails
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
-set copy = no            # do not copy sent mail, Gmail smtp already does this.
+# set copy = no            # do not copy sent mail, Gmail smtp already does this.
 set arrow_cursor
 set mime_forward         # forward attachments
 set mime_forward_rest=yes

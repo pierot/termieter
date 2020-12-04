@@ -1,8 +1,13 @@
 #!/bin/bash -e
 #
-# version:      0.3.0
+# Dockr
+#
+# Utility wrapper around our Docker/Traefik/Elixir/PHX stack
+# Makes 'dropping in' running Elixir apps easier.
+#
+# version:      0.3
 # created:      01/04/2020
-# last update:  14/05/2020
+# last update:  14/10/2020
 # author:       Jack + Joe
 #
 # CHANGELOG
@@ -31,16 +36,16 @@ NC='\033[0m' # No Color
 
 usage() {
   cat <<-EOF
-Usage: [OPTIONS] COMMAND
+Usage: dockr [OPTIONS] COMMAND
 
 Options:
-
   -a, --app  string       Name of the app
   -d, --appdir string     Location of the app on the remote machine - only needed
                           for [start], [restart] and [nuke] commands
   -i, --ip string         IP of remote machine. Defaults to 'LOCAL', which
                           should be used when running on the target machine
-  -u, --user string       User connecting (default 'jackjoe')
+  -u, --user string       User connecting (default "jackjoe")
+  -h, --help              This screen
 
 Commands:
   status            Return the status of the active container for the app
@@ -111,7 +116,7 @@ case $COMMAND in
     usage
     ;;
   version)
-    echo "Dockr version 0.2.0, build May 14 2020"
+    echo "Dockr version 0.3, build October 14 2020"
     ;;
   status)
     if [ "$IP" == "LOCAL" ]; then
