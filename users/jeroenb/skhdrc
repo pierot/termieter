@@ -120,4 +120,7 @@ alt - o : yabai -m window --toggle topmost
 alt - p : yabai -m window --toggle sticky;\
           yabai -m window --grid 5:5:4:0:1:1
 
+ctrl - alt - cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+hyper - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
 # .blacklist []

@@ -1,6 +1,7 @@
 {
   "coc.preferences.autoTrigger": "trigger",
   "coc.preferences.timeout": 300,
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "Markdown",
@@ -9,7 +10,8 @@
     "typescript",
     "typescriptreact",
     "json",
-    "graphql"
+    "graphql",
+    "elixir"
   ],
   "tslint.enable": false,
   "tsserver.enable": false,
@@ -22,6 +24,27 @@
   "prettier.arrowParens": "avoid",
   "prettier.semi": false,
   "prettier.trailingComma": "es5",
-  "prettier.parser": "babylon",
-  "css.enable": false
+  "prettier.parser": "typescript",
+  "css.enable": false,
+  "codeLens.enable": true,
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck",
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"],
+    "php": ["phpstan", "psalm"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "elixir": "mix_format",
+    "eelixir": "mix_format"
+  },
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "elixirLS.mixEnv": "dev",
+  "elixirLS.mixTarget": "test",
+  "tsserver.enableJavascript": true,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.preferences.quoteStyle": "double",
+  "typescript.referencesCodeLens.enable": false
 }
