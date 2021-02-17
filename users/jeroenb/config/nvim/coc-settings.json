@@ -1,7 +1,6 @@
 {
-  "coc.preferences.autoTrigger": "trigger",
-  "coc.preferences.timeout": 300,
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "suggest.autoTrigger": "trigger",
+  "suggest.timeout": 500,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "Markdown",
@@ -11,10 +10,9 @@
     "typescriptreact",
     "json",
     "graphql",
+    "php",
     "elixir"
   ],
-  "tslint.enable": false,
-  "tsserver.enable": false,
   "prettier.tabWidth": 2,
   "prettier.printWidth": 80,
   "prettier.useTabs": false,
@@ -24,8 +22,7 @@
   "prettier.arrowParens": "avoid",
   "prettier.semi": false,
   "prettier.trailingComma": "es5",
-  "prettier.parser": "typescript",
-  "css.enable": false,
+  "prettier.parser": "babylon",
   "codeLens.enable": true,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck",
@@ -37,14 +34,6 @@
     "elixir": "mix_format",
     "eelixir": "mix_format"
   },
-  "diagnostic.errorSign": "✘",
-  "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•",
   "elixirLS.mixEnv": "dev",
-  "elixirLS.mixTarget": "test",
-  "tsserver.enableJavascript": true,
-  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "typescript.preferences.quoteStyle": "double",
-  "typescript.referencesCodeLens.enable": false
+  "elixirLS.mixTarget": "test"
 }
