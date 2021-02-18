@@ -47,6 +47,9 @@ yabai -m config window_gap                   10
 
 # rules
 yabai -m rule --add app="kitty" space=1
+yabai -m rule --add app="Kitty" space=1
+yabai -m rule --add app="*kitty*" space=1
+yabai -m rule --add app="*Kitty*" space=1
 yabai -m rule --add app="iTerm2" space=1
 yabai -m rule --add app="^Firefox*" space=2
 yabai -m rule --add app="^Firefox*" title="^Opening .*$" manage=off
