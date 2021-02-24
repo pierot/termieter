@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# Install: python -m pip install websocket-client
 # Copyright (c) 2014-2016 Ryan Huber <rhuber@gmail.com>
 # Copyright (c) 2015-2018 Tollef Fog Heen <tfheen@err.no>
 # Copyright (c) 2015-2020 Trygve Aaberge <trygveaa@gmail.com>
