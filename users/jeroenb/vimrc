@@ -2,7 +2,6 @@ inoremap <F1> <Esc>
 nmap <F1> <Nop>
 
 color madeofme
-" colorscheme landscape
 
 if (has("termguicolors"))
   set termguicolors
@@ -18,6 +17,9 @@ let ayucolor="light"
 nnoremap <Leader>c :set cursorline!<CR>
 nnoremap <Leader>cc :set cursorcolumn!<CR>
 set cursorline
+
+" line number toggle
+nnoremap <Leader>ll :set invnumber<CR>
 
 " set signcolumn=number " combine sign and number gutter
 
