@@ -239,6 +239,8 @@ alias mho="source .env && mix hex.outdated"
 alias mdg="source .env && mix deps.get"
 alias mdu="source .env && mix deps.update"
 alias mdc="source .env && mix deps.clean --all"
+alias mm="source .env && mix ecto.migrate"
+alias mmm="source .env && mix ecto.migration"
 
 function mpr() {
   source .env && mix phx.routes | grep "$*"
