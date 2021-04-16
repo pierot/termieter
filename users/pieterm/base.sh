@@ -19,4 +19,4 @@ if [ -d $DROPBOX ]; then
   alias dev="cd $DROPBOX/Work/devel/"
 fi
 
-alias python=/usr/local/bin/python3.8
+export PATH="/usr/local/opt/php@7.3/bin:$PATH"

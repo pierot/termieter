@@ -1,26 +1,7 @@
-" == Colors ========================================================
-
-" tests
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
-
 inoremap <F1> <Esc>
 nmap <F1> <Nop>
 
 color madeofme
-
- " Enable F2 key for toggling pastemode" set number relativenumber
-
-" :augroup numbertoggle
-" :  autocmd!
-" :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-" :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-" :augroup END
-
-let g:elm_format_autosave = 1
 
 if (has("termguicolors"))
   set termguicolors
@@ -29,16 +10,31 @@ endif
 " suddenly I need this for ack and fzf to work (08/01/2020)
 set shell=bash
 
+" ayu, when I am feeling light
+let ayucolor="light"
+
 " cursor line toggle
 nnoremap <Leader>c :set cursorline!<CR>
 nnoremap <Leader>cc :set cursorcolumn!<CR>
 set cursorline
 
-" open current file in gitk, F1 (useless key anyway, who needs help?)
-map <F1> :!tig %<CR>
-map <leader>t :!tig %<CR>
+" line number toggle
+nnoremap <Leader>ll :set invnumber<CR>
 
-" command! Tig "!tig %"
+" set signcolumn=number " combine sign and number gutter
+
+" == Lightline =========================
+
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'method' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 " == git (fugitive) ==================================================
 

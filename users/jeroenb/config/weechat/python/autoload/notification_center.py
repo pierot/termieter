@@ -1,9 +1,10 @@
 # https://github.com/sindresorhus/weechat-notification-center
-# Requires `pip install pync`
+# Requires `python -m pip install pync`
 
 import os
 import datetime
 import weechat
+import sys
 from pync import Notifier
 
 
@@ -20,9 +21,9 @@ DEFAULT_OPTIONS = {
 	'show_highlights': 'on',
 	'show_private_message': 'on',
 	'show_message_text': 'on',
-	'sound': 'off',
+	'sound': 'on',
 	'sound_name': 'Pong',
-	'activate_bundle_id': 'com.apple.Terminal',
+	'activate_bundle_id': 'net.kovidgoyal.kitty',
 	'ignore_old_messages': 'off',
 	'ignore_current_buffer_messages': 'off',
 	'channels': '',
@@ -36,46 +37,52 @@ for key, val in DEFAULT_OPTIONS.items():
 weechat.hook_print('', 'irc_privmsg,' + weechat.config_get_plugin('tags'), '', 1, 'notify', '')
 
 def notify(data, buffer, date, tags, displayed, highlight, prefix, message):
-	# Ignore if it's yourself
-	own_nick = weechat.buffer_get_string(buffer, 'localvar_nick')
-	if prefix == own_nick or prefix == ('@%s' % own_nick):
-		return weechat.WEECHAT_RC_OK
+    # Ignore if it's yourself
+    own_nick = weechat.buffer_get_string(buffer, 'localvar_nick')
+    if prefix == own_nick or prefix == ('@%s' % own_nick):
+        return weechat.WEECHAT_RC_OK
 
-	# Ignore messages from the current buffer
-	if weechat.config_get_plugin('ignore_current_buffer_messages') == 'on' and buffer == weechat.current_buffer():
-		return weechat.WEECHAT_RC_OK
+    # Ignore messages from the current buffer
+    if weechat.config_get_plugin('ignore_current_buffer_messages') == 'on' and buffer == weechat.current_buffer():
+        return weechat.WEECHAT_RC_OK
 
-	# Ignore messages older than the configured theshold (such as ZNC logs) if enabled
-	if weechat.config_get_plugin('ignore_old_messages') == 'on':
-		message_time = datetime.datetime.utcfromtimestamp(int(date))
-		now_time = datetime.datetime.utcnow()
+    # Ignore messages older than the configured theshold (such as ZNC logs) if enabled
+    if weechat.config_get_plugin('ignore_old_messages') == 'on':
+        message_time = datetime.datetime.utcfromtimestamp(int(date))
+        now_time = datetime.datetime.utcnow()
 
-		# Ignore if the message is greater than 5 seconds old
-		if (now_time - message_time).seconds > 5:
-			return weechat.WEECHAT_RC_OK
+        # Ignore if the message is greater than 5 seconds old
+        if (now_time - message_time).seconds > 5:
+            return weechat.WEECHAT_RC_OK
 
-	# Passing `None` or `''` still plays the default sound so we pass a lambda instead
-	sound = weechat.config_get_plugin('sound_name') if weechat.config_get_plugin('sound') == 'on' else lambda:_
-	activate_bundle_id = weechat.config_get_plugin('activate_bundle_id')
+        # Passing `None` or `''` still plays the default sound so we pass a lambda instead
+        sound = weechat.config_get_plugin('sound_name') if weechat.config_get_plugin('sound') == 'on' else lambda:_
+        activate_bundle_id = weechat.config_get_plugin('activate_bundle_id')
 
-	channel_whitelist = []
-	if weechat.config_get_plugin('channels') != "":
-		channel_whitelist = weechat.config_get_plugin('channels').split(',')
-	channel = weechat.buffer_get_string(buffer, 'localvar_channel')
+        channel_whitelist = []
+        if weechat.config_get_plugin('channels') != "":
+            channel_whitelist = weechat.config_get_plugin('channels').split(',')
+        channel = weechat.buffer_get_string(buffer, 'localvar_channel')
 
-	if channel in channel_whitelist:
-		if weechat.config_get_plugin('show_message_text') == 'on':
-			Notifier.notify(message, title='%s %s' % (prefix, channel), sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
-		else:
-			Notifier.notify('In %s by %s' % (channel, prefix), title='Channel Activity', sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
-	elif weechat.config_get_plugin('show_highlights') == 'on' and int(highlight):
-		if weechat.config_get_plugin('show_message_text') == 'on':
-			Notifier.notify(message, title='%s %s' % (prefix, channel), sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
-		else:
-			Notifier.notify('In %s by %s' % (channel, prefix), title='Highlighted Message', sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
-	elif weechat.config_get_plugin('show_private_message') == 'on' and 'irc_privmsg' in tags and 'notify_private' in tags:
-		if weechat.config_get_plugin('show_message_text') == 'on':
-			Notifier.notify(message, title='%s [private]' % prefix, sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
-		else:
-			Notifier.notify('From %s' % prefix, title='Private Message', sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
-	return weechat.WEECHAT_RC_OK
+        if channel in channel_whitelist:
+            if weechat.config_get_plugin('show_message_text') == 'on':
+                sys.stderr.write("==> DEBUG 1")
+                # Notifier.notify(message, title='%s %s' % (prefix, channel), sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
+            else:
+                sys.stderr.write("==> DEBUG 2")
+                # Notifier.notify('In %s by %s' % (channel, prefix), title='Channel Activity', sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
+        elif weechat.config_get_plugin('show_highlights') == 'on' and int(highlight):
+            if weechat.config_get_plugin('show_message_text') == 'on':
+                sys.stderr.write("==> DEBUG 4")
+                # Notifier.notify(message, title='%s %s' % (prefix, channel), sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
+            else:
+                sys.stderr.write("==> DEBUG 5")
+                # Notifier.notify('In %s by %s' % (channel, prefix), title='Highlighted Message', sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
+        elif weechat.config_get_plugin('show_private_message') == 'on' and 'irc_privmsg' in tags and 'notify_private' in tags:
+            if weechat.config_get_plugin('show_message_text') == 'on':
+                sys.stderr.write("==> DEBUG 6")
+                # Notifier.notify(message, title='%s [private]' % prefix, sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
+            else:
+                sys.stderr.write("==> DEBUG 7")
+                # Notifier.notify('From %s' % prefix, title='Private Message', sound=sound, appIcon=WEECHAT_ICON, activate=activate_bundle_id)
+        return weechat.WEECHAT_RC_OK
