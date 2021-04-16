@@ -8,3 +8,5 @@ Plug 'vim-scripts/tComment'
 Plug 'ap/vim-css-color'
 " Rainbow parentheses
 Plug 'luochen1990/rainbow'
+" Theme
+Plug 'lucasprag/simpleblack'
