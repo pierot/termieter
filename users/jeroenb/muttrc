@@ -79,6 +79,7 @@ bind index gg first-entry
 # Save all attachments
 set pipe_decode = no
 macro pager S "<pipe-message> ripmime -i - -d ~/Downloads && rm -f ~/Downloads/textfile*" "Save all non-text attachments using ripmime"
+macro attach s <save-entry><kill-line>~/Downloads/
 
 # Search ---------------------------------------------
 macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/Mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
