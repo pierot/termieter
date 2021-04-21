@@ -39,10 +39,10 @@ shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 hyper - right  : yabai -m window --grid 1:2:1:0:1:1
 
 # create desktop, move window and follow focus
-shift + cmd - n : yabai -m space --create;\
-                  id=$(yabai -m query --displays --display | grep "spaces");\
-                  yabai -m window --space $(echo ${id:10:${#id}-10});\
-                  yabai -m space --focus $(echo ${id:10:${#id}-10})
+# shift + cmd - n : yabai -m space --create;\
+#                   id=$(yabai -m query --displays --display | grep "spaces");\
+#                   yabai -m window --space $(echo ${id:10:${#id}-10});\
+#                   yabai -m space --focus $(echo ${id:10:${#id}-10})
 
 # # create desktop and follow focus
 hyper - c : yabai -m space --create;\
@@ -84,10 +84,10 @@ shift + alt - w : yabai -m window --resize top:0:-20
 shift + alt - d : yabai -m window --resize right:20:0
 
 # decrease window size
-shift + cmd - a : yabai -m window --resize left:20:0
-shift + cmd - s : yabai -m window --resize bottom:0:-20
-shift + cmd - w : yabai -m window --resize top:0:20
-shift + cmd - d : yabai -m window --resize right:-20:0
+# shift + cmd - a : yabai -m window --resize left:20:0
+# shift + cmd - s : yabai -m window --resize bottom:0:-20
+# shift + cmd - w : yabai -m window --resize top:0:20
+# shift + cmd - d : yabai -m window --resize right:-20:0
 
 # set insertion point in focused container
 ctrl + alt - h : yabai -m window --insert west
