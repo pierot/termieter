@@ -1,8 +1,6 @@
 inoremap <F1> <Esc>
 nmap <F1> <Nop>
 
-color madeofme
-
 if (has("termguicolors"))
   set termguicolors
 endif
@@ -10,7 +8,7 @@ endif
 " suddenly I need this for ack and fzf to work (08/01/2020)
 set shell=bash
 
-" ayu, when I am feeling light
+color madeofme
 let ayucolor="light"
 
 " cursor line toggle
@@ -20,6 +18,7 @@ set cursorline
 
 " line number toggle
 nnoremap <Leader>ll :set invnumber<CR>
+set relativenumber
 
 " set signcolumn=number " combine sign and number gutter
 
