@@ -19,4 +19,10 @@ if [ -d $DROPBOX ]; then
   alias dev="cd $DROPBOX/Work/devel/"
 fi
 
+###################################
+
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+
+###################################
+
+alias ap='ansible-playbook'
