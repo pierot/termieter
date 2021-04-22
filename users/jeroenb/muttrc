@@ -117,3 +117,12 @@ set pager_stop
 set menu_scroll
 set tilde
 unset markers
+
+# Force open in Firefox
+macro attach F \
+"\
+<enter-command>unset wait_key<enter>\
+<shell-escape>rm -f /tmp/mutt-attach<enter>\
+<save-entry><kill-line>/tmp/mutt-attach<enter>\
+<shell-escape>/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox /tmp/mutt-attach &<enter>\
+"

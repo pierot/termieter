@@ -17,6 +17,7 @@ let g:rainbow_active = 1
 
 " == Colors ========================================================
 
+" colorscheme simpleblack
 colorscheme landscape
 " colorscheme badwolf
 " colorscheme pt_black
