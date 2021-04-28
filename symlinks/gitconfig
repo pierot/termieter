@@ -33,3 +33,5 @@
 [alias]
 [pull]
 	rebase = false
+[gui]
+	recentrepo = /Users/jeroenb/Work/jackjoe/justified
