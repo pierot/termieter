@@ -345,16 +345,6 @@ fi
 
 ##########################################################
 
-# Google Cloud SDK
-if [[ $OS == 'OSX' ]]; then
-  if [ -d "$DROPBOX/Work/devel/google-coud-sdk" ]; then
-    source $DROPBOX/Work/devel/google-cloud-sdk/path.zsh.inc
-  fi
-else
-fi
-
-##########################################################
-
 # ASDF
 if [ -e ~/.asdf ]; then
   source $HOME/.asdf/asdf.sh

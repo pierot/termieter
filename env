@@ -1,6 +1,4 @@
 export TRM=~/.termieter
-
-export DROPBOX=~/Dropbox
 export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
 
 if [[ $CURRENT_SHELL == '-bash' ]]; then

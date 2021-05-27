@@ -19,6 +19,7 @@ let g:rainbow_active = 1
 
 " colorscheme simpleblack
 colorscheme landscape
+" colorscheme lush
 " colorscheme badwolf
 " colorscheme pt_black
 " colorscheme hemisu
