@@ -125,7 +125,10 @@ opt('o', 'mouse', 'a')
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 
--- Mappings
+-------------------------------------------------
+-- MAPPINGS (GENERAL)
+-------------------------------------------------
+
 g.mapleader = ','
 
 map('n', 'Q', '<Nop>')                                -- We don't do ex mode
@@ -175,6 +178,8 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 
 -------------------------------------------------
+-- PLUGINS
+-------------------------------------------------
 
 -- webdev icons
 require('nvim-web-devicons').setup()
@@ -188,8 +193,11 @@ g.ackprg = 'rg --vimgrep'
 g.nvim_tree_auto_open = 1
 g.nvim_tree_auto_close = 1
 g.nvim_tree_width_allow_resize = 1
+g.nvim_tree_hide_dotfiles = 1
+g.nvim_tree_tab_open = 1
 
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
+map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 
 -- lualine
 require('lualine').setup()
@@ -198,6 +206,7 @@ require('lualine').setup()
 require('bufferline').setup {
   options = {
     offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
+    diagnostics = "nvim_lsp",
   }
 }
 
@@ -208,6 +217,7 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 
 require('telescope').setup {
   defaults = {
+    file_ignore_patterns = {"node_modules/.*", "vendor/.*"},
     vimgrep_arguments = {
       'rg',
       '--color=never',
@@ -246,9 +256,8 @@ local ts = require('nvim-treesitter.configs')
 ts.setup({
   ensure_installed = {
     "javascript", "typescript", "tsx", "jsdoc", "jsonc",
-    "html", "css", "lua", "rust", "go", "java", "query",
-    "python", "rst", "json", "elixir", "dockerfile", "php",
-    "scss", "toml", "yaml"
+    "html", "css", "lua", "query", "json", "elixir", 
+    "dockerfile", "php", "scss", "toml", "yaml"
   },
   highlight = {
     enable = true
