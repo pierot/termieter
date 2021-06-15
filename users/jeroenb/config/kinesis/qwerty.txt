@@ -1,0 +1,7 @@
+[scroll]>[shutdn]
+[lalt]>[meh]
+[kp=]>[kp=mac]
+[delete]>[rwin]
+[rwin]>[ralt]
+[lctrl]>[hyper]
+[caps]>[escape][t&h250][hyper]
