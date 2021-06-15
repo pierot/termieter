@@ -8,8 +8,9 @@ endif
 " suddenly I need this for ack and fzf to work (08/01/2020)
 set shell=bash
 
-color madeofme
-let ayucolor="light"
+" color madeofme
+" let ayucolor="light"
+color pt_black
 
 " cursor line toggle
 nnoremap <Leader>c :set cursorline!<CR>
@@ -19,7 +20,6 @@ set cursorline
 " line number toggle
 nnoremap <Leader>ll :set invnumber<CR>
 set relativenumber
-
 " set signcolumn=number " combine sign and number gutter
 
 " == Lightline =========================
@@ -40,3 +40,22 @@ let g:lightline = {
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gl :Gpull<CR>
+
+" vim hardcodes background color erase even if the terminfo file does
+" not contain bce (not to mention that libvte based terminals
+" incorrectly contain bce in their terminfo files). This causes
+" incorrect background rendering when using a color theme with a
+" background color.
+" let &t_ut=''
+
+" " General colors
+" if has('gui_running') || has('nvim')
+"     " hi Normal 		guifg=#f6f3e8 guibg=#242424
+"      let t:is_transparent = 1
+" else
+"     " Set the terminal default background and foreground colors, thereby
+"     " improving performance by not needing to set these colors on empty cells.
+"     hi Normal guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE
+"     let &t_ti = &t_ti . "\033]10;#f6f3e8\007\033]11;#242424\007"
+"     let &t_te = &t_te . "\033]110\007\033]111\007"
+" endif

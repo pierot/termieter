@@ -1,0 +1,15 @@
+# default
+layout tall
+enabled_layouts tall, stack
+cd ~
+launch zsh
+
+# slack/weechat
+new_tab Slack
+title Slack
+launch zsh
+
+# mail
+new_tab Mail
+title Mail
+launch zsh
