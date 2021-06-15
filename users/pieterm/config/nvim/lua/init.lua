@@ -177,6 +177,9 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 -- map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
 -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 
+cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex set filetype=elixir'
+cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+
 -------------------------------------------------
 -- PLUGINS
 -------------------------------------------------
@@ -250,20 +253,26 @@ require('pears').setup()
 -- Emmet
 g.use_emmet_complete_tag = 1
 g.user_emmet_leader_key = '<c-e>'
+g.user_emmet_settings = "{ 'javascript.jsx' : { 'extends' : 'jsx' } }"
 
 -- Treesitter
 local ts = require('nvim-treesitter.configs')
 ts.setup({
   ensure_installed = {
     "javascript", "typescript", "tsx", "jsdoc", "jsonc",
-    "html", "css", "lua", "query", "json", "elixir", 
-    "dockerfile", "php", "scss", "toml", "yaml"
+    "html", "css", "scss",
+    "json", "toml", "yaml",
+    "lua", "query", "elixir", "dockerfile", "php", 
   },
   highlight = {
     enable = true
   },
+  -- highlight = {enable = {enabled = true, use_languagetree = true}},
   indent = {
     enable = true
+  },
+  textobjects = { 
+    enable = true 
   },
   rainbow = {
     enable = true,
@@ -288,13 +297,12 @@ ts.setup({
       }
     }
   },
-  highlight = {enable = {enabled = true, use_languagetree = true}},
   autotag = {enable = true}
 })
 
 -- LSP
 require('lspconfig').elixirls.setup({
-  cmd = { "/usr/local/share/elixir-ls/language_server.sh" };
+  cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
 })
 
 require('lspconfig').tsserver.setup({})
