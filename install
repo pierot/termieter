@@ -99,12 +99,12 @@ while getopts "$OPTSPEC" FLAG; do
   esac
 done
 
-###############################################################################
+##################################################
 
 # Check for git
 hash git 2>&- || { _error "I require git but it's not installed!"; exit 1; }
 
-###############################################################################
+##################################################
 
 # Remove previous termieter installation if present at the same location as $install_dir
 cd ~
@@ -123,7 +123,7 @@ if [ "$update" -eq 0  ]; then
   fi
 fi
 
-###############################################################################
+##################################################
 
 mkdir -p ~/.bash_backup
 
@@ -191,33 +191,43 @@ for sym_file in $install_dir/users/$USER/*; do
 done
 
 # ~/.config install
-if [ ! -d "$HOME/.config" ]; then
-  mkdir "$HOME/.config"
+if [ -d "$HOME/.config" ]; then
+  mv "$HOME/.config" "$HOME/.config.backup"
 fi
 
-_config_install_user() {
-  _print "Installing $USER ~/.config/$1"
+ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
 
-  if [ ! -n "$1" ]; then
-    _error "Error in install script. Aborting"
-    exit 1
-  fi
+# _config_install_user() {
+#   _print "Installing $USER ~/.config/$1"
+#
+#   if [ ! -n "$1" ]; then
+#     _error "Error in install script. Aborting"
+#     exit 1
+#   fi
+#
+#   if [ -f "$HOME/.$1.local" ]; then
+#     mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
+#   fi
+#
+#   if [ -f "$install_dir/users/$USER/config/$1" ] || [ -d "$install_dir/users/$USER/config/$1" ]; then
+#     rm -rf "$HOME/.config/$1"
+#     ln -sf "$install_dir/users/$USER/config/$1" "$HOME/.config/$1"
+#   fi
+# }
+#
+# for sym_file in $install_dir/users/$USER/config/*; do
+#   _config_install_user $(basename $sym_file)
+# done
 
-  if [ -f "$HOME/.$1.local" ]; then
-    mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
-  fi
+##################################################
 
-  if [ -f "$install_dir/users/$USER/config/$1" ] || [ -d "$install_dir/users/$USER/config/$1" ]; then
-    rm -rf "$HOME/.config/$1"
-    ln -sf "$install_dir/users/$USER/config/$1" "$HOME/.config/$1"
-  fi
-}
+_print "Init paq-nvim (https://github.com/savq/paq-nvim)"
 
-for sym_file in $install_dir/users/$USER/config/*; do
-  _config_install_user $(basename $sym_file)
-done
+# https://github.com/savq/paq-nvim
+git clone https://github.com/savq/paq-nvim.git \
+    "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
 
-###############################################################################
+##################################################
 
 cd $install_dir
 
@@ -241,7 +251,7 @@ else
   git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
 fi
 
-###############################################################################
+##################################################
 
 _print_h1 "Installation finished"
 _print " Do not forget to switch to zsh as the default shell"
