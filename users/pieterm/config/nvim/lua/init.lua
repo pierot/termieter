@@ -199,6 +199,11 @@ g.nvim_tree_tab_open = 1
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 
+-- local tree_cb = require('nvim-tree.config').nvim_tree_callback
+-- g.nvim_tree_bindings = {
+--   ["I"] = tree_cb("toggle_dotfiles"),
+-- }
+
 -- lualine
 require('lualine').setup()
 
@@ -256,7 +261,7 @@ local ts = require('nvim-treesitter.configs')
 ts.setup({
   ensure_installed = {
     "javascript", "typescript", "tsx", "jsdoc", "jsonc",
-    "html", "css", "lua", "query", "json", "elixir", 
+    "html", "css", "lua", "query", "json", "elixir",
     "dockerfile", "php", "scss", "toml", "yaml"
   },
   highlight = {
