@@ -21,6 +21,9 @@
 [merge]
   log = true
   stat = true
+  tool = vimdiff
+  conflictstyle = diff3
+  prompt = false
 [diff]
   algorithm = histogram
   tool = vimdiff
@@ -33,3 +36,5 @@
 [alias]
 [pull]
 	rebase = false
+[gui]
+	recentrepo = /Users/jeroenb/Work/jackjoe/justified

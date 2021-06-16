@@ -96,9 +96,9 @@ Path ~/Mail/daele/
 Inbox ~/Mail/daele/INBOX
 
 Channel daele-inbox
-Master :daele-remote:
-Slave :daele-local:
-Create Slave
+Far :daele-remote:
+Near :daele-local:
+Create Near
 SyncState *
 Sync All
 Patterns *

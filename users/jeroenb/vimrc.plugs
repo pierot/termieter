@@ -1,10 +1,12 @@
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'neomutt/neomutt.vim'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'neomutt/neomutt.vim'
 Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-commentary'
 Plug 'tomtom/tcomment_vim'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
 " Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-Plug 'itchyny/landscape.vim'
-Plug 'ayu-theme/ayu-vim'
+"
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" Plug 'itchyny/landscape.vim'
+" Plug 'ayu-theme/ayu-vim'

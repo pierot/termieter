@@ -117,7 +117,7 @@ if [[ $OS == 'OSX' ]]; then
   alias zzz='pmset sleepnow'
 
   # ssh
-  alias sshconf='sudo nvim ~/.ssh/config'
+  alias sshconf='sudo vim ~/.ssh/config'
   alias sshe='cd ~/.ssh'
 
   # Spotlight
@@ -151,7 +151,7 @@ fi
 ##########################################################
 
 # EDITORS
-export SVN_EDITOR='nvim'
+export SVN_EDITOR='vim'
 export EDITOR=vim
 
 ##########################################################
@@ -214,6 +214,7 @@ alias tl="tmux ls"
 
 function tn() {
   tmux new -d -c "$PWD" -s "$*"
+  tmux attach-session -t $1
 }
 
 test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
@@ -240,7 +241,7 @@ alias mdg="source .env && mix deps.get"
 alias mdu="source .env && mix deps.update"
 alias mdc="source .env && mix deps.clean --all"
 alias mm="source .env && mix ecto.migrate"
-alias mmm="source .env && mix ecto.migration"
+alias mmm="source .env && mix ecto.gen.migration"
 
 function mpr() {
   source .env && mix phx.routes | grep "$*"
