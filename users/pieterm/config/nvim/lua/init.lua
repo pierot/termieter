@@ -197,7 +197,6 @@ g.nvim_tree_auto_open = 1
 g.nvim_tree_auto_close = 1
 g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_hide_dotfiles = 1
-g.nvim_tree_tab_open = 1
 
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
@@ -253,7 +252,11 @@ require('pears').setup()
 -- Emmet
 g.use_emmet_complete_tag = 1
 g.user_emmet_leader_key = '<c-e>'
-g.user_emmet_settings = "{ 'javascript.jsx' : { 'extends' : 'jsx' } }"
+-- g.user_emmet_settings = { 
+--   "javascript.jsx" = { 
+--     "extends" = 'jsx' 
+--   } 
+-- }
 
 -- Treesitter
 local ts = require('nvim-treesitter.configs')
