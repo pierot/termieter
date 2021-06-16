@@ -1,5 +1,5 @@
 # open terminal
-hyper - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+hyper - t : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
 hyper - b : open "/Applications/Firefox Developer Edition.app"
 hyper - t : open "/Applications/Kitty.app"
 hyper - o : open "/Applications/Trello.app"
@@ -77,11 +77,11 @@ hyper - f4 : yabai -m window --space  4; yabai -m space --focus 4
 hyper - f5 : yabai -m window --space  5; yabai -m space --focus 5
 hyper - f6 : yabai -m window --space  6; yabai -m space --focus 6
 
-# increase window size
-shift + alt - a : yabai -m window --resize left:-20:0
-shift + alt - s : yabai -m window --resize bottom:0:20
-shift + alt - w : yabai -m window --resize top:0:-20
-shift + alt - d : yabai -m window --resize right:20:0
+# resize window
+shift + alt - l : yabai -m window --resize left:-20:0
+shift + alt - h : yabai -m window --resize left:20:0
+shift + alt - k : yabai -m window --resize top:0:-20
+shift + alt - j : yabai -m window --resize top:0:20
 
 # decrease window size
 # shift + cmd - a : yabai -m window --resize left:20:0
@@ -90,10 +90,10 @@ shift + alt - d : yabai -m window --resize right:20:0
 # shift + cmd - d : yabai -m window --resize right:-20:0
 
 # set insertion point in focused container
-ctrl + alt - h : yabai -m window --insert west
-ctrl + alt - j : yabai -m window --insert south
-ctrl + alt - k : yabai -m window --insert north
-ctrl + alt - l : yabai -m window --insert east
+# ctrl + alt - h : yabai -m window --insert west
+# ctrl + alt - j : yabai -m window --insert south
+# ctrl + alt - k : yabai -m window --insert north
+# ctrl + alt - l : yabai -m window --insert east
 
 # rotate tree
 alt - r : yabai -m space --rotate 90
@@ -121,6 +121,6 @@ alt - p : yabai -m window --toggle sticky;\
           yabai -m window --grid 5:5:4:0:1:1
 
 # ctrl - alt - cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
-hyper - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+# hyper - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 # .blacklist []

@@ -221,8 +221,9 @@ ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
 
 ##################################################
 
-_print "Init paq-nvim"
+_print "Init paq-nvim (https://github.com/savq/paq-nvim)"
 
+# https://github.com/savq/paq-nvim
 git clone https://github.com/savq/paq-nvim.git \
     "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
 
