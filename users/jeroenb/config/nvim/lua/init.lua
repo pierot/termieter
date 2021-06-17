@@ -218,7 +218,7 @@ g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_hide_dotfiles = 1
 g.nvim_tree_tab_open = 1
  
-map('n', '<c-n>', '<cmd>Ntree<CR>')
+map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 
