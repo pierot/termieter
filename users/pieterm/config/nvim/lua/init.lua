@@ -45,8 +45,8 @@ paq {'mattn/emmet-vim'}
 
 paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
 
-paq {'neovim/nvim-lspconfig'}
-paq {'hrsh7th/nvim-compe'}                            -- autocomplete
+-- paq {'neovim/nvim-lspconfig'}
+-- paq {'hrsh7th/nvim-compe'}                            -- autocomplete
 
 -- Telescope
 paq {'nvim-telescope/telescope.nvim'}
@@ -141,7 +141,7 @@ cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 
 -------------------------------------------------
--- MAPPINGS (GENERAL)
+-- MAPPINGS
 -------------------------------------------------
 
 g.mapleader = ','
@@ -192,7 +192,7 @@ cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex set filetype=elixir'
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 
 -------------------------------------------------
--- PLUGINS
+-- PLUGINS SETUP
 -------------------------------------------------
 
 -- webdev icons
@@ -332,25 +332,8 @@ ts.setup({
 })
 
 -- LSP
-require('lspconfig').elixirls.setup({
-  cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
-})
-
-require('lspconfig').tsserver.setup({})
-
--- local lspfuzzy = require 'lspfuzzy'
+-- require('lspconfig').elixirls.setup({
+--   cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+-- })
 --
--- lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
---
--- map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
--- map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
--- map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
--- map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
--- map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
--- map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
--- map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>')
--- map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>')
--- map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
---
--- -- Commands
--- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+-- require('lspconfig').tsserver.setup({})
