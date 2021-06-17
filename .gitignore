@@ -6,6 +6,8 @@ tmp
 **/config/configstore
 **/config/coc
 
+**/node_modules
+
 tmux/tmux-resurrect
 tmux/tmux-resurrect-auto
 
