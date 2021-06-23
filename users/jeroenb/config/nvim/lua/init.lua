@@ -74,7 +74,7 @@ paq {'terrortylor/nvim-comment'}                      -- Comment
 --   end
 -- }
 
--- paq{'dracula/vim', as='dracula'}                      -- Use `as` to alias a package name (here `vim`)
+paq{'dracula/vim', as='dracula'}                      -- Use `as` to alias a package name (here `vim`)
 
 
 -------------------------------------------------
@@ -85,12 +85,12 @@ paq {'terrortylor/nvim-comment'}                      -- Comment
 -- Basic settings
 local indent = 2
 
--- cmd 'colorscheme dracula'                             -- Put your favorite colorscheme here
+cmd 'colorscheme dracula'                             -- Put your favorite colorscheme here
 
 opt('o', 'splitbelow', true)                          -- Put new windows below current
 opt('o', 'splitright', true)                          -- Put new windows right of current
 opt('o', 'termguicolors', true)                       -- True color support
-opt('w', 'list', true)                                -- Show some invisible characters (tabs...)
+opt('w', 'list', false)                               -- Hide some invisible characters (tabs...)
 opt('w', 'listchars', 'tab:»·,trail:·,eol:¬,nbsp:_')
 opt('g', 'ffs', 'unix,mac,dos')	                      -- Support all three, in this order
 
@@ -357,6 +357,7 @@ require("compe").setup {
     nvim_lsp = true,
     nvim_lua = false,
     path = true,
+    spell = false,
     vsnip = { priority = 1000; }
   }
 }
