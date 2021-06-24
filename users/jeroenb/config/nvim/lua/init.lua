@@ -31,7 +31,7 @@ paq {'savq/paq-nvim', opt = true}                     -- paq-nvim manages itself
 
 paq {'kyazdani42/nvim-tree.lua'}                      -- sidebar file explorer
 paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by many plugins
- 
+
 paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many, someday upstream in neovim
 paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many, someday upstream in neovim
 
@@ -40,7 +40,7 @@ paq {'hoob3rt/lualine.nvim'}                          -- statusline
 
 -- -- paq {'blackCauldron7/surround.nvim'}               -- pure lua, had some issues when I first tried, maybe swap later
 paq {'tpope/vim-surround'}
-paq {'tpope/vim-fugitive'}                            -- I know it's illegal, but hey -\_0_/-      
+paq {'tpope/vim-fugitive'}                            -- I know it's illegal, but hey -\_0_/-
 paq {'tpope/vim-repeat'}
 paq {'docunext/closetag.vim'}
 paq {'mattn/emmet-vim'}
@@ -50,19 +50,19 @@ paq {'andyl/vim-textobj-elixir'}
 
 paq {'hrsh7th/vim-vsnip'}                             -- snippets
 paq {'rafamadriz/friendly-snippets'}                  -- snippets
- 
+
 paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
 
 paq {'neovim/nvim-lspconfig'}
 paq {'hrsh7th/nvim-compe'}                            -- autocomplete
- 
+
 -- Telescope
 paq {'nvim-telescope/telescope.nvim'}
 paq {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 paq {'mileszs/ack.vim'}
 -- paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
- 
+
 -- paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
 paq {'terrortylor/nvim-comment'}                      -- Comment
 
@@ -196,7 +196,7 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 -- --- <Tab> to navigate the completion menu
 -- -- map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
 -- -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
- 
+
 cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 
@@ -208,7 +208,7 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 
 -- webdev icons
 require('nvim-web-devicons').setup()
- 
+
 -- ack
 g.ackprg = 'rg --vimgrep'
 -- cnoreabbrev Ack Ack!
@@ -220,14 +220,13 @@ g.nvim_tree_auto_close = 1
 g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_hide_dotfiles = 1
 g.nvim_tree_tab_open = 1
- 
+
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
-map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 
 -- fugitive
 map('n', '<leader>gs', '<cmd>Git<CR>')
- 
+
 -- lualine
 require('lualine').setup()
 
@@ -275,7 +274,7 @@ require('nvim_comment').setup()
 
 -- Auto pairs
 -- require('pears').setup()
- 
+
 -- Emmet
 g.use_emmet_complete_tag = 1
 g.user_emmet_leader_key = '<c-e>'
@@ -423,7 +422,7 @@ set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options)
 
 local nvim_lsp = require('lspconfig')
 
--- Use an on_attach function to only map the following keys 
+-- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

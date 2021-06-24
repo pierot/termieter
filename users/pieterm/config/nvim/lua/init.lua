@@ -35,18 +35,23 @@ paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by m
 paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many
 paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many
 
-paq {'hoob3rt/lualine.nvim'}                          -- statusline
+-- paq {'hoob3rt/lualine.nvim'}                          -- statusline
 paq {'akinsho/nvim-bufferline.lua'}                   -- buffer line
 
 paq {'blackCauldron7/surround.nvim'}
+-- paq {'tpope/vim-surround'}
 paq {'tpope/vim-repeat'}
 paq {'docunext/closetag.vim'}
 paq {'mattn/emmet-vim'}
 
+paq {'kana/vim-textobj-user'}
+paq {'kana/vim-textobj-line'}
+paq {'andyl/vim-textobj-elixir'}
+
 paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
 
--- paq {'neovim/nvim-lspconfig'}
--- paq {'hrsh7th/nvim-compe'}                            -- autocomplete
+paq {'neovim/nvim-lspconfig'}
+paq {'hrsh7th/nvim-compe'}                            -- autocomplete
 
 -- Telescope
 paq {'nvim-telescope/telescope.nvim'}
@@ -54,12 +59,12 @@ paq {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 paq {'mileszs/ack.vim'}
 
-paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
+-- paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
 
-paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
+-- paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
 
 paq {'terrortylor/nvim-comment'}                      -- Comment
-paq {'JoosepAlviste/nvim-ts-context-commentstring'}   -- Comment
+-- paq {'JoosepAlviste/nvim-ts-context-commentstring'}   -- Comment
 
 paq {'bfredl/nvim-miniyank'}                          -- Proper yank and pasting
 
@@ -269,7 +274,7 @@ require('telescope').load_extension('fzf')
 require('nvim_comment').setup()
 
 -- Auto pairs
-require('pears').setup()
+-- require('pears').setup()
 
 -- Emmet
 g.use_emmet_complete_tag = 1
@@ -298,11 +303,11 @@ ts.setup({
   textobjects = {
     enable = true
   },
-  -- rainbow = {
-  --   enable = true,
-  --   extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-  --   max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
-  -- },
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+    max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
+  },
   -- refactor = {
   --   highlight_definitions = {enable = true},
   --   -- highlight_current_scope = {enable = true},
@@ -321,7 +326,7 @@ ts.setup({
   --     }
   --   }
   -- },
-  -- autotag = {enable = true}
+  autotag = {enable = true},
   context_commentstring = {
     enable = true,
     config = {
@@ -331,11 +336,13 @@ ts.setup({
 })
 
 -- LSP
-require('lspconfig').elixirls.setup({
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp.elixirls.setup({
   cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
 })
 
-require('lspconfig').tsserver.setup({})
+nvim_lsp.tsserver.setup({})
 
 -- local lspfuzzy = require 'lspfuzzy'
 --
