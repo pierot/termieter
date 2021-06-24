@@ -12,20 +12,10 @@ let g:lightline = {
 " == Varia =========================================================
 
 let g:loaded_ruby_provider = 0
-
 let g:rainbow_active = 1
 
 " == Colors ========================================================
 
-" colorscheme simpleblack
 colorscheme landscape
-" colorscheme lush
-" colorscheme badwolf
-" colorscheme pt_black
-" colorscheme hemisu
-" set background=dark
-
-" colorscheme nofrils-sepia
-" let g:nofrils_strbackgrounds=1
 
 " == Fonts =========================================================

@@ -4,6 +4,10 @@ local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo, g = vim.g}
 
+-------------------------------------------------
+-- UTILS
+-------------------------------------------------
+
 -- https://github.com/neovim/neovim/pull/13479
 local function opt(scope, key, value)
   scopes[scope][key] = value
@@ -16,7 +20,10 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Plugins
+-------------------------------------------------
+-- PLUGINS
+-------------------------------------------------
+
 cmd 'packadd paq-nvim'                                -- load the package manager
 local paq = require('paq-nvim').paq                   -- a convenient alias
 
@@ -31,15 +38,15 @@ paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many
 paq {'hoob3rt/lualine.nvim'}                          -- statusline
 paq {'akinsho/nvim-bufferline.lua'}                   -- buffer line
 
-paq {'tpope/vim-surround'}
+paq {'blackCauldron7/surround.nvim'}
 paq {'tpope/vim-repeat'}
 paq {'docunext/closetag.vim'}
 paq {'mattn/emmet-vim'}
 
 paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
 
-paq {'neovim/nvim-lspconfig'}
-paq {'hrsh7th/nvim-compe'}                            -- autocomplete
+-- paq {'neovim/nvim-lspconfig'}
+-- paq {'hrsh7th/nvim-compe'}                            -- autocomplete
 
 -- Telescope
 paq {'nvim-telescope/telescope.nvim'}
@@ -50,7 +57,11 @@ paq {'mileszs/ack.vim'}
 paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
 
 paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
+
 paq {'terrortylor/nvim-comment'}                      -- Comment
+paq {'JoosepAlviste/nvim-ts-context-commentstring'}   -- Comment
+
+paq {'bfredl/nvim-miniyank'}                          -- Proper yank and pasting
 
 -- paq {
 --   'lewis6991/gitsigns.nvim',
@@ -61,6 +72,10 @@ paq {'terrortylor/nvim-comment'}                      -- Comment
 -- }
 
 paq{'dracula/vim', as='dracula'}                      -- Use `as` to alias a package name (here `vim`)
+
+-------------------------------------------------
+-- GENERAL SETTINGS
+-------------------------------------------------
 
 -- Basic settings
 local indent = 2
@@ -126,7 +141,7 @@ cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 
 -------------------------------------------------
--- MAPPINGS (GENERAL)
+-- MAPPINGS
 -------------------------------------------------
 
 g.mapleader = ','
@@ -173,15 +188,11 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 
 -- map('', '<leader>c', '"+y')       -- Copy to clipboard in normal, visual, select and operator modes
 
--- -- <Tab> to navigate the completion menu
--- map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
--- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
-
 cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex set filetype=elixir'
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 
 -------------------------------------------------
--- PLUGINS
+-- PLUGINS SETUP
 -------------------------------------------------
 
 -- webdev icons
@@ -200,6 +211,16 @@ g.nvim_tree_hide_dotfiles = 1
 
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
+
+-- local tree_cb = require('nvim-tree.config').nvim_tree_callback
+-- g.nvim_tree_bindings = {
+--   ["I"] = tree_cb("toggle_dotfiles"),
+-- }
+
+-- yank
+-- map('n', 'p', '<Plug>(miniyank-autoput)')
+-- map('n', 'P', '<Plug>(miniyank-autoPut)')
+-- map('n', '<leader>n', '<Plug>(miniyank-cycle)')
 
 -- lualine
 require('lualine').setup()
@@ -253,32 +274,29 @@ require('pears').setup()
 -- Emmet
 g.use_emmet_complete_tag = 1
 g.user_emmet_leader_key = '<c-e>'
--- g.user_emmet_settings = { 
---   "javascript.jsx" = { 
---     "extends" = 'jsx' 
---   } 
--- }
+g.user_emmet_settings = "{ 'javascript.jsx' : { 'extends' : 'jsx' } }" -- TODO
 
 -- Treesitter
+-- yarn global add typescript tree-sitter-cli
 local ts = require('nvim-treesitter.configs')
 ts.setup({
   ensure_installed = {
     "javascript", "typescript", "tsx", "jsdoc", "jsonc",
     "html", "css", "scss",
     "json", "toml", "yaml",
-    "lua", "query", "elixir", "dockerfile", "php", 
+    "lua", "query", "elixir", "dockerfile", "php",
   },
   highlight = {
     enable = {
-      enabled = true, 
+      enabled = true,
       use_languagetree = true
     }
   },
   indent = {
     enable = true
   },
-  textobjects = { 
-    enable = true 
+  textobjects = {
+    enable = true
   },
   -- rainbow = {
   --   enable = true,
@@ -304,14 +322,20 @@ ts.setup({
   --   }
   -- },
   -- autotag = {enable = true}
+  context_commentstring = {
+    enable = true,
+    config = {
+      elixir = '# %s'
+    }
+  }
 })
 
 -- LSP
--- require('lspconfig').elixirls.setup({
---   cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
--- })
+require('lspconfig').elixirls.setup({
+  cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+})
 
--- require('lspconfig').tsserver.setup({})
+require('lspconfig').tsserver.setup({})
 
 -- local lspfuzzy = require 'lspfuzzy'
 --
@@ -326,7 +350,3 @@ ts.setup({
 -- map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>')
 -- map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>')
 -- map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
---
--- -- Commands
--- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
--- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
