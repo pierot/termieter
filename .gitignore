@@ -5,6 +5,7 @@ tmp
 **/config.autosave
 **/config/configstore
 **/config/coc
+**/config/yarn
 
 **/node_modules
 
