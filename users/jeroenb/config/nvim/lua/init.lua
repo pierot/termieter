@@ -243,6 +243,10 @@ require('lualine').setup()
 -- Check to extend: https://github.com/varbhat/dotfiles/blob/main/dot_config/nvim/lua/utils/telescope.lua
 map('n', '<c-p>', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
+map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
+map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
+map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
+map('n', '<leader>gg', '<cmd>Telescope git_status<CR>')
 
 require('telescope').setup {
   defaults = {
