@@ -35,8 +35,8 @@ paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by m
 paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many
 paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many
 
--- paq {'hoob3rt/lualine.nvim'}                          -- statusline
-paq {'akinsho/nvim-bufferline.lua'}                   -- buffer line
+paq {'hoob3rt/lualine.nvim'}                          -- statusline
+-- paq {'akinsho/nvim-bufferline.lua'}                   -- buffer line
 
 paq {'blackCauldron7/surround.nvim'}
 -- paq {'tpope/vim-surround'}
@@ -66,7 +66,7 @@ paq {'mileszs/ack.vim'}
 paq {'terrortylor/nvim-comment'}                      -- Comment
 -- paq {'JoosepAlviste/nvim-ts-context-commentstring'}   -- Comment
 
-paq {'bfredl/nvim-miniyank'}                          -- Proper yank and pasting
+-- paq {'bfredl/nvim-miniyank'}                          -- Proper yank and pasting
 
 -- paq {
 --   'lewis6991/gitsigns.nvim',
@@ -179,7 +179,7 @@ map('n', '<c-k>', '<c-w>k')
 map('n', '<c-h>', '<c-w>h')
 map('n', '<c-l>', '<c-w>l')
 
-map('n', '<silent> <Tab><Tab>', '<C-w>w')             -- Switch between windows by hitting <Tab> twice
+map('n', '<ilent> <Tab><Tab>', '<C-w>w')             -- Switch between windows by hitting <Tab> twice
 map('n', '<leader><Tab>', '<c-^>')                    -- Switch between last two files
 
 map('','+', '3<c-w>>')                                -- Enlarge splits
@@ -194,7 +194,11 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 -- map('', '<leader>c', '"+y')       -- Copy to clipboard in normal, visual, select and operator modes
 
 cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex set filetype=elixir'
+
+-- Formatting
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+-- cmd 'autocmd BufWritePost *.js,*.jsx,*.tsx,*.ts silent :!prettier --stdin-filepath %' 
+-- cmd 'autocmd BufWritePost *.css,*.scss,*.json silent :!prettier --stdin-filepath %'
 
 -------------------------------------------------
 -- PLUGINS SETUP
@@ -327,12 +331,12 @@ ts.setup({
   --   }
   -- },
   autotag = {enable = true},
-  context_commentstring = {
-    enable = true,
-    config = {
-      elixir = '# %s'
-    }
-  }
+  -- context_commentstring = {
+  --   enable = true,
+  --   config = {
+  --     elixir = '# %s'
+  --   }
+  -- }
 })
 
 -- LSP
