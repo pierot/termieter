@@ -63,16 +63,8 @@ paq {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 paq {'mileszs/ack.vim'}
 -- paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
 
--- paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
-paq {'terrortylor/nvim-comment'}                      -- Comment
-
--- paq {
---   'lewis6991/gitsigns.nvim',
---   requires = {'nvim-lua/plenary.nvim'},
---   config = function()
---     require('gitsigns').setup()
---   end
--- }
+paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
+paq {'b3nj5m1n/kommentary'}                           -- Comment
 
 paq{'dracula/vim', as='dracula'}                      -- Use `as` to alias a package name (here `vim`)
 
@@ -215,7 +207,7 @@ g.ackprg = 'rg --vimgrep'
 -- cnoreabbrev ack Ack!
 
 -- nvim-tree
-g.nvim_tree_auto_open = 1
+g.nvim_tree_auto_open = 0
 g.nvim_tree_auto_close = 1
 g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_hide_dotfiles = 1
@@ -247,6 +239,32 @@ map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
 map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
 map('n', '<leader>gg', '<cmd>Telescope git_status<CR>')
 
+local previewers = require('telescope.previewers')
+
+-- TODO: 
+-- for now, telescope has serious hickups showing the coloured preview
+-- it improved by disabling it for some filetypes, but I got the best results
+-- disabling it alltogehter. I don't care about coloured previews.
+-- Check in the future if it has improved.
+-- local _bad = { '.*%.json', '.*%.lua', '.*%.ex', '*.%.eex', '.*%.exs', '.*%.leex', '' } -- Put all filetypes that slow you down in this array
+-- local bad_files = function(filepath)
+--   for _, v in ipairs(_bad) do
+--     if filepath:match(v) then
+--       return false
+--     end
+--   end
+-- 
+--   return true
+-- end
+
+local new_maker = function(filepath, bufnr, opts)
+  opts = opts or {}
+  if opts.use_ft_detect == nil then opts.use_ft_detect = true end
+  -- opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
+  opts.use_ft_detect = false
+  previewers.buffer_previewer_maker(filepath, bufnr, opts)
+end
+
 require('telescope').setup {
   defaults = {
     file_ignore_patterns = {"node_modules/.*", "vendor/.*"},
@@ -258,7 +276,8 @@ require('telescope').setup {
       '--line-number',
       '--column',
       '--smart-case'
-    }
+    },
+    buffer_previewer_maker = new_maker,
   },
   extensions = {
     fzf = {
@@ -273,11 +292,16 @@ require('telescope').setup {
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 
--- Comment
-require('nvim_comment').setup()
+require('telescope').setup {
+  defaults = {
+    buffer_previewer_maker = new_maker,
+  }
+}
+
+-- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 -- Auto pairs
--- require('pears').setup()
+require('pears').setup()
 
 -- Emmet
 g.use_emmet_complete_tag = 1
