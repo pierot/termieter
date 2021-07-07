@@ -53,6 +53,7 @@ alias gD="cd $HOME/Desktop"
 alias gdb="cd $DROPBOX"
 alias kl="kitty-tmux @ set_color ~/.config/kitty/themes/ayu_light.conf"
 alias kd="kitty-tmux @ set_color ~/.config/kitty/themes/default.conf"
+alias ssh="kitty +kitten ssh"
 
 # python 3.8
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
