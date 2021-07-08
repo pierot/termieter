@@ -66,7 +66,10 @@ paq {'mileszs/ack.vim'}
 paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
 paq {'b3nj5m1n/kommentary'}                           -- Comment
 
+-- Themes
 paq{'dracula/vim', as='dracula'}                      -- Use `as` to alias a package name (here `vim`)
+paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
+paq {'liuchengxu/space-vim-dark'}                        
 
 
 -------------------------------------------------
