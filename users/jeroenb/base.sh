@@ -41,6 +41,10 @@ if have neomutt; then
   alias m="neomutt"
 fi
 
+if have bat; then
+  alias cat="bat"
+fi
+
 alias dev="cd $HOME/Work/"
 alias dropbox="cd $DROPBOX"
 alias db="cd $DROPBOX"
