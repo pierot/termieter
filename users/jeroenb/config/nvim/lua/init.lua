@@ -80,7 +80,7 @@ paq {'liuchengxu/space-vim-dark'}
 -- Basic settings
 local indent = 2
 
-cmd 'colorscheme dracula'                             -- Put your favorite colorscheme here
+cmd 'colorscheme gotham'                              -- Put your favorite colorscheme here
 
 opt('o', 'splitbelow', true)                          -- Put new windows below current
 opt('o', 'splitright', true)                          -- Put new windows right of current
