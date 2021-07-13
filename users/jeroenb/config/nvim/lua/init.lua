@@ -67,9 +67,10 @@ paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
 paq {'b3nj5m1n/kommentary'}                           -- Comment
 
 -- Themes
-paq{'dracula/vim', as='dracula'}                      -- Use `as` to alias a package name (here `vim`)
+paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
 paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
 paq {'liuchengxu/space-vim-dark'}                        
+paq {'projekt0n/github-nvim-theme'}
 
 
 -------------------------------------------------
@@ -80,7 +81,7 @@ paq {'liuchengxu/space-vim-dark'}
 -- Basic settings
 local indent = 2
 
-cmd 'colorscheme gotham'                              -- Put your favorite colorscheme here
+-- cmd 'colorscheme gotham'                              -- Put your favorite colorscheme here
 
 opt('o', 'splitbelow', true)                          -- Put new windows below current
 opt('o', 'splitright', true)                          -- Put new windows right of current
@@ -101,7 +102,7 @@ opt('b', 'tabstop', indent)                           -- Number of spaces tabs c
 opt('b', 'shiftwidth', indent)                        -- Size of an indent
 opt('o', 'shiftround', true)                          -- Round indent
 opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
-opt('w', 'wrap', false)
+opt('w', 'wrap', true)
 opt('w', 'lbr', true)                                 -- Wrap long lines at a character in 'breakat' rather than last character that fits screen
 
 opt('b', 'smartindent', true)                         -- Insert indents automatically
@@ -200,6 +201,10 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 -- PLUGINS SETUP
 -------------------------------------------------
 
+-- colorscheme 
+require('github-theme').setup({
+  themeStyle = "dimmed",
+})
 
 -- webdev icons
 require('nvim-web-devicons').setup()
@@ -223,7 +228,11 @@ map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 map('n', '<leader>gs', '<cmd>Git<CR>')
 
 -- lualine
-require('lualine').setup()
+require('lualine').setup({
+  options = {
+    theme = "github"
+  }
+})
 
 -- Bufferline
 -- require('bufferline').setup {
@@ -372,7 +381,7 @@ require("compe").setup {
   autocomplete = true,
   debug = true,
   min_length = 1,
-  preselect = "enable",
+  preselect = "disable",
   throttle_time = 8000,
   source_timeout = 2000,
   incomplete_delay = 4000,
@@ -382,11 +391,11 @@ require("compe").setup {
   documentation = true,
 
   source = {
-    buffer = true,
+    buffer = { priority = 500},
     calc = false,
-    nvim_lsp = true,
+    nvim_lsp = { priority = 800 },
     nvim_lua = false,
-    path = true,
+    path = { priority = 600 },
     spell = false,
     vsnip = { priority = 1000; }
   }
@@ -456,6 +465,7 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  print "map keys"
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -537,15 +547,15 @@ capabilities.textDocument.codeAction = {
 -- Snippets
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "elixirls", "tsserver" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach, capabilities = capabilities }
-end
-
 nvim_lsp.elixirls.setup({
+  on_attach = on_attach, 
+  capabilities = capabilities,
   cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+})
+
+nvim_lsp.tsserver.setup({ 
+  on_attach = on_attach, 
+  capabilities = capabilities
 })
 
 -- local lspfuzzy = require 'lspfuzzy'
