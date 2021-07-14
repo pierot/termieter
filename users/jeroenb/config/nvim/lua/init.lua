@@ -47,6 +47,7 @@ paq {'mattn/emmet-vim'}
 paq {'kana/vim-textobj-user'}
 paq {'kana/vim-textobj-line'}
 paq {'andyl/vim-textobj-elixir'}
+paq {'elixir-editors/vim-elixir'}                     -- correct commentstring and other percs
 
 paq {'hrsh7th/vim-vsnip'}                             -- snippets
 paq {'rafamadriz/friendly-snippets'}                  -- snippets
@@ -193,7 +194,7 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 -- -- map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
 -- -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 
-cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
+--cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 
 
