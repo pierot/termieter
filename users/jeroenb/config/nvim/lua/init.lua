@@ -35,7 +35,7 @@ paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by m
 paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many, someday upstream in neovim
 paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many, someday upstream in neovim
 
-paq {'hoob3rt/lualine.nvim'}                          -- statusline
+-- paq {'hoob3rt/lualine.nvim'}                          -- statusline
 -- paq {'akinsho/nvim-bufferline.lua'}                   -- buffer line
 
 -- -- paq {'blackCauldron7/surround.nvim'}               -- pure lua, had some issues when I first tried, maybe swap later
@@ -68,10 +68,11 @@ paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
 paq {'b3nj5m1n/kommentary'}                           -- Comment
 
 -- Themes
-paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
-paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
-paq {'liuchengxu/space-vim-dark'}                        
-paq {'projekt0n/github-nvim-theme'}
+-- paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
+-- paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
+-- paq {'liuchengxu/space-vim-dark'}                        
+-- paq {'projekt0n/github-nvim-theme'}
+paq {'drewtempelmeyer/palenight.vim'}
 
 
 -------------------------------------------------
@@ -81,8 +82,6 @@ paq {'projekt0n/github-nvim-theme'}
 
 -- Basic settings
 local indent = 2
-
--- cmd 'colorscheme gotham'                              -- Put your favorite colorscheme here
 
 opt('o', 'splitbelow', true)                          -- Put new windows below current
 opt('o', 'splitright', true)                          -- Put new windows right of current
@@ -142,9 +141,11 @@ opt('o', 'mouse', 'a')
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 
+
 -------------------------------------------------
 -- MAPPINGS
 -------------------------------------------------
+
 
 g.mapleader = ','
 
@@ -202,10 +203,14 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 -- PLUGINS SETUP
 -------------------------------------------------
 
+
 -- colorscheme 
-require('github-theme').setup({
-  themeStyle = "dimmed",
-})
+-- require('github-theme').setup({
+--   themeStyle = "dark",
+-- })
+cmd 'colorscheme palenight'                              -- Put your favorite colorscheme here
+cmd 'let g:palenight_terminal_italics=1'
+-- opt('g', 'palenight_terminal_italics', 1)
 
 -- webdev icons
 require('nvim-web-devicons').setup()
@@ -229,11 +234,11 @@ map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 map('n', '<leader>gs', '<cmd>Git<CR>')
 
 -- lualine
-require('lualine').setup({
+--[[ require('lualine').setup({
   options = {
     theme = "github"
   }
-})
+}) ]]
 
 -- Bufferline
 -- require('bufferline').setup {
@@ -382,7 +387,7 @@ require("compe").setup {
   autocomplete = true,
   debug = true,
   min_length = 1,
-  preselect = "disable",
+  preselect = "disabled",
   throttle_time = 8000,
   source_timeout = 2000,
   incomplete_delay = 4000,
@@ -466,7 +471,6 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  print "map keys"
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -548,10 +552,17 @@ capabilities.textDocument.codeAction = {
 -- Snippets
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
+local path_to_elixirls = vim.fn.expand("/usr/local/share/elixir-ls/language_server.sh")
+
 nvim_lsp.elixirls.setup({
   on_attach = on_attach, 
   capabilities = capabilities,
-  cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+  cmd = { path_to_elixirls },
+  settings = {
+    elixirLS = {
+      fetchDeps = false
+    }
+  }
 })
 
 nvim_lsp.tsserver.setup({ 
