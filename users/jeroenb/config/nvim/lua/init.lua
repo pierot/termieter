@@ -47,6 +47,7 @@ paq {'mattn/emmet-vim'}
 paq {'kana/vim-textobj-user'}
 paq {'kana/vim-textobj-line'}
 paq {'andyl/vim-textobj-elixir'}
+paq {'elixir-editors/vim-elixir'}                     -- correct commentstring and other percs
 
 paq {'hrsh7th/vim-vsnip'}                             -- snippets
 paq {'rafamadriz/friendly-snippets'}                  -- snippets
@@ -63,18 +64,14 @@ paq {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 paq {'mileszs/ack.vim'}
 -- paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
 
--- paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
-paq {'terrortylor/nvim-comment'}                      -- Comment
+paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
+paq {'b3nj5m1n/kommentary'}                           -- Comment
 
--- paq {
---   'lewis6991/gitsigns.nvim',
---   requires = {'nvim-lua/plenary.nvim'},
---   config = function()
---     require('gitsigns').setup()
---   end
--- }
-
-paq{'dracula/vim', as='dracula'}                      -- Use `as` to alias a package name (here `vim`)
+-- Themes
+paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
+paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
+paq {'liuchengxu/space-vim-dark'}                        
+paq {'projekt0n/github-nvim-theme'}
 
 
 -------------------------------------------------
@@ -85,7 +82,7 @@ paq{'dracula/vim', as='dracula'}                      -- Use `as` to alias a pac
 -- Basic settings
 local indent = 2
 
-cmd 'colorscheme dracula'                             -- Put your favorite colorscheme here
+-- cmd 'colorscheme gotham'                              -- Put your favorite colorscheme here
 
 opt('o', 'splitbelow', true)                          -- Put new windows below current
 opt('o', 'splitright', true)                          -- Put new windows right of current
@@ -106,7 +103,7 @@ opt('b', 'tabstop', indent)                           -- Number of spaces tabs c
 opt('b', 'shiftwidth', indent)                        -- Size of an indent
 opt('o', 'shiftround', true)                          -- Round indent
 opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
-opt('w', 'wrap', false)
+opt('w', 'wrap', true)
 opt('w', 'lbr', true)                                 -- Wrap long lines at a character in 'breakat' rather than last character that fits screen
 
 opt('b', 'smartindent', true)                         -- Insert indents automatically
@@ -197,7 +194,7 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 -- -- map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
 -- -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 
-cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
+--cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 
 
@@ -205,6 +202,10 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 -- PLUGINS SETUP
 -------------------------------------------------
 
+-- colorscheme 
+require('github-theme').setup({
+  themeStyle = "dimmed",
+})
 
 -- webdev icons
 require('nvim-web-devicons').setup()
@@ -215,7 +216,7 @@ g.ackprg = 'rg --vimgrep'
 -- cnoreabbrev ack Ack!
 
 -- nvim-tree
-g.nvim_tree_auto_open = 1
+g.nvim_tree_auto_open = 0
 g.nvim_tree_auto_close = 1
 g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_hide_dotfiles = 1
@@ -228,7 +229,11 @@ map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 map('n', '<leader>gs', '<cmd>Git<CR>')
 
 -- lualine
-require('lualine').setup()
+require('lualine').setup({
+  options = {
+    theme = "github"
+  }
+})
 
 -- Bufferline
 -- require('bufferline').setup {
@@ -242,6 +247,36 @@ require('lualine').setup()
 -- Check to extend: https://github.com/varbhat/dotfiles/blob/main/dot_config/nvim/lua/utils/telescope.lua
 map('n', '<c-p>', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
+map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
+map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
+map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
+map('n', '<leader>gg', '<cmd>Telescope git_status<CR>')
+
+local previewers = require('telescope.previewers')
+
+-- TODO: 
+-- for now, telescope has serious hickups showing the coloured preview
+-- it improved by disabling it for some filetypes, but I got the best results
+-- disabling it alltogehter. I don't care about coloured previews.
+-- Check in the future if it has improved.
+-- local _bad = { '.*%.json', '.*%.lua', '.*%.ex', '*.%.eex', '.*%.exs', '.*%.leex', '' } -- Put all filetypes that slow you down in this array
+-- local bad_files = function(filepath)
+--   for _, v in ipairs(_bad) do
+--     if filepath:match(v) then
+--       return false
+--     end
+--   end
+-- 
+--   return true
+-- end
+
+local new_maker = function(filepath, bufnr, opts)
+  opts = opts or {}
+  if opts.use_ft_detect == nil then opts.use_ft_detect = true end
+  -- opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
+  opts.use_ft_detect = false
+  previewers.buffer_previewer_maker(filepath, bufnr, opts)
+end
 
 require('telescope').setup {
   defaults = {
@@ -254,7 +289,8 @@ require('telescope').setup {
       '--line-number',
       '--column',
       '--smart-case'
-    }
+    },
+    buffer_previewer_maker = new_maker,
   },
   extensions = {
     fzf = {
@@ -269,11 +305,16 @@ require('telescope').setup {
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 
--- Comment
-require('nvim_comment').setup()
+require('telescope').setup {
+  defaults = {
+    buffer_previewer_maker = new_maker,
+  }
+}
+
+-- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 -- Auto pairs
--- require('pears').setup()
+require('pears').setup()
 
 -- Emmet
 g.use_emmet_complete_tag = 1
@@ -341,7 +382,7 @@ require("compe").setup {
   autocomplete = true,
   debug = true,
   min_length = 1,
-  preselect = "always",
+  preselect = "disable",
   throttle_time = 8000,
   source_timeout = 2000,
   incomplete_delay = 4000,
@@ -351,11 +392,11 @@ require("compe").setup {
   documentation = true,
 
   source = {
-    buffer = true,
+    buffer = { priority = 500},
     calc = false,
-    nvim_lsp = true,
+    nvim_lsp = { priority = 800 },
     nvim_lua = false,
-    path = true,
+    path = { priority = 600 },
     spell = false,
     vsnip = { priority = 1000; }
   }
@@ -425,6 +466,7 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  print "map keys"
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -506,15 +548,15 @@ capabilities.textDocument.codeAction = {
 -- Snippets
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "elixirls", "tsserver" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach, capabilities = capabilities }
-end
-
 nvim_lsp.elixirls.setup({
+  on_attach = on_attach, 
+  capabilities = capabilities,
   cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+})
+
+nvim_lsp.tsserver.setup({ 
+  on_attach = on_attach, 
+  capabilities = capabilities
 })
 
 -- local lspfuzzy = require 'lspfuzzy'
