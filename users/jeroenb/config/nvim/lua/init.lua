@@ -30,15 +30,11 @@ local paq = require('paq-nvim').paq                   -- a convenient alias
 paq {'savq/paq-nvim', opt = true}                     -- paq-nvim manages itself
 
 paq {'lewis6991/impatient.nvim'}                      -- faster startup
-
+paq {"mhartington/formatter.nvim"}
 paq {'kyazdani42/nvim-tree.lua'}                      -- sidebar file explorer
--- paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by many plugins
 
 paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many, someday upstream in neovim
 paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many, someday upstream in neovim
-
--- paq {'hoob3rt/lualine.nvim'}                          -- statusline
--- paq {'akinsho/nvim-bufferline.lua'}                   -- buffer line
 
 -- -- paq {'blackCauldron7/surround.nvim'}               -- pure lua, had some issues when I first tried, maybe swap later
 paq {'tpope/vim-surround'}
@@ -64,20 +60,13 @@ paq {'nvim-telescope/telescope.nvim'}
 paq {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 paq {'mileszs/ack.vim'}
--- paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
-
 paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
 paq {'b3nj5m1n/kommentary'}                           -- Comment
 
 -- Themes
---[[ paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
-paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
-paq {'liuchengxu/space-vim-dark'}                        
-paq {'projekt0n/github-nvim-theme'}
-paq {'rktjmp/lush.nvim'} ]]
-paq {'metalelf0/jellybeans-nvim' }
+paq {'rktjmp/lush.nvim'}
+paq {'metalelf0/jellybeans-nvim'}
 paq {'gruvbox-community/gruvbox'}
--- paq {'drewtempelmeyer/palenight.vim'}
 
 
 -------------------------------------------------
@@ -210,22 +199,11 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 
 
 -- colorscheme 
---[[ require('github-theme').setup({
-  themeStyle = "dark",
-}) ]]
--- cmd 'colorscheme gruvbox'                              -- Put your favorite colorscheme here
--- cmd 'colorscheme zellner'                              -- Put your favorite colorscheme here
+-- also try zellner, gruvbox
 cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
--- cmd 'let g:palenight_terminal_italics=1'
--- opt('g', 'palenight_terminal_italics', 1)
-
--- webdev icons
--- require('nvim-web-devicons').setup()
 
 -- ack
 g.ackprg = 'rg --vimgrep'
--- cnoreabbrev Ack Ack!
--- cnoreabbrev ack Ack!
 
 -- nvim-tree
 g.nvim_tree_auto_open = 0
@@ -239,21 +217,6 @@ map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 
 -- fugitive
 map('n', '<leader>gs', '<cmd>Git<CR>')
-
--- lualine
---[[ require('lualine').setup({
-  options = {
-    theme = "github"
-  }
-}) ]]
-
--- Bufferline
--- require('bufferline').setup {
---   options = {
---     offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
---     diagnostics = "nvim_lsp",
---   }
--- }
 
 -- Telescope
 -- Check to extend: https://github.com/varbhat/dotfiles/blob/main/dot_config/nvim/lua/utils/telescope.lua
@@ -322,8 +285,6 @@ require('telescope').setup {
     buffer_previewer_maker = new_maker,
   }
 }
-
--- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 -- Auto pairs
 require('pears').setup()
@@ -577,20 +538,48 @@ nvim_lsp.tsserver.setup({
   capabilities = capabilities
 })
 
--- local lspfuzzy = require 'lspfuzzy'
---
--- lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
---
--- map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
--- map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
--- map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
--- map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
--- map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
--- map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
--- map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>')
--- map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>')
--- map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
---
--- -- Commands
--- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
--- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+-- Commands
+cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
+
+-- Prettier function for formatter
+local prettier = function()
+  return {
+    exe = "prettier",
+    args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--double-quote" },
+    stdin = true,
+  }
+end
+
+require("formatter").setup({
+  logging = false,
+  filetype = {
+    javascript = { prettier },
+    typescript = { prettier },
+    typescriptreact = { prettier },
+    html = { prettier },
+    css = { prettier },
+    scss = { prettier },
+    markdown = { prettier },
+    lua = {
+      -- Stylua
+      function()
+        return {
+          exe = "stylua",
+          args = { "--indent-width", 2, "--indent-type", "Spaces" },
+          stdin = false,
+        }
+      end,
+    },
+  },
+})
+
+-- Runs Formatter on save
+vim.api.nvim_exec(
+  [[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
+augroup END
+]],
+  true
+)
