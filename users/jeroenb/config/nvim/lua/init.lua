@@ -29,8 +29,10 @@ local paq = require('paq-nvim').paq                   -- a convenient alias
 
 paq {'savq/paq-nvim', opt = true}                     -- paq-nvim manages itself
 
+paq {'lewis6991/impatient.nvim'}                      -- faster startup
+
 paq {'kyazdani42/nvim-tree.lua'}                      -- sidebar file explorer
-paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by many plugins
+-- paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by many plugins
 
 paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many, someday upstream in neovim
 paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many, someday upstream in neovim
@@ -68,11 +70,14 @@ paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
 paq {'b3nj5m1n/kommentary'}                           -- Comment
 
 -- Themes
--- paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
--- paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
--- paq {'liuchengxu/space-vim-dark'}                        
--- paq {'projekt0n/github-nvim-theme'}
-paq {'drewtempelmeyer/palenight.vim'}
+--[[ paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
+paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
+paq {'liuchengxu/space-vim-dark'}                        
+paq {'projekt0n/github-nvim-theme'}
+paq {'rktjmp/lush.nvim'} ]]
+paq {'metalelf0/jellybeans-nvim' }
+paq {'gruvbox-community/gruvbox'}
+-- paq {'drewtempelmeyer/palenight.vim'}
 
 
 -------------------------------------------------
@@ -205,15 +210,17 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 
 
 -- colorscheme 
--- require('github-theme').setup({
---   themeStyle = "dark",
--- })
-cmd 'colorscheme palenight'                              -- Put your favorite colorscheme here
-cmd 'let g:palenight_terminal_italics=1'
+--[[ require('github-theme').setup({
+  themeStyle = "dark",
+}) ]]
+-- cmd 'colorscheme gruvbox'                              -- Put your favorite colorscheme here
+-- cmd 'colorscheme zellner'                              -- Put your favorite colorscheme here
+cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+-- cmd 'let g:palenight_terminal_italics=1'
 -- opt('g', 'palenight_terminal_italics', 1)
 
 -- webdev icons
-require('nvim-web-devicons').setup()
+-- require('nvim-web-devicons').setup()
 
 -- ack
 g.ackprg = 'rg --vimgrep'
@@ -382,7 +389,7 @@ ts.setup({
 
 -- Compe + vim-vsnip
 
-require("compe").setup {
+--[[ require("compe").setup {
   enabled = true,
   autocomplete = true,
   debug = true,
@@ -405,7 +412,7 @@ require("compe").setup {
     spell = false,
     vsnip = { priority = 1000; }
   }
-}
+} ]]
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -552,7 +559,7 @@ capabilities.textDocument.codeAction = {
 -- Snippets
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
-local path_to_elixirls = vim.fn.expand("/usr/local/share/elixir-ls/language_server.sh")
+local path_to_elixirls = vim.fn.expand("/usr/local/share/elixir-ls/rel/language_server.sh")
 
 nvim_lsp.elixirls.setup({
   on_attach = on_attach, 
