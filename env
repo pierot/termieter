@@ -9,6 +9,8 @@ if [[ $CURRENT_SHELL == '-zsh' ]]; then
   export CURRENT_SHELL='/bin/zsh'
 fi
 
+export SHELL=$CURRENT_SHELL
+
 if [[ `uname` == 'Darwin' ]]; then
   export OS='OSX'
 else

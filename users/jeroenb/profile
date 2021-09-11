@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export EDITOR="nvim"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 if [[ $OS == 'OSX' ]]; then
@@ -18,6 +17,7 @@ export TERMINAL="kitty"
 export FILE="nnn"
 export PATH="$HOME/bin/:$PATH"
 export TRMU=~/.termieter/users/jeroenb
-export SHELL=$CURRENT_SHELL
+
+source /Users/jeroenb/.config/broot/launcher/bash/br
 
 . $HOME/bin/tmux.sh
