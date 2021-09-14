@@ -32,6 +32,7 @@ paq {'savq/paq-nvim', opt = true}                     -- paq-nvim manages itself
 paq {'lewis6991/impatient.nvim'}                      -- faster startup
 paq {"mhartington/formatter.nvim"}
 paq {'kyazdani42/nvim-tree.lua'}                      -- sidebar file explorer
+paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by many plugins
 
 paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many, someday upstream in neovim
 paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many, someday upstream in neovim
@@ -197,6 +198,9 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 -- PLUGINS SETUP
 -------------------------------------------------
 
+
+-- webdev icons
+require('nvim-web-devicons').setup()
 
 -- colorscheme 
 -- also try zellner, gruvbox
