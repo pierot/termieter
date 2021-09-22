@@ -54,7 +54,8 @@ paq {'rafamadriz/friendly-snippets'}                  -- snippets
 paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
 
 paq {'neovim/nvim-lspconfig'}
-paq {'hrsh7th/nvim-compe'}                            -- autocomplete
+paq {'hrsh7th/cmp-nvim-lsp'}                          -- autocomplete
+paq {'hrsh7th/nvim-cmp'}                              -- autocomplete
 
 -- Telescope
 paq {'nvim-telescope/telescope.nvim'}
@@ -117,7 +118,7 @@ opt('g', 'lazyredraw', true)                          -- Do not redraw when exec
 opt('w', 'cursorline', true)                          -- Highlight current line
 opt('g', 'showmatch', true)                           -- Briefly jumps the cursor to the matching brace on insert
 
-opt('o', 'completeopt', 'menuone,noselect')  -- Completion options
+opt('o', 'completeopt', 'menu,menuone,noselect')      -- Completion options, needed for cmp
 opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
 opt('o', 'wildignore', '*.o,*~,*node_modules*,.git,.yarn,*.min.*,*map') -- Ignore when tab completing
 opt('o', 'wildmenu', true)
@@ -345,84 +346,53 @@ ts.setup({
 
 -- Vim-vsnip
 
--- vim.g.vsnip_filetypes = {
---     javascriptreact = {"javascript"},
---     typescript = {"javascript"},
---     typescriptreact = {"javascript"},
---     elixir = {"elixir"}
--- }
+vim.g.vsnip_filetypes = {
+    javascriptreact = {"javascript"},
+    typescript = {"javascript"},
+    typescriptreact = {"javascript"},
+    elixir = {"elixir"}
+}
 
--- Compe + vim-vsnip
+-- Cmp + vim-vsnip
 
---[[ require("compe").setup {
-  enabled = true,
-  autocomplete = true,
-  debug = true,
-  min_length = 1,
-  preselect = "disabled",
-  throttle_time = 8000,
-  source_timeout = 2000,
-  incomplete_delay = 4000,
-  max_abbr_width = 100,
-  max_kind_width = 100,
-  max_menu_width = 100,
-  documentation = true,
+local cmp = require("cmp")
 
-  source = {
-    buffer = { priority = 500},
-    calc = false,
-    nvim_lsp = { priority = 800 },
-    nvim_lua = false,
-    path = { priority = 600 },
-    spell = false,
-    vsnip = { priority = 1000; }
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+    end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+
+    -- For vsnip user.
+    { name = 'vsnip' },
+    { name = 'buffer' },
   }
-} ]]
+})
 
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-  local col = vim.fn.col(".") - 1
-  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-    return true
-  else
-    return false
-  end
-end
-
-_G.complete_next = function(key)
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
-  elseif check_back_space() then
-    return t(key)
-  else
-    return vim.fn["compe#complete"]()
-  end
-end
-
-_G.complete_prev = function(key)
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-    return t "<Plug>(vsnip-jump-prev)"
-  else
-    return t(key)
-  end
-end
 
 local set_keymap = vim.api.nvim_set_keymap
 local options = {expr = true}
-set_keymap("i", "<C-j>", "v:lua.complete_next('<C-j>')", options)
+--[[ set_keymap("i", "<C-j>", "v:lua.complete_next('<C-j>')", options)
 set_keymap("s", "<C-j>", "v:lua.complete_next('<C-j>')", options)
 set_keymap("i", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
-set_keymap("s", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
+set_keymap("s", "<C-k>", "v:lua.complete_prev('<C-k>')", options) ]]
 
-set_keymap("i", "<Tab>", "v:lua.complete_next('<Tab>')", options)
-set_keymap("s", "<Tab>", "v:lua.complete_next('<Tab>')", options)
+--[[ set_keymap("i", "<Tab>", "v:lua.tab_complete('<Tab>')", options)
+set_keymap("s", "<Tab>", "v:lua.tab_complete('<Tab>')", options)
 set_keymap("i", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
 set_keymap("s", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
 
@@ -431,7 +401,8 @@ set_keymap("i", "<C-Space>", "compe#complete()", options)
 set_keymap("i", "<CR>", "compe#confirm('<CR>')", options)
 set_keymap("i", "<C-c>", "compe#close()", options)
 set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", options)
-set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options)
+set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options) ]]
+
 
 -------------------------------------------------
 -- LSP
@@ -498,6 +469,9 @@ end
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+-- Update for cmp
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- Resolvers
 capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
@@ -524,8 +498,10 @@ capabilities.textDocument.codeAction = {
 -- Snippets
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
+-- Elixir
 local path_to_elixirls = vim.fn.expand("/usr/local/share/elixir-ls/rel/language_server.sh")
 
+-- Setup
 nvim_lsp.elixirls.setup({
   on_attach = on_attach, 
   capabilities = capabilities,
@@ -543,7 +519,7 @@ nvim_lsp.tsserver.setup({
 })
 
 -- Commands
-cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
+-- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
 
 -- Prettier function for formatter
 local prettier = function()
@@ -563,17 +539,7 @@ require("formatter").setup({
     html = { prettier },
     css = { prettier },
     scss = { prettier },
-    markdown = { prettier },
-    lua = {
-      -- Stylua
-      function()
-        return {
-          exe = "stylua",
-          args = { "--indent-width", 2, "--indent-type", "Spaces" },
-          stdin = false,
-        }
-      end,
-    },
+    markdown = { prettier }
   },
 })
 
@@ -582,7 +548,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
+  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html : FormatWrite
 augroup END
 ]],
   true
