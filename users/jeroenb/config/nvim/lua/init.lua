@@ -48,14 +48,17 @@ paq {'kana/vim-textobj-line'}
 paq {'andyl/vim-textobj-elixir'}
 paq {'elixir-editors/vim-elixir'}                     -- correct commentstring and other percs
 
+paq {'neovim/nvim-lspconfig'}
+paq {'hrsh7th/cmp-buffer'}
+paq {'hrsh7th/cmp-nvim-lsp'}                          -- autocomplete
+paq {'hrsh7th/cmp-vsnip'}
+paq {'hrsh7th/nvim-cmp'}                              -- autocomplete
 paq {'hrsh7th/vim-vsnip'}                             -- snippets
+paq {'hrsh7th/vim-vsnip-integ'}                       -- snippets
+
 paq {'rafamadriz/friendly-snippets'}                  -- snippets
 
 paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
-
-paq {'neovim/nvim-lspconfig'}
-paq {'hrsh7th/cmp-nvim-lsp'}                          -- autocomplete
-paq {'hrsh7th/nvim-cmp'}                              -- autocomplete
 
 -- Telescope
 paq {'nvim-telescope/telescope.nvim'}
@@ -187,10 +190,6 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 
 -- map('', '<leader>c', '"+y')                        -- Copy to clipboard in normal, visual, select and operator modes
 
--- --- <Tab> to navigate the completion menu
--- -- map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
--- -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
-
 --cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 
@@ -205,7 +204,7 @@ require('nvim-web-devicons').setup()
 
 -- colorscheme 
 -- also try zellner, gruvbox
-cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+-- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
 
 -- ack
 g.ackprg = 'rg --vimgrep'
@@ -371,7 +370,7 @@ cmp.setup({
     ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
     ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
+    -- ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = {
@@ -383,26 +382,8 @@ cmp.setup({
   }
 })
 
-
 local set_keymap = vim.api.nvim_set_keymap
 local options = {expr = true}
---[[ set_keymap("i", "<C-j>", "v:lua.complete_next('<C-j>')", options)
-set_keymap("s", "<C-j>", "v:lua.complete_next('<C-j>')", options)
-set_keymap("i", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
-set_keymap("s", "<C-k>", "v:lua.complete_prev('<C-k>')", options) ]]
-
---[[ set_keymap("i", "<Tab>", "v:lua.tab_complete('<Tab>')", options)
-set_keymap("s", "<Tab>", "v:lua.tab_complete('<Tab>')", options)
-set_keymap("i", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
-set_keymap("s", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
-
-options = {silent = true, expr = true, noremap = true}
-set_keymap("i", "<C-Space>", "compe#complete()", options)
-set_keymap("i", "<CR>", "compe#confirm('<CR>')", options)
-set_keymap("i", "<C-c>", "compe#close()", options)
-set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", options)
-set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options) ]]
-
 
 -------------------------------------------------
 -- LSP
@@ -517,9 +498,6 @@ nvim_lsp.tsserver.setup({
   on_attach = on_attach, 
   capabilities = capabilities
 })
-
--- Commands
--- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
 
 -- Prettier function for formatter
 local prettier = function()
