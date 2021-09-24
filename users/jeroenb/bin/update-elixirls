@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Setup elixirls:
+# cd /usr/local/share
+# git clone git@github.com:elixir-lsp/elixir-ls.git
+
+# Update Elixir-LS
+cd /usr/local/share/elixir-ls
+git switch master
+git fetch upstream
+git merge upstream/master --ff
+
+# Build updated Elixir-LS
+rm -rf /rel
+mix deps.get
+mix compile
+mix elixir_ls.release -o rel

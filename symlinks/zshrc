@@ -1,6 +1,6 @@
 source $HOME/.termieter/env
 
-export SHELL=/bin/zsh
+# export SHELL=/bin/zsh
 export ZSH=$TRM/zsh/oh-my-zsh
 
 # Set custom zsh directory
@@ -70,4 +70,3 @@ source $TRM/zsh/base.sh
 alias reload!='. $HOME/.zshrc'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if [ -e /Users/jeroenb/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jeroenb/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

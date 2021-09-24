@@ -29,14 +29,13 @@ local paq = require('paq-nvim').paq                   -- a convenient alias
 
 paq {'savq/paq-nvim', opt = true}                     -- paq-nvim manages itself
 
+paq {'lewis6991/impatient.nvim'}                      -- faster startup
+paq {"mhartington/formatter.nvim"}
 paq {'kyazdani42/nvim-tree.lua'}                      -- sidebar file explorer
 paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by many plugins
 
 paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many, someday upstream in neovim
 paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many, someday upstream in neovim
-
-paq {'hoob3rt/lualine.nvim'}                          -- statusline
--- paq {'akinsho/nvim-bufferline.lua'}                   -- buffer line
 
 -- -- paq {'blackCauldron7/surround.nvim'}               -- pure lua, had some issues when I first tried, maybe swap later
 paq {'tpope/vim-surround'}
@@ -49,29 +48,30 @@ paq {'kana/vim-textobj-line'}
 paq {'andyl/vim-textobj-elixir'}
 paq {'elixir-editors/vim-elixir'}                     -- correct commentstring and other percs
 
+paq {'neovim/nvim-lspconfig'}
+paq {'hrsh7th/cmp-buffer'}
+paq {'hrsh7th/cmp-nvim-lsp'}                          -- autocomplete
+paq {'hrsh7th/cmp-vsnip'}
+paq {'hrsh7th/nvim-cmp'}                              -- autocomplete
 paq {'hrsh7th/vim-vsnip'}                             -- snippets
+paq {'hrsh7th/vim-vsnip-integ'}                       -- snippets
+
 paq {'rafamadriz/friendly-snippets'}                  -- snippets
 
 paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
-
-paq {'neovim/nvim-lspconfig'}
-paq {'hrsh7th/nvim-compe'}                            -- autocomplete
 
 -- Telescope
 paq {'nvim-telescope/telescope.nvim'}
 paq {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 paq {'mileszs/ack.vim'}
--- paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
-
 paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
 paq {'b3nj5m1n/kommentary'}                           -- Comment
 
 -- Themes
-paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
-paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
-paq {'liuchengxu/space-vim-dark'}                        
-paq {'projekt0n/github-nvim-theme'}
+paq {'rktjmp/lush.nvim'}
+paq {'metalelf0/jellybeans-nvim'}
+paq {'gruvbox-community/gruvbox'}
 
 
 -------------------------------------------------
@@ -81,8 +81,6 @@ paq {'projekt0n/github-nvim-theme'}
 
 -- Basic settings
 local indent = 2
-
--- cmd 'colorscheme gotham'                              -- Put your favorite colorscheme here
 
 opt('o', 'splitbelow', true)                          -- Put new windows below current
 opt('o', 'splitright', true)                          -- Put new windows right of current
@@ -123,7 +121,7 @@ opt('g', 'lazyredraw', true)                          -- Do not redraw when exec
 opt('w', 'cursorline', true)                          -- Highlight current line
 opt('g', 'showmatch', true)                           -- Briefly jumps the cursor to the matching brace on insert
 
-opt('o', 'completeopt', 'menuone,noselect')  -- Completion options
+opt('o', 'completeopt', 'menu,menuone,noselect')      -- Completion options, needed for cmp
 opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
 opt('o', 'wildignore', '*.o,*~,*node_modules*,.git,.yarn,*.min.*,*map') -- Ignore when tab completing
 opt('o', 'wildmenu', true)
@@ -142,9 +140,11 @@ opt('o', 'mouse', 'a')
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 
+
 -------------------------------------------------
 -- MAPPINGS
 -------------------------------------------------
+
 
 g.mapleader = ','
 
@@ -190,10 +190,6 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 
 -- map('', '<leader>c', '"+y')                        -- Copy to clipboard in normal, visual, select and operator modes
 
--- --- <Tab> to navigate the completion menu
--- -- map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
--- -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
-
 --cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 
@@ -202,18 +198,16 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 -- PLUGINS SETUP
 -------------------------------------------------
 
--- colorscheme 
-require('github-theme').setup({
-  themeStyle = "dimmed",
-})
 
 -- webdev icons
 require('nvim-web-devicons').setup()
 
+-- colorscheme 
+-- also try zellner, gruvbox
+-- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+
 -- ack
 g.ackprg = 'rg --vimgrep'
--- cnoreabbrev Ack Ack!
--- cnoreabbrev ack Ack!
 
 -- nvim-tree
 g.nvim_tree_auto_open = 0
@@ -227,21 +221,6 @@ map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 
 -- fugitive
 map('n', '<leader>gs', '<cmd>Git<CR>')
-
--- lualine
-require('lualine').setup({
-  options = {
-    theme = "github"
-  }
-})
-
--- Bufferline
--- require('bufferline').setup {
---   options = {
---     offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
---     diagnostics = "nvim_lsp",
---   }
--- }
 
 -- Telescope
 -- Check to extend: https://github.com/varbhat/dotfiles/blob/main/dot_config/nvim/lua/utils/telescope.lua
@@ -311,8 +290,6 @@ require('telescope').setup {
   }
 }
 
--- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-
 -- Auto pairs
 require('pears').setup()
 
@@ -368,93 +345,45 @@ ts.setup({
 
 -- Vim-vsnip
 
--- vim.g.vsnip_filetypes = {
---     javascriptreact = {"javascript"},
---     typescript = {"javascript"},
---     typescriptreact = {"javascript"},
---     elixir = {"elixir"}
--- }
-
--- Compe + vim-vsnip
-
-require("compe").setup {
-  enabled = true,
-  autocomplete = true,
-  debug = true,
-  min_length = 1,
-  preselect = "disable",
-  throttle_time = 8000,
-  source_timeout = 2000,
-  incomplete_delay = 4000,
-  max_abbr_width = 100,
-  max_kind_width = 100,
-  max_menu_width = 100,
-  documentation = true,
-
-  source = {
-    buffer = { priority = 500},
-    calc = false,
-    nvim_lsp = { priority = 800 },
-    nvim_lua = false,
-    path = { priority = 600 },
-    spell = false,
-    vsnip = { priority = 1000; }
-  }
+vim.g.vsnip_filetypes = {
+    javascriptreact = {"javascript"},
+    typescript = {"javascript"},
+    typescriptreact = {"javascript"},
+    elixir = {"elixir"}
 }
 
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
+-- Cmp + vim-vsnip
 
-local check_back_space = function()
-  local col = vim.fn.col(".") - 1
-  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-    return true
-  else
-    return false
-  end
-end
+local cmp = require("cmp")
 
-_G.complete_next = function(key)
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
-  elseif check_back_space() then
-    return t(key)
-  else
-    return vim.fn["compe#complete"]()
-  end
-end
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+    end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    -- ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
 
-_G.complete_prev = function(key)
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-    return t "<Plug>(vsnip-jump-prev)"
-  else
-    return t(key)
-  end
-end
+    -- For vsnip user.
+    { name = 'vsnip' },
+    { name = 'buffer' },
+  }
+})
 
 local set_keymap = vim.api.nvim_set_keymap
 local options = {expr = true}
-set_keymap("i", "<C-j>", "v:lua.complete_next('<C-j>')", options)
-set_keymap("s", "<C-j>", "v:lua.complete_next('<C-j>')", options)
-set_keymap("i", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
-set_keymap("s", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
-
-set_keymap("i", "<Tab>", "v:lua.complete_next('<Tab>')", options)
-set_keymap("s", "<Tab>", "v:lua.complete_next('<Tab>')", options)
-set_keymap("i", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
-set_keymap("s", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
-
-options = {silent = true, expr = true, noremap = true}
-set_keymap("i", "<C-Space>", "compe#complete()", options)
-set_keymap("i", "<CR>", "compe#confirm('<CR>')", options)
-set_keymap("i", "<C-c>", "compe#close()", options)
-set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", options)
-set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options)
 
 -------------------------------------------------
 -- LSP
@@ -466,7 +395,6 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  print "map keys"
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -522,6 +450,9 @@ end
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+-- Update for cmp
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- Resolvers
 capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
@@ -548,10 +479,19 @@ capabilities.textDocument.codeAction = {
 -- Snippets
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
+-- Elixir
+local path_to_elixirls = vim.fn.expand("/usr/local/share/elixir-ls/rel/language_server.sh")
+
+-- Setup
 nvim_lsp.elixirls.setup({
   on_attach = on_attach, 
   capabilities = capabilities,
-  cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+  cmd = { path_to_elixirls },
+  settings = {
+    elixirLS = {
+      fetchDeps = false
+    }
+  }
 })
 
 nvim_lsp.tsserver.setup({ 
@@ -559,20 +499,35 @@ nvim_lsp.tsserver.setup({
   capabilities = capabilities
 })
 
--- local lspfuzzy = require 'lspfuzzy'
---
--- lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
---
--- map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
--- map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
--- map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
--- map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
--- map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
--- map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
--- map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>')
--- map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>')
--- map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
---
--- -- Commands
--- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
--- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+-- Prettier function for formatter
+local prettier = function()
+  return {
+    exe = "prettier",
+    args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--double-quote" },
+    stdin = true,
+  }
+end
+
+require("formatter").setup({
+  logging = false,
+  filetype = {
+    javascript = { prettier },
+    typescript = { prettier },
+    typescriptreact = { prettier },
+    html = { prettier },
+    css = { prettier },
+    scss = { prettier },
+    markdown = { prettier }
+  },
+})
+
+-- Runs Formatter on save
+vim.api.nvim_exec(
+  [[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html : FormatWrite
+augroup END
+]],
+  true
+)
