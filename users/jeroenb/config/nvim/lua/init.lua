@@ -210,6 +210,8 @@ require('nvim-web-devicons').setup()
 g.ackprg = 'rg --vimgrep'
 
 -- nvim-tree
+require('nvim-tree').setup()
+
 g.nvim_tree_auto_open = 0
 g.nvim_tree_auto_close = 1
 g.nvim_tree_width_allow_resize = 1
