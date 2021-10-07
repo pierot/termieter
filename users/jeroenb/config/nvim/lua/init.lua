@@ -210,12 +210,14 @@ require('nvim-web-devicons').setup()
 g.ackprg = 'rg --vimgrep'
 
 -- nvim-tree
-require'nvim-tree'.setup()
-g.nvim_tree_auto_open = 0
-g.nvim_tree_auto_close = 1
 g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_hide_dotfiles = 1
-g.nvim_tree_tab_open = 1
+
+require'nvim-tree'.setup({
+  auto_open = false,
+  auto_close = true,
+  tab_open = true,
+})
 
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
