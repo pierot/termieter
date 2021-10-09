@@ -347,7 +347,6 @@ ts.setup({
 })
 
 -- Vim-vsnip
-
 vim.g.vsnip_filetypes = {
     javascriptreact = {"javascript"},
     typescript = {"javascript"},
@@ -358,12 +357,11 @@ vim.g.vsnip_filetypes = {
 -- Cmp + vim-vsnip
 
 local cmp = require("cmp")
-
 cmp.setup({
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
-    end,
+    end
   },
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -378,15 +376,11 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
-
     -- For vsnip user.
     { name = 'vsnip' },
     { name = 'buffer' },
   }
 })
-
-local set_keymap = vim.api.nvim_set_keymap
-local options = {expr = true}
 
 -------------------------------------------------
 -- LSP
