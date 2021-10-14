@@ -346,13 +346,18 @@ ts.setup({
   autotag = {enable = true}
 })
 
+map('n', '<leader>gg', '<cmd>Telescope git_status<CR>')
+
 -- Vim-vsnip
 vim.g.vsnip_filetypes = {
     javascriptreact = {"javascript"},
     typescript = {"javascript"},
     typescriptreact = {"javascript"},
-    elixir = {"elixir"}
+    elixir = {"elixir"},
+    eelixir = {"eelixir"}
 }
+
+
 
 -- Cmp + vim-vsnip
 
