@@ -204,7 +204,7 @@ require('nvim-web-devicons').setup()
 
 -- colorscheme 
 -- also try zellner, gruvbox
--- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
 
 -- ack
 g.ackprg = 'rg --vimgrep'
@@ -357,8 +357,6 @@ vim.g.vsnip_filetypes = {
     eelixir = {"eelixir"}
 }
 
-
-
 -- Cmp + vim-vsnip
 
 local cmp = require("cmp")
@@ -491,7 +489,11 @@ nvim_lsp.elixirls.setup({
   cmd = { path_to_elixirls },
   settings = {
     elixirLS = {
-      fetchDeps = false
+      fetchDeps = false,
+      dialyzerFormat = "dialyxir_long",
+      dialyzerWarnOpts = {"error_handling", "no_behaviours", "no_contracts", "no_fail_call", "no_fun_app", "no_improper_lists", "no_match", "no_missing_calls", "no_opaque", "no_return", "no_undefined_callbacks", "no_unused", "underspecs", "unknown", "unmatched_returns", "overspecs"},
+      dialyzerEnabled = true,
+      suggestSpecs = true
     }
   }
 })
