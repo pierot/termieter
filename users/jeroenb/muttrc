@@ -17,7 +17,6 @@ set text_flowed
 
 # Colors ---------------------------------------------
 source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
-# source $TRM/users/jeroenb/mutt/colors/custom.muttrc
 
 # Account Settings -----------------------------------
 
@@ -38,8 +37,8 @@ set mail_check_stats
 # macro index <f2> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/jackjoe/config<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/daele/config<enter><change-folder>!<enter>'
 
-# folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
 folder-hook daele/*     source $TRMU/mutt/accounts/daele/config
+# folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
 
 # default account
 source $TRMU/mutt/accounts/daele/config
@@ -49,7 +48,7 @@ source $TRMU/mutt/accounts/daele/config
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 # Sync email
-macro index,pager O "<shell-escape>mbsync -a<enter>" "run mbsync to sync all mail"
+macro index,pager O "<shell-escape>mbsync -a<enter><shell-escape>notmuch new<enter>" "sync email"
 
 # Shared Macros --------------------------------------
 
@@ -78,11 +77,11 @@ bind index gg first-entry
 
 # Save all attachments
 set pipe_decode = no
-macro pager S "<pipe-message> ripmime -i - -d ~/Downloads && rm -f ~/Downloads/textfile*" "Save all non-text attachments using ripmime"
+macro pager s "<pipe-message> ripmime -i - -d ~/Downloads && rm -f ~/Downloads/textfile*" "Save all non-text attachments using ripmime"
 #macro attach s <save-entry><kill-line>~/Downloads/
 
 # Search ---------------------------------------------
-macro index S "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/Mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+macro index s "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/Mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
 
 # notmuch bindings
 bind pager \\ noop
@@ -93,7 +92,10 @@ macro index,pager \\\\ "<vfolder-from-query>" # looks up a hand made query
 macro pager \cu |urlview\n
 
 # contacts
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+# set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+set query_command = "notmuch address %s"
+set query_format = "%5c %t %a %n %?e?(%e)?"
+
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
