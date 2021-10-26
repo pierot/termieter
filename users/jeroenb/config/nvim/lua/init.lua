@@ -44,6 +44,7 @@ paq {'TimUntersberger/neogit'}                        -- since TPopes fugitive w
 paq {'sindrets/diffview.nvim'}
 
 paq {'tpope/vim-repeat'}
+paq {'jeffkreeftmeijer/vim-numbertoggle'}
 paq {'docunext/closetag.vim'}
 paq {'mattn/emmet-vim'}
 paq {'kana/vim-textobj-user'}
@@ -355,7 +356,7 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
 map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
-map('n', '<leader>gg', '<cmd>Telescope git_status<CR>')
+map('n', '<leader>gs', '<cmd>Telescope git_status<CR>')
 
 local previewers = require('telescope.previewers')
 
@@ -468,8 +469,6 @@ ts.setup({
   },
   autotag = {enable = true}
 })
-
-map('n', '<leader>gg', '<cmd>Telescope git_status<CR>')
 
 -- Vim-vsnip
 vim.g.vsnip_filetypes = {
