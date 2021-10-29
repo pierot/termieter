@@ -39,8 +39,12 @@ paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many,
 
 -- -- paq {'blackCauldron7/surround.nvim'}               -- pure lua, had some issues when I first tried, maybe swap later
 paq {'tpope/vim-surround'}
-paq {'tpope/vim-fugitive'}                            -- I know it's illegal, but hey -\_0_/-
+-- paq {'tpope/vim-fugitive'}                            -- I know it's illegal, but hey -\_0_/-
+paq {'TimUntersberger/neogit'}                        -- since TPopes fugitive was illegal...
+paq {'sindrets/diffview.nvim'}
+
 paq {'tpope/vim-repeat'}
+paq {'jeffkreeftmeijer/vim-numbertoggle'}
 paq {'docunext/closetag.vim'}
 paq {'mattn/emmet-vim'}
 paq {'kana/vim-textobj-user'}
@@ -204,25 +208,146 @@ require('nvim-web-devicons').setup()
 
 -- colorscheme 
 -- also try zellner, gruvbox
--- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
 
 -- ack
 g.ackprg = 'rg --vimgrep'
 
 -- nvim-tree
-require('nvim-tree').setup()
-
-g.nvim_tree_auto_open = 0
-g.nvim_tree_auto_close = 1
 g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_hide_dotfiles = 1
-g.nvim_tree_tab_open = 1
+
+require'nvim-tree'.setup({
+  auto_open = false,
+  auto_close = true,
+  tab_open = true,
+})
 
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 
 -- fugitive
-map('n', '<leader>gs', '<cmd>Git<CR>')
+-- map('n', '<leader>gs', '<cmd>Git<CR>')
+
+-- neogit
+require('neogit').setup {
+  disable_commit_confirmation = true,
+  integrations = {
+    diffview = true
+  }
+}
+
+map('n', '<leader>gg', '<cmd>Neogit<CR>')
+map('n', '<leader>gd', '<cmd>DiffviewOpen<CR>')
+map('n', '<leader>gD', '<cmd>DiffviewOpen master<CR>')
+map('n', '<leader>gl', '<cmd>Neogit log<CR>')
+map('n', '<leader>gp', '<cmd>Neogit push<CR>')
+
+-- diffview
+local cb = require'diffview.config'.diffview_callback
+
+require'diffview'.setup {
+  diff_binaries = false,    -- Show diffs for binaries
+  enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
+  use_icons = true,         -- Requires nvim-web-devicons
+  icons = {                 -- Only applies when use_icons is true.
+    folder_closed = "",
+    folder_open = "",
+  },
+  signs = {
+    fold_closed = "",
+    fold_open = "",
+  },
+  file_panel = {
+    position = "left",            -- One of 'left', 'right', 'top', 'bottom'
+    width = 35,                   -- Only applies when position is 'left' or 'right'
+    height = 10,                  -- Only applies when position is 'top' or 'bottom'
+    listing_style = "tree",       -- One of 'list' or 'tree'
+    tree_options = {              -- Only applies when listing_style is 'tree'
+      flatten_dirs = true,
+      folder_statuses = "always"  -- One of 'never', 'only_folded' or 'always'.
+    }
+  },
+  file_history_panel = {
+    position = "bottom",
+    width = 35,
+    height = 16,
+    log_options = {
+      max_count = 256,      -- Limit the number of commits
+      follow = false,       -- Follow renames (only for single file)
+      all = false,          -- Include all refs under 'refs/' including HEAD
+      merges = false,       -- List only merge commits
+      no_merges = false,    -- List no merge commits
+      reverse = false,      -- List commits in reverse order
+    },
+  },
+  default_args = {    -- Default args prepended to the arg-list for the listed commands
+    DiffviewOpen = {},
+    DiffviewFileHistory = {},
+  },
+  key_bindings = {
+    disable_defaults = false,                   -- Disable the default key bindings
+    -- The `view` bindings are active in the diff buffers, only when the current
+    -- tabpage is a Diffview.
+    view = {
+      ["<tab>"]      = cb("select_next_entry"),  -- Open the diff for the next file
+      ["<s-tab>"]    = cb("select_prev_entry"),  -- Open the diff for the previous file
+      ["gf"]         = cb("goto_file"),          -- Open the file in a new split in previous tabpage
+      ["<C-w><C-f>"] = cb("goto_file_split"),    -- Open the file in a new split
+      ["<C-w>gf"]    = cb("goto_file_tab"),      -- Open the file in a new tabpage
+      ["<leader>e"]  = cb("focus_files"),        -- Bring focus to the files panel
+      ["<leader>b"]  = cb("toggle_files"),       -- Toggle the files panel.
+    },
+    file_panel = {
+      ["j"]             = cb("next_entry"),           -- Bring the cursor to the next file entry
+      ["<down>"]        = cb("next_entry"),
+      ["k"]             = cb("prev_entry"),           -- Bring the cursor to the previous file entry.
+      ["<up>"]          = cb("prev_entry"),
+      ["<cr>"]          = cb("select_entry"),         -- Open the diff for the selected entry.
+      ["o"]             = cb("select_entry"),
+      ["<2-LeftMouse>"] = cb("select_entry"),
+      ["-"]             = cb("toggle_stage_entry"),   -- Stage / unstage the selected entry.
+      ["S"]             = cb("stage_all"),            -- Stage all entries.
+      ["U"]             = cb("unstage_all"),          -- Unstage all entries.
+      ["X"]             = cb("restore_entry"),        -- Restore entry to the state on the left side.
+      ["R"]             = cb("refresh_files"),        -- Update stats and entries in the file list.
+      ["<tab>"]         = cb("select_next_entry"),
+      ["<s-tab>"]       = cb("select_prev_entry"),
+      ["gf"]            = cb("goto_file"),
+      ["<C-w><C-f>"]    = cb("goto_file_split"),
+      ["<C-w>gf"]       = cb("goto_file_tab"),
+      ["i"]             = cb("listing_style"),        -- Toggle between 'list' and 'tree' views
+      ["f"]             = cb("toggle_flatten_dirs"),  -- Flatten empty subdirectories in tree listing style.
+      ["<leader>e"]     = cb("focus_files"),
+      ["<leader>b"]     = cb("toggle_files"),
+    },
+    file_history_panel = {
+      ["g!"]            = cb("options"),            -- Open the option panel
+      ["<C-A-d>"]       = cb("open_in_diffview"),   -- Open the entry under the cursor in a diffview
+      ["y"]             = cb("copy_hash"),          -- Copy the commit hash of the entry under the cursor
+      ["zR"]            = cb("open_all_folds"),
+      ["zM"]            = cb("close_all_folds"),
+      ["j"]             = cb("next_entry"),
+      ["<down>"]        = cb("next_entry"),
+      ["k"]             = cb("prev_entry"),
+      ["<up>"]          = cb("prev_entry"),
+      ["<cr>"]          = cb("select_entry"),
+      ["o"]             = cb("select_entry"),
+      ["<2-LeftMouse>"] = cb("select_entry"),
+      ["<tab>"]         = cb("select_next_entry"),
+      ["<s-tab>"]       = cb("select_prev_entry"),
+      ["gf"]            = cb("goto_file"),
+      ["<C-w><C-f>"]    = cb("goto_file_split"),
+      ["<C-w>gf"]       = cb("goto_file_tab"),
+      ["<leader>e"]     = cb("focus_files"),
+      ["<leader>b"]     = cb("toggle_files"),
+    },
+    option_panel = {
+      ["<tab>"] = cb("select"),
+      ["q"]     = cb("close"),
+    },
+  },
+}
 
 -- Telescope
 -- Check to extend: https://github.com/varbhat/dotfiles/blob/main/dot_config/nvim/lua/utils/telescope.lua
@@ -231,7 +356,7 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
 map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
-map('n', '<leader>gg', '<cmd>Telescope git_status<CR>')
+map('n', '<leader>gs', '<cmd>Telescope git_status<CR>')
 
 local previewers = require('telescope.previewers')
 
@@ -346,23 +471,22 @@ ts.setup({
 })
 
 -- Vim-vsnip
-
 vim.g.vsnip_filetypes = {
     javascriptreact = {"javascript"},
     typescript = {"javascript"},
     typescriptreact = {"javascript"},
-    elixir = {"elixir"}
+    elixir = {"elixir"},
+    eelixir = {"eelixir"}
 }
 
 -- Cmp + vim-vsnip
 
 local cmp = require("cmp")
-
 cmp.setup({
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
-    end,
+    end
   },
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -377,15 +501,11 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
-
     -- For vsnip user.
     { name = 'vsnip' },
     { name = 'buffer' },
   }
 })
-
-local set_keymap = vim.api.nvim_set_keymap
-local options = {expr = true}
 
 -------------------------------------------------
 -- LSP
@@ -491,7 +611,11 @@ nvim_lsp.elixirls.setup({
   cmd = { path_to_elixirls },
   settings = {
     elixirLS = {
-      fetchDeps = false
+      fetchDeps = false,
+      dialyzerFormat = "dialyxir_long",
+      dialyzerWarnOpts = {"error_handling", "no_behaviours", "no_contracts", "no_fail_call", "no_fun_app", "no_improper_lists", "no_match", "no_missing_calls", "no_opaque", "no_return", "no_undefined_callbacks", "no_unused", "underspecs", "unknown", "unmatched_returns", "overspecs"},
+      dialyzerEnabled = true,
+      suggestSpecs = true
     }
   }
 })
