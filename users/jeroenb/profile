@@ -4,9 +4,10 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 if [[ $OS == 'OSX' ]]; then
-  export BROWSER="firefox"
+  export BROWSER="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
+  alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
 else
-  export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
+  export BROWSER="firefox"
 fi
 
 export WEECHAT_HOME=$HOME/.config/weechat

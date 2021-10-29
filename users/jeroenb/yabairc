@@ -42,6 +42,7 @@ yabai -m rule --add app="^Firefox*" title="^File Upload$" manage=off
 yabai -m rule --add app="Mail" space=3
 yabai -m rule --add app="Spotify" space=5 manage=off
 # grid=8:8:0:1:1:1
+yabai -m rule --add app="^Copy$" manage=off sticky=on layer=above
 yabai -m rule --add app="^System Preferences$" manage=off sticky=on layer=above
 yabai -m rule --add app="^Karabiner-Elements$" manage=off sticky=on layer=above
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off sticky=on layer=above
