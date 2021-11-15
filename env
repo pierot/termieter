@@ -13,8 +13,6 @@ export SHELL=$CURRENT_SHELL
 
 if [[ `uname` == 'Darwin' ]]; then
   export OS='OSX'
-else
-  export OS='Linux'
 fi
 
 ###########################################################
