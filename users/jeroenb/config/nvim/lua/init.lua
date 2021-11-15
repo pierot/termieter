@@ -42,6 +42,7 @@ paq {'tpope/vim-surround'}
 -- paq {'tpope/vim-fugitive'}                            -- I know it's illegal, but hey -\_0_/-
 paq {'TimUntersberger/neogit'}                        -- since TPopes fugitive was illegal...
 paq {'sindrets/diffview.nvim'}
+paq {'neovimhaskell/haskell-vim'}
 
 paq {'tpope/vim-repeat'}
 paq {'jeffkreeftmeijer/vim-numbertoggle'}
@@ -215,12 +216,12 @@ g.ackprg = 'rg --vimgrep'
 
 -- nvim-tree
 g.nvim_tree_width_allow_resize = 1
-g.nvim_tree_hide_dotfiles = 1
 
 require'nvim-tree'.setup({
   auto_open = false,
   auto_close = true,
   tab_open = true,
+  hide_dotfiles = true,
 })
 
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
@@ -233,8 +234,14 @@ map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 require('neogit').setup {
   disable_commit_confirmation = true,
   integrations = {
-    diffview = true
-  }
+    diffview = true,
+  },
+  signs = {
+    -- { CLOSED, OPENED }
+    section = { "├─", "│ " },
+    item = { "├─", "│ " },
+    hunk = { "", "" },
+  },
 }
 
 map('n', '<leader>gg', '<cmd>Neogit<CR>')
