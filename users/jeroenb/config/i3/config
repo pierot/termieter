@@ -9,6 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# mod4 = win key / super key
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -152,4 +153,4 @@ bar {
         status_command i3status
 }
 
-exec nitrogen --restore
+#exec nitrogen --restore
