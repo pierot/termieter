@@ -16,4 +16,7 @@ export FILE="nnn"
 export PATH="$HOME/bin/:$PATH"
 export TRMU=~/.termieter/users/jeroenb
 
+export FLYCTL_INSTALL="/home/jeroen/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
 [ -f "/Users/jeroenb/.ghcup/env" ] && source "/Users/jeroenb/.ghcup/env" # ghcup-env

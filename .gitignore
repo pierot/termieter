@@ -18,5 +18,12 @@ users/jeroenb/config/karabiner/automatic_backups
 users/jeroenb/config/weechat/logs/**
 users/jeroenb/config/weechat/weechat.log
 users/jeroenb/config/weechat/sec.conf
+users/jeroenb/config/vivaldi
+users/jeroenb/config/vivaldi-*
+users/jeroenb/config/BraveSoftware
+users/jeroenb/config/google-chrome*
+users/jeroenb/config/chromium
+users/jeroenb/config/microsoft-edge-dev
+users/jeroenb/config/1Password
 
 users/pieterm/config/psysh/**
