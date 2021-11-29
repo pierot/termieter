@@ -38,3 +38,6 @@
 	rebase = false
 [gui]
 	recentrepo = /Users/jeroenb/Work/jackjoe/justified
+[user]
+	email = jeroen@daele.be
+	name = Jeroen Bourgois
