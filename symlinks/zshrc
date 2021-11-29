@@ -73,6 +73,10 @@ zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 source $ZSH/oh-my-zsh.sh
 source $TRM/zsh/base.sh
 
+if [[ "$OSTYPE" == "linux-gnu"* ]] &&  [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+	startx
+fi
+
 alias reload!='. $HOME/.zshrc'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
