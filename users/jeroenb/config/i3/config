@@ -16,7 +16,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: JetBrains Mono 12
+font pango:JetBrains Mono 12
 #, Font Awesome 5 Free Regular 10
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -91,17 +91,29 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Define workspace names
+set $ws1  "1"
+set $ws2  "2:"
+set $ws3  "3:"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10  "10"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -151,9 +163,8 @@ bindsym $mod+r mode "resize"
 # Gaps
 
 # Set inner/outer gaps
-#gaps inner 14
-gaps inner 6
-gaps outer -2
+gaps inner 10
+gaps outer -1
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -205,20 +216,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    status_command i3status
-    position bottom
-    tray_output DP-0 
-    separator_symbol "  "
-    colors {
-        background #000000
-        statusline #ffffff
-        separator #586e75
-    }
-}
-
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
@@ -235,16 +232,49 @@ mode "$mode_system" {
 
 bindsym $mod+Pause mode "$mode_system"
 
+# Window colors
+set $bgcolor    #00897b
+set $ibgcolor   #363636
+set $textcolor  #ffffff
+set $itextcolor #969696
+set $ubgcolor   #ff0000
+
+#                         border              background              text          indicator
+client.focused            $bgcolor            $bgcolor                $textcolor    $bgcolor
+client.unfocused          $ibgcolor           $ibgcolor               $itextcolor   $ibgcolor
+client.focused_inactive   $ibgcolor           $ibgcolor               $itextcolor   $ibgcolor
+client.urgent             $ubgcolor           $ubgcolor               $textcolor    $ubgcolor
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command i3status -c /home/jeroen/.config/i3/i3status/i3status.conf
+    font pango:JetBrains Mono 12
+    #, FontAwesome 12
+    position top
+    tray_output DP-0 
+    separator_symbol "  "
+    colors {
+        #                         border              background              text
+        background $bgcolor
+        # statusline #282828
+        separator $bgcolor 
+        focused_workspace         $bgcolor            $bgcolor                $textcolor
+        inactive_workspace        $ibgcolor           $ibgcolor               $itextcolor
+        urgent_workspace          $ubgcolor           $ubgcolor               $textcolor
+    }
+}
 
 # floating
 for_window [class="Arandr"] floating enable
 for_window [class="^Gcalctool$"] floating enable
 
 # assign specific windows to workspaces
-assign [class="^Firefox$"] → 2
-assign [class="^Pcmanfm$"] → 3 
-assign [class="^Nemo$"] → 3
+for_window [class="Firefox"] move to workspace $ws2
+# assign [class="^Firefox$"] → $ws2
+#assign [class="^Pcmanfm$"] → $ws3
 
-exec no-startup-id nitrogen --restore 
+exec_always feh --bg-fill /home/jeroen/Pictures/big-sur.jpg 
 exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
+exec_always --no-startup-id xfce4-power-manager
+bindsym $mod+x exec i3lock
