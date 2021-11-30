@@ -92,7 +92,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Define workspace names
-set $ws1  "1"
+set $ws1  "1:term"
 set $ws2  "2:"
 set $ws3  "3:"
 set $ws4  "4"
@@ -104,16 +104,16 @@ set $ws9  "9"
 set $ws10  "10"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -172,7 +172,7 @@ gaps outer -1
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+#smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -233,7 +233,8 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 # Window colors
-set $bgcolor    #00897b
+# set $bgcolor    #00897b
+set $bgcolor    #2d71ab
 set $ibgcolor   #363636
 set $textcolor  #ffffff
 set $itextcolor #969696
@@ -250,10 +251,9 @@ client.urgent             $ubgcolor           $ubgcolor               $textcolor
 bar {
     status_command i3status -c /home/jeroen/.config/i3/i3status/i3status.conf
     font pango:JetBrains Mono 12
-    #, FontAwesome 12
     position top
     tray_output DP-0 
-    separator_symbol "  "
+    separator_symbol "|"
     colors {
         #                         border              background              text
         background $bgcolor
@@ -270,11 +270,15 @@ for_window [class="Arandr"] floating enable
 for_window [class="^Gcalctool$"] floating enable
 
 # assign specific windows to workspaces
-for_window [class="Firefox"] move to workspace $ws2
-# assign [class="^Firefox$"] → $ws2
-#assign [class="^Pcmanfm$"] → $ws3
+assign [class="Firefox"] → $ws2
+assign [class="kitty"] → $ws1
+assign [class="Spotify"] → $ws4
 
+# startup
 exec_always feh --bg-fill /home/jeroen/Pictures/big-sur.jpg 
 exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
 exec_always --no-startup-id xfce4-power-manager
-bindsym $mod+x exec i3lock
+
+# lock screen
+bindsym $mod+x exec i3lock -c 000000
