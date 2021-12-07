@@ -89,7 +89,7 @@
     frame_width = 0
 
     # Defines color of the frame around the notification window.
-    frame_color = "#61AFE2"
+    frame_color = "#99D7FF"
 
     # Define a color for the separator.
     # possible values are:
@@ -133,7 +133,7 @@
     #        simplistic so using this option outside of matching rules for
     #        specific applications *IS GREATLY DISCOURAGED*.
     #
-    # no:    Disable markup parsing, incoming notifications will be treated as
+    # no:    Disable 4arkup parsing, incoming notifications will be treated as
     #        plain text. Dunst will not advertise that it has the body-markup
     #        capability if this is set as a global setting.
     #
@@ -229,7 +229,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 4
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this

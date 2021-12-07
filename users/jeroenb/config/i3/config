@@ -302,9 +302,12 @@ bindsym --release $mod+Mod1+Shift+P exec scrot '%Y%m%d_%Ho%M%S.png' -s -e 'mv $f
 bindsym $mod+u [urgent=latest] focus
 
 # Slack 
-for_window [class="Slack" title="Slack call"] floating enable, move container to workspace current
 for_window [class="Slack"] floating disable
 for_window [class="Slack"] move container to workspace $chat
+for_window [class="Slack" title="Slack call"] floating enable, move container to workspace current
+
+# Harvest
+for_window [class="Harvest"] floating enable
 
 # Spotify
 assign [class="Spotify"] workspace $music
@@ -322,3 +325,4 @@ exec --no-startup-id pasystray
 exec_always --no-startup-id xfce4-power-manager
 exec --no-startup-id dropbox start
 exec --no-startup-id dunst &
+exec --no-startup-id picom &
