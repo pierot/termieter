@@ -1,1 +1,2 @@
 [ -f $HOME/.profile.local ] && . $HOME/.profile.local
+. "$HOME/.cargo/env"

@@ -39,5 +39,7 @@
 [gui]
 	recentrepo = /Users/jeroenb/Work/jackjoe/justified
 [user]
-	email = jeroen@daele.be
+	email = jeroenbourgois@gmail.com
 	name = Jeroen Bourgois
+[github]
+  user = jeroenbourgois

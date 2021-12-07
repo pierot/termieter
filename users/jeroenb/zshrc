@@ -1,6 +1,8 @@
 if [[ $OS == 'OSX' ]]; then
   export QT_QPA_PLATFORMTHEME="qt5ct"
   export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+  export GDK_SCALE=2 
+  export GDK_DPI_SCALE=0.5
   export BROWSER="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
   alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
 else
@@ -18,5 +20,7 @@ export TRMU=~/.termieter/users/jeroenb
 
 export FLYCTL_INSTALL="/home/jeroen/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+alias pbcopy='xclip -selection clipboard'
 
 [ -f "/Users/jeroenb/.ghcup/env" ] && source "/Users/jeroenb/.ghcup/env" # ghcup-env

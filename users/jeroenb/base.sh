@@ -1,5 +1,3 @@
-###################################
-# NeoVIM switch
 
 have() {
   type "$1" &> /dev/null
@@ -24,16 +22,6 @@ function sloc_js {
 function sloc_ts {
   git ls-files | egrep '\.tsx?$' | xargs cat | sed '/^$/d' | sed '/^\s*#/d' | wc -l
 }
-
-if have nvim; then
-  export EDITOR=nvim
-
-  alias v="nvim"
-  alias vim="nvim"
-  alias vi="nvim"
-  alias vimdiff='nvim -d'
-  alias oldvim="/usr/local/bin/vim"
-fi
 
 # neomutt
 if have neomutt; then

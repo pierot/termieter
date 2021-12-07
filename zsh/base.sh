@@ -91,12 +91,6 @@ alias mv='mv -i'            # prevents accidental overwrite
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
 
-alias vimd="cd ~/.vim"
-alias vime="cd ~/.vim; vim ."
-
-alias v='vim .'
-alias vi='vim'
-
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
 alias curlh="curl -I -s -X GET"
@@ -111,14 +105,40 @@ fi
 
 ##########################################################
 
+# ssh
+alias sshe='cd ~/.ssh'
+
+##########################################################
+
+if have nvim; then
+  export EDITOR=nvim
+  export SVN_EDITOR='nvim'
+
+  alias v="nvim ."
+  alias vim="nvim"
+  alias vi="nvim"
+  alias vimdiff='nvim -d'
+  alias vimd="cd ~/.config/nvim"
+  alias vime="vim ~/.config/nvim/lua/init.lua"
+
+  alias oldvim="/usr/local/bin/vim"
+else
+  export SVN_EDITOR='vim'
+  export EDITOR=vim
+
+  alias sshconf='sudo vim ~/.ssh/config'
+  alias vimd="cd ~/.vim"
+  alias vime="cd ~/.vim; vim ."
+  alias v='vim .'
+  alias vi='vim'
+fi
+
+##########################################################
+
 if [[ $OS == 'OSX' ]]; then
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
   alias cat='ccat'
   alias zzz='pmset sleepnow'
-
-  # ssh
-  alias sshconf='sudo vim ~/.ssh/config'
-  alias sshe='cd ~/.ssh'
 
   # Spotlight
   alias spotlight-stop='sudo mdutil -i off /'
@@ -147,12 +167,6 @@ else
     sudo rm /var/lib/dpkg/lock
   }
 fi
-
-##########################################################
-
-# EDITORS
-export SVN_EDITOR='vim'
-export EDITOR=vim
 
 ##########################################################
 
