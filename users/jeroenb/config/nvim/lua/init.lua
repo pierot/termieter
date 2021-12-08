@@ -39,9 +39,9 @@ paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many,
 
 paq {'blackCauldron7/surround.nvim'} 
 paq {'tpope/vim-fugitive'} 
+paq {'tpope/vim-repeat'}
 paq {'neovimhaskell/haskell-vim'}
 
-paq {'tpope/vim-repeat'}
 paq {'jeffkreeftmeijer/vim-numbertoggle'}
 paq {'docunext/closetag.vim'}
 paq {'mattn/emmet-vim'}
@@ -57,10 +57,9 @@ paq {'hrsh7th/cmp-vsnip'}
 paq {'hrsh7th/nvim-cmp'}                              -- autocomplete
 paq {'hrsh7th/vim-vsnip'}                             -- snippets
 paq {'hrsh7th/vim-vsnip-integ'}                       -- snippets
-
 paq {'rafamadriz/friendly-snippets'}                  -- snippets
-
 paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
+paq {'nvim-lualine/lualine.nvim'}
 
 -- Telescope
 paq {'nvim-telescope/telescope.nvim'}
@@ -73,6 +72,7 @@ paq {'b3nj5m1n/kommentary'}                           -- Comment
 -- Themes
 paq {'rktjmp/lush.nvim'}
 paq {'metalelf0/jellybeans-nvim'}
+paq {'EdenEast/nightfox.nvim'}
 -- paq {'gruvbox-community/gruvbox'}
 
 
@@ -192,8 +192,8 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 
 -- map('', '<leader>c', '"+y')                        -- Copy to clipboard in normal, visual, select and operator modes
 
--- --cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
--- -- cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+--cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
+-- cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 -- 
 -- 
 -- -------------------------------------------------
@@ -209,19 +209,119 @@ require"surround".setup {mappings_style = "surround"}
  
 -- colorscheme 
 -- also try zellner, gruvbox
-cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+-- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+
+-- nightfox theme
+local nightfox = require('nightfox')
+
+-- This function set the configuration of nightfox. If a value is not passed in the setup function
+-- it will be taken from the default configuration above
+nightfox.setup({
+  fox = "nordfox", -- change the colorscheme to use nordfox
+})
+-- Load the configuration set above and apply the colorscheme
+nightfox.load()
+cmd 'colorscheme nightfox'
  
+-- lualine
+local function getWords()
+  if vim.bo.filetype == "md" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then
+    if vim.fn.wordcount().visual_words == 1 then
+      return tostring(vim.fn.wordcount().visual_words) .. " word"
+    elseif not (vim.fn.wordcount().visual_words == nil) then
+      return tostring(vim.fn.wordcount().visual_words) .. " words"
+    else
+      return tostring(vim.fn.wordcount().words) .. " words"
+    end
+  else
+    return ""
+  end
+end
+
+-- local lineNum = vim.api.nvim_win_get_cursor(0)[1]
+local function getLines()
+  return tostring(vim.api.nvim_win_get_cursor(0)[1]) .. "/" .. tostring(vim.api.nvim_buf_line_count(0))
+end
+
+local function getColumn()
+  local val = vim.api.nvim_win_get_cursor(0)[2]
+  -- pad value to 3 units to stop geometry shift
+  return string.format("%03d", val)
+end
+
+local function diff_source()
+  local gitsigns = vim.b.gitsigns_status_dict
+  if gitsigns then
+    return {
+      added = gitsigns.added,
+      modified = gitsigns.changed,
+      removed = gitsigns.removed,
+    }
+  end
+end
+
+-- get colors from Nightfox to use in the words count
+local nfColors = require("nightfox.colors").init("nordfox")
+
+-- print(vim.inspect(nfColors))
+require("lualine").setup({
+  options = {
+    icons_enabled = true,
+    theme = "nightfox",
+    component_separators = { " ", " " },
+    section_separators = { left = "", right = "" },
+    disabled_filetypes = {},
+  },
+  sections = {
+    lualine_a = { "mode" },
+    lualine_b = {
+      { "branch", icon = "" },
+      { "diff", source = diff_source, color_added = "#a7c080", color_modified = "#ffdf1b", color_removed = "#ff6666" },
+    },
+    lualine_c = {
+      { "diagnostics", sources = { "nvim_lsp" } },
+      function()
+        return "%="
+      end,
+      "filename",
+      {
+        getWords,
+        color = { fg = nfColors["bg_alt"] or "#333333", bg = nfColors["fg"] or "#eeeeee" },
+        separator = { left = "", right = "" },
+      },
+    },
+    lualine_x = { "filetype" },
+    lualine_y = {},
+    lualine_z = {
+      { getColumn, padding = { left = 1, right = 0 } },
+      { getLines, icon = "", padding = 1 },
+    },
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { "filename" },
+    lualine_x = { "location" },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  tabline = {},
+  extensions = {
+    "quickfix",
+  },
+})
+
 -- ack
 g.ackprg = 'rg --vimgrep'
  
 -- nvim-tree
-g.nvim_tree_width_allow_resize = 1
-
 require'nvim-tree'.setup({
-  auto_open = false,
   auto_close = true,
-  tab_open = true,
-  hide_dotfiles = true,
+  open_on_setup = false,
+  update_to_buf_dir = { enable = true, auto_open = false },
+  diagnostics = {
+    enable = true
+  }
 })
 
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
@@ -237,7 +337,7 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
 map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
-map('n', '<leader>gs', '<cmd>Telescope git_status<CR>')
+--map('n', '<leader>gs', '<cmd>Telescope git_status<CR>')
 
 local previewers = require('telescope.previewers')
 
@@ -290,7 +390,7 @@ require('telescope').setup {
 }
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
--- require('telescope').load_extension('fzf')
+require('telescope').load_extension('fzf')
 
 require('telescope').setup {
   defaults = {
@@ -332,7 +432,7 @@ ts.setup({
   },
   refactor = {
     highlight_definitions = {enable = true},
-    -- highlight_current_scope = {enable = true},
+    highlight_current_scope = {enable = true},
     smart_rename = {
       enable = true,
       keymaps = {smart_rename = "grr"},
@@ -483,7 +583,7 @@ capabilities.textDocument.codeAction = {
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 -- Elixir
-local path_to_elixirls = vim.fn.expand("/usr/local/share/elixir-ls/rel/language_server.sh")
+local path_to_elixirls = vim.fn.expand("/home/jeroen/.local/share/elixir-ls/release/language_server.sh")
 
 -- Setup
 nvim_lsp.elixirls.setup({
@@ -505,6 +605,28 @@ nvim_lsp.tsserver.setup({
   on_attach = on_attach, 
   capabilities = capabilities
 })
+
+-- LSP Prevents inline buffer annotations
+vim.lsp.diagnostic.show_line_diagnostics()
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_on_insert = false,
+})
+
+local signs = {
+  Error = "ﰸ",
+  Warn = "",
+  Hint = "",
+  Info = "",
+}
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = nil })
+end
+
+vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable=false, source = 'always'})]])
 
 -- Prettier function for formatter
 local prettier = function()

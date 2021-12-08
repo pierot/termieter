@@ -291,12 +291,19 @@ bindsym XF86AudioMute exec amixer sset 'Master' toggle
 bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
 bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 
-# Print screen focused window
-bindsym $mod+Mod1+P exec scrot '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Dropbox/Screenshots/'
+# Shutdown
+set $mode_power [l]ogoff | [s]hutdown
+mode "$mode_power" {
+        bindsym l exec i3-msg exit
+        bindsym s exec systemctl poweroff
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym --release XF86PowerOff mode "$mode_power"
 
-# Print screen entire view
-# bindsym $mod+m exec scrot -s -e 'mv $f ~/Dropbox/Screenshots/' '%Y%m%d_%Ho%M%S.png' 
-bindsym --release $mod+Mod1+Shift+P exec scrot '%Y%m%d_%Ho%M%S.png' -s -e 'mv $f ~/Dropbox/Screenshots/'
+# Print screen 
+bindsym $mod+Shift+Mod1+P --release exec "scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym $mod+Mod1+P exec "scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 
 # Switch to urgen
 bindsym $mod+u [urgent=latest] focus
