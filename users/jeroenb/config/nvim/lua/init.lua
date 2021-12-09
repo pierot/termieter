@@ -192,10 +192,9 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 
 -- map('', '<leader>c', '"+y')                        -- Copy to clipboard in normal, visual, select and operator modes
 
---cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
--- cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
--- 
--- 
+cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+ 
+ 
 -- -------------------------------------------------
 -- -- PLUGINS SETUP
 -- -------------------------------------------------
@@ -279,7 +278,7 @@ require("lualine").setup({
       { "diff", source = diff_source, color_added = "#a7c080", color_modified = "#ffdf1b", color_removed = "#ff6666" },
     },
     lualine_c = {
-      { "diagnostics", sources = { "nvim_lsp" } },
+      {'diagnostics', sources = {'nvim_diagnostic'}},
       function()
         return "%="
       end,

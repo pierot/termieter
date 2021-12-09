@@ -65,11 +65,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
+# # split in horizontal orientation
+# bindsym $mod+h split h
 
-# split in vertical orientation
-bindsym $mod+v split v
+# # split in vertical orientation
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -85,14 +85,13 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
+# # focus the parent container
+# bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
+# # focus the child container
+# #bindsym $mod+d focus child
 
 # Define workspace names
-
 set $terms "1 "
 set $web "2 "
 set $chat "3 "
@@ -176,47 +175,9 @@ gaps outer 10
 # Smart gaps (gaps used if only more than one container on the workspace)
 #smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+# # Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove 
-#gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -231,7 +192,6 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+Shift+e mode "$mode_system"
 
 # No title bars
@@ -258,7 +218,8 @@ client.urgent             $ubgcolor           $ubgcolor               $textcolor
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status -c /home/jeroen/.config/i3/i3status/i3status.conf
+    # status_command i3status -c /home/jeroen/.config/i3/i3status/i3status.conf
+    status_command SCRIPT_DIR=/home/jeroen/.config/i3blocks i3blocks
     font pango:JetBrainsMono Nerd Font Mono 12
     position top
     tray_output DP-0 
@@ -305,7 +266,7 @@ bindsym --release XF86PowerOff mode "$mode_power"
 bindsym $mod+Shift+Mod1+P --release exec "scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 bindsym $mod+Mod1+P exec "scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 
-# Switch to urgen
+# Switch to urgent
 bindsym $mod+u [urgent=latest] focus
 
 # Slack 
