@@ -159,10 +159,11 @@ map('c', 'w!!', '<cmd>w !sudo tee % >/dev/null<CR>')  -- Write read-only file vi
 map('n', '<leader>w', '<cmd>w<CR>')                   -- Alias to :w
 
 -- Path copy helpers
-map('n', '<leader>cf', '<cmd>let @*=expand("%")<CR>')     -- relative path  (src/foo.txt)
-map('n', '<leader>cF', '<cmd>let @*=expand("%:p")<CR>')   -- absolute path  (/something/src/foo.txt)
-map('n', '<leader>ct', '<cmd>let @*=expand("%:t")<CR>')   -- filename       (foo.txt)
-map('n', '<leader>cd', '<cmd>let @*=expand("%:p:h")<CR>') -- directory name (/something/src)
+--/home/jeroen/.termieter/
+map('n', '<leader>cf', '<cmd>let @+=expand("%")<CR>')     -- relative path  (src/foo.txt)
+map('n', '<leader>cF', '<cmd>let @+=expand("%:p")<CR>')   -- absolute path  (/something/src/foo.txt)
+map('n', '<leader>ct', '<cmd>let @+=expand("%:t")<CR>')   -- filename       (foo.txt)
+map('n', '<leader>cd', '<cmd>let @+=expand("%:p:h")<CR>') -- directory name (/something/src)
 
 -- Reselect last selection after indent/un-indent in visual/select modes
 map('v', '<', '<gv')
