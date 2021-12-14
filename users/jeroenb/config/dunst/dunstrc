@@ -86,10 +86,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#99D7FF"
+    frame_color = "#1f2335"
 
     # Define a color for the separator.
     # possible values are:
@@ -111,11 +111,11 @@
 
     ### Text ###
 
-    font = Nimbus Sans 12
+    font = JetbrainsMono Nerd Font 14
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
-    line_height = 0
+    line_height = 5
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -229,7 +229,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 4
+    corner_radius = 0
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -292,23 +292,23 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#61AFE2"
-    foreground = "#000000"
+    background = "#292e42"
+    foreground = "#c0caf5"
     timeout = 8
     # Icon for notifications with low urgency, uncomment to enable
     #new_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#61AFE2"
-    foreground = "#000000"
+    background = "#292e42"
+    foreground = "#c0caf5"
     timeout = 8
     # Icon for notifications with normal urgency, uncomment to enable
     #new_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#900000"
+    background = "#db4b4b"
     foreground = "#ffffff"
-    frame_color = "#ff0000"
+    frame_color = "#f7768e"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #new_icon = /path/to/icon

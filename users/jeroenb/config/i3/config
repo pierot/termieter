@@ -18,12 +18,6 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:JetBrainsMono Nerd Font Mono 12
 #, Font Awesome 5 Free Regular 10
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -35,7 +29,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'Jetbrains Mono-12'
+# bindsym $mod+d exec dmenu_run -fn 'Jetbrains Mono-12'
+bindsym $mod+d exec --no-startup-id rofi -show run 
+# bindsym $mod+d exec dmenu_run -fn 'Jetbrains Mono-12'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -65,19 +61,13 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# # split in horizontal orientation
-# bindsym $mod+h split h
-
-# # split in vertical orientation
-# bindsym $mod+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+a layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -85,42 +75,30 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# # focus the parent container
-# bindsym $mod+a focus parent
-
-# # focus the child container
-# #bindsym $mod+d focus child
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
 
 # Define workspace names
-set $terms "1 "
-set $web "2 "
-set $chat "3 "
-set $music "4 "
-
-set $ws5  "5"
-set $ws6  "6"
-set $ws7  "7"
-set $ws8  "8"
-set $ws9  "9"
-set $ws10  "10"
 
 # switch to workspace
-bindsym $mod+1 workspace $terms
-bindsym $mod+2 workspace $web
-bindsym $mod+3 workspace number $chat
-bindsym $mod+4 workspace number $music
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 workspace number 1 
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $terms
-bindsym $mod+Shift+2 move container to workspace $web
-bindsym $mod+Shift+3 move container to workspace $chat
-bindsym $mod+Shift+4 move container to workspace $music
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -128,10 +106,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -159,7 +133,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 
 # Gaps
 
@@ -167,16 +141,11 @@ bindsym $mod+r mode "resize"
 gaps inner 10
 gaps outer 10
 
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
 # Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
+smart_gaps on
 
-# # Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -194,40 +163,42 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
-# No title bars
-for_window [class="^.*"] border pixel 2
+# # No title bars
+# for_window [class="^.*"] border pixel 2
 
-# Window colors
-# dark blue 030f49
-# vibrant blue 0549da
-# light blue #5fd4ff
-set $bgcolor    #030f49 
+# # Window colors
+# # dark blue 030f49
+# # vibrant blue 0549da
+# # light blue #5fd4ff
 set $bgcolor    #0549da 
+set $bgcolor    #7aa2f7 
 set $ibgcolor   #111111
-set $textcolor  #ffffff
+set $ibgcolor   #1a1b26
+set $ibgcolord  #0f1014
+set $textcolor  #1f2335
 set $itextcolor #969696
+set $itextcolor #545c7e
 set $ubgcolor   #ff0000
 set $lbluecolor #5fd4ff
 
 #                         border              background              text          indicator
-client.focused            $bgcolor           $bgcolor               $textcolor    $bgcolor
-client.unfocused          $ibgcolor            $ibgcolor                $itextcolor   $ibgcolor
-client.focused_inactive   $bgcolor           $bgcolor                 $textcolor   $bgcolor
+client.focused            $bgcolor            $bgcolor                $textcolor    $bgcolor
+client.unfocused          $ibgcolor           $ibgcolor               $itextcolor   $ibgcolor
+client.focused_inactive   $bgcolor            $bgcolor                $textcolor    $bgcolor
 client.urgent             $ubgcolor           $ubgcolor               $textcolor    $ubgcolor
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-    # status_command i3status -c /home/jeroen/.config/i3/i3status/i3status.conf
     status_command SCRIPT_DIR=/home/jeroen/.config/i3blocks i3blocks
-    font pango:JetBrainsMono Nerd Font Mono 12
     position top
-    tray_output DP-0 
+    tray_output HDMI-0 
     separator_symbol "|"
+    # mode dock
+    # hidden_state hide
+    # modifier Mod1
     colors {
-        background          $ibgcolor
+        background                $ibgcolord
+        separator                 $itextcolor 
         #                         border              background              text
-        separator $lbluecolor 
         focused_workspace         $bgcolor            $bgcolor                $textcolor
         inactive_workspace        $ibgcolor           $ibgcolor               $itextcolor
         urgent_workspace          $ubgcolor           $ubgcolor               $textcolor
@@ -240,8 +211,8 @@ for_window [class="^Gcalctool$"] floating enable
 for_window [class="^feh*"] floating enable
 
 # assign specific windows to workspaces
-for_window [class="^firefox*"] move container to workspace $web
-for_window [class="kitty"] move container to workspace $terms
+for_window [class="^firefox*"] move container to workspace 2
+for_window [class="kitty"] move container to workspace 1 
 # for_window [class="*Spotify*"] move container to workspace $ws4
 
 # lock screen
@@ -271,7 +242,7 @@ bindsym $mod+u [urgent=latest] focus
 
 # Slack 
 for_window [class="Slack"] floating disable
-for_window [class="Slack"] move container to workspace $chat
+for_window [class="Slack"] move container to workspace 3
 for_window [class="Slack" title="Slack call"] floating enable, move container to workspace current
 
 # Harvest
@@ -287,10 +258,9 @@ for_window [class="libreoffice-calc" window_type="dialog"] floating enable
 bindsym $mod+w exec firefox
 
 # startup
-exec_always feh --bg-scale -z ~/Pictures/walls/nature
+exec_always feh --bg-scale -z ~/Pictures/walls/nature/pexels-eberhard-grossgasteiger-691668.jpg
 exec --no-startup-id nm-applet
-exec --no-startup-id pasystray
 exec_always --no-startup-id xfce4-power-manager
 exec --no-startup-id dropbox start
 exec --no-startup-id dunst &
-exec --no-startup-id picom &
+#exec --no-startup-id picom &

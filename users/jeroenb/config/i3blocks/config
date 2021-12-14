@@ -29,6 +29,9 @@ command=$SCRIPT_DIR/$BLOCK_NAME
 separator_block_width=15
 separator=true
 markup=none
+color=#c0caf5
+separator=#545c7e
+separator=#ff00ff
 # SCRIPT_DIR=/home/jeroen/.config/i3blocks
 
 # Global properties
@@ -47,10 +50,21 @@ STEP=5%
 
 [disk]
 command=$SCRIPT_DIR/disk
-# LABEL=HOME 
-#DIR=$HOME
-#ALERT_LOW=10
-interval=30
+label=  
+DIR=/
+interval=5
+
+[disk]
+command=$SCRIPT_DIR/disk
+label= ~ 
+DIR=/home
+interval=5
+
+[disk]
+command=$SCRIPT_DIR/disk
+label= M 
+DIR=/media/
+interval=5
 
 # # Memory usage
 # #

@@ -24,57 +24,55 @@ end
 -- PLUGINS
 -------------------------------------------------
 
-cmd 'packadd paq-nvim'                                -- load the package manager
-local paq = require('paq-nvim').paq                   -- a convenient alias
+require 'paq' {
+	'lewis6991/impatient.nvim';                      -- faster startup
+	"mhartington/formatter.nvim";
+	'kyazdani42/nvim-tree.lua';                      -- sidebar file explorer
+	'kyazdani42/nvim-web-devicons';                  -- web dev icons used by many plugins
 
-paq {'savq/paq-nvim', opt = true}                     -- paq-nvim manages itself
+	'nvim-lua/popup.nvim';                           -- ui plugin used by many, someday upstream in neovim
+	'nvim-lua/plenary.nvim';                         -- ui plugin used by many, someday upstream in neovim
 
-paq {'lewis6991/impatient.nvim'}                      -- faster startup
-paq {"mhartington/formatter.nvim"}
-paq {'kyazdani42/nvim-tree.lua'}                      -- sidebar file explorer
-paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by many plugins
+	'blackCauldron7/surround.nvim'; 
+	'tpope/vim-fugitive'; 
+	'tpope/vim-repeat';
+	'neovimhaskell/haskell-vim';
 
-paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many, someday upstream in neovim
-paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many, someday upstream in neovim
+	'jeffkreeftmeijer/vim-numbertoggle';
+	'docunext/closetag.vim';
+	'mattn/emmet-vim';
+	'kana/vim-textobj-user';
+	'kana/vim-textobj-line';
+	'andyl/vim-textobj-elixir';
+	'elixir-editors/vim-elixir';                     -- correct commentstring and other percs
 
-paq {'blackCauldron7/surround.nvim'} 
-paq {'tpope/vim-fugitive'} 
-paq {'tpope/vim-repeat'}
-paq {'neovimhaskell/haskell-vim'}
+	'neovim/nvim-lspconfig';
+	'hrsh7th/cmp-buffer';
+	'hrsh7th/cmp-nvim-lsp';                          -- autocomplete
+	'hrsh7th/cmp-vsnip';
+	'hrsh7th/nvim-cmp';                              -- autocomplete
+	'hrsh7th/vim-vsnip';                             -- snippets
+	'hrsh7th/vim-vsnip-integ';                       -- snippets
+	'rafamadriz/friendly-snippets';                  -- snippets
+	'nvim-treesitter/nvim-treesitter';               -- treesitter, code highlighting
+	'nvim-lualine/lualine.nvim';
 
-paq {'jeffkreeftmeijer/vim-numbertoggle'}
-paq {'docunext/closetag.vim'}
-paq {'mattn/emmet-vim'}
-paq {'kana/vim-textobj-user'}
-paq {'kana/vim-textobj-line'}
-paq {'andyl/vim-textobj-elixir'}
-paq {'elixir-editors/vim-elixir'}                     -- correct commentstring and other percs
+	-- Telescope
+	'nvim-telescope/telescope.nvim';
+	{'nvim-telescope/telescope-fzf-native.nvim', run = 'make'};
 
-paq {'neovim/nvim-lspconfig'}
-paq {'hrsh7th/cmp-buffer'}
-paq {'hrsh7th/cmp-nvim-lsp'}                          -- autocomplete
-paq {'hrsh7th/cmp-vsnip'}
-paq {'hrsh7th/nvim-cmp'}                              -- autocomplete
-paq {'hrsh7th/vim-vsnip'}                             -- snippets
-paq {'hrsh7th/vim-vsnip-integ'}                       -- snippets
-paq {'rafamadriz/friendly-snippets'}                  -- snippets
-paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
-paq {'nvim-lualine/lualine.nvim'}
+	'mileszs/ack.vim';
+	'steelsojka/pears.nvim';                         -- Auto Pairs
+	'b3nj5m1n/kommentary';                           -- Comment
 
--- Telescope
-paq {'nvim-telescope/telescope.nvim'}
-paq {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-paq {'mileszs/ack.vim'}
-paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
-paq {'b3nj5m1n/kommentary'}                           -- Comment
-
--- Themes
-paq {'rktjmp/lush.nvim'}
-paq {'metalelf0/jellybeans-nvim'}
-paq {'EdenEast/nightfox.nvim'}
--- paq {'gruvbox-community/gruvbox'}
-
+	-- Themes
+	'rktjmp/lush.nvim';
+	'metalelf0/jellybeans-nvim';
+	-- 'EdenEast/nightfox.nvim';
+	'folke/tokyonight.nvim';
+	'norcalli/nvim-colorizer.lua';
+	--'gruvbox-community/gruvbox'
+}
 
 -------------------------------------------------
 -- GENERAL SETTINGS
@@ -200,6 +198,9 @@ cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-
 -- -------------------------------------------------
 
 
+-- nvim-colorizer
+require'colorizer'.setup()
+
 -- webdev icons
 require('nvim-web-devicons').setup()
 
@@ -207,10 +208,9 @@ require('nvim-web-devicons').setup()
 require"surround".setup {mappings_style = "surround"}
  
 -- colorscheme 
--- also try zellner, gruvbox
 -- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
 
--- nightfox theme
+--[[ -- nightfox theme
 local nightfox = require('nightfox')
 
 -- This function set the configuration of nightfox. If a value is not passed in the setup function
@@ -219,8 +219,14 @@ nightfox.setup({
   fox = "nordfox", -- change the colorscheme to use nordfox
 })
 -- Load the configuration set above and apply the colorscheme
-nightfox.load()
-cmd 'colorscheme nightfox'
+nightfox.load() ]]
+-- cmd 'colorscheme nightfox'
+
+-- opt('g', 'tokyonight_style', 'night')  
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+cmd 'colorscheme tokyonight'         
  
 -- lualine
 local function getWords()
@@ -260,13 +266,15 @@ local function diff_source()
 end
 
 -- get colors from Nightfox to use in the words count
-local nfColors = require("nightfox.colors").init("nordfox")
+-- local colors = require("nightfox.colors").init("nordfox")
+local colors = require("tokyonight.colors").setup({}) 
 
 -- print(vim.inspect(nfColors))
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    theme = "nightfox",
+    theme = "tokyonight",
+    -- theme = "nightfox",
     component_separators = { " ", " " },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {},
@@ -285,7 +293,7 @@ require("lualine").setup({
       "filename",
       {
         getWords,
-        color = { fg = nfColors["bg_alt"] or "#333333", bg = nfColors["fg"] or "#eeeeee" },
+        color = { fg = colors["bg_alt"] or "#333333", bg = colors["fg"] or "#eeeeee" },
         separator = { left = "", right = "" },
       },
     },
@@ -332,6 +340,7 @@ map('n', '<leader>gs', '<cmd>Git<CR>')
 -- Telescope
 -- Check to extend: https://github.com/varbhat/dotfiles/blob/main/dot_config/nvim/lua/utils/telescope.lua
 map('n', '<c-p>', '<cmd>Telescope find_files<CR>')
+map('n', '<c-b>', '<cmd>Telescope buffers<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
@@ -377,6 +386,14 @@ require('telescope').setup {
       '--smart-case'
     },
     buffer_previewer_maker = new_maker,
+  },
+  pickers = {
+    find_files = {
+      theme = "ivy"
+    },
+    buffers = {
+      theme = "ivy"
+    }
   },
   extensions = {
     fzf = {
