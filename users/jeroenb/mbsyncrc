@@ -79,7 +79,7 @@
 IMAPAccount daele
 Host mail.iamjack.be
 User jeroen@daele.be
-PassCmd "security find-internet-password -s 'mail.iamjack.be' -a 'jeroen@daele.be' -w"
+PassCmd "~/.termieter/users/jeroenb/bin/muttpwd imap"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1.2

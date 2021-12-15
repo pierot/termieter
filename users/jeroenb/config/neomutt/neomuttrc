@@ -131,5 +131,137 @@ bind pager R  group-reply
 bind attach <return> view-mailcap
 bind attach <enter> view-mailcap
 
-# Personal -------------------------------------------
-source ~/.muttrc.local
+# 
+#
+
+# Paths ----------------------------------------------
+set folder           = ~/Mail                   # mailbox location
+set alias_file       = $TRMU/mutt/alias         # where to store aliases
+set header_cache     = $TRMU/mutt/cache/headers # where to store headers
+set message_cachedir = $TRMU/mutt/cache/bodies  # where to store bodies
+set certificate_file = $TRMU/mutt/certificates  # where to store certs
+set mailcap_path     = $TRMU/mutt/mailcap       # entries for filetypes
+set tmpdir           = $TRMU/mutt/tmp           # where to keep tmp files
+# set display_filter   = $TRMU/mutt/alias_me.sh
+
+# Compose View Options -------------------------------
+set realname = "Jeroen Bourgois"     # who am i?
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set text_flowed
+
+# Colors ---------------------------------------------
+# source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
+
+# Account Settings -----------------------------------
+
+# Default inbox.
+set spoolfile = "+daele/INBOX"
+
+# sidebar patch config
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_divider_char = ' | '
+set sidebar_indent_string = '  ''
+# set sidebar_format = " %B %* [%?N?%N / ?%S]"
+# set sidebar_folder_indent = true
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+# Macros for switching accounts
+# macro index <f2> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/jackjoe/config<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/daele/config<enter><change-folder>!<enter>'
+
+folder-hook daele/*     source $TRMU/mutt/accounts/daele/config
+# folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
+
+# default account
+source $TRMU/mutt/accounts/daele/config
+# # source $TRMU/mutt/accounts/jackjoe/config
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Sync email
+macro index,pager O "<shell-escape>mbsync -a<enter><shell-escape>notmuch new<enter>" "sync email"
+
+# Shared Macros --------------------------------------
+
+# GMail Macros ---------------------------------------
+bind  editor <space> noop
+bind  index,pager c mail #Compose
+bind  generic     x  tag-entry		 # select conversation
+bind  index       x  tag-thread	   # select conversation
+bind  pager       x  tag-message   # select conversation
+bind  index,pager s  flag-message  # star a message
+bind  index,pager \# delete-thread # delete
+# bind  index,pager l  copy-message	 # label
+bind  index,pager V  save-message  # move to
+macro index,pager I  <set-flag>O	 "Mark as read"
+macro index,pager U  <clear-flag>O "Mark as unread"
+
+bind index gi noop
+bind index gd noop
+bind index ga noop
+bind index gg noop
+bind index g noop
+
+# prevent bind warning (https://neomutt.org/guide/configuration.html#bind-warnings)
+bind index g  noop
+bind index gg first-entry
+
+# Save all attachments
+set pipe_decode = no
+macro pager s "<pipe-message> ripmime -i - -d ~/Downloads && rm -f ~/Downloads/textfile*" "Save all non-text attachments using ripmime"
+#macro attach s <save-entry><kill-line>~/Downloads/
+
+# Search ---------------------------------------------
+macro index s "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/Mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+
+# notmuch bindings
+bind pager \\ noop
+# bind index,pager \ noop
+macro index,pager \\\\ "<vfolder-from-query>" # looks up a hand made query
+
+# ctrl u searches for URLs
+macro pager \cu |urlview\n
+
+# contacts
+# set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+set query_command = "notmuch address %s"
+set query_format = "%5c %t %a %n %?e?(%e)?"
+
+bind editor <Tab> complete-query
+bind editor ^T    complete
+
+# status bar, date format, finding stuff etc.
+set status_chars = " *%A"
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+set date_format = "%d.%m.%Y %H:%M"
+set index_format = "[%Z] %?X?A&-? %D  %-20.20F  %s"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set send_charset = "utf-8:iso-8859-1:us-ascii"
+set charset = "utf-8"
+
+# Pager View Options
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+
+# Force open in Firefox
+macro attach F \
+"\
+<enter-command>unset wait_key<enter>\
+<shell-escape>rm -f /tmp/mutt-attach<enter>\
+<save-entry><kill-line>/tmp/mutt-attach<enter>\
+<shell-escape>/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox /tmp/mutt-attach &<enter>\
+"

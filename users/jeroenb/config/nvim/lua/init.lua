@@ -341,7 +341,7 @@ map('n', '<leader>gs', '<cmd>Git<CR>')
 -- Telescope
 -- Check to extend: https://github.com/varbhat/dotfiles/blob/main/dot_config/nvim/lua/utils/telescope.lua
 map('n', '<c-p>', '<cmd>Telescope find_files<CR>')
-map('n', '<c-b>', '<cmd>Telescope buffers<CR>')
+map('n', '<leader>b', '<cmd>Telescope buffers<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
