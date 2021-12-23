@@ -45,7 +45,11 @@ users/jeroenb/config/GIMP
 users/jeroenb/config/darktable
 users/jeroenb/config/pcmanfm
 users/jeroenb/config/dconf/user
-users/jeroenb/config/xmonad
-!users/jeroenb/config/xmonad/xmonad.hs
+users/jeroenb/config/xmonad/xmonad
+users/jeroenb/config/xmonad/xmonad-contrib
+users/jeroenb/config/xmonad/.stack*
+users/jeroenb/config/xmonad/stack*
+users/jeroenb/config/xmonad/xmonad.hi
+users/jeroenb/config/xmonad/xmonad.o
 
 users/pieterm/config/psysh/**
