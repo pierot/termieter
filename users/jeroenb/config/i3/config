@@ -23,6 +23,7 @@ font pango:JetBrainsMono Nerd Font Mono 12
 floating_modifier $mod
 
 # start a terminal
+# bindsym $mod+Return exec st 
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
@@ -66,7 +67,7 @@ bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+a layout stacking
-bindsym $mod+t layout tabbed
+# bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
 
 # toggle tiling / floating
@@ -79,6 +80,11 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+# split orientation
+bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+t split toggle
 
 # Define workspace names
 
@@ -107,7 +113,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -146,7 +152,7 @@ mode "resize" {
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+#smart_borders on
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -161,7 +167,8 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+e mode "$mode_system"
+bindsym $mod+Shift+s mode "$mode_system"
+bindsym --release XF86PowerOff mode "$mode_system"
 
 # # No title bars
 # for_window [class="^.*"] border pixel 2
@@ -170,20 +177,20 @@ bindsym $mod+Shift+e mode "$mode_system"
 # # dark blue 030f49
 # # vibrant blue 0549da
 # # light blue #5fd4ff
-set $bgcolor    #0549da 
+set $bgcolor2    #0549da 
 set $bgcolor    #7aa2f7 
-set $ibgcolor   #111111
-set $ibgcolor   #1a1b26
-set $ibgcolord  #0f1014
-set $textcolor  #1f2335
-set $itextcolor #969696
-set $itextcolor #545c7e
-set $ubgcolor   #ff0000
-set $lbluecolor #5fd4ff
+set $ibgcolor2   #111111
+set $ibgcolor    #1a1b26
+set $ibgcolord   #0f1014
+set $textcolor   #1f2335
+set $itextcolor  #969696
+set $itextcolor  #545c7e
+set $ubgcolor    #ff0000
+set $lbluecolor  #5fd4ff
 
 #                         border              background              text          indicator
-client.focused            $bgcolor            $bgcolor                $textcolor    $bgcolor
-client.unfocused          $ibgcolor           $ibgcolor               $itextcolor   $ibgcolor
+client.focused            $bgcolor            $ibgcolor               $itextcolor    $bgcolor
+client.unfocused          $bgcolor            $ibgcolor               $itextcolor   $ibgcolor
 client.focused_inactive   $bgcolor            $bgcolor                $textcolor    $bgcolor
 client.urgent             $ubgcolor           $ubgcolor               $textcolor    $ubgcolor
 
@@ -223,16 +230,6 @@ bindsym XF86AudioMute exec amixer sset 'Master' toggle
 bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
 bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 
-# Shutdown
-set $mode_power [l]ogoff | [s]hutdown
-mode "$mode_power" {
-        bindsym l exec i3-msg exit
-        bindsym s exec systemctl poweroff
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-bindsym --release XF86PowerOff mode "$mode_power"
-
 # Print screen 
 bindsym $mod+Shift+Mod1+P --release exec "scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 bindsym $mod+Mod1+P exec "scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
@@ -258,9 +255,3 @@ for_window [class="libreoffice-calc" window_type="dialog"] floating enable
 bindsym $mod+w exec firefox
 
 # startup
-exec_always feh --bg-scale -z ~/Pictures/walls/nature/pexels-eberhard-grossgasteiger-691668.jpg
-exec --no-startup-id nm-applet
-exec_always --no-startup-id xfce4-power-manager
-exec --no-startup-id dropbox start
-exec --no-startup-id dunst &
-#exec --no-startup-id picom &
