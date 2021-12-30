@@ -1,3 +1,5 @@
+# This file is still here in case I hop over to OSX
+# On Arch, my zsh in in ~/.config/zsh
 
 have() {
   type "$1" &> /dev/null
@@ -44,15 +46,13 @@ alias gd="cd $HOME/Downloads"
 alias gD="cd $HOME/Desktop"
 alias gdb="cd $DROPBOX"
 alias ssh="kitty +kitten ssh"
-alias df="df -h"
-alias free="free -m"
-
-# get error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
 
 # python 3.8
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
+
+# my bin
+export PATH="$TRMU/bin:$PATH"
 
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"

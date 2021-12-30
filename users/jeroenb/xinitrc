@@ -50,10 +50,7 @@ trayer \
   &
 
 # Set a nice background
-feh --bg-scale --no-fehbg ~/Pictures/walls/arch.png
-
-# Power Management
-# xfce4-power-manager &
+feh --bg-scale --no-fehbg ~/Pictures/walls/nature/pexels-eberhard-grossgasteiger-691668.jpg
 
 # Network applet
 if [ -x /usr/bin/nm-applet ] ; then
@@ -66,6 +63,12 @@ dropbox start &
 # Notifications
 dunst &
 
+# USB mounting
+udiskie &
+
+# Compositor
+picom &
+
 # WM
-exec xmonad
-#exec i3
+#exec xmonad
+exec i3

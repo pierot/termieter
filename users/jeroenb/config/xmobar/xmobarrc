@@ -32,6 +32,11 @@ Config {
       -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
       , Run Com ".config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 100
 
+      -- CPU tmp
+      , Run CoreTemp ["-t", "Temp:<core0>|<core1>C",
+                      "-L", "40", "-H", "60",
+                      "-l", "lightblue", "-n", "gray90", "-h", "red"] 50
+
       -- Alsa for SINK VOLUME (speaker/headphones)
       , Run Alsa "default" "Master" ["-t", "<fn=2><status></fn><volume>%", "--", "-O", "", "-o", "\xfc5d ", "-h", "\xfa7d ", "-m", "\xfa7f ", "-l", "\xfa7e ", "-L", "12", "-C", "#FFF"]
 
@@ -43,4 +48,4 @@ Config {
     ]
     , sepChar =  "%"   -- delineator between plugin names and straight text
     , alignSep = "}{"  -- separator between left-right alignment
-    , template = " <action=`feh /home/jeroen/Downloads/xmbindings.png`><icon=haskell_20.xpm/></action> <fc=#666666>|</fc> %XMonadLog% }{ <fc=#ecbe7b><action=`kitty @ launch --title CPU htop`>%cpu%</action></fc><fc=#ff6c6b> <action=`kitty htop`>%memory%</action></fc> <fc=#a9a1e1> <action=`amixer -D pulse set Master 1+ toggle`>%alsa:default:Master%</action> <action=`kitty @ launch --title Ok htop`>%disku%</action></fc> :: <fc=#46d9ff>%date%</fc> %trayerpad%" }
+    , template = " %XMonadLog% }{ <fc=#ecbe7b><action=`kitty @ launch --title CPU htop`>%cpu%</action></fc><fc=#ff6c6b> <action=`kitty htop`>%memory%</action></fc> %coretemp%  <fc=#a9a1e1> <action=`amixer -D pulse set Master 1+ toggle`>%alsa:default:Master%</action> <action=`kitty @ launch --title Ok htop`>%disku%</action></fc> :: <fc=#46d9ff>%date%</fc> %trayerpad%" }

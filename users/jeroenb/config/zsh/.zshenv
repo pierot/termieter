@@ -1,0 +1,33 @@
+#!/bin/zsh
+source $HOME/.termieter/env
+
+# Env variables
+export BROWSER="firefox"
+export WEECHAT_HOME=$HOME/.config/weechat
+export DROPBOX=$HOME/Dropbox
+export IAMJACK="$HOME/Dropbox/iamjack"
+export XDG_CONFIG_HOME="$HOME/.config"
+export TERMINAL="kitty"
+export ZDOTDIR=$HOME/.config/zsh
+export EDITOR="nvim"
+export FILE="nnn"
+export TRMU=~/.termieter/users/jeroenb
+export FLYCTL_INSTALL="/home/jeroen/.fly"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# PATH
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$FLYCTL_INSTALL/.bin" ] ;
+  then PATH="$FLYCTL_INSTALL/.bin:$PATH"
+fi
+
+if [ -d "$TRMU/bin" ] ;
+  then PATH="$TRMU/bin:$PATH"
+fi

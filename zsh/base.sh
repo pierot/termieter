@@ -83,56 +83,12 @@ fi
 
 ##########################################################
 
-alias ls='ls $LS_OPT'       # long list, excludes dot files
-alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
-alias l='ls $LS_OPT -1hAFC'
-alias mv='mv -i'            # prevents accidental overwrite
-alias cp='cp -i'            # prevents accidental overwrite
-alias rm='rm -i'            # prevents accidental overwrite
-
-alias termieter="cd $TRM"
-alias termietere="cd $TRM; vim ."
-
-alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
-alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
-alias curlh="curl -I -s -X GET"
-alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
-
-alias hosts='sudo vim /etc/hosts'
-alias m='mosh'
-
-if [ -d "$HOME/Work/jackjoe/" ]; then
-  alias jackjoe="cd $HOME/Work/jackjoe/"
-fi
-
-##########################################################
-
-# ssh
-alias sshe='cd ~/.ssh'
-
-##########################################################
-
 if have nvim; then
   export EDITOR=nvim
   export SVN_EDITOR='nvim'
-
-  alias v="nvim ."
-  alias vim="nvim"
-  alias vi="nvim"
-  alias vimdiff='nvim -d'
-  alias vimd="cd ~/.config/nvim"
-  alias vime="vim ~/.config/nvim/lua/init.lua"
-
-  alias oldvim="/usr/local/bin/vim"
 else
   export SVN_EDITOR='vim'
   export EDITOR=vim
-
-  alias sshconf='sudo vim ~/.ssh/config'
-  alias vimd="cd ~/.vim"
-  alias vime="cd ~/.vim; vim ."
-  alias v='vim .'
-  alias vi='vim'
 fi
 
 ##########################################################
@@ -172,56 +128,6 @@ fi
 
 ##########################################################
 
-# GIT
-alias gl='git pull'
-alias gp='git push'
-alias gc='git commit'
-alias gco='git checkout'
-
-alias glod='gl origin develop'
-alias glos='gl origin staging'
-alias glom='gl origin master'
-
-alias gap='git add -p'
-alias gst='git status'
-
-alias gdoc='git add . && gcmm docs: add documentation'
-alias gmerge='git add . && gcmm chore: merge'
-alias gcompile='git add . && gcmm chore: compile'
-alias gbump='git add . && gcmm chore: bump versions'
-alias gcleanup='git add . && gcmm chore: cleanup'
-alias gammend='git commit --amend --no-edit'
-
-function gpo() {
-  git pull origin $*
-}
-
-function gcmm() {
-  gc -m "$*"
-}
-
-function gcm() {
-  gc -m "$*"
-}
-
-git-status-all() {
-  for gitdir in `find . -name .git`;
-  do
-    local workdir=$(dirname $gitdir);
-    local gitout="`git -c color.status=always --git-dir=$gitdir --work-tree=$workdir status`";
-
-    if [[ ! $gitout =~ .*nothing\ to\ commit,\ working\ directory\ clean.* ]];
-    then
-      echo;
-      echo $workdir;
-      echo $gitout;
-      echo "###########################################";
-    fi
-  done
-}
-
-##########################################################
-
 # TMUX
 alias tmux="tmux -2u"  # 2: for 256color u: to get rid of unicode rendering problem
 alias tk="tmux kill-server"
@@ -244,29 +150,6 @@ function connect_traefik() {
 	echo "http://localhost:9446"
 	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
 }
-
-##########################################################
-
-# ERLANG / ELIXIR
-export ERL_AFLAGS="-kernel shell_history enabled"
-
-# Mix (Elixir)
-
-alias mho="source .env && mix hex.outdated"
-alias mdg="source .env && mix deps.get"
-alias mdu="source .env && mix deps.update"
-alias mdc="source .env && mix deps.clean --all"
-alias mm="source .env && mix ecto.migrate"
-alias mmm="source .env && mix ecto.gen.migration"
-
-function mpr() {
-  source .env && mix phx.routes | grep "$*"
-}
-
-alias mr="make run"
-alias mt="source .env.test && mix test $a"
-
-##########################################################
 
 # Ruby
 # if have rbenv; then
@@ -334,42 +217,14 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 ##########################################################
 
-# fzf via Homebrew
-if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-  source /usr/local/opt/fzf/shell/key-bindings.zsh
-  source /usr/local/opt/fzf/shell/completion.zsh
-fi
-
-# fzf via local installation
-if [ -e ~/.fzf ]; then
-  export PATH="$HOME/.fzf/bin:$PATH"
-  source ~/.fzf/shell/key-bindings.zsh
-  source ~/.fzf/shell/completion.zsh
-fi
-
-# fzf + ag configuration
-if have fzf; then
-  if have fd; then
-    export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
-  elif have rg; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden -g !.git'
-  elif have ag; then
-    export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
-  fi
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-fi
-
-##########################################################
-
-# ASDF
-if [ -e ~/.asdf ]; then
-  source $HOME/.asdf/asdf.sh
-  source $HOME/.asdf/completions/asdf.bash
-fi
-
-##########################################################
-
 if [ -e ~/.base.sh.local ]; then
   source ~/.base.sh.local
+fi
+
+# Common stuff for both base.sh (oh-my-zsh) users and 
+# users that just want some common stuff
+source ~/.termieter/zsh/common.sh
+
+if [[ $OS == 'OSX' ]]; then
+  source ~/.termieter/zsh/osx.sh
 fi

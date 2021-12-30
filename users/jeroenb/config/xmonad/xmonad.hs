@@ -12,6 +12,11 @@ import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 
+import XMonad.Layout.NoBorders
+import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), (??))
+import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
+import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
+
 import XMonad.Util.Loggers
 import XMonad.Util.EZConfig(additionalKeysP, removeKeysP)
 import XMonad.Util.SpawnOnce
@@ -32,7 +37,7 @@ myWorkspaces          = ["1","2","3","4","5","6","7","8","9"]
 myNormalBorderColor   = "#282C34"
 myFocusedBorderColor  = "#61AFEF"
 
-myLayout = avoidStruts $ layoutHook def
+myLayout = avoidStruts $ smartBorders $ mkToggle (single NBFULL) (layoutHook def)
 
 -- Keybindings
 
@@ -46,10 +51,13 @@ myKeys =
     --, ("M-<Return>", spawn (myTerminal))
     , ("M-a", spawn (myTerminal ++ " pulsemixer"))
     , ("M-o f", spawn "nemo")
-    , ("M-S-f", sinkAll)
     , ("M-w", spawn "firefox")
-    , ("M-p", spawn "rofi -show run")
-    , ("M-<F1>", spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+    , ("M-f", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
+    , ("M-S-f", sinkAll)
+    , ("M-p", spawn "dmenu_run -fn 'JetBrainsMono Nerd Font Mono-12' -nb '#000000'")
+    , ("M-S-e", spawn "/home/jeroen/.termieter/users/jeroenb/bin/dmenupower")
+    , ("M-<F1>", spawn ("feh -F --zoom 150 /home/jeroen/Downloads/xmbindings.png"))
+    , ("M-S-<F1>", spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
     , ("M-<Print>", spawn ("scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"))
     , ("M-S-<Print>", spawn ("scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"))
     ]

@@ -5,8 +5,6 @@ if [[ $OS == 'OSX' ]]; then
   export GDK_DPI_SCALE=0.5
   export BROWSER="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
   alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
-else
-  export BROWSER="firefox"
 fi
 
 export WEECHAT_HOME=$HOME/.config/weechat
@@ -17,15 +15,9 @@ export TERMINAL="kitty"
 export FILE="nnn"
 export PATH="$HOME/bin/:$PATH"
 export TRMU=~/.termieter/users/jeroenb
-
 export FLYCTL_INSTALL="/home/jeroen/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
-alias pbcopy='xclip -selection clipboard'
-
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-# rupa z
-. $TRMU/bin/z.sh
 
 [ -f "/Users/jeroenb/.ghcup/env" ] && source "/Users/jeroenb/.ghcup/env" # ghcup-env
