@@ -23,4 +23,9 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 alias pbcopy='xclip -selection clipboard'
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# rupa z
+. $TRMU/bin/z.sh
+
 [ -f "/Users/jeroenb/.ghcup/env" ] && source "/Users/jeroenb/.ghcup/env" # ghcup-env

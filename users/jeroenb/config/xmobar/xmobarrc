@@ -1,0 +1,46 @@
+-- # vi:syntax=haskell:
+
+Config { 
+    -- appearance
+      font              = "xft:JetBrains Mono Nerd Font Mono:size=12:antialias=true:hinting=true"
+    , additionalFonts   = ["xft:Font Awesome 5 Free Solid:pixelsize=12"]
+    , bgColor           = "#000000"
+    , fgColor           = "grey"
+    , position          = Top
+    , lowerOnStart      = True    -- send to bottom of window stack on start
+    , hideOnStart       = False   -- start with window unmapped (hidden)
+    , allDesktops       = True    -- show on all desktops
+    , overrideRedirect  = True    -- set the Override Redirect flag (Xlib)
+    , persistent        = True    -- enable/disable hiding (True = disabled)
+    , iconRoot          = "/home/jeroen/.config/xmonad/xpm/"  -- default: "."
+    , commands = [
+      -- Cpu usage in percent
+        Run Cpu ["-t", " <fc=#fff><fn=1>\xf2db </fn></fc><fc=#ecbe7b><total>%</fc>","-H","50","--high","darkred"] 20
+
+      -- Ram used number and percent
+      , Run Memory ["-t", "<fc=#fff><fn=2>\xe799 </fn></fc><fc=#ff6c6b><used>M (<usedratio>%)</fc>"] 500
+
+      -- Disk space free
+      , Run DiskU [("/home", "<fn=1>\xf015 </fn><free>"), ("/", "<fn=1>\xf0a0</fn> <free>")] ["-L", "20", "-H", "50", "-m", "1", "-p", "3"] 500
+
+      -- Echos a "bell" icon in front of the pacman updates.
+      , Run Com "echo" ["<fn=2>\xf0f3</fn>"] "bell" 3600
+
+      -- Time and date
+      , Run Date "<fn=2>\xf017</fn> %b %d %Y - (%H:%M)" "date" 50
+
+      -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
+      , Run Com ".config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 100
+
+      -- Alsa for SINK VOLUME (speaker/headphones)
+      , Run Alsa "default" "Master" ["-t", "<fn=2><status></fn><volume>%", "--", "-O", "", "-o", "\xfc5d ", "-h", "\xfa7d ", "-m", "\xfa7f ", "-l", "\xfa7e ", "-L", "12", "-C", "#FFF"]
+
+      -- ALSA for SOURCE VOLUME (Mic)
+      --, Run Alsa "default" "Capture" ["-t", "<fn=1><status></fn><fc=#d6ae11><volume>%</fc>", "--", "-O", "\xf130 ", "-o", "\xf131 ", "-C", "#FFF"]
+
+      -- Prints out the left side items such as workspaces, layout, etc.
+      , Run XMonadLog
+    ]
+    , sepChar =  "%"   -- delineator between plugin names and straight text
+    , alignSep = "}{"  -- separator between left-right alignment
+    , template = " <action=`feh /home/jeroen/Downloads/xmbindings.png`><icon=haskell_20.xpm/></action> <fc=#666666>|</fc> %XMonadLog% }{ <fc=#ecbe7b><action=`kitty @ launch --title CPU htop`>%cpu%</action></fc><fc=#ff6c6b> <action=`kitty htop`>%memory%</action></fc> <fc=#a9a1e1> <action=`amixer -D pulse set Master 1+ toggle`>%alsa:default:Master%</action> <action=`kitty @ launch --title Ok htop`>%disku%</action></fc> :: <fc=#46d9ff>%date%</fc> %trayerpad%" }
