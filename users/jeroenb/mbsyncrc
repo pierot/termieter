@@ -92,8 +92,8 @@ Account daele
 
 # Local storage
 MaildirStore daele-local
-Path ~/Mail/daele/
-Inbox ~/Mail/daele/INBOX
+Path ~/mail/daele/
+Inbox ~/mail/daele/INBOX
 
 Channel daele-inbox
 Far :daele-remote:

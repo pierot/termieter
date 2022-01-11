@@ -52,5 +52,6 @@ users/jeroenb/config/xmonad/stack*
 users/jeroenb/config/xmonad/xmonad.hi
 users/jeroenb/config/xmonad/xmonad.o
 users/jeroenb/config/zsh/pure
+users/jeroenb/config/zsh/.zcompdump
 
 users/pieterm/config/psysh/**
