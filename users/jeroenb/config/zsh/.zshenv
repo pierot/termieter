@@ -11,9 +11,10 @@ export TERMINAL="kitty"
 export ZDOTDIR=$HOME/.config/zsh
 export EDITOR="nvim"
 export FILE="nnn"
-export TRMU=~/.termieter/users/jeroenb
+export TRMU="$HOME/.termieter/users/jeroenb"
 export FLYCTL_INSTALL="/home/jeroen/.fly"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export NOTMUCH_CONFIG=$HOME/.config/notmuch/notmuch-config
 
 # PATH
 if [ -d "$HOME/.bin" ] ;
@@ -31,3 +32,11 @@ fi
 if [ -d "$TRMU/bin" ] ;
   then PATH="$TRMU/bin:$PATH"
 fi
+
+if [ -d "$HOME/go" ] ;
+  then PATH="$HOME/go/bin:$PATH"
+fi
+
+export PATH="$PATH:$HOME/go/bin"
+
+. $TRMU/bin/z.sh

@@ -11,7 +11,9 @@ setopt notify                   # Report the status of background jobs immediate
 setopt extendedhistory          # Save timestamp in history
 setopt inc_append_history       # Appends every command to the history file once it is executed
 setopt share_history            # Reloads the history whenever you use it
-stty stop undef		              # Disable ctrl-s to freeze terminal.
+#stty stop undef		              # Disable ctrl-s to freeze terminal.
+
+typeset -U PATH                 # no duplicates in path
 
 # Autocomplete
 autoload -Uz compinit promptinit
@@ -28,11 +30,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 autoload -Uz colors && colors   # Colors
-
-# Start X
-if [[ "$OSTYPE" == "linux-gnu"* ]] &&  [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-	startx
-fi
 
 # History
 # The meaning of these options can be found in man page of `zshoptions`.
@@ -73,9 +70,6 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Rupa z
-. $TRMU/bin/z.sh
-
 # Common settings shared with termieter (Pieter)
 source $TRM/zsh/common.sh
 
@@ -93,7 +87,7 @@ prompt pure
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-bindkey -s '^a' 'bc -lq\n'
+bindkey -s '^q' 'bc -lq\n'
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null

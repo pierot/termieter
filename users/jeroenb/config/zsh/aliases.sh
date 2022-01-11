@@ -25,3 +25,5 @@ alias df="df -h"
 alias free="free -m"
 alias pbcopy='xclip -selection clipboard'
 alias jctl="journalctl -p 3 -xb"               # get error messages from journalctl
+alias ga="git add $1"
+alias m='neomutt'
