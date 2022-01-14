@@ -105,6 +105,10 @@ alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
 alias hosts='sudo vim /etc/hosts'
 alias m='mosh'
 
+if have gsed; then
+  alias sed='gsed'
+fi
+
 if [ -d "$HOME/Work/jackjoe/" ]; then
   alias jackjoe="cd $HOME/Work/jackjoe/"
 fi
