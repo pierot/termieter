@@ -1,6 +1,7 @@
 # set password like
 # security add-internet-password -s mail.freemail.example -r smtp -a joe.smith -w
 # see: https://marlam.de/msmtp/msmtp.html#Transport-Layer-Security
+# or use Gnome keyring
 account daele
 host mail.iamjack.be
 port 587

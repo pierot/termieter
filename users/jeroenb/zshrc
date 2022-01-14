@@ -1,20 +1,23 @@
-# PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+if [[ $OS == 'OSX' ]]; then
+  export QT_QPA_PLATFORMTHEME="qt5ct"
+  export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+  export GDK_SCALE=2 
+  export GDK_DPI_SCALE=0.5
+  export BROWSER="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
+  alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
+fi
 
-# ZSH_THEME="tonotdo"
+export WEECHAT_HOME=$HOME/.config/weechat
+export DROPBOX=$HOME/Dropbox
+export IAMJACK="$HOME/Dropbox/iamjack"
+export XDG_CONFIG_HOME="$HOME/.config"
+export TERMINAL="kitty"
+export FILE="nnn"
+export PATH="$HOME/bin/:$PATH"
+export TRMU=~/.termieter/users/jeroenb
+export FLYCTL_INSTALL="/home/jeroen/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# # The simplest approach to emulate bash's $PROMPT_COMMAND
-# prmptcmd() { eval "$PROMPT_COMMAND" }
-# precmd_functions=(prmptcmd)
-
-# # User configuration
-# # Always work in a tmux session if tmux is installed
-# # https://github.com/chrishunt/dot-files/blob/master/.zshrc
-# # if which tmux 2>&1 >/dev/null; then
-# #   if [ $TERM != "screen-256color" ] && [ $TERM != "screen" ]; then
-# #     # tmux attach -t _hack || tmux new -s _hack; exit
-# #     tmux -2u attach-session -t _hack || tmux -2u new -s _hack; exit
-# #   fi
-# # fi
-
-. $HOME/.profile.local
+[ -f "/Users/jeroenb/.ghcup/env" ] && source "/Users/jeroenb/.ghcup/env" # ghcup-env

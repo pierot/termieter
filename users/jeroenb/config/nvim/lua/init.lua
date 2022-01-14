@@ -24,55 +24,55 @@ end
 -- PLUGINS
 -------------------------------------------------
 
-cmd 'packadd paq-nvim'                                -- load the package manager
-local paq = require('paq-nvim').paq                   -- a convenient alias
+require 'paq' {
+	'lewis6991/impatient.nvim';                      -- faster startup
+	"mhartington/formatter.nvim";
+	'kyazdani42/nvim-tree.lua';                      -- sidebar file explorer
+	'kyazdani42/nvim-web-devicons';                  -- web dev icons used by many plugins
 
-paq {'savq/paq-nvim', opt = true}                     -- paq-nvim manages itself
+	'nvim-lua/popup.nvim';                           -- ui plugin used by many, someday upstream in neovim
+	'nvim-lua/plenary.nvim';                         -- ui plugin used by many, someday upstream in neovim
 
-paq {'kyazdani42/nvim-tree.lua'}                      -- sidebar file explorer
-paq {'kyazdani42/nvim-web-devicons'}                  -- web dev icons used by many plugins
+	'blackCauldron7/surround.nvim'; 
+	'tpope/vim-fugitive'; 
+	'tpope/vim-repeat';
+	'neovimhaskell/haskell-vim';
 
-paq {'nvim-lua/popup.nvim'}                           -- ui plugin used by many, someday upstream in neovim
-paq {'nvim-lua/plenary.nvim'}                         -- ui plugin used by many, someday upstream in neovim
+	'jeffkreeftmeijer/vim-numbertoggle';
+	'docunext/closetag.vim';
+	'mattn/emmet-vim';
+	'kana/vim-textobj-user';
+	'kana/vim-textobj-line';
+	'andyl/vim-textobj-elixir';
+	'elixir-editors/vim-elixir';                     -- correct commentstring and other percs
 
-paq {'hoob3rt/lualine.nvim'}                          -- statusline
--- paq {'akinsho/nvim-bufferline.lua'}                   -- buffer line
+	'neovim/nvim-lspconfig';
+	'hrsh7th/cmp-buffer';
+	'hrsh7th/cmp-nvim-lsp';                          -- autocomplete
+	'hrsh7th/cmp-vsnip';
+	'hrsh7th/nvim-cmp';                              -- autocomplete
+	'hrsh7th/vim-vsnip';                             -- snippets
+	'hrsh7th/vim-vsnip-integ';                       -- snippets
+	'rafamadriz/friendly-snippets';                  -- snippets
+	'nvim-treesitter/nvim-treesitter';               -- treesitter, code highlighting
+	'nvim-lualine/lualine.nvim';
 
--- -- paq {'blackCauldron7/surround.nvim'}               -- pure lua, had some issues when I first tried, maybe swap later
-paq {'tpope/vim-surround'}
-paq {'tpope/vim-fugitive'}                            -- I know it's illegal, but hey -\_0_/-
-paq {'tpope/vim-repeat'}
-paq {'docunext/closetag.vim'}
-paq {'mattn/emmet-vim'}
-paq {'kana/vim-textobj-user'}
-paq {'kana/vim-textobj-line'}
-paq {'andyl/vim-textobj-elixir'}
-paq {'elixir-editors/vim-elixir'}                     -- correct commentstring and other percs
+	-- Telescope
+	'nvim-telescope/telescope.nvim';
+	{'nvim-telescope/telescope-fzf-native.nvim', run = 'make'};
 
-paq {'hrsh7th/vim-vsnip'}                             -- snippets
-paq {'rafamadriz/friendly-snippets'}                  -- snippets
+	'mileszs/ack.vim';
+	'steelsojka/pears.nvim';                         -- Auto Pairs
+	'b3nj5m1n/kommentary';                           -- Comment
 
-paq {'nvim-treesitter/nvim-treesitter'}               -- treesitter, code highlighting
-
-paq {'neovim/nvim-lspconfig'}
-paq {'hrsh7th/nvim-compe'}                            -- autocomplete
-
--- Telescope
-paq {'nvim-telescope/telescope.nvim'}
-paq {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-paq {'mileszs/ack.vim'}
--- paq {'kosayoda/nvim-lightbulb'}                       -- shows lightbulb in sign column when textDocument/codeAction available at current cursor
-
-paq {'steelsojka/pears.nvim'}                         -- Auto Pairs
-paq {'b3nj5m1n/kommentary'}                           -- Comment
-
--- Themes
-paq {'dracula/vim', as='dracula'}                     -- Use `as` to alias a package name (here `vim`)
-paq {'whatyouhide/vim-gotham'}                        -- It's the colorscheme we set that defines us. (Batman) 
-paq {'liuchengxu/space-vim-dark'}                        
-paq {'projekt0n/github-nvim-theme'}
-
+	-- Themes
+	'rktjmp/lush.nvim';
+	'metalelf0/jellybeans-nvim';
+	-- 'EdenEast/nightfox.nvim';
+	'folke/tokyonight.nvim';
+	'norcalli/nvim-colorizer.lua';
+	--'gruvbox-community/gruvbox'
+}
 
 -------------------------------------------------
 -- GENERAL SETTINGS
@@ -81,8 +81,6 @@ paq {'projekt0n/github-nvim-theme'}
 
 -- Basic settings
 local indent = 2
-
--- cmd 'colorscheme gotham'                              -- Put your favorite colorscheme here
 
 opt('o', 'splitbelow', true)                          -- Put new windows below current
 opt('o', 'splitright', true)                          -- Put new windows right of current
@@ -123,7 +121,7 @@ opt('g', 'lazyredraw', true)                          -- Do not redraw when exec
 opt('w', 'cursorline', true)                          -- Highlight current line
 opt('g', 'showmatch', true)                           -- Briefly jumps the cursor to the matching brace on insert
 
-opt('o', 'completeopt', 'menuone,noselect')  -- Completion options
+opt('o', 'completeopt', 'menu,menuone,noselect')      -- Completion options, needed for cmp
 opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
 opt('o', 'wildignore', '*.o,*~,*node_modules*,.git,.yarn,*.min.*,*map') -- Ignore when tab completing
 opt('o', 'wildmenu', true)
@@ -142,9 +140,11 @@ opt('o', 'mouse', 'a')
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 
+
 -------------------------------------------------
 -- MAPPINGS
 -------------------------------------------------
+
 
 g.mapleader = ','
 
@@ -159,10 +159,11 @@ map('c', 'w!!', '<cmd>w !sudo tee % >/dev/null<CR>')  -- Write read-only file vi
 map('n', '<leader>w', '<cmd>w<CR>')                   -- Alias to :w
 
 -- Path copy helpers
-map('n', '<leader>cf', '<cmd>let @*=expand("%")<CR>')     -- relative path  (src/foo.txt)
-map('n', '<leader>cF', '<cmd>let @*=expand("%:p")<CR>')   -- absolute path  (/something/src/foo.txt)
-map('n', '<leader>ct', '<cmd>let @*=expand("%:t")<CR>')   -- filename       (foo.txt)
-map('n', '<leader>cd', '<cmd>let @*=expand("%:p:h")<CR>') -- directory name (/something/src)
+--/home/jeroen/.termieter/
+map('n', '<leader>cf', '<cmd>let @+=expand("%")<CR>')     -- relative path  (src/foo.txt)
+map('n', '<leader>cF', '<cmd>let @+=expand("%:p")<CR>')   -- absolute path  (/something/src/foo.txt)
+map('n', '<leader>ct', '<cmd>let @+=expand("%:t")<CR>')   -- filename       (foo.txt)
+map('n', '<leader>cd', '<cmd>let @+=expand("%:p:h")<CR>') -- directory name (/something/src)
 
 -- Reselect last selection after indent/un-indent in visual/select modes
 map('v', '<', '<gv')
@@ -190,67 +191,162 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 
 -- map('', '<leader>c', '"+y')                        -- Copy to clipboard in normal, visual, select and operator modes
 
--- --- <Tab> to navigate the completion menu
--- -- map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
--- -- map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
-
---cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex,*.leex set filetype=elixir'
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+ 
+ 
+-- -------------------------------------------------
+-- -- PLUGINS SETUP
+-- -------------------------------------------------
 
 
--------------------------------------------------
--- PLUGINS SETUP
--------------------------------------------------
-
--- colorscheme 
-require('github-theme').setup({
-  themeStyle = "dimmed",
-})
+-- nvim-colorizer
+require'colorizer'.setup()
 
 -- webdev icons
 require('nvim-web-devicons').setup()
 
+-- surround
+require"surround".setup {mappings_style = "surround"}
+ 
+-- colorscheme 
+-- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+
+--[[ -- nightfox theme
+local nightfox = require('nightfox')
+
+-- This function set the configuration of nightfox. If a value is not passed in the setup function
+-- it will be taken from the default configuration above
+nightfox.setup({
+  fox = "nordfox", -- change the colorscheme to use nordfox
+})
+-- Load the configuration set above and apply the colorscheme
+nightfox.load() ]]
+-- cmd 'colorscheme nightfox'
+
+-- opt('g', 'tokyonight_style', 'night')  
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+cmd 'colorscheme tokyonight'         
+ 
+-- lualine
+local function getWords()
+  if vim.bo.filetype == "md" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then
+    if vim.fn.wordcount().visual_words == 1 then
+      return tostring(vim.fn.wordcount().visual_words) .. " word"
+    elseif not (vim.fn.wordcount().visual_words == nil) then
+      return tostring(vim.fn.wordcount().visual_words) .. " words"
+    else
+      return tostring(vim.fn.wordcount().words) .. " words"
+    end
+  else
+    return ""
+  end
+end
+
+-- local lineNum = vim.api.nvim_win_get_cursor(0)[1]
+local function getLines()
+  return tostring(vim.api.nvim_win_get_cursor(0)[1]) .. "/" .. tostring(vim.api.nvim_buf_line_count(0))
+end
+
+local function getColumn()
+  local val = vim.api.nvim_win_get_cursor(0)[2]
+  -- pad value to 3 units to stop geometry shift
+  return string.format("%03d", val)
+end
+
+local function diff_source()
+  local gitsigns = vim.b.gitsigns_status_dict
+  if gitsigns then
+    return {
+      added = gitsigns.added,
+      modified = gitsigns.changed,
+      removed = gitsigns.removed,
+    }
+  end
+end
+
+-- get colors from Nightfox to use in the words count
+-- local colors = require("nightfox.colors").init("nordfox")
+local colors = require("tokyonight.colors").setup({}) 
+
+-- print(vim.inspect(nfColors))
+require("lualine").setup({
+  options = {
+    icons_enabled = true,
+    theme = "tokyonight",
+    -- theme = "nightfox",
+    component_separators = { " ", " " },
+    section_separators = { left = "", right = "" },
+    disabled_filetypes = {},
+  },
+  sections = {
+    lualine_a = { "mode" },
+    lualine_b = {
+      { "branch", icon = "" },
+      { "diff", source = diff_source, color_added = "#a7c080", color_modified = "#ffdf1b", color_removed = "#ff6666" },
+    },
+    lualine_c = {
+      {'diagnostics', sources = {'nvim_diagnostic'}},
+      function()
+        return "%="
+      end,
+      "filename",
+      {
+        getWords,
+        color = { fg = colors["bg_alt"] or "#333333", bg = colors["fg"] or "#eeeeee" },
+        separator = { left = "", right = "" },
+      },
+    },
+    lualine_x = { "filetype" },
+    lualine_y = {},
+    lualine_z = {
+      { getColumn, padding = { left = 1, right = 0 } },
+      { getLines, icon = "", padding = 1 },
+    },
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { "filename" },
+    lualine_x = { "location" },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  tabline = {},
+  extensions = {
+    "quickfix",
+  },
+})
+
 -- ack
 g.ackprg = 'rg --vimgrep'
--- cnoreabbrev Ack Ack!
--- cnoreabbrev ack Ack!
-
+ 
 -- nvim-tree
-g.nvim_tree_auto_open = 0
-g.nvim_tree_auto_close = 1
-g.nvim_tree_width_allow_resize = 1
-g.nvim_tree_hide_dotfiles = 1
-g.nvim_tree_tab_open = 1
+require'nvim-tree'.setup({
+  auto_close = true,
+  open_on_setup = false,
+  update_to_buf_dir = { enable = true, auto_open = false },
+  diagnostics = {
+    enable = true
+  }
+})
 
 map('n', '<c-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 
 -- fugitive
 map('n', '<leader>gs', '<cmd>Git<CR>')
-
--- lualine
-require('lualine').setup({
-  options = {
-    theme = "github"
-  }
-})
-
--- Bufferline
--- require('bufferline').setup {
---   options = {
---     offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
---     diagnostics = "nvim_lsp",
---   }
--- }
-
+ 
 -- Telescope
 -- Check to extend: https://github.com/varbhat/dotfiles/blob/main/dot_config/nvim/lua/utils/telescope.lua
 map('n', '<c-p>', '<cmd>Telescope find_files<CR>')
+map('n', '<leader>b', '<cmd>Telescope buffers<CR>')
 map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
 map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
 map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
-map('n', '<leader>gg', '<cmd>Telescope git_status<CR>')
+--map('n', '<leader>gs', '<cmd>Telescope git_status<CR>')
 
 local previewers = require('telescope.previewers')
 
@@ -292,6 +388,14 @@ require('telescope').setup {
     },
     buffer_previewer_maker = new_maker,
   },
+  pickers = {
+    find_files = {
+      theme = "ivy"
+    },
+    buffers = {
+      theme = "ivy"
+    }
+  },
   extensions = {
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
@@ -311,8 +415,6 @@ require('telescope').setup {
   }
 }
 
--- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-
 -- Auto pairs
 require('pears').setup()
 
@@ -328,7 +430,7 @@ ts.setup({
     "javascript", "typescript", "tsx", "jsdoc", "jsonc",
     "html", "css", "scss",
     "json", "toml", "yaml",
-    "lua", "query", "elixir", "dockerfile", "php",
+    "lua", "query", "dockerfile", "php",
   },
   highlight = {
     enable = true
@@ -347,7 +449,7 @@ ts.setup({
   },
   refactor = {
     highlight_definitions = {enable = true},
-    -- highlight_current_scope = {enable = true},
+    highlight_current_scope = {enable = true},
     smart_rename = {
       enable = true,
       keymaps = {smart_rename = "grr"},
@@ -367,94 +469,41 @@ ts.setup({
 })
 
 -- Vim-vsnip
-
--- vim.g.vsnip_filetypes = {
---     javascriptreact = {"javascript"},
---     typescript = {"javascript"},
---     typescriptreact = {"javascript"},
---     elixir = {"elixir"}
--- }
-
--- Compe + vim-vsnip
-
-require("compe").setup {
-  enabled = true,
-  autocomplete = true,
-  debug = true,
-  min_length = 1,
-  preselect = "disable",
-  throttle_time = 8000,
-  source_timeout = 2000,
-  incomplete_delay = 4000,
-  max_abbr_width = 100,
-  max_kind_width = 100,
-  max_menu_width = 100,
-  documentation = true,
-
-  source = {
-    buffer = { priority = 500},
-    calc = false,
-    nvim_lsp = { priority = 800 },
-    nvim_lua = false,
-    path = { priority = 600 },
-    spell = false,
-    vsnip = { priority = 1000; }
-  }
+vim.g.vsnip_filetypes = {
+    javascriptreact = {"javascript"},
+    typescript = {"javascript"},
+    typescriptreact = {"javascript"},
+    elixir = {"elixir"},
+    eelixir = {"eelixir"}
 }
 
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
+-- Cmp + vim-vsnip
 
-local check_back_space = function()
-  local col = vim.fn.col(".") - 1
-  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-    return true
-  else
-    return false
-  end
-end
-
-_G.complete_next = function(key)
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
-  elseif check_back_space() then
-    return t(key)
-  else
-    return vim.fn["compe#complete"]()
-  end
-end
-
-_G.complete_prev = function(key)
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-    return t "<Plug>(vsnip-jump-prev)"
-  else
-    return t(key)
-  end
-end
-
-local set_keymap = vim.api.nvim_set_keymap
-local options = {expr = true}
-set_keymap("i", "<C-j>", "v:lua.complete_next('<C-j>')", options)
-set_keymap("s", "<C-j>", "v:lua.complete_next('<C-j>')", options)
-set_keymap("i", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
-set_keymap("s", "<C-k>", "v:lua.complete_prev('<C-k>')", options)
-
-set_keymap("i", "<Tab>", "v:lua.complete_next('<Tab>')", options)
-set_keymap("s", "<Tab>", "v:lua.complete_next('<Tab>')", options)
-set_keymap("i", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
-set_keymap("s", "<S-Tab>", "v:lua.complete_prev('<S-Tab>')", options)
-
-options = {silent = true, expr = true, noremap = true}
-set_keymap("i", "<C-Space>", "compe#complete()", options)
-set_keymap("i", "<CR>", "compe#confirm('<CR>')", options)
-set_keymap("i", "<C-c>", "compe#close()", options)
-set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", options)
-set_keymap("i", "<C-b>", "compe#scroll({ 'delta': -4 })", options)
+local cmp = require("cmp")
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+    end
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    -- ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    -- For vsnip user.
+    { name = 'vsnip' },
+    { name = 'buffer' },
+  }
+})
 
 -------------------------------------------------
 -- LSP
@@ -466,7 +515,6 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  print "map keys"
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -489,10 +537,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.get()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
   -- Set some keybinds conditional on server capabilities
@@ -522,6 +570,9 @@ end
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+-- Update for cmp
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- Resolvers
 capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
@@ -548,10 +599,23 @@ capabilities.textDocument.codeAction = {
 -- Snippets
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
+-- Elixir
+local path_to_elixirls = vim.fn.expand("/home/jeroen/.local/share/elixir-ls/release/language_server.sh")
+
+-- Setup
 nvim_lsp.elixirls.setup({
   on_attach = on_attach, 
   capabilities = capabilities,
-  cmd = { "/usr/local/share/elixir-ls/language_server.sh" },
+  cmd = { path_to_elixirls },
+  settings = {
+    elixirLS = {
+      fetchDeps = false,
+      dialyzerFormat = "dialyxir_long",
+      dialyzerWarnOpts = {"error_handling", "no_behaviours", "no_contracts", "no_fail_call", "no_fun_app", "no_improper_lists", "no_match", "no_missing_calls", "no_opaque", "no_return", "no_undefined_callbacks", "no_unused", "underspecs", "unknown", "unmatched_returns", "overspecs"},
+      dialyzerEnabled = true,
+      suggestSpecs = true
+    }
+  }
 })
 
 nvim_lsp.tsserver.setup({ 
@@ -559,20 +623,57 @@ nvim_lsp.tsserver.setup({
   capabilities = capabilities
 })
 
--- local lspfuzzy = require 'lspfuzzy'
---
--- lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
---
--- map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
--- map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
--- map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
--- map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
--- map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
--- map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
--- map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>')
--- map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>')
--- map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
---
--- -- Commands
--- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
--- cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+-- LSP Prevents inline buffer annotations
+vim.diagnostic.get()
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_on_insert = false,
+})
+
+local signs = {
+  Error = "ﰸ",
+  Warn = "",
+  Hint = "",
+  Info = "",
+}
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = nil })
+end
+
+vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable=false, source = 'always'})]])
+
+-- Prettier function for formatter
+local prettier = function()
+  return {
+    exe = "prettier",
+    args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "" },
+    stdin = true,
+  }
+end
+ 
+require("formatter").setup({
+  logging = false,
+  filetype = {
+    javascript = { prettier },
+    typescript = { prettier },
+    typescriptreact = { prettier },
+    html = { prettier },
+    css = { prettier },
+    scss = { prettier },
+    markdown = { prettier }
+  },
+})
+ 
+-- Runs Formatter on save
+vim.api.nvim_exec(
+  [[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html : FormatWrite
+augroup END
+]],
+  true
+)

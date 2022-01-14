@@ -1,7 +1,7 @@
 # vim: ft=rc:
 
 set from      = "Jeroen Bourgois <jeroen@daele.be>"
-set sendmail  = "/usr/local/bin/msmtp -a daele"
+set sendmail  = "/usr/bin/msmtp -a daele"
 set signature = $TRM/users/jeroenb/mutt/accounts/daele/signature
 set copy      = yes
 set delete
@@ -25,14 +25,14 @@ color status yellow default
 
 # Mailboxes
 named-mailboxes "DAELE    ==============" "+daele/INBOX"
-mailboxes +daele/INBOX \
-          +daele/Archive \
-          +daele/Spam \
-          +daele/Sent \
-          +daele/Drafts \
-          +daele/Trash \
-
-# notmuch
-set nm_default_uri="notmuch:////Users/jeroenb/Mail/daele" # path to the maildir
-
-# folder-hook daele/* source $TRMU/mutt/accounts/daele/config
+#mailboxes +daele/INBOX \
+#          +daele/Archive \
+#          +daele/Spam \
+#          +daele/Sent \
+#          +daele/Drafts \
+#          +daele/Trash \
+#
+## notmuch
+#set nm_default_uri="notmuch:////Users/jeroenb/Mail/daele" # path to the maildir
+#
+## folder-hook daele/* source $TRMU/mutt/accounts/daele/config
