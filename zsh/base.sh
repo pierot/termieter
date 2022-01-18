@@ -224,7 +224,3 @@ fi
 # Common stuff for both base.sh (oh-my-zsh) users and 
 # users that just want some common stuff
 source ~/.termieter/zsh/common.sh
-
-if [[ $OS == 'OSX' ]]; then
-  source ~/.termieter/zsh/osx.sh
-fi
