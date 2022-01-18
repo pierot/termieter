@@ -83,6 +83,36 @@ fi
 
 ##########################################################
 
+alias ls='ls $LS_OPT'       # long list, excludes dot files
+alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
+alias l='ls $LS_OPT -1AFC'
+alias mv='mv -i'            # prevents accidental overwrite
+
+alias termieter="cd $TRM"
+alias termietere="cd $TRM; vim ."
+
+alias vimd="cd ~/.vim"
+alias vime="cd ~/.vim; vim ."
+
+alias v='vim .'
+alias vi='vim'
+
+alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
+alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
+alias curlh="curl -I -s -X GET"
+alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
+
+alias hosts='sudo vim /etc/hosts'
+alias m='mosh'
+
+if have gsed; then
+  alias sed='gsed'
+fi
+
+if [ -d "$HOME/Work/jackjoe/" ]; then
+  alias jackjoe="cd $HOME/Work/jackjoe/"
+fi
+
 if have nvim; then
   export EDITOR=nvim
   export SVN_EDITOR='nvim'
@@ -221,6 +251,6 @@ if [ -e ~/.base.sh.local ]; then
   source ~/.base.sh.local
 fi
 
-# Common stuff for both base.sh (oh-my-zsh) users and 
+# Common stuff for both base.sh (oh-my-zsh) users and
 # users that just want some common stuff
 source ~/.termieter/zsh/common.sh
