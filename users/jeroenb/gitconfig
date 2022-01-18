@@ -1,5 +1,9 @@
+[gui]
+	recentrepo = /Users/jeroenb/Work/jackjoe/justified
 [user]
+  email = jeroen@jackjoe.be
 	name = Jeroen Bourgois
-	email = jeroenbourgois@gmail.com
 [github]
-	user = jeroenbourgois
+  user = jeroenbourgois
+[gitlab]
+  email = jeroen@jackjoe.be
