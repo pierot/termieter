@@ -53,6 +53,9 @@ myKeys =
     --, ("M-<Return>", spawn (myTerminal))
     , ("M-a", spawn (myTerminal ++ " pulsemixer"))
     , ("M-o f", spawn "pcmanfm")
+    , ("M-o s", spawn "slack")
+    , ("M-o m", spawn "spotify")
+    , ("M-o t", spawn "thunderbird")
     , ("M-w", spawn "$BROWSER")
     , ("M-f", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
     , ("M-S-f", sinkAll)
@@ -66,6 +69,8 @@ myKeys =
     , ("M-m <Space>", spawn "playerctl play-pause")
     , ("M-m p", spawn "playerctl previous")
     , ("M-m n", spawn "playerctl next")
+    , ("M-m m", spawn "spotify")
+    -- , ("M-m m", spawn "com.spotify.Client")
     ]
 
 myStartupHook :: X ()
@@ -84,7 +89,7 @@ myConfig = def
   , startupHook        = myStartupHook
   , manageHook         = manageDocks <+> myManageHook           -- Match on certain windows
   } `additionalKeysP` myKeys
-    `removeKeysP` ["M-S-q"]
+    `removeKeysP` ["M-S-q", "M-p"]
 
 -- Xmobar
 myXmobarPP :: PP
@@ -143,25 +148,27 @@ myManageHook = composeAll
      -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
-     [ className =? "confirm"         --> doFloat
-     , className =? "file_progress"   --> doFloat
-     , className =? "dialog"          --> doFloat
-     , className =? "download"        --> doFloat
-     , className =? "error"           --> doFloat
-     , className =? "Gimp"            --> doFloat
-     , className =? "notification"    --> doFloat
-     , className =? "pinentry-gtk-2"  --> doFloat
-     , className =? "splash"          --> doFloat
-     , className =? "toolbar"         --> doFloat
-     , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-     , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
-     , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
-     , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
-     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
+     [ className =? "confirm"                             --> doFloat
+     , className =? "file_progress"                       --> doFloat
+     , className =? "dialog"                              --> doFloat
+     , className =? "download"                            --> doFloat
+     , className =? "error"                               --> doFloat
+     , className =? "Gimp"                                --> doFloat
+     , className =? "notification"                        --> doFloat
+     , className =? "pinentry-gtk-2"                      --> doFloat
+     , className =? "splash"                              --> doFloat
+     , className =? "toolbar"                             --> doFloat
+     , title =? "Firefox"                                 --> doShift ( myWorkspaces !! 1 )
+     , className =? "dbeaver"                             --> doShift ( myWorkspaces !! 2 )
+     , className =? "slack"                               --> doShift ( myWorkspaces !! 4 )
+     , className =? "thunderbird"                         --> doShift ( myWorkspaces !! 4 )
+     , className =? "spotify"                             --> doShift ( myWorkspaces !! 5 )
+     , className =? "mpv"                                 --> doShift ( myWorkspaces !! 7 )
+     , className =? "Gimp"                                --> doShift ( myWorkspaces !! 8 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
-     , isFullscreen -->  doFullFloat
-     , isDialog --> doFloatDep computeDialogRect
-     , isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_CALLS-MINI-PANEL" --> doFloat -- slack call mini panel
+     , isFullscreen                                       --> doFullFloat
+     , isDialog                                           --> doFloatDep computeDialogRect
+     , title =? "Slack call"                              --> doFloat -- Float slack call mini panel
      ]
 
 -- Main entry point
