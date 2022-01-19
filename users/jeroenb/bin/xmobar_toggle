@@ -1,0 +1,9 @@
+#!/bin/sh
+# A script to hide (kill) the xmobar or show (start) it
+
+if pgrep -x xmobar >/dev/null
+then
+    pgrep xmobar | xargs kill &>/dev/null
+else
+    xmobar ~/.config/xmobar/xmobarrc &
+fi
