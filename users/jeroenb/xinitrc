@@ -49,7 +49,7 @@ trayer \
   &
 
 # Set a nice background
-feh --bg-scale --no-fehbg ~/Pictures/walls/nature/pexels-eberhard-grossgasteiger-691668.jpg
+$HOME/.fehbg &
 
 # Network applet
 if [ -x /usr/bin/nm-applet ] ; then
