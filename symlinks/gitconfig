@@ -36,12 +36,3 @@
 [alias]
 [pull]
 	rebase = false
-[gui]
-	recentrepo = /Users/jeroenb/Work/jackjoe/justified
-[user]
-  email = jeroen@jackjoe.be
-	name = Jeroen Bourgois
-[github]
-  user = jeroenbourgois
-[gitlab]
-  email = jeroen@jackjoe.be
