@@ -109,6 +109,10 @@ if have ccat; then
   alias cat='ccat'
 fi
 
+if have gdircolors; then
+  alias dircolors='gdircolors'
+fi
+
 if have nvim; then
   export EDITOR=nvim
   export SVN_EDITOR='nvim'
