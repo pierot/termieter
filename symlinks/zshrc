@@ -7,9 +7,12 @@ ZSH_CUSTOM="$TRM/zsh/custom"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-if [[ $OS == 'OSX' ]] || [[ $OSTYPE == "linux-gnu"* ]]; then
-  ZSH_THEME="kolo"
-else
+# if [[ $OS == 'OSX' ]] || [[ $OSTYPE == "linux-gnu"* ]]; then
+ZSH_THEME="kolo"
+# else
+#   ZSH_THEME="dallas"
+# fi
+if [ -n "$(uname -a | grep Debian)" ]; then
   ZSH_THEME="dallas"
 fi
 
