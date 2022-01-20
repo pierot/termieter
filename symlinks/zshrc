@@ -38,14 +38,7 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(
-    # urltools 
-    # docker 
-    fzf
-    # git
-    history-substring-search
-    colored-man-pages
-  )
+plugins=(fzf history-substring-search colored-man-pages)
 
 if [[ $OS == 'OSX' ]]; then
   plugins+=(ansible yarn mix-fast)

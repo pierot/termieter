@@ -33,13 +33,28 @@ if [[ $OS == 'OSX' ]]; then
     sudo ifconfig en0 up
     echo "Your new physical address is $mac"
   }
+else
+  list-services() {
+    chkconfig --list | grep '3:on'
+  }
+
+  active-connections() {
+    netstat -tulpn
+  }
+
+  fix-apt() {
+    sudo rm /var/lib/apt/lists/lock
+    sudo rm /var/cache/apt/archives/lock
+    sudo rm /var/lib/dpkg/lock
+  }
 fi
 
 ##########################################################
 
 # OSX Defaults
-H=$(date +%H)
 if [[ $OS == 'OSX' ]]; then
+  H=$(date +%H)
+
   if [[ $H == 8 ]]; then
     # opening and closing windows and popovers
     defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
@@ -83,25 +98,6 @@ fi
 
 ##########################################################
 
-alias ls='ls $LS_OPT'       # long list, excludes dot files
-alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
-alias l='ls $LS_OPT -1AFC'
-alias mv='mv -i'            # prevents accidental overwrite
-
-alias termieter="cd $TRM"
-alias termietere="cd $TRM; vim ."
-
-alias vimd="cd ~/.vim"
-alias vime="cd ~/.vim; vim ."
-
-alias v='vim .'
-alias vi='vim'
-
-alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
-alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
-alias curlh="curl -I -s -X GET"
-alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
-
 alias hosts='sudo vim /etc/hosts'
 alias m='mosh'
 
@@ -109,8 +105,8 @@ if have gsed; then
   alias sed='gsed'
 fi
 
-if [ -d "$HOME/Work/jackjoe/" ]; then
-  alias jackjoe="cd $HOME/Work/jackjoe/"
+if have ccat; then
+  alias cat='ccat'
 fi
 
 if have nvim; then
@@ -124,8 +120,9 @@ fi
 ##########################################################
 
 if [[ $OS == 'OSX' ]]; then
+  alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
+
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
-  alias cat='ccat'
   alias zzz='pmset sleepnow'
 
   # Spotlight
@@ -137,23 +134,9 @@ if [[ $OS == 'OSX' ]]; then
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
   # APACHE
-  alias apache-vhosts='sudo vim /usr/local/etc/httpd/extra/httpd-vhosts.conf'
-  alias apache-config='sudo vim /usr/local/etc/httpd/httpd.conf'
-  alias php-error-tail='tail -f /usr/local/var/log/httpd/error_log'
-else
-  function list-services() {
-    chkconfig --list | grep '3:on'
-  }
-
-  function active-connections() {
-    netstat -tulpn
-  }
-
-  function fix-apt() {
-    sudo rm /var/lib/apt/lists/lock
-    sudo rm /var/cache/apt/archives/lock
-    sudo rm /var/lib/dpkg/lock
-  }
+  # alias apache-vhosts='sudo vim /usr/local/etc/httpd/extra/httpd-vhosts.conf'
+  # alias apache-config='sudo vim /usr/local/etc/httpd/httpd.conf'
+  # alias php-error-tail='tail -f /usr/local/var/log/httpd/error_log'
 fi
 
 ##########################################################
@@ -217,11 +200,6 @@ alias godir="cd $GOPATH"
 
 ##########################################################
 
-# HASKELL
-export PATH="$PATH:$HOME/.cabal/bin"
-
-##########################################################
-
 # MYSQL
 export PATH="$PATH:/usr/local/mysql/bin"
 
@@ -229,8 +207,6 @@ export PATH="$PATH:/usr/local/mysql/bin"
 
 # YARN
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-alias yy='yarn && yarn upgrade'
 
 # NODE
 export PATH="$PATH:/usr/local/share/npm/bin"
