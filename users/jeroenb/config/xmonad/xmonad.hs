@@ -33,8 +33,7 @@ myTerminal            = "kitty"
 myFocusFollowsMouse   = True
 myClickJustFocuses    = False
 myBorderWidth         = 1
-myModMask        
-  = mod4Mask
+myModMask             = mod4Mask
 myWorkspaces          = ["1","2","3","4","5","6","7","8","9"]
 myNormalBorderColor   = "#282C34"
 myFocusedBorderColor  = "#61AFEF"
@@ -57,10 +56,12 @@ myKeys =
     , ("M-o m", spawn "spotify")
     , ("M-o t", spawn "thunderbird")
     , ("M-w", spawn "$BROWSER")
+    , ("<Print>", spawn "feh --bg-scale -z ~/Pictures/walls") 
     , ("M-f", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
     , ("M-S-f", sinkAll)
     , ("M-d", spawn "dmenu_run -fn 'JetBrainsMono Nerd Font Mono-12' -nb '#000000'")
-    , ("M-S-e", spawn "/home/jeroen/.termieter/users/jeroenb/bin/dmenupower")
+    , ("M-S-e", spawn "dmenupower")                                     -- custom bin
+    , ("M-<F11>", sendMessage ToggleStruts >> spawn "xmobar_toggle")        -- custom bin
     , ("M-<F1>", spawn ("feh -F --zoom 150 /home/jeroen/Downloads/xmbindings.png"))
     , ("M-S-<F1>", spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
     , ("M-<Print>", spawn ("scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"))
@@ -70,7 +71,6 @@ myKeys =
     , ("M-m p", spawn "playerctl previous")
     , ("M-m n", spawn "playerctl next")
     , ("M-m m", spawn "spotify")
-    -- , ("M-m m", spawn "com.spotify.Client")
     ]
 
 myStartupHook :: X ()
@@ -89,7 +89,7 @@ myConfig = def
   , startupHook        = myStartupHook
   , manageHook         = manageDocks <+> myManageHook           -- Match on certain windows
   } `additionalKeysP` myKeys
-    `removeKeysP` ["M-S-q", "M-p"]
+    `removeKeysP` ["M-S-q", "M-p", "M-b"]
 
 -- Xmobar
 myXmobarPP :: PP
@@ -178,8 +178,12 @@ main = xmonad
       . ewmhFullscreen 
       . docks
       . ewmh  
-      . withEasySB (statusBarProp "xmobar ~/.config/xmobar/xmobarrc" (pure myXmobarPP)) defToggleStrutsKey
+      . withEasySB (statusBarProp "xmobar ~/.config/xmobar/xmobarrc" (pure myXmobarPP)) toggleStrutsKey
       $ myConfig 
+    where 
+      toggleStrutsKey :: XConfig Layout -> (KeyMask, KeySym)
+      toggleStrutsKey XConfig{ modMask = m } = (m, xK_comma)  -- I want to disable it but don't know how
+                                                              -- so take something I won't use
                 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
