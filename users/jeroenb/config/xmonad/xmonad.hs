@@ -96,9 +96,9 @@ myXmobarPP :: PP
 myXmobarPP = def
     { ppSep             = auroraColor3 " • "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = wrap " " "" . xmobarBorder "Bottom" "#8be9fd" 2
-    , ppHidden          = snowStormColor3 . wrap " " ""
-    , ppHiddenNoWindows = snowStormColor3 . wrap " " ""
+    , ppCurrent         = wrap "" "" . xmobarBorder "Bottom" "#8be9fd" 2
+    , ppHidden          = snowStormColor3 . wrap "" ""
+    , ppHiddenNoWindows = snowStormColor3 . wrap "" ""
     , ppUrgent          = auroraColor1 . wrap (auroraColor3 "!") (auroraColor3 "!")
     , ppOrder           = \[ws, l, _, wins] -> [ws, l, wins]
     , ppExtras          = [logTitles formatFocused formatUnfocused]
@@ -182,7 +182,7 @@ main = xmonad
       $ myConfig 
     where 
       toggleStrutsKey :: XConfig Layout -> (KeyMask, KeySym)
-      toggleStrutsKey XConfig{ modMask = m } = (m, xK_comma)  -- I want to disable it but don't know how
+      toggleStrutsKey XConfig{ modMask = m } = (m, xK_Delete) -- I want to disable it but don't know how
                                                               -- so take something I won't use
                 
 -- | Finally, a copy of the default bindings in simple textual tabular format.

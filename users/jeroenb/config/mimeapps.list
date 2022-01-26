@@ -34,3 +34,4 @@ x-scheme-handler/mailto=userapp-Thunderbird-EH8LD1.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-EH8LD1.desktop;
 x-scheme-handler/webcal=userapp-Thunderbird-638JD1.desktop;
 x-scheme-handler/webcals=userapp-Thunderbird-638JD1.desktop;
+application/octet-stream=libreoffice-writer.desktop;
