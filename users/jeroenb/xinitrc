@@ -62,13 +62,12 @@ dropbox start &
 # Notifications
 dunst &
 
-# USB mounting
+# USB auto mounting
 udiskie &
 
 # Compositor
-picom &
+# picom &
 
 # WM
-#exec /home/jeroen/.local/bin/xmonad
 exec xmonad
 #exec i3

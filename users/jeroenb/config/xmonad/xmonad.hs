@@ -29,7 +29,7 @@ import qualified XMonad.StackSet as W
 
 -- Main options, only comment what is ambigous
 
-myTerminal            = "kitty"
+myTerminal            = "kitty --single-instance"
 myFocusFollowsMouse   = True
 myClickJustFocuses    = False
 myBorderWidth         = 1
@@ -50,7 +50,9 @@ myKeys =
 
     -- Start programs
     --, ("M-<Return>", spawn (myTerminal))
-    , ("M-a", spawn (myTerminal ++ " pulsemixer"))
+    , ("M-S-<Return>", spawn (myTerminal))
+    , ("M-a", spawn ("kitty -e alsamixer"))
+    , ("M-c", spawn ("kitty -e htop"))
     , ("M-o f", spawn "pcmanfm")
     , ("M-o s", spawn "slack")
     , ("M-o m", spawn "spotify")
@@ -62,7 +64,7 @@ myKeys =
     , ("M-d", spawn "dmenu_run -fn 'JetBrainsMono Nerd Font Mono-12' -nb '#000000'")
     , ("M-S-e", spawn "dmenupower")                                     -- custom bin
     , ("M-<F11>", sendMessage ToggleStruts >> spawn "xmobar_toggle")        -- custom bin
-    , ("M-<F1>", spawn ("feh -F --zoom 150 /home/jeroen/Downloads/xmbindings.png"))
+    , ("M-<F1>", spawn ("feh -F --zoom 150 /home/jeroen/.config/xmonad/xmbindings.png"))
     , ("M-S-<F1>", spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
     , ("M-<Print>", spawn ("scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"))
     , ("M-S-<Print>", spawn ("scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"))
