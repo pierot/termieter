@@ -8,7 +8,7 @@ esac
 case "$(printf "🔒 lock\n🐻 hibernate\n💤 sleep\n🔃 reboot\n🖥️shutdown\n📺 display off" | dmenu -fn 'JetBrainsMono Nerd Font Mono-12' -nb '#000000' -i -p 'Action: ')" in
 	'🔒 lock') slock ;;
 	'🐻 hibernate') slock $ctl hibernate ;;
-	'💤 sleep') slock $ctl suspend ;;
+	'💤 sleep') slock $ctl suspend -i;;
 	'🔃 reboot') $ctl reboot ;;
 	'🖥️shutdown') $ctl poweroff ;;
 	'📺 display off') xset dpms force off ;;

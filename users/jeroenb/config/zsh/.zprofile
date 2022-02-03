@@ -1,6 +1,6 @@
 # Start X
 if [[ "$OSTYPE" == "linux-gnu"* ]] &&  [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-	# startx
+  startx
 fi
 
 # Rupa z
