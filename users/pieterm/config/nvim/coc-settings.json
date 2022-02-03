@@ -23,6 +23,7 @@
   "prettier.semi": false,
   "prettier.trailingComma": "es5",
   "prettier.parser": "babylon",
+  "css.lint.unknownAtRules": "ignore",
   "codeLens.enable": true,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck",
