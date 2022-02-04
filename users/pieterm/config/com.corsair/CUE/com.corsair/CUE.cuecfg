@@ -7,7 +7,7 @@
 	<map name="CommonSettings">
 		<value name="DemoDeviceModeEnabled">false</value>
 		<value name="DevicePanelMinimized">false</value>
-		<value name="StartOnStartup">true</value>
+		<value name="StartOnStartup">false</value>
 	</map>
 	<map name="DataCollection">
 		<value name="connected_device_list_changed_between_sessions">true</value>
@@ -26,15 +26,15 @@
 		<value name="icue_space_opened">false</value>
 		<value name="icue_sw_language">en</value>
 		<value name="icue_version">3.38.61</value>
-		<value name="keyboard_1_connected_now">false</value>
+		<value name="keyboard_1_connected_now">true</value>
 		<value name="keyboard_1_device_id">4fe4182fa0fee9dc9b564fae4ae24da3</value>
 		<value name="keyboard_1_first_appearance">2021-07-29T08:20:09Z</value>
-		<value name="keyboard_1_last_appearance">2021-08-30T06:21:04Z</value>
+		<value name="keyboard_1_last_appearance">2021-12-01T20:26:34Z</value>
 		<value name="keyboard_1_manufacturer">USB Keychron K2</value>
 		<value name="keyboard_1_model_name">USB DEVICE</value>
 		<value name="keyboard_1_pid">024f</value>
 		<value name="keyboard_1_vid">05ac</value>
-		<value name="last_appearance_at">2021-08-30T06:21:04.535Z</value>
+		<value name="last_appearance_at">2021-12-01T20:26:34.339Z</value>
 		<value name="macos_code_name"></value>
 		<value name="motherboard_manufacturer">Apple</value>
 		<value name="motherboard_name">Apple</value>
@@ -47,6 +47,14 @@
 		<value name="mouse_1_last_appearance">2021-07-29T08:55:40Z</value>
 		<value name="mouse_1_manufacturer">Corsair</value>
 		<value name="mouse_1_model_name">KATAR PRO WIRELESS</value>
+		<value name="mouse_2_connected_now">false</value>
+		<value name="mouse_2_device_id">b1dab695cd5e59103b82af96145614ce</value>
+		<value name="mouse_2_first_appearance">2021-09-20T09:18:06Z</value>
+		<value name="mouse_2_last_appearance">2021-09-20T09:19:47Z</value>
+		<value name="mouse_2_manufacturer">Apple Inc.</value>
+		<value name="mouse_2_model_name">Magic Trackpad 2</value>
+		<value name="mouse_2_pid">0265</value>
+		<value name="mouse_2_vid">05ac</value>
 		<value name="num_of_connected_corsair_devices">0</value>
 		<value name="num_of_corsair_coolers_connected">0</value>
 		<value name="num_of_corsair_fans_connected">0</value>
@@ -54,24 +62,24 @@
 		<value name="num_of_corsair_ram_modules_connected">0</value>
 		<value name="os_architecture">x64</value>
 		<value name="os_name">macOS</value>
-		<value name="os_version">11.4 20F71</value>
+		<value name="os_version">11.6 20G165</value>
 		<value name="osd_activated">false</value>
-		<value name="previous_close_timestamp">1630304464544</value>
+		<value name="previous_close_timestamp">1638390394437</value>
 		<value name="ram_frequency">2667 MHz</value>
 		<value name="ram_manufacturer">SK Hynix</value>
 		<value name="ram_size">40960</value>
 		<value name="ram_type">DDR4</value>
 		<value name="session_ended">true</value>
 		<value name="show_only_connected_devices">true</value>
-		<value name="start_on_system_startup">true</value>
+		<value name="start_on_system_startup">false</value>
 		<value name="system_language">English</value>
-		<value name="time_after_last_session_end">0</value>
-		<value name="time_in_background_session_duration">2</value>
+		<value name="time_after_last_session_end">647</value>
+		<value name="time_in_background_session_duration">45</value>
 		<value name="time_in_foreground_session_duration">0</value>
-		<value name="total_icue_starts">4</value>
-		<value name="total_num_of_icue_starts">3</value>
-		<value name="total_time_icue_used">61</value>
-		<value name="total_time_used">3667756</value>
+		<value name="total_icue_starts">9</value>
+		<value name="total_num_of_icue_starts">9</value>
+		<value name="total_time_icue_used">418</value>
+		<value name="total_time_used">25091108</value>
 		<value name="user_id">a51f9ab0783828d130c6a2420fce16e1c4c3af5dc4adfeb6373b740a731e7d97e92069df5d3bc711c397f1ad2de4212c79b17e3cdaa15b2426948828b0b6ae60</value>
 	</map>
 	<map name="DeviceListWatcher">
@@ -92,13 +100,24 @@
 				<value name="device_type">1</value>
 				<value name="is_connected">true</value>
 				<value name="is_corsair">false</value>
-				<value name="last_appearance">2021-08-30T08:21:04.544</value>
+				<value name="last_appearance">2021-12-01T21:26:34.437</value>
 				<value name="model_name">USB DEVICE</value>
 				<value name="pid">591</value>
 				<value name="serial_number"></value>
 				<value name="vid">1452</value>
 			</map>
-			<value name="size">2</value>
+			<map name="3">
+				<value name="device_id">b1dab695cd5e59103b82af96145614ce</value>
+				<value name="device_type">2</value>
+				<value name="is_connected">false</value>
+				<value name="is_corsair">false</value>
+				<value name="last_appearance">2021-09-20T11:19:47.623</value>
+				<value name="model_name">Magic Trackpad 2</value>
+				<value name="pid">613</value>
+				<value name="serial_number">CC2552100H1GTFQA3</value>
+				<value name="vid">1452</value>
+			</map>
+			<value name="size">3</value>
 		</map>
 		<value name="device_list_saved_correctly">true</value>
 	</map>
@@ -229,7 +248,7 @@
 				<value name="UniqueDeviceId">{b88106b5-ca45-4da4-86c4-933a4d2eb0fd}</value>
 			</map>
 		</map>
-		<binary name="UniqueDeviceIds">%00%00%04%00%00%00%00%005QHash%3CQUuid%2CUniqueDeviceIdStorage%3A%3AUniqueDeviceData%3E%00%00%00%00%0Bf%8F%E27%E8%FFB%29%B2%9D%07%AC%FB%86%AD%23%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%AD%0Dw%EE%7B%15I%91%8E%05%09%26%CF9O%2F%FF%FF%FF%F8%FF%FF%FF%F8%00%00%002%00D%00E%00M%00O%00_%00L%00I%00G%00H%00T%00I%00N%00G%00_%00N%00O%00D%00E%00_%00D%00E%00V%00I%00C%00E%FF%FF%FF%FF%E3%8A%ABuCvG%DE%B7%87%CF%0C%E3%8B%5B%85%FF%FF%FF%FD%FF%FF%FF%FD%FF%FF%FF%FF%FF%FF%FF%FFo%5C%96-%3Ct%40%E5%86%E0%84%9F%04Z%FB%F9%FF%FF%FF%FC%FF%FF%FF%FC%FF%FF%FF%FF%FF%FF%FF%FF%C1%05%3F%D2.%09A%8B%BC%9C%A5%1CB%87%3BB%FF%FF%FF%FA%FF%FF%FF%FA%00%00%00%1E%00D%00E%00M%00O%00_%00P%00S%00U%00_%00D%00E%00V%00I%00C%00E%FF%FF%FF%FF%13%90%80%7C%A0r%40y%AF%F8%E1K%3Ap%EF%EC%FF%FF%FF%F9%FF%FF%FF%F9%FF%FF%FF%FF%FF%FF%FF%FF%8A%B0%F5Q%EA%C3O%AC%8A%15%AE%C5%F6C%BB%89%00%00%1B%1C%00%00%1B%AE%FF%FF%FF%FF%00%00%00%08%9F%B7%9A%A5H%07FF%C8%2C%86%A4%0A%80Gw%84%24R%BBP%D5%7F%5C%FF%FF%FF%F7%FF%FF%FF%F7%00%00%002%00D%00E%00M%00O%00_%00C%00O%00M%00M%00A%00N%00D%00E%00R%00_%00P%00R%00O%00_%00D%00E%00V%00I%00C%00E%FF%FF%FF%FF%98%99t%DE%AC%F2O%D6%A7%99%BD%F1%E0%26%82%F7%FF%FF%FF%FB%FF%FF%FF%FB%00%00%002%00D%00E%00M%00O%00_%00L%00I%00Q%00U%00I%00D%00_%00C%00O%00O%00L%00E%00R%00_%00D%00E%00V%00I%00C%00E%FF%FF%FF%FF%F5%C7O%E1%18CIT%B7N%B29%B8%DB%8B%22%FF%FF%FF%FE%FF%FF%FF%FE%FF%FF%FF%FF%FF%FF%FF%FFq%1C%CDU%D8%07H%F2%93%A5p%9F%16z%2F%0F%00%00%1B%1C%00%00%1B%94%00%00%00%20%00F%004%005%003%00D%004%004%003%009%002%005%000%004%00D%00D%00D%00%00%00%08%9F%B7%9A%A5H%07FF</binary>
+		<binary name="UniqueDeviceIds">%00%00%04%00%00%00%00%005QHash%3CQUuid%2CUniqueDeviceIdStorage%3A%3AUniqueDeviceData%3E%00%00%00%00%0Bf%8F%E27%E8%FFB%29%B2%9D%07%AC%FB%86%AD%23%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%FF%C8%2C%86%A4%0A%80Gw%84%24R%BBP%D5%7F%5C%FF%FF%FF%F7%FF%FF%FF%F7%00%00%002%00D%00E%00M%00O%00_%00C%00O%00M%00M%00A%00N%00D%00E%00R%00_%00P%00R%00O%00_%00D%00E%00V%00I%00C%00E%FF%FF%FF%FF%13%90%80%7C%A0r%40y%AF%F8%E1K%3Ap%EF%EC%FF%FF%FF%F9%FF%FF%FF%F9%FF%FF%FF%FF%FF%FF%FF%FFo%5C%96-%3Ct%40%E5%86%E0%84%9F%04Z%FB%F9%FF%FF%FF%FC%FF%FF%FF%FC%FF%FF%FF%FF%FF%FF%FF%FF%98%99t%DE%AC%F2O%D6%A7%99%BD%F1%E0%26%82%F7%FF%FF%FF%FB%FF%FF%FF%FB%00%00%002%00D%00E%00M%00O%00_%00L%00I%00Q%00U%00I%00D%00_%00C%00O%00O%00L%00E%00R%00_%00D%00E%00V%00I%00C%00E%FF%FF%FF%FF%AD%0Dw%EE%7B%15I%91%8E%05%09%26%CF9O%2F%FF%FF%FF%F8%FF%FF%FF%F8%00%00%002%00D%00E%00M%00O%00_%00L%00I%00G%00H%00T%00I%00N%00G%00_%00N%00O%00D%00E%00_%00D%00E%00V%00I%00C%00E%FF%FF%FF%FFq%1C%CDU%D8%07H%F2%93%A5p%9F%16z%2F%0F%00%00%1B%1C%00%00%1B%94%00%00%00%20%00F%004%005%003%00D%004%004%003%009%002%005%000%004%00D%00D%00D%00%00%00%08%9F%B7%9A%A5H%07FF%E3%8A%ABuCvG%DE%B7%87%CF%0C%E3%8B%5B%85%FF%FF%FF%FD%FF%FF%FF%FD%FF%FF%FF%FF%FF%FF%FF%FF%8A%B0%F5Q%EA%C3O%AC%8A%15%AE%C5%F6C%BB%89%00%00%1B%1C%00%00%1B%AE%FF%FF%FF%FF%00%00%00%08%9F%B7%9A%A5H%07FF%F5%C7O%E1%18CIT%B7N%B29%B8%DB%8B%22%FF%FF%FF%FE%FF%FF%FF%FE%FF%FF%FF%FF%FF%FF%FF%FF%C1%05%3F%D2.%09A%8B%BC%9C%A5%1CB%87%3BB%FF%FF%FF%FA%FF%FF%FF%FA%00%00%00%1E%00D%00E%00M%00O%00_%00P%00S%00U%00_%00D%00E%00V%00I%00C%00E%FF%FF%FF%FF</binary>
 		<map name="VOID PRO Wireless Demo">
 			<map name="{e38aab75-4376-47de-b787-cf0ce38b5b85}">
 				<value name="BrightnessLevel">100</value>
@@ -253,6 +272,6 @@
 		<value name="width">0</value>
 	</map>
 	<map name="SwUpdate">
-		<value name="LastCheckDate">2021-09-02</value>
+		<value name="LastCheckDate">2021-12-09</value>
 	</map>
 </config>

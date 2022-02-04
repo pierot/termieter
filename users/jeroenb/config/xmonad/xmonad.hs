@@ -12,9 +12,16 @@ import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 
+import XMonad.Layout.NoBorders
+import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), (??))
+import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
+import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
+
 import XMonad.Util.Loggers
 import XMonad.Util.EZConfig(additionalKeysP, removeKeysP)
 import XMonad.Util.SpawnOnce
+
+import XMonad.StackSet (RationalRect (..))
 
 import Data.Monoid
 import qualified Data.Map        as M
@@ -22,17 +29,16 @@ import qualified XMonad.StackSet as W
 
 -- Main options, only comment what is ambigous
 
-myTerminal            = "kitty"
+myTerminal            = "kitty --single-instance"
 myFocusFollowsMouse   = True
 myClickJustFocuses    = False
 myBorderWidth         = 1
-myModMask        
-  = mod4Mask
+myModMask             = mod4Mask
 myWorkspaces          = ["1","2","3","4","5","6","7","8","9"]
 myNormalBorderColor   = "#282C34"
 myFocusedBorderColor  = "#61AFEF"
 
-myLayout = avoidStruts $ layoutHook def
+myLayout = avoidStruts $ smartBorders $ mkToggle (single NBFULL) (layoutHook def)
 
 -- Keybindings
 
@@ -44,14 +50,29 @@ myKeys =
 
     -- Start programs
     --, ("M-<Return>", spawn (myTerminal))
-    , ("M-a", spawn (myTerminal ++ " pulsemixer"))
-    , ("M-o f", spawn "nemo")
+    , ("M-S-<Return>", spawn (myTerminal))
+    , ("M-a", spawn ("kitty -e alsamixer"))
+    , ("M-c", spawn ("kitty -e htop"))
+    , ("M-o f", spawn "pcmanfm")
+    , ("M-o s", spawn "slack")
+    , ("M-o m", spawn "spotify")
+    , ("M-o t", spawn "thunderbird")
+    , ("M-w", spawn "$BROWSER")
+    , ("<Print>", spawn "feh --bg-scale -z ~/Pictures/walls") 
+    , ("M-f", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
     , ("M-S-f", sinkAll)
-    , ("M-w", spawn "firefox")
-    , ("M-p", spawn "rofi -show run")
-    , ("M-<F1>", spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+    , ("M-d", spawn "dmenu_run -fn 'JetBrainsMono Nerd Font Mono-12' -nb '#000000'")
+    , ("M-S-e", spawn "dmenupower")                                     -- custom bin
+    , ("M-<F11>", sendMessage ToggleStruts >> spawn "xmobar_toggle")        -- custom bin
+    , ("M-<F1>", spawn ("feh -F --zoom 150 /home/jeroen/.config/xmonad/xmbindings.png"))
+    , ("M-S-<F1>", spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
     , ("M-<Print>", spawn ("scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"))
     , ("M-S-<Print>", spawn ("scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"))
+    -- Music controls, requires playerctl and works over MPRIS
+    , ("M-m <Space>", spawn "playerctl play-pause")
+    , ("M-m p", spawn "playerctl previous")
+    , ("M-m n", spawn "playerctl next")
+    , ("M-m m", spawn "spotify")
     ]
 
 myStartupHook :: X ()
@@ -70,36 +91,57 @@ myConfig = def
   , startupHook        = myStartupHook
   , manageHook         = manageDocks <+> myManageHook           -- Match on certain windows
   } `additionalKeysP` myKeys
-    `removeKeysP` ["M-S-q"]
+    `removeKeysP` ["M-S-q", "M-p", "M-b"]
 
 -- Xmobar
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppSep             = magenta " • "
+    { ppSep             = auroraColor3 " • "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = xmobarColor "#61AFEF" "" . wrap "" "" 
-    , ppHidden          = lowWhite . wrap """"
-    , ppHiddenNoWindows = lowWhite . wrap """"
-    , ppUrgent          = red . wrap (yellow "!") (yellow "!")
+    , ppCurrent         = wrap "" "" . xmobarBorder "Bottom" "#8be9fd" 2
+    , ppHidden          = snowStormColor3 . wrap "" ""
+    , ppHiddenNoWindows = snowStormColor3 . wrap "" ""
+    , ppUrgent          = auroraColor1 . wrap (auroraColor3 "!") (auroraColor3 "!")
     , ppOrder           = \[ws, l, _, wins] -> [ws, l, wins]
     , ppExtras          = [logTitles formatFocused formatUnfocused]
     }
   where
-    formatFocused   = wrap (white    "[") (white    "]") . magenta . ppWindow
-    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . blue    . ppWindow
+    formatFocused   = wrap (snowStormColor3 "[") (snowStormColor3 "]") . auroraColor3 . ppWindow
+    formatUnfocused = wrap (snowStormColor1 "[") (snowStormColor1 "]") . auroraColor5 . ppWindow
 
     -- | Windows should have *some* title, which should not not exceed a
     -- sane length.
     ppWindow :: String -> String
     ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
 
-    blue, lowWhite, magenta, red, white, yellow :: String -> String
-    magenta  = xmobarColor "#ff79c6" ""
-    blue     = xmobarColor "#7aa2f7" ""
-    white    = xmobarColor "#f8f8f2" ""
-    yellow   = xmobarColor "#f1fa8c" ""
-    red      = xmobarColor "#ff5555" ""
-    lowWhite = xmobarColor "#bbbbbb" ""
+    polarNightColor1 = xmobarColor "#2E3440" ""
+    polarNightColor2 = xmobarColor "#3B4252" ""
+    polarNightColor3 = xmobarColor "#434C5E" ""
+    polarNightColor4 = xmobarColor "#4C566A" ""
+    snowStormColor1  = xmobarColor "#D8DEE9" ""
+    snowStormColor2  = xmobarColor "#E5E9F0" ""
+    snowStormColor3  = xmobarColor "#ECEFF4" ""
+    frostColor1      = xmobarColor "#8FBCBB" ""
+    frostColor2      = xmobarColor "#88C0D0" ""
+    frostColor3      = xmobarColor "#81A1C1" ""
+    frostColor4      = xmobarColor "#5E81AC" ""
+    auroraColor1     = xmobarColor "#BF616A" ""
+    auroraColor2     = xmobarColor "#D08770" ""
+    auroraColor3     = xmobarColor "#EBCB8B" ""
+    auroraColor4     = xmobarColor "#A3BE8C" ""
+    auroraColor5     = xmobarColor "#B48EAD" ""
+
+-- Helpers for window layouts
+-- https://github.com/j1r1k/xmonad-config/blob/master/xmonad.hs
+fitRectSizeIn :: (Fractional n, Ord n) => n -> n -> (n, n)
+fitRectSizeIn limit size = let n = min limit size in ((1 - n) / 2, n)
+
+computeDialogRect :: RationalRect -> RationalRect
+computeDialogRect (RationalRect _ _ w h) =
+  let limit = 0.6
+      (x', w') = fitRectSizeIn limit w
+      (y', h') = fitRectSizeIn limit h
+   in RationalRect x' y' w' h'
 
 -- Manage specific windows
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
@@ -108,23 +150,27 @@ myManageHook = composeAll
      -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
-     [ className =? "confirm"         --> doFloat
-     , className =? "file_progress"   --> doFloat
-     , className =? "dialog"          --> doFloat
-     , className =? "download"        --> doFloat
-     , className =? "error"           --> doFloat
-     , className =? "Gimp"            --> doFloat
-     , className =? "notification"    --> doFloat
-     , className =? "pinentry-gtk-2"  --> doFloat
-     , className =? "splash"          --> doFloat
-     , className =? "toolbar"         --> doFloat
-     , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-     , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
-     , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
-     , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
-     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
+     [ className =? "confirm"                             --> doFloat
+     , className =? "file_progress"                       --> doFloat
+     , className =? "dialog"                              --> doFloat
+     , className =? "download"                            --> doFloat
+     , className =? "error"                               --> doFloat
+     , className =? "Gimp"                                --> doFloat
+     , className =? "notification"                        --> doFloat
+     , className =? "pinentry-gtk-2"                      --> doFloat
+     , className =? "splash"                              --> doFloat
+     , className =? "toolbar"                             --> doFloat
+     , title =? "Firefox"                                 --> doShift ( myWorkspaces !! 1 )
+     , className =? "dbeaver"                             --> doShift ( myWorkspaces !! 2 )
+     , className =? "slack"                               --> doShift ( myWorkspaces !! 4 )
+     , className =? "thunderbird"                         --> doShift ( myWorkspaces !! 4 )
+     , className =? "spotify"                             --> doShift ( myWorkspaces !! 5 )
+     , className =? "mpv"                                 --> doShift ( myWorkspaces !! 7 )
+     , className =? "Gimp"                                --> doShift ( myWorkspaces !! 8 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
-     , isFullscreen -->  doFullFloat
+     , isFullscreen                                       --> doFullFloat
+     , isDialog                                           --> doFloatDep computeDialogRect
+     , title =? "Slack call"                              --> doFloat -- Float slack call mini panel
      ]
 
 -- Main entry point
@@ -134,8 +180,12 @@ main = xmonad
       . ewmhFullscreen 
       . docks
       . ewmh  
-      . withEasySB (statusBarProp "xmobar ~/.config/xmobar/xmobarrc" (pure myXmobarPP)) defToggleStrutsKey
+      . withEasySB (statusBarProp "xmobar ~/.config/xmobar/xmobarrc" (pure myXmobarPP)) toggleStrutsKey
       $ myConfig 
+    where 
+      toggleStrutsKey :: XConfig Layout -> (KeyMask, KeySym)
+      toggleStrutsKey XConfig{ modMask = m } = (m, xK_Delete) -- I want to disable it but don't know how
+                                                              -- so take something I won't use
                 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String

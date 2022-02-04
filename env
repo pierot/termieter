@@ -17,8 +17,10 @@ fi
 
 ###########################################################
 
+export HISTFILE=~/.zsh_history
 export HISTCONTROL=ignoreboth # Ignore same sucessive entries.
-export HISTSIZE=15000         # resize history size
+export HISTSIZE=150000         # resize history size
+export SAVEHIST=150000         # max size
 export HISTIGNORE="ls:l:ll:&:[bf]g:exit:pwd:clear:reload\!:[ \t]*"
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
@@ -29,7 +31,6 @@ fi
 ###########################################################
 
 export PATH="/usr/local/bin:/$TRM/bin:/usr/local/sbin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 
 ###########################################################
 

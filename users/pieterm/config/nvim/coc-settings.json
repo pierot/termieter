@@ -18,11 +18,12 @@
   "prettier.useTabs": false,
   "prettier.singleQuote": false,
   "prettier.bracketSpacing": false,
-  "prettier.jsxBracketSameLine": false,
+  "prettier.bracketSameLine": false,
   "prettier.arrowParens": "avoid",
   "prettier.semi": false,
   "prettier.trailingComma": "es5",
   "prettier.parser": "babylon",
+  "css.lint.unknownAtRules": "ignore",
   "codeLens.enable": true,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck",

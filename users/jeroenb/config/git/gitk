@@ -1,7 +1,7 @@
-set mainfont {{Lucida Grande} 9}
-set textfont {Monaco 9}
-set uifont {{Lucida Grande} 9 bold}
-set tabstop 4
+set mainfont {sans 9}
+set textfont {monospace 9}
+set uifont {sans 9 bold}
+set tabstop 8
 set findmergefiles 0
 set maxgraphpct 50
 set maxwidth 16
@@ -26,11 +26,11 @@ set colors {"#00ff00" red blue magenta darkgrey brown orange}
 set diffcolors {"#c30000" "#009800" blue}
 set mergecolors {red blue "#00ff00" purple brown "#009090" magenta "#808000" "#009000" "#ff0080" cyan "#b07070" "#70b0f0" "#70f0b0" "#f0b070" "#ff70b0"}
 set markbgcolor #e0e0ff
-set diffcontext 4
+set diffcontext 3
 set selectbgcolor gray85
 set foundbgcolor yellow
 set currentsearchhitbgcolor orange
-set extdifftool opendiff
+set extdifftool meld
 set perfile_attrs 0
 set headbgcolor #00ff00
 set headfgcolor black
@@ -52,13 +52,13 @@ set circlecolors {white blue gray blue blue}
 set linkfgcolor blue
 set circleoutlinecolor black
 set diffbgcolors {"#fff3f3" "#f0fff0"}
-set web_browser open
-set geometry(main) 1814x1215+5+30
+set web_browser xdg-open
+set geometry(main) 1458x1050+2380+0
 set geometry(state) normal
-set geometry(topwidth) 1814
-set geometry(topheight) 397
-set geometry(pwsash0) "561 1"
-set geometry(pwsash1) "856 1"
-set geometry(botwidth) 1096
-set geometry(botheight) 813
+set geometry(topwidth) 1458
+set geometry(topheight) 195
+set geometry(pwsash0) "399 1"
+set geometry(pwsash1) "599 1"
+set geometry(botwidth) 499
+set geometry(botheight) 850
 set permviews {}

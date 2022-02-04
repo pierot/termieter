@@ -7,9 +7,12 @@ ZSH_CUSTOM="$TRM/zsh/custom"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-if [[ $OS == 'OSX' ]] || [[ $OSTYPE == "linux-gnu"* ]]; then
-  ZSH_THEME="kolo"
-else
+# if [[ $OS == 'OSX' ]] || [[ $OSTYPE == "linux-gnu"* ]]; then
+ZSH_THEME="kolo"
+# else
+#   ZSH_THEME="dallas"
+# fi
+if [ -n "$(uname -a | grep Debian)" ]; then
   ZSH_THEME="dallas"
 fi
 
@@ -38,26 +41,21 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(
-    urltools 
-    docker 
-    fzf
-    git
-    history-substring-search
-    colored-man-pages
-  )
+plugins=(history-substring-search colored-man-pages)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins+=(ansible yarn mix-fast)
+  plugins+=(fzf ansible yarn mix-fast)
+fi
 
-  alias dircolors='gdircolors'
-else
+if [ -n "$(uname -a | grep Debian)" ]; then
   plugins+=(debian)
 fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
+
+source $TRM/zsh/base.sh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -70,13 +68,9 @@ eval $( dircolors -b $ZSH/../LS_COLORS )
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
 source $ZSH/oh-my-zsh.sh
-source $TRM/zsh/base.sh
 
-if [[ "$OSTYPE" == "linux-gnu"* ]] &&  [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-	startx
-fi
-
-alias reload!='. $HOME/.zshrc'
+alias reload!='exec zsh'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

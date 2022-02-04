@@ -32,7 +32,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-
 # keyboard repeate rate
 xset r rate 200 90
 
@@ -50,10 +49,7 @@ trayer \
   &
 
 # Set a nice background
-feh --bg-scale --no-fehbg ~/Pictures/walls/arch.png
-
-# Power Management
-# xfce4-power-manager &
+$HOME/.fehbg &
 
 # Network applet
 if [ -x /usr/bin/nm-applet ] ; then
@@ -65,6 +61,12 @@ dropbox start &
  
 # Notifications
 dunst &
+
+# USB auto mounting
+udiskie &
+
+# Compositor
+# picom &
 
 # WM
 exec xmonad

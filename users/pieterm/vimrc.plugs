@@ -6,3 +6,5 @@ Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/tComment'
 " Rainbow parentheses
 Plug 'luochen1990/rainbow'
+
+Plug 'kyoz/purify', { 'rtp': 'vim' }
