@@ -33,7 +33,8 @@ require 'paq' {
 	'nvim-lua/popup.nvim';                           -- ui plugin used by many, someday upstream in neovim
 	'nvim-lua/plenary.nvim';                         -- ui plugin used by many, someday upstream in neovim
 
-	'blackCauldron7/surround.nvim'; 
+	-- 'blackCauldron7/surround.nvim'; 
+	'tpope/vim-surround';
 	'tpope/vim-fugitive'; 
 	'tpope/vim-repeat';
 	'neovimhaskell/haskell-vim';
@@ -207,7 +208,7 @@ map('t', '<Esc>', '<C-\\><C-n>')
 -- require('nvim-web-devicons').setup()
 --
 -- surround
-require"surround".setup {mappings_style = "surround"}
+-- require"surround".setup {mappings_style = "surround"}
   
 -- -- colorscheme 
 -- -- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
