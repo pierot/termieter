@@ -160,11 +160,11 @@ myManageHook = composeAll
      , className =? "pinentry-gtk-2"                      --> doFloat
      , className =? "splash"                              --> doFloat
      , className =? "toolbar"                             --> doFloat
-     , title =? "Firefox"                                 --> doShift ( myWorkspaces !! 1 )
+     , title     =? "Firefox"                             --> doShift ( myWorkspaces !! 1 )
      , className =? "dbeaver"                             --> doShift ( myWorkspaces !! 2 )
      , className =? "slack"                               --> doShift ( myWorkspaces !! 4 )
      , className =? "thunderbird"                         --> doShift ( myWorkspaces !! 4 )
-     , className =? "spotify"                             --> doShift ( myWorkspaces !! 5 )
+     , className =? "spotify"                             --> doCenterFloat 
      , className =? "mpv"                                 --> doShift ( myWorkspaces !! 7 )
      , className =? "Gimp"                                --> doShift ( myWorkspaces !! 8 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog

@@ -54,7 +54,7 @@ require 'paq' {
 	'hrsh7th/vim-vsnip';                             -- snippets
 	'hrsh7th/vim-vsnip-integ';                       -- snippets
 	'rafamadriz/friendly-snippets';                  -- snippets
-	'nvim-treesitter/nvim-treesitter';               -- treesitter, code highlighting
+	{'nvim-treesitter/nvim-treesitter',  run = ':TSUpdate'};               -- treesitter, code highlighting
 	'nvim-lualine/lualine.nvim';
 
 	-- Telescope
@@ -191,44 +191,45 @@ map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve
 
 -- map('', '<leader>c', '"+y')                        -- Copy to clipboard in normal, visual, select and operator modes
 
-cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+-- cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
  
+map('t', '<Esc>', '<C-\\><C-n>')
  
 -- -------------------------------------------------
 -- -- PLUGINS SETUP
 -- -------------------------------------------------
 
 
--- nvim-colorizer
-require'colorizer'.setup()
-
--- webdev icons
-require('nvim-web-devicons').setup()
-
+-- -- nvim-colorizer
+-- require'colorizer'.setup()
+-- 
+-- -- webdev icons
+-- require('nvim-web-devicons').setup()
+--
 -- surround
 require"surround".setup {mappings_style = "surround"}
- 
--- colorscheme 
--- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
-
---[[ -- nightfox theme
-local nightfox = require('nightfox')
-
--- This function set the configuration of nightfox. If a value is not passed in the setup function
--- it will be taken from the default configuration above
-nightfox.setup({
-  fox = "nordfox", -- change the colorscheme to use nordfox
-})
--- Load the configuration set above and apply the colorscheme
-nightfox.load() ]]
--- cmd 'colorscheme nightfox'
-
--- opt('g', 'tokyonight_style', 'night')  
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-cmd 'colorscheme tokyonight'         
- 
+  
+-- -- colorscheme 
+-- -- cmd 'colorscheme jellybeans-nvim'                              -- Put your favorite colorscheme here
+-- 
+-- --[[ -- nightfox theme
+-- local nightfox = require('nightfox')
+-- 
+-- -- This function set the configuration of nightfox. If a value is not passed in the setup function
+-- -- it will be taken from the default configuration above
+-- nightfox.setup({
+--   fox = "nordfox", -- change the colorscheme to use nordfox
+-- })
+-- -- Load the configuration set above and apply the colorscheme
+-- nightfox.load() ]]
+-- -- cmd 'colorscheme nightfox'
+-- 
+-- -- opt('g', 'tokyonight_style', 'night')  
+-- vim.g.tokyonight_style = "night"
+-- vim.g.tokyonight_italic_functions = true
+-- vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+-- -- cmd 'colorscheme tokyonight'         
+--  
 -- lualine
 local function getWords()
   if vim.bo.filetype == "md" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then
@@ -270,11 +271,11 @@ end
 -- local colors = require("nightfox.colors").init("nordfox")
 local colors = require("tokyonight.colors").setup({}) 
 
--- print(vim.inspect(nfColors))
+-- -- print(vim.inspect(nfColors))
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    theme = "tokyonight",
+    -- theme = "tokyonight",
     -- theme = "nightfox",
     component_separators = { " ", " " },
     section_separators = { left = "", right = "" },
@@ -318,7 +319,7 @@ require("lualine").setup({
     "quickfix",
   },
 })
-
+ 
 -- ack
 g.ackprg = 'rg --vimgrep'
  
@@ -349,22 +350,6 @@ map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
 --map('n', '<leader>gs', '<cmd>Telescope git_status<CR>')
 
 local previewers = require('telescope.previewers')
-
--- TODO: 
--- for now, telescope has serious hickups showing the coloured preview
--- it improved by disabling it for some filetypes, but I got the best results
--- disabling it alltogehter. I don't care about coloured previews.
--- Check in the future if it has improved.
--- local _bad = { '.*%.json', '.*%.lua', '.*%.ex', '*.%.eex', '.*%.exs', '.*%.leex', '' } -- Put all filetypes that slow you down in this array
--- local bad_files = function(filepath)
---   for _, v in ipairs(_bad) do
---     if filepath:match(v) then
---       return false
---     end
---   end
--- 
---   return true
--- end
 
 local new_maker = function(filepath, bufnr, opts)
   opts = opts or {}
@@ -426,7 +411,7 @@ g.user_emmet_settings = "{ 'javascript.jsx' : { 'extends' : 'jsx' } }"
 -- Treesitter
 local ts = require('nvim-treesitter.configs')
 ts.setup({
-  ensure_installed = {
+  nsure_installed = {
     "javascript", "typescript", "tsx", "jsdoc", "jsonc",
     "html", "css", "scss",
     "json", "toml", "yaml",
@@ -467,6 +452,8 @@ ts.setup({
   },
   autotag = {enable = true}
 })
+--[[ ts.setup({
+}) ]]
 
 -- Vim-vsnip
 vim.g.vsnip_filetypes = {
@@ -559,12 +546,13 @@ local on_attach = function(client, bufnr)
       hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
       hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
       augroup lsp_document_highlight
-      autocmd! * <buffer>
-      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
       ]], false)
   end
+
+      --[[ autocmd! * <buffer>
+      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]]
 end
 
 -- Capabilities
@@ -622,7 +610,7 @@ nvim_lsp.tsserver.setup({
   on_attach = on_attach, 
   capabilities = capabilities
 })
-
+ 
 -- LSP Prevents inline buffer annotations
 vim.diagnostic.get()
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -642,9 +630,9 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = nil })
 end
-
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable=false, source = 'always'})]])
-
+-- 
+-- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable=false, source = 'always'})]])
+-- 
 -- Prettier function for formatter
 local prettier = function()
   return {
@@ -668,12 +656,9 @@ require("formatter").setup({
 })
  
 -- Runs Formatter on save
-vim.api.nvim_exec(
-  [[
+vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html : FormatWrite
+  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.ex,*.exs* : FormatWrite
 augroup END
-]],
-  true
-)
+]], true)
