@@ -49,7 +49,7 @@ xset r rate 200 90
 #   &
 
 # Set a nice background
-$HOME/.fehbg &
+# $HOME/.fehbg &
 
 # Network applet
 # if [ -x /usr/bin/nm-applet ] ; then
@@ -63,15 +63,12 @@ dropbox start &
 dunst &
 
 # Keyboard shortcut daemon
-sxhkd
+sxhkd &
 
 # USB auto mounting
 udiskie &
 
-# Compositor
-# picom &
+dwmblocks &
 
 # WM
-#exec xmonad
-exec dwm
-#exec i3
+exec startdwm

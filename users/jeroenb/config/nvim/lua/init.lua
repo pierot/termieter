@@ -73,6 +73,7 @@ require 'paq' {
 	'folke/tokyonight.nvim';
 	'norcalli/nvim-colorizer.lua';
 	--'gruvbox-community/gruvbox'
+	'kovetskiy/sxhkd-vim'
 }
 
 -------------------------------------------------
@@ -201,11 +202,11 @@ map('t', '<Esc>', '<C-\\><C-n>')
 -- -------------------------------------------------
 
 
--- -- nvim-colorizer
--- require'colorizer'.setup()
--- 
--- -- webdev icons
--- require('nvim-web-devicons').setup()
+-- nvim-colorizer
+require'colorizer'.setup()
+
+-- webdev icons
+require('nvim-web-devicons').setup()
 --
 -- surround
 -- require"surround".setup {mappings_style = "surround"}

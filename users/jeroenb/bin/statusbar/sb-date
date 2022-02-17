@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "^c#46d9ff^ $(date '+%Y %b %d (%a) %H:%M:%S')"
