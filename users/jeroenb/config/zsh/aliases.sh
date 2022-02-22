@@ -29,3 +29,5 @@ alias ga="git add $1"
 alias m='neomutt'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
+alias xmonadconf="vim ~/.config/xmonad/xmonad.hs"
+alias ssh='TERM="xterm-256color" kitty +kitten ssh'

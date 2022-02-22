@@ -36,25 +36,25 @@ fi
 xset r rate 200 90
 
 # Set up an icon tray
-trayer \
-  --edge top \
-  --align right \
-  --padding 6 \
-  --width 2 \
-  --transparent true \
-  --tint 0x000000 \
-  --alpha 0 \
-  --SetPartialStrut true \
-  --height 22 \
-  &
+# trayer \
+#   --edge top \
+#   --align right \
+#   --padding 6 \
+#   --width 2 \
+#   --transparent true \
+#   --tint 0x000000 \
+#   --alpha 0 \
+#   --SetPartialStrut true \
+#   --height 22 \
+#   &
 
 # Set a nice background
-$HOME/.fehbg &
+# $HOME/.fehbg &
 
 # Network applet
-if [ -x /usr/bin/nm-applet ] ; then
-   nm-applet --sm-disable &
-fi
+# if [ -x /usr/bin/nm-applet ] ; then
+#    nm-applet --sm-disable &
+# fi
  
 # Take a guess
 dropbox start &
@@ -62,12 +62,13 @@ dropbox start &
 # Notifications
 dunst &
 
+# Keyboard shortcut daemon
+sxhkd &
+
 # USB auto mounting
 udiskie &
 
-# Compositor
-# picom &
+dwmblocks &
 
 # WM
-exec xmonad
-#exec i3
+exec startdwm
