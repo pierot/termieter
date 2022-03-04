@@ -1,0 +1,24 @@
+#!/bin/sh
+
+currdir=$(pwd)
+cd ~/Dropbox/repo-backups
+
+dirname=github-backup-$(date "+%Y-%m-%d-%H-%M-%S")
+mkdir "$dirname"
+cd $dirname
+
+privateToken=$(pass github.com/access_token)
+userName=jeroenbourgois
+
+curl -H "Accept: application/vnd.github.nebula-preview+json" \
+    -H "Authorization: token $privateToken" \
+    "https://api.github.com/user/repos?visibility=all&affiliation=owner&per_page=200" \
+    | jq -r '.[] | .name' \
+    | while IFS= read projectName; do
+      echo
+        curl -H "Authorization: token $privateToken" -H "Accept: application/vnd.github.v3.raw" -L \
+         "https://api.github.com/repos/$userName/$projectName/zipball" --output $projectName.zip
+     done
+
+echo Done! All files downloaded here: $(pwd)
+cd $currdir

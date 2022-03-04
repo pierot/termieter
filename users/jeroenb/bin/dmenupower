@@ -5,10 +5,12 @@ case "$(readlink -f /sbin/init)" in
 	*) ctl='loginctl' ;;
 esac
 
-case "$(printf "🔒 lock\n🐻 hibernate\n💤 sleep\n🔃 reboot\n🖥️shutdown\n📺 display off" | dmenu -fn 'JetBrainsMono Nerd Font Mono-12' -nb '#000000' -i -p 'Action: ')" in
+msg="Locked"
+
+case "$(printf "🔒 lock\n🐻 hibernate\n💤 sleep\n🔃 reboot\n🖥️shutdown\n📺 display off\nTEST" | dmenu -fn 'JetBrainsMono Nerd Font Mono-12' -nb '#000000' -i -p 'Action: ')" in
 	'🔒 lock') slock ;;
-	'🐻 hibernate') slock $ctl hibernate ;;
-	'💤 sleep') slock $ctl suspend -i;;
+	'🐻 hibernate') slock -m $msg $ctl hibernate ;;
+	'💤 sleep') slock -m $msg $ctl suspend -i ;;
 	'🔃 reboot') $ctl reboot ;;
 	'🖥️shutdown') $ctl poweroff ;;
 	'📺 display off') xset dpms force off ;;

@@ -35,6 +35,12 @@ if have bat; then
   alias cat="bat"
 fi
 
+# Neovim/Vim
+if have nvim; then
+  alias vimd="cd ~/.config/nvim"
+  alias vime="vim ~/.config/nvim/lua/init.lua"
+fi
+
 alias dev="cd $HOME/Work/"
 alias dropbox="cd $DROPBOX"
 alias db="cd $DROPBOX"

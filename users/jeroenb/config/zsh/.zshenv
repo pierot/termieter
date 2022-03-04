@@ -33,6 +33,10 @@ if [ -d "$TRMU/bin" ] ;
   then PATH="$TRMU/bin:$PATH"
 fi
 
+if [ -d "$TRMU/bin/statusbar" ] ;
+  then PATH="$TRMU/bin/statusbar:$PATH"
+fi
+
 if [ -d "$HOME/go" ] ;
   then PATH="$HOME/go/bin:$PATH"
 fi

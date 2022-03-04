@@ -1,0 +1,29 @@
+super + o ; {w,t,m,f}
+	{firefox,thunderbird,spotify,pcmanfm}
+
+super + o; s
+  slack &
+
+super + s; s
+  sudo systemctl suspend
+
+super + Pause
+  sudo systemctl suspend
+ 
+super + shift + e
+  dmenupower 
+
+Print
+  scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
+super + Print
+  scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
+super m; p
+  playerctl previous
+
+super m; n
+  playerctl next
+
+super m; space
+  playerctl play-pause
