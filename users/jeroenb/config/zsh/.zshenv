@@ -43,4 +43,8 @@ fi
 
 export PATH="$PATH:$HOME/go/bin"
 
+# fly
+export FLYCTL_INSTALL="/home/jeroen/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
 . $TRMU/bin/z.sh

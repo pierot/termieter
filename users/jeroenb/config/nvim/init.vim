@@ -6,4 +6,14 @@
 " nvim lua init
 lua print("Jack + Joe rocks!")
 lua require('impatient')
+" order matters
 lua require('init')
+lua require('plugins')
+lua require('setup.lsp')
+lua require('setup.nvimtree')
+lua require('setup.emmet')
+lua require('setup.lualine')
+lua require('setup.telescope')
+lua require('setup.treesitter')
+lua require('setup.snippets')
+lua require('setup.formatter')
