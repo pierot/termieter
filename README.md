@@ -2,7 +2,7 @@
 
 Run following command:
 
-`bash <( curl -s https://raw.github.com/pierot/termieter/master/install )`
+`bash <( curl -s https://raw.githubusercontent.com/pierot/termieter/master/install )`
 
 The install script can receive some parameters, as shown in its help:
 
@@ -16,7 +16,7 @@ The install script can receive some parameters, as shown in its help:
 
   Remote usage:
 
-    bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh  ) [-d '.termieter']
+    bash <( curl -s https://raw.githubusercontent.com/pierot/termieter/master/install ) [-d '.termieter']
 ```
 
 # Vim config

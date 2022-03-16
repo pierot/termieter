@@ -179,7 +179,7 @@ map('n', '<c-k>', '<c-w>k')
 map('n', '<c-h>', '<c-w>h')
 map('n', '<c-l>', '<c-w>l')
 
-map('n', '<ilent> <Tab><Tab>', '<C-w>w')             -- Switch between windows by hitting <Tab> twice
+map('n', '<silent> <Tab><Tab>', '<C-w>w')             -- Switch between windows by hitting <Tab> twice
 map('n', '<leader><Tab>', '<c-^>')                    -- Switch between last two files
 
 map('','+', '3<c-w>>')                                -- Enlarge splits
@@ -197,7 +197,7 @@ cmd 'au BufNewFile,BufRead *.ex,*.exs,*.eex set filetype=elixir'
 
 -- Formatting
 cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
--- cmd 'autocmd BufWritePost *.js,*.jsx,*.tsx,*.ts silent :!prettier --stdin-filepath %' 
+-- cmd 'autocmd BufWritePost *.js,*.jsx,*.tsx,*.ts silent :!prettier --stdin-filepath %'
 -- cmd 'autocmd BufWritePost *.css,*.scss,*.json silent :!prettier --stdin-filepath %'
 
 -------------------------------------------------

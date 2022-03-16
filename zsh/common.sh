@@ -36,8 +36,8 @@ if have nvim; then
   alias vim="nvim"
   alias vi="nvim"
   alias vimdiff='nvim -d'
-  alias vimd="cd ~/.config/nvim"
-  alias vime="vim ~/.config/nvim/lua/init.lua"
+  alias vimd="cd ~/.vim"
+  alias vime="vim ~/.vim"
 else
   alias vimd="cd ~/.vim"
   alias vime="cd ~/.vim; vim ."
