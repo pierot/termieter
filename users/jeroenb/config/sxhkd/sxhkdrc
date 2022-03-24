@@ -13,6 +13,9 @@ super + Pause
 super + shift + e
   dmenupower 
 
+super + shift + e; r
+  sudo systemctl reboot 
+
 Print
   scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
