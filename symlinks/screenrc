@@ -6,12 +6,12 @@
 # --------------
 #
 # 	screen -ls will list the current screen sessions running on a machine.
-# 
+#
 # In-session Screen Usage
 # -----------------------
 #
 # 	/d 	detach a session.
-# 	/" 	show all the current shells. Use the up/down cursor keys and then press enter to select a shell. 
+# 	/" 	show all the current shells. Use the up/down cursor keys and then press enter to select a shell.
 # 	/S	Split (then use C-tab, C-<num>)
 # 	/<tab>	Move between splits
 # 	/Q	Un-Split
@@ -26,8 +26,6 @@ shell -${SHELL}
 defutf8 on                                                               # make sure to use utf-8
 
 escape ^Zz                                                               # Instead of Control-a, make the escape/command character be Control-z (Ctrl-A is already a BASH command)
-
-# autodetach on 			                                                     # Autodetach session on hangup instead of terminating screen completely
 
 startup_message off 		                                                 # Turn off the splash screen
 
