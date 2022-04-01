@@ -36,3 +36,6 @@
 [alias]
 [pull]
 	rebase = false
+[gui]
+	fontui = -family \"Nimbus Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Nimbus Mono PS\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0

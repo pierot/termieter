@@ -17,7 +17,9 @@ text/calendar=userapp-Thunderbird-638JD1.desktop
 application/x-extension-ics=userapp-Thunderbird-638JD1.desktop
 x-scheme-handler/webcals=userapp-Thunderbird-638JD1.desktop
 image/jpeg=feh.desktop
+image/png=feh.desktop
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
+application/pdf=org.gnome.Evince.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;

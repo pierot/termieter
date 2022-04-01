@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+echoo() {
+  printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $1
+}
+
 # Remember to put this in your .zshenv file
 # export ZDOTDIR=$HOME/.config/zsh
 
@@ -11,7 +15,6 @@ setopt notify                   # Report the status of background jobs immediate
 setopt extendedhistory          # Save timestamp in history
 setopt inc_append_history       # Appends every command to the history file once it is executed
 setopt share_history            # Reloads the history whenever you use it
-#stty stop undef		              # Disable ctrl-s to freeze terminal.
 
 typeset -U PATH                 # no duplicates in path
 
@@ -43,33 +46,6 @@ setopt EXTENDED_HISTORY         # record command start time
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh"
 
-# vi mode
-# bindkey -v
-# export KEYTIMEOUT=1
-
-# Use vim keys in tab complete menu:
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
-# bindkey -v '^?' backward-delete-char
-
-# Change cursor shape for different vi modes.
-# function zle-keymap-select () {
-#     case $KEYMAP in
-#         vicmd) echo -ne '\e[1 q';;      # block
-#         viins|main) echo -ne '\e[5 q';; # beam
-#     esac
-# }
-# zle -N zle-keymap-select
-# zle-line-init() {
-#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-#     echo -ne "\e[5 q"
-# }
-# zle -N zle-line-init
-# echo -ne '\e[5 q' # Use beam shape cursor on startup.
-# preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
 # Common settings shared with termieter (Pieter)
 source $TRM/zsh/common.sh
 
@@ -85,10 +61,11 @@ prompt pure
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
-bindkey -s '^q' 'bc -lq\n'
+bindkey '^i' edit-command-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+
+# force emacs style keybindings...
+bindkey -e

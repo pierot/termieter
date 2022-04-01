@@ -59,6 +59,8 @@ users/jeroenb/config/vlc
 users/jeroenb/config/Cypress
 users/jeroenb/config/gitui
 users/jeroenb/config/composer
+users/jeroenb/config/cef_user_data
+users/jeroenb/config/gtk-3.0/bookmarks
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
