@@ -7,8 +7,9 @@
 # Update Elixir-LS
 cd /usr/local/share/elixir-ls
 git switch master
-git fetch upstream
-git merge upstream/master --ff
+git fetch origin
+git pull origin
+git merge origin/master --ff
 
 # Build updated Elixir-LS
 rm -rf /rel
