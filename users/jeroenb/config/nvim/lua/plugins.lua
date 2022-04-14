@@ -38,7 +38,7 @@ require 'paq' {
 	'hrsh7th/vim-vsnip';                             -- snippets
 	'hrsh7th/vim-vsnip-integ';                       -- snippets
 	'rafamadriz/friendly-snippets';                  -- snippets
-	{'nvim-treesitter/nvim-treesitter',  run = ':TSUpdate'};               -- treesitter, code highlighting
+	{'nvim-treesitter/nvim-treesitter'};             -- treesitter, code highlighting
 	'nvim-lualine/lualine.nvim';
 
 	-- Telescope
