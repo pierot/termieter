@@ -60,7 +60,7 @@ zstyle ':completion:*' use-cache yes
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # Colors for ls and autocompletion
-eval $( dircolors -b $ZSH/../LS_COLORS )
+eval $( gdircolors -b $ZSH/../LS_COLORS )
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
