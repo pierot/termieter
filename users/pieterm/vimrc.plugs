@@ -1,5 +1,5 @@
 " Theme for lightline
-Plug 'itchyny/landscape.vim'
+" Plug 'itchyny/landscape.vim'
 " Statusline
 Plug 'itchyny/lightline.vim'
 " tComment
@@ -7,4 +7,6 @@ Plug 'vim-scripts/tComment'
 " Rainbow parentheses
 Plug 'luochen1990/rainbow'
 
-Plug 'kyoz/purify', { 'rtp': 'vim' }
+" Plug 'kyoz/purify', { 'rtp': 'vim' }
+" Plug 'NLKNguyen/papercolor-theme'
+Plug 'joshdick/onedark.vim'

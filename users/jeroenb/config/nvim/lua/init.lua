@@ -121,3 +121,4 @@ u.map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preser
 -- cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
  
 u.map('t', '<Esc>', '<C-\\><C-n>')
+
