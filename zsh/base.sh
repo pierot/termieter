@@ -101,18 +101,6 @@ fi
 alias hosts='sudo vim /etc/hosts'
 alias m='mosh'
 
-if have gsed; then
-  alias sed='gsed'
-fi
-
-if have ccat; then
-  alias cat='ccat'
-fi
-
-if have gdircolors; then
-  alias dircolors='gdircolors'
-fi
-
 if have nvim; then
   export EDITOR=nvim
   export SVN_EDITOR='nvim'
@@ -136,11 +124,6 @@ if [[ $OS == 'OSX' ]]; then
 
   # Sleepimage
   alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
-
-  # APACHE
-  # alias apache-vhosts='sudo vim /usr/local/etc/httpd/extra/httpd-vhosts.conf'
-  # alias apache-config='sudo vim /usr/local/etc/httpd/httpd.conf'
-  # alias php-error-tail='tail -f /usr/local/var/log/httpd/error_log'
 fi
 
 ##########################################################
@@ -167,19 +150,6 @@ function connect_traefik() {
 	echo "http://localhost:9446"
 	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
 }
-
-# Ruby
-# if have rbenv; then
-#   eval "$(rbenv init -)"
-# else
-#   if [ -s "~/.rbenv/bin" ]; then
-#     export PATH="$PATH:$HOME/.rbenv/bin"
-#     eval "$(rbenv init -)"
-#   elif [ -s "/usr/local/rbenv/bin" ]; then
-#     export PATH="$PATH:/usr/local/rbenv/bin"
-#     eval "$(rbenv init -)"
-#   fi
-# fi
 
 export PATH="$PATH:/Library/Ruby/Gems/2.3.0"
 
