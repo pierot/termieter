@@ -89,7 +89,14 @@ capabilities.textDocument.codeAction = {
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 -- Elixir
-local path_to_elixirls = vim.fn.expand("/home/jeroen/.local/share/elixir-ls/release/language_server.sh")
+local os = os.getenv("OS")
+local path_to_elixirls = ""
+if(os == "OSX") 
+then
+path_to_elixirls = vim.fn.expand("/Users/jeroenb/.local/share/elixir-ls/release/language_server.sh")
+else
+path_to_elixirls = vim.fn.expand("/home/jeroen/.local/share/elixir-ls/release/language_server.sh")
+end
 
 -- Setup
 nvim_lsp.elixirls.setup({
