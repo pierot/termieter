@@ -1,21 +1,18 @@
 local ts = require('nvim-treesitter.configs')
 ts.setup({
-  ensure_installed = {
-    "javascript", "typescript", "tsx", "jsdoc", "jsonc",
-    "html", "css", "scss", "json", "toml", "yaml",
-    "lua", "query", "dockerfile", "php", 
-    "haskell", "c", "bash",
-    "elixir", "heex",
-  },
+  ensure_installed = "maintained",
+  sync_install = false,
+  ignore_install = { },
   highlight = {
-    enable = true
+    enable = true,
+    diable = { }
   },
   -- highlight = {enable = {enabled = true, use_languagetree = true}},
   indent = {
     enable = true
   },
   textobjects = {
-    enable = true
+    enable = true,
   },
   rainbow = {
     enable = true,

@@ -31,14 +31,18 @@ require 'paq' {
 	'elixir-editors/vim-elixir';                     -- correct commentstring and other percs
 
 	'neovim/nvim-lspconfig';
-	'hrsh7th/cmp-buffer';
-	'hrsh7th/cmp-nvim-lsp';                          -- autocomplete
-	'hrsh7th/cmp-vsnip';
+
 	'hrsh7th/nvim-cmp';                              -- autocomplete
+	'hrsh7th/cmp-buffer';
+	'hrsh7th/cmp-path';
+	'hrsh7th/cmp-cmdline';
+	'hrsh7th/cmp-nvim-lsp';              
+
+	'hrsh7th/cmp-vsnip';                             -- snippets
 	'hrsh7th/vim-vsnip';                             -- snippets
 	'hrsh7th/vim-vsnip-integ';                       -- snippets
 	'rafamadriz/friendly-snippets';                  -- snippets
-	{'nvim-treesitter/nvim-treesitter'};             -- treesitter, code highlighting
+
 	'nvim-lualine/lualine.nvim';
 
 	-- Telescope
@@ -56,12 +60,14 @@ require 'paq' {
 	'norcalli/nvim-colorizer.lua';
 	'gruvbox-community/gruvbox';
 	'kovetskiy/sxhkd-vim';
+
+	{'nvim-treesitter/nvim-treesitter'};             -- treesitter, code highlighting, last
 }
 
 -- all small plugins that need nothing more than a simple
 -- setup are setup here
 require'colorizer'.setup()
 require('nvim-web-devicons').setup()
-require('pears').setup()                    -- Auto pairs
-vim.g.ackprg = 'rg --vimgrep'                   -- ack
+require('pears').setup()                      -- Auto pairs
+vim.g.ackprg = 'rg --vimgrep'                 -- ack
 u.map('n', '<leader>gs', '<cmd>Git<CR>')      -- fugitive
