@@ -25,6 +25,7 @@ macro index,pager A "<save-message>=jackjoe/archive<enter>" "Archive Message"
 color status yellow default
  
 # Mailboxes
+unmailboxes *
 named-mailboxes "JACK+JOE ==============" "+jackjoe/INBOX"
 mailboxes +jackjoe/INBOX \
           +jackjoe/archive \

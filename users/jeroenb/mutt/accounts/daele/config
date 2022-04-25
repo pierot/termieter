@@ -25,6 +25,7 @@ macro index,pager A "<save-message>=daele/archive<enter>" "Archive Message"
 color status cyan default
  
 # Mailboxes
+unmailboxes *
 named-mailboxes "DAELE    ==============" "+daele/INBOX"
 mailboxes +daele/INBOX \
           +daele/Archive \

@@ -23,44 +23,44 @@ Inbox ~/Dropbox/mail/jackjoe/INBOX
 SubFolders Verbatim
 
 Channel jackjoe-inbox
-Master :jackjoe-remote:"INBOX"
-Slave :jackjoe-local:INBOX
+Far :jackjoe-remote:"INBOX"
+Near :jackjoe-local:INBOX
 Create Both
 Expunge Both
 
 Channel jackjoe-archive
-Master :jackjoe-remote:"[Gmail]/All Mail"
-Slave :jackjoe-local:archive
+Far :jackjoe-remote:"[Gmail]/All Mail"
+Near :jackjoe-local:archive
 Create Both
 Expunge Both
 
 Channel jackjoe-drafts
-Master :jackjoe-remote:"[Gmail]/Drafts"
-Slave :jackjoe-local:drafts
+Far :jackjoe-remote:"[Gmail]/Drafts"
+Near :jackjoe-local:drafts
 Create Both
 Expunge Both
 
 Channel jackjoe-sent
-Master :jackjoe-remote:"[Gmail]/Sent Mail"
-Slave :jackjoe-local:sent
+Far :jackjoe-remote:"[Gmail]/Sent Mail"
+Near :jackjoe-local:sent
 Create Both
 Expunge Both
 
 Channel jackjoe-spam
-Master :jackjoe-remote:"[Gmail]/Spam"
-Slave :jackjoe-local:junk
+Far :jackjoe-remote:"[Gmail]/Spam"
+Near :jackjoe-local:junk
 Create Both
 Expunge Both
 
 Channel jackjoe-starred
-Master :jackjoe-remote:"[Gmail]/Starred"
-Slave :jackjoe-local:starred
+Far :jackjoe-remote:"[Gmail]/Starred"
+Near :jackjoe-local:starred
 Create Both
 Expunge Both
 
 Channel jackjoe-trash
-Master :jackjoe-remote:"[Gmail]/Trash"
-Slave :jackjoe-local:trash
+Far :jackjoe-remote:"[Gmail]/Trash"
+Near :jackjoe-local:trash
 Create Both
 Expunge Both
 
