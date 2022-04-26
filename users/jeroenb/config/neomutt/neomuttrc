@@ -146,7 +146,7 @@ set reply_to                         # reply to Reply to: field
 set text_flowed
 
 # Colors ---------------------------------------------
-# source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
+source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
 
 # Pager View Options
 set pager_index_lines = 10
@@ -168,7 +168,7 @@ set sidebar_divider_char = ' | '
 set sidebar_indent_string = '  ''
 # set sidebar_format = " %B %* [%?N?%N / ?%S]"
 # set sidebar_folder_indent = true
-set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_format = "%D%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
 
 # Macros for switching accounts
