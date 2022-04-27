@@ -29,6 +29,7 @@ let g:onedark_color_overrides = {
 \ "white": { "gui": "#e2e4e9", "cterm": "145", "cterm16": "15" },
 \ "blue": { "gui": "#32a4ec", "cterm": "39", "cterm16": "4" },
 \ "red": { "gui": "#f96874", "cterm": "204", "cterm16": "1" },
+\ "dark_red": { "gui": "#eb6559", "cterm": "196", "cterm16": "9" },
 \ "green": { "gui": "#a0e470", "cterm": "114", "cterm16": "2" },
 \ "yellow": { "gui": "#e3d846", "cterm": "180", "cterm16": "3" },
 \ "purple": { "gui": "#d375f0", "cterm": "170", "cterm16": "5" },
