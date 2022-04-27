@@ -1,6 +1,12 @@
 local ts = require('nvim-treesitter.configs')
 ts.setup({
-  ensure_installed = "maintained",
+  ensure_installed = {
+    "javascript", "typescript", "tsx", "jsdoc", "jsonc",
+    "html", "css", "scss", "json", "toml", "yaml",
+    "lua", "query", "dockerfile", "php", 
+    "haskell", "c", "bash",
+    "elixir", "heex",
+  },
   sync_install = false,
   ignore_install = { },
   highlight = {
