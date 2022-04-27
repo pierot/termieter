@@ -154,6 +154,18 @@ if have fzf; then
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
+if have gsed; then
+  alias sed='gsed'
+fi
+
+if have ccat; then
+  alias cat='ccat'
+fi
+
+if have gdircolors; then
+  alias dircolors='gdircolors'
+fi
+
 ##########################################################
 
 # ASDF

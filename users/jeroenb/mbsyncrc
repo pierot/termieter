@@ -2,75 +2,76 @@
 ##### Account Jack + Joe ########
 #################################
 
-# IMAPAccount jackjoe
-# Host imap.gmail.com
-# User jeroen@jackjoe.be
-# PassCmd "security find-internet-password -s 'imap.gmail.com' -a 'jeroen@jackjoe.be' -w"
-# AuthMechs LOGIN
-# SSLType IMAPS
-# SSLVersions TLSv1.2
-# # CertificateFile ~/dotfiles/office/certificates.crt
+IMAPAccount jackjoe
+Host imap.gmail.com
+User jeroen@jackjoe.be
+PassCmd "~/.termieter/users/jeroenb/bin/muttpwd email/jeroen@jackjoe.be/imap"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+# CertificateFile ~/dotfiles/office/certificates.crt
 # CertificateFile /usr/local/etc/openssl/cert.pem
-#
-# # Remote storage
-# IMAPStore jackjoe-remote
-# Account jackjoe
-#
-# # Local storage
-# MaildirStore jackjoe-local
-# Path ~/Mail/jackjoe/
-# Inbox ~/Mail/jackjoe/INBOX
-#
-# Channel jackjoe-inbox
-# Master :jackjoe-remote:"INBOX"
-# Slave :jackjoe-local:INBOX
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-archive
-# Master :jackjoe-remote:"[Gmail]/All Mail"
-# Slave :jackjoe-local:archive
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-drafts
-# Master :jackjoe-remote:"[Gmail]/Drafts"
-# Slave :jackjoe-local:drafts
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-sent
-# Master :jackjoe-remote:"[Gmail]/Sent Mail"
-# Slave :jackjoe-local:sent
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-spam
-# Master :jackjoe-remote:"[Gmail]/Spam"
-# Slave :jackjoe-local:junk
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-starred
-# Master :jackjoe-remote:"[Gmail]/Starred"
-# Slave :jackjoe-local:starred
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-trash
-# Master :jackjoe-remote:"[Gmail]/Trash"
-# Slave :jackjoe-local:trash
-# Create Both
-# Expunge Both
-#
-# Group jackjoe
-# Channel jackjoe-inbox
-# Channel jackjoe-archive
-# Channel jackjoe-starred
-# Channel jackjoe-drafts
-# Channel jackjoe-sent
-# Channel jackjoe-trash
-# Channel jackjoe-junk
+
+# Remote storage
+IMAPStore jackjoe-remote
+Account jackjoe
+
+# Local storage
+MaildirStore jackjoe-local
+Path ~/Dropbox/mail/jackjoe/
+Inbox ~/Dropbox/mail/jackjoe/INBOX
+SubFolders Verbatim
+
+Channel jackjoe-inbox
+Far :jackjoe-remote:"INBOX"
+Near :jackjoe-local:INBOX
+Create Both
+Expunge Both
+
+Channel jackjoe-archive
+Far :jackjoe-remote:"[Gmail]/All Mail"
+Near :jackjoe-local:archive
+Create Both
+Expunge Both
+
+Channel jackjoe-drafts
+Far :jackjoe-remote:"[Gmail]/Drafts"
+Near :jackjoe-local:drafts
+Create Both
+Expunge Both
+
+Channel jackjoe-sent
+Far :jackjoe-remote:"[Gmail]/Sent Mail"
+Near :jackjoe-local:sent
+Create Both
+Expunge Both
+
+Channel jackjoe-spam
+Far :jackjoe-remote:"[Gmail]/Spam"
+Near :jackjoe-local:junk
+Create Both
+Expunge Both
+
+Channel jackjoe-starred
+Far :jackjoe-remote:"[Gmail]/Starred"
+Near :jackjoe-local:starred
+Create Both
+Expunge Both
+
+Channel jackjoe-trash
+Far :jackjoe-remote:"[Gmail]/Trash"
+Near :jackjoe-local:trash
+Create Both
+Expunge Both
+
+Group jackjoe
+Channel jackjoe-inbox
+Channel jackjoe-archive
+Channel jackjoe-starred
+Channel jackjoe-drafts
+Channel jackjoe-sent
+Channel jackjoe-trash
+Channel jackjoe-junk
 
 #################################
 ####### Account DAELE  ##########
@@ -79,7 +80,7 @@
 IMAPAccount daele
 Host mail.iamjack.be
 User jeroen@daele.be
-PassCmd "~/.termieter/users/jeroenb/bin/muttpwd imap"
+PassCmd "~/.termieter/users/jeroenb/bin/muttpwd email/jeroen.daele.be/imap"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1.2
@@ -92,8 +93,9 @@ Account daele
 
 # Local storage
 MaildirStore daele-local
-Path ~/mail/daele/
-Inbox ~/mail/daele/INBOX
+Path ~/Dropbox/mail/daele/
+Inbox ~/Dropbox/mail/daele/INBOX
+SubFolders Verbatim
 
 Channel daele-inbox
 Far :daele-remote:

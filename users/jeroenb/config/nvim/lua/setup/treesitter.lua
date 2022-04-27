@@ -7,15 +7,18 @@ ts.setup({
     "haskell", "c", "bash",
     "elixir", "heex",
   },
+  sync_install = false,
+  ignore_install = { },
   highlight = {
-    enable = true
+    enable = true,
+    diable = { }
   },
   -- highlight = {enable = {enabled = true, use_languagetree = true}},
   indent = {
     enable = true
   },
   textobjects = {
-    enable = true
+    enable = true,
   },
   rainbow = {
     enable = true,

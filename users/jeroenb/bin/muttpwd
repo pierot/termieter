@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  pass email/jeroen.daele.be/$1 
+  pass $1 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   security find-internet-password -s 'mail.iamjack.be' -a 'jeroen@daele.be' -w
 else

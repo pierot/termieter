@@ -12,21 +12,23 @@ from jeroen@daele.be
 tls on
 tls_starttls on
 logfile ~/.msmtp.log
+passwordeval   "pass email/jeroen.daele.be/smtp | head -n1"
 tls_trust_file ~/.termieter/users/jeroenb/mutt/certs/Certificates.pem
-#
+
 # keychain file
 # Name:     mail.iamjack.be
 # Kind:     Internet password
 # Account:  jeroen@daele.be
 # Where:    smtp://mail.iamjack.be
 
-# account jackjoe
-# host smtp.gmail.com
-# port 465
-# protocol smtp
-# auth on
-# user jeroen@jackjoe.be
-# from jeroen@jacjoe.be
-# tls on
-# tls_starttls off
-# tls_trust_file ~/.termieter/users/jeroenb/mutt/certs/Certificates.pem
+account jackjoe
+host smtp.gmail.com
+port 465
+protocol smtp
+auth on
+user jeroen@jackjoe.be
+from jeroen@jacjoe.be
+passwordeval   "pass email/jeroen@jackjoe.be/smtp | head -n1"
+tls on
+tls_starttls off
+tls_trust_file ~/.termieter/users/jeroenb/mutt/certs/Certificates.pem

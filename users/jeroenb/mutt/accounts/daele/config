@@ -3,6 +3,7 @@
 set from      = "Jeroen Bourgois <jeroen@daele.be>"
 set sendmail  = "/usr/bin/msmtp -a daele"
 set signature = $TRM/users/jeroenb/mutt/accounts/daele/signature
+set mbox_type = Maildir
 set copy      = yes
 set delete
 
@@ -15,24 +16,25 @@ set record    = "+daele/Sent"
 
 # Macros
 macro index,pager A "<save-message>=daele/archive<enter>" "Archive Message"
-macro index,pager !  <save-message>=daele/spam<enter><enter> "Report spam"
-macro index gi "<change-folder>=daele/INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=daele/archive<enter>" "Go to all mail"
-macro index gd "<change-folder>=daele/drafts<enter>" "Go to drafts"
-folder-hook +daele/INBOX 'macro index,pager y "<save-message>=daele/archive<enter><enter>" "Archive conversation"'
-
-color status yellow default
-
+# macro index,pager !  <save-message>=daele/spam<enter><enter> "Report spam"
+# macro index gi "<change-folder>=daele/INBOX<enter>" "Go to inbox"
+# macro index ga "<change-folder>=daele/archive<enter>" "Go to all mail"
+# macro index gd "<change-folder>=daele/drafts<enter>" "Go to drafts"
+# folder-hook +daele/INBOX 'macro index,pager y "<save-message>=daele/archive<enter><enter>" "Archive conversation"'
+ 
+color status cyan default
+ 
 # Mailboxes
+unmailboxes *
 named-mailboxes "DAELE    ==============" "+daele/INBOX"
-#mailboxes +daele/INBOX \
-#          +daele/Archive \
-#          +daele/Spam \
-#          +daele/Sent \
-#          +daele/Drafts \
-#          +daele/Trash \
-#
-## notmuch
-#set nm_default_uri="notmuch:////Users/jeroenb/Mail/daele" # path to the maildir
-#
-## folder-hook daele/* source $TRMU/mutt/accounts/daele/config
+mailboxes +daele/INBOX \
+          +daele/Archive \
+          +daele/Spam \
+          +daele/Sent \
+          +daele/Drafts \
+          +daele/Trash \
+
+# notmuch
+set nm_default_uri="notmuch:////Users/jeroenb/Mail/daele" # path to the maildir
+
+folder-hook daele/* source $TRMU/mutt/accounts/daele/config

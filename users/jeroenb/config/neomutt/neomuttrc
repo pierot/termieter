@@ -14,7 +14,6 @@ unset mark_old           # read/new is good enough for me
 set beep_new             # bell on new mails
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
-# set copy = no            # do not copy sent mail, Gmail smtp already does this.
 set arrow_cursor
 set mime_forward         # forward attachments
 set mime_forward_rest=yes
@@ -119,23 +118,18 @@ alternative_order text/plain text/enriched text/html
 
 # Pager Key Bindings ---------------------------------
 bind pager gg noop
-
 bind pager k  previous-line
 bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
-
 bind pager R  group-reply
 
 # View attachments properly.
 bind attach <return> view-mailcap
 bind attach <enter> view-mailcap
 
-# 
-#
-
 # Paths ----------------------------------------------
-set folder           = ~/mail                   # mailbox location
+set folder           = ~/Dropbox/mail           # mailbox location
 set alias_file       = $TRMU/mutt/alias         # where to store aliases
 set header_cache     = $TRMU/mutt/cache/headers # where to store headers
 set message_cachedir = $TRMU/mutt/cache/bodies  # where to store bodies
@@ -152,7 +146,15 @@ set reply_to                         # reply to Reply to: field
 set text_flowed
 
 # Colors ---------------------------------------------
-# source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
+source $TRM/users/jeroenb/mutt/colors/dracula.muttrc
+
+# Pager View Options
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
 
 # Account Settings -----------------------------------
 
@@ -166,74 +168,74 @@ set sidebar_divider_char = ' | '
 set sidebar_indent_string = '  ''
 # set sidebar_format = " %B %* [%?N?%N / ?%S]"
 # set sidebar_folder_indent = true
-set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_format = "%D%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
 
 # Macros for switching accounts
-# macro index <f2> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/jackjoe/config<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/daele/config<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/daele/config<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source $TRMU/mutt/accounts/jackjoe/config<enter><change-folder>!<enter>'
 
 folder-hook daele/*     source $TRMU/mutt/accounts/daele/config
-# folder-hook jackjoe/* source $TRMU/mutt/accounts/jackjoe/config
+folder-hook jackjoe/*   source $TRMU/mutt/accounts/jackjoe/config
 
 # default account
-source $TRMU/mutt/accounts/daele/config
-# # source $TRMU/mutt/accounts/jackjoe/config
+# source $TRMU/mutt/accounts/daele/config
+source $TRMU/mutt/accounts/jackjoe/config
 
-# Ctrl-R to mark all as read
+# Ctrl-r to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 # Sync email
 macro index,pager O "<shell-escape>mbsync -a<enter><shell-escape>notmuch new<enter>" "sync email"
 
-# Shared Macros --------------------------------------
+# # Shared Macros --------------------------------------
 
-# GMail Macros ---------------------------------------
-bind  editor <space> noop
-bind  index,pager c mail #Compose
-bind  generic     x  tag-entry		 # select conversation
-bind  index       x  tag-thread	   # select conversation
-bind  pager       x  tag-message   # select conversation
-bind  index,pager s  flag-message  # star a message
-bind  index,pager \# delete-thread # delete
-# bind  index,pager l  copy-message	 # label
-bind  index,pager V  save-message  # move to
-macro index,pager I  <set-flag>O	 "Mark as read"
-macro index,pager U  <clear-flag>O "Mark as unread"
+# # GMail Macros ---------------------------------------
+# bind  editor <space> noop
+# bind  index,pager c mail #Compose
+# bind  generic     x  tag-entry		 # select conversation
+# bind  index       x  tag-thread	   # select conversation
+# bind  pager       x  tag-message   # select conversation
+# bind  index,pager s  flag-message  # star a message
+# bind  index,pager \# delete-thread # delete
+# # bind  index,pager l  copy-message	 # label
+# bind  index,pager V  save-message  # move to
+# macro index,pager I  <set-flag>O	 "Mark as read"
+# macro index,pager U  <clear-flag>O "Mark as unread"
 
-bind index gi noop
-bind index gd noop
-bind index ga noop
-bind index gg noop
-bind index g noop
+# # prevent bind warning (https://neomutt.org/guide/configuration.html#bind-warnings)
+# bind index g  noop
+# bind index gi noop
+# bind index gd noop
+# bind index ga noop
+# bind index gg noop
+# bind index g noop
 
-# prevent bind warning (https://neomutt.org/guide/configuration.html#bind-warnings)
-bind index g  noop
-bind index gg first-entry
+# bind index gg first-entry
 
 # Save all attachments
 set pipe_decode = no
 macro pager s "<pipe-message> ripmime -i - -d ~/Downloads && rm -f ~/Downloads/textfile*" "Save all non-text attachments using ripmime"
-#macro attach s <save-entry><kill-line>~/Downloads/
+macro attach s <save-entry><kill-line>~/Downloads/
 
-# Search ---------------------------------------------
-macro index s "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/Mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+# # Search ---------------------------------------------
+# macro index s "<enter-command>unset wait_key<enter><shell-escape>$TRM/users/jeroenb/mutt/mutt-notmuch-py ~/Dropbox/mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
 
-# notmuch bindings
-bind pager \\ noop
-# bind index,pager \ noop
-macro index,pager \\\\ "<vfolder-from-query>" # looks up a hand made query
+# # notmuch bindings
+# bind pager \\ noop
+# # bind index,pager \ noop
+# macro index,pager \\\\ "<vfolder-from-query>" # looks up a hand made query
 
-# ctrl u searches for URLs
-macro pager \cu |urlview\n
+# # ctrl u searches for URLs
+# macro pager \cu |urlview\n
 
-# contacts
-# set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
-set query_command = "notmuch address %s"
-set query_format = "%5c %t %a %n %?e?(%e)?"
+# # contacts
+# # set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+# set query_command = "notmuch address %s"
+# set query_format = "%5c %t %a %n %?e?(%e)?"
 
-bind editor <Tab> complete-query
-bind editor ^T    complete
+# bind editor <Tab> complete-query
+# bind editor ^T    complete
 
 # status bar, date format, finding stuff etc.
 set status_chars = " *%A"
@@ -249,19 +251,11 @@ set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set send_charset = "utf-8:iso-8859-1:us-ascii"
 set charset = "utf-8"
 
-# Pager View Options
-set pager_index_lines = 10
-set pager_context = 3
-set pager_stop
-set menu_scroll
-set tilde
-unset markers
-
-# Force open in Firefox
-macro attach F \
-"\
-<enter-command>unset wait_key<enter>\
-<shell-escape>rm -f /tmp/mutt-attach<enter>\
-<save-entry><kill-line>/tmp/mutt-attach<enter>\
-<shell-escape>/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox /tmp/mutt-attach &<enter>\
-"
+# # Force open in Firefox
+# macro attach F \
+# "\
+# <enter-command>unset wait_key<enter>\
+# <shell-escape>rm -f /tmp/mutt-attach<enter>\
+# <save-entry><kill-line>/tmp/mutt-attach<enter>\
+# <shell-escape>/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox /tmp/mutt-attach &<enter>\
+# "
