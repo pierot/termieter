@@ -49,10 +49,9 @@ setxkbmap -option compose:paus
 #   --height 22 \
 #   &
 
-# Network applet
-# if [ -x /usr/bin/nm-applet ] ; then
-#    nm-applet --sm-disable &
-# fi
+# Network applet + wireless
+nm-applet &
+nmcli r wifi on &
 
 ~/.fehbg
  
