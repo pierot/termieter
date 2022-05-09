@@ -69,5 +69,5 @@ require 'paq' {
 require'colorizer'.setup()
 require('nvim-web-devicons').setup()
 require('pears').setup()                      -- Auto pairs
-vim.g.ackprg = 'rg --vimgrep'                 -- ack
+vim.g.ackprg = 'rg --vimgrep --pcre2'         -- ack
 u.map('n', '<leader>gs', '<cmd>Git<CR>')      -- fugitive
