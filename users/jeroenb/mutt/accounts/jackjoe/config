@@ -16,11 +16,11 @@ set record    = "+jackjoe/sent"
 
 # GMail Macros ---------------------------------------
 macro index,pager A "<save-message>=jackjoe/archive<enter>" "Archive Message"
-# macro index,pager !  <save-message>=jackjoe/spam<enter><enter> "Report spam"
-# macro index gi "<change-folder>=jackjoe/INBOX<enter>" "Go to inbox"
-# macro index ga "<change-folder>=jackjoe/archive<enter>" "Go to all mail"
-# macro index gd "<change-folder>=jackjoe/drafts<enter>" "Go to drafts"
-# folder-hook +jackjoe/INBOX 'macro index,pager y "<save-message>=jackjoe/archive<enter><enter>" "Archive conversation"'
+macro index,pager !  <save-message>=jackjoe/spam<enter><enter> "Report spam"
+macro index gi "<change-folder>=jackjoe/INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=jackjoe/archive<enter>" "Go to all mail"
+macro index gd "<change-folder>=jackjoe/drafts<enter>" "Go to drafts"
+folder-hook +jackjoe/INBOX 'macro index,pager y "<save-message>=jackjoe/archive<enter><enter>" "Archive conversation"'
  
 color status yellow default
  

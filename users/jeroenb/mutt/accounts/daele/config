@@ -16,11 +16,11 @@ set record    = "+daele/Sent"
 
 # Macros
 macro index,pager A "<save-message>=daele/archive<enter>" "Archive Message"
-# macro index,pager !  <save-message>=daele/spam<enter><enter> "Report spam"
-# macro index gi "<change-folder>=daele/INBOX<enter>" "Go to inbox"
-# macro index ga "<change-folder>=daele/archive<enter>" "Go to all mail"
-# macro index gd "<change-folder>=daele/drafts<enter>" "Go to drafts"
-# folder-hook +daele/INBOX 'macro index,pager y "<save-message>=daele/archive<enter><enter>" "Archive conversation"'
+macro index,pager !  <save-message>=daele/spam<enter><enter> "Report spam"
+macro index gi "<change-folder>=daele/INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=daele/archive<enter>" "Go to all mail"
+macro index gd "<change-folder>=daele/drafts<enter>" "Go to drafts"
+folder-hook +daele/INBOX 'macro index,pager y "<save-message>=daele/archive<enter><enter>" "Archive conversation"'
  
 color status cyan default
  
