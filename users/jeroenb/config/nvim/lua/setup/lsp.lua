@@ -104,15 +104,14 @@ nvim_lsp.elixirls.setup({
   on_attach = on_attach, 
   capabilities = capabilities,
   cmd = { path_to_elixirls },
-  --[[ settings = {
+  settings = {
     elixirLS = {
       fetchDeps = false,
       dialyzerFormat = "dialyxir_long",
-      dialyzerWarnOpts = {"error_handling", "no_behaviours", "no_contracts", "no_fail_call", "no_fun_app", "no_improper_lists", "no_match", "no_missing_calls", "no_opaque", "no_return", "no_undefined_callbacks", "no_unused", "underspecs", "unknown", "unmatched_returns", "overspecs"},
       dialyzerEnabled = true,
       suggestSpecs = true
     }
-  } ]]
+  }
 })
 
 nvim_lsp.tsserver.setup({ 
