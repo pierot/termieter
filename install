@@ -106,6 +106,8 @@ hash git 2>&- || { _error "I require git but it's not installed!"; exit 1; }
 
 ##################################################
 
+git config --global url."https://".insteadOf git://
+
 # Remove previous termieter installation if present at the same location as $install_dir
 cd ~
 
@@ -119,7 +121,7 @@ if [ "$update" -eq 0  ]; then
 
   _print "Cloning termieter.."
   if [ ! -d "$install_dir" ]; then
-    git clone -–depth 1 git://github.com/pierot/termieter.git "$install_dir"
+    git clone -q git://github.com/pierot/termieter.git "$install_dir"
   fi
 fi
 
@@ -196,38 +198,44 @@ if [ -d "$HOME/.config" ]; then
   rm -rf "$HOME/.config"
 fi
 
-ln -s "$install_dir/users/$USER/config" "$HOME/.config"
+ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
 
 ##################################################
 
 _print "Init paq-nvim (https://github.com/savq/paq-nvim)"
 
-# https://github.com/savq/paq-nvim
-git clone -–depth 1 https://github.com/savq/paq-nvim.git \
-    "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
+paq_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
+
+if [ -d "$paq_dir" ]; then
+  rm -rf "$paq_dir"
+fi
+
+git clone -q https://github.com/savq/paq-nvim.git $paq_dir
 
 ##################################################
 
-cd $install_dir
+if [ -d "$install_dir" ]; then
+  cd $install_dir
 
-_print "Init submodules"
+  _print "Init submodules"
 
-git submodule update --init -q
+  git submodule update --init -q
 
-_print "Init custom plugins"
+  _print "Init custom plugins"
 
-if [ ! -d "zsh/oh-my-zsh/custom/plugins" ]; then
-  mkdir "zsh/oh-my-zsh/custom/plugins"
-fi
+  if [ ! -d "zsh/oh-my-zsh/custom/plugins" ]; then
+    mkdir "zsh/oh-my-zsh/custom/plugins"
+  fi
 
-if [ ! -d "zsh/oh-my-zsh/functions" ]; then
-  mkdir "zsh/oh-my-zsh/functions"
-fi
+  if [ ! -d "zsh/oh-my-zsh/functions" ]; then
+    mkdir "zsh/oh-my-zsh/functions"
+  fi
 
-if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
-  _print "tmux-resurrect is already installed"
-else
-  git clone -–depth 1 https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
+  if [ -d "$install_dir/tmux/tmux-resurrect" ] ; then
+    _print "tmux-resurrect is already installed"
+  else
+    git clone -q https://github.com/tmux-plugins/tmux-resurrect $install_dir/tmux/tmux-resurrect
+  fi
 fi
 
 ##################################################
