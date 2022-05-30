@@ -20,9 +20,10 @@ require("formatter").setup({
 })
  
 -- Runs Formatter on save
+
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.ex,*.exs* FormatWrite
+  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.ex,*.exs,*.eex,*.leex FormatWrite
 augroup END
 ]], true)

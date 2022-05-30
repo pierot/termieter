@@ -21,6 +21,7 @@ require 'paq' {
 	'tpope/vim-fugitive'; 
 	'tpope/vim-repeat';
 	'neovimhaskell/haskell-vim';
+	'vim-test/vim-test';
 
 	'jeffkreeftmeijer/vim-numbertoggle';
 	'docunext/closetag.vim';
