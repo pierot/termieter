@@ -121,7 +121,7 @@ if [ "$update" -eq 0  ]; then
 
   _print "Cloning termieter.."
   if [ ! -d "$install_dir" ]; then
-    if ! (git clone -q git://github.com/pierot/termieter.git "$install_dir") then
+    if ! (git clone -q git@github.com:pierot/termieter.git "$install_dir") then
       _print "Cloning termieter from https.."
       git clone -q https://github.com/pierot/termieter.git "$install_dir"
     fi
