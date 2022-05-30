@@ -37,13 +37,15 @@ if have nvim; then
   alias vi="nvim"
   alias vimdiff='nvim -d'
   alias vimd="cd ~/.vim"
-  alias vime="vim ~/.vim"
+  alias vime="vim ~/.config/nvim"
 else
   alias vimd="cd ~/.vim"
   alias vime="cd ~/.vim; vim ."
   alias v='vim .'
   alias vi='vim'
 fi
+
+
 
 ##########################################################
 
