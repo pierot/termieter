@@ -119,7 +119,7 @@ if [ "$update" -eq 0  ]; then
 
   _print "Cloning termieter.."
   if [ ! -d "$install_dir" ]; then
-    git clone git://github.com/pierot/termieter.git "$install_dir"
+    git clone -–depth 1 git://github.com/pierot/termieter.git "$install_dir"
   fi
 fi
 
@@ -203,7 +203,7 @@ ln -s "$install_dir/users/$USER/config" "$HOME/.config"
 _print "Init paq-nvim (https://github.com/savq/paq-nvim)"
 
 # https://github.com/savq/paq-nvim
-git clone https://github.com/savq/paq-nvim.git \
+git clone -–depth 1 https://github.com/savq/paq-nvim.git \
     "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
 
 ##################################################
@@ -227,7 +227,7 @@ fi
 if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
   _print "tmux-resurrect is already installed"
 else
-  git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
+  git clone -–depth 1 https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
 fi
 
 ##################################################
