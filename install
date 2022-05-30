@@ -48,19 +48,19 @@ exit 0
 
 # Print helpers
 _print_h1() {
-  printf $COL_GREEN"\n🤴  $1"$COL_RESET
+  printf $COL_GREEN"🤴  $1\n"$COL_RESET
 }
 
 _print_h2() {
-  printf $COL_YELLOW"\n× $1"$COL_RESET
+  printf $COL_YELLOW"× $1\n"$COL_RESET
 }
 
 _print() {
-  printf "\n$1"
+  printf $COL_BLUE"$1\n"$COL_RESET
 }
 
 _error() {
-  _print $COL_RED"Error:\n$1\n"
+  _print $COL_RED"Error:\n\t$1\n"
 }
 
 _contains_element() {
