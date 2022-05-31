@@ -45,7 +45,10 @@ else
   alias vi='vim'
 fi
 
-
+# Podman
+if have podman; then
+  alias docker='podman'
+fi
 
 ##########################################################
 
@@ -102,6 +105,7 @@ git-status-all() {
 
 # Erlang / Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
+
 alias mho="source .env && mix hex.outdated"
 alias mdg="source .env && mix deps.get"
 alias mdu="source .env && mix deps.update"
@@ -153,6 +157,7 @@ if have fzf; then
   elif have ag; then
     export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
   fi
+
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
