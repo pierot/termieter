@@ -11,7 +11,6 @@ if have bat; then
 fi
 
 alias dev="cd $HOME/Work/"
-alias dropbox="cd $DROPBOX"
 alias db="cd $DROPBOX"
 alias invoicing="cd $IAMJACK/Income"
 alias iamjack="cd $IAMJACK"
@@ -25,9 +24,21 @@ alias df="df -h"
 alias free="free -m"
 alias pbcopy='xclip -selection clipboard'
 alias jctl="journalctl -p 3 -xb"               # get error messages from journalctl
-alias ga="git add $1"
 alias m='neomutt'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias xmonadconf="vim ~/.config/xmonad/xmonad.hs"
 alias ssh='TERM="xterm-256color" kitty +kitten ssh'
+
+# Git stuff
+alias gap='git add -p'
+alias gst='git status'
+alias ga="git add $1"
+
+alias gdoc='git add . && gcmm docs: add documentation'
+alias gmerge='git add . && gcmm chore: merge'
+alias gcompile='git add . && gcmm chore: compile'
+alias gbump='git add . && gcmm chore: bump versions'
+alias gcleanup='git add . && gcmm chore: cleanup'
+alias gfix='git add . && gcmm fix'
+alias gammend='git commit --amend --no-edit'

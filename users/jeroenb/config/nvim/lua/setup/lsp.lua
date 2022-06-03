@@ -34,10 +34,10 @@ local on_attach = function(client, bufnr)
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
-      buf_set_keymap("n", "<leader>cf",
+      buf_set_keymap("n", "<leader>f",
                       "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   elseif client.resolved_capabilities.document_range_formatting then
-      buf_set_keymap("n", "<leader>cf",
+      buf_set_keymap("n", "<leader>f",
                       "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
@@ -104,15 +104,14 @@ nvim_lsp.elixirls.setup({
   on_attach = on_attach, 
   capabilities = capabilities,
   cmd = { path_to_elixirls },
-  --[[ settings = {
+  settings = {
     elixirLS = {
       fetchDeps = false,
       dialyzerFormat = "dialyxir_long",
-      dialyzerWarnOpts = {"error_handling", "no_behaviours", "no_contracts", "no_fail_call", "no_fun_app", "no_improper_lists", "no_match", "no_missing_calls", "no_opaque", "no_return", "no_undefined_callbacks", "no_unused", "underspecs", "unknown", "unmatched_returns", "overspecs"},
       dialyzerEnabled = true,
       suggestSpecs = true
     }
-  } ]]
+  }
 })
 
 nvim_lsp.tsserver.setup({ 

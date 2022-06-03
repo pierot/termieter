@@ -63,5 +63,8 @@ export PATH="$TRMU/bin:$PATH"
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Rupa z
+. $HOME/.termieter/users/jeroenb/bin/z.sh
+
 # Local bin
 export PATH="/usr/local/opt/php@7.3/bin:$HOME/.local/bin:$PATH"

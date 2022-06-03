@@ -37,12 +37,17 @@ if have nvim; then
   alias vi="nvim"
   alias vimdiff='nvim -d'
   alias vimd="cd ~/.vim"
-  alias vime="vim ~/.vim"
+  alias vime="vim ~/.config/nvim"
 else
   alias vimd="cd ~/.vim"
   alias vime="cd ~/.vim; vim ."
   alias v='vim .'
   alias vi='vim'
+fi
+
+# Podman
+if have podman; then
+  alias docker='podman'
 fi
 
 ##########################################################
@@ -100,6 +105,7 @@ git-status-all() {
 
 # Erlang / Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
+
 alias mho="source .env && mix hex.outdated"
 alias mdg="source .env && mix deps.get"
 alias mdu="source .env && mix deps.update"
@@ -151,6 +157,7 @@ if have fzf; then
   elif have ag; then
     export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
   fi
+
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi

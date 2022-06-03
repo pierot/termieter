@@ -30,7 +30,7 @@ users/jeroenb/config/guvcview2
 users/jeroenb/config/arkrc
 users/jeroenb/config/kconf_updaterc
 users/jeroenb/config/kdeglobals
-users/jeroenb/config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+users/jeroenb/config/xfce4
 users/jeroenb/config/libreoffice
 users/jeroenb/config/filezilla
 users/jeroenb/config/fontforge
@@ -59,6 +59,7 @@ users/jeroenb/config/vlc
 users/jeroenb/config/Cypress
 users/jeroenb/config/gitui
 users/jeroenb/config/composer
+users/jeroenb/config/freeplane
 users/jeroenb/config/cef_user_data
 users/jeroenb/config/gtk-3.0/bookmarks
 

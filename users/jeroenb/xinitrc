@@ -49,11 +49,6 @@ setxkbmap -option compose:paus
 #   --height 22 \
 #   &
 
-# Network applet
-# if [ -x /usr/bin/nm-applet ] ; then
-#    nm-applet --sm-disable &
-# fi
-
 ~/.fehbg
  
 # Take a guess
@@ -61,6 +56,11 @@ dropbox start &
  
 # Notifications
 dunst &
+
+# Network applet + wireless (after dunst!)
+#nm-applet    2>&1 > /dev/null &
+[ -x /usr/bin/nm-applet ] && nm-applet &
+[ -x /usr/bin/nmcli ] && nmcli r wifi on &
 
 # Keyboard shortcut daemon
 sxhkd &

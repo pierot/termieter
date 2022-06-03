@@ -6,22 +6,6 @@ let g:rainbow_active = 1
 
 " == Colors ========================================================
 
-" colorscheme purify
-
-" let g:PaperColor_Theme_Options = {
-"   \   'theme': {
-"   \     'default.dark': {
-"   \       'override' : {
-"   \         'color01' : ['#1a1a1a', '234'],
-"   \         'color07' : ['#f2f2f2', '252']
-"   \       }
-"   \     }
-"   \   }
-"   \ }
-"
-" set background=dark
-" colorscheme PaperColor
-
 let g:onedark_color_overrides = {
 \ "background": { "gui": "#1a1a1a", "cterm": "235", "cterm16": "NONE" },
 \ "black": { "gui": "#1a1a1a", "cterm": "235", "cterm16": "NONE" },

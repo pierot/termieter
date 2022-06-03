@@ -48,19 +48,19 @@ exit 0
 
 # Print helpers
 _print_h1() {
-  printf $COL_GREEN"\n🤴  $1"$COL_RESET
+  printf $COL_GREEN"\n🤴  $1\n"$COL_RESET
 }
 
-_print_h2() {
-  printf $COL_YELLOW"\n× $1"$COL_RESET
+_print_info() {
+  printf $COL_YELLOW"× $1\n"$COL_RESET
 }
 
 _print() {
-  printf "\n$1"
+  printf $COL_BLUE"$1\n"$COL_RESET
 }
 
 _error() {
-  _print $COL_RED"Error:\n$1\n"
+  _print $COL_RED"Error:\n\t$1\n"
 }
 
 _contains_element() {
@@ -106,24 +106,34 @@ hash git 2>&- || { _error "I require git but it's not installed!"; exit 1; }
 
 ##################################################
 
+git config --global url."https://".insteadOf git://
+
 # Remove previous termieter installation if present at the same location as $install_dir
 cd ~
+
+_print_h1 "Install termieter"
 
 if [ "$update" -eq 0  ]; then
   _print "Checking for existing termieter installation.."
   if [ -d "$install_dir" ]; then
-    _print_h2 "Existing installation found, removing..."
+    _print_info "Existing installation found, removing..."
     rm -rf "$install_dir"
-    _print_h2 "Previous version removed"
+    _print_info "Previous version removed"
   fi
 
   _print "Cloning termieter.."
+  
   if [ ! -d "$install_dir" ]; then
-    git clone git://github.com/pierot/termieter.git "$install_dir"
+    if ! (git clone -q git@github.com:pierot/termieter.git "$install_dir") then
+      _print_info "Cloning termieter from https.."
+      git clone -q https://github.com/pierot/termieter.git "$install_dir"
+    fi
   fi
 fi
 
 ##################################################
+
+_print_h1 "Install user files"
 
 mkdir -p ~/.bash_backup
 
@@ -196,43 +206,51 @@ if [ -d "$HOME/.config" ]; then
   rm -rf "$HOME/.config"
 fi
 
-ln -s "$install_dir/users/$USER/config" "$HOME/.config"
+ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
 
 ##################################################
 
-_print "Init paq-nvim (https://github.com/savq/paq-nvim)"
+_print_h1 "Init paq-nvim (https://github.com/savq/paq-nvim)"
 
-# https://github.com/savq/paq-nvim
-git clone https://github.com/savq/paq-nvim.git \
-    "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
+paq_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
+
+if [ -d "$paq_dir" ]; then
+  rm -rf "$paq_dir"
+fi
+
+git clone -q https://github.com/savq/paq-nvim.git $paq_dir
 
 ##################################################
 
-cd $install_dir
+if [ -d "$install_dir" ]; then
+  cd $install_dir
 
-_print "Init submodules"
+  _print_h1 "Init submodules"
 
-git submodule update --init -q
+  git submodule update --init -q
 
-_print "Init custom plugins"
+  _print_h1 "Init custom plugins"
 
-if [ ! -d "zsh/oh-my-zsh/custom/plugins" ]; then
-  mkdir "zsh/oh-my-zsh/custom/plugins"
-fi
+  if [ ! -d "zsh/oh-my-zsh/custom/plugins" ]; then
+    mkdir "zsh/oh-my-zsh/custom/plugins"
+  fi
 
-if [ ! -d "zsh/oh-my-zsh/functions" ]; then
-  mkdir "zsh/oh-my-zsh/functions"
-fi
+  if [ ! -d "zsh/oh-my-zsh/functions" ]; then
+    mkdir "zsh/oh-my-zsh/functions"
+  fi
+  
+  _print_h1 "Init tmix-resurrect"
 
-if [ -d "$HOME/$install_dir/tmux/tmux-resurrect" ] ; then
-  _print "tmux-resurrect is already installed"
-else
-  git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/$install_dir/tmux/tmux-resurrect -q
+  if [ -d "$install_dir/tmux/tmux-resurrect" ] ; then
+    _print "tmux-resurrect is already installed"
+  else
+    git clone -q https://github.com/tmux-plugins/tmux-resurrect $install_dir/tmux/tmux-resurrect
+  fi
 fi
 
 ##################################################
 
 _print_h1 "Installation finished"
 _print " Do not forget to switch to zsh as the default shell"
-_print_h2 " \$ sudo chsh -s /bin/zsh $USER"
+_print_info " \$ sudo chsh -s /bin/zsh $USER"
 _print ""

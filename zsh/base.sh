@@ -16,15 +16,6 @@ have() {
   type "$1" &> /dev/null
 }
 
-# Create a data URL from a file
-dataurl() {
-  local mimeType=$(file -b --mime-type "$1")
-  if [[ $mimeType == text/* ]]; then
-    mimeType="${mimeType};charset=utf-8"
-  fi
-  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
-}
-
 if [[ $OS == 'OSX' ]]; then
   changeMac() {
     local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
@@ -141,15 +132,14 @@ function tn() {
 
 test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
 
-# for tmux: export 256color
-# [ -n "$TMUX" ] && export TERM=screen-256color
-
 ##########################################################
 
 function connect_traefik() {
 	echo "http://localhost:9446"
 	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
 }
+
+##########################################################
 
 export PATH="$PATH:/Library/Ruby/Gems/2.3.0"
 
