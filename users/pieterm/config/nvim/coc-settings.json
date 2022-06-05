@@ -35,6 +35,6 @@
     "elixir": "mix_format",
     "eelixir": "mix_format"
   },
-  "elixirLS.mixEnv": "dev",
+  "elixirLS.mixEnv": "test",
   "elixirLS.mixTarget": "test"
 }
