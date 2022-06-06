@@ -73,15 +73,15 @@ alias gcleanup='git add . && gcmm chore: cleanup'
 alias gfix='git add . && gcmm fix'
 alias gammend='git commit --amend --no-edit'
 
-function gpo() {
+gpo() {
   git pull origin $*
 }
 
-function gcmm() {
+gcmm() {
   gc -m "$*"
 }
 
-function gcm() {
+gcm() {
   gc -m "$*"
 }
 

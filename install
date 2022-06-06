@@ -122,7 +122,7 @@ if [ "$update" -eq 0  ]; then
   fi
 
   _print "Cloning termieter.."
-  
+
   if [ ! -d "$install_dir" ]; then
     if ! (git clone -q git@github.com:pierot/termieter.git "$install_dir") then
       _print_info "Cloning termieter from https.."
@@ -183,7 +183,7 @@ _back_install_user() {
   fi
 
   if [ -f "$install_dir/users/$USER/$1" ]; then
-    locals=("vimrc.plugs" "vimrc" "gvimrc" "gitconfig" "zshrc" "tmux.conf")
+    locals=("base.sh" "vimrc.plugs" "vimrc" "gvimrc" "gitconfig" "zshrc" "tmux.conf")
 
     if _contains_element "$1" "${locals[@]}"; then
       echo "local file $1"
@@ -238,7 +238,7 @@ if [ -d "$install_dir" ]; then
   if [ ! -d "zsh/oh-my-zsh/functions" ]; then
     mkdir "zsh/oh-my-zsh/functions"
   fi
-  
+
   _print_h1 "Init tmix-resurrect"
 
   if [ -d "$install_dir/tmux/tmux-resurrect" ] ; then
