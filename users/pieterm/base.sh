@@ -1,10 +1,10 @@
 export ICLOUD="~/Library/Mobile\ Documents/com~apple~CloudDocs"
 
-# if [ -d "~/Library/Mobile\ Documents/com\~apple\~CloudDocs" ]; then
+if [ -d "`eval echo ${ICLOUD//>}`" ]; then
   alias icloud="cd $ICLOUD"
   alias repos="cd $ICLOUD/Work/repos/"
   alias dev="cd $ICLOUD/Work/devel/"
-# fi
+fi
 
 export DROPBOX="~/Dropbox"
 
@@ -15,6 +15,7 @@ fi
 
 alias ap='ansible-playbook'
 
+# Login via root and no password
 dockr-mysql() {
   docker rm mysql
   docker run \
