@@ -29,6 +29,25 @@ dockr-mysql() {
     mysql:8.0.27
 }
 
+podman-mysql() {
+  # --security-opt label=disable \
+  # -u root \
+  # --privileged \
+    #--userns keep-id \
+  podman rm mysql
+  podman run \
+    --log-level=debug \
+    -d \
+    --rm \
+    -v "/Users/pieterm/Work/mysql/data":/var/lib/mysql \
+    -e MYSQL_ROOT_PASSWORD= \
+    -e MYSQL_ALLOW_EMPTY_PASSWORD=1 \
+    -p 3306:3306 \
+    --name mysql \
+    --platform linux/arm64 \
+    mysql:8.0.28-oracle
+}
+
 dockr-postgresql() {
   docker rm postgresql
   docker run \
