@@ -119,28 +119,6 @@ fi
 
 ##########################################################
 
-# TMUX
-alias tmux="tmux -2u"  # 2: for 256color u: to get rid of unicode rendering problem
-alias tk="tmux kill-server"
-alias ta="tmux attach-session -t $@"
-alias tl="tmux ls"
-
-function tn() {
-  tmux new -d -c "$PWD" -s "$*"
-  tmux attach-session -t $1
-}
-
-test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
-
-##########################################################
-
-function connect_traefik() {
-	echo "http://localhost:9446"
-	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
-}
-
-##########################################################
-
 export PATH="$PATH:/Library/Ruby/Gems/2.3.0"
 
 ##########################################################
