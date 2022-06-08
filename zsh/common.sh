@@ -106,10 +106,6 @@ gcmm() {
   gc -m "$*"
 }
 
-gcm() {
-  gc -m "$*"
-}
-
 git-status-all() {
   for gitdir in `find . -name .git`;
   do
