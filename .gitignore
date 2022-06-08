@@ -18,8 +18,7 @@ users/jeroenb/config/karabiner/automatic_backups
 users/jeroenb/config/weechat/logs/**
 users/jeroenb/config/weechat/weechat.log
 users/jeroenb/config/weechat/sec.conf
-users/jeroenb/config/vivaldi
-users/jeroenb/config/vivaldi-*
+users/jeroenb/config/vivaldi*
 users/jeroenb/config/BraveSoftware
 users/jeroenb/config/google-chrome*
 users/jeroenb/config/chromium
@@ -68,4 +67,5 @@ users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/lvim/**
 users/pieterm/config/com.corsair/**
-users/pieterm/config/wireshark/**
+users/pieterm/config/lnav/*history
+users/pieterm/config/lnav/*sample

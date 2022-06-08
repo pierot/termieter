@@ -16,15 +16,6 @@ have() {
   type "$1" &> /dev/null
 }
 
-# Create a data URL from a file
-dataurl() {
-  local mimeType=$(file -b --mime-type "$1")
-  if [[ $mimeType == text/* ]]; then
-    mimeType="${mimeType};charset=utf-8"
-  fi
-  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
-}
-
 if [[ $OS == 'OSX' ]]; then
   changeMac() {
     local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
@@ -32,6 +23,19 @@ if [[ $OS == 'OSX' ]]; then
     sudo ifconfig en0 down
     sudo ifconfig en0 up
     echo "Your new physical address is $mac"
+  }
+
+  tweakMac() {
+    # opening and closing Quick Look windows
+    defaults write -g QLPanelAnimationDuration -float 0
+
+    # sending messages and opening windows for replies
+    defaults write com.apple.Mail DisableSendAnimations -bool true
+    defaults write com.apple.Mail DisableReplyAnimations -bool true
+
+    # Keyrepeat
+    defaults write -g InitialKeyRepeat -int 12 # normal minimum is 15 (225 ms)
+    defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
   }
 else
   list-services() {
@@ -47,53 +51,6 @@ else
     sudo rm /var/cache/apt/archives/lock
     sudo rm /var/lib/dpkg/lock
   }
-fi
-
-##########################################################
-
-# OSX Defaults
-if [[ $OS == 'OSX' ]]; then
-  H=$(date +%H)
-
-  if [[ $H == 8 ]]; then
-    # opening and closing windows and popovers
-    defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
-    # smooth scrolling
-    defaults write -g NSScrollAnimationEnabled -bool false
-    # showing and hiding sheets, resizing preference windows, zooming windows
-    # float 0 doesn't work
-    defaults write -g NSWindowResizeTime -float 0.001
-    # opening and closing Quick Look windows
-    defaults write -g QLPanelAnimationDuration -float 0
-    # rubberband scrolling (doesn't affect web views)
-    defaults write -g NSScrollViewRubberbanding -bool false
-    # resizing windows before and after showing the version browser
-    # also disabled by NSWindowResizeTime -float 0.001
-    defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
-    # showing a toolbar or menu bar in full screen
-    defaults write -g NSToolbarFullScreenAnimationDuration -float 0
-    # scrolling column views
-    defaults write -g NSBrowserColumnAnimationSpeedMultiplier -float 0
-    # showing the Dock
-    defaults write com.apple.dock autohide-time-modifier -float 0
-    defaults write com.apple.dock autohide-delay -float 0
-    # showing and hiding Mission Control, command+numbers
-    defaults write com.apple.dock expose-animation-duration -float 0
-    # showing and hiding Launchpad
-    defaults write com.apple.dock springboard-show-duration -float 0
-    defaults write com.apple.dock springboard-hide-duration -float 0
-    # changing pages in Launchpad
-    defaults write com.apple.dock springboard-page-duration -float 0
-    # at least AnimateInfoPanes
-    defaults write com.apple.finder DisableAllAnimations -bool true
-    # sending messages and opening windows for replies
-    defaults write com.apple.Mail DisableSendAnimations -bool true
-    defaults write com.apple.Mail DisableReplyAnimations -bool true
-
-    # Keyrepeat
-    defaults write -g InitialKeyRepeat -int 12 # normal minimum is 15 (225 ms)
-    defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
-  fi
 fi
 
 ##########################################################
@@ -127,29 +84,6 @@ if [[ $OS == 'OSX' ]]; then
 fi
 
 ##########################################################
-
-# TMUX
-alias tmux="tmux -2u"  # 2: for 256color u: to get rid of unicode rendering problem
-alias tk="tmux kill-server"
-alias ta="tmux attach-session -t $@"
-alias tl="tmux ls"
-
-function tn() {
-  tmux new -d -c "$PWD" -s "$*"
-  tmux attach-session -t $1
-}
-
-test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
-
-# for tmux: export 256color
-# [ -n "$TMUX" ] && export TERM=screen-256color
-
-##########################################################
-
-function connect_traefik() {
-	echo "http://localhost:9446"
-	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
-}
 
 export PATH="$PATH:/Library/Ruby/Gems/2.3.0"
 

@@ -20,9 +20,38 @@ alias curlh="curl -I -s -X GET"
 alias sshe='cd ~/.ssh'
 alias sshconf='sudo vim ~/.ssh/config'
 
+##########################################################
+
+# TMUX
+
+test "$(uname -s)" = "Darwin" && tmux_wrapper=reattach-to-user-namespace
+
+alias tmux="tmux -2u"  # 2: for 256color u: to get rid of unicode rendering problem
+alias tk="tmux kill-server"
+alias ta="tmux attach-session -t $@"
+alias tl="tmux ls"
+
+function tn() {
+  tmux new -d -c "$PWD" -s "$*"
+  tmux attach-session -t $1
+}
+
+##########################################################
+
+# Work / Projects
+
 if [ -d "$HOME/Work/jackjoe/" ]; then
   alias jackjoe="cd $HOME/Work/jackjoe/"
 fi
+
+alias mr="make run"
+
+##########################################################
+
+function connect_traefik() {
+	echo "http://localhost:9446"
+	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
+}
 
 ##########################################################
 
@@ -45,8 +74,6 @@ else
   alias vi='vim'
 fi
 
-
-
 ##########################################################
 
 # Git
@@ -65,20 +92,17 @@ alias gst='git status'
 alias gdoc='git add . && gcmm docs: add documentation'
 alias gmerge='git add . && gcmm chore: merge'
 alias gcompile='git add . && gcmm chore: compile'
+alias gcopy='git add . && gcmm copy'
 alias gbump='git add . && gcmm chore: bump versions'
 alias gcleanup='git add . && gcmm chore: cleanup'
 alias gfix='git add . && gcmm fix'
 alias gammend='git commit --amend --no-edit'
 
-function gpo() {
+gpo() {
   git pull origin $*
 }
 
-function gcmm() {
-  gc -m "$*"
-}
-
-function gcm() {
+gcmm() {
   gc -m "$*"
 }
 
@@ -102,13 +126,13 @@ git-status-all() {
 
 # Erlang / Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
+
 alias mho="source .env && mix hex.outdated"
 alias mdg="source .env && mix deps.get"
 alias mdu="source .env && mix deps.update"
 alias mdc="source .env && mix deps.clean --all"
 alias mm="source .env && mix ecto.migrate"
 alias mmm="source .env && mix ecto.gen.migration"
-alias mr="make run"
 alias mt="source .env.test && mix test $a"
 
 function mpr() {
@@ -153,6 +177,7 @@ if have fzf; then
   elif have ag; then
     export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
   fi
+
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi

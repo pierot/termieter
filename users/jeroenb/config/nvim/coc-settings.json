@@ -18,7 +18,7 @@
   "prettier.useTabs": false,
   "prettier.singleQuote": false,
   "prettier.bracketSpacing": false,
-  "prettier.jsxBracketSameLine": false,
+  "prettier.bracketSameLine": false,
   "prettier.arrowParens": "avoid",
   "prettier.semi": false,
   "prettier.trailingComma": "es5",
