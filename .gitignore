@@ -62,6 +62,7 @@ users/jeroenb/config/composer
 users/jeroenb/config/freeplane
 users/jeroenb/config/cef_user_data
 users/jeroenb/config/gtk-3.0/bookmarks
+users/jeroenb/config/ckb-next/**
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
