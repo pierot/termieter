@@ -69,3 +69,4 @@ users/pieterm/config/lvim/**
 users/pieterm/config/com.corsair/**
 users/pieterm/config/lnav/*history
 users/pieterm/config/lnav/*sample
+users/pieterm/config/containers/podman/machine*
