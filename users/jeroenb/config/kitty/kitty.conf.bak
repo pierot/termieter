@@ -2077,6 +2077,6 @@ include themes/default.conf
 
 
 # BEGIN_KITTY_THEME
-# Tokyo Night Day
+# 3024 Day
 include current-theme.conf
 # END_KITTY_THEME
