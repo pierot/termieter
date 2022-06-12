@@ -32,26 +32,26 @@ alias ap='ansible-playbook'
 #     --platform linux/arm64 \
 #     mysql:8.0.29-oracle
 # }
-#
-# podman-mysql() {
-#   # --security-opt label=disable \
-#   # -u root \
-#   # --privileged \
-#     #--userns keep-id \
-#   podman rm mysql
-#   podman run \
-#     --log-level=debug \
-#     -d \
-#     --rm \
-#     -v "/opt/homebrew/var/mysql":/var/lib/mysql \
-#     -e MYSQL_ROOT_PASSWORD= \
-#     -e MYSQL_ALLOW_EMPTY_PASSWORD=1 \
-#     -p 3306:3306 \
-#     --name mysql \
-#     --platform linux/arm64 \
-#     mysql:8.0.29-oracle
-# }
-#
+
+podman-mysql() {
+  # --security-opt label=disable \
+  # -u root \
+  # --privileged \
+  # --userns keep-id \
+    # --platform linux/arm64 \
+    # -v "/opt/homebrew/var/mysql":/var/lib/mysql \
+  podman rm mysql
+  podman run \
+    --log-level=debug \
+    -d \
+    --rm \
+    -e MYSQL_ROOT_PASSWORD= \
+    -e MYSQL_ALLOW_EMPTY_PASSWORD=1 \
+    -p 3306:3306 \
+    --name mysql \
+    mysql:8.0.29-oracle
+}
+
 # dockr-postgresql() {
 #   docker rm postgresql
 #   docker run \
