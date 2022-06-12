@@ -187,11 +187,11 @@ macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "ma
 # Sync email
 macro index,pager O "<shell-escape>mbsync -a<enter><shell-escape>notmuch new<enter>" "sync email"
 
-# # Shared Macros --------------------------------------
+# Shared Macros --------------------------------------
 
-# # GMail Macros ---------------------------------------
-# bind  editor <space> noop
-# bind  index,pager c mail #Compose
+# GMail Macros ---------------------------------------
+bind  editor <space> noop
+bind  index,pager c mail #Compose
 # bind  generic     x  tag-entry		 # select conversation
 # bind  index       x  tag-thread	   # select conversation
 # bind  pager       x  tag-message   # select conversation
