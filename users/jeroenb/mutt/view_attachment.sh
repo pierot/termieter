@@ -120,7 +120,15 @@ fi
 # Otherwise we've been told what to use.  So do an open -a.
 
 if [ -z $open_with ]; then
+  if [ `uname` == "Linux" ] ; then
+    xdg-open $newfile
+  else
     open $newfile
+  fi
 else
+  if [ `uname` == "Linux" ] ; then
+    xdg-open -a "$open_with" $newfile
+  else
     open -a "$open_with" $newfile
+  fi
 fi
