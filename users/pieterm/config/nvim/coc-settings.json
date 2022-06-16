@@ -11,7 +11,8 @@
     "json",
     "graphql",
     "php",
-    "elixir"
+    "elixir",
+    "eelixir"
   ],
   "prettier.tabWidth": 2,
   "prettier.printWidth": 80,
