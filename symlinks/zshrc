@@ -64,11 +64,11 @@ zstyle ':completion:*' use-cache yes
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # Colors for ls and autocompletion
-if [[ $OS == 'OSX' ]]; then
-  eval $( gdircolors -b $ZSH/../LS_COLORS )
-else
-  eval $( dircolors -b $ZSH/../LS_COLORS )
-fi
+# if [[ $OS == 'OSX' ]]; then
+#   eval $( gdircolors -b $ZSH/../LS_COLORS )
+# else
+eval $( dircolors -b $ZSH/../LS_COLORS )
+# fi
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
