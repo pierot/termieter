@@ -21,14 +21,28 @@ let g:onedark_color_overrides = {
 \ "comment_grey": { "gui": "#7b8393", "cterm": "59", "cterm16": "7" }
 \ }
 
-
 if exists('+termguicolors')
   let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
+set background=dark
 colorscheme onedark
+
+function! Dark_light_swap()
+  if &background ==? 'dark'
+    let g:pencil_neutral_code_bg = 1
+    let g:pencil_higher_contrast_ui = 1
+    set background=light
+    colorscheme pencil
+  else
+    set background=dark
+    colorscheme onedark
+  endif
+endfunction
+command! DarkLightSwap call Dark_light_swap()
+nnoremap <Leader>st :DarkLightSwap<CR>
 
 " == Fonts =========================================================
 
