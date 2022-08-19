@@ -22,6 +22,7 @@ require 'paq' {
 	'tpope/vim-repeat';
 	'neovimhaskell/haskell-vim';
 	'vim-test/vim-test';
+  'junegunn/vim-easy-align';
 
 	'jeffkreeftmeijer/vim-numbertoggle';
 	'docunext/closetag.vim';

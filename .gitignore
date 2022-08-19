@@ -63,6 +63,7 @@ users/jeroenb/config/LanguageTool
 users/jeroenb/config/cef_user_data
 users/jeroenb/config/gtk-3.0/bookmarks
 users/jeroenb/config/ckb-next/**
+users/jeroenb/config/zsh/.zcompcache
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
