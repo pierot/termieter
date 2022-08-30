@@ -15,9 +15,16 @@ if [ -n "$(uname -a | grep Debian)" ]; then
   ZSH_THEME="dallas"
 fi
 
-# armv6l is RPI
+# RPI
 if [ -n "$(uname -a | grep armv6l)" ] || [ -n "$(uname -a | grep armv7l)" ]; then
   ZSH_THEME="alanpeabody"
+fi
+
+# RPI or ARM
+if [ -n "$(uname -a | grep aarch64)" ]; then
+  if [ -n "$(cat /proc/device-tree/model | grep -a "Raspberry")" ]; then
+    ZSH_THEME="alanpeabody"
+  fi
 fi
 
 # Uncomment following line if you want to disable autosetting terminal title.
