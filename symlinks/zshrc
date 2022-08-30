@@ -16,7 +16,7 @@ if [ -n "$(uname -a | grep Debian)" ]; then
 fi
 
 # armv6l is RPI
-if [ -n "$(uname -a | grep armv6l)" ]; then
+if [ -n "$(uname -a | grep armv6l)" ] || [ -n "$(uname -a | grep armv7l)" ]; then
   ZSH_THEME="alanpeabody"
 fi
 
