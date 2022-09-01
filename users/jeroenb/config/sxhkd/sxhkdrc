@@ -30,3 +30,6 @@ super m; n
 
 super m; space
   playerctl play-pause
+
+super m; m
+	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
