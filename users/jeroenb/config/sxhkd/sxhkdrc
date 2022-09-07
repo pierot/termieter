@@ -22,14 +22,14 @@ Print
 super + Print
   scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
-super m; p
+super + m; p
   playerctl previous
 
-super m; n
+super + m; n
   playerctl next
 
-super m; space
+super + m; space
   playerctl play-pause
 
-super m; m
+super + m; m
 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
