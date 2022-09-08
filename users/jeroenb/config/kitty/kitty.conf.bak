@@ -2077,6 +2077,8 @@ include themes/default.conf
 
 
 # BEGIN_KITTY_THEME
+# Ayu Light
+# 3024 Day
 # The Hulk
 include current-theme.conf
 # END_KITTY_THEME
