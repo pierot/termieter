@@ -20,6 +20,7 @@ typeset -U PATH                 # no duplicates in path
 
 # Autocomplete
 autoload -Uz compinit promptinit
+fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 zstyle ':completion:*' menu yes=long select
 zstyle ':completion:*' use-cache yes
