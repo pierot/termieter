@@ -47,4 +47,8 @@ export PATH="$PATH:$HOME/go/bin"
 export FLYCTL_INSTALL="/home/jeroen/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 . $TRMU/bin/z.sh
