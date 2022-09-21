@@ -2078,5 +2078,8 @@ include themes/default.conf
 
 # BEGIN_KITTY_THEME
 # Brogrammer
-include current-theme.conf
+# Ayu Light
+# 3024 Day
+# The Hulk
+# Doom One
 # END_KITTY_THEME
