@@ -22,6 +22,10 @@ Print
 super + Print
   scrot ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
+# for Thinkpad...
+ctrl + alt + p
+  scrot -z -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
 super + m; p
   playerctl previous
 
