@@ -1,7 +1,13 @@
 local prettier = function()
   return {
     exe = "prettier",
-    args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "" },
+    args = {
+      '--config-precedence',
+      'prefer-file',
+      -- you can add more global setup here 
+      '--stdin-filepath',
+      vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
+    },
     stdin = true,
   }
 end
@@ -27,3 +33,8 @@ augroup FormatAutogroup
   autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.ex,*.exs,*.eex,*.leex,*.heex FormatWrite
 augroup END
 ]], true)
+
+-- Some Elixir specific things
+
+vim.cmd "au BufRead,BufNewFile *.heex set filetype=eelixir"
+vim.cmd "au FileType elixir let $MIX_ENV = 'test'"

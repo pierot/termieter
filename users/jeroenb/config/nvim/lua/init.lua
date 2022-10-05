@@ -53,7 +53,7 @@ u.opt('g', 'showmatch', true)                           -- Briefly jumps the cur
 
 u.opt('o', 'completeopt', 'menu,menuone,noselect')      -- Completion options, needed for cmp
 u.opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
-u.opt('o', 'wildignore', '*.o,*~,*node_modules*,.git,.yarn,*.min.*,*map') -- Ignore when tab completing
+u.opt('o', 'wildignore', '*.o,*~,*node_modules*,.git,.yarn,*.min.*,*map,*ts-build') -- Ignore when tab completing
 u.opt('o', 'wildmenu', true)
 u.opt('o', 'wildignorecase', true)
 
