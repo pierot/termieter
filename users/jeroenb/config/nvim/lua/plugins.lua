@@ -9,7 +9,7 @@ endif
 
 require 'paq' {
 	'lewis6991/impatient.nvim';                      -- faster startup
-	"mhartington/formatter.nvim";
+	-- "mhartington/formatter.nvim";
 	'kyazdani42/nvim-tree.lua';                      -- sidebar file explorer
 	'kyazdani42/nvim-web-devicons';                  -- web dev icons used by many plugins
 
