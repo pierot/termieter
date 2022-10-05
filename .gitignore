@@ -71,6 +71,7 @@ users/jeroenb/config/libfm/libfm.conf
 users/jeroenb/config/xarchiver
 users/jeroenb/config/zsh/.zcompcache
 users/jeroenb/config/knfsshare
+users/jeroenb/config/VirtualBox
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
