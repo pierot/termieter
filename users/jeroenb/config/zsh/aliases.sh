@@ -6,6 +6,15 @@ if have neomutt; then
   alias m="neomutt"
 fi
 
+if have nvim; then
+  alias v="nvim ."
+  alias vim="nvim"
+  alias vi="nvim"
+  alias vimdiff='nvim -d'
+  alias vimd="cd ~/.config/nvim"
+  alias vime="vim ~/.config/nvim"
+fi
+
 if have bat; then
   alias cat="bat"
 fi
