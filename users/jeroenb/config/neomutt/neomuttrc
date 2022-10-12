@@ -258,3 +258,8 @@ macro attach F \
 <save-entry><kill-line>/tmp/mutt-attach<enter>\
 <shell-escape>/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox /tmp/mutt-attach &<enter>\
 "
+
+# Set the command you want NeoMutt to execute upon the receipt of a new email
+set new_mail_command = "notify-send 'New Email' '%n new message(s).' &"
+
+push  <show-version>

@@ -53,7 +53,7 @@ u.opt('g', 'showmatch', true)                           -- Briefly jumps the cur
 
 u.opt('o', 'completeopt', 'menu,menuone,noselect')      -- Completion options, needed for cmp
 u.opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
-u.opt('o', 'wildignore', '*.o,*~,*node_modules*,.git,.yarn,*.min.*,*map') -- Ignore when tab completing
+u.opt('o', 'wildignore', '*.o,*~,*node_modules*,.git,.yarn,*.min.*,*map,*ts-build') -- Ignore when tab completing
 u.opt('o', 'wildmenu', true)
 u.opt('o', 'wildignorecase', true)
 
@@ -118,7 +118,15 @@ u.map('v', '<leader><leader>i', '<S-S><em>')
 
 u.map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve cursor position
 
--- cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
  
 u.map('t', '<Esc>', '<C-\\><C-n>')
 
+
+-- highlights
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = 'pum'
+vim.opt.pumblend = 5
+vim.opt.background = 'dark'

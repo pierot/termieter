@@ -132,8 +132,10 @@ alias mdg="source .env && mix deps.get"
 alias mdu="source .env && mix deps.update"
 alias mdc="source .env && mix deps.clean --all"
 alias mm="source .env && mix ecto.migrate"
-alias mmm="source .env && mix ecto.gen.migration"
+alias mmc="source .env && mix ecto.gen.migration"
+alias mc="source .env && mix ecto.gen.migration"
 alias mt="source .env.test && mix test $a"
+alias mtf="source .env.test && mix test --failed"
 
 function mpr() {
   source .env && mix phx.routes | grep "$*"
