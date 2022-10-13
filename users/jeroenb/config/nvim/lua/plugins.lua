@@ -9,7 +9,6 @@ endif
 
 require 'paq' {
 	'lewis6991/impatient.nvim';                      -- faster startup
-	"mhartington/formatter.nvim";
 	'kyazdani42/nvim-tree.lua';                      -- sidebar file explorer
 	'kyazdani42/nvim-web-devicons';                  -- web dev icons used by many plugins
 
@@ -18,14 +17,21 @@ require 'paq' {
 
 	-- 'blackCauldron7/surround.nvim'; 
 	'tpope/vim-surround';
-	'tpope/vim-fugitive'; 
+	'tpope/vim-fugitive';
 	'tpope/vim-repeat';
 	'neovimhaskell/haskell-vim';
 	'vim-test/vim-test';
   'junegunn/vim-easy-align';
 
+  'onsails/lspkind-nvim'; -- vscode-like pictograms
+
 	'jeffkreeftmeijer/vim-numbertoggle';
-	'docunext/closetag.vim';
+
+  'windwp/nvim-autopairs';
+  'windwp/nvim-ts-autotag';
+  'norcalli/nvim-colorizer.lua';
+
+	--'docunext/closetag.vim';
 	'mattn/emmet-vim';
 	'kana/vim-textobj-user';
 	'kana/vim-textobj-line';
@@ -33,6 +39,12 @@ require 'paq' {
 	'elixir-editors/vim-elixir';                     -- correct commentstring and other percs
 
 	'neovim/nvim-lspconfig';
+  'williamboman/mason.nvim';
+  'jose-elias-alvarez/null-ls.nvim';               -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  'MunifTanjim/prettier.nvim';                     -- Prettier plugin for Neovim's built-in LSP client
+  'williamboman/mason.nvim';
+  'williamboman/mason-lspconfig.nvim';
+  'glepnir/lspsaga.nvim';                          -- LSP UI
 
 	'hrsh7th/nvim-cmp';                              -- autocomplete
 	'hrsh7th/cmp-buffer';
@@ -52,7 +64,6 @@ require 'paq' {
 	{'nvim-telescope/telescope-fzf-native.nvim', run = 'make'};
 
 	'mileszs/ack.vim';
-	'steelsojka/pears.nvim';                         -- Auto Pairs
 	'b3nj5m1n/kommentary';                           -- Comment
 
 	-- Themes
@@ -68,8 +79,5 @@ require 'paq' {
 
 -- all small plugins that need nothing more than a simple
 -- setup are setup here
-require'colorizer'.setup()
-require('nvim-web-devicons').setup()
-require('pears').setup()                      -- Auto pairs
 vim.g.ackprg = 'rg --vimgrep --pcre2'         -- ack
 u.map('n', '<leader>gs', '<cmd>Git<CR>')      -- fugitive
