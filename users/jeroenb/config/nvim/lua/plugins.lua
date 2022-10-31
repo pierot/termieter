@@ -19,6 +19,7 @@ require 'paq' {
 	'tpope/vim-surround';
 	'tpope/vim-fugitive';
 	'tpope/vim-repeat';
+  'tpope/vim-unimpaired';
 	'neovimhaskell/haskell-vim';
 	'vim-test/vim-test';
   'junegunn/vim-easy-align';
