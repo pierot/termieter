@@ -153,6 +153,11 @@ alias yy='yarn && yarn upgrade'
 
 ##########################################################
 
+# Yarn
+alias flyc='fly ssh console -C "./opt/app/bin/production remote" -a'
+
+##########################################################
+
 # fzf via Homebrew
 if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/key-bindings.zsh

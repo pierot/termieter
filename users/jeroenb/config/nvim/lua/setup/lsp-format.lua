@@ -1,4 +1,4 @@
-local prettier = function()
+--[[ local prettier = function()
   return {
     exe = "prettier",
     args = {
@@ -23,18 +23,20 @@ require("formatter").setup({
     scss = { prettier },
     markdown = { prettier }
   },
-})
+}) ]]
  
--- Runs Formatter on save
-
-vim.api.nvim_exec([[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.ex,*.exs,*.eex,*.leex,*.heex FormatWrite
-augroup END
-]], true)
-
--- Some Elixir specific things
-
-vim.cmd "au BufRead,BufNewFile *.heex set filetype=eelixir"
-vim.cmd "au FileType elixir let $MIX_ENV = 'test'"
+-- -- Runs Formatter on save
+-- 
+-- vim.api.nvim_exec([[
+-- augroup FormatAutogroup
+--   autocmd!
+--   autocmd BufWritePost *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.ex,*.exs,*.eex,*.leex,*.heex FormatWrite
+-- augroup END
+-- ]], true)
+-- 
+-- -- Some Elixir specific things
+-- 
+-- vim.cmd "au BufRead,BufNewFile *.heex set filetype=eelixir"
+-- vim.cmd "au FileType elixir let $MIX_ENV = 'test'"
+--
+--
