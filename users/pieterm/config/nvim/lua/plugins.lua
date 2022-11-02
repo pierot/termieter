@@ -61,6 +61,7 @@ require 'paq' {
 
 	-- Themes
 	'rktjmp/lush.nvim';
+	'navarasu/onedark.nvim';
 	'metalelf0/jellybeans-nvim';
 	'folke/tokyonight.nvim';
 	'norcalli/nvim-colorizer.lua';
