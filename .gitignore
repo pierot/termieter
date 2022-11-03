@@ -77,6 +77,8 @@ users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/lvim/**
 users/pieterm/config/com.corsair/**
+users/pieterm/config/memos.json
+users/pieterm/config/containers/containers.conf
 users/pieterm/config/lnav/*history
 users/pieterm/config/lnav/*sample
 users/pieterm/config/containers/podman/machine*
