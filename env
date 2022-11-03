@@ -30,7 +30,7 @@ fi
 
 ###########################################################
 
-export PATH="/usr/local/bin:/$TRM/bin:/opt/homebrew/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:/$TRM/bin:/opt/homebrew/bin:/usr/local/sbin:$PATH"
 
 ###########################################################
 

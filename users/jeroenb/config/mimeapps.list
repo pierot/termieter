@@ -21,6 +21,7 @@ image/png=feh.desktop
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
 application/pdf=org.gnome.Evince.desktop
 x-scheme-handler/postman=Postman.desktop
+image/svg+xml=org.inkscape.Inkscape.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -38,3 +39,4 @@ x-scheme-handler/mid=userapp-Thunderbird-EH8LD1.desktop;userapp-Thunderbird-BJS2
 x-scheme-handler/webcal=userapp-Thunderbird-638JD1.desktop;userapp-Thunderbird-RCNMO1.desktop;
 x-scheme-handler/webcals=userapp-Thunderbird-638JD1.desktop;userapp-Thunderbird-RCNMO1.desktop;
 application/octet-stream=libreoffice-writer.desktop;
+image/svg+xml=org.inkscape.Inkscape.desktop;
