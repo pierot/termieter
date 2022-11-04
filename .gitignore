@@ -72,12 +72,16 @@ users/jeroenb/config/xarchiver
 users/jeroenb/config/zsh/.zcompcache
 users/jeroenb/config/knfsshare
 users/jeroenb/config/VirtualBox
+users/jeroenb/config/inkscape
+users/jeroenb/config/SubDownloader
 users/jeroenb/config/JetBrains
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/lvim/**
 users/pieterm/config/com.corsair/**
+users/pieterm/config/memos.json
+users/pieterm/config/containers/containers.conf
 users/pieterm/config/lnav/*history
 users/pieterm/config/lnav/*sample
 users/pieterm/config/containers/podman/machine*

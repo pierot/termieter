@@ -1,11 +1,15 @@
+-------------------- HELPERS -------------------------------
+local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd'
+local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
+local g = vim.g      -- a table to access global variables
+
 local u = require("utils")
 
-vim.cmd([[
-if empty(glob('~/.local/share/nvim/site'))
-    silent !git clone --depth=1 https://github.com/savq/paq-nvim.git \
-          "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
-endif
-]])
+-- Auto install paq-nvim if it doesn't exist
+local install_path = '$HOME/.local/share/nvim/site/pack/paqs/start/paq-nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  vim.api.nvim_command('!git clone --depth=1 https://github.com/savq/paq-nvim.git ' .. install_path)
+end
 
 require 'paq' {
 	'lewis6991/impatient.nvim';                      -- faster startup
@@ -26,7 +30,7 @@ require 'paq' {
 
   'onsails/lspkind-nvim'; -- vscode-like pictograms
 
-	'jeffkreeftmeijer/vim-numbertoggle';
+	-- 'jeffkreeftmeijer/vim-numbertoggle';
 
   'windwp/nvim-autopairs';
   'windwp/nvim-ts-autotag';
