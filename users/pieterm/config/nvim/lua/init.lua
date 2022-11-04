@@ -112,7 +112,14 @@ u.map('v', '<leader><leader>i', '<S-S><em>')
 
 u.map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve cursor position
 
--- cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
 
 u.map('t', '<Esc>', '<C-\\><C-n>')
 
+-- highlights
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = 'pum'
+vim.opt.pumblend = 5
+vim.opt.background = 'dark'
