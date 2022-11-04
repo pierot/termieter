@@ -61,7 +61,9 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 -- Update for cmp
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+if not capabilities == nil then
+  capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+end
 
 -- Resolvers
 capabilities.textDocument.completion.completionItem.resolveSupport = {
