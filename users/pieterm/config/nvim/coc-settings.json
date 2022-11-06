@@ -11,8 +11,7 @@
     "json",
     "graphql",
     "php",
-    "elixir",
-    "eelixir"
+    "elixir"
   ],
   "prettier.tabWidth": 2,
   "prettier.printWidth": 80,
@@ -24,7 +23,6 @@
   "prettier.semi": false,
   "prettier.trailingComma": "es5",
   "prettier.parser": "babylon",
-  "css.lint.unknownAtRules": "ignore",
   "codeLens.enable": true,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck",
@@ -36,6 +34,6 @@
     "elixir": "mix_format",
     "eelixir": "mix_format"
   },
-  "elixirLS.mixEnv": "test",
+  "elixirLS.mixEnv": "dev",
   "elixirLS.mixTarget": "test"
 }
