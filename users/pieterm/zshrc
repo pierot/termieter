@@ -4,6 +4,10 @@ PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 prmptcmd() { eval "$PROMPT_COMMAND" }
 precmd_functions=(prmptcmd)
 
+# setopt HIST_IGNORE_ALL_DUPS
+# setopt HIST_IGNORE_SPACE
+setopt histignorealldups
+
 # User configuration
 # Always work in a tmux session if tmux is installed
 # https://github.com/chrishunt/dot-files/blob/master/.zshrc

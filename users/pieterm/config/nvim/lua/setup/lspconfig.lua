@@ -52,20 +52,23 @@ protocol.CompletionItemKind = {
 }
 
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').default_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local capabilities = {}
+if cmp_nvim_lsp_status_ok then
+  -- return
+  -- capabilities = cmp_nvim_lsp.default_capabilities()
+end
 
 -- Update for cmp
 -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Elixir
 local path = require "mason-core.path"
-local path_to_elixirls = path.concat({vim.fn.stdpath "data", "mason", "bin", "elixir-ls"}) 
+local path_to_elixirls = path.concat({vim.fn.stdpath "data", "mason", "bin", "elixir-ls"})
 
 -- Setup
 nvim_lsp.elixirls.setup({
-  on_attach = on_attach, 
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { path_to_elixirls },
   settings = {
@@ -119,13 +122,13 @@ vim.diagnostic.config({
 -- local on_attach = function(client, bufnr)
 --   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 --   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
--- 
+--
 --   --Enable completion triggered by <c-x><c-o>
 --   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
--- 
+--
 --   -- Mappings.
 --   local opts = { noremap=true, silent=true }
--- 
+--
 --   -- See `:help vim.lsp.*` for documentation on any of the below functions
 --   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 --   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -145,7 +148,7 @@ vim.diagnostic.config({
 --   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 --   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 --   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
--- 
+--
 --   -- Set some keybinds conditional on server capabilities
 --   if client.server_capabilities.document_formatting then
 --       buf_set_keymap("n", "<leader>f",
@@ -154,7 +157,7 @@ vim.diagnostic.config({
 --       buf_set_keymap("n", "<leader>f",
 --                       "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 --   end
--- 
+--
 --   -- Set autocommands conditional on server_capabilities
 --   if client.server_capabilities.document_highlight then
 --       vim.api.nvim_exec([[
@@ -165,16 +168,16 @@ vim.diagnostic.config({
 --       augroup END
 --       ]], false)
 --   end
--- 
+--
 --       --[[ autocmd! * <buffer>
 --       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
 --       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]]
 -- end
--- 
+--
 -- -- Capabilities
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- 
--- 
+--
+--
 -- -- Resolvers
 -- capabilities.textDocument.completion.completionItem.resolveSupport = {
 --   properties = {
@@ -183,7 +186,7 @@ vim.diagnostic.config({
 --     'additionalTextEdits',
 --   }
 -- }
--- 
+--
 -- -- Code actions
 -- capabilities.textDocument.codeAction = {
 --   dynamicRegistration = true,
@@ -197,23 +200,23 @@ vim.diagnostic.config({
 --       }
 --   }
 -- }
--- 
+--
 -- -- Snippets
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true;
--- 
+--
 -- -- Elixir
 -- local os = os.getenv("OS")
 -- local path_to_elixirls = ""
--- if(os == "OSX") 
+-- if(os == "OSX")
 -- then
 -- path_to_elixirls = vim.fn.expand("/Users/jeroenb/.local/share/elixir-ls/release/language_server.sh")
 -- else
 -- path_to_elixirls = vim.fn.expand("/home/jeroen/.local/share/elixir-ls/release/language_server.sh")
 -- end
--- 
+--
 -- -- Setup
 -- nvim_lsp.elixirls.setup({
---   on_attach = on_attach, 
+--   on_attach = on_attach,
 --   capabilities = capabilities,
 --   cmd = { path_to_elixirls },
 --   settings = {
@@ -225,9 +228,9 @@ vim.diagnostic.config({
 --     }
 --   }
 -- })
--- 
--- nvim_lsp.tsserver.setup({ 
---   on_attach = on_attach, 
+--
+-- nvim_lsp.tsserver.setup({
+--   on_attach = on_attach,
 --   capabilities = capabilities
 -- })
 -- --
@@ -235,7 +238,7 @@ vim.diagnostic.config({
 -- -- note: this setting is global and should be set only once
 -- vim.o.updatetime = 250
 -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
---  
+--
 -- -- LSP Prevents inline buffer annotations
 -- vim.diagnostic.get()
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -244,7 +247,7 @@ vim.diagnostic.config({
 --   underline = true,
 --   update_on_insert = false,
 -- })
--- 
+--
 -- local signs = {
 --   Error = "ﰸ",
 --   Warn = "",
@@ -255,11 +258,11 @@ vim.diagnostic.config({
 --   local hl = "DiagnosticSign" .. type
 --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = nil })
 -- end
--- 
+--
 -- -- Formatting
--- 
+--
 -- -- autocmd BufWritePre *.js,*.ts,*.tsx,*.css,*.scss,*.md,*.html,*.ex,*.exs,*.eex,*.leex,*.heex lua vim.lsp.buf.format({ async = false })
 -- vim.api.nvim_exec([[
 --   autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %
 -- ]], true)
--- 
+--
