@@ -19,12 +19,12 @@ require 'paq' {
 	'nvim-lua/popup.nvim';                           -- ui plugin used by many, someday upstream in neovim
 	'nvim-lua/plenary.nvim';                         -- ui plugin used by many, someday upstream in neovim
 
-	-- 'blackCauldron7/surround.nvim'; 
+	-- 'blackCauldron7/surround.nvim';
 	'tpope/vim-surround';
 	'tpope/vim-fugitive';
 	'tpope/vim-repeat';
   'tpope/vim-unimpaired';
-	'neovimhaskell/haskell-vim';
+	-- 'neovimhaskell/haskell-vim';
 	'vim-test/vim-test';
   'junegunn/vim-easy-align';
 
@@ -34,7 +34,7 @@ require 'paq' {
 
   'windwp/nvim-autopairs';
   'windwp/nvim-ts-autotag';
-  'norcalli/nvim-colorizer.lua';
+  -- 'norcalli/nvim-colorizer.lua';
 
 	--'docunext/closetag.vim';
 	'mattn/emmet-vim';
@@ -55,7 +55,7 @@ require 'paq' {
 	'hrsh7th/cmp-buffer';
 	'hrsh7th/cmp-path';
 	'hrsh7th/cmp-cmdline';
-	'hrsh7th/cmp-nvim-lsp';              
+	'hrsh7th/cmp-nvim-lsp';
 
 	'hrsh7th/cmp-vsnip';                             -- snippets
 	'hrsh7th/vim-vsnip';                             -- snippets
@@ -72,12 +72,13 @@ require 'paq' {
 	'b3nj5m1n/kommentary';                           -- Comment
 
 	-- Themes
-	'rktjmp/lush.nvim';
-	'metalelf0/jellybeans-nvim';
-	'folke/tokyonight.nvim';
-	'norcalli/nvim-colorizer.lua';
-	'gruvbox-community/gruvbox';
-	'kovetskiy/sxhkd-vim';
+	-- 'rktjmp/lush.nvim';
+	-- 'metalelf0/jellybeans-nvim';
+	-- 'folke/tokyonight.nvim';
+	-- 'norcalli/nvim-colorizer.lua';
+	-- 'gruvbox-community/gruvbox';
+	-- 'kovetskiy/sxhkd-vim';
+	'joshdick/onedark.vim';
 
 	{'nvim-treesitter/nvim-treesitter'};             -- treesitter, code highlighting, last
 }
