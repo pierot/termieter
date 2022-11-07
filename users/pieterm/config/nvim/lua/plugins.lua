@@ -74,11 +74,11 @@ require 'paq' {
 	-- Themes
 	-- 'rktjmp/lush.nvim';
 	-- 'metalelf0/jellybeans-nvim';
-	-- 'folke/tokyonight.nvim';
+	'folke/tokyonight.nvim';												 -- Used for lualine and theme
 	-- 'norcalli/nvim-colorizer.lua';
 	-- 'gruvbox-community/gruvbox';
 	-- 'kovetskiy/sxhkd-vim';
-	'joshdick/onedark.vim';
+	-- 'joshdick/onedark.vim';
 
 	{'nvim-treesitter/nvim-treesitter'};             -- treesitter, code highlighting, last
 }
