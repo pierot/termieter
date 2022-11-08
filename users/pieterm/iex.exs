@@ -2,12 +2,6 @@ import_if_available(Ecto.Query)
 import_if_available(Ecto.Changeset)
 
 defmodule AC do
-  def update(schema, changes) do
-    schema
-    |> Ecto.Changeset.change(changes)
-    |> Repo.update()
-  end
-
   IEx.configure(
     colors: [
       syntax_colors: [
@@ -29,10 +23,10 @@ defmodule AC do
     ],
     default_prompt:
     [
-        # ANSI CHA, move cursor to column 1
+      # ANSI CHA, move cursor to column 1
       "\e[G",
       :light_magenta,
-        # plain string
+      # plain string
       "iex",
       ">",
       :white,
@@ -40,5 +34,5 @@ defmodule AC do
     ]
     |> IO.ANSI.format()
     |> IO.chardata_to_string()
-      )
+  )
 end

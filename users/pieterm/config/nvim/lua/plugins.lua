@@ -78,6 +78,7 @@ require 'paq' {
 	'norcalli/nvim-colorizer.lua';
 	'gruvbox-community/gruvbox';
 	'kovetskiy/sxhkd-vim';
+	'navarasu/onedark.nvim';
 
 	{'nvim-treesitter/nvim-treesitter'};             -- treesitter, code highlighting, last
 }
