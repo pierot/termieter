@@ -5,23 +5,46 @@ local g = vim.g      -- a table to access global variables
 
 local u = require("utils")
 
-vim.g.onedark_color_overrides = {
-  background = { gui = "#1a1a1a", cterm = "235", cterm16 = "NONE" },
-  black = { gui = "#1a1a1a", cterm = "235", cterm16 = "NONE" },
-  foreground = { gui = "#f5f7fc", cterm = "145", cterm16 = "15" },
-  white = { gui = "#f5f7fc", cterm = "145", cterm16 = "15" },
-  blue = { gui = "#32a4ec", cterm = "39", cterm16 = "4" },
-  red = { gui = "#f96874", cterm = "204", cterm16 = "1" },
-  dark_red = { gui = "#eb6559", cterm = "196", cterm16 = "9" },
-  green = { gui = "#a0e470", cterm = "114", cterm16 = "2" },
-  yellow = { gui = "#f7ec4a", cterm = "180", cterm16 = "3" },
-  purple = { gui = "#d375f0", cterm = "170", cterm16 = "5" },
-  cyan = { gui = "#38ebf2", cterm = "38", cterm16 = "6" },
-  comment_grey = { gui = "#7b8393", cterm = "59", cterm16 = "7" }
-}
+-- vim.g.onedark_color_overrides = {
+--   background = { gui = "#1a1a1a", cterm = "235", cterm16 = "NONE" },
+--   black = { gui = "#1a1a1a", cterm = "235", cterm16 = "NONE" },
+--   foreground = { gui = "#f5f7fc", cterm = "145", cterm16 = "15" },
+--   white = { gui = "#f5f7fc", cterm = "145", cterm16 = "15" },
+--   blue = { gui = "#32a4ec", cterm = "39", cterm16 = "4" },
+--   red = { gui = "#f96874", cterm = "204", cterm16 = "1" },
+--   dark_red = { gui = "#eb6559", cterm = "196", cterm16 = "9" },
+--   green = { gui = "#a0e470", cterm = "114", cterm16 = "2" },
+--   yellow = { gui = "#f7ec4a", cterm = "180", cterm16 = "3" },
+--   purple = { gui = "#d375f0", cterm = "170", cterm16 = "5" },
+--   cyan = { gui = "#38ebf2", cterm = "38", cterm16 = "6" },
+--   comment_grey = { gui = "#7b8393", cterm = "59", cterm16 = "7" }
+-- }
+
+require("tokyonight").setup({
+  transparent = true,
+  transparent_sidebar = true,
+  styles = {
+    sidebars = "transparent",
+    floats = "transparent",
+  },
+  -- use the night style
+  -- style = "night",
+  -- sidebars = { "qf", "vista_kind", "terminal", "packer" },
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  -- on_colors = function(colors)
+  --   colors.hint = colors.orange
+  --   colors.error = "#ff0000"
+  -- end,
+  on_highlights = function(hl, c)
+    hl.Normal = {
+      bg = "#1a1a1a",
+      fg = "#f5f7fc"
+    }
+  end,
+})
 
 vim.o.termguicolors = true
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme tokyonight-night")
 
 function ToggleTheme()
   if vim.o.background == "dark" then
