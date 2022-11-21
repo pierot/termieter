@@ -70,3 +70,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 # force emacs style keybindings...
 bindkey -e
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'

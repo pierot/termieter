@@ -6,5 +6,5 @@ if (not status2) then return end
 mason.setup({})
 
 lspconfig.setup {
-  ensure_installed = { "tailwindcss", "elixirls" }
+  ensure_installed = { "tailwindcss","elixirls" } -- //, "prettier_d" },
 }
