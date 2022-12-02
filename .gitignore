@@ -61,7 +61,8 @@ users/jeroenb/config/composer
 users/jeroenb/config/freeplane
 users/jeroenb/config/LanguageTool
 users/jeroenb/config/cef_user_data
-users/jeroenb/config/gtk-3.0/bookmarks
+users/jeroenb/config/gtk-2.0
+users/jeroenb/config/gtk-3.0
 users/jeroenb/config/ckb-next/**
 users/jeroenb/config/Insomnia
 users/jeroenb/config/Postman
