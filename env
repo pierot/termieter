@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 export TRM=~/.termieter
 export CURRENT_SHELL=`ps -p $$ | tail -1 | awk '{print $NF}'`
 

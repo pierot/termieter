@@ -6,6 +6,8 @@ tmp
 **/config/configstore
 **/config/coc
 **/config/yarn
+**/config/cache
+**/config/local
 
 **/node_modules
 
