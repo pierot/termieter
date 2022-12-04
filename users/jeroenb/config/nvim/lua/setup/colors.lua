@@ -1,11 +1,12 @@
 local u = require('utils')
 
--- vim.cmd("colorscheme gruvbox")
+--vim.cmd("colorscheme jellybeans-nvim")
+--vim.cmd("colorscheme gruvbox")
 vim.cmd("colorscheme tokyonight-night")
 
-u.map('n', '<silent> [oh', ':call gruvbox#hls_show()<CR>')
-u.map('n', '<silent> ]oh', ':call gruvbox#hls_hide()<CR>')
-u.map('n', '<silent> coh', ':call gruvbox#hls_toggle()<CR>')
+-- u.map('n', '<silent> [oh', ':call gruvbox#hls_show()<CR>')
+-- u.map('n', '<silent> ]oh', ':call gruvbox#hls_hide()<CR>')
+-- u.map('n', '<silent> coh', ':call gruvbox#hls_toggle()<CR>')
 
 function ToggleTheme()
   if vim.o.background == "dark" then

@@ -43,6 +43,8 @@ setopt HIST_REDUCE_BLANKS       # remove unnecessary blanks
 setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
 setopt EXTENDED_HISTORY         # record command start time
 
+COMPLETION_WAITING_DOTS="true"
+
 # Load extra files if present
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh"
@@ -62,13 +64,13 @@ prompt pure
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^i' edit-command-line
+bindkey '^e' edit-command-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
 
 # force emacs style keybindings...
-bindkey -e
+# bindkey -e
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
