@@ -18,6 +18,12 @@ setopt share_history            # Reloads the history whenever you use it
 
 typeset -U PATH                 # no duplicates in path
 
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
 # Autocomplete
 autoload -Uz compinit promptinit
 fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion $fpath)
@@ -62,9 +68,13 @@ promptinit
 
 prompt pure
 
+bindkey -v      # vim mode
+export KEYTIMEOUT=1
+
 # Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
