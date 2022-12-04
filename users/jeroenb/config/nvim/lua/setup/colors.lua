@@ -17,8 +17,8 @@ end
 
 u.map('n', '<F5>', ':lua ToggleTheme()<CR>')           -- Switch between windows by hitting <Tab> twice
 
-vim.api.nvim_exec([[
-nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
-]], true)
+--  vim.api.nvim_exec([[
+--  nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+--  nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+--  nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+--  ]], true)
