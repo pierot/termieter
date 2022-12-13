@@ -3,8 +3,14 @@ if (not status) then return end
 local status2, lspconfig = pcall(require, "mason-lspconfig")
 if (not status2) then return end
 
-mason.setup({})
+mason.setup()
 
 lspconfig.setup {
-  ensure_installed = { "tailwindcss","elixirls" } -- //, "prettier_d" },
+  ensure_installed = { 
+    "tailwindcss", 
+    "elixirls" ,
+    "cssls",
+    "emmet_ls",
+    "html"
+  } -- //, "prettier_d" },
 }

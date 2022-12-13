@@ -1,5 +1,5 @@
-local status, prettier = pcall(require, "prettier")
-if (not status) then return end
+local setup, prettier = pcall(require, "prettier")
+if (not setup) then return end
 
 prettier.setup {
   bin = 'prettierd',

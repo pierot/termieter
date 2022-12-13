@@ -1,14 +1,11 @@
-local u = require("utils")
+local setup, telescope = pcall(require, "telescope")
+if (not setup) then return end
 
-u.map('n', '<c-p>', '<cmd>Telescope find_files<CR>')
-u.map('n', '<leader>b', '<cmd>Telescope buffers<CR>')
-u.map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
-u.map('n', '<leader>fb', '<cmd>Telescope file_browser<CR>')
-u.map('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
-u.map('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
-u.map('n', '<leader>gss', '<cmd>Telescope git_status<CR>')
+local previewers_setup, previewers = pcall(require, "telescope.previewers")
+if (not previewers_setup) then return end
 
-local previewers = require('telescope.previewers')
+local actions_setup, actions = pcall(require, "telescope.actions")
+if (not actions_setup) then return end
 
 local new_maker = function(filepath, bufnr, opts)
   opts = opts or {}
@@ -17,7 +14,7 @@ local new_maker = function(filepath, bufnr, opts)
   previewers.buffer_previewer_maker(filepath, bufnr, opts)
 end
 
-require('telescope').setup {
+telescope.setup {
   defaults = {
     buffer_previewer_maker = new_maker,
     file_ignore_patterns = {"node_modules/.*", "vendor/.*"},
@@ -31,6 +28,13 @@ require('telescope').setup {
       '--smart-case'
     },
     buffer_previewer_maker = new_maker,
+    mappings = {
+      i = {
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+      }
+    }
   },
   pickers = {
     find_files = {
