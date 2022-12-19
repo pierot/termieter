@@ -1,5 +1,5 @@
 super + o ; {w,t,m,f}
-	{firefox,thunderbird,spotify,pcmanfm}
+	{firefox,thunderbird,spotify,nemo}
 
 super + o; s
   slack &
