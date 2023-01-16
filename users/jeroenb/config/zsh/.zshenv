@@ -9,12 +9,16 @@ export IAMJACK="$HOME/Dropbox/iamjack"
 export XDG_CONFIG_HOME="$HOME/.config"
 export TERMINAL="kitty"
 export ZDOTDIR=$HOME/.config/zsh
-export EDITOR="nvim"
+export EDITOR="/usr/bin/nvim -u $HOME/.config/nvim/init.vim"
+export VISUAL="/usr/bin/nvim -u $HOME/.config/nvim/init.vim"
 export FILE="nnn"
 export TRMU="$HOME/.termieter/users/jeroenb"
 export FLYCTL_INSTALL="/home/jeroen/.fly"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export NOTMUCH_CONFIG=$HOME/.config/notmuch/notmuch-config
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$XDG_CONFIG_HOME/local/share
+export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
 
 # PATH
 if [ -d "$HOME/.bin" ] ;

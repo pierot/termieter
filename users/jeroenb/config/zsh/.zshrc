@@ -18,6 +18,12 @@ setopt share_history            # Reloads the history whenever you use it
 
 typeset -U PATH                 # no duplicates in path
 
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
 # Autocomplete
 autoload -Uz compinit promptinit
 fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion $fpath)
@@ -43,6 +49,8 @@ setopt HIST_REDUCE_BLANKS       # remove unnecessary blanks
 setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
 setopt EXTENDED_HISTORY         # record command start time
 
+COMPLETION_WAITING_DOTS="true"
+
 # Load extra files if present
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh"
@@ -60,15 +68,19 @@ promptinit
 
 prompt pure
 
+bindkey -v      # vim mode
+export KEYTIMEOUT=1
+
 # Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^i' edit-command-line
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
 
 # force emacs style keybindings...
-bindkey -e
+# bindkey -e
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
