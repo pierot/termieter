@@ -9,6 +9,8 @@ tmp
 **/config/cache
 **/config/local
 
+**/packer_compiled.lua
+
 **/node_modules
 
 tmux/tmux-resurrect
