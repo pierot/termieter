@@ -91,3 +91,5 @@ users/pieterm/config/containers/containers.conf
 users/pieterm/config/lnav/*history
 users/pieterm/config/lnav/*sample
 users/pieterm/config/containers/podman/machine*
+users/pieterm/config/temporalio
+users/pieterm/config/bpytop
