@@ -123,3 +123,8 @@ vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
 vim.opt.pumblend = 5
 vim.opt.background = 'dark'
+
+-- all small plugins that need nothing more than a simple
+-- setup are setup here
+vim.g.ackprg = 'rg --vimgrep --pcre2'         -- ack
+-- u.map('n', '<leader>gs', '<cmd>Git<CR>')      -- fugitive

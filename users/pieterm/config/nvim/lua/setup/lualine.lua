@@ -1,3 +1,8 @@
+local status, lualine = pcall(require, "lualine")
+if not status then
+  return
+end
+
 local function getWords()
   if vim.bo.filetype == "md" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then
     if vim.fn.wordcount().visual_words == 1 then
@@ -37,7 +42,7 @@ end
 -- local colors = require("nightfox.colors").init("nordfox")
 local colors = require("tokyonight.colors").setup({})
 
-require("lualine").setup({
+lualine.setup({
   options = {
     icons_enabled = true,
     component_separators = { " ", " " },

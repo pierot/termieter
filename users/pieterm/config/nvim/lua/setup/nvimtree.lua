@@ -1,6 +1,9 @@
+local setup, nvimtree = pcall(require, "nvim-tree")
+if (not setup) then return end
+
 local u = require("utils")
 
-require'nvim-tree'.setup({
+nvimtree.setup({
   open_on_setup = true,
   hijack_directories = { enable = true, auto_open = true },
   diagnostics = {
