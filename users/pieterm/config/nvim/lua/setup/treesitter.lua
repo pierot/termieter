@@ -1,4 +1,6 @@
-local ts = require('nvim-treesitter.configs')
+local setup, ts = pcall(require, 'nvim-treesitter.configs')
+if (not setup) then return end
+
 ts.setup({
   ensure_installed = {
     "javascript", "typescript", "tsx", "jsdoc", "jsonc",
@@ -43,5 +45,6 @@ ts.setup({
       }
     }
   },
-  autotag = {enable = true}
+  autotag = {enable = true},
+  auto_install = true
 })

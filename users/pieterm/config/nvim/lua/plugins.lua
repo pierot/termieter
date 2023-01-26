@@ -1,89 +1,114 @@
 -------------------- HELPERS -------------------------------
-local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd'
-local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
-local g = vim.g      -- a table to access global variables
-
 local u = require("utils")
 
--- Auto install paq-nvim if it doesn't exist
-local install_path = '$HOME/.local/share/nvim/site/pack/paqs/start/paq-nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  vim.api.nvim_command('!git clone --depth=1 https://github.com/savq/paq-nvim.git ' .. install_path)
+-- Install plugins automatically
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
+-- Upon initial vim install, install packer & plugins
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
-require 'paq' {
-	'lewis6991/impatient.nvim';                      -- faster startup
-	'kyazdani42/nvim-tree.lua';                      -- sidebar file explorer
-	'kyazdani42/nvim-web-devicons';                  -- web dev icons used by many plugins
+local packer_bootstrap = ensure_packer()
 
-	'nvim-lua/popup.nvim';                           -- ui plugin used by many, someday upstream in neovim
-	'nvim-lua/plenary.nvim';                         -- ui plugin used by many, someday upstream in neovim
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
 
-	-- 'blackCauldron7/surround.nvim';
-	'tpope/vim-surround';
-	'tpope/vim-fugitive';
-	'tpope/vim-repeat';
-  'tpope/vim-unimpaired';
-	-- 'neovimhaskell/haskell-vim';
-	'vim-test/vim-test';
-  'junegunn/vim-easy-align';
+	use 'lewis6991/impatient.nvim'                      -- faster startup
+	use 'kyazdani42/nvim-tree.lua'                      -- sidebar file explorer
+	use 'kyazdani42/nvim-web-devicons'                  -- web dev icons used by many plugins
 
-  'onsails/lspkind-nvim'; -- vscode-like pictograms
+	use 'nvim-lua/popup.nvim'                           -- ui plugin used by many, someday upstream in neovim
+	use 'nvim-lua/plenary.nvim'                         -- ui plugin used by many, someday upstream in neovim
 
-	-- 'jeffkreeftmeijer/vim-numbertoggle';
+  use {                                               -- pretty lsp diagnostics
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
-  'windwp/nvim-autopairs';
-  'windwp/nvim-ts-autotag';
-  -- 'norcalli/nvim-colorizer.lua';
+	-- 'blackCauldron7/surround.nvim'
+	use 'tpope/vim-surround'
+	use 'tpope/vim-fugitive'
+	use 'tpope/vim-repeat'
+  use 'tpope/vim-unimpaired'
+	-- use 'neovimhaskell/haskell-vim'
+	use 'vim-test/vim-test'
+  use 'junegunn/vim-easy-align'
 
-	--'docunext/closetag.vim';
-	'mattn/emmet-vim';
-	'kana/vim-textobj-user';
-	'kana/vim-textobj-line';
-	'andyl/vim-textobj-elixir';
-	'elixir-editors/vim-elixir';                     -- correct commentstring and other percs
+	-- use 'jeffkreeftmeijer/vim-numbertoggle'
 
-	'neovim/nvim-lspconfig';
-  'williamboman/mason.nvim';
-  'jose-elias-alvarez/null-ls.nvim';               -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  'MunifTanjim/prettier.nvim';                     -- Prettier plugin for Neovim's built-in LSP client
-  'williamboman/mason.nvim';
-  'williamboman/mason-lspconfig.nvim';
-  'glepnir/lspsaga.nvim';                          -- LSP UI
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
+  -- use 'norcalli/nvim-colorizer.lua'
 
-	'hrsh7th/nvim-cmp';                              -- autocomplete
-	'hrsh7th/cmp-buffer';
-	'hrsh7th/cmp-path';
-	'hrsh7th/cmp-cmdline';
-	'hrsh7th/cmp-nvim-lsp';
+	use 'docunext/closetag.vim'
+	use 'mattn/emmet-vim'
+	use 'kana/vim-textobj-user'
+	use 'kana/vim-textobj-line'
+	-- use 'andyl/vim-textobj-elixir'
+	use 'elixir-editors/vim-elixir'                     -- correct commentstring and other percs
 
-	'hrsh7th/cmp-vsnip';                             -- snippets
-	'hrsh7th/vim-vsnip';                             -- snippets
-	'hrsh7th/vim-vsnip-integ';                       -- snippets
-	'rafamadriz/friendly-snippets';                  -- snippets
+	use 'neovim/nvim-lspconfig'
+  use 'jose-elias-alvarez/null-ls.nvim'               -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  use 'MunifTanjim/prettier.nvim'                     -- Prettier plugin for Neovim's built-in LSP client
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use "jayp0521/mason-null-ls.nvim"
+  use 'jose-elias-alvarez/typescript.nvim'
+  use 'glepnir/lspsaga.nvim'                          -- LSP UI
+  use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
 
-	'nvim-lualine/lualine.nvim';
+	use 'hrsh7th/nvim-cmp'                              -- autocomplete
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/cmp-nvim-lsp'
+
+  -- snippets
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
+
+	use 'nvim-lualine/lualine.nvim'
 
 	-- Telescope
-	'nvim-telescope/telescope.nvim';
-	{'nvim-telescope/telescope-fzf-native.nvim', run = 'make'};
+	use 'nvim-telescope/telescope.nvim'
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
-	'mileszs/ack.vim';
-	'b3nj5m1n/kommentary';                           -- Comment
+	use 'mileszs/ack.vim'
+	use 'b3nj5m1n/kommentary'                           -- Comment
 
 	-- Themes
-	-- 'rktjmp/lush.nvim';
-	-- 'metalelf0/jellybeans-nvim';
-	'folke/tokyonight.nvim';												 -- Used for lualine and theme
-	-- 'norcalli/nvim-colorizer.lua';
-	-- 'gruvbox-community/gruvbox';
-	-- 'kovetskiy/sxhkd-vim';
-	-- 'joshdick/onedark.vim';
+	-- 'rktjmp/lush.nvim'
+	-- 'metalelf0/jellybeans-nvim'
+	use 'folke/tokyonight.nvim'												 -- Used for lualine and theme
+	use 'norcalli/nvim-colorizer.lua'
+	-- 'gruvbox-community/gruvbox'
+	-- 'kovetskiy/sxhkd-vim'
+	-- 'joshdick/onedark.vim'
 
-	{'nvim-treesitter/nvim-treesitter'};             -- treesitter, code highlighting, last
-}
+	use {'nvim-treesitter/nvim-treesitter'}             -- treesitter, code highlighting, last
 
--- all small plugins that need nothing more than a simple
--- setup are setup here
-vim.g.ackprg = 'rg --vimgrep --pcre2'         -- ack
-u.map('n', '<leader>gs', '<cmd>Git<CR>')      -- fugitive
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
