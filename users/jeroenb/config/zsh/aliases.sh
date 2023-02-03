@@ -33,7 +33,7 @@ alias gc="cd $HOME/.config"
 alias gtu="cd $HOME/.termieter/users/jeroenb"
 alias termieteru="cd $HOME/.termieter/users/jeroenb"
 alias gdb="cd $DROPBOX"
-alias ssh="kitty +kitten ssh"
+#alias ssh="kitty +kitten ssh"
 alias df="df -h"
 alias free="free -m"
 alias pbcopy='xclip -selection clipboard'
@@ -42,7 +42,6 @@ alias m='neomutt'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias xmonadconf="vim ~/.config/xmonad/xmonad.hs"
-alias ssh='TERM="xterm-256color" kitty +kitten ssh'
 
 # Git stuff
 alias gap='git add -p'
