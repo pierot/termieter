@@ -63,6 +63,9 @@ vim.keymap.set('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
 -- fugitive
 vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>')
 
+-- Ack
+vim.keymap.set('n', '<leader>a', ':Ack<space>')
+
 -- lspsaga
 --[[ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
