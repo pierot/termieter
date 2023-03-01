@@ -26,7 +26,7 @@ set colors {"#00ff00" red blue magenta darkgrey brown orange}
 set diffcolors {"#c30000" "#009800" blue}
 set mergecolors {red blue "#00ff00" purple brown "#009090" magenta "#808000" "#009000" "#ff0080" cyan "#b07070" "#70b0f0" "#70f0b0" "#f0b070" "#ff70b0"}
 set markbgcolor #e0e0ff
-set diffcontext 4
+set diffcontext 7
 set selectbgcolor gray85
 set foundbgcolor yellow
 set currentsearchhitbgcolor orange

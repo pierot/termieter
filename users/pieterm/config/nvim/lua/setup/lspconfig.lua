@@ -60,10 +60,10 @@ end
 
 -- Elixir
 local path = require "mason-core.path"
---[[ local path_to_elixirls = path.concat({vim.fn.stdpath "data", "mason", "bin", "elixir-ls"})
+local path_to_elixirls = path.concat({vim.fn.stdpath "data", "mason", "bin", "elixir-ls"})
 
 -- Setup
-nvim_lsp.elixirls.setup({
+--[[ nvim_lsp.elixirls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { path_to_elixirls },
@@ -79,7 +79,7 @@ nvim_lsp.elixirls.setup({
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
 }

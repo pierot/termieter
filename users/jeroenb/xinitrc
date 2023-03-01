@@ -65,6 +65,9 @@ dunst &
 # Keyboard shortcut daemon
 sxhkd &
 
+# set GPU fan speed
+nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=40"
+
 # USB auto mounting
 udiskie &
 
