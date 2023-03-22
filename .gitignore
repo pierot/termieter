@@ -84,6 +84,7 @@ users/jeroenb/config/SubDownloader
 users/jeroenb/config/JetBrains
 users/jeroenb/config/autorandr
 users/jeroenb/config/nvim/plugin/packer_compiled.lua
+users/jeroenb/config/aerc/accounts.conf
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**

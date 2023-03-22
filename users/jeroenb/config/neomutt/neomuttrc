@@ -185,7 +185,7 @@ source $TRMU/mutt/accounts/jackjoe/config
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 # Sync email
-macro index,pager O "<shell-escape>mbsync -a<enter><shell-escape>notmuch new<enter>" "sync email"
+macro index,pager O "<shell-escape>mbsync -V -a<enter><shell-escape>notmuch new<enter>" "sync email"
 
 # Shared Macros --------------------------------------
 

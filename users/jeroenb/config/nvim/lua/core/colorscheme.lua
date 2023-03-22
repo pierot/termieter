@@ -5,8 +5,10 @@ vim.cmd("colorscheme tokyonight-night")
 function ToggleTheme()
   if vim.o.background == "dark" then
     vim.o.background = "light"
+    vim.cmd("colorscheme tokyonight-day")
   else
     vim.o.background = "dark"
+    vim.cmd("colorscheme tokyonight-night")
   end
 end
 
