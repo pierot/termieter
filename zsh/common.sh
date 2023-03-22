@@ -49,7 +49,7 @@ alias mr="make run"
 ##########################################################
 
 function connect_traefik() {
-	echo "http://localhost:9446"
+  echo "http://localhost:9446 (port on host is 9445)"
 	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
 }
 
