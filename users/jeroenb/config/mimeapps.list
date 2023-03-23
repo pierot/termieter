@@ -40,3 +40,4 @@ x-scheme-handler/webcal=userapp-Thunderbird-638JD1.desktop;userapp-Thunderbird-R
 x-scheme-handler/webcals=userapp-Thunderbird-638JD1.desktop;userapp-Thunderbird-RCNMO1.desktop;
 application/octet-stream=libreoffice-writer.desktop;
 image/svg+xml=org.inkscape.Inkscape.desktop;
+video/mp4=vlc.desktop;
