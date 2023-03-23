@@ -100,7 +100,6 @@ u.map('n', '<c-k>', '<c-w>k')
 u.map('n', '<c-h>', '<c-w>h')
 u.map('n', '<c-l>', '<c-w>l')
 
-u.map('n', '<silent><Tab><Tab>', '<C-w>w')             -- Switch between windows by hitting <Tab> twice
 u.map('n', '<leader><Tab>', '<c-^>')                    -- Switch between last two files
 
 u.map('','+', '3<c-w>>')                                -- Enlarge splits

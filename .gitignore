@@ -84,6 +84,7 @@ users/jeroenb/config/SubDownloader
 users/jeroenb/config/JetBrains
 users/jeroenb/config/autorandr
 users/jeroenb/config/nvim/plugin/packer_compiled.lua
+users/jeroenb/config/aerc/accounts.conf
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
@@ -96,3 +97,4 @@ users/pieterm/config/lnav/*sample
 users/pieterm/config/containers/podman/machine*
 users/pieterm/config/temporalio
 users/pieterm/config/bpytop
+users/pieterm/config/github-copilot
