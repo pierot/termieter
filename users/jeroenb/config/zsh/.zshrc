@@ -84,3 +84,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 # bindkey -e
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+
+# pnpm
+export PNPM_HOME="/home/jeroen/.config/local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

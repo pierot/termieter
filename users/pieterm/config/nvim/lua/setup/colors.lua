@@ -54,4 +54,4 @@ function ToggleTheme()
   end
 end
 
-u.map('n', '<F5>', ':lua ToggleTheme()<CR>')           -- Switch between windows by hitting <Tab> twice
+u.map('n', '<F5>', ':lua ToggleTheme()<CR>')
