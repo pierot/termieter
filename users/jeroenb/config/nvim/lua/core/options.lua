@@ -45,3 +45,6 @@ vim.opt.title = true
 
 -- no ack, use ripgrep
 vim.g.ackprg = 'rg -F -S --color=never --no-heading --with-filename --line-number --column -g !package-lock.json'
+
+-- equal splits
+vim.opt.equalalways = true

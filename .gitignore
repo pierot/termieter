@@ -35,6 +35,7 @@ users/jeroenb/config/arkrc
 users/jeroenb/config/kconf_updaterc
 users/jeroenb/config/kdeglobals
 users/jeroenb/config/xfce4
+users/jeroenb/config/xfce4/**
 users/jeroenb/config/libreoffice
 users/jeroenb/config/filezilla
 users/jeroenb/config/fontforge
