@@ -56,7 +56,6 @@ fi
 ##########################################################
 
 alias hosts='sudo vim /etc/hosts'
-alias m='mosh'
 
 if have nvim; then
   export EDITOR=nvim
