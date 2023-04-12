@@ -19,6 +19,7 @@ export NOTMUCH_CONFIG=$HOME/.config/notmuch/notmuch-config
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$XDG_CONFIG_HOME/local/share
 export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
+export LYNX_LSS=$XDG_CONFIG_HOME/lynx/lynx.lss
 
 # PATH
 if [ -d "$HOME/.bin" ] ;

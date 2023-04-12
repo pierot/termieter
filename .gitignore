@@ -8,6 +8,7 @@ tmp
 **/config/yarn
 **/config/cache
 **/config/local
+**/config/git/gitk
 
 **/packer_compiled.lua
 
@@ -34,6 +35,7 @@ users/jeroenb/config/arkrc
 users/jeroenb/config/kconf_updaterc
 users/jeroenb/config/kdeglobals
 users/jeroenb/config/xfce4
+users/jeroenb/config/xfce4/**
 users/jeroenb/config/libreoffice
 users/jeroenb/config/filezilla
 users/jeroenb/config/fontforge
@@ -72,7 +74,6 @@ users/jeroenb/config/ckb-next/**
 users/jeroenb/config/Insomnia
 users/jeroenb/config/Postman
 users/jeroenb/config/nvm
-users/jeroenb/config/git/gitk
 users/jeroenb/config/Meltytech
 users/jeroenb/config/libfm/libfm.conf
 users/jeroenb/config/xarchiver
@@ -83,6 +84,8 @@ users/jeroenb/config/inkscape
 users/jeroenb/config/SubDownloader
 users/jeroenb/config/JetBrains
 users/jeroenb/config/autorandr
+users/jeroenb/config/nvim/plugin/packer_compiled.lua
+users/jeroenb/config/aerc/accounts.conf
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
@@ -95,3 +98,4 @@ users/pieterm/config/lnav/*sample
 users/pieterm/config/containers/podman/machine*
 users/pieterm/config/temporalio
 users/pieterm/config/bpytop
+users/pieterm/config/github-copilot

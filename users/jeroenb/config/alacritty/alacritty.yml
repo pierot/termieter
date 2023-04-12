@@ -900,7 +900,8 @@ schemes:
   tokyo-night: &tokyo-night # Default colors
     primary:
       background: "0x1a1b26"
-      foreground: "0xa9b1d6"
+      # foreground: "0xa9b1d6"
+      foreground: "0xf9f1ff"
 
     # Normal colors
     normal:
@@ -950,5 +951,130 @@ schemes:
       magenta: "0xbb9af7"
       cyan: "0x0db9d7"
       white: "0xacb0d0"
+
+  # XTerm's default colors
+  xterm: &xterm # Default colors
+    primary:
+      background: "0x000000"
+      foreground: "0xffffff"
+    # Normal colors
+    normal:
+      black: "0x000000"
+      red: "0xcd0000"
+      green: "0x00cd00"
+      yellow: "0xcdcd00"
+      blue: "0x0000ee"
+      magenta: "0xcd00cd"
+      cyan: "0x00cdcd"
+      white: "0xe5e5e5"
+
+    # Bright colors
+    bright:
+      black: "0x7f7f7f"
+      red: "0xff0000"
+      green: "0x00ff00"
+      yellow: "0xffff00"
+      blue: "0x5c5cff"
+      magenta: "0xff00ff"
+      cyan: "0x00ffff"
+      white: "0xffffff"
+
+  omni: &omni
+    primary:
+      background: "0x191622"
+      foreground: "0xe1e1e6"
+
+    cursor:
+      text: "0x191622"
+      cursor: "0xf8f8f2"
+
+    normal:
+      black: "0x000000"
+      red: "0xff5555"
+      green: "0x50fa7b"
+      yellow: "0xeffa78"
+      blue: "0xbd93f9"
+      magenta: "0xff79c6"
+      cyan: "0x8d79ba"
+      white: "0xbfbfbf"
+
+    bright:
+      black: "0x4d4d4d"
+      red: "0xff6e67"
+      green: "0x5af78e"
+      yellow: "0xeaf08d"
+      blue: "0xcaa9fa"
+      magenta: "0xff92d0"
+      cyan: "0xaa91e3"
+      white: "0xe6e6e6"
+
+    dim:
+      black: "0x000000"
+      red: "0xa90000"
+      green: "0x049f2b"
+      yellow: "0xa3b106"
+      blue: "0x530aba"
+      magenta: "0xbb006b"
+      cyan: "0x433364"
+      white: "0x5f5f5f"
+
+  # Colors (Hyper)
+  hyper: &hyper # Default colors
+    primary:
+      background: "0x000000"
+      foreground: "0xffffff"
+    cursor:
+      text: "0xF81CE5"
+      cursor: "0xffffff"
+
+    # Normal colors
+    normal:
+      black: "0x000000"
+      red: "0xfe0100"
+      green: "0x33ff00"
+      yellow: "0xfeff00"
+      blue: "0x0066ff"
+      magenta: "0xcc00ff"
+      cyan: "0x00ffff"
+      white: "0xd0d0d0"
+
+    # Bright colors
+    bright:
+      black: "0x808080"
+      red: "0xfe0100"
+      green: "0x33ff00"
+      yellow: "0xfeff00"
+      blue: "0x0066ff"
+      magenta: "0xcc00ff"
+      cyan: "0x00ffff"
+      white: "0xFFFFFF"
+
+  # Colors (Gotham)
+  gotham: &gotham # Default colors
+    primary:
+      background: "0x0a0f14"
+      foreground: "0x98d1ce"
+
+    # Normal colors
+    normal:
+      black: "0x0a0f14"
+      red: "0xc33027"
+      green: "0x26a98b"
+      yellow: "0xedb54b"
+      blue: "0x195465"
+      magenta: "0x4e5165"
+      cyan: "0x33859d"
+      white: "0x98d1ce"
+
+    # Bright colors
+    bright:
+      black: "0x10151b"
+      red: "0xd26939"
+      green: "0x081f2d"
+      yellow: "0x245361"
+      blue: "0x093748"
+      magenta: "0x888ba5"
+      cyan: "0x599caa"
+      white: "0xd3ebe9"
 
 colors: *tokyo-night

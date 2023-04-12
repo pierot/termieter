@@ -51,7 +51,7 @@ alias gj="cd $HOME/Work/jackjoe"
 alias gd="cd $HOME/Downloads"
 alias gD="cd $HOME/Desktop"
 alias gdb="cd $DROPBOX"
-alias ssh="kitty +kitten ssh"
+alias bc="bc -l"
 
 # python 3.8
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"

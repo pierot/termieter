@@ -56,6 +56,7 @@ vim.keymap.set('n', 'R', '<cmd>NvimTreeRefresh<CR>')
 vim.keymap.set('n', '<c-p>', '<cmd>Telescope find_files<CR>')
 vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<CR>')
 vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope grep_string<CR>')
 vim.keymap.set('n', '<leader>gb', '<cmd>Telescope git_branches<CR>')
 vim.keymap.set('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
 -- vim.keymap.set('n', '<leader>gss', '<cmd>Telescope git_status<CR>')
@@ -63,9 +64,15 @@ vim.keymap.set('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
 -- fugitive
 vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>')
 
+-- Ack
+vim.keymap.set('n', '<leader>a', ':Ack<space>')
+
 -- lspsaga
 --[[ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
 vim.keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', opts)
 vim.keymap.set('n', 'gp', '<Cmd>Lspsaga peek_definition<CR>', opts)
 vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts) ]]
+
+-- Packer
+vim.keymap.set('n', '<leader>ps', '<cmd>PackerSync<CR>')
