@@ -13,7 +13,9 @@ ts.setup({
   ignore_install = { },
   highlight = {
     enable = true,
-    diable = { }
+    disable = function(lang, bufnr) -- Disable in large C++ buffers
+      return lang == "sql" and vim.api.nvim_buf_line_count(bufnr) > 1000
+    end,
   },
   -- highlight = {enable = {enabled = true, use_languagetree = true}},
   indent = {
