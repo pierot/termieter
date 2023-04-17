@@ -27,6 +27,7 @@ require("tokyonight").setup({
     sidebars = "transparent",
     floats = "transparent",
   },
+  day_brightness = 0.15,
   -- use the night style
   -- style = "night",
   -- sidebars = { "qf", "vista_kind", "terminal", "packer" },
@@ -48,8 +49,10 @@ vim.cmd("colorscheme tokyonight-night")
 
 function ToggleTheme()
   if vim.o.background == "dark" then
+    vim.cmd("colorscheme tokyonight-day")
     vim.o.background = "light"
   else
+    vim.cmd("colorscheme tokyonight-night")
     vim.o.background = "dark"
   end
 end

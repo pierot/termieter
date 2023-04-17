@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
 
   use {                                               -- pretty lsp diagnostics
     "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    requires = "nvim-tree/nvim-web-devicons",
     config = function()
       require("trouble").setup {
         -- your configuration comes here
@@ -60,6 +60,8 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-ts-autotag'
   -- use 'norcalli/nvim-colorizer.lua'
 
+	use {'nvim-treesitter/nvim-treesitter'}             -- treesitter, code highlighting, last
+
 	use 'docunext/closetag.vim'
 	use 'mattn/emmet-vim'
 	use 'kana/vim-textobj-user'
@@ -74,7 +76,19 @@ return require('packer').startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
   use "jayp0521/mason-null-ls.nvim"
   use 'jose-elias-alvarez/typescript.nvim'
-  use 'glepnir/lspsaga.nvim'                          -- LSP UI
+
+  use({
+    "nvimdev/lspsaga.nvim",
+    opt = true,
+    branch = "main",
+    event = "LspAttach",
+    requires = {
+      {"nvim-tree/nvim-web-devicons"},
+      --Please make sure you install markdown and markdown_inline parser
+      {"nvim-treesitter/nvim-treesitter"}
+    }
+  })
+
   use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
 
 	use 'hrsh7th/nvim-cmp'                              -- autocomplete
@@ -105,8 +119,6 @@ return require('packer').startup(function(use)
 	-- 'gruvbox-community/gruvbox'
 	-- 'kovetskiy/sxhkd-vim'
 	-- 'joshdick/onedark.vim'
-
-	use {'nvim-treesitter/nvim-treesitter'}             -- treesitter, code highlighting, last
 
   use {'github/copilot.vim'}
 
