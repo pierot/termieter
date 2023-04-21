@@ -7,6 +7,7 @@
 " order matters
 lua require('init')
 lua require('plugins')
+
 lua require('setup.autopairs')
 lua require('setup.colors')
 lua require('setup.colorizer')

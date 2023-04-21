@@ -26,7 +26,6 @@ local setup, saga = pcall(require, "lspsaga")
 if (not setup) then return end
 
 -- saga.setup({})
-require("lspsaga").setup({})
 
 local keymap = vim.keymap.set
 -- Lsp finder find the symbol definition implement reference
