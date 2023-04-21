@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# SELECT p0.`id`, p0.`name`, p0.`box`, p0.`city`, p0.`nbr`, p0.`postal_code`, p0.`street`, p0.`country`, p0.`telephone`, p0.`telephone_intern`, p0.`vat`, p0.`token`, p0.`email_intern`, p0.`email_verdeel`, p0.`description_nl_BE`, p0.`description_fr_BE`, p0.`description_de_DE`, p0.`description_en_GB`, p0.`is_active`, p0.`is_heers`, p0.`email_domains`, p0.`type`, p0.`heers_date`, p0.`derdenrekening`, p0.`ereloonrekening`, p0.`software_type`, p0.`attachment_exclude_list`, p0.`allow_dc_use`, p0.`receive_heers_reminder`, p0.`last_reference`, p0.`signature_name`, p0.`allow_docdropper_email`, p0.`boss_id`, p0.`inserted_at`, p0.`updated_at`, p1.`id`, p1.`area`, p1.`area_excludes`, p1.`is_fallback_b2b`, p1.`is_fallback_b2c`, p1.`country`, p1.`type`, p1.`partner_id`, p1.`inserted_at`, p1.`updated_at`, u2.`id`, u2.`email`, u2.`firstname`, u2.`lastname`, u2.`language`, u2.`encrypted_password`, u2.`token`, u2.`reset_token`, u2.`is_test`, u2.`is_active`, u2.`is_deleted`, u2.`use_salutation`, u2.`totp_secret`, u2.`totp_last_use`, u2.`client_group_id`, u2.`inserted_at`, u2.`updated_at` FROM `partners` AS p0 INNER JOIN `partner_areas` AS p1 ON (p1.`partner_id` = p0.`id`) AND ((p1.`is_fallback_b2c` = TRUE) AND (p1.`type` = ?)) INNER JOIN `users` AS u2 ON u2.`id` = p0.`boss_id` WHERE (p0.`type` IN (?,?)) [:gerechtelijk, :gdw_tp, :gdw_c]
+
+# Utility script to convert a Ecto logged query
+# to a executable MySQL query
+#
+# version:      0.1
+# created:      05/04/2023
+# last update:  05/04/2023
+# author:       Jack + Joe
+
+set -a
+
+# Util (colors)
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+
+usage() {
+  cat <<-EOF
+Usage: ectoql [OPTIONS]
+
+Options:
+  -h, --help              This screen
+
+EOF
+return;
+}
+
+# parse options
+while [[ $# -gt 0 ]]
+do
+  key="$1"
+
+  case $key in
+      -h|--help)
+          usage
+          exit
+          shift # past argument
+          ;;
+      *)
+          shift # Remove generic argument from processing
+          ;;
+  esac
+done
+
+q=$(xclip -o 2>&1)
+
+q="SELECT * FROM users WHERE users.id = ? and user.email = ? and type = ? [1, \"foo@acme.com\", :foo, :bar, :baz]"
+
+# convert atoms to strings
+q=$(echo "$q" | sed 's/:\([a-zA-Z0-9].*\)/\1/g')
+
+echo "$q"
+
+# args=$(echo "$q" | grep -E -o "\[.*\]" | sed 's/[]/[]//g')
+# IFS=', ' read -r -a args <<< "$args"
+
+# # Remove the '[p1, p2]' part from the log line
+# q=$(echo "$q" | sed 's/\[[^]]*\]//')
+
+# echo -e "${GREEN}===== Mysql query ====${NC}"
+# echo "$q" | awk -vArr="${args[*]}" 'BEGIN {split(Arr,awk_arr," ")}{for(i=1;i<=NF;i++)if($i~/?/){count++;$i=awk_arr[count]}}1'
+
+# echo ""
+# echo "The value has been copied to the clipboard for your convenience."
