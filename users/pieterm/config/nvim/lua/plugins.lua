@@ -33,18 +33,6 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/popup.nvim'                           -- ui plugin used by many, someday upstream in neovim
 	use 'nvim-lua/plenary.nvim'                         -- ui plugin used by many, someday upstream in neovim
 
-  use {                                               -- pretty lsp diagnostics
-    "folke/trouble.nvim",
-    requires = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
-  }
-
 	-- 'blackCauldron7/surround.nvim'
 	use 'tpope/vim-surround'
 	use 'tpope/vim-fugitive'
@@ -70,7 +58,7 @@ return require('packer').startup(function(use)
 	use 'elixir-editors/vim-elixir'                     -- correct commentstring and other percs
 
 	use 'neovim/nvim-lspconfig'
-  use 'jose-elias-alvarez/null-ls.nvim'               -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  use 'jose-elias-alvarez/null-ls.nvim'               -- Use Neovim as a LS to inject LSP diagnostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim'                     -- Prettier plugin for Neovim's built-in LSP client
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
@@ -88,6 +76,11 @@ return require('packer').startup(function(use)
       {"nvim-treesitter/nvim-treesitter"}
     }
   })
+
+  use {                                               -- pretty lsp diagnostics
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons"
+  }
 
   use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
 
