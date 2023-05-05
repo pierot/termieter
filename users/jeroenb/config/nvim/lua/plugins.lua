@@ -98,6 +98,7 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/typescript.nvim'
   use 'glepnir/lspsaga.nvim'                          -- LSP UI
   use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
+  use 'elixir-tools/elixir-tools.nvim'                -- for credo-lsp
 
   -- formatting & linting
   use "jayp0521/mason-null-ls.nvim"
