@@ -62,3 +62,5 @@ alias lynx='lynx -cfg ~/.config/lynx/lynx.cfg'
 # Justified related
 alias jh='for file in ./*.svg; do convert -density 1200 -resize 2400x580 $file `basename $file .svg`.jpg; done'
 alias jf='for file in ./*.svg; do convert -density 2400 -resize 4800x236 $file `basename $file .svg`.jpg; done'
+
+alias bfg='java -jar ~/.termieter/users/jeroenb/bin/bfg.jar'
