@@ -23,23 +23,17 @@ local u = require("utils")
 require("tokyonight").setup({
   transparent = true,
   transparent_sidebar = true,
+  italic_functions = true,
+  dark_float = true,
   styles = {
     sidebars = "transparent",
     floats = "transparent",
   },
-  day_brightness = 0.15,
-  -- use the night style
-  -- style = "night",
-  -- sidebars = { "qf", "vista_kind", "terminal", "packer" },
-  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  -- on_colors = function(colors)
-  --   colors.hint = colors.orange
-  --   colors.error = "#ff0000"
-  -- end,
+  day_brightness = 0.3,
   on_highlights = function(hl, c)
     hl.Normal = {
       bg = "#1a1a1a",
-      fg = "#f5f7fc"
+      fg = "#fafafa"
     }
   end,
 })
