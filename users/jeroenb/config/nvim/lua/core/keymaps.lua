@@ -41,7 +41,7 @@ vim.keymap.set('v', '<leader><leader>i', '<S-S><em>')
 
 vim.keymap.set('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve cursor position
 
-vim.cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %'
+vim.cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format %'
  
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
@@ -66,6 +66,10 @@ vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>')
 
 -- Ack
 vim.keymap.set('n', '<leader>a', ':Ack<space>')
+
+-- Git diffs
+vim.keymap.set('n', '<leader>gmh', '<cmd>diffget //2<CR>') -- left
+vim.keymap.set('n', '<leader>gml', '<cmd>diffget //3<CR>') -- right
 
 -- lspsaga
 --[[ local opts = { noremap = true, silent = true }

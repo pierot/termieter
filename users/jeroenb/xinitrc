@@ -75,7 +75,7 @@ udiskie &
 [ -x /usr/bin/picom ] && picom &
 
 # Status bar
-dwmstatus &
+slstatus &
 
 # WM
 exec startdwm
