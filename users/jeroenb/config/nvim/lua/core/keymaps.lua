@@ -41,7 +41,7 @@ vim.keymap.set('v', '<leader><leader>i', '<S-S><em>')
 
 vim.keymap.set('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve cursor position
 
-vim.cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format %'
+vim.cmd 'autocmd BufWritePost *.exs,*.ex,*.heex,*.leex silent :!source .env && mix format %'
  
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 

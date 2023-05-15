@@ -111,7 +111,7 @@ u.map('v', '<leader><leader>i', '<S-S><em>')
 
 u.map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve cursor position
 
-cmd 'autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format %'
+cmd 'autocmd BufWritePost *.exs,*.ex,*.leex,*.heex silent :!source .env && mix format %'
 
 u.map('t', '<Esc>', '<C-\\><C-n>')
 
