@@ -37,6 +37,19 @@ if [[ $OS == 'OSX' ]]; then
     defaults write -g InitialKeyRepeat -int 13 # normal minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
   }
+
+  alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
+
+  alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
+  alias zzz='pmset sleepnow'
+
+  # Spotlight
+  alias spotlight-stop='sudo mdutil -i off /'
+  alias spotlight-clear='sudo mdutil -E /'
+  alias spotlight-start='sudo mdutil -i on /'
+
+  # Sleepimage
+  alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 else
   list-services() {
     chkconfig --list | grep '3:on'
@@ -63,23 +76,6 @@ if have nvim; then
 else
   export SVN_EDITOR='vim'
   export EDITOR=vim
-fi
-
-##########################################################
-
-if [[ $OS == 'OSX' ]]; then
-  alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
-
-  alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
-  alias zzz='pmset sleepnow'
-
-  # Spotlight
-  alias spotlight-stop='sudo mdutil -i off /'
-  alias spotlight-clear='sudo mdutil -E /'
-  alias spotlight-start='sudo mdutil -i on /'
-
-  # Sleepimage
-  alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 fi
 
 ##########################################################
