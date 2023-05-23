@@ -64,3 +64,6 @@ alias jh='for file in ./*.svg; do convert -density 1200 -resize 2400x580 $file `
 alias jf='for file in ./*.svg; do convert -density 2400 -resize 4800x236 $file `basename $file .svg`.jpg; done'
 
 alias bfg='java -jar ~/.termieter/users/jeroenb/bin/bfg.jar'
+
+# Upgrade Portainer
+alias upgrade_portainer='sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest'

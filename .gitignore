@@ -86,6 +86,8 @@ users/jeroenb/config/JetBrains
 users/jeroenb/config/autorandr
 users/jeroenb/config/nvim/plugin/packer_compiled.lua
 users/jeroenb/config/aerc/accounts.conf
+users/jeroenb/config/ghb
+users/jeroenb/config/balena-etcher
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
