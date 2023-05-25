@@ -9,6 +9,8 @@ alias l='ls $LS_OPT -1hAFC'
 alias mv='mv -i'            # prevents accidental overwrite
 alias cp='cp -i'            # prevents accidental overwrite
 alias rm='rm -i'            # prevents accidental overwrite
+alias cpf='cp'              # no prevention
+alias mvf='mv'              # no prevention
 
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
