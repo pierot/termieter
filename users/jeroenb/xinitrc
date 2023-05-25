@@ -36,19 +36,6 @@ fi
 xset r rate 200 90
 setxkbmap -option compose:paus
 
-# Set up an icon tray
-# trayer \
-#   --edge top \
-#   --align right \
-#   --padding 6 \
-#   --width 2 \
-#   --transparent true \
-#   --tint 0x000000 \
-#   --alpha 0 \
-#   --SetPartialStrut true \
-#   --height 22 \
-#   &
-
 ~/.fehbg
  
 # Take a guess
