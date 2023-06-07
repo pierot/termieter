@@ -44,6 +44,12 @@ alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias xmonadconf="vim ~/.config/xmonad/xmonad.hs"
 
+# utils
+alias ls="exa"
+alias ll="exa -l"
+alias grep="grep --color=auto"
+alias pacman="sudo pacman --color=auto"
+
 # Git stuff
 alias gap='git add -p'
 alias gst='git status'
