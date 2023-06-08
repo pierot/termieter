@@ -45,10 +45,10 @@ alias gcd='git checkout develop'
 alias xmonadconf="vim ~/.config/xmonad/xmonad.hs"
 
 # utils
-alias ls="exa"
-alias ll="exa -l"
 alias grep="grep --color=auto"
 alias pacman="sudo pacman --color=auto"
+alias diff="diff --color=auto"
+alias ip="ip -color=auto"
 
 # Git stuff
 alias gap='git add -p'

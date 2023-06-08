@@ -2,9 +2,16 @@
 # Oh My Zsh or not! (Jeroen does not use the symlinks/.zshrc, that's why...)
 
 # General aliases
-alias ls='ls $LS_OPT'       # long list, excludes dot files
-alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
-alias l='ls $LS_OPT -1hAFC'
+if have exa; then
+  alias ls="exa"
+  alias ll="exa -l"
+  alias la="exa -la"
+  alias l="exa -la"
+else
+  alias ls='ls $LS_OPT'       # long list, excludes dot files
+  alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
+  alias l='ls $LS_OPT -1hAFC'
+fi
 
 alias mv='mv -i'            # prevents accidental overwrite
 alias cp='cp -i'            # prevents accidental overwrite
