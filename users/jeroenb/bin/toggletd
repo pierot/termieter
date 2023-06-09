@@ -1,0 +1,13 @@
+#!/bin/sh
+# Toggle Alacritty theme between light and dark
+cfg=~/.config/alacritty/alacritty.yml
+from=""
+to=""
+if grep -q 'colors: \*dark' "$cfg"; then
+  from="dark"
+  to="light"
+else
+  from="light"
+  to="dark"
+fi
+sed -i "s/colors: \*${from}/colors: \*${to}/g" $cfg
