@@ -53,6 +53,10 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
 	xbacklight -inc 5
 
-super + F5
-  # toggle terminal darkness
+# toggle terminal darkness
+super + shift + d 
   toggletd
+
+# Reload sxhkdrc
+super + shift + r
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'

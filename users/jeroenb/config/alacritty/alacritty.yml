@@ -1112,4 +1112,4 @@ schemes:
       cyan: "0x3e953a"
       white: "0xffffff"
 
-colors: *dark
+colors: *light
