@@ -24,7 +24,16 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
+# asdf
+. "$HOME/.asdf/asdf.sh"
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
 # Autocomplete
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
 autoload -Uz compinit promptinit
 fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)

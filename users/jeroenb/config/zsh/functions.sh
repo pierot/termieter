@@ -5,7 +5,7 @@ have() {
 }
 
 function cd {
-  builtin cd "$@" && ls -lF
+  builtin cd "$@" && exa -l
 }
 
 function sloc {
