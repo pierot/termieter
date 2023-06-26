@@ -89,6 +89,8 @@ return require('packer').startup(function(use)
 	use 'folke/tokyonight.nvim'
 	use 'norcalli/nvim-colorizer.lua'
 	use 'gruvbox-community/gruvbox'  
+  use 'catppuccin/nvim'
+-- use { "catppuccin/nvim", as = "catppuccin" }
 
   -- managing & installing lsp servers
   use 'williamboman/mason.nvim'
@@ -100,9 +102,13 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/typescript.nvim'
   use 'glepnir/lspsaga.nvim'                          -- LSP UI
   use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
-  use 'elixir-tools/elixir-tools.nvim'                -- for credo-lsp
+  use {                                               -- elixir lsp / formatter / credo lsp
+    "elixir-tools/elixir-tools.nvim", 
+    tag = "stable", 
+    requires = { "nvim-lua/plenary.nvim" }
+  }
 
-  -- formatting & linting
+-- formatting & linting
   use "jayp0521/mason-null-ls.nvim"
   use 'jose-elias-alvarez/null-ls.nvim'               -- use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   -- use 'MunifTanjim/prettier.nvim'                     -- Prettier plugin for Neovim's built-in LSP client

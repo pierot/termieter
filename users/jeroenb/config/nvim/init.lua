@@ -22,5 +22,6 @@ require("plugins.treesitter")
 require("plugins.ts-autotag")
 require("plugins.vim-easy-align")
 require("plugins.web-devicons")
+require("plugins.git-blame")
 
 print("Jack + Joe rocks!")
