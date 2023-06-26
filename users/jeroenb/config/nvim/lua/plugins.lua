@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/plenary.nvim'                         -- ui plugin used by many, someday upstream in neovim
 	use 'mileszs/ack.vim'
   use 'github/copilot.vim'                            -- take a guess
+  use 'f-person/git-blame.nvim'                       -- show blame info
 
   use {
     'lewis6991/gitsigns.nvim',
