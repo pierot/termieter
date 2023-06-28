@@ -31,7 +31,10 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/plenary.nvim'                         -- ui plugin used by many, someday upstream in neovim
 	use 'mileszs/ack.vim'
   use 'github/copilot.vim'                            -- take a guess
-  use 'f-person/git-blame.nvim'                       -- show blame info
+  use {
+    'f-person/git-blame.nvim',                        -- show blame info
+    lazy = true
+  }
 
   use {
     'lewis6991/gitsigns.nvim',
@@ -53,7 +56,10 @@ return require('packer').startup(function(use)
   }
 	
   -- filetree
-	use 'kyazdani42/nvim-tree.lua'                      -- sidebar file explorer
+	use {
+    'kyazdani42/nvim-tree.lua',                       -- sidebar file explorer
+    lazy=true 
+  }      
 	use 'kyazdani42/nvim-web-devicons'                  -- web dev icons used by many plugins
 	use {'nvim-treesitter/nvim-treesitter'}             -- treesitter, code highlighting, last
 	use 'b3nj5m1n/kommentary'                           -- commenting
@@ -93,8 +99,8 @@ return require('packer').startup(function(use)
 -- use { "catppuccin/nvim", as = "catppuccin" }
 
   -- managing & installing lsp servers
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
+  use {'williamboman/mason.nvim', lazy=true} 
+  use {'williamboman/mason-lspconfig.nvim', lazy=true}
 
   -- configuring lsp servers
 	use 'neovim/nvim-lspconfig'
@@ -129,6 +135,9 @@ return require('packer').startup(function(use)
 	use 'docunext/closetag.vim'
 
 	use 'jeffkreeftmeijer/vim-numbertoggle'
+
+  -- tmux integration
+  use 'christoomey/vim-tmux-navigator'
 
 --[[
 
