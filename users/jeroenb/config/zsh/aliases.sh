@@ -63,6 +63,7 @@ alias gbump='git add . && gcmm chore: bump versions'
 alias gcleanup='git add . && gcmm chore: cleanup'
 alias gfix='git add . && gcmm fix'
 alias gammend='git commit --amend --no-edit'
+alias glog="git log --oneline --graph --decorate --all"
 
 alias lynx='lynx -cfg ~/.config/lynx/lynx.cfg'
 
