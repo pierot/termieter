@@ -54,7 +54,8 @@ alias ip="ip -color=auto"
 alias gap='git add -p'
 alias gst='git status'
 alias ga="git add $1"
-
+alias gb="git branch"
+alias gba="git branch --all"
 alias gdoc='git add . && gcmm docs: add documentation'
 alias gmerge='git add . && gcmm chore: merge'
 alias gcompile='git add . && gcmm chore: compile'

@@ -23,3 +23,8 @@ function sloc_js {
 function sloc_ts {
   git ls-files | egrep '\.tsx?$' | xargs cat | sed '/^$/d' | sed '/^\s*#/d' | wc -l
 }
+
+function take {
+  mkdir -p $1
+  cd $1
+}
