@@ -25,9 +25,12 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # asdf
-. "$HOME/.asdf/asdf.sh"
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+if [ -f "${HOME}/.asdf/asdf.sh" ]; then
+  . "$HOME/.asdf/asdf.sh"
+  # append completions to fpath
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi 
+
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
