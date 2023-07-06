@@ -53,6 +53,6 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
 	xbacklight -inc 5
 
-super + F5
+super + shift + F5
   # toggle terminal darkness
   toggletd
