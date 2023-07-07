@@ -129,7 +129,7 @@ protocol.CompletionItemKind = {
 }
 
 -- configure Elixir language server
-local path = require "mason-core.path"
+--[[ local path = require "mason-core.path"
 local path_to_elixirls = path.concat({vim.fn.stdpath "data", "mason", "bin", "elixir-ls"}) 
 
 -- Setup
@@ -145,7 +145,7 @@ lspconfig["elixirls"].setup({
       suggestSpecs = true
     }
   }
-})
+}) ]]
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

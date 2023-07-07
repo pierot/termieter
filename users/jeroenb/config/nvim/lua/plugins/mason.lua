@@ -8,7 +8,7 @@ mason.setup()
 lspconfig.setup {
   ensure_installed = { 
     "tailwindcss", 
-    "elixirls" ,
+    -- "elixirls" ,
     "emmet_ls",
     "html"
   } -- //, "prettier_d" },
