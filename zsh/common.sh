@@ -4,9 +4,9 @@
 # General aliases
 if have exa; then
   alias ls="exa"
-  alias ll="exa -l"
-  alias la="exa -la"
-  alias l="exa -la"
+  alias ll="exa --icons -l"
+  alias la="exa --icons -la"
+  alias l="exa --icons -la"
 else
   alias ls='ls $LS_OPT'       # long list, excludes dot files
   alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files

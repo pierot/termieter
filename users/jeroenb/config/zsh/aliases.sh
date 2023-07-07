@@ -54,7 +54,8 @@ alias ip="ip -color=auto"
 alias gap='git add -p'
 alias gst='git status'
 alias ga="git add $1"
-
+alias gb="git branch"
+alias gba="git branch --all"
 alias gdoc='git add . && gcmm docs: add documentation'
 alias gmerge='git add . && gcmm chore: merge'
 alias gcompile='git add . && gcmm chore: compile'
@@ -62,6 +63,7 @@ alias gbump='git add . && gcmm chore: bump versions'
 alias gcleanup='git add . && gcmm chore: cleanup'
 alias gfix='git add . && gcmm fix'
 alias gammend='git commit --amend --no-edit'
+alias glog="git log --oneline --graph --decorate --all"
 
 alias lynx='lynx -cfg ~/.config/lynx/lynx.cfg'
 
@@ -73,5 +75,5 @@ alias bfg='java -jar ~/.termieter/users/jeroenb/bin/bfg.jar'
 
 # Upgrade Portainer
 alias upgrade_portainer='sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest'
-alias fixkb='xset r rate 200 90'
-alias kbfix='xset r rate 200 90'
+alias fixkb='xset r rate 200 90 && setxkbmap -option compose:paus'
+alias kbfix='xset r rate 200 90 && setxkbmap -option compose:paus'
