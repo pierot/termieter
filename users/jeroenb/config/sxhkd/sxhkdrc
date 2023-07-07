@@ -53,16 +53,11 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
 	xbacklight -inc 5
 
-<<<<<<< HEAD
 # toggle terminal darkness
 super + shift + d 
-||||||| 6aa406d
-super + F5
-  # toggle terminal darkness
-=======
+  toggletd
+
 super + shift + F5
-  # toggle terminal darkness
->>>>>>> d9ec3ac64cb103893d0355978b66f071178427a6
   toggletd
 
 # Reload sxhkdrc
