@@ -67,9 +67,10 @@ vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>')
 -- Ack
 vim.keymap.set('n', '<leader>a', ':Ack<space>')
 
--- Git diffs
+-- Git 
 vim.keymap.set('n', '<leader>gmh', '<cmd>diffget //2<CR>') -- left
 vim.keymap.set('n', '<leader>gml', '<cmd>diffget //3<CR>') -- right
+vim.keymap.set('n', '<leader>gk', '<cmd>! gitk %<CR>')
 
 -- lspsaga
 --[[ local opts = { noremap = true, silent = true }
