@@ -84,3 +84,6 @@ vim.keymap.set('n', '<leader>ps', '<cmd>PackerSync<CR>')
 
 -- Git Blame
 vim.keymap.set('n', '<leader>gb', '<cmd>GitBlameToggle<CR>')
+
+-- Project utils
+vim.keymap.set('n', '<leader>ms', '<cmd>! make styles<CR>')
