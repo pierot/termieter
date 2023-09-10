@@ -20,7 +20,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$XDG_CONFIG_HOME/local/share
 export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
 export LYNX_LSS=$XDG_CONFIG_HOME/lynx/lynx.lss
-export LESS='-R --use-color -Dd+r$Du+b$'
+# export LESS='-R --use-color -Dd+r$Du+b$'
+export LESS=''
 # Let all of java know we use a wm
 export _JAVA_AWT_WM_NONREPARENTING=1
 
