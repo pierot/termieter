@@ -77,3 +77,6 @@ alias bfg='java -jar ~/.termieter/users/jeroenb/bin/bfg.jar'
 alias upgrade_portainer='sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest'
 alias fixkb='xset r rate 200 90 && setxkbmap -option compose:paus'
 alias kbfix='xset r rate 200 90 && setxkbmap -option compose:paus'
+
+# my external ip
+alias myip='curl -s https://ipinfo.io/ip'
