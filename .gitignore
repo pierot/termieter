@@ -94,6 +94,9 @@ users/jeroenb/config/jgit/
 users/jeroenb/config/transmission
 users/jeroenb/config/zsh/.zsh_history
 users/jeroenb/config/transmission
+users/jeroenb/config/mockoon
+users/jeroenb/config/okularpartrc
+users/jeroenb/config/okularrc
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
