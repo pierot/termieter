@@ -106,7 +106,7 @@ return require('packer').startup(function(use)
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'              
   use 'jose-elias-alvarez/typescript.nvim'
-  use 'glepnir/lspsaga.nvim'                          -- LSP UI
+  use 'nvimdev/lspsaga.nvim'                          -- LSP UI
   use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
   use {                                               -- elixir lsp / formatter / credo lsp
     "elixir-tools/elixir-tools.nvim", 
