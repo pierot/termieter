@@ -49,41 +49,61 @@ telescope.setup {
 } ]]
 
 return {
-  "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-    local telescope = require("telescope")
-    local actions = require("telescope.actions")
+	"nvim-telescope/telescope.nvim",
+	branch = "0.1.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		"nvim-tree/nvim-web-devicons",
+	},
+	config = function()
+		local telescope = require("telescope")
+		local actions = require("telescope.actions")
 
-    telescope.setup({
-      defaults = {
-        path_display = { "truncate " },
-        mappings = {
-          i = {
-            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next, -- move to next result
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-          },
-        },
-      },
-    })
+		telescope.setup({
+			defaults = {
+				path_display = { "truncate " },
+				file_ignore_patterns = { "node_modules/.*", "vendor/.*" },
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+				},
+				mappings = {
+					i = {
+						["<C-k>"] = actions.move_selection_previous, -- move to prev result
+						["<C-j>"] = actions.move_selection_next, -- move to next result
+						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+					},
+				},
+			},
+			pickers = {
+				find_files = {
+					theme = "ivy",
+					-- requires 'fd' te be installed
+					find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
+				},
+				buffers = {
+					theme = "ivy",
+				},
+			},
+		})
 
-    telescope.load_extension("fzf")
+		telescope.load_extension("fzf")
 
-    -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+		-- set keymaps
+		local keymap = vim.keymap -- for conciseness
 
-    -- telescope
-    vim.keymap.set('n', '<c-p>', '<cmd>Telescope find_files<CR>')
-    vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<CR>')
-    vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
-    vim.keymap.set('n', '<leader>fc', '<cmd>Telescope grep_string<CR>')
-    vim.keymap.set('n', '<leader>gr', '<cmd>Telescope git_branches<CR>')
-    vim.keymap.set('n', '<leader>gc', '<cmd>Telescope git_commits<CR>')
-  end,
+		-- telescope
+		vim.keymap.set("n", "<c-p>", "<cmd>Telescope find_files<CR>")
+		vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
+		vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+		vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>")
+		vim.keymap.set("n", "<leader>gr", "<cmd>Telescope git_branches<CR>")
+		vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
+	end,
 }
