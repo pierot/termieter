@@ -11,17 +11,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ 
-    { import = "jeroen.plugins" }, 
+require("lazy").setup(
+  {
+    { import = "jeroen.plugins" },
   }, {
-  install = {
-   -- colorscheme = { "folke/tokyonight.nvim" },
-  },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
+    install = {
+      -- colorscheme = { "folke/tokyonight.nvim" },
+    },
+    checker = {
+      enabled = true,
+      notify = false,
+    },
+    change_detection = {
+      notify = false,
+    },
+  })
