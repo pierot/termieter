@@ -1,5 +1,4 @@
--- return {
---   "stevearc/dressing.nvim",
---   event = "VeryLazy",
--- }
-return {}
+return {
+  "stevearc/dressing.nvim",
+  event = "VeryLazy",
+}
