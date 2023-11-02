@@ -1,22 +1,3 @@
--- if (not setup) then return end
---
--- local previewers_setup, previewers = pcall(require, "telescope.previewers")
--- if (not previewers_setup) then return end
---
--- local actions_setup, actions = pcall(require, "telescope.actions")
--- if (not actions_setup) then return end
---
--- local new_maker = function(filepath, bufnr, opts)
---   opts = opts or {}
---   if opts.use_ft_detect == nil then opts.use_ft_detect = true end
---   opts.use_ft_detect = false
---   previewers.buffer_previewer_maker(filepath, bufnr, opts)
--- end
---
--- telescope.setup {
---   defaults = {
---     buffer_previewer_maker = new_maker,
-
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
@@ -24,15 +5,29 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
+		"nvim-telescope/telescope-live-grep-args.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local previewers = require("telescope.previewers")
+
+		telescope.load_extension("live_grep_args")
+
+		local new_maker = function(filepath, bufnr, opts)
+			opts = opts or {}
+			if opts.use_ft_detect == nil then
+				opts.use_ft_detect = true
+			end
+			opts.use_ft_detect = false
+			previewers.buffer_previewer_maker(filepath, bufnr, opts)
+		end
 
 		telescope.setup({
 			defaults = {
+				buffer_previewer_maker = new_maker,
 				path_display = { "truncate " },
-				file_ignore_patterns = { "node_modules/.*", "vendor/.*", "*.min.js" },
+				file_ignore_patterns = { "node_modules", "vendor", "**/*.min.js", "priv/static/js" },
 				vimgrep_arguments = {
 					"rg",
 					"--color=never",
@@ -55,7 +50,7 @@ return {
 				find_files = {
 					theme = "ivy",
 					-- requires 'fd' te be installed
-					find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
+					find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git", "--exclude", "node_modules" },
 				},
 				buffers = {
 					theme = "ivy",
@@ -69,11 +64,12 @@ return {
 		local keymap = vim.keymap -- for conciseness
 
 		-- telescope
-		vim.keymap.set("n", "<c-p>", "<cmd>Telescope find_files<CR>")
-		vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
-		vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
-		vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>")
-		vim.keymap.set("n", "<leader>gr", "<cmd>Telescope git_branches<CR>")
-		vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
+		keymap.set("n", "<c-p>", "<cmd>Telescope find_files<CR>")
+		keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
+		--keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>")
+		keymap.set("n", "<leader>gr", "<cmd>Telescope git_branches<CR>")
+		keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
+		keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 	end,
 }
