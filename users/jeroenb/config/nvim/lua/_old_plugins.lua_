@@ -1,0 +1,43 @@
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+
+  -- My plugins here
+   
+  -- Utils
+	use 'b3nj5m1n/kommentary'                           -- commenting
+
+	-- tpope, always
+	use 'tpope/vim-surround'
+	use 'tpope/vim-fugitive'
+	use 'tpope/vim-repeat'
+  use 'tpope/vim-unimpaired'
+
+	-- fuzzy finding
+	use 'nvim-telescope/telescope.nvim'
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+
+	-- Themes
+	use 'rktjmp/lush.nvim'
+	use 'metalelf0/jellybeans-nvim'
+	use 'folke/tokyonight.nvim'
+	use 'norcalli/nvim-colorizer.lua'
+	use 'gruvbox-community/gruvbox'  
+  use 'catppuccin/nvim'
+-- use { "catppuccin/nvim", as = "catppuccin" }
+
+  -- text objects
+	use 'kana/vim-textobj-user'
+	use 'kana/vim-textobj-line'
+	-- use 'andyl/vim-textobj-elixir'
+	use 'elixir-editors/vim-elixir'                     -- correct commentstring and other percs
+  use 'junegunn/vim-easy-align'
+
+  -- auto closing
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
+
+  -- html
+	use 'mattn/emmet-vim'
+	use 'docunext/closetag.vim'
+
+	use 'jeffkreeftmeijer/vim-numbertoggle'

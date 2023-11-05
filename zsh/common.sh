@@ -2,13 +2,22 @@
 # Oh My Zsh or not! (Jeroen does not use the symlinks/.zshrc, that's why...)
 
 # General aliases
-alias ls='ls $LS_OPT'       # long list, excludes dot files
-alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
-alias l='ls $LS_OPT -1hAFC'
+if have exa; then
+  alias ls="exa"
+  alias ll="exa --icons -l"
+  alias la="exa --icons -la"
+  alias l="exa --icons -la"
+else
+  alias ls='ls $LS_OPT'       # long list, excludes dot files
+  alias ll='ls $LS_OPT -GlhA' # long list all, includes dot files
+  alias l='ls $LS_OPT -1hAFC'
+fi
 
 alias mv='mv -i'            # prevents accidental overwrite
 alias cp='cp -i'            # prevents accidental overwrite
 alias rm='rm -i'            # prevents accidental overwrite
+alias cpf='cp'              # no prevention
+alias mvf='mv'              # no prevention
 
 alias termieter="cd $TRM"
 alias termietere="cd $TRM; vim ."
@@ -203,4 +212,4 @@ fi
 # ASDF
 [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
-[ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
+[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && source /opt/homebrew/opt/asdf/libexec/asdf.sh

@@ -4,6 +4,19 @@ echoo() {
   printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $1
 }
 
+# enable colour support for man pages
+man() {
+  export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
+  export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
+  export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+  export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+  export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+  export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+  export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+  export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
+  command man "$@"
+}
+
 # Remember to put this in your .zshenv file
 # export ZDOTDIR=$HOME/.config/zsh
 
@@ -24,7 +37,13 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
+
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
 # Autocomplete
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
 autoload -Uz compinit promptinit
 fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -89,3 +108,13 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 export PNPM_HOME="/home/jeroen/.config/local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# bun completions
+[ -s "/home/jeroen/.bun/_bun" ] && source "/home/jeroen/.bun/_bun"
+
+# asdf
+if [ -f "${HOME}/.asdf/asdf.sh" ]; then
+  . "$HOME/.asdf/asdf.sh"
+  # append completions to fpath
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi 

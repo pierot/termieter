@@ -1,5 +1,0 @@
-# default
-layout tall
-enabled_layouts tall, stack
-cd ~
-launch zsh

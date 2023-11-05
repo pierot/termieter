@@ -87,6 +87,17 @@ users/jeroenb/config/JetBrains
 users/jeroenb/config/autorandr
 users/jeroenb/config/nvim/plugin/packer_compiled.lua
 users/jeroenb/config/aerc/accounts.conf
+users/jeroenb/config/ghb
+users/jeroenb/config/balena-etcher
+users/jeroenb/config/github-copilot
+users/jeroenb/config/Code - OSS/
+users/jeroenb/config/jgit/
+users/jeroenb/config/transmission
+users/jeroenb/config/zsh/.zsh_history
+users/jeroenb/config/transmission
+users/jeroenb/config/mockoon
+users/jeroenb/config/okularpartrc
+users/jeroenb/config/okularrc
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**

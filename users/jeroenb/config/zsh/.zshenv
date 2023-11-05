@@ -14,12 +14,15 @@ export VISUAL="/usr/bin/nvim -u $HOME/.config/nvim/init.lua"
 export FILE="thunar"
 export TRMU="$HOME/.termieter/users/jeroenb"
 export FLYCTL_INSTALL="/home/jeroen/.fly"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export PAGER="most"
 export NOTMUCH_CONFIG=$HOME/.config/notmuch/notmuch-config
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$XDG_CONFIG_HOME/local/share
 export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
 export LYNX_LSS=$XDG_CONFIG_HOME/lynx/lynx.lss
+# export LESS='-R --use-color -Dd+r$Du+b$'
+# Let all of java know we use a wm
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # PATH
 if [ -d "$HOME/.bin" ] ;
@@ -46,6 +49,11 @@ if [ -d "$HOME/go" ] ;
   then PATH="$HOME/go/bin:$PATH"
 fi
 
+if [ -d "$HOME/.bun" ] ; then
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+fi
+
 export PATH="$PATH:$HOME/go/bin"
 
 # fly
@@ -57,3 +65,4 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 . $TRMU/bin/z.sh
+

@@ -44,11 +44,18 @@ alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias xmonadconf="vim ~/.config/xmonad/xmonad.hs"
 
+# utils
+alias grep="grep --color=auto"
+alias pacman="sudo pacman --color=auto"
+alias diff="diff --color=auto"
+alias ip="ip -color=auto"
+
 # Git stuff
 alias gap='git add -p'
 alias gst='git status'
 alias ga="git add $1"
-
+alias gb="git branch"
+alias gba="git branch --all"
 alias gdoc='git add . && gcmm docs: add documentation'
 alias gmerge='git add . && gcmm chore: merge'
 alias gcompile='git add . && gcmm chore: compile'
@@ -56,6 +63,7 @@ alias gbump='git add . && gcmm chore: bump versions'
 alias gcleanup='git add . && gcmm chore: cleanup'
 alias gfix='git add . && gcmm fix'
 alias gammend='git commit --amend --no-edit'
+alias glog="git log --oneline --graph --decorate --all"
 
 alias lynx='lynx -cfg ~/.config/lynx/lynx.cfg'
 
@@ -64,3 +72,11 @@ alias jh='for file in ./*.svg; do convert -density 1200 -resize 2400x580 $file `
 alias jf='for file in ./*.svg; do convert -density 2400 -resize 4800x236 $file `basename $file .svg`.jpg; done'
 
 alias bfg='java -jar ~/.termieter/users/jeroenb/bin/bfg.jar'
+
+# Upgrade Portainer
+alias upgrade_portainer='sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest'
+alias fixkb='xset r rate 200 90 && setxkbmap -option compose:paus'
+alias kbfix='xset r rate 200 90 && setxkbmap -option compose:paus'
+
+# my external ip
+alias myip='curl -s https://ipinfo.io/ip'
