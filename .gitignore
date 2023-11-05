@@ -1,6 +1,7 @@
 .DS_Store
 gitconfig_user
 tmp
+*.dump
 
 **/config.autosave
 **/config/configstore
