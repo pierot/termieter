@@ -65,17 +65,16 @@ return require('packer').startup(function(use)
   use "jayp0521/mason-null-ls.nvim"
   use 'jose-elias-alvarez/typescript.nvim'
 
-  use({
+  --[[ use({
     "nvimdev/lspsaga.nvim",
     opt = true,
-    branch = "main",
     event = "LspAttach",
     requires = {
       {"nvim-tree/nvim-web-devicons"},
       --Please make sure you install markdown and markdown_inline parser
       {"nvim-treesitter/nvim-treesitter"}
     }
-  })
+  }) ]]
 
   use {                                               -- pretty lsp diagnostics
     "folke/trouble.nvim",
