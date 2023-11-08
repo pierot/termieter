@@ -106,7 +106,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
 # pnpm
 export PNPM_HOME="/home/jeroen/.config/local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 # bun completions
