@@ -161,7 +161,6 @@ alias yy='yarn && yarn upgrade'
 
 # pnpm
 alias p='pnpm'
-alias pp='p & p upgrade'
 
 ##########################################################
 
