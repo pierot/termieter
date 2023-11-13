@@ -159,7 +159,13 @@ alias yy='yarn && yarn upgrade'
 
 ##########################################################
 
-# Yarn
+# pnpm
+alias p='pnpm'
+alias pp='p & p upgrade'
+
+##########################################################
+
+# Fly
 alias flyc='fly ssh console -C "./opt/app/bin/production remote" -a'
 
 ##########################################################
