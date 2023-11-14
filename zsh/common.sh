@@ -154,12 +154,14 @@ export PATH="$PATH:$HOME/.cabal/bin"
 
 ##########################################################
 
-# Yarn
+# Yarn, pnpm
 alias yy='yarn && yarn upgrade'
+
+alias p='pnpm'
 
 ##########################################################
 
-# Yarn
+# Fly
 alias flyc='fly ssh console -C "./opt/app/bin/production remote" -a'
 
 ##########################################################
