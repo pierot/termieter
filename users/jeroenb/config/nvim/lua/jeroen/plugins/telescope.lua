@@ -10,22 +10,10 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		-- local previewers = require("telescope.previewers")
-
-		telescope.load_extension("live_grep_args")
-
-		-- local new_maker = function(filepath, bufnr, opts)
-		-- 	opts = opts or {}
-		-- 	if opts.use_ft_detect == nil then
-		-- 		opts.use_ft_detect = true
-		-- 	end
-		-- 	opts.use_ft_detect = false
-		-- 	previewers.buffer_previewer_maker(filepath, bufnr, opts)
-		-- end
+		-- telescope.load_extension("live_grep_args")
 
 		telescope.setup({
 			defaults = {
-				-- buffer_previewer_maker = new_maker,
 				path_display = { "truncate " },
 				file_ignore_patterns = { "node_modules", "vendor", "**/*.min.js", "priv/static/js" },
 				vimgrep_arguments = {
