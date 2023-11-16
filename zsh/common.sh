@@ -154,12 +154,13 @@ export PATH="$PATH:$HOME/.cabal/bin"
 
 ##########################################################
 
-# Yarn
+# Yarn, pnpm
 alias yy='yarn && yarn upgrade'
+
+alias p='pnpm'
 
 ##########################################################
 
-# Yarn
 alias flyc='fly ssh console -C "./opt/app/bin/production remote" -a'
 
 ##########################################################
@@ -212,4 +213,4 @@ fi
 # ASDF
 [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
-[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
+[ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
