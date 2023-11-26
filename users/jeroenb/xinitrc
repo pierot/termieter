@@ -6,7 +6,6 @@ sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
-
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources
 fi
@@ -24,7 +23,6 @@ if [ -f "$usermodmap" ]; then
 fi
 
 # start some nice programs
-
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
@@ -45,15 +43,15 @@ dropbox start &
 dunst &
 
 # Network applet + wireless (after dunst!)
-#nm-applet    2>&1 > /dev/null &
-[ -x /usr/bin/nm-applet ] && nm-applet &
-[ -x /usr/bin/nmcli ] && nmcli r wifi on &
+# Not on Archius, we need nothing fancy there
+host=$(hostname)
+if [ "$HOST" != "$host" ]; then
+  [ -x /usr/bin/nm-applet ] && nm-applet &
+  [ -x /usr/bin/nmcli ] && nmcli r wifi on &
+fi
 
 # Keyboard shortcut daemon
 sxhkd &
-
-# set GPU fan speed
-nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=40"
 
 # USB auto mounting
 udiskie &
