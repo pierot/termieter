@@ -33,20 +33,15 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/popup.nvim'                           -- ui plugin used by many, someday upstream in neovim
 	use 'nvim-lua/plenary.nvim'                         -- ui plugin used by many, someday upstream in neovim
 
-	-- 'blackCauldron7/surround.nvim'
 	use 'tpope/vim-surround'
 	use 'tpope/vim-fugitive'
 	use 'tpope/vim-repeat'
   use 'tpope/vim-unimpaired'
-	-- use 'neovimhaskell/haskell-vim'
 	use 'vim-test/vim-test'
   use 'junegunn/vim-easy-align'
 
-	-- use 'jeffkreeftmeijer/vim-numbertoggle'
-
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
-  -- use 'norcalli/nvim-colorizer.lua'
 
 	use {'nvim-treesitter/nvim-treesitter'}             -- treesitter, code highlighting, last
 
@@ -54,7 +49,6 @@ return require('packer').startup(function(use)
 	use 'mattn/emmet-vim'
 	use 'kana/vim-textobj-user'
 	use 'kana/vim-textobj-line'
-	-- use 'andyl/vim-textobj-elixir'
 	use 'elixir-editors/vim-elixir'                     -- correct commentstring and other percs
 
 	use 'neovim/nvim-lspconfig'
@@ -64,17 +58,6 @@ return require('packer').startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
   use "jayp0521/mason-null-ls.nvim"
   use 'jose-elias-alvarez/typescript.nvim'
-
-  --[[ use({
-    "nvimdev/lspsaga.nvim",
-    opt = true,
-    event = "LspAttach",
-    requires = {
-      {"nvim-tree/nvim-web-devicons"},
-      --Please make sure you install markdown and markdown_inline parser
-      {"nvim-treesitter/nvim-treesitter"}
-    }
-  }) ]]
 
   use {                                               -- pretty lsp diagnostics
     "folke/trouble.nvim",
@@ -89,11 +72,6 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/cmp-nvim-lsp'
 
-  -- snippets
-  -- use 'L3MON4D3/LuaSnip'
-  -- use 'saadparwaiz1/cmp_luasnip'
-  -- use 'rafamadriz/friendly-snippets'
-
 	use 'nvim-lualine/lualine.nvim'
 
 	-- Telescope
@@ -104,13 +82,8 @@ return require('packer').startup(function(use)
 	use 'b3nj5m1n/kommentary'                           -- Comment
 
 	-- Themes
-	-- 'rktjmp/lush.nvim'
-	-- 'metalelf0/jellybeans-nvim'
 	use 'folke/tokyonight.nvim'												 -- Used for lualine and theme
 	use 'norcalli/nvim-colorizer.lua'
-	-- 'gruvbox-community/gruvbox'
-	-- 'kovetskiy/sxhkd-vim'
-	-- 'joshdick/onedark.vim'
 
   use {'github/copilot.vim'}
 
