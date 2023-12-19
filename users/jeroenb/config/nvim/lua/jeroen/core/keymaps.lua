@@ -52,3 +52,5 @@ vim.keymap.set('n', '<leader>gk', '<cmd>! gitk %<CR>')
 
 -- Project utils
 vim.keymap.set('n', '<leader>ms', '<cmd>! make styles<CR>')
+vim.keymap.set("v", "il", "g_o^") -- inner line
+vim.keymap.set("v", "al", "$o^") -- outer line
