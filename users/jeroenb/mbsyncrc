@@ -78,10 +78,11 @@ Channel jackjoe-junk
 #################################
 
 IMAPAccount daele
-Host mail.iamjack.be
-User jeroen@daele.be
+Host imap.fastmail.com
+User jeroenbourgois@fastmail.com
+Port 993
 PassCmd "~/.termieter/users/jeroenb/bin/muttpwd email/jeroen.daele.be/imap"
-AuthMechs LOGIN
+# AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1.2
 # CertificateFile ~/dotfiles/office/certificates.crt
