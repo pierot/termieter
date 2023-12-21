@@ -37,7 +37,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
@@ -101,6 +100,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 # force emacs style keybindings...
 # bindkey -e
+
+bindkey '^K' clear-screen 
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
