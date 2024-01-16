@@ -49,6 +49,7 @@ alias grep="grep --color=auto"
 alias pacman="sudo pacman --color=auto"
 alias diff="diff --color=auto"
 alias ip="ip -color=auto"
+alias perfmode="cat /sys/firmware/acpi/platform_profile"
 
 # Git stuff
 alias gap='git add -p'
