@@ -66,3 +66,16 @@ export NVM_DIR="$HOME/.config/nvm"
 
 . $TRMU/bin/z.sh
 
+# pnpm
+export PNPM_HOME="$HOME/.config/local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# asdf
+if [ -f "${HOME}/.asdf/asdf.sh" ]; then
+  . "$HOME/.asdf/asdf.sh"
+  # append completions to fpath
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi 

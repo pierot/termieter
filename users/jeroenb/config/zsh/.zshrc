@@ -1,124 +1,307 @@
-#!/bin/zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-echoo() {
-  printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $1
-}
 
-# enable colour support for man pages
-man() {
-  export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
-  export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
-  export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-  export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
-  export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-  export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-  export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
-  export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
-  command man "$@"
-}
-
-# Remember to put this in your .zshenv file
-# export ZDOTDIR=$HOME/.config/zsh
-
-# Set options (see man zshoptions)
-setopt extendedglob nomatch menucomplete interactive_comments
-setopt autocd                   # Automatically cd into typed directory.
-setopt notify                   # Report the status of background jobs immediately, rather than
-                                # waiting until just before printing a prompt.
-setopt extendedhistory          # Save timestamp in history
-setopt inc_append_history       # Appends every command to the history file once it is executed
-setopt share_history            # Reloads the history whenever you use it
-
-typeset -U PATH                 # no duplicates in path
-
-zmodload zsh/complist
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
-
-# Autocomplete
-autoload -U +X bashcompinit && bashcompinit
-autoload -U +X compinit && compinit
-autoload -Uz compinit promptinit
-fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion $fpath)
-fpath=(/usr/local/share/zsh-completions $fpath)
-zstyle ':completion:*' menu yes=long select
-zstyle ':completion:*' use-cache yes
-zstyle ':completion:*:functions' ignored-patterns '_*'
-zmodload zsh/complist
-_comp_options+=(globdots)		    # Include hidden files
-
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-autoload -Uz colors && colors   # Colors
-
-# History
-# The meaning of these options can be found in man page of `zshoptions`.
-setopt HIST_IGNORE_ALL_DUPS     # do not put duplicated command into history list
-setopt HIST_SAVE_NO_DUPS        # do not save duplicated command
-setopt HIST_REDUCE_BLANKS       # remove unnecessary blanks
-setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
-setopt EXTENDED_HISTORY         # record command start time
-
-COMPLETION_WAITING_DOTS="true"
-
+# zmodload zsh/zprof
+#
+# #!/bin/zsh
+#
+# echoo() {
+#   printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $1
+# }
+#
+# # enable colour support for man pages
+# man() {
+#   export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
+#   export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
+#   export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+#   export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+#   export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+#   export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+#   export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+#   export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
+#   command man "$@"
+# }
+#
+# # Remember to put this in your .zshenv file
+# # export ZDOTDIR=$HOME/.config/zsh
+#
+# # Set options (see man zshoptions)
+# setopt extendedglob nomatch menucomplete interactive_comments
+# setopt autocd                   # Automatically cd into typed directory.
+# setopt notify                   # Report the status of background jobs immediately, rather than
+#                                 # waiting until just before printing a prompt.
+# setopt extendedhistory          # Save timestamp in history
+# setopt inc_append_history       # Appends every command to the history file once it is executed
+# setopt share_history            # Reloads the history whenever you use it
+#
+# typeset -U PATH                 # no duplicates in path
+#
+# zmodload zsh/complist
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'k' vi-up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
+# bindkey -M menuselect 'j' vi-down-line-or-history
+#
+# # initialise completions with ZSH's compinit
+# autoload -Uz compinit && compinit
+#
+# # Autocomplete
+# autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X compinit && compinit
+# autoload -Uz compinit promptinit
+# fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion $fpath)
+# fpath=(/usr/local/share/zsh-completions $fpath)
+# zstyle ':completion:*' menu yes=long select
+# zstyle ':completion:*' use-cache yes
+# zstyle ':completion:*:functions' ignored-patterns '_*'
+# zmodload zsh/complist
+# _comp_options+=(globdots)		    # Include hidden files
+#
+# autoload -U up-line-or-beginning-search
+# autoload -U down-line-or-beginning-search
+# zle -N up-line-or-beginning-search
+# zle -N down-line-or-beginning-search
+#
+# autoload -Uz colors && colors   # Colors
+#
+# # History
+# # The meaning of these options can be found in man page of `zshoptions`.
+# setopt HIST_IGNORE_ALL_DUPS     # do not put duplicated command into history list
+# setopt HIST_SAVE_NO_DUPS        # do not save duplicated command
+# setopt HIST_REDUCE_BLANKS       # remove unnecessary blanks
+# setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
+# setopt EXTENDED_HISTORY         # record command start time
+#
+# COMPLETION_WAITING_DOTS="true"
+#
 # Load extra files if present
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh"
-
+#
 # Common settings shared with termieter (Pieter)
 source $TRM/zsh/common.sh
+#
+# # Pure prompt, make sure you have it installed into ~/.config/zsh/pure
+# # git clone https://github.com/sindresorhus/pure.git ~/config/zsh/pure
+# fpath+=$HOME/.config/zsh/pure
+#
+# # Kick off zsh
+# compinit
+# promptinit
+#
+# prompt pure
+#
+# bindkey -v      # vim mode
+# export KEYTIMEOUT=1
+#
+# # Edit line in vim with ctrl-e:
+# autoload -Uz edit-command-line
+# zle -N edit-command-line
+# bindkey -M vicmd v edit-command-line
+#
+# # Load syntax highlighting; should be last.
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+#
+# # force emacs style keybindings...
+# # bindkey -e
+#
+# bindkey '^K' clear-screen 
+#
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+#
+#
 
-# Pure prompt, make sure you have it installed into ~/.config/zsh/pure
-# git clone https://github.com/sindresorhus/pure.git ~/config/zsh/pure
-fpath+=$HOME/.config/zsh/pure
 
-# Kick off zsh
-compinit
-promptinit
+##############
+# BASIC SETUP
+##############
 
-prompt pure
+typeset -U PATH
+autoload colors; colors;
 
-bindkey -v      # vim mode
-export KEYTIMEOUT=1
+##########
+# HISTORY
+##########
 
-# Edit line in vim with ctrl-e:
-autoload -Uz edit-command-line
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+
+setopt EXTENDED_HISTORY
+setopt HIST_VERIFY
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Dont record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Dont record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Dont write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # remove unnecessary blanks
+
+setopt inc_append_history
+setopt share_history
+
+#############
+# COMPLETION
+#############
+
+# Add completions installed through Homebrew packages
+# See: https://docs.brew.sh/Shell-Completion
+if type brew &>/dev/null; then
+  FPATH=/usr/local/share/zsh/site-functions:$FPATH
+fi
+
+# Speed up completion init, see: https://gist.github.com/ctechols/ca1035271ad134841284
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+# unsetopt menucomplete
+unsetopt flowcontrol
+setopt auto_menu
+setopt complete_in_word
+setopt always_to_end
+setopt auto_pushd
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+###############
+# KEY BINDINGS
+###############
+
+# Vim Keybindings
+bindkey -v
+
+# This is a "fix" for zsh in Ghostty:
+# Ghostty implements the fixterms specification https://www.leonerd.org.uk/hacks/fixterms/
+# and under that `Ctrl-[` doesn't send escape but `ESC [91;5u`.
+#
+# (tmux and Neovim both handle 91;5u correctly, but raw zsh inside Ghostty doesn't)
+#
+# Thanks to @rockorager for this!
+bindkey "^[[91;5u" vi-cmd-mode
+
+# Open line in Vim by pressing 'v' in Command-Mode
+autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+# Push current line to buffer stack, return to PS1
+bindkey "^Q" push-input
 
-# force emacs style keybindings...
-# bindkey -e
+# Make up/down arrow put the cursor at the end of the line
+# instead of using the vi-mode mappings for these keys
+bindkey "\eOA" up-line-or-history
+bindkey "\eOB" down-line-or-history
+bindkey "\eOC" forward-char
+bindkey "\eOD" backward-char
 
-bindkey '^K' clear-screen 
+# CTRL-R to search through history
+bindkey '^R' history-incremental-search-backward
+# CTRL-S to search forward in history
+bindkey '^S' history-incremental-search-forward
+# Accept the presented search result
+bindkey '^Y' accept-search
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+# Use the arrow keys to search forward/backward through the history,
+# using the first word of what's typed in as search word
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
-# pnpm
-export PNPM_HOME="/home/jeroen/.config/local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+# Use the same keys as bash for history forward/backward: Ctrl+N/Ctrl+P
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
 
-# bun completions
-[ -s "/home/jeroen/.bun/_bun" ] && source "/home/jeroen/.bun/_bun"
+# Backspace working the way it should
+bindkey '^?' backward-delete-char
+bindkey '^[[3~' delete-char
 
-# asdf
-if [ -f "${HOME}/.asdf/asdf.sh" ]; then
-  . "$HOME/.asdf/asdf.sh"
-  # append completions to fpath
-  fpath=(${ASDF_DIR}/completions $fpath)
-fi 
+# Some emacs keybindings won't hurt nobody
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+
+if type lsd &> /dev/null; then
+  alias ls=lsd
+fi
+alias lls='ls -lh --sort=size --reverse'
+alias llt='ls -lrt'
+alias bear='clear && echo "Clear as a bear!"'
+
+alias history='history 1'
+alias hs='history | grep '
+
+# Edit/Source vim config
+alias ez='vim ~/.config/zsh/.zshrc'
+alias sz='source ~/config/zsh/.zshrc'
+
+alias cdr='cd $(git rev-parse --show-toplevel)' # cd to git Root
+alias ghs='git rev-parse HEAD'
+alias ghs='git rev-parse --short HEAD'
+alias cgh='git rev-parse HEAD '
+
+# #########
+# # PROMPT
+# #########
+#
+# setopt prompt_subst
+#
+# git_prompt_info() {
+#   local dirstatus=" OK"
+#   local dirty="%{$fg_bold[red]%} X%{$reset_color%}"
+#
+#   if [[ ! -z $(git status --porcelain 2> /dev/null | tail -n1) ]]; then
+#     dirstatus=$dirty
+#   fi
+#
+#   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+#   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+#   echo " %{$fg_bold[green]%}${ref#refs/heads/}$dirstatus%{$reset_color%}"
+# }
+#
+# # local dir_info_color="$fg_bold[black]"
+#
+# # This just sets the color to "bold".
+# # Future me. Try this to see what's correct:
+# #   $ print -P '%fg_bold[black] black'
+# #   $ print -P '%B%F{black} black'
+# #   $ print -P '%B black'
+# local dir_info_color="%B"
+#
+# local dir_info_color_file="${HOME}/.zsh.d/dir_info_color"
+# if [ -r ${dir_info_color_file} ]; then
+#   source ${dir_info_color_file}
+# fi
+#
+# local dir_info="%{$dir_info_color%}%(5~|%-1~/.../%2~|%4~)%{$reset_color%}"
+# local promptnormal="φ %{$reset_color%}"
+# local promptjobs="%{$fg_bold[red]%}φ %{$reset_color%}"
+#
+# PROMPT='${dir_info}$(git_prompt_info) ${nix_prompt}%(1j.$promptjobs.$promptnormal)'
+#
+# simple_prompt() {
+#   local prompt_color="%B"
+#   export PROMPT="%{$prompt_color%}$promptnormal"
+# }
+
+########
+# ENV
+########
+
+# Reduce delay for key combinations in order to change to vi mode faster
+# See: http://www.johnhawthorn.com/2012/09/vi-escape-delays/
+# Set it to 10ms
+export KEYTIMEOUT=1
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# zprof # bottom of .zshrc
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
