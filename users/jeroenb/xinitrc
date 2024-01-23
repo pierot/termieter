@@ -56,9 +56,6 @@ sxhkd &
 # USB auto mounting
 udiskie &
 
-# Compositor
-[ -x /usr/bin/picom ] && picom &
-
 # Status bar
 slstatus &
 
