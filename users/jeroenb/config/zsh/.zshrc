@@ -172,7 +172,6 @@ if type lsd &> /dev/null; then
 fi
 alias lls='ls -lh --sort=size --reverse'
 alias llt='ls -lrt'
-alias bear='clear && echo "Clear as a bear!"'
 
 alias history='history 1'
 alias hs='history | grep '
