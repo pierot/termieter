@@ -21,13 +21,15 @@ Account jackjoe
 # Local storage
 MaildirStore jackjoe-local
 Path ~/Dropbox/mail/jackjoe/
-Inbox ~/Dropbox/mail/jackjoe/INBOX
+Inbox ~/Dropbox/mail/jackjoe/Inbox
 SubFolders Verbatim
 
+# Channel to remote storage
 Channel jackjoe
 Far :jackjoe-remote:
 Near :jackjoe-local:
-Patterns *
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Bin"
+Create Both
 SyncState *
 
 # Channel jackjoe-inbox
