@@ -1,0 +1,24 @@
+# comments are supported like this
+rupa/z
+zsh-users/zsh-completions
+
+# annotations are also allowed:
+# romkatv/zsh-bench kind:path
+
+# or lighter-weight ones like zsh-utils
+belak/zsh-utils path:editor
+belak/zsh-utils path:history
+belak/zsh-utils path:prompt
+belak/zsh-utils path:utility
+belak/zsh-utils path:completion
+
+# prompts:
+#   with prompt plugins, remember to add this to your .zshrc:
+#   `autoload -Uz promptinit && promptinit && prompt pure`
+romkatv/powerlevel10k kind:fpath
+
+# popular fish-like plugins
+# mattmc3/zfunctions
+zsh-users/zsh-autosuggestions
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-history-substring-search
