@@ -1,0 +1,86 @@
+[2024-02-16 09:24:07.072] [info] Logseq App(0.10.6) Starting... 
+[2024-02-16 09:24:07.078] [info] restore proxy settings {:type "system"}
+[2024-02-16 09:24:07.078] [info] set proxy to {:type "system"}
+[2024-02-16 09:24:08.576] [debug] :electron.handler/watch-dir {:path "/home/jeroen/.logseq/config"}
+[2024-02-16 09:24:27.622] [info] :electron.handler/open-dir open folder selection dialog
+[2024-02-16 09:24:46.070] [debug] :electron.handler/open-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-16 09:24:46.096] [debug] :electron.handler/watch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-16 09:27:16.409] [debug] window-all-closed Quitting...
+[2024-02-16 09:27:16.966] [info] Logseq App(0.10.6) Starting... 
+[2024-02-16 09:27:16.973] [info] restore proxy settings {:type "system"}
+[2024-02-16 09:27:16.974] [info] set proxy to {:type "system"}
+[2024-02-16 09:27:18.453] [debug] :electron.handler/watch-dir {:path "/home/jeroen/.logseq/config"}
+[2024-02-16 09:27:18.465] [debug] :electron.handler/unwatch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-16 09:27:18.466] [debug] :electron.handler/watch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-16 09:29:53.954] [debug] [Marketplace] === Installing: vipzhicheng/logseq-plugin-vim-shortcuts ===
+[2024-02-16 09:29:54.310] [debug] [Marketplace] INFO: use github api -  https://plugins.logseq.io/github/api
+[2024-02-16 09:29:54.670] [debug] [Marketplace] Release latest: https://plugins.logseq.io/github/api/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/latest :status 200
+[2024-02-16 09:29:54.674] [debug] [Marketplace] Release latest: v0.1.22  from https://api.github.com/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/assets/146683553
+[2024-02-16 09:29:55.580] [debug] [Marketplace] [Updated DONE] v0.1.22
+[2024-02-16 09:31:19.517] [debug] window-all-closed Quitting...
+[2024-02-16 16:23:07.423] [info] Logseq App(0.10.6) Starting... 
+[2024-02-16 16:23:07.427] [info] restore proxy settings {:type "system"}
+[2024-02-16 16:23:07.427] [info] set proxy to {:type "system"}
+[2024-02-16 16:23:09.046] [debug] :electron.handler/watch-dir {:path "/home/jeroen/.logseq/config"}
+[2024-02-16 16:23:09.057] [debug] :electron.handler/unwatch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-16 16:23:09.057] [debug] :electron.handler/watch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-17 13:13:15.334] [debug] window-all-closed Quitting...
+[2024-02-18 09:36:53.418] [info] Logseq App(0.10.6) Starting... 
+[2024-02-18 09:36:53.421] [info] restore proxy settings {:type "system"}
+[2024-02-18 09:36:53.422] [info] set proxy to {:type "system"}
+[2024-02-18 09:36:54.937] [debug] :electron.handler/watch-dir {:path "/home/jeroen/.logseq/config"}
+[2024-02-18 09:36:54.949] [debug] :electron.handler/unwatch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-18 09:36:54.949] [debug] :electron.handler/watch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-18 09:36:55.419] [debug] [Marketplace] === Updating: vipzhicheng/logseq-plugin-vim-shortcuts ===
+[2024-02-18 09:36:55.761] [debug] [Marketplace] INFO: use github api -  https://plugins.logseq.io/github/api
+[2024-02-18 09:36:56.199] [debug] [Marketplace] Release latest: https://plugins.logseq.io/github/api/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/latest :status 200
+[2024-02-18 09:36:56.201] [debug] [Marketplace] Release latest: v0.1.22  from https://api.github.com/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/assets/146683553
+[2024-02-18 09:36:56.202] [debug] [Marketplace] Release compare: v0.1.22 (current) >  v0.1.22 (latest)
+[2024-02-18 09:36:56.202] [debug] [Marketplace] Update skip: no new version
+[2024-02-18 20:51:46.894] [debug] window-all-closed Quitting...
+[2024-02-20 22:29:35.389] [info] Logseq App(0.10.6) Starting... 
+[2024-02-20 22:29:35.398] [info] restore proxy settings {:type "system"}
+[2024-02-20 22:29:35.398] [info] set proxy to {:type "system"}
+[2024-02-20 22:29:37.111] [debug] :electron.handler/watch-dir {:path "/home/jeroen/.logseq/config"}
+[2024-02-20 22:29:37.123] [debug] :electron.handler/unwatch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-20 22:29:37.124] [debug] :electron.handler/watch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-20 22:29:37.527] [debug] [Marketplace] === Updating: vipzhicheng/logseq-plugin-vim-shortcuts ===
+[2024-02-20 22:29:38.063] [debug] [Marketplace] INFO: use github api -  https://plugins.logseq.io/github/api
+[2024-02-20 22:29:38.448] [debug] [Marketplace] Release latest: https://plugins.logseq.io/github/api/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/latest :status 200
+[2024-02-20 22:29:38.449] [debug] [Marketplace] Release latest: v0.1.22  from https://api.github.com/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/assets/146683553
+[2024-02-20 22:29:38.450] [debug] [Marketplace] Release compare: v0.1.22 (current) >  v0.1.22 (latest)
+[2024-02-20 22:29:38.450] [debug] [Marketplace] Update skip: no new version
+[2024-02-20 22:29:53.411] [debug] window-all-closed Quitting...
+[2024-02-21 09:10:27.430] [info] Logseq App(0.10.6) Starting... 
+[2024-02-21 09:10:27.435] [info] restore proxy settings {:type "system"}
+[2024-02-21 09:10:27.435] [info] set proxy to {:type "system"}
+[2024-02-21 09:10:29.041] [debug] :electron.handler/watch-dir {:path "/home/jeroen/.logseq/config"}
+[2024-02-21 09:10:29.052] [debug] :electron.handler/unwatch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-21 09:10:29.052] [debug] :electron.handler/watch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-21 09:11:24.497] [debug] window-all-closed Quitting...
+[2024-02-22 08:25:53.547] [info] Logseq App(0.10.6) Starting... 
+[2024-02-22 08:25:53.552] [info] restore proxy settings {:type "system"}
+[2024-02-22 08:25:53.552] [info] set proxy to {:type "system"}
+[2024-02-22 08:25:55.404] [debug] :electron.handler/watch-dir {:path "/home/jeroen/.logseq/config"}
+[2024-02-22 08:25:55.415] [debug] :electron.handler/unwatch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-22 08:25:55.416] [debug] :electron.handler/watch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-22 08:25:55.944] [debug] [Marketplace] === Updating: vipzhicheng/logseq-plugin-vim-shortcuts ===
+[2024-02-22 08:25:56.294] [debug] [Marketplace] INFO: use github api -  https://plugins.logseq.io/github/api
+[2024-02-22 08:25:56.752] [debug] [Marketplace] Release latest: https://plugins.logseq.io/github/api/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/latest :status 200
+[2024-02-22 08:25:56.754] [debug] [Marketplace] Release latest: v0.1.22  from https://api.github.com/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/assets/146683553
+[2024-02-22 08:25:56.754] [debug] [Marketplace] Release compare: v0.1.22 (current) >  v0.1.22 (latest)
+[2024-02-22 08:25:56.754] [debug] [Marketplace] Update skip: no new version
+[2024-02-22 08:26:38.306] [debug] window-all-closed Quitting...
+[2024-02-24 17:37:55.465] [info] Logseq App(0.10.6) Starting... 
+[2024-02-24 17:37:55.470] [info] restore proxy settings {:type "system"}
+[2024-02-24 17:37:55.470] [info] set proxy to {:type "system"}
+[2024-02-24 17:37:57.083] [debug] :electron.handler/watch-dir {:path "/home/jeroen/.logseq/config"}
+[2024-02-24 17:37:57.093] [debug] :electron.handler/unwatch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-24 17:37:57.094] [debug] :electron.handler/watch-dir {:path "/home/jeroen/Dropbox/logseq"}
+[2024-02-24 17:37:57.644] [debug] [Marketplace] === Updating: vipzhicheng/logseq-plugin-vim-shortcuts ===
+[2024-02-24 17:37:58.165] [debug] [Marketplace] INFO: use github api -  https://plugins.logseq.io/github/api
+[2024-02-24 17:37:58.540] [debug] [Marketplace] Release latest: https://plugins.logseq.io/github/api/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/latest :status 200
+[2024-02-24 17:37:58.543] [debug] [Marketplace] Release latest: v0.1.22  from https://api.github.com/repos/vipzhicheng/logseq-plugin-vim-shortcuts/releases/assets/146683553
+[2024-02-24 17:37:58.544] [debug] [Marketplace] Release compare: v0.1.22 (current) >  v0.1.22 (latest)
+[2024-02-24 17:37:58.544] [debug] [Marketplace] Update skip: no new version
+[2024-02-26 09:40:43.272] [debug] window-all-closed Quitting...

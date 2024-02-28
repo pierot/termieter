@@ -1,0 +1,10 @@
+*config/local*
+*config/cache*
+*config/libreoffice*
+*config/chromium*
+*config/Postman*
+*config/GIMP*
+*config/xmonad*
+*config/JetBrains*
+*config/Cypress*
+*config/Slack*

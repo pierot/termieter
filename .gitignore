@@ -102,7 +102,12 @@ users/jeroenb/config/menus
 users/jeroenb/config/MuseScore
 users/jeroenb/config/Raspberry Pi
 users/jeroenb/config/obsidian
+<<<<<<< HEAD
 users/jeroenb/config/chrome-remote-desktop
+=======
+users/jeroenb/config/lnav/**
+users/jeroenb/config/logseq
+>>>>>>> bc493f47457956509b66fcbe294174e1ae4ae903
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**

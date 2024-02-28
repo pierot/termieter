@@ -43,6 +43,7 @@ alias m='neomutt'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias xmonadconf="vim ~/.config/xmonad/xmonad.hs"
+alias bc="bc -l"
 
 # utils
 alias grep="grep --color=auto"
