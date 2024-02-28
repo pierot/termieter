@@ -102,6 +102,8 @@ u.map('n', '<c-l>', '<c-w>l')
 
 u.map('n', '<leader><Tab>', '<c-^>')                    -- Switch between last two files
 
+u.map('c', '<tab>', '<C-z>')                            -- to fix cmp
+
 u.map('','+', '3<c-w>>')                                -- Enlarge splits
 u.map('', '-', '3<c-w><')
 
