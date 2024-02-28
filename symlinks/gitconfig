@@ -22,7 +22,7 @@
   log = true
   stat = true
   tool = vimdiff
-  conflictstyle = diff3
+  # conflictstyle = diff3
   prompt = false
 [diff]
   algorithm = histogram
