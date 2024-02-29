@@ -1,16 +1,9 @@
---vim.cmd("colorscheme jellybeans-nvim")
---vim.cmd("colorscheme gruvbox")
--- vim.cmd("colorscheme tokyonight-night")
---vim.cmd("colorscheme catppuccin")
-
 function ToggleTheme()
 	if vim.o.background == "dark" then
 		vim.o.background = "light"
-		vim.cmd("colorscheme catppuccin-latte")
-	-- vim.cmd("colorscheme tokyonight-day")
+		vim.cmd("colorscheme jellybeans-nvim")
 	else
 		vim.o.background = "dark"
-		-- vim.cmd("colorscheme tokyonight-night")
 		vim.cmd("colorscheme jellybeans-nvim")
 	end
 end

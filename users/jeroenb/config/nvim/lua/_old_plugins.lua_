@@ -12,8 +12,6 @@ use 'metalelf0/jellybeans-nvim'
 use 'folke/tokyonight.nvim'
 use 'norcalli/nvim-colorizer.lua'
 use 'gruvbox-community/gruvbox'  
-use 'catppuccin/nvim'
--- use { "catppuccin/nvim", as = "catppuccin" }
 
 -- text objects
 use 'kana/vim-textobj-user'
