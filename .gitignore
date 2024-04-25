@@ -109,6 +109,8 @@ users/jeroenb/config/logseq
 users/jeroenb/config/Logseq/**
 users/jeroenb/config/alacritty/themes
 users/jeroenb/config/zoom**
+users/jeroenb/config/btop/**
+users/jeroenb/config/teamviewer/**
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
