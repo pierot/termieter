@@ -16,9 +16,37 @@
   prompt = false
 [difftool "difftastic"]
   cmd = difft "$LOCAL" "$REMOTE"
-[pager]
-  difftool = true
+#[pager]
+#  difftool = true
 [alias]
   dft = difftool
   # `git dlog` to show `git log -p` with difftastic.
   dlog = "!f() { : git log ; GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+
+[gui]
+	fontui = -family \"Nimbus Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Nimbus Mono PS\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+
+[core]
+  editor = nvim
+	excludesFile = ~/.gitignore
+
+  pager = delta
+    ; autocrlf = input
+
+[alias]
+    # Thanks r00k, this creates a pretty graph view of the log
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[push]
+  default = current
+
+[delta]
+  line-numbers = true
+  syntax-theme = colibri
+  side-by-side = false
+
+  file-modified-label = modified:
+
+[interactive]
+  diffFilter = delta --color-only

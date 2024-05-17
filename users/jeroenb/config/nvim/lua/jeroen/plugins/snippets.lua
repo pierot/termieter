@@ -12,11 +12,16 @@ return {
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"petertriho/cmp-git",
+		"zbirenbaum/copilot-cmp",
+		-- { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
 	},
+	after = { "copilot.lua" },
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
+
+		require("copilot_cmp").setup()
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
@@ -26,6 +31,7 @@ return {
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
+				-- autocomplete = false,
 			},
 			snippet = {
 				expand = function(args)
@@ -40,6 +46,7 @@ return {
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+				[",,"] = cmp.mapping.complete(), -- show completion suggestions
 				["<C-e>"] = cmp.mapping.abort(), -- close completion window
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			}),
@@ -50,6 +57,7 @@ return {
 				{ name = "git" }, -- git, really??
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
+				{ name = "copilot", group_index = 2 },
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
@@ -60,13 +68,12 @@ return {
 			},
 		})
 
-		-- Vim-vsnip
-		-- vim.g.vsnip_filetypes = {
-		-- 	javascriptreact = { "javascript" },
-		-- 	typescript = { "javascript" },
-		-- 	typescriptreact = { "javascript" },
-		-- 	elixir = { "elixir" },
-		-- 	eelixir = { "eelixir" },
-		-- }
+		-- vim-dadbod
+		cmp.setup.filetype({ "sql", "mysql", "psql" }, {
+			sources = {
+				{ name = "vim-dadbod-completion" },
+				{ name = "buffer" },
+			},
+		})
 	end,
 }
