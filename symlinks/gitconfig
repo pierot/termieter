@@ -34,5 +34,5 @@
 ; [push]
 ;   default = current
 ; [alias]
-; [pull]
-; 	rebase = false
+[pull]
+	rebase = false
