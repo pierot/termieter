@@ -23,3 +23,5 @@ fpath+=( /home/jeroen/.config/cache/antidote/https-COLON--SLASH--SLASH-github.co
 zsh-defer source /home/jeroen/.termieter/users/jeroenb/config/cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-zdharma-continuum-SLASH-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 fpath+=( /home/jeroen/.config/cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search )
 source /home/jeroen/.termieter/users/jeroenb/config/cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+fpath+=( /home/jeroen/.config/cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-Aloxaf-SLASH-fzf-tab )
+source /home/jeroen/.termieter/users/jeroenb/config/cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-Aloxaf-SLASH-fzf-tab/fzf-tab.plugin.zsh

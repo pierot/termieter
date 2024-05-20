@@ -22,3 +22,5 @@ romkatv/powerlevel10k kind:fpath
 zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting kind:defer
 zsh-users/zsh-history-substring-search
+
+Aloxaf/fzf-tab
