@@ -5,14 +5,10 @@ return {
 		build = ":TSUpdate",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			"windwp/nvim-ts-autotag",
 		},
 		config = function()
 			-- import nvim-treesitter plugin
 			local treesitter = require("nvim-treesitter.configs")
-
-			require("ts_context_commentstring").setup({})
-			vim.g.skip_ts_context_commentstring_module = true
 
 			-- configure treesitter
 			treesitter.setup({ -- enable syntax highlighting
@@ -29,10 +25,6 @@ return {
 				},
 				-- enable indentation
 				indent = { enable = true },
-				-- enable autotagging (w/ nvim-ts-autotag plugin)
-				autotag = {
-					enable = true,
-				},
 				textobjects = {
 					enable = true,
 				},

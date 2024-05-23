@@ -43,7 +43,6 @@
 
 [delta]
   line-numbers = true
-  syntax-theme = colibri
   side-by-side = false
 
   file-modified-label = modified:

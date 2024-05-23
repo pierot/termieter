@@ -48,5 +48,12 @@ vim.opt.title = true
 -- no ack, use ripgrep
 vim.g.ackprg = "rg -F -S --color=never --no-heading --with-filename --line-number --column -g !package-lock.json"
 
--- equal splits
-vim.opt.equalalways = true
+-- terminal is auto insert
+vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
+	pattern = { "*" },
+	callback = function()
+		if vim.opt.buftype:get() == "terminal" then
+			vim.cmd(":startinsert")
+		end
+	end,
+})
