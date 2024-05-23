@@ -8,6 +8,10 @@ return {
 			columns = { "icon" },
 			keymaps = {
 				["<C-p>"] = false,
+				["-"] = false,
+				["h"] = "actions.parent",
+				["l"] = "actions.select",
+				["u"] = "actions.parent",
 			},
 			view_options = {
 				show_hidden = true,
@@ -28,9 +32,9 @@ return {
 		})
 
 		-- Open parent directory in current window
-		vim.keymap.set("n", "-", "<CMD>Oil<CR>")
+		vim.keymap.set("n", "<leader>o", "<CMD>Oil<CR>")
 
 		-- Open parent directory in floating window
-		vim.keymap.set("n", "<space>-", oil.toggle_float)
+		vim.keymap.set("n", "<space><Up>", oil.toggle_float)
 	end,
 }
