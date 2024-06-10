@@ -1,6 +1,13 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/jeroen/Work/jackjoe/justified
+    - /home/jeroen/Work/jackjoe/justified
 startuppopupversion: 5
+lastversion: 0.42.0
 customcommandshistory: []
 hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
