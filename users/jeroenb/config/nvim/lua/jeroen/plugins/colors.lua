@@ -7,25 +7,21 @@ function ToggleTheme()
 end
 
 return {
-	"rktjmp/lush.nvim",
+	-- "rktjmp/lush.nvim",
 	"metalelf0/jellybeans-nvim",
 	"norcalli/nvim-colorizer.lua",
+	"Shatur/neovim-ayu",
 	"gruvbox-community/gruvbox",
-	"catppuccin/nvim",
 	{
-		"folke/tokyonight.nvim",
+		"projekt0n/github-nvim-theme",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			--vim.cmd("colorscheme jellybeans-nvim")
-			--vim.cmd("colorscheme gruvbox")
-			-- vim.cmd("colorscheme tokyonight-night")
+			require("github-theme").setup({
+				-- ...
+			})
 
-			-- u.map('n', '<silent> [oh', ':call gruvbox#hls_show()<CR>')
-			-- u.map('n', '<silent> ]oh', ':call gruvbox#hls_hide()<CR>')
-			-- u.map('n', '<silent> coh', ':call gruvbox#hls_toggle()<CR>')
-
-			vim.cmd("colorscheme jellybeans-nvim")
-			-- vim.cmd("colorscheme tokyonight-night")
-			vim.keymap.set("n", "<F5>", ":lua ToggleTheme()<CR>") -- Switch between windows by hitting <Tab> twice
+			vim.cmd("colorscheme github_dark_high_contrast")
 		end,
 	},
 }

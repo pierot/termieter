@@ -10,6 +10,7 @@ tmp
 **/config/cache
 **/config/local
 **/config/git/gitk
+**/config/op
 
 **/packer_compiled.lua
 
@@ -102,6 +103,14 @@ users/jeroenb/config/menus
 users/jeroenb/config/MuseScore
 users/jeroenb/config/Raspberry Pi
 users/jeroenb/config/obsidian
+users/jeroenb/config/chrome-remote-desktop
+users/jeroenb/config/lnav/**
+users/jeroenb/config/logseq
+users/jeroenb/config/Logseq/**
+users/jeroenb/config/alacritty/themes
+users/jeroenb/config/zoom**
+users/jeroenb/config/btop/**
+users/jeroenb/config/teamviewer/**
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**

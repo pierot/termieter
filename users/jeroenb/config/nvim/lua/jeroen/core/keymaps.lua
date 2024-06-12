@@ -29,9 +29,6 @@ vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-h>", "<c-w>h")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 
-vim.keymap.set("n", "<silent> <Tab><Tab>", "<C-w>w") -- Switch between windows by hitting <Tab> twice
-vim.keymap.set("n", "<leader><Tab>", "<c-^>") -- Switch between last two files
-
 vim.keymap.set("", "+", "3<c-w>>") -- Enlarge splits
 vim.keymap.set("", "-", "3<c-w><")
 
@@ -40,9 +37,6 @@ vim.keymap.set("v", "<leader><leader>b", "<S-S><strong>")
 vim.keymap.set("v", "<leader><leader>i", "<S-S><em>")
 
 vim.keymap.set("n", "S", "mzi<CR><ESC>`z") -- Split line and preserve cursor position
-
-vim.cmd("autocmd BufWritePost *.exs,*.ex,*.heex,*.leex silent :!source .env && mix format %")
-
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- Git
@@ -56,3 +50,29 @@ vim.keymap.set("n", "<leader>ms", "<cmd>! make styles<CR>")
 -- inner line
 vim.keymap.set("v", "il", "g_o^") -- inner line
 vim.keymap.set("v", "al", "$o^") -- outer line
+
+-- $$
+
+-- buffers
+vim.api.nvim_set_keymap("n", "tk", ":blast<enter>", { noremap = false })
+vim.api.nvim_set_keymap("n", "tj", ":bfirst<enter>", { noremap = false })
+vim.api.nvim_set_keymap("n", "th", ":bprev<enter>", { noremap = false })
+vim.api.nvim_set_keymap("n", "tl", ":bnext<enter>", { noremap = false })
+vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", { noremap = false })
+
+-- files
+vim.api.nvim_set_keymap("n", "QQ", ":q!<enter>", { noremap = false })
+vim.api.nvim_set_keymap("n", "WW", ":w!<enter>", { noremap = false })
+
+-- splits
+vim.keymap.set("n", "<space><space>", "<cmd>set nohlsearch<CR>")
+-- Quicker close split
+vim.keymap.set("n", "<leader>qq", ":q<CR>", { silent = true, noremap = true })
+
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+-- Remap for dealing with word wrap
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

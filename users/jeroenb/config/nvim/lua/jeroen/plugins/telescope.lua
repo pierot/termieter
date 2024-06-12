@@ -56,7 +56,7 @@ return {
 		keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
 		--keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>")
-		keymap.set("n", "<leader>gr", "<cmd>Telescope git_branches<CR>")
+		keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>")
 		keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
 		keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 	end,
