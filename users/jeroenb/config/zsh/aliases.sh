@@ -33,6 +33,7 @@ alias gc="cd $HOME/.config"
 alias gtu="cd $HOME/.termieter/users/jeroenb"
 alias termieteru="cd $HOME/.termieter/users/jeroenb"
 alias gdb="cd $DROPBOX"
+alias tss="sudo tailscale status"
 alias tsj="sudo tailscale switch justified"
 alias tsjj="sudo tailscale switch jackjoe"
 alias tsa="sudo tailscale switch accurat"
@@ -85,3 +86,6 @@ alias kbfix='xset r rate 200 90 && setxkbmap -option compose:paus && setxkbmap -
 
 # my external ip
 alias myip='curl -s https://ipinfo.io/ip'
+alias macarchius='echo d8:bb:c1:8d:72:7c'
+alias macdaddy=macarchius
+alias wakemeupbeforeyougogo='wol -p 9 d8:bb:c1:8d:72:7c'
