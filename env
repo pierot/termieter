@@ -21,8 +21,8 @@ fi
 
 export HISTFILE=~/.zsh_history
 export HISTCONTROL=ignoreboth:erasedups # Ignore same sucessive entries.
-export HISTSIZE=150000         # resize history size
-export SAVEHIST=150000         # max size
+export HISTSIZE=250000         # resize history size
+export SAVEHIST=250000         # max size
 export HISTIGNORE="ls:l:ll:&:[bf]g:exit:pwd:clear:reload\!:[ \t]*"
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
