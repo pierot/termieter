@@ -9,7 +9,7 @@ PassCmd "~/.termieter/users/jeroenb/bin/muttpwd email/jeroen@jackjoe.be/imap"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1.2
-Pipelinedepth 5 # turn to 1 if downloading huge amount (e.g. on setup)
+Pipelinedepth 1 # turn to 1 if downloading huge amount (e.g. on setup)
 Timeout 60 # default is 20s
 # CertificateFile ~/dotfiles/office/certificates.crt
 # CertificateFile /usr/local/etc/openssl/cert.pem
@@ -28,60 +28,11 @@ SubFolders Verbatim
 Channel jackjoe
 Far :jackjoe-remote:
 Near :jackjoe-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Bin"
-Create Both
+# Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Bin"
+Create Near
 SyncState *
-
-# Channel jackjoe-inbox
-# Far :jackjoe-remote:"INBOX"
-# Near :jackjoe-local:INBOX
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-archive
-# Far :jackjoe-remote:"[Gmail]/All Mail"
-# Near :jackjoe-local:archive
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-drafts
-# Far :jackjoe-remote:"[Gmail]/Drafts"
-# Near :jackjoe-local:drafts
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-sent
-# Far :jackjoe-remote:"[Gmail]/Sent Mail"
-# Near :jackjoe-local:sent
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-spam
-# Far :jackjoe-remote:"[Gmail]/Spam"
-# Near :jackjoe-local:junk
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-starred
-# Far :jackjoe-remote:"[Gmail]/Starred"
-# Near :jackjoe-local:starred
-# Create Both
-# Expunge Both
-#
-# Channel jackjoe-trash
-# Far :jackjoe-remote:"[Gmail]/Trash"
-# Near :jackjoe-local:trash
-# Create Both
-# Expunge Both
-#
-# Group jackjoe
-# Channel jackjoe-inbox
-# Channel jackjoe-archive
-# Channel jackjoe-starred
-# Channel jackjoe-drafts
-# Channel jackjoe-sent
-# Channel jackjoe-trash
-# Channel jackjoe-junk
+Sync All
+Patterns *
 
 #################################
 ####### Account DAELE  ##########
@@ -106,7 +57,7 @@ Path ~/Dropbox/mail/daele/
 Inbox ~/Dropbox/mail/daele/INBOX
 SubFolders Verbatim
 
-Channel daele-inbox
+Channel daele
 Far :daele-remote:
 Near :daele-local:
 Create Near
