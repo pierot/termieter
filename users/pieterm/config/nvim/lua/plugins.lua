@@ -45,6 +45,8 @@ return require('packer').startup(function(use)
 
 	use {'nvim-treesitter/nvim-treesitter'}             -- treesitter, code highlighting, last
 
+  use "f-person/git-blame.nvim"
+
 	use 'docunext/closetag.vim'
 	use 'mattn/emmet-vim'
 	use 'kana/vim-textobj-user'
