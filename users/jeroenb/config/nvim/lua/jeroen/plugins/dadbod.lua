@@ -10,6 +10,7 @@ return {
 		"DBUIAddConnection",
 		"DBUIFindBuffer",
 	},
+	event = "VeryLazy",
 	config = function()
 		vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 			pattern = { "*.dbout" },

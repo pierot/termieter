@@ -1,6 +1,7 @@
 return {
   "williamboman/mason.nvim",
   dependencies = { "williamboman/mason-lspconfig.nvim" },
+	event = "VeryLazy",
   config = function()
     local mason = require("mason")
     local lspconfig = require("mason-lspconfig")
