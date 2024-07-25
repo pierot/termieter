@@ -1,3 +1,5 @@
+local u = require("utils")
+
 return {
 	"f-person/git-blame.nvim",
 	event = { "BufReadPre", "BufNewFile" },
@@ -7,7 +9,6 @@ return {
 			enabled = false,
 		})
 
-		vim.keymap.set("n", "<leader>gB", "<cmd>GitBlameToggle<CR>")
+    u.map("n", "<leader>gB", ":GitBlameToggle<CR>")
 	end,
 }
-
