@@ -45,6 +45,6 @@ ts.setup({
       }
     }
   },
-  autotag = {enable = true},
+  -- autotag = {enable = true},
   auto_install = true
 })
