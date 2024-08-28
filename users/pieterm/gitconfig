@@ -40,4 +40,4 @@
   pager = delta
 
 [pull]
-	ff = only
+	rebase = false
