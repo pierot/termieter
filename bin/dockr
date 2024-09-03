@@ -5,9 +5,9 @@
 # Utility wrapper around our Docker/Traefik/Elixir/PHX stack
 # Makes 'dropping in' running Elixir apps easier.
 #
-# version:      0.3
+# version:      0.4
 # created:      01/04/2020
-# last update:  14/10/2020
+# last update:  30/08/2024
 # author:       Jack + Joe
 #
 # CHANGELOG
@@ -22,6 +22,9 @@
 #
 # 0.3 (14/10/2020)
 # - fixed variable interpolation in ssh command (https://github.com/pierot/termieter/issues/5)
+#
+# 0.4 (30/08/2024)
+# - added 'shell' command to access the docker container instead of the Elixir release 
 
 APP_NAME=""
 IP="LOCAL"
@@ -52,6 +55,7 @@ Commands:
                     If no app options is passed, the status of all running
                     containers is shown
   connect           Connect to the remote Elixir app
+  shell             Shell into the docker container
   restart           Restart the app container
   stop              Stop the app
   start             Start the app
@@ -138,6 +142,21 @@ case $COMMAND in
       echo -e "${GREEN}Found app container: ${NC} $CONTAINER"
       echo "Connecting to container $CONTAINER"
       ssh -o 'RequestTTY force'  $USER@$IP "sudo docker exec -i -t $CONTAINER /bin/bash -c './bin/production remote'"
+    fi
+    ;;
+  shell)
+    if [ "$IP" == "LOCAL" ]; then
+      echo "Searching for $APP_NAME..."
+      CONTAINER=$(sudo docker ps --format "{{.Names}}" | grep ""$APP_NAME"" | head -n 1)
+      echo "Connecting to container $CONTAINER"
+      sudo docker exec -i -t $CONTAINER /bin/bash 
+    else
+      echo "Connecting to IP $IP as $USER..."
+      echo "Searching for $APP_NAME..."
+      CONTAINER=$(ssh -q $USER@$IP 'f() { sudo docker ps --format "{{.Names}}" | grep "$1" | head -n 1 }; f "'"$APP_NAME"'"')
+      echo -e "${GREEN}Found app container: ${NC} $CONTAINER"
+      echo "Connecting to container $CONTAINER"
+      ssh -o 'RequestTTY force'  $USER@$IP "sudo docker exec -i -t $CONTAINER /bin/bash"
     fi
     ;;
   stop)
