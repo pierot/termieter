@@ -88,6 +88,7 @@ return require('packer').startup(function(use)
 	use 'norcalli/nvim-colorizer.lua'
 
   use {'github/copilot.vim'}
+  use {"olimorris/codecompanion.nvim"}
 
   if packer_bootstrap then
     require('packer').sync()
