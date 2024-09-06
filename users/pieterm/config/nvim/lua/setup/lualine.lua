@@ -173,7 +173,6 @@ ins_left {
       local filetypes = client.config.filetypes
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
         table.insert(all, client.name)
-        -- return client.name
       end
     end
     if next(all) == nil then
