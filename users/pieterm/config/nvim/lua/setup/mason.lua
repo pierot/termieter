@@ -10,6 +10,7 @@ lspconfig.setup {
     "tailwindcss", 
     "cssls",
     "emmet_ls",
-    "html"
+    "html",
+    "elixirls"
   } -- //, "prettier_d" },
 }

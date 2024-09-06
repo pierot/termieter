@@ -1,4 +1,4 @@
-local status, colorizer = pcall(require, "codecompanion")
+local status, codecompanion = pcall(require, "codecompanion")
 if (not status) then return end
 
 codecompanion.setup({
