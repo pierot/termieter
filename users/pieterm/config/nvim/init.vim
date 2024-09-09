@@ -28,5 +28,6 @@ lua require('setup.ts-autotag')
 lua require('setup.vim-easy-align')
 lua require('setup.web-devicons')
 lua require('setup.codecompanion')
+lua require('setup.noice')
 
 lua print("Jack + Joe rocks!")

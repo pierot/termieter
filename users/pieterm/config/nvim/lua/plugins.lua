@@ -28,10 +28,12 @@ return require('packer').startup(function(use)
 
 	use 'lewis6991/impatient.nvim'                      -- faster startup
 	use 'kyazdani42/nvim-tree.lua'                      -- sidebar file explorer
-	use 'kyazdani42/nvim-web-devicons'                  -- web dev icons used by many plugins
+	use 'nvim-tree/nvim-web-devicons'                  -- web dev icons used by many plugins
 
 	use 'nvim-lua/popup.nvim'                           -- ui plugin used by many, someday upstream in neovim
 	use 'nvim-lua/plenary.nvim'                         -- ui plugin used by many, someday upstream in neovim
+	use 'rcarriga/nvim-notify'
+	use 'MunifTanjim/nui.nvim'
 
 	use 'tpope/vim-surround'
 	use 'tpope/vim-fugitive'
@@ -61,10 +63,8 @@ return require('packer').startup(function(use)
   use "jayp0521/mason-null-ls.nvim"
   use 'jose-elias-alvarez/typescript.nvim'
 
-  use {                                               -- pretty lsp diagnostics
-    "folke/trouble.nvim",
-    requires = "nvim-tree/nvim-web-devicons"
-  }
+  use "folke/trouble.nvim"                            -- pretty lsp diagnostics
+  use "folke/noice.nvim"                              -- replaces the UI for messages, cmdline and the popupmenu
 
   use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
 
