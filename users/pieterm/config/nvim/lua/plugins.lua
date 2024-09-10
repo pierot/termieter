@@ -27,17 +27,19 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
 	use 'lewis6991/impatient.nvim'                      -- faster startup
-	use 'kyazdani42/nvim-tree.lua'                      -- sidebar file explorer
-	use 'kyazdani42/nvim-web-devicons'                  -- web dev icons used by many plugins
+	use 'nvim-tree/nvim-web-devicons'                   -- web dev icons used by many plugins
 
+	use 'nvim-lua/plenary.nvim'                         -- for asynchronous programming using coroutines
 	use 'nvim-lua/popup.nvim'                           -- ui plugin used by many, someday upstream in neovim
-	use 'nvim-lua/plenary.nvim'                         -- ui plugin used by many, someday upstream in neovim
+	use 'rcarriga/nvim-notify'
+	use 'MunifTanjim/nui.nvim'
+  use "folke/noice.nvim"                              -- replaces the UI for messages, cmdline and the popupmenu
+  use "folke/trouble.nvim"                            -- pretty lsp diagnostics
 
 	use 'tpope/vim-surround'
-	use 'tpope/vim-fugitive'
 	use 'tpope/vim-repeat'
   use 'tpope/vim-unimpaired'
-	use 'vim-test/vim-test'
+	-- use 'vim-test/vim-test'
   use 'junegunn/vim-easy-align'
 
   use 'windwp/nvim-autopairs'
@@ -45,28 +47,26 @@ return require('packer').startup(function(use)
 
 	use {'nvim-treesitter/nvim-treesitter'}             -- treesitter, code highlighting, last
 
+	use 'tpope/vim-fugitive'
   use "f-person/git-blame.nvim"
 
 	use 'docunext/closetag.vim'
 	use 'mattn/emmet-vim'
 	use 'kana/vim-textobj-user'
 	use 'kana/vim-textobj-line'
+
 	use 'elixir-editors/vim-elixir'                     -- correct commentstring and other percs
+  use 'jose-elias-alvarez/typescript.nvim'
+
+	use 'kyazdani42/nvim-tree.lua'                      -- sidebar file explorer
 
 	use 'neovim/nvim-lspconfig'
-  use 'jose-elias-alvarez/null-ls.nvim'               -- Use Neovim as a LS to inject LSP diagnostics, code actions, and more via Lua
+  use 'nvimtools/none-ls.nvim'                        -- Use Neovim as a LS to inject LSP diagnostics, code actions, and more via Lua
+  use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
   use 'MunifTanjim/prettier.nvim'                     -- Prettier plugin for Neovim's built-in LSP client
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use "jayp0521/mason-null-ls.nvim"
-  use 'jose-elias-alvarez/typescript.nvim'
-
-  use {                                               -- pretty lsp diagnostics
-    "folke/trouble.nvim",
-    requires = "nvim-tree/nvim-web-devicons"
-  }
-
-  use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
 
 	use 'hrsh7th/nvim-cmp'                              -- autocomplete
 	use 'hrsh7th/cmp-buffer'

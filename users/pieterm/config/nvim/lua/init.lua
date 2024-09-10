@@ -43,7 +43,7 @@ u.opt('o', 'incsearch', true)                           -- Make search act like 
 u.opt('o', 'ignorecase', true)                          -- Ignore case
 u.opt('o', 'smartcase', true)                           -- Don't ignore case with capitals
 
-u.opt('g', 'lazyredraw', true)                          -- Do not redraw when executing macros
+-- u.opt('g', 'lazyredraw', true)                          -- Do not redraw when executing macros
 u.opt('w', 'cursorline', true)                          -- Highlight current line
 u.opt('g', 'showmatch', true)                           -- Briefly jumps the cursor to the matching brace on insert
 
