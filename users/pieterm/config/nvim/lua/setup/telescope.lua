@@ -28,7 +28,7 @@ end ]]
 telescope.setup {
   defaults = {
     path_display = { "truncate" },
-    file_ignore_patterns = { "node_modules", "vendor", "**/*.min.js", "priv/static/js" },
+    file_ignore_patterns = { "node_modules", "vendor", "**/*.min.js", "priv/static/js", "*.svg" },
     vimgrep_arguments = {
       'rg',
       '--color=never',
