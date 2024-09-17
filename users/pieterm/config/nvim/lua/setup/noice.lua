@@ -47,6 +47,7 @@ noice.setup({
         winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
       }, ]]
     },
+  },
   routes = {
     {
       filter = {
