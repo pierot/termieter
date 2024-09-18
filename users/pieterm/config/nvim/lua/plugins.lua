@@ -61,7 +61,8 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-tree.lua'                      -- sidebar file explorer
 
 	use 'neovim/nvim-lspconfig'
-  use 'nvimtools/none-ls.nvim'                        -- Use Neovim as a LS to inject LSP diagnostics, code actions, and more via Lua
+	use 'stevearc/conform.nvim'                         -- Lightweight yet powerful formatter plugin for Neovim
+  -- use 'nvimtools/none-ls.nvim'                        -- Use Neovim as a LS to inject LSP diagnostics, code actions, and more via Lua
   use 'onsails/lspkind-nvim'                          -- vscode-like pictograms
   use 'MunifTanjim/prettier.nvim'                     -- Prettier plugin for Neovim's built-in LSP client
   use 'williamboman/mason.nvim'
