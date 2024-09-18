@@ -11,6 +11,8 @@ export DROPBOX="~/Dropbox"
 if [ -d $DROPBOX ]; then
 fi
 
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
 ###################################
 
 alias ap='ansible-playbook'
