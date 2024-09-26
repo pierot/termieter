@@ -23,15 +23,15 @@ local u = require("utils")
 
 vim.o.termguicolors = true
 -- vim.cmd("colorscheme tokyonight-night")
-vim.cmd("colorscheme onedark_dark")
+vim.cmd("colorscheme nightfox")
 vim.o.background = "dark"
 
 function ToggleTheme()
 	if vim.o.background == "dark" then
-		vim.cmd("colorscheme tokyonight-day")
+		-- vim.cmd("colorscheme nightfox")
 		vim.o.background = "light"
 	else
-		vim.cmd("colorscheme onedark_dark")
+		-- vim.cmd("colorscheme terafox")
 		vim.o.background = "dark"
 	end
 end

@@ -87,6 +87,7 @@ return require("packer").startup(function(use)
 	-- Themes
 
 	use("olimorris/onedarkpro.nvim")
+	use("EdenEast/nightfox.nvim")
 	use("folke/tokyonight.nvim") -- Used for lualine and theme
 	use("norcalli/nvim-colorizer.lua")
 
