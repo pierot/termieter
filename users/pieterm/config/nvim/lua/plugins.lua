@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-unimpaired")
 	-- use 'vim-test/vim-test'
 	use("junegunn/vim-easy-align")
+	use("lambdalisue/suda.vim")
 
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
