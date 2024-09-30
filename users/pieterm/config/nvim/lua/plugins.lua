@@ -49,7 +49,7 @@ return require("packer").startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter" }) -- treesitter, code highlighting, last
 
 	use("tpope/vim-fugitive")
-	use("f-person/git-blame.nvim")
+	use("lewis6991/gitsigns.nvim")
 
 	use("docunext/closetag.vim")
 	use("mattn/emmet-vim")
