@@ -8,10 +8,25 @@ if (not status2) then return end
 
 lspconfig.setup({
   ensure_installed = { 
-    "tailwindcss", 
+    "ansiblels",
+    "bashls",
     "cssls",
+    "dockerls",
+    "elixirls",
     "emmet_ls",
     "html",
-    "elixirls"
-  } -- //, "prettier_d" },
+    -- "isort",
+    "lua_ls",
+    "luau_lsp",
+    -- "markdownlint",
+    -- "prettierd",
+    -- "sql-formatter",
+    -- "sqlfmt",
+    "tailwindcss",
+    "yamlls",
+    -- "yamlfmt",
+    -- "yamllint"
+  }
 })
+
+
