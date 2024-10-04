@@ -111,9 +111,11 @@ users/jeroenb/config/alacritty/themes
 users/jeroenb/config/zoom**
 users/jeroenb/config/btop/**
 users/jeroenb/config/teamviewer/**
-users/jeroenb/config/nemo/**
-users/jeroenb/config/whoozle.github.io/*
-users/jeroenb/config/llc.toaster.debase/**
+users/jeroenb/config/nemo
+users/jeroenb/config/whoozle.github.io
+users/jeroenb/config/llc.toaster.debase
+users/jeroenb/config/Mousepad
+users/jeroenb/config/conky
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
