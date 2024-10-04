@@ -10,6 +10,7 @@ tmp
 **/config/cache
 **/config/local
 **/config/git/gitk
+**/config/htop/htoprc
 **/config/op
 
 **/packer_compiled.lua
