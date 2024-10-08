@@ -38,10 +38,7 @@ if [[ $OS == 'OSX' ]]; then
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
   }
 
-  alias whereismycam='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'
-
   alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
-  alias zzz='pmset sleepnow'
 
   # Spotlight
   alias spotlight-stop='sudo mdutil -i off /'
@@ -77,10 +74,6 @@ else
   export SVN_EDITOR='vim'
   export EDITOR=vim
 fi
-
-##########################################################
-
-export PATH="$PATH:/Library/Ruby/Gems/2.3.0"
 
 ##########################################################
 
