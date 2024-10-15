@@ -61,6 +61,13 @@ noice.setup({
         },
       },
       opts = { skip = true },
+    },
+    {
+      filter = {
+        event = 'msg_show',
+        find = 'Phoenix.LiveView.HTMLFormatter'
+      },
+      opts = { skip = true },
     }
   },
 })

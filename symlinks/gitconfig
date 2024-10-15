@@ -1,3 +1,2 @@
-[user]
-	email = jeroen@jackjoe.be
-	name = Jeroen Bourgois
+[include]
+path = ~/.gitconfig.local
