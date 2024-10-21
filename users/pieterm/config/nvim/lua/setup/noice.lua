@@ -58,8 +58,14 @@ noice.setup({
           { find = '; before #%d+' },
           { find = '%d fewer lines' },
           { find = '%d more lines' },
-          { find = 'Phoenix.LiveView.HTMLFormatter' },
         },
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = 'msg_show',
+        find = 'Phoenix.LiveView.HTMLFormatter'
       },
       opts = { skip = true },
     }

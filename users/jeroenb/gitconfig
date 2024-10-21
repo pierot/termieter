@@ -40,11 +40,11 @@
 
 [push]
   default = current
+	autoSetupRemote = true
 
 [delta]
   line-numbers = true
   side-by-side = false
-
   file-modified-label = modified:
 
 [interactive]
