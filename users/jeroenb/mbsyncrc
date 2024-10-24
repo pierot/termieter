@@ -64,3 +64,34 @@ Create Near
 SyncState *
 Sync All
 Patterns *
+
+#################################
+##### Account DOCDROPPER ########
+#################################
+
+IMAPAccount docdropper
+Host secure.123hosting-server.biz
+User files@docdropper.be
+Port 993
+PassCmd "~/.termieter/users/jeroenb/bin/muttpwd email/files@docdropper.be/imap"
+# AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+# Remote storage
+IMAPStore docdropper-remote
+Account docdropper
+
+# Local storage
+MaildirStore docdropper-local
+Path ~/Dropbox/mail/docdropper/
+Inbox ~/Dropbox/mail/docdropper/INBOX
+SubFolders Verbatim
+
+Channel docdropper
+Far :docdropper-remote:
+Near :docdropper-local:
+Create Near
+SyncState *
+Sync All
+Patterns *
