@@ -12,6 +12,7 @@ if [ -d $DROPBOX ]; then
 fi
 
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
 ###################################
 

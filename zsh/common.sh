@@ -25,6 +25,7 @@ alias termietere="cd $TRM; vim ."
 alias ping='echoo "ping -c 5"; ping -c 5' # ping 5 times ‘by default’
 alias curlg='curl --user-agent "Googlebot/2.1 (+http://www.google.com/bot.html)" -v $@'
 alias curlh="curl -I -s -X GET"
+alias myip='curl -s https://ipinfo.io/ip'
 
 alias sshe='cd ~/.ssh'
 alias sshconf='sudo vim ~/.ssh/config'
@@ -103,7 +104,7 @@ alias gcleanup='git add . && gcmm chore: cleanup'
 alias gprogress='git add . && gcmm chore: progress'
 alias gfix='git add . && gcmm fix'
 alias gtweak='git add . && gcmm tweak'
-alias gammend='git commit --amend --no-edit'
+alias gamend='git commit --amend --no-edit'
 
 gpo() {
   git pull origin $*
