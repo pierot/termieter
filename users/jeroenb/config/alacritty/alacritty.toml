@@ -1,5 +1,8 @@
 [general]
-import = ["~/.config/alacritty/themes/themes/github_dark_high_contrast.toml"]
+import = [
+    "~/.config/alacritty/themes/themes/github_dark_high_contrast.toml"
+    # "~/.config/alacritty/themes/themes/github_light_high_contrast.toml"
+]
 
 [font]
 size = 10.0
