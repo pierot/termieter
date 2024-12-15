@@ -7,7 +7,7 @@ if have neomutt; then
 fi
 
 if have nvim; then
-  alias v="nvim ."
+  alias v="nvim"
   alias vim="nvim"
   alias vi="nvim"
   alias vimdiff='nvim -d'
