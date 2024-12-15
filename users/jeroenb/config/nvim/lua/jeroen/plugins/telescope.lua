@@ -10,6 +10,14 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local rg_args = {
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+		}
 		-- telescope.load_extension("live_grep_args")
 
 		telescope.setup({
@@ -59,5 +67,8 @@ return {
 		keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>")
 		keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
 		keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+
+		-- multigrep (tnx TJ)
+		keymap.set("n", "<leader>mg", require("jeroen.plugins.telescope.multigrep").live_multigrep)
 	end,
 }
