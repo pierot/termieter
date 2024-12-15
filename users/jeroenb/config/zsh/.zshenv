@@ -80,4 +80,8 @@ if [ -f "${HOME}/.asdf/asdf.sh" ]; then
   # append completions to fpath
   fpath=(${ASDF_DIR}/completions $fpath)
 fi 
-. "$HOME/.cargo/env"
+
+# rust
+if [ -f "${HOME}/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi 
