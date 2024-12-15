@@ -22,6 +22,7 @@ x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
 application/pdf=org.gnome.Evince.desktop
 x-scheme-handler/postman=Postman.desktop
 image/svg+xml=org.inkscape.Inkscape.desktop
+text/csv=libreoffice-calc.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -43,7 +44,7 @@ image/svg+xml=org.xfce.mousepad.desktop;chromium.desktop;nvim.desktop;org.inksca
 video/mp4=vlc.desktop;
 video/x-matroska=vlc.desktop;
 application/pdf=okularApplication_pdf.desktop;chromium.desktop;org.inkscape.Inkscape.desktop;gimp.desktop;mupdf.desktop;
-text/csv=libreoffice-calc.desktop;libreoffice-writer.desktop;code-oss.desktop;
+text/csv=nvim.desktop;libreoffice-calc.desktop;libreoffice-writer.desktop;code-oss.desktop;
 image/jpeg=gimp.desktop;
 image/png=gimp.desktop;
 application/vnd.ms-publisher=libreoffice-writer.desktop;nvim.desktop;
