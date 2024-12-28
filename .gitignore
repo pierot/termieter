@@ -23,6 +23,7 @@ tmux/tmux-resurrect-auto
 users/jeroenb/mutt/cache/bodies/**
 users/jeroenb/mutt/cache/headers/**
 users/jeroenb/config/karabiner/automatic_backups
+users/jeroenb/config/balenaEtcher
 users/jeroenb/config/weechat/logs/**
 users/jeroenb/config/obs-studio
 users/jeroenb/config/weechat/weechat.log
