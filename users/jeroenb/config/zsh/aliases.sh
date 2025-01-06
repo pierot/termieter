@@ -19,6 +19,10 @@ if have bat; then
   alias cat="bat"
 fi
 
+if have pnpm; then
+  alias npm="pnpm"
+fi
+
 alias dev="cd $HOME/Work/"
 alias db="cd $DROPBOX"
 alias invoicing="cd $IAMJACK/Income"
