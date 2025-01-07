@@ -20,21 +20,16 @@ return {
 				overrides = {
 					Normal = { bg = "None" },
 					NormalFloat = { bg = "none" },
-					ColorColumn = { bg = "None" },
+					ColorColumn = { bg = "#11151C" },
 					SignColumn = { bg = "None" },
 					Folded = { bg = "None" },
 					FoldColumn = { bg = "None" },
-					CursorLine = { bg = "None" },
-					CursorColumn = { bg = "#00ff00" },
+					CursorLine = { bg = "#11151C" },
+					CursorColumn = { bg = "None" },
 					VertSplit = { bg = "None" },
 				},
 			})
-			-- require("github-theme").setup({
-			-- 	-- ...
-			-- })
-			--
 			vim.cmd("colorscheme ayu-dark")
-			-- vim.cmd("colorscheme github_dark_high_contrast")
 		end,
 	},
 }
