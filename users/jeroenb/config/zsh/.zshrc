@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
 # Remember to put this in your .zshenv file
 # export ZDOTDIR=$HOME/.config/zsh
 #
@@ -67,12 +69,23 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 bindkey '^R' .history-incremental-search-backward
 bindkey '^S' .history-incremental-search-forward
 
-# Load extra files if present
+##############################
+# COPY/PASTE (before Antidote)
+##############################
+# setw -g mode-keys vi
+# set -g set-clipboard off
+# bind-key -T copy-mode-vi v send-keys -X begin-selection
+# bind y key in copy mode to select and copy to system clipboard
+# bindkey -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+# bindkey -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+
+# Load extra files if present (aliases must come after common)
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.sh"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh"
 
 # Common settings shared with termieter (Pieter), after loading functions!
 source $TRM/zsh/common.sh
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

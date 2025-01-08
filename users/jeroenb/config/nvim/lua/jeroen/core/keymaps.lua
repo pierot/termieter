@@ -4,7 +4,7 @@ vim.g.mapleader = ","
 vim.keymap.set("n", "<CR>", ":nohl<CR>") -- Clear search
 vim.keymap.set("n", "Q", "<Nop>") -- We don't do ex mode
 vim.keymap.set("", ";", ":") -- Map ; to :
-vim.keymap.set("n", "<leader>l", ":set list!<CR>") -- Toggle invisible characters
+vim.keymap.set("n", "<leader>x", "<cmd>set list!<CR>")
 vim.keymap.set("n", "S", "mzi<CR><ESC>`z") -- Split line and preserve cursor position
 vim.keymap.set("n", "gI", "`.") -- Move to the position where the last change was made
 

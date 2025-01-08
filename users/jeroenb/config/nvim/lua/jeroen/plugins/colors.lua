@@ -16,12 +16,20 @@ return {
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			-- require("github-theme").setup({
-			-- 	-- ...
-			-- })
-			--
+			require("ayu").setup({
+				overrides = {
+					Normal = { bg = "None" },
+					NormalFloat = { bg = "none" },
+					ColorColumn = { bg = "#11151C" },
+					SignColumn = { bg = "None" },
+					Folded = { bg = "None" },
+					FoldColumn = { bg = "None" },
+					CursorLine = { bg = "#11151C" },
+					CursorColumn = { bg = "None" },
+					VertSplit = { bg = "None" },
+				},
+			})
 			vim.cmd("colorscheme ayu-dark")
-			-- vim.cmd("colorscheme github_dark_high_contrast")
 		end,
 	},
 }

@@ -7,7 +7,7 @@ if have neomutt; then
 fi
 
 if have nvim; then
-  alias v="nvim ."
+  alias v="nvim"
   alias vim="nvim"
   alias vi="nvim"
   alias vimdiff='nvim -d'
@@ -17,6 +17,10 @@ fi
 
 if have bat; then
   alias cat="bat"
+fi
+
+if have pnpm; then
+  alias npm="pnpm"
 fi
 
 alias dev="cd $HOME/Work/"

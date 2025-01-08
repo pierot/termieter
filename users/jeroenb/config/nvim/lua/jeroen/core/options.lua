@@ -42,6 +42,10 @@ vim.opt.splitbelow = true -- Put new windows below current
 -- decrease update time
 vim.opt.updatetime = 250
 
+-- show chars
+vim.opt.list = true
+vim.opt.listchars = "tab:→ ,lead:∙,trail:∙,multispace:∙"
+
 -- ?
 vim.opt.iskeyword:append("-") -- Dashes are parts of words too
 
