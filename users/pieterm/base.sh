@@ -16,6 +16,10 @@ export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
 ###################################
 
+dia() {
+  export OPENAI_API_KEY=$(op read "op://Team/OpenAI Aider API Key/text") && aider --watch-files
+}
+
 alias ap='ansible-playbook'
 
 # Login via root and no password
