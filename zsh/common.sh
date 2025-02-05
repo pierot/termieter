@@ -63,6 +63,11 @@ function connect_traefik() {
 	ssh -L 9446:localhost:9445 "jackjoe@$@" -nNT
 }
 
+function connect_caddy() {
+  echo "http://localhost:2019 (port on host is 2019)"
+	ssh -L 2019:localhost:2019 "jackjoe@$@" -nNT
+}
+
 ##########################################################
 
 have() {
@@ -213,7 +218,8 @@ fi
 ##########################################################
 
 # ASDF
-[ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
-[ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
-[ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
-[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH=~/.asdf/shims:$PATH
+# [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
+# [ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
+# [ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
+# [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && source /opt/homebrew/opt/asdf/libexec/asdf.sh

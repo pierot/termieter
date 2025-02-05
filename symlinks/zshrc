@@ -55,7 +55,7 @@ setopt share_history
 plugins=(history-substring-search colored-man-pages)
 
 if [[ $OS == 'OSX' ]]; then
-  plugins+=(fzf mix-fast git)
+  plugins+=(fzf mix-fast git asdf)
 fi
 
 if [ -n "$(uname -a | grep Debian)" ]; then
