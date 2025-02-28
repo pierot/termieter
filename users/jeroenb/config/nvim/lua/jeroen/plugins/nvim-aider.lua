@@ -1,5 +1,6 @@
 return {
 	"GeorgesAlkhouri/nvim-aider",
+	enabled = false,
 	cmd = {
 		"AiderTerminalToggle",
 		"AiderHealth",
