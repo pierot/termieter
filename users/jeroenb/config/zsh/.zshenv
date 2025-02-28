@@ -18,7 +18,7 @@ export PAGER="most"
 export NOTMUCH_CONFIG=$HOME/.config/notmuch/notmuch-config
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$XDG_CONFIG_HOME/local/share
-export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
+# export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
 export LYNX_LSS=$XDG_CONFIG_HOME/lynx/lynx.lss
 export ERL_AFLAGS="-kernel shell_history enabled"
 # export LESS='-R --use-color -Dd+r$Du+b$'
@@ -85,3 +85,10 @@ fi
 if [ -f "${HOME}/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi 
+
+# my own python venv
+if [ -d "${HOME}/.config/local/share/../bin" ]; then
+  # uv
+  export PATH="$HOME/.config/local/share/../bin:$PATH"
+fi 
+

@@ -38,10 +38,6 @@
     # Thanks r00k, this creates a pretty graph view of the log
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
-[push]
-  default = current
-	autoSetupRemote = true
-
 [delta]
   line-numbers = true
   side-by-side = false
@@ -49,3 +45,25 @@
 
 [interactive]
   diffFilter = delta --color-only
+
+# From https://blog.gitbutler.com/how-git-core-devs-configure-git/ 
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+
+[rebase]
+        autoSquash = true
+        autoStash = true
+        updateRefs = true
