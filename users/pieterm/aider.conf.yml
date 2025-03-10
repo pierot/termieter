@@ -390,7 +390,7 @@ vim: true
 #config: xxx
 
 ## Specify the .env file to load (default: .env in git root)
-env-file: ~/.aider.env
+env-file: /Users/pieterm/.aider.env
 
 ## Enable/disable suggesting shell commands (default: True)
 #suggest-shell-commands: true
