@@ -1,7 +1,5 @@
 local status, codecompanion = pcall(require, "codecompanion")
-if not status then
-	return
-end
+if (not status) then return end
 
 codecompanion.setup({
 	strategies = {

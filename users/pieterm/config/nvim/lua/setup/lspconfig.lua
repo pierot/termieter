@@ -1,17 +1,11 @@
 local lspconfig_setup, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_setup then
-	return
-end
+if (not lspconfig_setup) then return end
 
 local cmp_nvim_lsp_setup, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_setup then
-	return
-end
+if (not cmp_nvim_lsp_setup) then return end
 
 local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-	return
-end
+if (not typescript_setup) then return end
 
 local keymap = vim.keymap -- for conciseness
 
