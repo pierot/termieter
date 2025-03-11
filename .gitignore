@@ -132,7 +132,7 @@ users/jeroenb/mutt/cache/headers/**
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/lvim/**
-users/pieterm/config/com.corsair/**
+users/pieterm/config/com.corsair
 users/pieterm/config/memos.json
 users/pieterm/config/containers/containers.conf
 users/pieterm/config/lnav/*history
