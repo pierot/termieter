@@ -21,8 +21,6 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- Navigation
-	keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-
 	bufopts.desc = "Show LSP definitions"
 	keymap.set("n", "gnd", "<cmd>Telescope lsp_definitions<CR>", bufopts)
 
@@ -30,7 +28,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", bufopts)
 
 	bufopts.desc = "Show LSP type definitions"
-	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", bufopts)
+	keymap.set("n", "gnt", "<cmd>Telescope lsp_type_definitions<CR>", bufopts)
 
 	bufopts.desc = "Show LSP references"
 	keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", bufopts)
@@ -38,7 +36,6 @@ local on_attach = function(client, bufnr)
 	-- Documentation & Help
 	keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-	-- keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 
 	-- Code actions
 	bufopts.desc = "Show code actions"
