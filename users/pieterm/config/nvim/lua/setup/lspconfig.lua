@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "gnd", "<cmd>Telescope lsp_definitions<CR>", bufopts)
 
 	bufopts.desc = "Show LSP implementations"
-	keymap.set("n", "gni", "<cmd>Telescope lsp_implementations<CR>", bufopts) ]]
+	keymap.set("n", "gni", "<cmd>Telescope lsp_implementations<CR>", bufopts)
 
 	bufopts.desc = "Show LSP type definitions"
 	keymap.set("n", "gnt", "<cmd>Telescope lsp_type_definitions<CR>", bufopts)
