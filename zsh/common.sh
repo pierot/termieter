@@ -219,7 +219,3 @@ fi
 
 # ASDF
 export PATH="$HOME/.asdf/shims:$PATH"
-# [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
-# [ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
-# [ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
-# [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && source /opt/homebrew/opt/asdf/libexec/asdf.sh

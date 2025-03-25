@@ -23,14 +23,14 @@ local on_attach = function(client, bufnr)
 	-- Navigation
 	-- keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 
-	bufopts.desc = "Show LSP definitions"
+	--[[ bufopts.desc = "Show LSP definitions"
 	keymap.set("n", "gnd", "<cmd>Telescope lsp_definitions<CR>", bufopts)
 
 	bufopts.desc = "Show LSP implementations"
-	keymap.set("n", "gni", "<cmd>Telescope lsp_implementations<CR>", bufopts)
+	keymap.set("n", "gni", "<cmd>Telescope lsp_implementations<CR>", bufopts) ]]
 
 	bufopts.desc = "Show LSP type definitions"
-	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", bufopts)
+	keymap.set("n", "gnt", "<cmd>Telescope lsp_type_definitions<CR>", bufopts)
 
 	bufopts.desc = "Show LSP references"
 	keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", bufopts)
