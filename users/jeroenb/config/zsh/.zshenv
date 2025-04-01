@@ -86,6 +86,11 @@ if [ -f "${HOME}/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi 
 
+# snap
+if [ -d "/var/lib/snapd/snap/bin" ]; then
+  PATH="/var/lib/snapd/snap/bin:$PATH"
+fi 
+
 # my own python venv
 if [ -d "${HOME}/.config/local/share/../bin" ]; then
   # uv
