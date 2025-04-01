@@ -31,6 +31,7 @@ users/jeroenb/config/GIMP
 users/jeroenb/config/Insomnia
 users/jeroenb/config/JetBrains
 users/jeroenb/config/LanguageTool
+users/jeroenb/config/xdg-desktop-portal/
 users/jeroenb/config/Logseq/**
 users/jeroenb/config/Meltytech
 users/jeroenb/config/Mousepad
@@ -48,6 +49,8 @@ users/jeroenb/config/aerc/accounts.conf
 users/jeroenb/config/alacritty/themes
 users/jeroenb/config/ardour8
 users/jeroenb/config/arkrc
+users/jeroenb/config/Ladybird
+users/jeroenb/config/SlackBackup
 users/jeroenb/config/audacity
 users/jeroenb/config/autorandr
 users/jeroenb/config/balena-etcher
@@ -88,6 +91,7 @@ users/jeroenb/config/libreoffice
 users/jeroenb/config/llc.toaster.debase
 users/jeroenb/config/lnav/**
 users/jeroenb/config/logseq
+users/jeroenb/config/lxqt/
 users/jeroenb/config/menus
 users/jeroenb/config/microsoft-edge
 users/jeroenb/config/microsoft-edge-dev
@@ -110,7 +114,6 @@ users/jeroenb/config/teamviewer/**
 users/jeroenb/config/tenacity
 users/jeroenb/config/timer-for-harvest.json
 users/jeroenb/config/transmission
-users/jeroenb/config/transmission
 users/jeroenb/config/unity3d
 users/jeroenb/config/vivaldi*
 users/jeroenb/config/vlc
@@ -119,7 +122,6 @@ users/jeroenb/config/weechat/sec.conf
 users/jeroenb/config/weechat/weechat.log
 users/jeroenb/config/whoozle.github.io
 users/jeroenb/config/xarchiver
-users/jeroenb/config/xdg-desktop-portal
 users/jeroenb/config/xdg-dekstop-portal
 users/jeroenb/config/xfce4
 users/jeroenb/config/xfce4/**
@@ -130,12 +132,11 @@ users/jeroenb/config/zsh/.zsh_history
 users/jeroenb/config/zsh/pure
 users/jeroenb/mutt/cache/bodies/**
 users/jeroenb/mutt/cache/headers/**
-users/jeroenb/config/lxqt/
 
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/lvim/**
-users/pieterm/config/com.corsair/**
+users/pieterm/config/com.corsair
 users/pieterm/config/memos.json
 users/pieterm/config/containers/containers.conf
 users/pieterm/config/lnav/*history

@@ -9,9 +9,19 @@
 [gitlab]
   email = pieter@jackjoe.be
 
+[column]
+  ui = auto
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = version:refname
+
 [push]
   autoSetupRemote = true
   default = current
+  followTags = true
 
 [delta]
   line-numbers = true
@@ -24,6 +34,10 @@
 [diff]
   tool = difftastic
   external = difft
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 
 [difftool]
   prompt = false
@@ -41,3 +55,8 @@
 
 [pull]
 	rebase = false
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true

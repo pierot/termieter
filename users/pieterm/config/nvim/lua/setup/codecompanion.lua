@@ -1,7 +1,5 @@
 local status, codecompanion = pcall(require, "codecompanion")
-if not status then
-	return
-end
+if (not status) then return end
 
 codecompanion.setup({
 	strategies = {
@@ -19,8 +17,8 @@ codecompanion.setup({
 		anthropic = function()
 			return require("codecompanion.adapters").extend("anthropic", {
 				env = {
-					-- api_key = "cmd:op read --account my.1password.com op://Noort/pxt5stwy22ezyn2iovfd47ea7e/credential --no-newline",
-					api_key = "cmd:cat ~/.anthropic-key",
+					api_key = "cmd:op read --account my.1password.com op://Noort/pxt5stwy22ezyn2iovfd47ea7e/credential --no-newline",
+					-- api_key = "cmd:cat ~/.anthropic-key",
 				},
 				--[[ schema = {
           model = {

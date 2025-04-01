@@ -35,6 +35,7 @@ return require("packer").startup(function(use)
 	use("MunifTanjim/nui.nvim")
 	use("folke/noice.nvim") -- replaces the UI for messages, cmdline and the popupmenu
 	use("folke/trouble.nvim") -- pretty lsp diagnostics
+	use("folke/snacks.nvim")
 
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
@@ -86,14 +87,15 @@ return require("packer").startup(function(use)
 	use("b3nj5m1n/kommentary") -- Comment
 
 	-- Themes
-
 	use("olimorris/onedarkpro.nvim")
 	use("EdenEast/nightfox.nvim")
 	use("folke/tokyonight.nvim") -- Used for lualine and theme
 	use("norcalli/nvim-colorizer.lua")
 
+	-- AI
 	use({ "github/copilot.vim" })
 	use({ "olimorris/codecompanion.nvim" })
+	use({ "GeorgesAlkhouri/nvim-aider" })
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -89,6 +89,10 @@ fi
 # glab
 if [ -f "${HOME}/.config/op/plugins.sh" ]; then
   . "$HOME/.config/op/plugins.sh"
+  #
+# snap
+if [ -d "/var/lib/snapd/snap/bin" ]; then
+  PATH="/var/lib/snapd/snap/bin:$PATH"
 fi 
 
 # my own python venv
