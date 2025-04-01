@@ -95,3 +95,6 @@ alias myip='curl -s https://ipinfo.io/ip'
 alias macarchius='echo d8:bb:c1:8d:72:7c'
 alias macdaddy=macarchius
 alias wakemeupbeforeyougogo='wol -p 9 d8:bb:c1:8d:72:7c'
+
+# because
+alias ivat='BE0568678435'
