@@ -1,11 +1,12 @@
 return {
-	"neovim/nvim-lspconfig",
-	enabled = false,
-	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-	},
+	"hrsh7th/cmp-nvim-lsp",
+	-- "neovim/nvim-lspconfig",
+	-- enabled = false,
+	-- event = { "BufReadPre", "BufNewFile" },
+	-- dependencies = {
+	-- 	"hrsh7th/cmp-nvim-lsp",
+	-- 	{ "antosha417/nvim-lsp-file-operations", config = true },
+	-- },
 	config = function()
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -21,7 +22,7 @@ return {
 		-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		-- end
 
-		vim.slp.config("*", {
+		vim.lsp.config("*", {
 			root_markers = { ".git" },
 		})
 
@@ -38,12 +39,7 @@ return {
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "heex" },
 		}
 
-		vim.lsp.enable("html")
-		vim.lsp.enable("emmet_ls")
-		vim.lsp.enable("cssls")
-		vim.lsp.enable("tailwindcss")
-		vim.lsp.enable("ts_ls")
-		vim.lsp.enable("lua_ls")
+		vim.lsp.enable({ "html", "emmet_ls", "cssls", "tailwindcss", "ts_ls", "lua_ls" })
 	end,
 }
 
