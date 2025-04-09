@@ -1,13 +1,15 @@
 -------------------- HELPERS -------------------------------
 local u = require("utils")
 
--- Install plugins automatically
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+-- Install plugins automatically using native autocmd API
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "plugins.lua",
+  group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
+  callback = function()
+    vim.cmd("source <afile>")
+    vim.cmd("PackerSync")
+  end,
+})
 
 -- Upon initial vim install, install packer & plugins
 local ensure_packer = function()
@@ -29,9 +31,9 @@ return require("packer").startup(function(use)
 	use("nvim-tree/nvim-web-devicons") -- web dev icons used by many plugins
 
 	use("nvim-lua/plenary.nvim") -- for asynchronous programming using coroutines
-	use("nvim-lua/popup.nvim") -- ui plugin used by many, someday upstream in neovim
+	-- use("nvim-lua/popup.nvim") -- ui plugin used by many, someday upstream in neovim
 	use("rcarriga/nvim-notify")
-	use("MunifTanjim/nui.nvim")
+  use("MunifTanjim/nui.nvim")
 	use("folke/noice.nvim") -- replaces the UI for messages, cmdline and the popupmenu
 	use("folke/trouble.nvim") -- pretty lsp diagnostics
 	use("folke/snacks.nvim")
@@ -50,7 +52,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
 
-	use("mattn/emmet-vim")
+	-- use("mattn/emmet-vim")
 	use("kana/vim-textobj-user")
 	use("kana/vim-textobj-line")
 
@@ -62,7 +64,7 @@ return require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("stevearc/conform.nvim") -- Lightweight yet powerful formatter plugin for Neovim
   use("onsails/lspkind-nvim") -- vscode-like pictograms
-	use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
+	-- use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jayp0521/mason-null-ls.nvim")
