@@ -195,7 +195,7 @@ vim.diagnostic.config({
 	virtual_text = {
 		prefix = "●",
 	},
-	update_in_insert = true,
+	update_in_insert = false, -- Improved performance: diagnostics only update when leaving insert mode
 	float = {
 		source = "always", -- Or "if_many"
 	},

@@ -26,7 +26,6 @@ local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
-	use("lewis6991/impatient.nvim") -- faster startup
 	use("nvim-tree/nvim-web-devicons") -- web dev icons used by many plugins
 
 	use("nvim-lua/plenary.nvim") -- for asynchronous programming using coroutines
@@ -40,8 +39,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
 	use("tpope/vim-unimpaired")
-	-- use 'vim-test/vim-test'
-	use("junegunn/vim-easy-align")
+		use("junegunn/vim-easy-align")
 	use("lambdalisue/suda.vim")
 
 	use("windwp/nvim-autopairs")
@@ -52,7 +50,6 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
 
-	use("docunext/closetag.vim")
 	use("mattn/emmet-vim")
 	use("kana/vim-textobj-user")
 	use("kana/vim-textobj-line")
@@ -64,8 +61,7 @@ return require("packer").startup(function(use)
 
 	use("neovim/nvim-lspconfig")
 	use("stevearc/conform.nvim") -- Lightweight yet powerful formatter plugin for Neovim
-	-- use 'nvimtools/none-ls.nvim'                        -- Use Neovim as a LS to inject LSP diagnostics, code actions, and more via Lua
-	use("onsails/lspkind-nvim") -- vscode-like pictograms
+  use("onsails/lspkind-nvim") -- vscode-like pictograms
 	use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
