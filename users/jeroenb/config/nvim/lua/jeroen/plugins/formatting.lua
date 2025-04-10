@@ -47,6 +47,7 @@ return {
 				typescriptreact = { "prettierd" },
 				html = { "prettierd" },
 				css = { "prettierd" },
+				python = { "isort", "black" },
 				markdown = { "prettierd" },
 				json = { "prettierd" },
 			},

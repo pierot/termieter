@@ -1,7 +1,7 @@
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
-	enabled = false,
+	enabled = true,
 	lazy = false,
 	opts = {
 		-- your configuration comes here
@@ -11,7 +11,7 @@ return {
 		bigfile = { enabled = true },
 		dashboard = { enabled = false },
 		explorer = { enabled = false },
-		indent = { enabled = true },
+		indent = { enabled = false },
 		input = { enabled = true },
 		picker = { enabled = true },
 		notifier = { enabled = true },

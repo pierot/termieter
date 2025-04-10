@@ -31,6 +31,7 @@ users/jeroenb/config/GIMP
 users/jeroenb/config/Insomnia
 users/jeroenb/config/JetBrains
 users/jeroenb/config/LanguageTool
+users/jeroenb/config/xdg-desktop-portal/
 users/jeroenb/config/Logseq/**
 users/jeroenb/config/Meltytech
 users/jeroenb/config/Mousepad
@@ -40,6 +41,7 @@ users/jeroenb/config/QtProject.conf
 users/jeroenb/config/REAPER
 users/jeroenb/config/Raspberry Pi
 users/jeroenb/config/Slack
+users/jeroenb/config/glab-cli
 users/jeroenb/config/SubDownloader
 users/jeroenb/config/Thunar
 users/jeroenb/config/VirtualBox
@@ -47,6 +49,8 @@ users/jeroenb/config/aerc/accounts.conf
 users/jeroenb/config/alacritty/themes
 users/jeroenb/config/ardour8
 users/jeroenb/config/arkrc
+users/jeroenb/config/Ladybird
+users/jeroenb/config/SlackBackup
 users/jeroenb/config/audacity
 users/jeroenb/config/autorandr
 users/jeroenb/config/balena-etcher

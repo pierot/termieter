@@ -1,0 +1,39 @@
+{
+  "suggest.autoTrigger": "trigger",
+  "suggest.timeout": 500,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "graphql",
+    "php",
+    "elixir"
+  ],
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 80,
+  "prettier.useTabs": false,
+  "prettier.singleQuote": false,
+  "prettier.bracketSpacing": false,
+  "prettier.bracketSameLine": false,
+  "prettier.arrowParens": "avoid",
+  "prettier.semi": false,
+  "prettier.trailingComma": "es5",
+  "prettier.parser": "babylon",
+  "codeLens.enable": true,
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck",
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"],
+    "php": ["phpstan", "psalm"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "elixir": "mix_format",
+    "eelixir": "mix_format"
+  },
+  "elixirLS.mixEnv": "dev",
+  "elixirLS.mixTarget": "test"
+}

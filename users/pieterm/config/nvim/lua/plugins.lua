@@ -1,13 +1,15 @@
 -------------------- HELPERS -------------------------------
 local u = require("utils")
 
--- Install plugins automatically
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+-- Install plugins automatically using native autocmd API
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "plugins.lua",
+  group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
+  callback = function()
+    vim.cmd("source <afile>")
+    vim.cmd("PackerSync")
+  end,
+})
 
 -- Upon initial vim install, install packer & plugins
 local ensure_packer = function()
@@ -26,13 +28,12 @@ local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
-	use("lewis6991/impatient.nvim") -- faster startup
 	use("nvim-tree/nvim-web-devicons") -- web dev icons used by many plugins
 
 	use("nvim-lua/plenary.nvim") -- for asynchronous programming using coroutines
-	use("nvim-lua/popup.nvim") -- ui plugin used by many, someday upstream in neovim
+	-- use("nvim-lua/popup.nvim") -- ui plugin used by many, someday upstream in neovim
 	use("rcarriga/nvim-notify")
-	use("MunifTanjim/nui.nvim")
+  use("MunifTanjim/nui.nvim")
 	use("folke/noice.nvim") -- replaces the UI for messages, cmdline and the popupmenu
 	use("folke/trouble.nvim") -- pretty lsp diagnostics
 	use("folke/snacks.nvim")
@@ -40,8 +41,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
 	use("tpope/vim-unimpaired")
-	-- use 'vim-test/vim-test'
-	use("junegunn/vim-easy-align")
+		use("junegunn/vim-easy-align")
 	use("lambdalisue/suda.vim")
 
 	use("windwp/nvim-autopairs")
@@ -52,8 +52,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
 
-	use("docunext/closetag.vim")
-	use("mattn/emmet-vim")
+	-- use("mattn/emmet-vim")
 	use("kana/vim-textobj-user")
 	use("kana/vim-textobj-line")
 
@@ -64,9 +63,8 @@ return require("packer").startup(function(use)
 
 	use("neovim/nvim-lspconfig")
 	use("stevearc/conform.nvim") -- Lightweight yet powerful formatter plugin for Neovim
-	-- use 'nvimtools/none-ls.nvim'                        -- Use Neovim as a LS to inject LSP diagnostics, code actions, and more via Lua
-	use("onsails/lspkind-nvim") -- vscode-like pictograms
-	use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
+  use("onsails/lspkind-nvim") -- vscode-like pictograms
+	-- use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jayp0521/mason-null-ls.nvim")
