@@ -30,6 +30,7 @@ return {
 					CursorColumn = { bg = "None" },
 					VertSplit = { bg = "None" },
 					Visual = { fg = colors.bg, bg = colors.special },
+					TelescopeMatching = { fg = "#0090ff" },
 				},
 			})
 			vim.cmd("colorscheme ayu-dark")
