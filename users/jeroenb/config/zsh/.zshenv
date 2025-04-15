@@ -101,3 +101,8 @@ if [ -d "${HOME}/.config/local/share/../bin" ]; then
   # uv
   export PATH="$HOME/.config/local/share/../bin:$PATH"
 fi
+
+if [ -d "${HOME}/python/bin" ]; then
+  # uv
+  export PATH="$HOME/python/bin:$PATH"
+fi
