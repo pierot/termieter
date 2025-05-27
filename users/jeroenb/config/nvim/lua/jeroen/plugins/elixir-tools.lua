@@ -20,6 +20,18 @@ return {
 					vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
 					vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
 					vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
+					vim.keymap.set(
+						"n",
+						"gD",
+						"<cmd>lua vim.lsp.buf.declaration()<CR>",
+						{ noremap = true, silent = true }
+					)
+					vim.keymap.set(
+						"n",
+						"gd",
+						"<cmd>lua vim.lsp.buf.definition()<CR>",
+						{ noremap = true, silent = true }
+					)
 				end,
 			},
 		})
