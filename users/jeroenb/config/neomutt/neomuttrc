@@ -19,7 +19,7 @@ set mime_forward         # forward attachments
 set mime_forward_rest=yes
 
 set edit_headers        = yes
-set sendmail_wait       = 0
+set sendmail_wait       = 1
 set sleep_time          = 0
 unset record
 
@@ -136,7 +136,7 @@ set message_cachedir = $TRMU/mutt/cache/bodies  # where to store bodies
 set certificate_file = $TRMU/mutt/certificates  # where to store certs
 set mailcap_path     = $TRMU/mutt/mailcap       # entries for filetypes
 set tmpdir           = $TRMU/mutt/tmp           # where to keep tmp files
-# set display_filter   = $TRMU/mutt/alias_me.sh
+set display_filter   = $TRMU/mutt/alias_me.sh
 
 # Compose View Options -------------------------------
 set realname = "Jeroen Bourgois"     # who am i?
