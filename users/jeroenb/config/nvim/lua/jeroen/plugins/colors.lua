@@ -7,10 +7,10 @@ function ToggleTheme()
 end
 
 return {
-	-- "rktjmp/lush.nvim",
-	-- "metalelf0/jellybeans-nvim",
-	-- "gruvbox-community/gruvbox",
-	-- "projekt0n/github-nvim-theme",
+	"rktjmp/lush.nvim",
+	"metalelf0/jellybeans-nvim",
+	"gruvbox-community/gruvbox",
+	"projekt0n/github-nvim-theme",
 	{
 		"Shatur/neovim-ayu",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
