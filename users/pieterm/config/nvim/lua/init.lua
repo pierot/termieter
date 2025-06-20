@@ -14,7 +14,7 @@ local indent = 2
 
 u.opt('o', 'splitbelow', true)                          -- Put new windows below current
 u.opt('o', 'splitright', true)                          -- Put new windows right of current
-u.opt('o', 'termguicolors', true)                       -- True color support
+-- termguicolors set below in vim.opt
 u.opt('w', 'list', false)                               -- Hide some invisible characters (tabs...)
 u.opt('w', 'listchars', 'tab:»·,trail:·,eol:¬,nbsp:_')
 u.opt('g', 'ffs', 'unix,mac,dos')	                      -- Support all three, in this order
@@ -43,8 +43,7 @@ u.opt('o', 'incsearch', true)                           -- Make search act like 
 u.opt('o', 'ignorecase', true)                          -- Ignore case
 u.opt('o', 'smartcase', true)                           -- Don't ignore case with capitals
 
--- u.opt('g', 'lazyredraw', true)                          -- Do not redraw when executing macros
-u.opt('w', 'cursorline', true)                          -- Highlight current line
+-- cursorline set below in vim.opt
 u.opt('g', 'showmatch', true)                           -- Briefly jumps the cursor to the matching brace on insert
 
 u.opt('o', 'completeopt', 'menu,menuone,noselect')      -- Completion options, needed for cmp
@@ -63,8 +62,8 @@ u.opt('g', 'confirm', true)                             -- Ask whether to save c
 
 u.opt('o', 'mouse', 'a')
 
-cmd 'syntax enable'
-cmd 'filetype plugin indent on'
+vim.opt.syntax = 'enable'
+-- vim.opt.filetype = { plugin = true, indent = true }
 
 -------------------------------------------------
 -- MAPPINGS
@@ -76,7 +75,6 @@ u.map('n', 'Q', '<Nop>')                                -- We don't do ex mode
 u.map('', ';', ':')                                     -- Map ; to :
 u.map('n', '<leader>l', ':set list!<CR>')               -- Toggle invisible characters
 u.map('n', '<CR>', '<cmd>nohlsearch<CR>')               -- Clear the search buffer when hitting return
-u.map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve cursor position
 u.map('n', 'gI', '`.')                                  -- Move to the position where the last change was made
 
 u.map('c', 'w!!', '<cmd>w !sudo tee % >/dev/null<CR>')  -- Write read-only file via sudo
@@ -113,7 +111,12 @@ u.map('v', '<leader><leader>i', '<S-S><em>')
 
 u.map('n', 'S', 'mzi<CR><ESC>`z')                       -- Split line and preserve cursor position
 
-cmd 'autocmd BufWritePost *.exs,*.ex,*.leex,*.heex silent :!source .env.test && mix format %'
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = {"*.exs", "*.ex", "*.leex", "*.heex"},
+  callback = function()
+    vim.fn.system("source .env.test && mix format " .. vim.fn.expand("%"))
+  end
+})
 
 u.map('t', '<Esc>', '<C-\\><C-n>')
 
@@ -128,4 +131,3 @@ vim.opt.background = 'dark'
 -- all small plugins that need nothing more than a simple
 -- setup are setup here
 vim.g.ackprg = 'rg --vimgrep --pcre2'         -- ack
--- u.map('n', '<leader>gs', '<cmd>Git<CR>')      -- fugitive
