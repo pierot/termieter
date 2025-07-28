@@ -65,8 +65,6 @@ if [ -n "$(uname -a | grep Debian)" ]; then
   plugins+=(debian)
 fi
 
-plugins+=(zsh-autosuggestions zsh-syntax-highlighting)
-
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
