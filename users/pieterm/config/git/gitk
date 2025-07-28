@@ -55,12 +55,12 @@ set linkfgcolor blue
 set circleoutlinecolor black
 set diffbgcolors {"#fff3f3" "#f0fff0"}
 set web_browser open
-set geometry(main) 1512x916+5+43
+set geometry(main) 2560x1387+5+30
 set geometry(state) zoomed
-set geometry(topwidth) 1512
+set geometry(topwidth) 2560
 set geometry(topheight) 397
 set geometry(pwsash0) "399 1"
 set geometry(pwsash1) "712 1"
 set geometry(botwidth) 693
-set geometry(botheight) 514
+set geometry(botheight) 985
 set permviews {}

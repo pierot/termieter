@@ -33,6 +33,9 @@ DISABLE_AUTO_TITLE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+
 # When listing options (by `setopt', `unsetopt', `set -o' or `set +o'),
 # those turned on by default appear in the list prefixed with `no'.
 # Hence (unless KSH_OPTION_PRINT is set), `setopt' shows all options
@@ -62,9 +65,15 @@ if [ -n "$(uname -a | grep Debian)" ]; then
   plugins+=(debian)
 fi
 
+plugins+=(zsh-autosuggestions zsh-syntax-highlighting)
+
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+  compinit
+else
+  compinit -C
+fi
 
 source $TRM/zsh/base.sh
 

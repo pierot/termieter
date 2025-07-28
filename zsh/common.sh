@@ -111,6 +111,10 @@ alias gfix='git add . && gcmm fix'
 alias gtweak='git add . && gcmm tweak'
 alias gamend='git commit --amend --no-edit'
 
+gwt() {
+  git worktree $*
+}
+
 gpo() {
   git pull origin $*
 }
