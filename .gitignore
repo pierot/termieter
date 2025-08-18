@@ -146,3 +146,4 @@ users/pieterm/config/temporalio
 users/pieterm/config/bpytop
 users/pieterm/config/github-copilot
 .aider*
+./.claude

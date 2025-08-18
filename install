@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Major changes:
-
-# Git
-# The script does no longer help with installing git, since this might be
-# different accross systems. Moreover, most of our (Jack + Joe) base
-# systems all have git installed, so this is no longer an option.
-# If you do not have git installed, the script will abort with exit status 1
-#
 # Not interactive
 # All interactive commands have been replaced with arguments, making it
 # easier to integrate with automation. Also the script does not provide
@@ -26,7 +18,7 @@ COL_YELLOW="\x1b[33;01m"
 temp_dir='/tmp/termieter/src'
 mkdir -p $temp_dir
 
-function _usage {
+usage() {
 cat <<EOF
   $*
   Usage:          ./install [options]
@@ -39,7 +31,7 @@ cat <<EOF
 
   Remote usage:
 
-    bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh  ) [-d '.termieter']
+  bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter']
 
 EOF
 exit 0
@@ -85,14 +77,14 @@ while getopts "$OPTSPEC" FLAG; do
       install_dir=$OPTARG
       ;;
     h)
-      _usage
+      usage
       ;;
     u)
       update=1
       ;;
     \?) #unrecognized option - show help
       printf \\n"Option -${BOLD}$OPTARG${OFF} not allowed."
-      _usage
+      usage
       ;;
   esac
 done
@@ -160,6 +152,8 @@ for sym_file in $install_dir/symlinks/*; do
   _back_install $(basename $sym_file)
 done
 
+##################################################
+
 _back_install_user() {
   _print "Installing $USER $1"
 
@@ -197,6 +191,8 @@ _back_install_user() {
 for sym_file in $install_dir/users/$USER/*; do
   _back_install_user $(basename $sym_file)
 done
+
+##################################################
 
 # ~/.config install
 if [ -d "$HOME/.config" ]; then
