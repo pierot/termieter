@@ -22,3 +22,7 @@ if which tmux 2>&1 >/dev/null; then
     tmux -2u attach-session -t _hack || tmux -2u new -s _hack; exit
   fi
 fi
+
+if have starship; then
+  eval "$(starship init zsh)"
+fi

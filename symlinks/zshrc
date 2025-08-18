@@ -52,19 +52,6 @@ setopt inc_append_history
 # Reloads the history whenever you use it
 setopt share_history
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(history-substring-search colored-man-pages)
-
-if [[ $OS == 'OSX' ]]; then
-  plugins+=(fzf mix-fast git asdf)
-fi
-
-if [ -n "$(uname -a | grep Debian)" ]; then
-  plugins+=(debian)
-fi
-
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
@@ -73,37 +60,45 @@ else
   compinit -C
 fi
 
-source $TRM/zsh/base.sh
-
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 zstyle ':completion:*' menu yes=long select
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
+have() {
+  type "$1" &> /dev/null
+}
+
 # Colors for ls and autocompletion
 # if [[ $OS == 'OSX' ]]; then
 #   eval $( gdircolors -b $ZSH/../LS_COLORS )
 # else
-eval $( dircolors -b $ZSH/../LS_COLORS )
+if have dircolors; then
+  eval $( dircolors -b $ZSH/../LS_COLORS )
+fi
 # fi
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
+alias reload!='exec zsh'
+
+[ -f $TRM/zsh/base.sh ] && source $TRM/zsh/base.sh
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
-source $ZSH/oh-my-zsh.sh
+if have starship; then
+else
+  # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+  # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+  # Example format: plugins=(rails git textmate ruby lighthouse)
+  plugins=(history-substring-search colored-man-pages)
 
-alias reload!='exec zsh'
-alias r!='reload!'
+  if [[ $OS == 'OSX' ]]; then
+    plugins+=(fzf mix-fast git asdf)
+  fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  if [ -n "$(uname -a | grep Debian)" ]; then
+    plugins+=(debian)
+  fi
 
-# pnpm
-export PNPM_HOME="/Users/pieterm/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-alias claude="/Users/pieterm/.claude/local/claude"
+  source $ZSH/oh-my-zsh.sh
+fi

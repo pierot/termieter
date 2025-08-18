@@ -70,10 +70,6 @@ function connect_caddy() {
 
 ##########################################################
 
-have() {
-  type "$1" &> /dev/null
-}
-
 # Neovim/Vim
 if have nvim; then
   alias v="nvim ."
@@ -110,10 +106,6 @@ alias gprogress='git add . && gcmm chore: progress'
 alias gfix='git add . && gcmm fix'
 alias gtweak='git add . && gcmm tweak'
 alias gamend='git commit --amend --no-edit'
-
-gwt() {
-  git worktree $*
-}
 
 gpo() {
   git pull origin $*
@@ -170,6 +162,14 @@ alias yy='yarn && yarn upgrade'
 
 alias p='pnpm'
 
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 ##########################################################
 
 alias flyc='fly ssh console -C "./opt/app/bin/production remote" -a'
@@ -223,3 +223,7 @@ fi
 
 # ASDF
 export PATH="$HOME/.asdf/shims:$PATH"
+
+##########################################################
+
+alias claude="$HOME/.claude/local/claude"
