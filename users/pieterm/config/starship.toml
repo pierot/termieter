@@ -16,12 +16,12 @@ success_symbol = "[❯](bold green)[❯](bold yellow)[❯](bold peach)"
 [directory]
 truncation_length = 2
 truncation_symbol = "…/"
-repo_root_style = "bold cyan"
+repo_root_style = "bold maroon"
 repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 format = "[$branch]($style) "
-style = "bold"
+style = "bold lavender"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
