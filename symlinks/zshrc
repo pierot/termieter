@@ -92,6 +92,8 @@ alias reload!='exec zsh'
 [ -f $TRM/zsh/base.sh ] && source $TRM/zsh/base.sh
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
+bindkey -e
+
 if have starship; then
   eval "$(starship init zsh)"
 else
