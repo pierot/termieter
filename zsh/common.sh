@@ -13,6 +13,20 @@ else
   alias l='ls $LS_OPT -1hAFC'
 fi
 
+if have eza; then
+  alias ls="eza"
+  alias ll="eza --icons -la"
+  alias l="eza --icons -l"
+fi
+
+if have rg; then
+  alias grep="rg"
+fi
+
+if have fd; then
+  alias find="fd"
+fi
+
 alias mv='mv -i'            # prevents accidental overwrite
 alias cp='cp -i'            # prevents accidental overwrite
 alias rm='rm -i'            # prevents accidental overwrite
@@ -213,6 +227,10 @@ fi
 
 if have ccat; then
   alias cat='ccat'
+fi
+
+if have bat; then
+  alias cat='bat'
 fi
 
 if have gdircolors; then

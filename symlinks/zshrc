@@ -1,5 +1,9 @@
 source $HOME/.termieter/env
 
+have() {
+  type "$1" &> /dev/null
+}
+
 export ZSH=$TRM/zsh/oh-my-zsh
 
 # Set custom zsh directory
@@ -52,6 +56,13 @@ setopt inc_append_history
 # Reloads the history whenever you use it
 setopt share_history
 
+# Remove superfluous blanks from each command line being added to the history list
+setopt histreduceblanks
+# Remove command lines from the history list when the first character on the line is a space, or when one of the expanded aliases contains a leading space
+setopt histignorespace
+# Do not enter command lines into the history list if they are duplicates of the previous event.
+setopt histignorealldups
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
@@ -65,10 +76,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 zstyle ':completion:*' menu yes=long select
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*:functions' ignored-patterns '_*'
-
-have() {
-  type "$1" &> /dev/null
-}
 
 # Colors for ls and autocompletion
 # if [[ $OS == 'OSX' ]]; then
@@ -86,10 +93,10 @@ alias reload!='exec zsh'
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
 if have starship; then
+  eval "$(starship init zsh)"
 else
-  # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-  # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-  # Example format: plugins=(rails git textmate ruby lighthouse)
+  # Which plugins would you like to load? 
+  # (plugins can be found in ~/.oh-my-zsh/plugins/*)
   plugins=(history-substring-search colored-man-pages)
 
   if [[ $OS == 'OSX' ]]; then
