@@ -110,6 +110,8 @@ alias gco='git checkout'
 alias gap='git add -p'
 alias gst='git status'
 
+alias gd="git diff"
+
 alias gdoc='git add . && gcmm docs: add documentation'
 alias gmerge='git add . && gcmm chore: merge'
 alias gcompile='git add . && gcmm chore: compile'
