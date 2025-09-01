@@ -16,7 +16,7 @@ lspconfig.setup({
 		"bashls",
 		"cssls",
 		"dockerls",
-		"elixirls",
+		"expert",
 		"emmet_ls",
 		"html",
 		-- "isort",
