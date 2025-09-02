@@ -55,11 +55,13 @@ return require("packer").startup(function(use)
 	use("kana/vim-textobj-line")
 
 	use("elixir-editors/vim-elixir") -- correct commentstring and other percs
-	use("jose-elias-alvarez/typescript.nvim")
 
 	use("kyazdani42/nvim-tree.lua") -- sidebar file explorer
 
-	use("neovim/nvim-lspconfig")
+	-- use("neovim/nvim-lspconfig")
+	-- use("hrsh7th/cmp-nvim-lsp")
+	-- use("jose-elias-alvarez/typescript.nvim")
+
 	use("stevearc/conform.nvim") -- Lightweight yet powerful formatter plugin for Neovim
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
 	-- use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
@@ -71,7 +73,6 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-nvim-lsp")
 
 	use("nvim-lualine/lualine.nvim")
 
@@ -91,7 +92,7 @@ return require("packer").startup(function(use)
 	-- AI
 	use({ "github/copilot.vim" })
 	--[[ use({ "olimorris/codecompanion.nvim" })
-	use({ "GeorgesAlkhouri/nvim-aider" }) ]]
+  use({ "GeorgesAlkhouri/nvim-aider" }) ]]
 
 	if packer_bootstrap then
 		require("packer").sync()
