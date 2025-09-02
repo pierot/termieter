@@ -37,6 +37,7 @@ telescope.setup({
 		file_ignore_patterns = { "node_modules", "vendor", "**/*.min.js", "priv/static/js", "*.svg", "flow-typed" },
 		vimgrep_arguments = {
 			"rg",
+			"-i",
 			"--color=never",
 			"--no-heading",
 			"--with-filename",

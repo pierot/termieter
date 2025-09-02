@@ -147,6 +147,75 @@ git-status-all() {
   done
 }
 
+# Create a new worktree for a branch and cd into it
+gwtc() {
+  # Usage: gwtc <branch> [<base-branch>]
+  local branch="$1"
+  local base="${2:-main}"
+  local dir="worktrees/$branch"
+  git worktree add -b "$branch" "$dir" "$base" && cd "$dir"
+}
+
+# List all worktrees
+gwtl() {
+  git worktree list
+}
+
+# Go to a worktree directory
+gwtg() {
+  # Usage: gwtg <branch>
+  cd "$(git worktree list | grep "worktrees/$1 " | awk '{print $1}')"
+}
+
+# Merge a worktree branch into a target branch, remove the worktree and branch
+gwtm() {
+  # Usage: gwtm <worktree-branch> <target-branch>
+  local src="$1"
+  local target="${2:-main}"
+  local dir="worktrees/$src"
+  cd "$(git rev-parse --show-toplevel)"
+  git checkout "$target" || return 1
+  git pull
+  git merge "$src"
+  git worktree remove "$dir"
+  git branch -d "$src"
+}
+
+# Remove a worktree and its branch
+gwtrm() {
+  # Usage: gwtrm <branch>
+  local branch="$1"
+  local dir="worktrees/$branch"
+  git worktree remove "$dir"
+  git branch -D "$branch"
+}
+
+gwti() {
+  cat <<'EOF'
+gwtc <branch> [<base-branch>]
+  Create a new worktree for <branch> (from <base-branch>, default: main) in worktrees/<branch> and cd into it.
+  Example: gwtc feature/foo develop
+
+gwtl
+  List all git worktrees.
+
+gwtg <branch>
+  cd into the worktree directory for <branch>.
+  Example: gwtg feature/foo
+
+gwtm <worktree-branch> [<target-branch>]
+  Merge <worktree-branch> into <target-branch> (default: main), remove the worktree and delete the branch.
+  Example: gwtm feature/foo develop
+
+gwtrm <branch>
+  Remove the worktree and delete the branch for <branch>.
+  Example: gwtrm feature/foo
+
+gwti
+  Show this help/documentation.
+EOF
+}
+
 ##########################################################
 
 # Erlang / Elixir
@@ -162,7 +231,7 @@ alias mc="source .env && mix ecto.gen.migration"
 alias mt="source .env.test && mix test $a"
 alias mtf="source .env.test && mix test --failed"
 
-function mpr() {
+mpr() {
   source .env && mix phx.routes | grep "$*"
 }
 

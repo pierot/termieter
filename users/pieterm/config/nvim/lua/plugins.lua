@@ -90,8 +90,8 @@ return require("packer").startup(function(use)
 
 	-- AI
 	use({ "github/copilot.vim" })
-	use({ "olimorris/codecompanion.nvim" })
-	use({ "GeorgesAlkhouri/nvim-aider" })
+	--[[ use({ "olimorris/codecompanion.nvim" })
+	use({ "GeorgesAlkhouri/nvim-aider" }) ]]
 
 	if packer_bootstrap then
 		require("packer").sync()
