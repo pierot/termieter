@@ -148,8 +148,8 @@ git-status-all() {
 }
 
 # Create a new worktree for a branch and cd into it
-gwtc() {
-  # Usage: gwtc <branch> [<base-branch>]
+gwt_create() {
+  # Usage: gwt_create <branch> [<base-branch>]
   local branch="$1"
   local base="${2:-main}"
   local dir="worktrees/$branch"
@@ -157,18 +157,18 @@ gwtc() {
 }
 
 # List all worktrees
-gwtl() {
+gwt_list() {
   git worktree list
 }
 
 # Go to a worktree directory
-gwtg() {
+gwt_cd() {
   # Usage: gwtg <branch>
   cd "$(git worktree list | grep "worktrees/$1 " | awk '{print $1}')"
 }
 
 # Merge a worktree branch into a target branch, remove the worktree and branch
-gwtm() {
+gwt_merge() {
   # Usage: gwtm <worktree-branch> <target-branch>
   local src="$1"
   local target="${2:-main}"
@@ -182,7 +182,7 @@ gwtm() {
 }
 
 # Remove a worktree and its branch
-gwtrm() {
+gwt_rm() {
   # Usage: gwtrm <branch>
   local branch="$1"
   local dir="worktrees/$branch"
@@ -190,28 +190,28 @@ gwtrm() {
   git branch -D "$branch"
 }
 
-gwti() {
+gwt_info() {
   cat <<'EOF'
-gwtc <branch> [<base-branch>]
+gwt_create <branch> [<base-branch>]
   Create a new worktree for <branch> (from <base-branch>, default: main) in worktrees/<branch> and cd into it.
   Example: gwtc feature/foo develop
 
-gwtl
+gwt_list
   List all git worktrees.
 
-gwtg <branch>
+gwt_cd <branch>
   cd into the worktree directory for <branch>.
   Example: gwtg feature/foo
 
-gwtm <worktree-branch> [<target-branch>]
+gwt_merge <worktree-branch> [<target-branch>]
   Merge <worktree-branch> into <target-branch> (default: main), remove the worktree and delete the branch.
   Example: gwtm feature/foo develop
 
-gwtrm <branch>
+gwt_rm <branch>
   Remove the worktree and delete the branch for <branch>.
   Example: gwtrm feature/foo
 
-gwti
+gwt_info
   Show this help/documentation.
 EOF
 }
