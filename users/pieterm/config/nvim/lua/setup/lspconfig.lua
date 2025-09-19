@@ -85,6 +85,35 @@ end
 
 vim.lsp.completion.enable()
 
+local protocol = require("vim.lsp.protocol")
+protocol.CompletionItemKind = {
+  "", -- Text
+  "", -- Method
+  "", -- Function
+  "", -- Constructor
+  "", -- Field
+  "", -- Variable
+  "", -- Class
+  "ﰮ", -- Interface
+  "", -- Module
+  "", -- Property
+  "", -- Unit
+  "", -- Value
+  "", -- Enum
+  "", -- Keyword
+  "﬌", -- Snippet
+  "", -- Color
+  "", -- File
+  "", -- Reference
+  "", -- Folder
+  "", -- EnumMember
+  "", -- Constant
+  "", -- Struct
+  "", -- Event
+  "ﬦ", -- Operator
+  "", -- TypeParameter
+}
+
 vim.diagnostic.config({
   virtual_text = {
     prefix = "●",
@@ -158,35 +187,6 @@ lspconfig["emmet_ls"].setup({
   on_attach = on_attach,
   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
-
-local protocol = require("vim.lsp.protocol")
-protocol.CompletionItemKind = {
-  "", -- Text
-  "", -- Method
-  "", -- Function
-  "", -- Constructor
-  "", -- Field
-  "", -- Variable
-  "", -- Class
-  "ﰮ", -- Interface
-  "", -- Module
-  "", -- Property
-  "", -- Unit
-  "", -- Value
-  "", -- Enum
-  "", -- Keyword
-  "﬌", -- Snippet
-  "", -- Color
-  "", -- File
-  "", -- Reference
-  "", -- Folder
-  "", -- EnumMember
-  "", -- Constant
-  "", -- Struct
-  "", -- Event
-  "ﬦ", -- Operator
-  "", -- TypeParameter
-}
 
 -- configure Elixir language server
 local path = require("mason-core.path")

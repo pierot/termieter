@@ -61,8 +61,8 @@ set geometry(main) 1512x916+0+38
 set geometry(state) zoomed
 set geometry(topwidth) 1512
 set geometry(topheight) 397
-set geometry(pwsash0) "399 1"
-set geometry(pwsash1) "712 1"
-set geometry(botwidth) 693
+set geometry(pwsash0) "789 1"
+set geometry(pwsash1) "1093 1"
+set geometry(botwidth) 895
 set geometry(botheight) 514
 set permviews {}
