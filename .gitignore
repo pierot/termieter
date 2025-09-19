@@ -133,6 +133,7 @@ users/jeroenb/config/zsh/pure
 users/jeroenb/mutt/cache/bodies/**
 users/jeroenb/mutt/cache/headers/**
 
+users/pieterm/config/lnav/configs/default/*.sample
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/lvim/**

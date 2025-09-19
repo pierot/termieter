@@ -130,4 +130,4 @@ vim.opt.background = "dark"
 
 -- all small plugins that need nothing more than a simple
 -- setup are setup here
-vim.g.ackprg = "rg --vimgrep --pcre2" -- ack
+vim.g.ackprg = "rg --vimgrep --pcre2 -i" -- ack
