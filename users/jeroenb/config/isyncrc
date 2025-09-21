@@ -1,0 +1,97 @@
+#################################
+##### Account Jack + Joe ########
+#################################
+
+IMAPAccount jackjoe
+Host imap.gmail.com
+User jeroen@jackjoe.be
+PassCmd "op read op://Team/tyxqwmbil2set7otmk4h73qbcu/isync_app_password"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+Pipelinedepth 1 # turn to 1 if downloading huge amount (e.g. on setup)
+Timeout 60 # default is 20s
+# CertificateFile ~/dotfiles/office/certificates.crt
+# CertificateFile /usr/local/etc/openssl/cert.pem
+
+# Remote storage
+IMAPStore jackjoe-remote
+Account jackjoe
+
+# Local storage
+MaildirStore jackjoe-local
+Path ~/Dropbox/mail/jackjoe/
+Inbox ~/Dropbox/mail/jackjoe/Inbox
+SubFolders Verbatim
+
+# Channel to remote storage
+Channel jackjoe
+Far :jackjoe-remote:
+Near :jackjoe-local:
+# Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Bin"
+Create Near
+SyncState *
+Sync All
+Patterns *
+
+#################################
+####### Account DAELE  ##########
+#################################
+
+IMAPAccount daele
+Host imap.fastmail.com
+User jeroenbourgois@fastmail.com
+Port 993
+PassCmd "~/.termieter/users/jeroenb/bin/muttpwd email/jeroen.daele.be/imap"
+# AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+# Remote storage
+IMAPStore daele-remote
+Account daele
+
+# Local storage
+MaildirStore daele-local
+Path ~/Dropbox/mail/daele/
+Inbox ~/Dropbox/mail/daele/INBOX
+SubFolders Verbatim
+
+Channel daele
+Far :daele-remote:
+Near :daele-local:
+Create Near
+SyncState *
+Sync All
+Patterns *
+
+#################################
+##### Account DOCDROPPER ########
+#################################
+
+IMAPAccount docdropper
+Host secure.123hosting-server.biz
+User files@docdropper.be
+Port 993
+PassCmd "~/.termieter/users/jeroenb/bin/muttpwd email/files@docdropper.be/imap"
+# AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+# Remote storage
+IMAPStore docdropper-remote
+Account docdropper
+
+# Local storage
+MaildirStore docdropper-local
+Path ~/Dropbox/mail/docdropper/
+Inbox ~/Dropbox/mail/docdropper/INBOX
+SubFolders Verbatim
+
+Channel docdropper
+Far :docdropper-remote:
+Near :docdropper-local:
+Create Near
+SyncState *
+Sync All
+Patterns *
