@@ -139,6 +139,7 @@ users/jeroenb/config/rustdesk
 users/jeroenb/mutt/cache/bodies/**
 users/jeroenb/mutt/cache/headers/**
 
+users/pieterm/config/lnav/configs/default/*.sample
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/lvim/**
@@ -152,3 +153,4 @@ users/pieterm/config/temporalio
 users/pieterm/config/bpytop
 users/pieterm/config/github-copilot
 .aider*
+./.claude

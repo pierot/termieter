@@ -22,5 +22,5 @@ require("setup.ts-autotag")
 require("setup.vim-easy-align")
 require("setup.web-devicons")
 
-require("setup.aider")
-require("setup.codecompanion")
+--[[ require("setup.aider")
+require("setup.codecompanion") ]]

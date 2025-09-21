@@ -1,19 +1,11 @@
 #!/bin/bash
 
-# Major changes:
-
-# Git
-# The script does no longer help with installing git, since this might be
-# different accross systems. Moreover, most of our (Jack + Joe) base
-# systems all have git installed, so this is no longer an option.
-# If you do not have git installed, the script will abort with exit status 1
-#
 # Not interactive
 # All interactive commands have been replaced with arguments, making it
 # easier to integrate with automation. Also the script does not provide
 # the change to zsh anymore.
 
-SCRIPT=`basename ${BASH_SOURCE[0]}`
+# SCRIPT=`basename ${BASH_SOURCE[0]}`
 
 # Colors
 COL_GREEN="\x1b[32;01m"
@@ -21,13 +13,12 @@ COL_BLUE="\x1b[34;01m"
 COL_RESET="\x1b[39;49;00m"
 COL_RED="\x1b[31;01m"
 COL_YELLOW="\x1b[33;01m"
-COL_GRAY="\x1b[0;37m"
 
 # Temp dir for installs
 temp_dir='/tmp/termieter/src'
 mkdir -p $temp_dir
 
-function _usage {
+usage() {
 cat <<EOF
   $*
   Usage:          ./install [options]
@@ -40,7 +31,7 @@ cat <<EOF
 
   Remote usage:
 
-    bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh  ) [-d '.termieter']
+  bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter']
 
 EOF
 exit 0
@@ -81,20 +72,19 @@ while getopts "$OPTSPEC" FLAG; do
     -)
       case "$OPTARG" in
         directory) install_dir=$OPTARG;;
-        update) skip_clone=1
       esac;;
     d)
       install_dir=$OPTARG
       ;;
     h)
-      _usage
+      usage
       ;;
     u)
       update=1
       ;;
     \?) #unrecognized option - show help
       printf \\n"Option -${BOLD}$OPTARG${OFF} not allowed."
-      _usage
+      usage
       ;;
   esac
 done
@@ -109,7 +99,7 @@ hash git 2>&- || { _error "I require git but it's not installed!"; exit 1; }
 git config --global url."https://".insteadOf git://
 
 # Remove previous termieter installation if present at the same location as $install_dir
-cd ~
+cd ~ || return
 
 _print_h1 "Install termieter"
 
@@ -162,6 +152,8 @@ for sym_file in $install_dir/symlinks/*; do
   _back_install $(basename $sym_file)
 done
 
+##################################################
+
 _back_install_user() {
   _print "Installing $USER $1"
 
@@ -200,6 +192,8 @@ for sym_file in $install_dir/users/$USER/*; do
   _back_install_user $(basename $sym_file)
 done
 
+##################################################
+
 # ~/.config install
 if [ -d "$HOME/.config" ]; then
   mv "$HOME/.config" "$HOME/.config.backup"
@@ -210,41 +204,31 @@ ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
 
 ##################################################
 
-_print_h1 "Init paq-nvim (https://github.com/savq/paq-nvim)"
+# _print_h1 "Init paq-nvim (https://github.com/savq/paq-nvim)"
 
-paq_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
+# paq_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
 
-if [ -d "$paq_dir" ]; then
-  rm -rf "$paq_dir"
-fi
+# if [ -d "$paq_dir" ]; then
+#   rm -rf "$paq_dir"
+# fi
 
-git clone -q https://github.com/savq/paq-nvim.git $paq_dir
+# git clone -q https://github.com/savq/paq-nvim.git $paq_dir
 
 ##################################################
 
 if [ -d "$install_dir" ]; then
-  cd $install_dir
+  cd "$install_dir" || return
 
   _print_h1 "Init submodules"
 
   git submodule update --init -q
-
-  _print_h1 "Init custom plugins"
-
-  if [ ! -d "zsh/oh-my-zsh/custom/plugins" ]; then
-    mkdir "zsh/oh-my-zsh/custom/plugins"
-  fi
-
-  if [ ! -d "zsh/oh-my-zsh/functions" ]; then
-    mkdir "zsh/oh-my-zsh/functions"
-  fi
 
   _print_h1 "Init tmix-resurrect"
 
   if [ -d "$install_dir/tmux/tmux-resurrect" ] ; then
     _print "tmux-resurrect is already installed"
   else
-    git clone -q https://github.com/tmux-plugins/tmux-resurrect $install_dir/tmux/tmux-resurrect
+    git clone -q https://github.com/tmux-plugins/tmux-resurrect "$install_dir/tmux/tmux-resurrect"
   fi
 fi
 

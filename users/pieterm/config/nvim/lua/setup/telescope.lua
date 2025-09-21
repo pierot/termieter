@@ -10,13 +10,19 @@ u.map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
 --map('n', '<leader>gs', '<cmd>Telescope git_status<CR>')
 
 local setup, telescope = pcall(require, "telescope")
-if (not setup) then return end
+if not setup then
+	return
+end
 
 local previewers_setup, previewers = pcall(require, "telescope.previewers")
-if (not previewers_setup) then return end
+if not previewers_setup then
+	return
+end
 
 local actions_setup, actions = pcall(require, "telescope.actions")
-if (not actions_setup) then return end
+if not actions_setup then
+	return
+end
 
 --[[ local new_maker = function(filepath, bufnr, opts)
   opts = opts or {}
@@ -31,6 +37,7 @@ telescope.setup({
 		file_ignore_patterns = { "node_modules", "vendor", "**/*.min.js", "priv/static/js", "*.svg", "flow-typed" },
 		vimgrep_arguments = {
 			"rg",
+			"-i",
 			"--color=never",
 			"--no-heading",
 			"--with-filename",
@@ -68,4 +75,17 @@ telescope.setup({
 			theme = "ivy",
 		},
 	},
+	extensions = {
+		fzf = {
+			fuzzy = true, -- false will only do exact matching
+			override_generic_sorter = true, -- override the generic sorter
+			override_file_sorter = true, -- override the file sorter
+			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+			-- the default case_mode is "smart_case"
+		},
+	},
 })
+
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require("telescope").load_extension("fzf")
