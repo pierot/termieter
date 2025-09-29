@@ -1,14 +1,12 @@
 -------------------- HELPERS -------------------------------
-local u = require("utils")
-
 -- Install plugins automatically using native autocmd API
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "plugins.lua",
-  group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
-  callback = function()
-    vim.cmd("source <afile>")
-    vim.cmd("PackerSync")
-  end,
+	pattern = "plugins.lua",
+	group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
+	callback = function()
+		vim.cmd("source <afile>")
+		vim.cmd("PackerSync")
+	end,
 })
 
 -- Upon initial vim install, install packer & plugins
@@ -33,7 +31,7 @@ return require("packer").startup(function(use)
 	use("nvim-lua/plenary.nvim") -- for asynchronous programming using coroutines
 	-- use("nvim-lua/popup.nvim") -- ui plugin used by many, someday upstream in neovim
 	use("rcarriga/nvim-notify")
-  use("MunifTanjim/nui.nvim")
+	use("MunifTanjim/nui.nvim")
 	use("folke/noice.nvim") -- replaces the UI for messages, cmdline and the popupmenu
 	use("folke/trouble.nvim") -- pretty lsp diagnostics
 	use("folke/snacks.nvim")
@@ -41,7 +39,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
 	use("tpope/vim-unimpaired")
-		use("junegunn/vim-easy-align")
+	use("junegunn/vim-easy-align")
 	use("lambdalisue/suda.vim")
 
 	use("windwp/nvim-autopairs")
@@ -57,13 +55,15 @@ return require("packer").startup(function(use)
 	use("kana/vim-textobj-line")
 
 	use("elixir-editors/vim-elixir") -- correct commentstring and other percs
-	use("jose-elias-alvarez/typescript.nvim")
 
 	use("kyazdani42/nvim-tree.lua") -- sidebar file explorer
 
-	use("neovim/nvim-lspconfig")
+	-- use("neovim/nvim-lspconfig")
+	-- use("hrsh7th/cmp-nvim-lsp")
+	-- use("jose-elias-alvarez/typescript.nvim")
+
 	use("stevearc/conform.nvim") -- Lightweight yet powerful formatter plugin for Neovim
-  use("onsails/lspkind-nvim") -- vscode-like pictograms
+	use("onsails/lspkind-nvim") -- vscode-like pictograms
 	-- use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
@@ -73,7 +73,6 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-nvim-lsp")
 
 	use("nvim-lualine/lualine.nvim")
 
@@ -92,8 +91,8 @@ return require("packer").startup(function(use)
 
 	-- AI
 	use({ "github/copilot.vim" })
-	use({ "olimorris/codecompanion.nvim" })
-	use({ "GeorgesAlkhouri/nvim-aider" })
+	--[[ use({ "olimorris/codecompanion.nvim" })
+  use({ "GeorgesAlkhouri/nvim-aider" }) ]]
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -13,6 +13,20 @@ else
   alias l='ls $LS_OPT -1hAFC'
 fi
 
+if have eza; then
+  alias ls="eza"
+  alias ll="eza --icons -la"
+  alias l="eza --icons -l"
+fi
+
+if have rg; then
+  alias grep="rg"
+fi
+
+if have fd; then
+  alias find="fd"
+fi
+
 alias mv='mv -i'            # prevents accidental overwrite
 alias cp='cp -i'            # prevents accidental overwrite
 alias rm='rm -i'            # prevents accidental overwrite
@@ -70,10 +84,6 @@ function connect_caddy() {
 
 ##########################################################
 
-have() {
-  type "$1" &> /dev/null
-}
-
 # Neovim/Vim
 if have nvim; then
   alias v="nvim ."
@@ -99,6 +109,8 @@ alias gco='git checkout'
 
 alias gap='git add -p'
 alias gst='git status'
+
+alias gd="git diff"
 
 alias gdoc='git add . && gcmm docs: add documentation'
 alias gmerge='git add . && gcmm chore: merge'
@@ -135,6 +147,75 @@ git-status-all() {
   done
 }
 
+# Create a new worktree for a branch and cd into it
+gwt_create() {
+  # Usage: gwt_create <branch> [<base-branch>]
+  local branch="$1"
+  local base="${2:-main}"
+  local dir="worktrees/$branch"
+  git worktree add -b "$branch" "$dir" "$base" && cd "$dir"
+}
+
+# List all worktrees
+gwt_list() {
+  git worktree list
+}
+
+# Go to a worktree directory
+gwt_cd() {
+  # Usage: gwtg <branch>
+  cd "$(git worktree list | grep "worktrees/$1 " | awk '{print $1}')"
+}
+
+# Merge a worktree branch into a target branch, remove the worktree and branch
+gwt_merge() {
+  # Usage: gwtm <worktree-branch> <target-branch>
+  local src="$1"
+  local target="${2:-main}"
+  local dir="worktrees/$src"
+  cd "$(git rev-parse --show-toplevel)"
+  git checkout "$target" || return 1
+  git pull
+  git merge "$src"
+  git worktree remove "$dir"
+  git branch -d "$src"
+}
+
+# Remove a worktree and its branch
+gwt_rm() {
+  # Usage: gwtrm <branch>
+  local branch="$1"
+  local dir="worktrees/$branch"
+  git worktree remove "$dir"
+  git branch -D "$branch"
+}
+
+gwt_info() {
+  cat <<'EOF'
+gwt_create <branch> [<base-branch>]
+  Create a new worktree for <branch> (from <base-branch>, default: main) in worktrees/<branch> and cd into it.
+  Example: gwtc feature/foo develop
+
+gwt_list
+  List all git worktrees.
+
+gwt_cd <branch>
+  cd into the worktree directory for <branch>.
+  Example: gwtg feature/foo
+
+gwt_merge <worktree-branch> [<target-branch>]
+  Merge <worktree-branch> into <target-branch> (default: main), remove the worktree and delete the branch.
+  Example: gwtm feature/foo develop
+
+gwt_rm <branch>
+  Remove the worktree and delete the branch for <branch>.
+  Example: gwtrm feature/foo
+
+gwt_info
+  Show this help/documentation.
+EOF
+}
+
 ##########################################################
 
 # Erlang / Elixir
@@ -150,7 +231,7 @@ alias mc="source .env && mix ecto.gen.migration"
 alias mt="source .env.test && mix test $a"
 alias mtf="source .env.test && mix test --failed"
 
-function mpr() {
+mpr() {
   source .env && mix phx.routes | grep "$*"
 }
 
@@ -165,6 +246,14 @@ export PATH="$PATH:$HOME/.cabal/bin"
 alias yy='yarn && yarn upgrade'
 
 alias p='pnpm'
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 ##########################################################
 
@@ -211,6 +300,10 @@ if have ccat; then
   alias cat='ccat'
 fi
 
+if have bat; then
+  alias cat='bat'
+fi
+
 if have gdircolors; then
   alias dircolors='gdircolors'
 fi
@@ -219,3 +312,7 @@ fi
 
 # ASDF
 export PATH="$HOME/.asdf/shims:$PATH"
+
+##########################################################
+
+alias claude="$HOME/.claude/local/claude"

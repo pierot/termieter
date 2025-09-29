@@ -1,5 +1,9 @@
 source $HOME/.termieter/env
 
+have() {
+  type "$1" &> /dev/null
+}
+
 export ZSH=$TRM/zsh/oh-my-zsh
 
 # Set custom zsh directory
@@ -33,6 +37,9 @@ DISABLE_AUTO_TITLE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+
 # When listing options (by `setopt', `unsetopt', `set -o' or `set +o'),
 # those turned on by default appear in the list prefixed with `no'.
 # Hence (unless KSH_OPTION_PRINT is set), `setopt' shows all options
@@ -49,24 +56,20 @@ setopt inc_append_history
 # Reloads the history whenever you use it
 setopt share_history
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(history-substring-search colored-man-pages)
-
-if [[ $OS == 'OSX' ]]; then
-  plugins+=(fzf mix-fast git asdf)
-fi
-
-if [ -n "$(uname -a | grep Debian)" ]; then
-  plugins+=(debian)
-fi
+# Remove superfluous blanks from each command line being added to the history list
+setopt histreduceblanks
+# Remove command lines from the history list when the first character on the line is a space, or when one of the expanded aliases contains a leading space
+setopt histignorespace
+# Do not enter command lines into the history list if they are duplicates of the previous event.
+setopt histignorealldups
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-source $TRM/zsh/base.sh
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+  compinit
+else
+  compinit -C
+fi
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -78,23 +81,33 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 # if [[ $OS == 'OSX' ]]; then
 #   eval $( gdircolors -b $ZSH/../LS_COLORS )
 # else
-eval $( dircolors -b $ZSH/../LS_COLORS )
+if have dircolors; then
+  eval $( dircolors -b $ZSH/../LS_COLORS )
+fi
 # fi
 zstyle ':completion:*:default'            list-colors ${(s.:.)LS_COLORS}
 
+alias reload!='exec zsh'
+
+[ -f $TRM/zsh/base.sh ] && source $TRM/zsh/base.sh
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
-source $ZSH/oh-my-zsh.sh
+bindkey -e
 
-alias reload!='exec zsh'
-alias r!='reload!'
+if have starship; then
+  eval "$(starship init zsh)"
+else
+  # Which plugins would you like to load? 
+  # (plugins can be found in ~/.oh-my-zsh/plugins/*)
+  plugins=(history-substring-search colored-man-pages)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  if [[ $OS == 'OSX' ]]; then
+    plugins+=(fzf mix-fast git asdf)
+  fi
 
-# pnpm
-export PNPM_HOME="/Users/pieterm/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+  if [ -n "$(uname -a | grep Debian)" ]; then
+    plugins+=(debian)
+  fi
+
+  source $ZSH/oh-my-zsh.sh
+fi

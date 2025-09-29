@@ -1,0 +1,381 @@
+{
+    "$schema": "https://lnav.org/schemas/config-v1.schema.json",
+    "ui": {
+        "theme-defs": {
+            "default": {
+                "icons": {
+                    "hidden": {
+                        "value": "\u22EE"
+                    },
+                    "ok": {
+                        "value": "\u2714"
+                    },
+                    "info": {
+                        "value": "\u24d8"
+                    },
+                    "warning": {
+                        "value": "\u26a0"
+                    },
+                    "error": {
+                        "value": "\u2718"
+                    },
+                    "log-level-trace": {
+                        "value": "\uD83C\uDD43"
+                    },
+                    "log-level-debug": {
+                        "value": "\uD83C\uDD33"
+                    },
+                    "log-level-info": {
+                        "value": "\uD83C\uDD38"
+                    },
+                    "log-level-stats": {
+                        "value": "\uD83C\uDD42"
+                    },
+                    "log-level-notice": {
+                        "value": "\uD83C\uDD3D"
+                    },
+                    "log-level-warning": {
+                        "value": "\uD83C\uDD46"
+                    },
+                    "log-level-error": {
+                        "value": "\uD83C\uDD34"
+                    },
+                    "log-level-critical": {
+                        "value": "\uD83C\uDD32"
+                    },
+                    "log-level-fatal": {
+                        "value": "\uD83C\uDD35"
+                    },
+                    "play": {
+                        "value": "\u25b6"
+                    },
+                    "edit": {
+                        "value": "\u270F\uFE0F"
+                    }
+                },
+                "vars": {
+                    "semantic_highlight_color": "semantic()"
+                },
+                "styles": {
+                    "text": {
+                        "color": "Silver",
+                        "background-color": "Black"
+                    },
+                    "selected-text": {
+                        "background-color": "DarkCyan"
+                    },
+                    "identifier": {
+                        "background-color": "",
+                        "color": "semantic()"
+                    },
+                    "fuzzy-match": {
+                        "color": "Olive",
+                        "underline": true,
+                        "bold": true
+                    },
+                    "alt-text": {
+                        "bold": true
+                    },
+                    "ok": {
+                        "color": "Green",
+                        "bold": true
+                    },
+                    "info": {
+                        "color": "Silver",
+                        "bold": true
+                    },
+                    "error": {
+                        "color": "Maroon",
+                        "bold": true
+                    },
+                    "warning": {
+                        "color": "Olive",
+                        "bold": true
+                    },
+                    "hidden": {
+                        "color": "Olive",
+                        "bold": true
+                    },
+                    "disabled-cursor-line": {
+                        "color": "Cyan1",
+                        "background-color": "#5f005f"
+                    },
+                    "adjusted-time": {
+                        "color": "Maroon"
+                    },
+                    "skewed-time": {
+                        "color": "Olive"
+                    },
+                    "offset-time": {
+                        "color": "Teal"
+                    },
+                    "time-column": {
+                        "background-color": "#aaa"
+                    },
+                    "file-offset": {
+                        "color": "Silver"
+                    },
+                    "invalid-msg": {
+                        "color": "Olive"
+                    },
+                    "popup": {
+                        "color": "Silver"
+                    },
+                    "popup-border": {
+                        "color": "Purple"
+                    },
+                    "scrollbar": {
+                        "color": "Black",
+                        "background-color": "Silver"
+                    },
+                    "focused": {
+                        "color": "Black",
+                        "background-color": "Silver"
+                    },
+                    "disabled-focused": {
+                        "color": "Black",
+                        "background-color": "#888"
+                    },
+                    "h1": {
+                        "underline": true
+                    },
+                    "h2": {
+                        "underline": true
+                    },
+                    "h3": {
+                        "underline": true
+                    },
+                    "h4": {
+                        "underline": true
+                    },
+                    "h5": {
+                        "underline": true
+                    },
+                    "h6": {
+                        "underline": true
+                    },
+                    "hr": {
+                        "color": "#444"
+                    },
+                    "hyperlink": {
+                        "underline": true
+                    },
+                    "list-glyph": {
+                        "color": "Olive"
+                    },
+                    "breadcrumb": {
+                        "color": "Teal",
+                        "bold": true
+                    },
+                    "table-border": {
+                        "color": "#444"
+                    },
+                    "table-header": {
+                        "bold": true
+                    },
+                    "quote-border": {
+                        "color": "#666",
+                        "background-color": "#444"
+                    },
+                    "quoted-text": {
+                        "background-color": "#444"
+                    },
+                    "footnote-border": {
+                        "color": "Navy",
+                        "background-color": "#444"
+                    },
+                    "footnote-text": {
+                        "color": "#eee",
+                        "background-color": "#444"
+                    },
+                    "snippet-border": {
+                        "color": "Teal"
+                    },
+                    "indent-guide": {
+                        "color": "#444"
+                    }
+                },
+                "syntax-styles": {
+                    "inline-code": {
+                        "color": "Maroon"
+                    },
+                    "quoted-code": {
+                        "color": "Silver"
+                    },
+                    "code-border": {
+                        "color": "#444"
+                    },
+                    "object-key": {
+                        "color": "semantic()"
+                    },
+                    "keyword": {
+                        "color": "Navy"
+                    },
+                    "string": {
+                        "color": "Green"
+                    },
+                    "comment": {
+                        "color": "Green"
+                    },
+                    "doc-directive": {
+                        "color": "Teal"
+                    },
+                    "variable": {
+                        "color": "Teal"
+                    },
+                    "symbol": {
+                        "color": "Navy"
+                    },
+                    "re-special": {
+                        "color": "Teal"
+                    },
+                    "re-repeat": {
+                        "color": "Olive"
+                    },
+                    "diff-delete": {
+                        "color": "Maroon"
+                    },
+                    "diff-add": {
+                        "color": "Green"
+                    },
+                    "diff-section": {
+                        "color": "Maroon"
+                    },
+                    "spectrogram-low": {
+                        "color": "Black",
+                        "background-color": "Green",
+                        "bold": true
+                    },
+                    "spectrogram-medium": {
+                        "color": "Black",
+                        "background-color": "Olive",
+                        "bold": true
+                    },
+                    "spectrogram-high": {
+                        "color": "Black",
+                        "background-color": "Maroon",
+                        "bold": true
+                    },
+                    "file": {
+                        "color": "Navy"
+                    },
+                    "null": {
+                        "color": "Silver"
+                    },
+                    "ascii-control": {
+                        "color": "Green"
+                    },
+                    "non-ascii": {
+                        "color": "Olive"
+                    },
+                    "number": {
+                        "bold": true
+                    },
+                    "function": {
+                        "color": "Cyan1"
+                    },
+                    "separators-references-accessors": {
+                        "color": "Silver"
+                    },
+                    "type": {
+                        "color": "Navy"
+                    }
+                },
+                "status-styles": {
+                    "title": {
+                        "color": "Silver",
+                        "background-color": "Navy",
+                        "bold": true
+                    },
+                    "disabled-title": {
+                        "color": "Black",
+                        "background-color": "Silver",
+                        "bold": true
+                    },
+                    "subtitle": {
+                        "color": "Black",
+                        "background-color": "Teal"
+                    },
+                    "text": {
+                        "color": "Black",
+                        "background-color": "Silver"
+                    },
+                    "warn": {
+                        "color": "Olive",
+                        "background-color": "Silver"
+                    },
+                    "alert": {
+                        "color": "Maroon",
+                        "background-color": "Silver"
+                    },
+                    "active": {
+                        "color": "Green",
+                        "background-color": "Silver"
+                    },
+                    "info": {
+                        "color": "Silver",
+                        "background-color": "Grey53"
+                    },
+                    "inactive": {
+                        "color": "Silver",
+                        "background-color": "Grey53"
+                    },
+                    "inactive-alert": {
+                        "color": "Maroon",
+                        "background-color": "Grey53"
+                    },
+                    "title-hotkey": {
+                        "color": "Teal",
+                        "background-color": "Navy",
+                        "underline": true
+                    },
+                    "hotkey": {
+                        "color": "Purple",
+                        "underline": true,
+                        "bold": true
+                    }
+                },
+                "log-level-styles": {
+                    "warning": {
+                        "color": "Olive"
+                    },
+                    "error": {
+                        "color": "Maroon"
+                    },
+                    "critical": {
+                        "color": "Maroon"
+                    },
+                    "fatal": {
+                        "color": "Maroon"
+                    }
+                },
+                "highlights": {
+                    "colors": {
+                        "pattern": "(?:#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}\\b)",
+                        "style": {
+                            "color": "${semantic_highlight_color}"
+                        }
+                    },
+                    "ipv4": {
+                        "pattern": "\\b(?<!\\d\\.)\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b(?!\\.\\d)",
+                        "style": {
+                            "color": "${semantic_highlight_color}"
+                        }
+                    },
+                    "xml": {
+                        "pattern": "</?([^ >=!]+)[^>]*>",
+                        "style": {
+                            "color": "${semantic_highlight_color}"
+                        }
+                    },
+                    "xml-decl": {
+                        "pattern": "<!([^ >=!]+)[^>]*>",
+                        "style": {
+                            "color": "${semantic_highlight_color}"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

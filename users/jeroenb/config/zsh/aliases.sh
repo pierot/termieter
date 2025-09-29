@@ -40,7 +40,7 @@ alias vime="cd $HOME/.termieter/users/jeroenb/config/nvim; nvim ."
 alias termieteru="cd $HOME/.termieter/users/jeroenb"
 alias gdb="cd $DROPBOX"
 alias tss="sudo tailscale status"
-alias tsj="sudo tailscale switch justified"
+alias tsj="sudo tailscale switch justified.be"
 alias tsjj="sudo tailscale switch jackjoe"
 alias tsa="sudo tailscale switch accurat"
 #alias ssh="kitty +kitten ssh"
@@ -98,3 +98,5 @@ alias wakemeupbeforeyougogo='wol -p 9 d8:bb:c1:8d:72:7c'
 
 # because
 alias ivat='BE0568678435'
+
+unalias claude # set in zsh/common.sh

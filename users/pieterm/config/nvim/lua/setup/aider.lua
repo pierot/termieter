@@ -1,5 +1,7 @@
 local status, aider = pcall(require, "nvim_aider")
-if (not status) then return end
+if not status then
+	return
+end
 
 aider.setup({
 	cmd = {
@@ -17,5 +19,5 @@ aider.setup({
 		-- Example nvim-tree.lua integration if needed
 		{ "<leader>a+", "<cmd>AiderTreeAddFile<cr>", desc = "Add File from Tree to Aider", ft = "NvimTree" },
 		{ "<leader>a-", "<cmd>AiderTreeDropFile<cr>", desc = "Drop File from Tree from Aider", ft = "NvimTree" },
-	}
+	},
 })

@@ -5,63 +5,61 @@ largest_files() {
 }
 
 compresspdf() {
-  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH  -dQUIET -sOutputFile=$2 $1
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dBATCH -dQUIET -sOutputFile="$2" "$1"
 }
 
 echoo() {
-  printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" $1
+  printf "\x1b[34;01m▽ %s\x1b[39;49;00m\n" "$1"
 }
 
 have() {
-  type "$1" &> /dev/null
+  type "$1" &>/dev/null
 }
 
-if [[ $OS == 'OSX' ]]; then
-  changeMac() {
-    local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
-    sudo ifconfig en0 ether $mac
-    sudo ifconfig en0 down
-    sudo ifconfig en0 up
-    echo "Your new physical address is $mac"
-  }
+changeMacAddr() {
+  local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+  sudo ifconfig en0 ether "$mac"
+  sudo ifconfig en0 down
+  sudo ifconfig en0 up
+  echo "Your new physical address is $mac"
+}
 
-  tweakMac() {
-    # opening and closing Quick Look windows
-    defaults write -g QLPanelAnimationDuration -float 0
+tweakMac() {
+  # opening and closing Quick Look windows
+  defaults write -g QLPanelAnimationDuration -float 0
 
-    # sending messages and opening windows for replies
-    defaults write com.apple.Mail DisableSendAnimations -bool true
-    defaults write com.apple.Mail DisableReplyAnimations -bool true
+  # sending messages and opening windows for replies
+  defaults write com.apple.Mail DisableSendAnimations -bool true
+  defaults write com.apple.Mail DisableReplyAnimations -bool true
 
-    # Keyrepeat
-    defaults write -g InitialKeyRepeat -int 13 # normal minimum is 15 (225 ms)
-    defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
-  }
+  # Keyrepeat
+  defaults write -g InitialKeyRepeat -int 13 # normal minimum is 15 (225 ms)
+  defaults write -g KeyRepeat -int 2         # normal minimum is 2 (30 ms)
+}
 
-  alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
+alias cwd='echoo "pwd | pbcopy"; pwd | pbcopy'
 
-  # Spotlight
-  alias spotlight-stop='sudo mdutil -i off /'
-  alias spotlight-clear='sudo mdutil -E /'
-  alias spotlight-start='sudo mdutil -i on /'
+# Spotlight
+alias spotlight-stop='sudo mdutil -i off /'
+alias spotlight-clear='sudo mdutil -E /'
+alias spotlight-start='sudo mdutil -i on /'
 
-  # Sleepimage
-  alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
-else
-  list-services() {
-    chkconfig --list | grep '3:on'
-  }
+# Sleepimage
+alias sleepimage-clear='sudo rm /private/var/vm/sleepimage'
 
-  active-connections() {
-    netstat -tulpn
-  }
+list-services() {
+  chkconfig --list | grep '3:on'
+}
 
-  fix-apt() {
-    sudo rm /var/lib/apt/lists/lock
-    sudo rm /var/cache/apt/archives/lock
-    sudo rm /var/lib/dpkg/lock
-  }
-fi
+active-connections() {
+  netstat -tulpn
+}
+
+fix-apt() {
+  sudo rm /var/lib/apt/lists/lock
+  sudo rm /var/cache/apt/archives/lock
+  sudo rm /var/lib/dpkg/lock
+}
 
 ##########################################################
 

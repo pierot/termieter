@@ -134,11 +134,18 @@ users/jeroenb/config/zsh/.zcompcache
 users/jeroenb/config/zsh/.zcompdump
 users/jeroenb/config/zsh/.zsh_history
 users/jeroenb/config/zsh/pure
+users/jeroenb/config/claude
+users/jeroenb/config/Deskreen
+users/jeroenb/config/pdfcpu
+users/jeroenb/config/tool_state
+users/jeroenb/config/xournalpp
+users/jeroenb/config/rustdesk
 users/jeroenb/mutt/cache/bodies/**
 users/jeroenb/mutt/cache/headers/**
 users/jeroenb/config/git/
 users/jeroenb/config/nvim/lazy-lock.json
 
+users/pieterm/config/lnav/configs/default/*.sample
 users/pieterm/config/psysh/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/lvim/**
@@ -152,3 +159,4 @@ users/pieterm/config/temporalio
 users/pieterm/config/bpytop
 users/pieterm/config/github-copilot
 .aider*
+./.claude
