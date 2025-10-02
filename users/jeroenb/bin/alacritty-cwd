@@ -1,0 +1,33 @@
+#!/bin/bash
+# Utility script to open Alacritty terminal in the current working directory
+#
+# Note: update DWM `config.h`:
+#     static const char *termcmd[] = { "smart-terminal", NULL };
+#
+# Make sure `smart-terminal ` is in your PATH.
+# Should already be in `~/.termieter/users/jeroenb/bin`
+# Save as ~/.local/bin/smart-terminal (or wherever you prefer)
+
+# Get the focused window's PID
+PID=$(xdotool getactivewindow getwindowpid)
+
+if [ -n "$PID" ]; then
+    # Try to get the working directory of the process
+    # This works for the shell process in the terminal
+    CWD=$(readlink -e "/proc/$PID/cwd" 2>/dev/null)
+    
+    # If that fails, try to find a child process (the shell)
+    if [ -z "$CWD" ] || [ "$CWD" = "$HOME" ]; then
+        # Get children of the PID (often the shell is a child of alacritty)
+        CHILD_PID=$(pgrep -P "$PID" | head -n1)
+        if [ -n "$CHILD_PID" ]; then
+            CWD=$(readlink -e "/proc/$CHILD_PID/cwd" 2>/dev/null)
+        fi
+    fi
+fi
+
+# Fallback to home directory if we couldn't determine CWD
+CWD=${CWD:-$HOME}
+
+# Launch alacritty in that directory
+alacritty --working-directory "$CWD"
