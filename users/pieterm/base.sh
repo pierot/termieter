@@ -39,7 +39,9 @@ db_justified_restore() {
 
 justified_gwt_init() {
   cp ../../../.env .env
+  cp -R ../../../priv/cert priv/cert
   mix phx.gen.secret
   mix deps.get
   pnpm install
+  make styles
 }
