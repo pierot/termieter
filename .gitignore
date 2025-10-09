@@ -140,9 +140,10 @@ users/jeroenb/config/pdfcpu
 users/jeroenb/config/tool_state
 users/jeroenb/config/xournalpp
 users/jeroenb/config/rustdesk
+users/jeroenb/config/pulse
 users/jeroenb/mutt/cache/bodies/**
 users/jeroenb/mutt/cache/headers/**
-users/jeroenb/config/git/
+users/jeroenb/config/zsh/.zsh_plugins.zsh
 users/jeroenb/config/nvim/lazy-lock.json
 
 users/pieterm/config/lnav/configs/default/*.sample

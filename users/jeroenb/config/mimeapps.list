@@ -23,6 +23,7 @@ application/pdf=org.gnome.Evince.desktop
 x-scheme-handler/postman=Postman.desktop
 image/svg+xml=org.inkscape.Inkscape.desktop
 text/csv=libreoffice-calc.desktop
+application/zip=xarchiver.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -48,10 +49,11 @@ text/csv=gvim.desktop;libreoffice-calc.desktop;nvim.desktop;libreoffice-writer.d
 image/jpeg=gimp.desktop;
 image/png=gimp.desktop;
 application/vnd.ms-publisher=libreoffice-writer.desktop;nvim.desktop;
-text/plain=gvim.desktop;libreoffice-writer.desktop;nvim.desktop;
+text/plain=nvim.desktop;gvim.desktop;libreoffice-writer.desktop;
 image/heif=gimp.desktop;
 application/x-ole-storage=org.mozilla.Thunderbird.desktop;
 text/css=nvim.desktop;
 audio/vnd.wave=audacity.desktop;mpv.desktop;
 application/json=gvim.desktop;
 application/gpx+xml=gvim.desktop;
+application/zip=userapp-unzip-1YHQD3.desktop;xarchiver.desktop;
