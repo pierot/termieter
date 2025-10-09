@@ -1,9 +1,2 @@
 [include]
 path = ~/.gitconfig.local
-[user]
-	email = jeroen@jackjoe.be
-	name = Jeroen Bourgois
-[push]
-	autoSetupRemote = true
-[pull]
-	rebase = false

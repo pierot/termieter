@@ -55,13 +55,17 @@ users/jeroenb/config/audacity
 users/jeroenb/config/autorandr
 users/jeroenb/config/balena-etcher
 users/jeroenb/config/balenaEtcher
+users/jeroenb/config/rustdesk
 users/jeroenb/config/btop/**
 users/jeroenb/config/cef_user_data
 users/jeroenb/config/chrome-remote-desktop
 users/jeroenb/config/chromium
 users/jeroenb/config/ckb-next/**
 users/jeroenb/config/cmus
+users/jeroenb/config/claude
+users/jeroenb/config/pdfcpu
 users/jeroenb/config/composer
+users/jeroenb/config/tool_state
 users/jeroenb/config/conky
 users/jeroenb/config/darktable
 users/jeroenb/config/dconf/user
@@ -139,8 +143,8 @@ users/jeroenb/config/rustdesk
 users/jeroenb/config/pulse
 users/jeroenb/mutt/cache/bodies/**
 users/jeroenb/mutt/cache/headers/**
-users/jeroenb/config/nvim/lazy-lock.json
 users/jeroenb/config/zsh/.zsh_plugins.zsh
+users/jeroenb/config/nvim/lazy-lock.json
 
 users/pieterm/config/lnav/configs/default/*.sample
 users/pieterm/config/psysh/**

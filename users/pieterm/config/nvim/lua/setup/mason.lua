@@ -29,7 +29,7 @@ lspconfig.setup({
 		-- "prettierd",
 		-- "sql-formatter",
 		-- "sqlfmt",
-		"sqls",
+		-- "sqls",
 		"tailwindcss",
 		"yamlls",
 		-- "yamlfmt",
