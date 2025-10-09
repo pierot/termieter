@@ -5,3 +5,5 @@ path = ~/.gitconfig.local
 	name = Jeroen Bourgois
 [push]
 	autoSetupRemote = true
+[pull]
+	rebase = false
