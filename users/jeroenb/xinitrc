@@ -37,6 +37,7 @@ setxkbmap -option compose:paus
 ~/.fehbg
  
 # Take a guess
+snixembed & # needed for the Dropbox App icon in the system tray...
 dropbox start &
  
 # Notifications
