@@ -147,6 +147,18 @@ git-status-all() {
   done
 }
 
+# Find worktree directory, checking both .worktrees and worktrees
+gwt_find_dir() {
+  local branch="$1"
+  if [ -d ".worktrees/$branch" ]; then
+    echo ".worktrees/$branch"
+  elif [ -d "worktrees/$branch" ]; then
+    echo "worktrees/$branch"
+  else
+    echo ""
+  fi
+}
+
 # Create a new worktree for a branch and cd into it
 gwt_create() {
   # Usage: gwt_create <branch> [<base-branch>]
@@ -164,7 +176,7 @@ gwt_list() {
 # Go to a worktree directory
 gwt_cd() {
   # Usage: gwtg <branch>
-  cd "$(git worktree list | grep "worktrees/$1 " | awk '{print $1}')"
+  cd "$(git worktree list | grep "/$1 " | awk '{print $1}')"
 }
 
 # Merge a worktree branch into a target branch, remove the worktree and branch
@@ -172,7 +184,8 @@ gwt_merge() {
   # Usage: gwtm <worktree-branch> <target-branch>
   local src="$1"
   local target="${2:-main}"
-  local dir="worktrees/$src"
+  local dir="$(gwt_find_dir "$src")"
+  [ -z "$dir" ] && echo "Worktree not found" && return 1
   cd "$(git rev-parse --show-toplevel)"
   git checkout "$target" || return 1
   git pull
@@ -185,7 +198,8 @@ gwt_merge() {
 gwt_rm() {
   # Usage: gwtrm <branch>
   local branch="$1"
-  local dir="worktrees/$branch"
+  local dir="$(gwt_find_dir "$branch")"
+  [ -z "$dir" ] && echo "Worktree not found" && return 1
   git worktree remove "$dir"
   git branch -D "$branch"
 }
