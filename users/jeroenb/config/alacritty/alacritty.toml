@@ -8,7 +8,7 @@ import = [
 size = 10.0
 
 [font.normal]
-family = "JetBrainsMono NF"
+family = "JetBrainsMono Nerd Font"
 
 # [[keyboard.bindings]]
 # action = "ClearLogNotice"

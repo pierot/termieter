@@ -26,6 +26,7 @@ export ASDF_SKIP_COMMANDS="claude"
 # Let all of java know we use a wm
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SHELL=/usr/bin/zsh
+# Need to install with pacman -S intellij-idea-ultimate-edition
 
 # PATH
 if [ -d "$HOME/.bin" ] ;
@@ -96,6 +97,11 @@ fi
 # snap
 if [ -d "/var/lib/snapd/snap/bin" ]; then
   PATH="/var/lib/snapd/snap/bin:$PATH"
+fi 
+
+# Jetbrains JRE for Datagrip
+if [ -d "/opt/intellij-idea-ultimate-edition/jbr" ]; then
+  export DATAGRIP_JDK=/opt/intellij-idea-ultimate-edition/jbr
 fi 
 
 # my own python venv

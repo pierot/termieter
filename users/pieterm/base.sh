@@ -36,3 +36,12 @@ db_justified_restore() {
   echo "Restoring to database: $db_name"
   ./script/db_restore restore -f "$decrypted_file" -d "$db_name"
 }
+
+justified_gwt_init() {
+  cp ../../../.env .env
+  cp -R ../../../priv/cert priv/cert
+  mix phx.gen.secret
+  mix deps.get
+  pnpm install
+  make styles
+}

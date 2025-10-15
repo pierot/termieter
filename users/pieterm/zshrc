@@ -8,7 +8,7 @@ precmd_functions=(prmptcmd)
 # Always work in a tmux session if tmux is installed
 # https://github.com/chrishunt/dot-files/blob/master/.zshrc
 if which tmux 2>&1 >/dev/null; then
-  if [ $TERM != "screen-256color" ] && [ $TERM != "screen" ]; then
+  if [ $TERM != "screen-256color" ] && [ $TERM != "screen" ] && [ $TERM != "tmux-256color" ]; then
     tmux -2u attach-session -t _hack || tmux -2u new -s _hack; exit
   fi
 fi
