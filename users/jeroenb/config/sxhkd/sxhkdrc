@@ -1,20 +1,17 @@
-super + o ; {w,t,m,f}
-	{firefox,thunderbird,spotify-launcher,pcmanfm}
-
-super + o; s
-  slack &
+super + o ; {w,t,m,f,s}
+	{firefox,thunderbird,spotify-launcher,thunar,slack}
 
 super + s; s
   sudo systemctl suspend
 
-super + Pause
-  sudo systemctl suspend
+# super + Pause
+#   sudo systemctl suspend
  
 super + shift + e
   dmenupower 
 
-super + shift + e; r
-  sudo systemctl reboot 
+# super + shift + e; r
+#   sudo systemctl reboot 
 
 Print
   scrot -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
@@ -26,32 +23,32 @@ super + Print
 ctrl + alt + p
   scrot -z -s ~/Dropbox/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
-super + m; p
-  playerctl previous
+# super + m; p
+#   playerctl previous
+# 
+# super + m; n
+#   playerctl next
 
-super + m; n
-  playerctl next
-
-super + m; space
-  playerctl play-pause
-
-super m; m
-	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
-
-XF86AudioLowerVolume
-	amixer -c 0 set Master 1dB-
-
-XF86AudioRaiseVolume
-	amixer -c 0 set Master 1dB+
-
-XF86AudioMute
-	pactl set-sink-mute 0 toggle
-
-XF86MonBrightnessDown
-	xbacklight -dec 5
-
-XF86MonBrightnessUp
-	xbacklight -inc 5
+# super + m; space
+#   playerctl play-pause
+# 
+# super m; m
+# 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
+#
+#XF86AudioLowerVolume
+#	amixer -c 0 set Master 1dB-
+#
+#XF86AudioRaiseVolume
+#	amixer -c 0 set Master 1dB+
+#
+#XF86AudioMute
+#	pactl set-sink-mute 0 toggle
+#
+#XF86MonBrightnessDown
+#	xbacklight -dec 5
+#
+#XF86MonBrightnessUp
+#	xbacklight -inc 5
 
 # toggle terminal darkness
 super + shift + d 
