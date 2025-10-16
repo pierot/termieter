@@ -234,6 +234,7 @@ EOF
 
 # Erlang / Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
+export MIX_OS_DEPS_COMPILE_PARTITION_COUNT=$(( $(nproc --all 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 2) / 2 ))
 
 alias mho="source .env && mix hex.outdated"
 alias mdg="source .env && mix deps.get"
