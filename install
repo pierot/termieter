@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Not interactive
-# All interactive commands have been replaced with arguments, making it
-# easier to integrate with automation. Also the script does not provide
-# the change to zsh anymore.
+# Interactive and non-interactive installation
+# Can be run with flags for automation or without for interactive prompts
 
 # SCRIPT=`basename ${BASH_SOURCE[0]}`
 
@@ -28,10 +26,11 @@ cat <<EOF
     -h  --help           Show this message
     -u, --update         Update local setup (no cloning, no removing)
     -d, --directory      Install directory [~/.termieter]
+    -s, --starship       Install starship prompt (optional, recommended for performance)
 
   Remote usage:
 
-  bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter']
+  bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter'] [-s]
 
 EOF
 exit 0
@@ -64,14 +63,16 @@ _contains_element() {
 # variables
 install_dir="$HOME/.termieter"
 update=0
+install_starship=0
 
 # parse opts
-OPTSPEC="d:h-:u"
+OPTSPEC="d:h-:us"
 while getopts "$OPTSPEC" FLAG; do
   case $FLAG in
     -)
       case "$OPTARG" in
         directory) install_dir=$OPTARG;;
+        starship) install_starship=1;;
       esac;;
     d)
       install_dir=$OPTARG
@@ -81,6 +82,9 @@ while getopts "$OPTSPEC" FLAG; do
       ;;
     u)
       update=1
+      ;;
+    s)
+      install_starship=1
       ;;
     \?) #unrecognized option - show help
       printf \\n"Option -${BOLD}$OPTARG${OFF} not allowed."
@@ -219,11 +223,7 @@ ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
 if [ -d "$install_dir" ]; then
   cd "$install_dir" || return
 
-  _print_h1 "Init submodules"
-
-  git submodule update --init -q
-
-  _print_h1 "Init tmix-resurrect"
+  _print_h1 "Init tmux-resurrect"
 
   if [ -d "$install_dir/tmux/tmux-resurrect" ] ; then
     _print "tmux-resurrect is already installed"
@@ -234,7 +234,58 @@ fi
 
 ##################################################
 
+# Optional: Install starship prompt
+_print_h1 "Starship prompt (optional)"
+
+# Check if starship is already installed
+if hash starship 2>/dev/null; then
+  _print "Starship is already installed ✓"
+  install_starship=1  # Mark as installed for the final message
+else
+  # If -s flag not provided, ask the user
+  if [ "$install_starship" -eq 0 ]; then
+    _print "Starship is a fast, cross-shell prompt (recommended for best performance)"
+    _print_info "Would you like to install starship? (40% faster startup)"
+    printf "${COL_YELLOW}Install starship? [Y/n]: ${COL_RESET}"
+    read -r response
+
+    # Default to yes if just Enter is pressed
+    if [[ -z "$response" ]] || [[ "$response" =~ ^[Yy]$ ]]; then
+      install_starship=1
+    fi
+  fi
+
+  # Install if requested
+  if [ "$install_starship" -eq 1 ]; then
+    _print "Installing starship..."
+
+    # Detect OS and install accordingly
+    if [[ "$(uname)" == "Darwin" ]]; then
+      if hash brew 2>/dev/null; then
+        brew install starship
+      else
+        curl -sS https://starship.rs/install.sh | sh -s -- -y
+      fi
+    else
+      curl -sS https://starship.rs/install.sh | sh -s -- -y
+    fi
+
+    _print "Starship installed successfully ✓"
+  else
+    _print "Skipping starship installation (you can install it later with: brew install starship)"
+  fi
+fi
+
+##################################################
+
 _print_h1 "Installation finished"
 _print " Do not forget to switch to zsh as the default shell"
 _print_info " \$ sudo chsh -s /bin/zsh $USER"
+
+if [ "$install_starship" -eq 1 ]; then
+  _print ""
+  _print_info " Starship prompt installed and will be used automatically"
+  _print_info " To customize: starship config"
+fi
+
 _print ""

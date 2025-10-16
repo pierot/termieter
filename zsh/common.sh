@@ -275,35 +275,63 @@ alias flyc='fly ssh console -C "./opt/app/bin/production remote" -a'
 
 ##########################################################
 
-# fzf via Homebrew
-if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-  source /usr/local/opt/fzf/shell/key-bindings.zsh
-  source /usr/local/opt/fzf/shell/completion.zsh
-fi
-
-# fzf via local installation
-if [ -e ~/.fzf ]; then
-  export PATH="$HOME/.fzf/bin:$PATH"
-  source ~/.fzf/shell/key-bindings.zsh
-  source ~/.fzf/shell/completion.zsh
-fi
-
-# fzf via distro
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-
-# fzf + ag configuration
+# fzf configuration - optimized for performance
 if have fzf; then
+  # Set default command (fd > rg > ag)
   if have fd; then
-    export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+    export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+    export FZF_ALT_C_COMMAND='fd --type d --strip-cwd-prefix --hidden --follow --exclude .git'
   elif have rg; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden -g !.git'
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git"'
   elif have ag; then
-    export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+    export FZF_DEFAULT_COMMAND='ag --nocolor --hidden -g ""'
   fi
 
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+
+  # Performance & UI options
+  export FZF_DEFAULT_OPTS='
+    --height 40%
+    --layout=reverse
+    --border
+    --inline-info
+    --cycle
+    --bind ctrl-/:toggle-preview
+    --bind ctrl-u:preview-page-up
+    --bind ctrl-d:preview-page-down
+  '
+
+  # CTRL-T with file preview (if bat available)
+  if have bat; then
+    export FZF_CTRL_T_OPTS="
+      --walker-skip .git,node_modules,target,.next
+      --preview 'bat --color=always --style=numbers --line-range=:500 {}'
+      --preview-window right:60%:wrap
+    "
+  fi
+
+  # ALT-C with directory preview
+  export FZF_ALT_C_OPTS="--preview 'ls -la {}'"
+
+  # Load fzf shell integrations
+  # Homebrew (Intel)
+  if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
+    source /usr/local/opt/fzf/shell/key-bindings.zsh
+    source /usr/local/opt/fzf/shell/completion.zsh
+  # Homebrew (Apple Silicon)
+  elif [ -e /opt/homebrew/opt/fzf/shell/completion.zsh ]; then
+    source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+    source /opt/homebrew/opt/fzf/shell/completion.zsh
+  # Local installation
+  elif [ -e ~/.fzf ]; then
+    export PATH="$HOME/.fzf/bin:$PATH"
+    source ~/.fzf/shell/key-bindings.zsh
+    source ~/.fzf/shell/completion.zsh
+  # Distro package
+  elif [ -f /usr/share/fzf/completion.zsh ]; then
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+  fi
 fi
 
 if have gsed; then
