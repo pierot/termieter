@@ -50,10 +50,10 @@ return {
 				python = { "isort", "black" },
 				markdown = { "prettierd" },
 				json = { "prettierd" },
-        elixir = { "mix" }
+				elixir = { "mix" },
 			},
 			-- Set up format-on-save
-			format_on_save = { async = false, timeout_ms = 500, lsp_fallback = true },
+			format_on_save = { async = false, timeout_ms = 1500, lsp_fallback = true },
 		})
 	end,
 	-- init = function()
