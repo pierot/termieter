@@ -18,7 +18,9 @@ export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
 alias ap='ansible-playbook'
 
-db_justified_restore() {
+###################################
+
+justified_db_restore() {
   local date_format="$1"
   local db_name="${2:-justified_prod}"  # defaults to justified_prod if not provided
   
