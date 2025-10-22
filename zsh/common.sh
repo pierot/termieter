@@ -291,24 +291,11 @@ if have fzf; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
   # Performance & UI options
-  export FZF_DEFAULT_OPTS='
-    --height 40%
-    --layout=reverse
-    --border
-    --inline-info
-    --cycle
-    --bind ctrl-/:toggle-preview
-    --bind ctrl-u:preview-page-up
-    --bind ctrl-d:preview-page-down
-  '
+  export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --inline-info --cycle --bind ctrl-/:toggle-preview --bind ctrl-u:preview-page-up --bind ctrl-d:preview-page-down'
 
   # CTRL-T with file preview (if bat available)
   if have bat; then
-    export FZF_CTRL_T_OPTS="
-      --walker-skip .git,node_modules,target,.next
-      --preview 'bat --color=always --style=numbers --line-range=:500 {}'
-      --preview-window right:60%:wrap
-    "
+    export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target,.next --preview 'bat --color=always --style=numbers --line-range=:500 {}' --preview-window right:60%:wrap"
   fi
 
   # ALT-C with directory preview
