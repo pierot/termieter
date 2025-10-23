@@ -1,11 +1,14 @@
 super + o ; {w,t,m,f,s}
 	{firefox,thunderbird,spotify-launcher,thunar,slack}
 
+#super + o; s
+# slack &
+
 super + s; s
   sudo systemctl suspend
 
-# super + Pause
-#   sudo systemctl suspend
+#super + Pause
+# sudo systemctl suspend
  
 super + shift + e
   dmenupower 
@@ -49,6 +52,20 @@ ctrl + alt + p
 #
 #XF86MonBrightnessUp
 #	xbacklight -inc 5
+
+# super m; m
+# 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
+
+# Volume up (previously with XF86AudioLowerVolume)
+# super period
+#   wpctl set-volume @DEFAULT_AUDIO_SINK@ +5%
+
+# Volume down (previously with XF86AudioRaiseVolume)
+#super comma
+#  wpctl set-volume @DEFAULT_AUDIO_SINK@ -5%
+
+#super period
+#	amixer -c 0 set Master 1dB-
 
 # toggle terminal darkness
 super + shift + d 
