@@ -1,21 +1,26 @@
 #!/bin/bash
 
-# Interactive and non-interactive installation
+# Termieter Installation Script
+# Interactive and non-interactive installation for termieter configuration
 # Can be run with flags for automation or without for interactive prompts
+#
+# Usage: ./install [options]
+# Remote: bash <( curl -s https://raw.github.com/pierot/termieter/master/install.sh ) [-d '.termieter'] [-s]
 
 # SCRIPT=`basename ${BASH_SOURCE[0]}`
 
-# Colors
+# ANSI color codes for terminal output
 COL_GREEN="\x1b[32;01m"
 COL_BLUE="\x1b[34;01m"
 COL_RESET="\x1b[39;49;00m"
 COL_RED="\x1b[31;01m"
 COL_YELLOW="\x1b[33;01m"
 
-# Temp dir for installs
+# Temporary directory for installation artifacts
 temp_dir='/tmp/termieter/src'
 mkdir -p $temp_dir
 
+# Display usage information and exit
 usage() {
 cat <<EOF
   $*
@@ -36,23 +41,31 @@ EOF
 exit 0
 }
 
-# Print helpers
+# Print helper functions for formatted console output
+
+# Print a main heading in green with emoji
 _print_h1() {
   printf $COL_GREEN"\n🤴  $1\n"$COL_RESET
 }
 
+# Print informational text in yellow
 _print_info() {
   printf $COL_YELLOW"× $1\n"$COL_RESET
 }
 
+# Print standard text in blue
 _print() {
   printf $COL_BLUE"$1\n"$COL_RESET
 }
 
+# Print error message in red
 _error() {
   _print $COL_RED"Error:\n\t$1\n"
 }
 
+# Check if an array contains a specific element
+# Usage: _contains_element "needle" "${haystack[@]}"
+# Returns: 0 if found, 1 if not found
 _contains_element() {
   local e match="$1"
   shift
@@ -60,56 +73,55 @@ _contains_element() {
   return 1
 }
 
-# variables
-install_dir="$HOME/.termieter"
-update=0
-install_starship=0
+# Default installation variables
+install_dir="$HOME/.termieter"  # Target installation directory
+update=0                         # Flag for update mode (skip cloning/removal)
+install_starship=0               # Flag to install starship prompt
 
-# parse opts
-OPTSPEC="d:h-:us"
-while getopts "$OPTSPEC" FLAG; do
+# Parse command-line options
+while getopts "d:hus-:" FLAG; do
   case $FLAG in
+    d) install_dir=$OPTARG ;;
+    h) usage ;;
+    u) update=1 ;;
+    s) install_starship=1 ;;
     -)
+      # Handle long options (--directory, --starship)
       case "$OPTARG" in
-        directory) install_dir=$OPTARG;;
-        starship) install_starship=1;;
-      esac;;
-    d)
-      install_dir=$OPTARG
+        directory) install_dir=$OPTARG ;;
+        starship) install_starship=1 ;;
+      esac
       ;;
-    h)
-      usage
-      ;;
-    u)
-      update=1
-      ;;
-    s)
-      install_starship=1
-      ;;
-    \?) #unrecognized option - show help
-      printf \\n"Option -${BOLD}$OPTARG${OFF} not allowed."
+    \?)
+      printf "\nOption -${BOLD}$OPTARG${OFF} not allowed.\n"
       usage
       ;;
   esac
 done
 
 ##################################################
+# Pre-installation checks and repository setup
+##################################################
 
-# Check for git
+# Verify git is installed before proceeding
 hash git 2>&- || { _error "I require git but it's not installed!"; exit 1; }
 
 ##################################################
 
+# Force HTTPS for git:// URLs so the installer works behind firewalls that block the git protocol
 git config --global url."https://".insteadOf git://
 
-# Remove previous termieter installation if present at the same location as $install_dir
+# Change to home directory
 cd ~ || return
 
 _print_h1 "Install termieter"
 
-if [ "$update" -eq 0  ]; then
+# Only clone repository if not in update mode
+if [[ "$update" -eq 0 ]]; then
   _print "Checking for existing termieter installation.."
-  if [ -d "$install_dir" ]; then
+
+  # Remove previous termieter installation if present
+  if [[ -d "$install_dir" ]]; then
     _print_info "Existing installation found, removing..."
     rm -rf "$install_dir"
     _print_info "Previous version removed"
@@ -117,89 +129,98 @@ if [ "$update" -eq 0  ]; then
 
   _print "Cloning termieter.."
 
-  if [ ! -d "$install_dir" ]; then
-    if ! (git clone -q git@github.com:pierot/termieter.git "$install_dir") then
-      _print_info "Cloning termieter from https.."
-      git clone -q https://github.com/pierot/termieter.git "$install_dir"
-    fi
+  # Try SSH clone first, fall back to HTTPS if that fails
+  if ! git clone -q git@github.com:pierot/termieter.git "$install_dir" 2>/dev/null; then
+    _print_info "Cloning termieter from https.."
+    git clone -q https://github.com/pierot/termieter.git "$install_dir"
   fi
 fi
 
 ##################################################
+# Install shared dotfiles and configuration
+##################################################
 
 _print_h1 "Install user files"
 
+# Create backup directory for existing dotfiles
 mkdir -p ~/.bash_backup
 
+# Backup existing dotfile and replace with symlink to termieter version
+# Args: $1 = source filename, $2 = optional target filename
 _back_install() {
-  _print "Installing $1"
+  local src="$1"
+  local target="${2:-$1}"
 
-  if [ ! -n "$1" ]; then
-    _error "Error in install script. Aborting"
-    exit 1
-  fi
+  _print "Installing $src"
 
-  if [ -f "$HOME/.$1" ]; then
-    mv "$HOME/.$1" "$HOME/.bash_backup/.$1"
-  fi
+  [[ -z "$src" ]] && { _error "Error in install script. Aborting"; exit 1; }
 
-  if [ -f "$install_dir/symlinks/$1" ]; then
-    if [ -n "$2" ]; then
-      ln -sf "$install_dir/symlinks/$1" "$HOME/.$2"
-    else
-      ln -sf "$install_dir/symlinks/$1" "$HOME/.$1"
-    fi
-  fi
+  # Back up existing dotfile if it exists
+  [[ -f "$HOME/.$src" ]] && mv "$HOME/.$src" "$HOME/.bash_backup/.$src"
+
+  # Create symlink from termieter to home directory
+  [[ -f "$install_dir/symlinks/$src" ]] && ln -sf "$install_dir/symlinks/$src" "$HOME/.$target"
 }
 
-for sym_file in $install_dir/symlinks/*; do
-  _back_install $(basename $sym_file)
+# Install all files from the symlinks directory
+for sym_file in "$install_dir"/symlinks/*; do
+  # The symlink directory names double as the target dotfile names
+  _back_install "$(basename "$sym_file")"
 done
 
 ##################################################
+# Install user-specific configuration files
+##################################################
 
+# Install user-specific dotfiles and directories
+# Handles both regular files and special "local" files that allow user overrides
+# Args: $1 = source filename, $2 = optional target filename
 _back_install_user() {
-  _print "Installing $USER $1"
+  local src="$1"
+  local target="${2:-$1}"
+  local user_path="$install_dir/users/$USER"
 
-  if [ ! -n "$1" ]; then
-    _error "Error in install script. Aborting"
-    exit 1
+  _print "Installing $USER $src"
+
+  [[ -z "$src" ]] && { _error "Error in install script. Aborting"; exit 1; }
+
+  # Back up existing .local file if it exists
+  [[ -f "$HOME/.$src.local" ]] && mv "$HOME/.$src.local" "$HOME/.bash_backup/.$src.local"
+
+  # Handle user-specific directories (e.g., ~/bin)
+  if [[ -d "$user_path/$src" && "$src" == "bin" && ! -L "$HOME/$src" ]]; then
+    printf "\nlink $user_path/$src -> $HOME/$src\n"
+    ln -sf "$user_path/$src" "$HOME/$src"
+    return
   fi
 
-  if [ -f "$HOME/.$1.local" ]; then
-    mv "$HOME/.$1.local" "$HOME/.bash_backup/.$1.local"
-  fi
+  # Handle user-specific files
+  if [[ -f "$user_path/$src" ]]; then
+    # Files that should be installed as .local variants to allow customization
+    local locals=("base.sh" "vimrc.plugs" "vimrc" "gvimrc" "gitconfig" "zshrc" "tmux.conf")
 
-  if [ -d "$install_dir/users/$USER/$1" ]; then
-    if [[ "$1" == "bin" && ! -L "$HOME/$1" ]]; then
-      echo ""
-      printf "link $install_dir/users/$USER/$1 -> $HOME/$1"
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/$1"
-    fi
-  fi
-
-  if [ -f "$install_dir/users/$USER/$1" ]; then
-    locals=("base.sh" "vimrc.plugs" "vimrc" "gvimrc" "gitconfig" "zshrc" "tmux.conf")
-
-    if _contains_element "$1" "${locals[@]}"; then
-      echo "local file $1"
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1.local"
-    elif [ -n "$2" ]; then
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$2"
+    if _contains_element "$src" "${locals[@]}"; then
+      # Install as .local file (allows per-user customization without breaking updates)
+      _print "local file $src"
+      ln -sf "$user_path/$src" "$HOME/.$src.local"
     else
-      ln -sf "$install_dir/users/$USER/$1" "$HOME/.$1"
+      # Install as regular dotfile
+      ln -sf "$user_path/$src" "$HOME/.$target"
     fi
   fi
 }
 
-for sym_file in $install_dir/users/$USER/*; do
-  _back_install_user $(basename $sym_file)
+# Install all user-specific files
+for sym_file in "$install_dir"/users/"$USER"/*; do
+  _back_install_user "$(basename "$sym_file")"
 done
 
 ##################################################
+# Install .config directory
+##################################################
 
-# ~/.config install
-if [ -d "$HOME/.config" ]; then
+# Replace existing .config directory with symlink to user-specific config
+if [[ -d "$HOME/.config" ]]; then
   mv "$HOME/.config" "$HOME/.config.backup"
   rm -rf "$HOME/.config"
 fi
@@ -207,25 +228,16 @@ fi
 ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
 
 ##################################################
-
-# _print_h1 "Init paq-nvim (https://github.com/savq/paq-nvim)"
-
-# paq_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
-
-# if [ -d "$paq_dir" ]; then
-#   rm -rf "$paq_dir"
-# fi
-
-# git clone -q https://github.com/savq/paq-nvim.git $paq_dir
-
+# Install tmux plugins
 ##################################################
 
-if [ -d "$install_dir" ]; then
+if [[ -d "$install_dir" ]]; then
   cd "$install_dir" || return
 
   _print_h1 "Init tmux-resurrect"
 
-  if [ -d "$install_dir/tmux/tmux-resurrect" ] ; then
+  # Install tmux-resurrect plugin for session persistence
+  if [[ -d "$install_dir/tmux/tmux-resurrect" ]]; then
     _print "tmux-resurrect is already installed"
   else
     git clone -q https://github.com/tmux-plugins/tmux-resurrect "$install_dir/tmux/tmux-resurrect"
@@ -233,8 +245,9 @@ if [ -d "$install_dir" ]; then
 fi
 
 ##################################################
-
 # Optional: Install starship prompt
+##################################################
+
 _print_h1 "Starship prompt (optional)"
 
 # Check if starship is already installed
@@ -242,31 +255,27 @@ if hash starship 2>/dev/null; then
   _print "Starship is already installed ✓"
   install_starship=1  # Mark as installed for the final message
 else
-  # If -s flag not provided, ask the user
-  if [ "$install_starship" -eq 0 ]; then
+  # If -s flag not provided, ask the user interactively
+  if [[ "$install_starship" -eq 0 ]]; then
     _print "Starship is a fast, cross-shell prompt (recommended for best performance)"
     _print_info "Would you like to install starship? (40% faster startup)"
     printf "${COL_YELLOW}Install starship? [Y/n]: ${COL_RESET}"
     read -r response
 
     # Default to yes if just Enter is pressed
-    if [[ -z "$response" ]] || [[ "$response" =~ ^[Yy]$ ]]; then
-      install_starship=1
-    fi
+    [[ -z "$response" || "$response" =~ ^[Yy]$ ]] && install_starship=1
   fi
 
   # Install if requested
-  if [ "$install_starship" -eq 1 ]; then
+  if [[ "$install_starship" -eq 1 ]]; then
     _print "Installing starship..."
 
     # Detect OS and install accordingly
-    if [[ "$(uname)" == "Darwin" ]]; then
-      if hash brew 2>/dev/null; then
-        brew install starship
-      else
-        curl -sS https://starship.rs/install.sh | sh -s -- -y
-      fi
+    if [[ "$(uname)" == "Darwin" ]] && hash brew 2>/dev/null; then
+      # macOS with Homebrew
+      brew install starship
     else
+      # Linux/other or macOS without Homebrew: use official installer
       curl -sS https://starship.rs/install.sh | sh -s -- -y
     fi
 
@@ -277,12 +286,15 @@ else
 fi
 
 ##################################################
+# Installation complete
+##################################################
 
 _print_h1 "Installation finished"
 _print " Do not forget to switch to zsh as the default shell"
 _print_info " \$ sudo chsh -s /bin/zsh $USER"
 
-if [ "$install_starship" -eq 1 ]; then
+# Show starship-specific completion message if installed
+if [[ "$install_starship" -eq 1 ]]; then
   _print ""
   _print_info " Starship prompt installed and will be used automatically"
   _print_info " To customize: starship config"
