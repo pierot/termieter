@@ -98,5 +98,8 @@ alias wakemeupbeforeyougogo='wol -p 9 d8:bb:c1:8d:72:7c'
 
 # because
 alias ivat='BE0568678435'
+alias vati='BE0568678435'
+alias btwiamjack='BE0568678435'
+alias btw='BE0568678435'
 
 unalias claude # set in zsh/common.sh

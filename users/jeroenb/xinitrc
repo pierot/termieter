@@ -60,5 +60,8 @@ udiskie &
 # Status bar
 slstatus &
 
+# Conky stats
+conky &
+
 # WM
 exec startdwm
