@@ -14,9 +14,15 @@ family = "JetBrainsMono Nerd Font"
 # action = "ClearLogNotice"
 # key = "L"
 # mods = "Shift|Control"
-# 
+#
 # [[keyboard.bindings]]
 # chars = "\f"
 # key = "L"
 # mode = "~Vi|~Search"
 # mods = "Shift|Control"
+
+# Claude Code: Use Shift+Enter for newlines
+[[keyboard.bindings]]
+chars = "\n"
+key = "Return"
+mods = "Shift"
