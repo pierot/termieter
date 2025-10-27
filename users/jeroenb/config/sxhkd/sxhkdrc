@@ -35,20 +35,20 @@ ctrl + alt + p
 # super m; m
 # 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
 #
-#XF86AudioLowerVolume
-#	amixer -c 0 set Master 1dB-
-#
-#XF86AudioRaiseVolume
-#	amixer -c 0 set Master 1dB+
-#
-#XF86AudioMute
-#	pactl set-sink-mute 0 toggle
-#
-#XF86MonBrightnessDown
-#	xbacklight -dec 5
-#
-#XF86MonBrightnessUp
-#	xbacklight -inc 5
+XF86AudioLowerVolume
+	amixer -c 0 set Master 1dB-
+
+XF86AudioRaiseVolume
+	amixer -c 0 set Master 1dB+
+
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+
+XF86MonBrightnessDown
+	xbacklight -dec 5
+
+XF86MonBrightnessUp
+	xbacklight -inc 5
 
 # toggle terminal darkness
 super + shift + d 
