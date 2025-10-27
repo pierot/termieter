@@ -2,9 +2,9 @@
 # Utility script to open Alacritty terminal in the current working directory
 #
 # Note: update DWM `config.h`:
-#     static const char *termcmd[] = { "smart-terminal", NULL };
+#     static const char *termcmd[] = { "alacritty-cwd", NULL };
 #
-# Make sure `smart-terminal ` is in your PATH.
+# Make sure `alacritty-cwd ` is in your PATH.
 # Should already be in `~/.termieter/users/jeroenb/bin`
 # Save as ~/.local/bin/smart-terminal (or wherever you prefer)
 
