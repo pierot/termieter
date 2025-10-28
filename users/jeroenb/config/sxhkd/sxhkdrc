@@ -53,6 +53,15 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
 	xbacklight -inc 5
 
+XF86AudioPlay
+  playerctl play-pause
+
+XF86AudioNext
+  playerctl next
+
+XF86AudioPrev
+  playerctl previous
+
 # super m; m
 # 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
 
