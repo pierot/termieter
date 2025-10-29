@@ -37,12 +37,12 @@ ctrl + alt + p
 # 
 # super m; m
 # 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
-#
+
 XF86AudioLowerVolume
-	amixer -c 0 set Master 1dB-
+  pactl set-sink-volume @DEFAULT_SINK@ -4dB
 
 XF86AudioRaiseVolume
-	amixer -c 0 set Master 1dB+
+  pactl set-sink-volume @DEFAULT_SINK@ +4dB
 
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
