@@ -31,6 +31,7 @@ function justified_gwt_init {
   mix deps.get
   pnpm install
   make styles
+  asdf install
 }
 
 function take {

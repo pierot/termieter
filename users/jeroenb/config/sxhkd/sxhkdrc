@@ -39,13 +39,13 @@ ctrl + alt + p
 # 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
 
 XF86AudioLowerVolume
-  pactl set-sink-volume @DEFAULT_SINK@ -4dB
+  pamixer --decrease 4
 
 XF86AudioRaiseVolume
-  pactl set-sink-volume @DEFAULT_SINK@ +4dB
+  pamixer --increase 4
 
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+  pamixer --toggle-mute
 
 XF86MonBrightnessDown
 	xbacklight -dec 5
