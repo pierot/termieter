@@ -37,21 +37,30 @@ ctrl + alt + p
 # 
 # super m; m
 # 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png
-#
+
 XF86AudioLowerVolume
-	amixer -c 0 set Master 1dB-
+  pamixer --decrease 4
 
 XF86AudioRaiseVolume
-	amixer -c 0 set Master 1dB+
+  pamixer --increase 4
 
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+  pamixer --toggle-mute
 
 XF86MonBrightnessDown
 	xbacklight -dec 5
 
 XF86MonBrightnessUp
 	xbacklight -inc 5
+
+XF86AudioPlay
+  playerctl play-pause
+
+XF86AudioNext
+  playerctl next
+
+XF86AudioPrev
+  playerctl previous
 
 # super m; m
 # 	feh -F ~/Dropbox/Jack-Joe/Resources/varia/mysql-cheat-sheet.png

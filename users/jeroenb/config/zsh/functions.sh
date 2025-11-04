@@ -24,6 +24,16 @@ function sloc_ts {
   git ls-files | egrep '\.tsx?$' | xargs cat | sed '/^$/d' | sed '/^\s*#/d' | wc -l
 }
 
+function justified_gwt_init {
+  cp ../../../.env .env
+  cp -R ../../../priv/cert priv/cert
+  mix phx.gen.secret
+  mix deps.get
+  pnpm install
+  make styles
+  asdf install
+}
+
 function take {
   mkdir -p $1
   cd $1
