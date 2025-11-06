@@ -114,3 +114,9 @@ if [ -d "${HOME}/python/bin" ]; then
   # uv
   export PATH="$HOME/python/bin:$PATH"
 fi
+
+# Atuin
+if [ -d "${HOME}/.atuin/bin" ]; then
+  . "$HOME/.atuin/bin/env"
+  eval "$(atuin init zsh)"
+fi
