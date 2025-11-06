@@ -72,6 +72,7 @@ return {
 				carbonfox = {
 					-- A palette also defines the following:
 					--   bg0, bg1, bg2, bg3, bg4, fg0, fg1, fg2, fg3, sel0, sel1, comment
+					bg0 = "#000000",
 					bg1 = "#000000",
 
 					-- comment is the definition of the comment color.
