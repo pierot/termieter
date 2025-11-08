@@ -36,7 +36,6 @@ vim.keymap.set("", "-", "3<c-w><")
 vim.keymap.set("v", "<leader><leader>b", "<S-S><strong>")
 vim.keymap.set("v", "<leader><leader>i", "<S-S><em>")
 
-vim.keymap.set("n", "S", "mzi<CR><ESC>`z") -- Split line and preserve cursor position
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- Git

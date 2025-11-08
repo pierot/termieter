@@ -45,7 +45,7 @@ return {
 			pickers = {
 				find_files = {
 					theme = "ivy",
-					-- requires 'fd' te be installed
+					-- requires 'fd' to be installed
 					find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git", "--exclude", "node_modules" },
 				},
 				buffers = {
@@ -67,7 +67,7 @@ return {
 		keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>")
 		keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
 		keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-		keymap.set("n", "<leader>fr", ":lua require('telescope')..lsp_references()<CR>")
+		keymap.set("n", "<leader>fr", ":lua require('telescope').lsp_references()<CR>")
 		-- multigrep (tnx TJ)
 		keymap.set("n", "<leader>mg", require("jeroen.plugins.telescope.multigrep").live_multigrep)
 	end,

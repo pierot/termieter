@@ -57,7 +57,7 @@ alias tl="tmux ls"
 
 function tn() {
   tmux new -d -c "$PWD" -s "$*"
-  tmux attach-session -t $1
+  tmux attach-session -t "$1"
 }
 
 ##########################################################
@@ -134,15 +134,15 @@ gcmm() {
 git-status-all() {
   for gitdir in `find . -name .git`;
   do
-    local workdir=$(dirname $gitdir);
-    local gitout="`git -c color.status=always --git-dir=$gitdir --work-tree=$workdir status`";
+    local workdir="$(dirname "$gitdir")"
+    local gitout="$(git -c color.status=always --git-dir="$gitdir" --work-tree="$workdir" status)"
 
     if [[ ! $gitout =~ .*nothing\ to\ commit,\ working\ directory\ clean.* ]];
     then
-      echo;
-      echo $workdir;
-      echo $gitout;
-      echo "###########################################";
+      echo
+      echo "$workdir"
+      echo "$gitout"
+      echo "###########################################"
     fi
   done
 }
@@ -326,12 +326,10 @@ if have gsed; then
   alias sed='gsed'
 fi
 
-if have ccat; then
-  alias cat='ccat'
-fi
-
 if have bat; then
   alias cat='bat'
+elif have ccat; then
+  alias cat='ccat'
 fi
 
 if have gdircolors; then

@@ -31,7 +31,7 @@ return {
 		-- })
 
 		vim.lsp.config("*", {
-			cababilities = capabilities,
+			capabilities = capabilities,
 		})
 
 		-- Small manual override for emmet_ls to add .heex support
