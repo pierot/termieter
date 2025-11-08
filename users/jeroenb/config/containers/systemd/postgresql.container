@@ -14,7 +14,9 @@ Volume=pgdata:/var/lib/postgresql
 Exec=postgres -c wal_level=logical -c max_connections=200
 
 [Service]
-Restart=always
+Restart=on-failure
+RestartSec=0
+TimeoutStartSec=60
 
 [Install]
 WantedBy=default.target

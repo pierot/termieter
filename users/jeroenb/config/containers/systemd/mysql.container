@@ -7,12 +7,14 @@ After=
 [Container]
 Image=mysql:8.0
 ContainerName=mysql
-EnvironmentFile=%h/Dropbox/containers.env
+EnvironmentFile=%h/Dropbox/Work/containers.env
 PublishPort=3306:3306
 Volume=mysqldata:/var/lib/mysql
 
 [Service]
-Restart=always
+Restart=on-failure
+RestartSec=0
+TimeoutStartSec=60
 
 [Install]
 WantedBy=default.target
