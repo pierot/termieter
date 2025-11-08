@@ -26,6 +26,7 @@ export ASDF_SKIP_COMMANDS="claude"
 # Let all of java know we use a wm
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SHELL=/usr/bin/zsh
+export CONTAINER_HOST=unix:///run/user/$(id -u)/podman/podman.sock
 # Need to install with pacman -S intellij-idea-ultimate-edition
 
 # PATH

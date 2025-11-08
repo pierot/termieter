@@ -1,0 +1,18 @@
+[Unit]
+Description=MySQL 8 container (dev)
+After=network.target
+Wants=
+After=
+
+[Container]
+Image=mysql:8.0
+ContainerName=mysql
+EnvironmentFile=%h/Dropbox/containers.env
+PublishPort=3306:3306
+Volume=mysqldata:/var/lib/mysql
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
