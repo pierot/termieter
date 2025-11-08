@@ -14,29 +14,6 @@ return {
 			desc = "Format buffer",
 		},
 	},
-	-- Everything in opts will be passed to setup()
-	-- opts = {
-	-- 	-- Define your formatters
-	-- 	formatters_by_ft = {
-	-- 		lua = { "stylua" },
-	-- 		javascript = { "prettier" },
-	-- 		typescript = { "prettier" },
-	-- 		javascriptreact = { "prettier" },
-	-- 		typescriptreact = { "prettier" },
-	-- 		html = { "prettier" },
-	-- 		css = { "prettier" },
-	-- 		markdown = { "prettier" },
-	-- 		json = { "prettier" },
-	-- 	},
-	-- 	-- Set up format-on-save
-	-- 	format_on_save = { async = false, timeout_ms = 500, lsp_fallback = true },
-	-- 	-- Customize formatters
-	-- 	formatters = {
-	-- 		shfmt = {
-	-- 			prepend_args = { "-i", "2" },
-	-- 		},
-	-- 	},
-	-- },
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
@@ -51,13 +28,10 @@ return {
 				markdown = { "prettierd" },
 				json = { "prettierd" },
 				elixir = { "mix" },
+				heex = { "mix" },
 			},
 			-- Set up format-on-save
 			format_on_save = { async = false, timeout_ms = 1500, lsp_fallback = true },
 		})
 	end,
-	-- init = function()
-	-- 	-- If you want the formatexpr, here is the place to set it
-	-- 	vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-	-- end,
 }
