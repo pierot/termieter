@@ -1,2 +1,0 @@
-" Add Lua configuration
-source $HOME/.config/nvim/init.lua.vim

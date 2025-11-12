@@ -45,7 +45,7 @@ return {
 			pickers = {
 				find_files = {
 					theme = "ivy",
-					-- requires 'fd' te be installed
+					-- requires 'fd' to be installed
 					find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git", "--exclude", "node_modules" },
 				},
 				buffers = {

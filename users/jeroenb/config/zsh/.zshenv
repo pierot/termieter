@@ -26,6 +26,7 @@ export ASDF_SKIP_COMMANDS="claude"
 # Let all of java know we use a wm
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SHELL=/usr/bin/zsh
+export CONTAINER_HOST=unix:///run/user/$(id -u)/podman/podman.sock
 # Need to install with pacman -S intellij-idea-ultimate-edition
 
 # PATH
@@ -113,4 +114,10 @@ fi
 if [ -d "${HOME}/python/bin" ]; then
   # uv
   export PATH="$HOME/python/bin:$PATH"
+fi
+
+# Atuin
+if [ -d "${HOME}/.atuin/bin" ]; then
+  . "$HOME/.atuin/bin/env"
+  eval "$(atuin init zsh)"
 fi

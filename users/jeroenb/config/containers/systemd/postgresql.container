@@ -1,0 +1,22 @@
+[Unit]
+Description=PostgreSQL container (dev)
+After=network.target
+Wants=
+After=
+
+[Container]
+Image=postgres:18.0
+ContainerName=postgres
+EnvironmentFile=%h/Dropbox/containers.env
+PublishPort=5432:5432
+Volume=pgdata:/var/lib/postgresql
+# Postgres args (your -c wal_level=logical etc.)
+Exec=postgres -c wal_level=logical -c max_connections=200
+
+[Service]
+Restart=on-failure
+RestartSec=0
+TimeoutStartSec=60
+
+[Install]
+WantedBy=default.target
