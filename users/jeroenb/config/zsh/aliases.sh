@@ -84,7 +84,7 @@ alias jh='for file in ./*.svg; do convert -density 1200 -resize 2400x580 $file `
 alias jf='for file in ./*.svg; do convert -density 2400 -resize 4800x236 $file `basename $file .svg`.jpg; done'
 alias mdp='make deploy_production'
 alias mdph='make deploy_production_hotfix'
-alias mrmg='make run_miss_grump'
+alias mrmg='make run_miss_grumpy'
 alias mrdd='make run_docdropper'
 
 alias bfg='java -jar ~/.termieter/users/jeroenb/bin/bfg.jar'

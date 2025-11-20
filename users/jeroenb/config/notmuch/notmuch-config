@@ -31,6 +31,7 @@ path=/home/jeroen/Mail
 [user]
 name=Jeroen
 primary_email=jeroen@jackjoe.be
+other_email=jeroen@daele.be;jeroenbourgois@fastmail.com
 
 # Configuration for "notmuch new"
 #
