@@ -53,15 +53,15 @@ vim.keymap.set("v", "al", "$o^") -- outer line
 -- $$
 
 -- buffers
-vim.api.nvim_set_keymap("n", "tk", ":blast<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "tj", ":bfirst<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "th", ":bprev<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "tl", ":bnext<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", { noremap = false })
+vim.keymap.set("n", "tk", ":blast<CR>")
+vim.keymap.set("n", "tj", ":bfirst<CR>")
+vim.keymap.set("n", "th", ":bprev<CR>")
+vim.keymap.set("n", "tl", ":bnext<CR>")
+vim.keymap.set("n", "td", ":bdelete<CR>")
 
 -- files
-vim.api.nvim_set_keymap("n", "QQ", ":q!<enter>", { noremap = false })
-vim.api.nvim_set_keymap("n", "WW", ":w!<enter>", { noremap = false })
+vim.keymap.set("n", "QQ", ":q!<CR>")
+vim.keymap.set("n", "WW", ":w!<CR>")
 
 -- splits
 vim.keymap.set("n", "<space><space>", "<cmd>set nohlsearch<CR>")

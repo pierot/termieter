@@ -145,6 +145,7 @@ users/jeroenb/mutt/cache/headers/**
 users/jeroenb/config/zsh/.zsh_plugins.zsh
 users/jeroenb/config/nvim/lazy-lock.json
 users/jeroenb/config/superpowers/
+users/jeroenb/config/lazygit/state.yml
 
 users/pieterm/config/lnav/configs/default/*.sample
 users/pieterm/config/psysh/**
