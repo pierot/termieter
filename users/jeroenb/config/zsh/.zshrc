@@ -87,5 +87,10 @@ source $TRM/zsh/common.sh
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh"
 
+# Atuin (kickoff here, must be done early - interactive shell only)
+if [ -d "${HOME}/.atuin/bin" ]; then
+  eval "$(atuin init zsh)"
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

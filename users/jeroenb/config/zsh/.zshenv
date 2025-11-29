@@ -116,7 +116,7 @@ if [ -d "${HOME}/python/bin" ]; then
   export PATH="$HOME/python/bin:$PATH"
 fi
 
-# Atuin
+# Atuin - only add to PATH here, init in .zshrc
 if [ -d "${HOME}/.atuin/bin" ]; then
   . "$HOME/.atuin/bin/env"
   eval "$(atuin init zsh)"
