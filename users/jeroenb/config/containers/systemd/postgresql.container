@@ -12,6 +12,7 @@ EnvironmentFile=%h/Dropbox/Work/containers.env
 PublishPort=5432:5432
 Volume=pgdata:/var/lib/postgresql
 # Postgres args (your -c wal_level=logical etc.)
+PodmanArgs=--shm-size=1024m
 Exec=postgres -c wal_level=logical -c max_connections=200
 
 [Service]

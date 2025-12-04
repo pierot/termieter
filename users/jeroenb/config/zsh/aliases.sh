@@ -23,6 +23,10 @@ if have pnpm; then
   alias npm="pnpm"
 fi
 
+if have lynx; then
+  alias lynx='lynx -useragent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0"'
+fi
+
 alias dev="cd $HOME/Work/"
 alias db="cd $DROPBOX"
 alias invoicing="cd $IAMJACK/Income"
