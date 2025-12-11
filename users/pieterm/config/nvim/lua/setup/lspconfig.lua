@@ -1,226 +1,96 @@
---[[ local lspconfig_setup, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_setup then
+-- Import cmp-nvim-lsp plugin for completion capabilities
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_ok then
   return
-end ]]
-
---[[ local cmp_nvim_lsp_setup, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_setup then
-  return
-end ]]
-
---[[ local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-  return
-end ]]
-
-local keymap = vim.keymap -- for conciseness
-
--- enable keybinds only for when lsp server available
-local on_attach = function(client, bufnr)
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-  -- Navigation
-  bufopts.desc = "Show LSP definitions"
-  keymap.set("n", "gnd", "<cmd>Telescope lsp_definitions<CR>", bufopts)
-
-  bufopts.desc = "Show LSP type definitions"
-  keymap.set("n", "gnt", "<cmd>Telescope lsp_type_definitions<CR>", bufopts)
-
-  --[[ bufopts.desc = "Show LSP implementations"
-  keymap.set("n", "gni", "<cmd>Telescope lsp_implementations<CR>", bufopts) ]]
-
-  --[[ bufopts.desc = "Show LSP references"
-  keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", bufopts) ]]
-
-  -- Code actions
-  --[[ bufopts.desc = "Show code actions"
-  keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-
-  bufopts.desc = "Rename symbol"
-  keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts) ]]
-
-  -- Documentation & Help
-  keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-  -- keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-
-  keymap.set("n", "<space>f", function()
-    vim.lsp.buf.format({ async = true })
-  end, bufopts)
-
-  -- Diagnostics navigation
-  bufopts.desc = "Go to next diagnostic"
-  keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
-
-  bufopts.desc = "Go to previous diagnostic"
-  keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
-
-  bufopts.desc = "Show diagnostics in floating window"
-  keymap.set("n", "<leader>d", vim.diagnostic.open_float, bufopts)
-
-  bufopts.desc = "Show diagnostics in quickfix list"
-  keymap.set("n", "<leader>q", vim.diagnostic.setqflist, bufopts)
-
-  -- Elixir specific keybindings (if client.name == "elixirls")
-  -- if client.name == "elixirls" then
-  --   bufopts.desc = "Run Elixir test under cursor"
-  --   keymap.set("n", "<leader>tt", ":ElixirTestWatch<CR>", bufopts)
-
-  --   bufopts.desc = "Run Elixir test file"
-  --   keymap.set("n", "<leader>tf", ":ElixirTestFile<CR>", bufopts)
-
-  --   bufopts.desc = "Open IEx terminal"
-  --   keymap.set("n", "<leader>ix", ":ElixirIEx<CR>", bufopts)
-
-  --   bufopts.desc = "Compile Elixir project"
-  --   keymap.set("n", "<leader>mc", ":!mix compile<CR>", bufopts)
-  -- end
 end
 
-local servers = { 'html', 'ts_ls', 'cssls', 'tailwindcss', 'emmet_ls', 'expert' }
+-- Enable autocompletion capabilities for LSP
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
-for _, server in ipairs(servers) do
-  vim.lsp.enable(server)
-end
+-- Configure default LSP settings with capabilities
+vim.lsp.config("*", {
+  capabilities = capabilities,
+})
 
-vim.lsp.completion.enable()
-
-local protocol = require("vim.lsp.protocol")
-protocol.CompletionItemKind = {
-  "", -- Text
-  "", -- Method
-  "", -- Function
-  "", -- Constructor
-  "", -- Field
-  "", -- Variable
-  "", -- Class
-  "ﰮ", -- Interface
-  "", -- Module
-  "", -- Property
-  "", -- Unit
-  "", -- Value
-  "", -- Enum
-  "", -- Keyword
-  "﬌", -- Snippet
-  "", -- Color
-  "", -- File
-  "", -- Reference
-  "", -- Folder
-  "", -- EnumMember
-  "", -- Constant
-  "", -- Struct
-  "", -- Event
-  "ﬦ", -- Operator
-  "", -- TypeParameter
+-- Small manual overrides for specific LSP servers
+-- emmet_ls: Only for HEEx templates (Phoenix)
+vim.lsp.config.emmet_ls = {
+	filetypes = { "heex" },
 }
 
+-- TailwindCSS support for HEEx (Phoenix templates)
+vim.lsp.config.tailwindcss = {
+	filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "heex" },
+}
+
+-- LSP keymaps (set when LSP attaches to buffer)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local opts = { buffer = args.buf, silent = true }
+
+    -- Navigation
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = args.buf, desc = "Go to definition" })
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = args.buf, desc = "Go to declaration" })
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = args.buf, desc = "Show references" })
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = args.buf, desc = "Go to implementation" })
+    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = args.buf, desc = "Go to type definition" })
+
+    -- Telescope alternatives for navigation (commented out - uncomment if you prefer Telescope)
+    -- vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = args.buf, desc = "Go to definition" })
+    -- vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = args.buf, desc = "Show references" })
+    -- vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = args.buf, desc = "Go to implementation" })
+    -- vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", { buffer = args.buf, desc = "Go to type definition" })
+
+    -- Documentation & Help
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = args.buf, desc = "Hover documentation" })
+    -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "Signature help" })
+
+    -- Code actions
+    vim.keymap.set(
+      { "n", "v" },
+      "<leader>ca",
+      vim.lsp.buf.code_action,
+      { buffer = args.buf, desc = "Code action" }
+    )
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = args.buf, desc = "Rename symbol" })
+
+    -- Formatting
+    vim.keymap.set("n", "<space>f", function()
+      vim.lsp.buf.format({ async = true })
+    end, { buffer = args.buf, desc = "Format buffer" })
+
+    -- Diagnostics navigation
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = args.buf, desc = "Previous diagnostic" })
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
+    vim.keymap.set(
+      "n",
+      "<leader>d",
+      vim.diagnostic.open_float,
+      { buffer = args.buf, desc = "Line diagnostics" }
+    )
+    vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, { buffer = args.buf, desc = "Quickfix list" })
+  end,
+
+  -- Enable LSP servers after setting up the autocmd
+  vim.lsp.enable({ "html", "ts_ls", "cssls", "tailwindcss", "emmet_ls", "lua_ls", "expert" }),
+})
+
+-- Configure diagnostic display
 vim.diagnostic.config({
   virtual_text = {
     prefix = "●",
   },
   update_in_insert = false, -- Improved performance: diagnostics only update when leaving insert mode
   float = {
-    source = "always",      -- Or "if_many"
+    source = "always",     -- Or "if_many"
   },
   signs = {
     -- Diagnostic symbols in the sign column (gutter)
     text = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN] = " ",
-      [vim.diagnostic.severity.HINT] = "",
-      [vim.diagnostic.severity.INFO] = " ",
-    }
-  }
-})
-
--- used to enable autocompletion (assign to every lsp server config)
--- local capabilities = cmp_nvim_lsp.default_capabilities()
-
--- configure html server
---[[ lspconfig["html"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
--- configure typescript server with plugin
-typescript.setup({
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  },
-})
-
-lspconfig["ts_ls"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
--- configure css server
-lspconfig["cssls"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    css = {
-      validate = true,
-      lint = {
-        unknownAtRules = "ignore",
-      },
-    },
-    scss = {
-      validate = true,
-      lint = {
-        unknownAtRules = "ignore",
-      },
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = "󰠠 ",
+      [vim.diagnostic.severity.INFO] = " ",
     },
   },
 })
-
--- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
--- configure emmet language server
-lspconfig["emmet_ls"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-})
-
--- configure Elixir language server
-local path = require("mason-core.path")
-local path_to_elixirls = path.concat({ vim.fn.stdpath("data"), "mason", "bin", "elixir-ls" })
-
--- Setup
-lspconfig["elixirls"].setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { path_to_elixirls },
-  settings = {
-    elixirLS = {
-      fetchDeps = true,
-      dialyzerFormat = "dialyxir_long",
-      dialyzerEnabled = true,
-      suggestSpecs = true,
-      -- Additional ElixirLS settings
-      enableTestLenses = true,        -- Add test lenses for running tests
-      mixEnv = "test",                -- Set default mix environment
-      trace = { server = "verbose" }, -- Help with debugging ElixirLS
-    },
-  },
-}) ]]
-
--- -- You might need these Elixir helper functions
--- -- Create the commands if you don't have a plugin for them
--- vim.api.nvim_create_user_command("ElixirTestWatch", function()
---   vim.cmd("vsplit term://mix test " .. vim.fn.expand("%") .. ":" .. vim.fn.line("."))
--- end, {})
---
--- vim.api.nvim_create_user_command("ElixirTestFile", function()
---   vim.cmd("vsplit term://mix test " .. vim.fn.expand("%"))
--- end, {})
---
--- vim.api.nvim_create_user_command("ElixirIEx", function()
---   vim.cmd("vsplit term://iex -S mix")
--- end, {})

@@ -136,15 +136,3 @@ vim.g.ackprg = "rg --vimgrep --pcre2 -i" -- ack
 vim.g.copilot_enabled = false -- Copilot disabled by default
 vim.g.copilot_no_tab_map = true -- Disable Copilot's Tab mapping to allow Codeium to use it
 -- Codeium is enabled by default
-
--- Setup AI toggle commands
-local ai_toggle = require("setup.ai-toggle")
-
--- Create user commands for toggling between AI assistants
-vim.api.nvim_create_user_command("AIToggle", function()
-	ai_toggle.toggle()
-end, { desc = "Toggle between Copilot and Codeium" })
-
-vim.api.nvim_create_user_command("AIStatus", function()
-	ai_toggle.status()
-end, { desc = "Show current AI assistant" })

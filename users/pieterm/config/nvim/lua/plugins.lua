@@ -56,11 +56,18 @@ return require("packer").startup(function(use)
 
 	use("elixir-editors/vim-elixir") -- correct commentstring and other percs
 
+	-- Elixir LSP (ExpertLS)
+	use({
+		"elixir-tools/elixir-tools.nvim",
+		tag = "stable",
+		requires = { "nvim-lua/plenary.nvim" },
+		ft = { "elixir", "eex", "heex", "surface" }, -- Load for Elixir and template files
+	})
+
 	use("kyazdani42/nvim-tree.lua") -- sidebar file explorer
 
-	-- use("neovim/nvim-lspconfig")
+	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp") -- LSP completion source for nvim-cmp
-	-- use("jose-elias-alvarez/typescript.nvim")
 
 	use("stevearc/conform.nvim") -- Lightweight yet powerful formatter plugin for Neovim
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
@@ -103,8 +110,6 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
-	--[[ use({ "olimorris/codecompanion.nvim" })
-  use({ "GeorgesAlkhouri/nvim-aider" }) ]]
 
 	if packer_bootstrap then
 		require("packer").sync()
