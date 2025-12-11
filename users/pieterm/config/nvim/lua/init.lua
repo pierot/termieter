@@ -131,3 +131,22 @@ vim.opt.background = "dark"
 -- all small plugins that need nothing more than a simple
 -- setup are setup here
 vim.g.ackprg = "rg --vimgrep --pcre2 -i" -- ack
+
+-- AI assistants - Codeium enabled by default, Copilot disabled
+vim.g.copilot_enabled = false -- Copilot disabled by default
+-- Codeium is enabled by default
+
+-- Setup AI toggle commands
+local ai_toggle = require("setup.ai-toggle")
+
+-- Create user commands for toggling between AI assistants
+vim.api.nvim_create_user_command("AIToggle", function()
+	ai_toggle.toggle()
+end, { desc = "Toggle between Copilot and Codeium" })
+
+vim.api.nvim_create_user_command("AIStatus", function()
+	ai_toggle.status()
+end, { desc = "Show current AI assistant" })
+
+-- Optional keybinding for quick toggle (uncomment if desired)
+-- u.map("n", "<leader>ai", "<cmd>AIToggle<CR>")
