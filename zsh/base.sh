@@ -82,13 +82,14 @@ alias python=python3
 # GO
 if [[ $OS == 'OSX' ]]; then
   export GOPATH="$HOME/Work/go"
-  export GOROOT="/usr/local/opt/go/libexec"
+  # export GOROOT="/usr/local/opt/go/libexec"
 else
   export GOPATH="$HOME/go"
-  export GOROOT="/usr/lib/go"
+  # export GOROOT="/usr/lib/go"
 fi
 
-export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+# export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+export PATH="$PATH:$GOPATH/bin"
 
 alias godir="cd $GOPATH"
 
