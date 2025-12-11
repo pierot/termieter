@@ -59,7 +59,7 @@ return require("packer").startup(function(use)
 	use("kyazdani42/nvim-tree.lua") -- sidebar file explorer
 
 	-- use("neovim/nvim-lspconfig")
-	-- use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-nvim-lsp") -- LSP completion source for nvim-cmp
 	-- use("jose-elias-alvarez/typescript.nvim")
 
 	use("stevearc/conform.nvim") -- Lightweight yet powerful formatter plugin for Neovim
@@ -91,6 +91,17 @@ return require("packer").startup(function(use)
 
 	-- AI
 	use({ "github/copilot.vim" })
+	use({
+		"Exafunction/windsurf.nvim",
+		config = function()
+			require("codeium").setup({
+				enable_cmp_source = true, -- Enabled by default
+				virtual_text = {
+					enabled = false,
+				},
+			})
+		end,
+	})
 	--[[ use({ "olimorris/codecompanion.nvim" })
   use({ "GeorgesAlkhouri/nvim-aider" }) ]]
 
