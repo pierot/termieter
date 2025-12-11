@@ -95,9 +95,10 @@ return require("packer").startup(function(use)
 		"Exafunction/windsurf.nvim",
 		config = function()
 			require("codeium").setup({
-				enable_cmp_source = true, -- Enabled by default
+				enable_cmp_source = true,
 				virtual_text = {
-					enabled = false,
+					enabled = true,
+					map_keys = false, -- We set keybindings manually in setup/codeium.lua
 				},
 			})
 		end,

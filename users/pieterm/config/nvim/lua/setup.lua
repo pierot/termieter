@@ -21,6 +21,4 @@ require("setup.treesitter")
 require("setup.ts-autotag")
 require("setup.vim-easy-align")
 require("setup.web-devicons")
-
---[[ require("setup.aider")
-require("setup.codecompanion") ]]
+require("setup.codeium") -- Load Codeium keybindings last to override conflicts
