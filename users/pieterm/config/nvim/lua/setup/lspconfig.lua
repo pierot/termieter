@@ -33,13 +33,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = args.buf, desc = "Go to declaration" })
     vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = args.buf, desc = "Show references" })
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = args.buf, desc = "Go to implementation" })
-    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = args.buf, desc = "Go to type definition" })
+    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { buffer = args.buf, desc = "Go to type definition" })
 
     -- Telescope alternatives for navigation (commented out - uncomment if you prefer Telescope)
     -- vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = args.buf, desc = "Go to definition" })
     -- vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = args.buf, desc = "Show references" })
     -- vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = args.buf, desc = "Go to implementation" })
-    -- vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", { buffer = args.buf, desc = "Go to type definition" })
+    -- vim.keymap.set("n", "gy", "<cmd>Telescope lsp_type_definitions<CR>", { buffer = args.buf, desc = "Go to type definition" })
 
     -- Documentation & Help
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = args.buf, desc = "Hover documentation" })

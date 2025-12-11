@@ -10,7 +10,7 @@ conform.setup({
 		typescript = { "prettierd", "prettier", stop_after_first = true },
 		javascriptreact = { "prettierd", stop_after_first = true },
 		typescriptreact = { "prettierd", stop_after_first = true },
-		elixir = { "mix" },
+		-- elixir = { "mix" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()

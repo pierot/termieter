@@ -1,29 +1,17 @@
--- Codeium keybindings setup
--- These need to be set up explicitly to override any conflicts
+-- Codeium integration for nvim-cmp and virtual text (ghost text)
+-- Note: Codeium source is added to cmp in setup/snippets.lua
+-- Note: Tab keybinding for ghost text is handled by cmp's fallback mechanism + Codeium's built-in Tab mapping
 
-vim.keymap.set("i", "<Tab>", function()
-	-- Check if nvim-cmp menu is visible
-	local cmp = require("cmp")
-	if cmp.visible() then
-		cmp.select_next_item()
-	else
-		-- Try to accept Codeium virtual text suggestion
-		local codeium = require("codeium.virtual_text")
-		if codeium.accept() == 0 then
-			-- No suggestion to accept, insert tab
-			return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
-		end
-	end
-end, { expr = true, silent = true, desc = "Accept Codeium suggestion or navigate cmp" })
+-- Check if Codeium plugin is actually available
+local has_codeium, _ = pcall(require, "codeium")
+if not has_codeium then
+	-- Plugin not installed yet, skip setup
+	return
+end
 
-vim.keymap.set("i", "<C-]>", function()
-	require("codeium.virtual_text").cycle_or_complete()
-end, { silent = true, desc = "Cycle to next Codeium suggestion" })
+-- Tab handling:
+-- 1. If cmp menu is visible -> Tab navigates menu (handled by snippets.lua)
+-- 2. If no cmp menu -> cmp fallback() -> Codeium's Tab mapping accepts ghost text
+-- 3. If no ghost text -> Codeium's fallback -> normal Tab insertion
 
---[[ vim.keymap.set("i", "<C-w>", function()
-	require("codeium.virtual_text").accept_word()
-end, { silent = true, desc = "Accept next word of Codeium suggestion" }) ]]
-
---[[ vim.keymap.set("i", "<C-\\>", function()
-	require("codeium.virtual_text").clear()
-end, { silent = true, desc = "Clear Codeium suggestion" }) ]]
+-- No additional Tab keybindings needed here!

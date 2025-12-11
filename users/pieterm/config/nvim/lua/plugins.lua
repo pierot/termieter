@@ -54,7 +54,7 @@ return require("packer").startup(function(use)
 	use("kana/vim-textobj-user")
 	use("kana/vim-textobj-line")
 
-	use("elixir-editors/vim-elixir") -- correct commentstring and other percs
+	-- use("elixir-editors/vim-elixir") -- correct commentstring and other percs
 
 	-- Elixir LSP (ExpertLS)
 	use({
@@ -62,6 +62,14 @@ return require("packer").startup(function(use)
 		tag = "stable",
 		requires = { "nvim-lua/plenary.nvim" },
 		ft = { "elixir", "eex", "heex", "surface" }, -- Load for Elixir and template files
+		config = function()
+			local elixir = require("elixir")
+			elixir.setup({
+				nextls = { enable = false }, -- NextLS disabled, using ExpertLS instead
+				credo = {}, -- Credo linter enabled with defaults
+				elixirls = { enable = false }, -- Old ElixirLS disabled, using ExpertLS instead
+			})
+		end,
 	})
 
 	use("kyazdani42/nvim-tree.lua") -- sidebar file explorer
@@ -99,14 +107,31 @@ return require("packer").startup(function(use)
 	-- AI
 	use({ "github/copilot.vim" })
 	use({
-		"Exafunction/windsurf.nvim",
+		"Exafunction/codeium.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
 		config = function()
 			require("codeium").setup({
-				enable_cmp_source = true,
+				enable_chat = true,
 				virtual_text = {
 					enabled = true,
-					map_keys = false, -- We set keybindings manually in setup/codeium.lua
-				},
+					manual = false,
+					filetypes = {},
+					default_filetype_enabled = true,
+					idle_delay = 75,
+					virtual_text_priority = 65535,
+					map_keys = true,
+					key_bindings = {
+						accept = "<Tab>", -- Accept ghost text with Tab (works with cmp fallback)
+						accept_word = false,
+						accept_line = false,
+						next = "<M-]>",
+						prev = "<M-[>",
+						clear = "<C-]>",
+					}
+				}
 			})
 		end,
 	})
