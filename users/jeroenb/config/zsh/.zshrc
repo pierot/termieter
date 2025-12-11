@@ -1,3 +1,7 @@
+# Exit early if no TTY (prevents LSP servers like expert from loading p10k/gitstatus)
+# Using TTY check because expert spawns interactive shells but without a terminal
+[[ -t 0 ]] || return
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -86,6 +90,11 @@ bindkey '^S' .history-incremental-search-forward
 source $TRM/zsh/common.sh
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases.sh"
+
+# Atuin (kickoff here, must be done early - interactive shell only)
+if [ -d "${HOME}/.atuin/bin" ]; then
+  eval "$(atuin init zsh)"
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

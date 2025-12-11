@@ -23,6 +23,10 @@ if have pnpm; then
   alias npm="pnpm"
 fi
 
+if have lynx; then
+  alias lynx='lynx -useragent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0"'
+fi
+
 alias dev="cd $HOME/Work/"
 alias db="cd $DROPBOX"
 alias invoicing="cd $IAMJACK/Income"
@@ -82,6 +86,10 @@ alias lynx='lynx -cfg ~/.config/lynx/lynx.cfg'
 # Justified related
 alias jh='for file in ./*.svg; do convert -density 1200 -resize 2400x580 $file `basename $file .svg`.jpg; done'
 alias jf='for file in ./*.svg; do convert -density 2400 -resize 4800x236 $file `basename $file .svg`.jpg; done'
+alias mdp='make deploy_production'
+alias mdph='make deploy_production_hotfix'
+alias mrmg='make run_miss_grumpy'
+alias mrdd='make run_docdropper'
 
 alias bfg='java -jar ~/.termieter/users/jeroenb/bin/bfg.jar'
 
@@ -97,9 +105,9 @@ alias macdaddy=macarchius
 alias wakemeupbeforeyougogo='wol -p 9 d8:bb:c1:8d:72:7c'
 
 # because
-alias ivat='BE0568678435'
-alias vati='BE0568678435'
-alias btwiamjack='BE0568678435'
-alias btw='BE0568678435'
+alias ivat='echo BE0568678435 | pbcopy'
+alias vati='echo BE0568678435 | pbcopy'
+alias btwiamjack='echo BE0568678435 | pbcopy'
+alias btw='echo BE0568678435 | pbcopy'
 
 unalias claude # set in zsh/common.sh

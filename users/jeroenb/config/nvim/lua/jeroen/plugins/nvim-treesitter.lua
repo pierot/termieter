@@ -33,7 +33,6 @@ return {
 					"bash",
 					"c",
 					"css",
-					"css",
 					"dockerfile",
 					"elixir",
 					"gitignore",
