@@ -386,6 +386,33 @@ return {
 				},
 			}
 
+			--[[ vim.lsp.config("expert", {
+				cmd = { "expert", "--stdio" },
+				root_markers = { "mix.exs", ".git" },
+				filetypes = { "elixir", "eelixir", "heex" },
+			}) ]]
+
+			vim.lsp.config("elixirls", {
+				capabilities = capabilities,
+				settings = {
+					elixirLS = {
+						dialyzerEnabled = false,
+						enableTestLenses = false,
+						fetchDeps = false,
+						suggestSpecs = false,
+					},
+				},
+				on_attach = function(client, bufnr)
+					-- Enable formatting
+					client.server_capabilities.documentFormattingProvider = true
+					client.server_capabilities.documentRangeFormattingProvider = true
+
+					-- Additional key mappings
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
+					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr })
+				end,
+			})
+
 			-- LSP keymaps (set when LSP attaches to buffer)
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
@@ -441,7 +468,7 @@ return {
 			})
 
 			-- Enable LSP servers
-			vim.lsp.enable({ "html", "ts_ls", "cssls", "tailwindcss", "emmet_ls", "lua_ls", "expert" })
+			vim.lsp.enable({ "html", "ts_ls", "cssls", "tailwindcss", "emmet_ls", "lua_ls", "elixirls" })
 		end,
 	},
 
@@ -553,7 +580,7 @@ return {
 	-- Formatting
 	{
 		"stevearc/conform.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufNewFile", "BufReadPre", "BufWritePre" },
 		config = function()
 			local conform = require("conform")
 			conform.setup({
@@ -568,13 +595,26 @@ return {
 					yaml = { "prettier" },
 					markdown = { "prettier" },
 					lua = { "stylua" },
-					elixir = { "mix" },
+					elixir = { "mix", "injected" }, -- Try mix first, then LSP
+					eex = { "mix", "injected" },
+					heex = { "mix", "injected" },
+					surface = { "mix", "injected" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
 					async = false,
-					timeout_ms = 500,
+					timeout_ms = 1500,
 				},
+				formatters = {
+					mix = {
+						command = "mix",
+						args = { "format", "--stdin-filename", "$FILENAME" },
+						stdin = true,
+						timeout = 15000,
+					},
+				},
+				log_level = vim.log.levels.DEBUG,
+				notify_on_error = true,
 			})
 
 			-- Keymap for manual formatting
@@ -582,7 +622,7 @@ return {
 				conform.format({
 					lsp_fallback = true,
 					async = false,
-					timeout_ms = 500,
+					timeout_ms = 15000,
 				})
 			end, { desc = "Format file or range (in visual mode)" })
 		end,
@@ -615,8 +655,9 @@ return {
 					"bashls",
 					"cssls",
 					"dockerls",
-					"expert",
+					-- "expert",ny i
 					"emmet_ls",
+					"elixirls",
 					"erlangls",
 					"html",
 					"intelephense",
@@ -636,14 +677,38 @@ return {
 	-- Elixir LSP (ExpertLS)
 	{
 		"elixir-tools/elixir-tools.nvim",
+		version = "*", -- Use latest version
 		ft = { "elixir", "eex", "heex", "surface" },
 		dependencies = { "nvim-lua/plenary.nvim" },
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
+			vim.env.MIX_OS_DEPS_COMPILE_PARTITION_COUNT = "1"
+
 			local elixir = require("elixir")
 			elixir.setup({
-				nextls = { enable = false },
-				credo = {},
-				elixirls = { enable = false },
+				nextls = { enable = false }, -- Disable Next LS
+				elixirls = { -- Enable ElixirLS (Expert)
+					enable = true,
+					settings = elixir.elixirls.settings({
+						dialyzerEnabled = false,
+						enableTestLenses = false,
+						fetchDeps = false,
+					}),
+					env = {
+						MIX_OS_DEPS_COMPILE_PARTITION_COUNT = "1",
+					},
+					on_attach = function(client, bufnr)
+						client.server_capabilities.documentFormattingProvider = true
+						client.server_capabilities.documentRangeFormattingProvider = true
+
+						-- Elixir-specific keymaps
+						vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = bufnr, noremap = true })
+						vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = bufnr, noremap = true })
+						vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = bufnr, noremap = true })
+					end,
+				},
+				credo = { enable = true }, -- Enable Credo for linting
+				projectionist = { enable = true }, -- Enable project navigation
 			})
 		end,
 	},
