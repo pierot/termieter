@@ -14,9 +14,9 @@ have() {
 ZSH_THEME="kolo"
 
 # Debian servers
-if [ -n "$(uname -a | grep Debian)" ]; then
-  ZSH_THEME="dallas"
-fi
+# if [ -n "$(uname -a | grep Debian)" ]; then
+#   ZSH_THEME="dallas"
+# fi
 
 # RPI (armv6l, armv7l)
 if [ -n "$(uname -a | grep armv6l)" ] || [ -n "$(uname -a | grep armv7l)" ]; then
