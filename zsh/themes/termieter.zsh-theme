@@ -52,5 +52,5 @@ else
 fi
 
 # Reset color
-PROMPT+="$RESET"
-RPROMPT+="$RESET"
+PROMPT+="$RESET "
+RPROMPT+="$RESET "
