@@ -132,6 +132,10 @@ vim.opt.background = "dark"
 -- Show tabs at the top
 vim.opt.showtabline = 2
 
+-------------------------------------------------
+-- SPECIFIC
+-------------------------------------------------
+
 -- all small plugins that need nothing more than a simple
 -- setup are setup here
 vim.g.ackprg = "rg --vimgrep --pcre2 -i" -- ack
@@ -141,5 +145,5 @@ vim.g.copilot_enabled = false -- Copilot disabled by default
 vim.g.copilot_no_tab_map = true -- Disable Copilot's Tab mapping to allow Codeium to use it
 -- Codeium is enabled by default
 
--- AI toggle utility
 require("setup.ai-toggle")
+require("setup.theme-toggle")

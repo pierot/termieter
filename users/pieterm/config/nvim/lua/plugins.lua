@@ -354,69 +354,46 @@ return {
 	-- LSP configuration
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" },
+		-- enabled = false,
+		-- event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
+			-- { "antosha417/nvim-lsp-file-operations", config = true },
 		},
 		config = function()
-			-- Import cmp-nvim-lsp plugin for completion capabilities
+			-- import cmp-nvim-lsp plugin
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+			-- used to enable autocompletion (assign to every lsp server config)
 			local capabilities = cmp_nvim_lsp.default_capabilities()
 
-			-- Configure default LSP settings with capabilities
+			-- Change the Diagnostic symbols in the sign column (gutter)
+			-- (not in youtube nvim video)
+			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+			for type, icon in pairs(signs) do
+				local hl = "DiagnosticSign" .. type
+				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+			end
+
+			-- vim.lsp.config("*", {
+			-- 	root_markers = { ".git" },
+			-- })
+
 			vim.lsp.config("*", {
 				capabilities = capabilities,
 			})
 
-			-- Server-specific overrides
+			-- Small manual override for emmet_ls to add .heex support
 			vim.lsp.config.emmet_ls = {
 				filetypes = { "heex" },
+				-- filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "heex" },
 			}
-
-			vim.lsp.config.tailwindcss = {
-				filetypes = {
-					"html",
-					"css",
-					"scss",
-					"javascript",
-					"javascriptreact",
-					"typescript",
-					"typescriptreact",
-					"heex",
-				},
-			}
-
-			--[[ vim.lsp.config("expert", {
-				cmd = { "expert", "--stdio" },
-				root_markers = { "mix.exs", ".git" },
-				filetypes = { "elixir", "eelixir", "heex" },
-			}) ]]
-
-			vim.lsp.config("elixirls", {
-				capabilities = capabilities,
-				settings = {
-					elixirLS = {
-						dialyzerEnabled = false,
-						enableTestLenses = false,
-						fetchDeps = false,
-						suggestSpecs = false,
-					},
-				},
-				on_attach = function(client, bufnr)
-					-- Enable formatting
-					client.server_capabilities.documentFormattingProvider = true
-					client.server_capabilities.documentRangeFormattingProvider = true
-
-					-- Additional key mappings
-					vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
-					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr })
-				end,
-			})
 
 			-- LSP keymaps (set when LSP attaches to buffer)
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
-					-- Navigation
+					local opts = { buffer = args.buf, silent = true }
+
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = args.buf, desc = "Go to definition" })
 					vim.keymap.set(
 						"n",
@@ -431,26 +408,14 @@ return {
 						vim.lsp.buf.implementation,
 						{ buffer = args.buf, desc = "Go to implementation" }
 					)
-					vim.keymap.set(
-						"n",
-						"gy",
-						vim.lsp.buf.type_definition,
-						{ buffer = args.buf, desc = "Go to type definition" }
-					)
-
-					-- Documentation & Help
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = args.buf, desc = "Hover documentation" })
-
-					-- Code actions
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = args.buf, desc = "Rename symbol" })
 					vim.keymap.set(
 						{ "n", "v" },
 						"<leader>ca",
 						vim.lsp.buf.code_action,
 						{ buffer = args.buf, desc = "Code action" }
 					)
-					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = args.buf, desc = "Rename symbol" })
-
-					-- Diagnostics
 					vim.keymap.set(
 						"n",
 						"<leader>d",
@@ -465,10 +430,9 @@ return {
 					)
 					vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
 				end,
-			})
 
-			-- Enable LSP servers
-			vim.lsp.enable({ "html", "ts_ls", "cssls", "tailwindcss", "emmet_ls", "lua_ls", "elixirls" })
+				vim.lsp.enable({ "html", "emmet_ls", "cssls", "tailwindcss", "ts_ls", "lua_ls", "expert" }),
+			})
 		end,
 	},
 
@@ -585,46 +549,25 @@ return {
 			local conform = require("conform")
 			conform.setup({
 				formatters_by_ft = {
-					javascript = { "prettier" },
-					typescript = { "prettier" },
-					javascriptreact = { "prettier" },
-					typescriptreact = { "prettier" },
-					css = { "prettier" },
-					html = { "prettier" },
-					json = { "prettier" },
-					yaml = { "prettier" },
-					markdown = { "prettier" },
+					javascript = { "prettierd" },
+					typescript = { "prettierd" },
+					javascriptreact = { "prettierd" },
+					typescriptreact = { "prettierd" },
+					css = { "prettierd" },
+					html = { "prettierd" },
+					json = { "prettierd" },
+					yaml = { "prettierd" },
+					markdown = { "prettierd" },
 					lua = { "stylua" },
-					elixir = { "mix", "injected" }, -- Try mix first, then LSP
-					eex = { "mix", "injected" },
-					heex = { "mix", "injected" },
-					surface = { "mix", "injected" },
+					elixir = { "mix" },
+					heex = { "mix" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
 					async = false,
 					timeout_ms = 1500,
 				},
-				formatters = {
-					mix = {
-						command = "mix",
-						args = { "format", "--stdin-filename", "$FILENAME" },
-						stdin = true,
-						timeout = 15000,
-					},
-				},
-				log_level = vim.log.levels.DEBUG,
-				notify_on_error = true,
 			})
-
-			-- Keymap for manual formatting
-			vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-				conform.format({
-					lsp_fallback = true,
-					async = false,
-					timeout_ms = 15000,
-				})
-			end, { desc = "Format file or range (in visual mode)" })
 		end,
 	},
 
@@ -655,9 +598,7 @@ return {
 					"bashls",
 					"cssls",
 					"dockerls",
-					-- "expert",ny i
 					"emmet_ls",
-					"elixirls",
 					"erlangls",
 					"html",
 					"intelephense",
@@ -671,46 +612,118 @@ return {
 		end,
 	},
 
-	-- Mason null-ls integration
-	"jayp0521/mason-null-ls.nvim",
-
-	-- Elixir LSP (ExpertLS)
 	{
-		"elixir-tools/elixir-tools.nvim",
-		version = "*", -- Use latest version
-		ft = { "elixir", "eex", "heex", "surface" },
-		dependencies = { "nvim-lua/plenary.nvim" },
-		event = { "BufReadPre", "BufNewFile" },
+		"nvimtools/none-ls.nvim", -- configure formatters & linters
+		lazy = true,
+		enabled = false,
+		-- event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
+		dependencies = {
+			"jay-babu/mason-null-ls.nvim",
+		},
 		config = function()
-			vim.env.MIX_OS_DEPS_COMPILE_PARTITION_COUNT = "1"
+			local mason_null_ls = require("mason-null-ls")
+			local null_ls = require("null-ls")
+			local null_ls_utils = require("null-ls.utils")
 
-			local elixir = require("elixir")
-			elixir.setup({
-				nextls = { enable = false }, -- Disable Next LS
-				elixirls = { -- Enable ElixirLS (Expert)
-					enable = true,
-					settings = elixir.elixirls.settings({
-						dialyzerEnabled = false,
-						enableTestLenses = false,
-						fetchDeps = false,
-					}),
-					env = {
-						MIX_OS_DEPS_COMPILE_PARTITION_COUNT = "1",
-					},
-					on_attach = function(client, bufnr)
-						client.server_capabilities.documentFormattingProvider = true
-						client.server_capabilities.documentRangeFormattingProvider = true
-
-						-- Elixir-specific keymaps
-						vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = bufnr, noremap = true })
-						vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = bufnr, noremap = true })
-						vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = bufnr, noremap = true })
-					end,
+			mason_null_ls.setup({
+				ensure_installed = {
+					"prettier", -- prettier formatter
+					"stylua", -- lua formatter
+					"eslint_d", -- js linter
 				},
-				credo = { enable = true }, -- Enable Credo for linting
-				projectionist = { enable = true }, -- Enable project navigation
+			})
+
+			-- for conciseness
+			local formatting = null_ls.builtins.formatting -- to setup formatters
+			local diagnostics = null_ls.builtins.diagnostics -- to setup linters
+
+			-- to setup format on save
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+			-- configure null_ls
+			null_ls.setup({
+				-- add package.json as identifier for root (for typescript monorepos)
+				root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
+				-- setup formatters & linters
+				sources = {
+					--  to disable file types use
+					--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
+					formatting.prettier.with({
+						extra_filetypes = { "svelte" },
+					}), -- js/ts formatter
+					formatting.stylua, -- lua formatter
+					formatting.isort,
+					diagnostics.eslint_d.with({ -- js/ts linter
+						condition = function(utils)
+							return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs", "eslint.config.js" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
+						end,
+					}),
+				},
+				-- configure format on save
+				on_attach = function(current_client, bufnr)
+					if current_client.supports_method("textDocument/formatting") then
+						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = augroup,
+							buffer = bufnr,
+							callback = function()
+								vim.lsp.buf.format({
+									filter = function(client)
+										--  only use null-ls for formatting instead of lsp server
+										return client.name == "null-ls"
+									end,
+									bufnr = bufnr,
+								})
+							end,
+						})
+					end
+				end,
 			})
 		end,
+	},
+
+	{
+		"elixir-tools/elixir-tools.nvim",
+		enabled = "true",
+		version = "*",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local elixir = require("elixir")
+			-- Switching to ExpertLS
+			-- local elixirls = require("elixir.elixirls")
+
+			elixir.setup({
+				nextls = { enable = false },
+				credo = {},
+				elixirls = {
+					enable = false,
+					-- settings = elixirls.settings({
+					-- 	dialyzerEnabled = false,
+					-- 	enableTestLenses = false,
+					-- }),
+					-- on_attach = function(client, bufnr)
+					-- 	vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
+					-- 	vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
+					-- 	vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
+					-- 	vim.keymap.set(
+					-- 		"n",
+					-- 		"gD",
+					-- 		"<cmd>lua vim.lsp.buf.declaration()<CR>",
+					-- 		{ noremap = true, silent = true }
+					-- 	)
+					-- 	vim.keymap.set(
+					-- 		"n",
+					-- 		"gd",
+					-- 		"<cmd>lua vim.lsp.buf.definition()<CR>",
+					-- 		{ noremap = true, silent = true }
+					-- 	)
+					-- end,
+				},
+			})
+		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
 	},
 
 	-- ====================
