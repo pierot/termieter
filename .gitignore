@@ -161,6 +161,12 @@ users/pieterm/config/temporalio
 users/pieterm/config/bpytop
 users/pieterm/config/github-copilot
 users/pieterm/config/superpowers
+users/pieterm/config/gh/hosts.yml
+users/pieterm/config/uv/
+users/pieterm/config/containers/podman-connections.json*
+users/pieterm/config/lnav/crash/
+users/pieterm/config/lnav/log_metadata.db
+users/pieterm/config/lnav/view-info-*.json
 
 .aider*
 ./.claude
