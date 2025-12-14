@@ -1,0 +1,25 @@
+[Unit]
+Description=Prometheus Container
+After=monitoring-network.service blackbox-exporter.service smokeping-prober.service
+Requires=monitoring-network.service
+Wants=blackbox-exporter.service smokeping-prober.service
+
+[Container]
+Image=docker.io/prom/prometheus:latest
+AutoUpdate=registry
+ContainerName=prometheus
+
+Network=monitoring.network
+PublishPort=9090:9090
+
+Volume=%h/.config/containers/systemd/network-monitor/prometheus.yml:/etc/prometheus/prometheus.yml:ro,z
+Volume=prometheus-data.volume:/prometheus
+
+Exec=--config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus --storage.tsdb.retention.time=30d --web.enable-lifecycle
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

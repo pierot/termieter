@@ -1,0 +1,25 @@
+[Unit]
+Description=Blackbox Exporter Container
+After=monitoring-network.service
+Requires=monitoring-network.service
+
+[Container]
+Image=docker.io/prom/blackbox-exporter:latest
+AutoUpdate=registry
+ContainerName=blackbox_exporter
+
+Network=monitoring.network
+PublishPort=9115:9115
+
+Volume=%h/.config/containers/systemd/network-monitor/blackbox.yml:/etc/blackbox_exporter/config.yml:ro,z
+
+Exec=--config.file=/etc/blackbox_exporter/config.yml
+
+AddCapability=NET_RAW
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -54,6 +54,6 @@ image/heif=gimp.desktop;
 application/x-ole-storage=org.mozilla.Thunderbird.desktop;
 text/css=nvim.desktop;
 audio/vnd.wave=audacity.desktop;mpv.desktop;
-application/json=gvim.desktop;
+application/json=libreoffice-writer.desktop;gvim.desktop;
 application/gpx+xml=gvim.desktop;
 application/zip=userapp-unzip-1YHQD3.desktop;xarchiver.desktop;

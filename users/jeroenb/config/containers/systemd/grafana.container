@@ -1,0 +1,26 @@
+[Unit]
+Description=Grafana Container
+After=monitoring-network.service prometheus.service
+Requires=monitoring-network.service
+Wants=prometheus.service
+
+[Container]
+Image=docker.io/grafana/grafana:latest
+AutoUpdate=registry
+ContainerName=grafana
+
+Network=monitoring.network
+PublishPort=3000:3000
+
+Volume=grafana-data.volume:/var/lib/grafana
+Volume=%h/.config/containers/systemd/network-monitor/grafana/provisioning:/etc/grafana/provisioning:ro,z
+
+Environment=GF_SECURITY_ADMIN_PASSWORD=admin
+Environment=GF_USERS_ALLOW_SIGN_UP=false
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

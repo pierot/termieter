@@ -1,3 +1,5 @@
 source ~/.termieter/env
 export SHELL=/bin/bash
 export HOMEBREW_NO_ANALYTICS=1
+
+. "$HOME/.config/local/share/../bin/env"
