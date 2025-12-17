@@ -168,6 +168,7 @@ users/pieterm/config/lnav/crash/
 users/pieterm/config/lnav/log_metadata.db
 users/pieterm/config/lnav/view-info-*.json
 users/pieterm/config/nvim/lazy-lock.json
+users/pieterm/config/zed/prompts/*mdb
 
 .aider*
 ./.claude
