@@ -167,7 +167,13 @@ users/pieterm/config/containers/podman-connections.json*
 users/pieterm/config/lnav/crash/
 users/pieterm/config/lnav/log_metadata.db
 users/pieterm/config/lnav/view-info-*.json
+users/pieterm/config/nvim/lazy-lock.json
 
 .aider*
 ./.claude
 .expert/expert.log
+
+# Added by Gemini
+users/pieterm/config/nvim/lazy-lock.json
+users/pieterm/config/gh/hosts.yml
+users/pieterm/config/uv/**

@@ -279,7 +279,11 @@ return {
 	-- ====================
 
 	-- Git commands
-	"tpope/vim-fugitive",
+	{
+		"tpope/vim-fugitive",
+		cmd = { "Git", "G" },
+		event = "BufReadPre",
+	},
 
 	-- Git signs in gutter
 	{
@@ -305,7 +309,7 @@ return {
 					follow_files = true,
 				},
 				attach_to_untracked = true,
-				current_line_blame = false,
+				current_line_blame = true,
 				sign_priority = 6,
 				update_debounce = 100,
 				status_formatter = nil,
@@ -355,7 +359,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		-- enabled = false,
-		-- event = { "BufReadPre", "BufNewFile" },
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			-- { "antosha417/nvim-lsp-file-operations", config = true },
@@ -1005,6 +1009,12 @@ return {
 						"--line-number",
 						"--column",
 						"--smart-case",
+						"--glob=!**/.git/*",
+						"--glob=!**/node_modules/*",
+						"--glob=!**/vendor/*",
+						"--glob=!**/*.min.js",
+						"--glob=!**/*.svg",
+						"--glob=!**/flow-typed/*",
 					},
 					mappings = {
 						i = {
@@ -1055,7 +1065,10 @@ return {
 	},
 
 	-- Ack/ripgrep integration
-	"mileszs/ack.vim",
+	{
+		"mileszs/ack.vim",
+		cmd = "Ack",
+	},
 
 	-- ====================
 	-- COMMENTS
@@ -1098,7 +1111,10 @@ return {
 	-- ====================
 
 	-- GitHub Copilot
-	"github/copilot.vim",
+	{
+		"github/copilot.vim",
+		event = "InsertEnter",
+	},
 
 	-- Codeium AI
 	{

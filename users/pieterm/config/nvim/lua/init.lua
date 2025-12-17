@@ -31,7 +31,7 @@ u.opt("o", "scrolloff", 4) -- Lines of context
 u.opt("o", "sidescrolloff", 8) -- Columns of context
 
 u.opt("o", "joinspaces", false) -- No double spaces with join after a dot
-u.opt("o", "formatoptions", "tcqj") -- j: Delete comment characters when joining lines.
+u.opt("o", "formatoptions", "tcqjro") -- j: Delete comment characters when joining lines.
 
 u.opt("b", "tabstop", indent) -- Number of spaces tabs count for
 u.opt("b", "shiftwidth", indent) -- Size of an indent
