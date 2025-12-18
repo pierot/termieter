@@ -440,9 +440,6 @@ return {
 		end,
 	},
 
-	-- LSP completion source
-	"hrsh7th/cmp-nvim-lsp",
-
 	-- Completion engine
 	{
 		"hrsh7th/nvim-cmp",
@@ -496,15 +493,6 @@ return {
 			})
 		end,
 	},
-
-	-- Completion sources
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-
-	-- Snippet engine
-	"L3MON4D3/LuaSnip",
-	"saadparwaiz1/cmp_luasnip",
 
 	-- VS-Code like icons for completion
 	{
