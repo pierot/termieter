@@ -1,0 +1,7 @@
+[Unit]
+Description=MySQL Data Volume
+
+[Volume]
+
+[Install]
+WantedBy=default.target

@@ -79,3 +79,39 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Lazy
 vim.keymap.set("n", "<leader>lz", "<cmd>:Lazy<CR>")
 vim.keymap.set("n", "<leader>lu", "<cmd>:Lazy update<CR>")
+
+-- Todo file keymaps (only active in files named 'todos')
+vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile" }, {
+  pattern = "**/todos",
+  callback = function()
+    local opts = { buffer = true, silent = true }
+
+    -- Insert date (YYYY-MM-DD)
+    vim.keymap.set("i", "<leader>d", function()
+      vim.api.nvim_put({ os.date("%Y-%m-%d") }, "c", true, true)
+    end, opts)
+    vim.keymap.set("n", "<leader>d", function()
+      vim.api.nvim_put({ os.date("%Y-%m-%d") }, "c", true, true)
+    end, opts)
+
+    -- Insert datetime (YYYY-MM-DD HH:MM:SS)
+    vim.keymap.set("i", "<leader>D", function()
+      vim.api.nvim_put({ os.date("%Y-%m-%d %H:%M:%S") }, "c", true, true)
+    end, opts)
+    vim.keymap.set("n", "<leader>D", function()
+      vim.api.nvim_put({ os.date("%Y-%m-%d %H:%M:%S") }, "c", true, true)
+    end, opts)
+
+    -- Mark todo as done: change leading '-' to 'v'
+    vim.keymap.set("n", "td", function()
+      vim.cmd([[s/^\(\s*\)-\(\s\)/\1v\2/e]])
+      vim.cmd("nohl")
+    end, opts)
+
+    -- Mark todo as won't do: change leading '-' to 'x'
+    vim.keymap.set("n", "tD", function()
+      vim.cmd([[s/^\(\s*\)-\(\s\)/\1x\2/e]])
+      vim.cmd("nohl")
+    end, opts)
+  end,
+})

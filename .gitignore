@@ -146,6 +146,8 @@ users/jeroenb/config/zsh/.zsh_plugins.zsh
 users/jeroenb/config/nvim/lazy-lock.json
 users/jeroenb/config/superpowers/
 users/jeroenb/config/lazygit/state.yml
+users/jeroenb/config/tidewave
+users/jeroenb/config/containers/systemd/smokeping/config/smokeping_secrets
 
 users/pieterm/config/lnav/configs/default/*.sample
 users/pieterm/config/psysh/**

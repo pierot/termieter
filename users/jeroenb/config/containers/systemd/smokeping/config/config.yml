@@ -1,0 +1,18 @@
+---
+targets:
+  - hosts:
+      - 192.168.1.1      # EDIT: Your router IP
+      - 8.8.8.8          # Google DNS
+      - 1.1.1.1          # Cloudflare DNS
+    interval: 1s
+    network: ip4
+    protocol: icmp
+    size: 56
+
+  - hosts:
+      - google.com
+      - github.com
+    interval: 1s
+    network: ip4
+    protocol: icmp
+    size: 56
