@@ -44,7 +44,7 @@ autoload -Uz compinit
 
 # Only regenerate compdump once per day (performance optimization)
 # This gives ~50-100ms speedup on subsequent shell loads
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
   compinit
 else
   compinit -C

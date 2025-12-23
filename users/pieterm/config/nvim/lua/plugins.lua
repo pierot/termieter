@@ -212,6 +212,7 @@ return {
 					"c",
 					"css",
 					"dockerfile",
+					"eex",
 					"elixir",
 					"gitignore",
 					"haskell",
@@ -389,8 +390,7 @@ return {
 
 			-- Small manual override for emmet_ls to add .heex support
 			vim.lsp.config.emmet_ls = {
-				filetypes = { "heex" },
-				-- filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "heex" },
+				filetypes = { "html", "css", "eelixir", "heex" },
 			}
 
 			-- LSP keymaps (set when LSP attaches to buffer)
