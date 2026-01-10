@@ -6,6 +6,12 @@ local g = vim.g -- a table to access global variables
 local u = require("utils")
 
 -------------------------------------------------
+-- DISABLE NETRW (use nvim-tree instead)
+-------------------------------------------------
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-------------------------------------------------
 -- GENERAL SETTINGS
 -------------------------------------------------
 
@@ -25,7 +31,7 @@ u.opt("o", "scrolloff", 4) -- Lines of context
 u.opt("o", "sidescrolloff", 8) -- Columns of context
 
 u.opt("o", "joinspaces", false) -- No double spaces with join after a dot
-u.opt("o", "formatoptions", "tcqj") -- j: Delete comment characters when joining lines.
+u.opt("o", "formatoptions", "tcqjro") -- j: Delete comment characters when joining lines.
 
 u.opt("b", "tabstop", indent) -- Number of spaces tabs count for
 u.opt("b", "shiftwidth", indent) -- Size of an indent
@@ -111,12 +117,7 @@ u.map("v", "<leader><leader>i", "<S-S><em>")
 
 u.map("n", "S", "mzi<CR><ESC>`z") -- Split line and preserve cursor position
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = { "*.exs", "*.ex", "*.leex", "*.heex" },
-	callback = function()
-		vim.fn.system("source .env.test && mix format " .. vim.fn.expand("%"))
-	end,
-})
+-- Elixir formatting removed - now handled by conform.nvim
 
 u.map("t", "<Esc>", "<C-\\><C-n>")
 
@@ -128,6 +129,21 @@ vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 vim.opt.background = "dark"
 
+-- Show tabs at the top
+vim.opt.showtabline = 2
+
+-------------------------------------------------
+-- SPECIFIC
+-------------------------------------------------
+
 -- all small plugins that need nothing more than a simple
 -- setup are setup here
 vim.g.ackprg = "rg --vimgrep --pcre2 -i" -- ack
+
+-- AI assistants - Codeium enabled by default, Copilot disabled
+vim.g.copilot_enabled = false -- Copilot disabled by default
+vim.g.copilot_no_tab_map = true -- Disable Copilot's Tab mapping to allow Codeium to use it
+-- Codeium is enabled by default
+
+require("setup.ai-toggle")
+require("setup.theme-toggle")

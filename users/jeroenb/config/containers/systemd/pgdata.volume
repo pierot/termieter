@@ -1,0 +1,7 @@
+[Unit]
+Description=PostgreSQL Data Volume
+
+[Volume]
+
+[Install]
+WantedBy=default.target

@@ -12,7 +12,10 @@ IEx.configure(
   colors: [
     eval_result: [:green, :bright],
     eval_error: [[:red, :bright, "Bug Bug ..!!"]],
-    eval_info: [:yellow, :bright]
+    eval_info: [:yellow, :bright],
+    # syntax_colors: [
+    #   map: :magenta
+    # ],
   ],
   default_prompt:
     [

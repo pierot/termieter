@@ -1,0 +1,7 @@
+[Unit]
+Description=Grafana Data Volume
+
+[Volume]
+
+[Install]
+WantedBy=default.target

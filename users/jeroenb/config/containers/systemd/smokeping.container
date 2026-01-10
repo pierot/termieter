@@ -1,0 +1,39 @@
+[Unit]
+Description=Smokeping Network Latency Monitor
+Documentation=https://hub.docker.com/r/linuxserver/smokeping
+Wants=
+After=
+
+[Container]
+Image=lscr.io/linuxserver/smokeping:latest
+ContainerName=smokeping
+HostName=smokeping
+
+# Environment variables
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Brussels
+
+# For master/slave setup, uncomment and configure:
+# Environment=MASTER_URL=http://<master-host-ip>:80/smokeping/
+# Environment=SHARED_SECRET=password
+# Environment=CACHE_DIR=/tmp
+
+# Volume mounts - adjust paths as needed
+# Using %h expands to home directory
+Volume=%h/.config/containers/systemd/smokeping/config:/config:Z
+Volume=%h/.config/containers/systemd/smokeping/data:/data:Z
+
+# Port mapping
+PublishPort=9999:80
+
+# Automatic updates and restart policy
+AutoUpdate=registry
+
+[Service]
+# Restart configuration
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

@@ -1,6 +1,5 @@
 [Unit]
 Description=PostgreSQL container (dev)
-After=network.target
 Wants=
 After=
 
@@ -10,7 +9,7 @@ Image=postgres
 ContainerName=postgres
 EnvironmentFile=%h/Dropbox/Work/containers.env
 PublishPort=5432:5432
-Volume=pgdata:/var/lib/postgresql
+Volume=pgdata:/var/lib/postgresql/data
 # Postgres args (your -c wal_level=logical etc.)
 PodmanArgs=--shm-size=1024m
 Exec=postgres -c wal_level=logical -c max_connections=200

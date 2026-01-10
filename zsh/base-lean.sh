@@ -11,22 +11,22 @@ have() {
 ###############################################################################
 
 # Set theme based on system
-ZSH_THEME="kolo"
+ZSH_THEME="termieter"
 
 # Debian servers
 if [ -n "$(uname -a | grep Debian)" ]; then
-  ZSH_THEME="dallas"
+  ZSH_THEME="termieter"
 fi
 
 # RPI (armv6l, armv7l)
 if [ -n "$(uname -a | grep armv6l)" ] || [ -n "$(uname -a | grep armv7l)" ]; then
-  ZSH_THEME="alanpeabody"
+  ZSH_THEME="termieter"
 fi
 
 # RPI or ARM (aarch64)
 if [ -n "$(uname -a | grep aarch64)" ]; then
   if [ -n "$(cat /proc/device-tree/model 2>/dev/null | grep -a "Raspberry")" ]; then
-    ZSH_THEME="alanpeabody"
+    ZSH_THEME="termieter"
   fi
 fi
 
@@ -44,7 +44,7 @@ autoload -Uz compinit
 
 # Only regenerate compdump once per day (performance optimization)
 # This gives ~50-100ms speedup on subsequent shell loads
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
   compinit
 else
   compinit -C
@@ -97,6 +97,11 @@ if have starship; then
   eval "$(starship init zsh)"
 else
   # Load minimal plugins when not using starship
+
+  # Load our custom theme
+  if [[ -f "$TRM/zsh/themes/termieter.zsh-theme" ]]; then
+    source "$TRM/zsh/themes/termieter.zsh-theme"
+  fi
 
   # History substring search (universal)
   [[ -f "$TRM/zsh/plugins/history-substring-search.zsh" ]] && \

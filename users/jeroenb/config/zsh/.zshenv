@@ -1,4 +1,10 @@
 #!/bin/zsh
+
+# Source private env vars (not in git)
+if [ -f "$HOME/Dropbox/.env" ]; then
+  source "$HOME/Dropbox/.env"
+fi
+
 source $HOME/.termieter/env
 
 # Env variables

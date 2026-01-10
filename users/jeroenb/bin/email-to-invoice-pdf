@@ -1,0 +1,111 @@
+#!/bin/bash
+#
+# email-to-invoice-pdf - Archive emails as invoices to BTW-Aangiftes folder
+#
+# Usage: Called from aerc via pipe
+#   :pipe email-to-invoice-pdf
+#
+
+# set -euo pipefail
+
+BASE_DIR="${INVOICE_ARCHIVE_DIR:?INVOICE_ARCHIVE_DIR not set}"
+
+# Read email from stdin
+EMAIL=$(cat)
+
+# Extract headers
+FROM=$(echo "$EMAIL" | grep -i "^From:" | head -1 | sed 's/^[Ff]rom: *//')
+SUBJECT=$(echo "$EMAIL" | grep -i "^Subject:" | head -1 | sed 's/^[Ss]ubject: *//')
+DATE_HEADER=$(echo "$EMAIL" | grep -i "^Date:" | head -1 | sed 's/^[Dd]ate: *//')
+
+# Parse date from email header
+EMAIL_DATE=$(date -d "$DATE_HEADER" +%Y%m%d 2>/dev/null || date +%Y%m%d)
+EMAIL_YEAR=$(date -d "$DATE_HEADER" +%Y 2>/dev/null || date +%Y)
+EMAIL_MONTH=$(date -d "$DATE_HEADER" +%-m 2>/dev/null || date +%-m)
+
+# Calculate quarter
+if [ "$EMAIL_MONTH" -le 3 ]; then
+    QUARTER=1
+elif [ "$EMAIL_MONTH" -le 6 ]; then
+    QUARTER=2
+elif [ "$EMAIL_MONTH" -le 9 ]; then
+    QUARTER=3
+else
+    QUARTER=4
+fi
+
+echo "HERE"
+# Determine vendor based on From and Subject
+VENDOR=""
+
+# Apple: from no_reply@email.apple.com, subject contains "invoice from Apple"
+if [[ "$FROM" == *"no_reply@email.apple.com"* ]] && [[ "$SUBJECT" == *"invoice from Apple"* ]]; then
+    VENDOR="apple"
+fi
+
+# Telenet: from info@comm.telenet.be, subject starts with "Uw Telenet Business-factuur"
+if [[ "$FROM" == *"info@comm.telenet.be"* ]] && [[ "$SUBJECT" == *"Uw Telenet Business-factuur"* ]]; then
+    VENDOR="telenet"
+fi
+
+echo "VENDOR ${VENDOR} - ${FROM} - ${SUBJECT}"
+# Exit if no vendor matched
+if [ -z "$VENDOR" ]; then
+    notify-send -u critical "Invoice Archive" "Unknown vendor\nFrom: $FROM\nSubject: $SUBJECT"
+    exit 1
+fi
+
+# Build output directory
+OUTPUT_DIR="$BASE_DIR/$EMAIL_YEAR/$EMAIL_YEAR-$QUARTER/in"
+
+# Create directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
+
+# Find next sequence number for this vendor and date
+SEQ=1
+while [ -f "$OUTPUT_DIR/$VENDOR-$EMAIL_DATE-$(printf '%02d' $SEQ).pdf" ]; do
+    ((SEQ++))
+done
+
+OUTPUT_FILE="$OUTPUT_DIR/$VENDOR-$EMAIL_DATE-$(printf '%02d' $SEQ).pdf"
+
+if [ "$VENDOR" = "telenet" ]; then
+    # Telenet: extract PDF attachment
+    TEMP_DIR=$(mktemp -d)
+    echo "$EMAIL" > "$TEMP_DIR/email.eml"
+
+    # Use ripmime if available, otherwise try munpack
+    if command -v ripmime &> /dev/null; then
+        ripmime -i "$TEMP_DIR/email.eml" -d "$TEMP_DIR" 2>/dev/null
+    elif command -v munpack &> /dev/null; then
+        cd "$TEMP_DIR" && munpack -q email.eml 2>/dev/null
+    else
+        notify-send -u critical "Invoice Archive" "Need ripmime or munpack for attachments"
+        rm -rf "$TEMP_DIR"
+        exit 1
+    fi
+
+    # Find the PDF file
+    PDF_FILE=$(find "$TEMP_DIR" -name "*.pdf" -o -name "*.PDF" | head -1)
+
+    if [ -n "$PDF_FILE" ] && [ -f "$PDF_FILE" ]; then
+        cp "$PDF_FILE" "$OUTPUT_FILE"
+        notify-send "Invoice Archive" "Saved: $VENDOR-$EMAIL_DATE-$(printf '%02d' $SEQ).pdf"
+    else
+        notify-send -u critical "Invoice Archive" "No PDF attachment found in Telenet email"
+        rm -rf "$TEMP_DIR"
+        exit 1
+    fi
+
+    rm -rf "$TEMP_DIR"
+else
+    # Other vendors: convert email to PDF
+    echo "$EMAIL" | wkhtmltopdf - "$OUTPUT_FILE" 2>/dev/null
+
+    if [ -f "$OUTPUT_FILE" ]; then
+        notify-send "Invoice Archive" "Saved: $VENDOR-$EMAIL_DATE-$(printf '%02d' $SEQ).pdf"
+    else
+        notify-send -u critical "Invoice Archive" "Failed to create PDF"
+        exit 1
+    fi
+fi

@@ -1,0 +1,33 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'blackbox_icmp'
+    metrics_path: /probe
+    params:
+      module: [icmp]
+    static_configs:
+      - targets:
+          - 192.168.0.1        # EDIT: Your router IP
+          - 8.8.8.8            # Google DNS
+          - 1.1.1.1            # Cloudflare DNS
+          - 9.9.9.9            # Quad9 DNS
+          - www.google.com
+          - www.github.com
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox_exporter:9115
+
+  - job_name: 'smokeping'
+    static_configs:
+      - targets:
+          - smokeping_prober:9374

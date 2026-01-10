@@ -1,0 +1,27 @@
+[Unit]
+Description=Smokeping Prober Container
+After=monitoring-network.service
+Requires=monitoring-network.service
+
+[Container]
+Image=quay.io/superq/smokeping-prober:latest
+AutoUpdate=registry
+ContainerName=smokeping_prober
+
+Network=monitoring.network
+PublishPort=9374:9374
+
+Volume=%h/.config/containers/systemd/network-monitor/smokeping.yml:/etc/smokeping_prober/config.yml:ro,z
+
+Exec=--config.file=/etc/smokeping_prober/config.yml
+
+Environment=GOMAXPROCS=1
+
+AddCapability=NET_RAW
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

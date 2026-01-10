@@ -1,0 +1,5 @@
+/* Hide div with aria-label "Your shows" */
+[aria-label="Your shows"] { display: none !important; }
+
+/* Hide div with aria-label starting with "Popular with listeners of" */
+[aria-label^="Popular with listeners of"] { display: none !important; }
