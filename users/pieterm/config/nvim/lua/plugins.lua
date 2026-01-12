@@ -189,82 +189,75 @@ return {
   -- Syntax highlighting and parsing
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false, -- v1.0+ does not support lazy-loading
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
     config = function()
       local ts = require("nvim-treesitter")
 
-      ts.setup({
-        highlight = {
-          enable = true,
-          disable = function(lang, bufnr)
-            return lang == "sql" and vim.api.nvim_buf_line_count(bufnr) > 1000
-          end,
-        },
-        rainbow = {
-          enable = true,
-          extended_mode = true,
-          max_file_lines = 1000,
-        },
-        indent = { enable = true },
-        textobjects = { enable = true },
-        ensure_installed = {
+      -- Install parsers (v1.0+ API)
+      ts.install({
+        "bash",
+        "c",
+        "css",
+        "dockerfile",
+        "eex",
+        "elixir",
+        "gitignore",
+        "haskell",
+        "heex",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "php",
+        "query",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "yaml",
+      })
+
+      -- Enable treesitter highlighting for filetypes
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
           "bash",
           "c",
           "css",
           "dockerfile",
-          "eex",
+          "eelixir",
           "elixir",
           "gitignore",
           "haskell",
           "heex",
           "html",
           "javascript",
-          "jsdoc",
           "json",
-          "jsonc",
           "lua",
           "markdown",
-          "markdown_inline",
           "php",
-          "query",
           "scss",
           "toml",
-          "tsx",
           "typescript",
+          "typescriptreact",
           "vim",
           "yaml",
         },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<C-space>",
-            node_incremental = "<C-space>",
-            scope_incremental = false,
-            node_decremental = "<bs>",
-          },
-        },
-        refactor = {
-          highlight_definitions = { enable = true },
-          highlight_current_scope = { enable = true },
-          smart_rename = {
-            enable = true,
-            keymaps = { smart_rename = "grr" },
-            navigation = {
-              enable = true,
-              keymaps = {
-                goto_definition = "gnd",
-                list_definitions = "gnD",
-                list_definitions_toc = "gO",
-                goto_next_usage = "<a-*>",
-                goto_previous_usage = "<a-#>",
-              },
-            },
-          },
-        },
+        callback = function()
+          vim.treesitter.start()
+        end,
+      })
+
+      -- Enable treesitter-based indentation
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "elixir", "heex", "eelixir", "javascript", "typescript", "lua", "python" },
+        callback = function()
+          vim.bo.indentexpr = "nvim_treesitter#indent()"
+        end,
       })
     end,
   },
