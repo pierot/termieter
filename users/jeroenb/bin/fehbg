@@ -1,2 +1,4 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/jeroen/Dropbox/Photos/wallpapers/2025-10-11-Dave Clarke @ Cactus Club,Brugge.JPEG' 
+feh --no-fehbg --bg-fill '/home/jeroen/Dropbox/Photos/wallpapers/Artemis II crew poster virtual background.jpg' 
+# feh --no-fehbg --bg-fill '/home/jeroen/Dropbox/Photos/wallpapers/artemis-rocket.jpg' 
+# feh --no-fehbg --bg-fill '/home/jeroen/Dropbox/Photos/wallpapers/2025-10-11-Dave Clarke @ Cactus Club,Brugge.JPEG' 
