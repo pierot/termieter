@@ -39,6 +39,30 @@ return {
 			-- filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "heex" },
 		}
 
+		-- Configure tailwindcss to use project-local or global installation
+		-- This tries: 1) project node_modules, 2) pnpm global, 3) asdf shim
+		local function get_tailwind_cmd()
+			local project_bin = vim.fn.getcwd() .. "/node_modules/.bin/tailwindcss-language-server"
+			local pnpm_bin = vim.fn.expand("~/.config/local/share/pnpm/tailwindcss-language-server")
+			local asdf_bin = vim.fn.expand("~/.asdf/shims/tailwindcss-language-server")
+
+			if vim.fn.executable(project_bin) == 1 then
+				return { project_bin, "--stdio" }
+			elseif vim.fn.executable(pnpm_bin) == 1 then
+				return { pnpm_bin, "--stdio" }
+			elseif vim.fn.executable(asdf_bin) == 1 then
+				return { asdf_bin, "--stdio" }
+			else
+				-- Fallback to command in PATH
+				return { "tailwindcss-language-server", "--stdio" }
+			end
+		end
+
+		vim.lsp.config.tailwindcss = {
+			cmd = get_tailwind_cmd(),
+			capabilities = capabilities,
+		}
+
 		-- LSP keymaps (set when LSP attaches to buffer)
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)

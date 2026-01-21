@@ -99,4 +99,15 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
+# pnpm
+export PNPM_HOME="/home/jeroen/.config/local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Fix npm prefix issue (don't set to /nonexistent)
+unset NPM_CONFIG_PREFIX
+
 . "$HOME/.config/local/share/../bin/env"
