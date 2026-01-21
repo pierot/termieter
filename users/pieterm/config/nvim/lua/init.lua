@@ -141,8 +141,8 @@ vim.opt.showtabline = 2
 vim.g.ackprg = "rg --vimgrep --pcre2 -i" -- ack
 
 -- AI assistants - Codeium enabled by default, Copilot disabled
-vim.g.copilot_enabled = false -- Copilot disabled by default
-vim.g.copilot_no_tab_map = true -- Disable Copilot's Tab mapping to allow Codeium to use it
+--[[ vim.g.copilot_enabled = false -- Copilot disabled by default
+vim.g.copilot_no_tab_map = true -- Disable Copilot's Tab mapping to allow Codeium to use it ]]
 -- Codeium is enabled by default
 
 require("setup.ai-toggle")
