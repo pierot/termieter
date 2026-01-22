@@ -323,7 +323,7 @@ return {
 
 	{
 		"kyazdani42/nvim-tree.lua",
-		lazy = false,
+		lazy = true,
 		priority = 1000,
 		keys = {
 			{ "<c-n>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file tree" },
@@ -675,7 +675,7 @@ return {
 	{
 		"elixir-tools/elixir-tools.nvim",
 		lazy = true,
-		enabled = "true",
+		enabled = true,
 		version = "*",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()

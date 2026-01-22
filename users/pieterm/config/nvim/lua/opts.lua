@@ -4,21 +4,6 @@
 local opt = vim.opt
 local indent = 2
 
--- ==========================================================================
---  PERFORMANCE & GLOBALS
--- ==========================================================================
--- Set leader BEFORE anything else to ensure plugins pick it up correctly
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
-
--- Disable providers we don't use (Measurable startup improvement)
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_node_provider = 0
-
--- Disable built-in plugins we don't use
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- General
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
