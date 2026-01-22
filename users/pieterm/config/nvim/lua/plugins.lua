@@ -143,9 +143,7 @@ return {
 	{
 		"junegunn/vim-easy-align",
 		config = function()
-			local u = require("utils")
-			u.map("n", "ga", "<Plug>(EasyAlign)")
-			u.map("x", "ga", "<Plug>(EasyAlign)")
+			vim.keymap.set({ "n", "x" }, "ga", "<Plug>(EasyAlign)", { remap = true })
 		end,
 	},
 
