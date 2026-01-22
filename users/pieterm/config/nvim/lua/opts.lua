@@ -125,6 +125,13 @@ vim.keymap.set("v", "<leader><leader>i", "<S-S><em>")
 vim.keymap.set("n", "S", "mzi<CR><ESC>`z") -- Split line, preserve cursor
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>") -- Terminal escape
 
+-- Disable swapfiles (Fixes W325 error and improves performance)
+vim.opt.swapfile = false
+
+-- Enable persistent undo (Keeps undo history between sessions)
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
+
 -- ==========================================================================
 --  PLUGIN CONFIGS
 -- ==========================================================================
