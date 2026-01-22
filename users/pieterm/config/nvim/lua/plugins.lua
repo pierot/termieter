@@ -280,6 +280,7 @@ return {
 	-- Git commands
 	{
 		"tpope/vim-fugitive",
+		lazy = true,
 		cmd = { "Git", "G" },
 		event = "BufReadPre",
 	},
@@ -287,6 +288,7 @@ return {
 	-- Git signs in gutter
 	{
 		"lewis6991/gitsigns.nvim",
+		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local gitsigns = require("gitsigns")
@@ -674,6 +676,7 @@ return {
 
 	{
 		"elixir-tools/elixir-tools.nvim",
+		lazy = true,
 		enabled = "true",
 		version = "*",
 		event = { "BufReadPre", "BufNewFile" },
