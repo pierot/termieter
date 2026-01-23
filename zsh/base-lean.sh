@@ -60,6 +60,24 @@ zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+# Speed up git completion
+zstyle ':completion:*:*:git:*' verbose no
+zstyle ':completion:*:*:git:*' format '%B%d%b'
+zstyle ':completion:*:*:git:*' group-name ''
+zstyle ':completion:*:*:git:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:git:*' use-cache yes
+zstyle ':completion:*:*:git:*' cache-path "$HOME/.zsh/cache"
+# Prioritize branches and tags
+zstyle ':completion:*:*:git:*' group-order common-commands branches tags remotes
+# Only show branches and tags for checkout/pull/etc
+zstyle ':completion:*:*:git-checkout:*' branches true
+zstyle ':completion:*:*:git-checkout:*' tags true
+zstyle ':completion:*:*:git-pull:*' branches true
+zstyle ':completion:*:*:git-merge:*' branches true
+# Avoid full status check during completion
+zstyle ':completion:*:*:git:*' ignore-line true
+
+
 ###############################################################################
 # HISTORY SETTINGS
 ###############################################################################

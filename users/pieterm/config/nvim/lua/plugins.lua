@@ -677,7 +677,7 @@ return {
 		lazy = true,
 		enabled = true,
 		version = "*",
-		event = { "BufReadPre", "BufNewFile" },
+		ft = { "elixir", "eelixir", "heex", "surface" },
 		config = function()
 			local elixir = require("elixir")
 			-- Switching to ExpertLS
