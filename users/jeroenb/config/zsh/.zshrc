@@ -109,5 +109,3 @@ esac
 
 # Fix npm prefix issue (don't set to /nonexistent)
 unset NPM_CONFIG_PREFIX
-
-. "$HOME/.config/local/share/../bin/env"
