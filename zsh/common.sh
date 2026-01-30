@@ -342,5 +342,3 @@ fi
 export PATH="$HOME/.asdf/shims:$PATH"
 
 ##########################################################
-
-alias claude="$HOME/.claude/local/claude"

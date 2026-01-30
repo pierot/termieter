@@ -122,7 +122,7 @@ vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
 -- ==========================================================================
 
 -- Ack
-vim.g.ackprg = "rg --vimgrep --pcre2 -i"
+vim.g.ackprg = "rg --vimgrep -i"
 
 -- Setup files (Ensure these files exist in lua/setup/)
 -- These should NOT contain 'vim.cmd' wrappers if possible.
