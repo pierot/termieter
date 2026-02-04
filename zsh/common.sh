@@ -164,7 +164,7 @@ gwt_create() {
   # Usage: gwt_create <branch> [<base-branch>]
   local branch="$1"
   local base="${2:-main}"
-  local dir="worktrees/$branch"
+  local dir="${GWT_DIR:-worktrees}/$branch"
   git worktree add -b "$branch" "$dir" "$base" && cd "$dir"
 }
 
