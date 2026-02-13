@@ -110,4 +110,4 @@ alias vati='echo BE0568678435 | pbcopy'
 alias btwiamjack='echo BE0568678435 | pbcopy'
 alias btw='echo BE0568678435 | pbcopy'
 
-unalias claude # set in zsh/common.sh
+# unalias claude # set in zsh/common.sh
