@@ -33,6 +33,10 @@ export ASDF_SKIP_COMMANDS="claude"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SHELL=/usr/bin/zsh
 export CONTAINER_HOST=unix:///run/user/$(id -u)/podman/podman.sock
+export GWT_DIR=".worktrees"
+export ENABLE_TOOL_SEARCH=true # For Claude code
+export PLAYWRIGHT_MCP_BROWSER=firefox
+export PLAYWRIGHT_MCP_IGNORE_HTTPS_ERRORS=true
 # Need to install with pacman -S intellij-idea-ultimate-edition
 
 # PATH

@@ -111,3 +111,9 @@ alias btwiamjack='echo BE0568678435 | pbcopy'
 alias btw='echo BE0568678435 | pbcopy'
 
 # unalias claude # set in zsh/common.sh
+
+# Ansible (venv with Python 3.12)
+alias ansible="~/.venvs/ansible/bin/ansible"
+alias ansible-playbook="~/.venvs/ansible/bin/ansible-playbook"
+alias ansible-galaxy="~/.venvs/ansible/bin/ansible-galaxy"
+alias ansible-vault="~/.venvs/ansible/bin/ansible-vault"
