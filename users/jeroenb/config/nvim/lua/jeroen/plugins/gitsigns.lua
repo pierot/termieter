@@ -36,6 +36,8 @@ return {
 				map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
 				map("n", "<leader>hp", gs.preview_hunk, { desc = "Preview hunk" })
 				map("n", "<leader>hd", gs.diffthis, { desc = "Diff this" })
+				map("n", "<leader>gb", gs.blame_line, { desc = "Blame line" })
+				map("n", "<leader>gB", gs.blame_line, { desc = "Blame" })
 			end,
 		})
 	end,

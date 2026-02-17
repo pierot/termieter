@@ -64,15 +64,15 @@ return {
 		keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
 		--keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>")
-		keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>")
+		-- keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>")
 		keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
 		keymap.set("n", "<leader>fg", function()
-			require('telescope').extensions.live_grep_args.live_grep_args({
-				default_text = "--glob '!test/**' "
+			require("telescope").extensions.live_grep_args.live_grep_args({
+				default_text = "--glob '!test/**' ",
 			})
 		end, { desc = "Live grep (exclude test)" })
 		keymap.set("n", "<leader>ft", function()
-			require('telescope').extensions.live_grep_args.live_grep_args()
+			require("telescope").extensions.live_grep_args.live_grep_args()
 		end, { desc = "Live grep (include test)" })
 		keymap.set("n", "<leader>fr", ":lua require('telescope')..lsp_references()<CR>")
 		-- multigrep (tnx TJ)
