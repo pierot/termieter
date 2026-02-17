@@ -80,7 +80,16 @@ return {
 				},
 			}
 
-			require("nightfox").setup({ palettes = palettes })
+			local groups = {
+				carbonfox = {
+					NeogitDiffAdd = { fg = "palette.green.bright", bg = "#0a2a0a" },
+					NeogitDiffAddHighlight = { fg = "palette.green.bright", bg = "#0a2a0a" },
+					NeogitDiffDelete = { fg = "palette.red.bright", bg = "#2a0a0a" },
+					NeogitDiffDeleteHighlight = { fg = "palette.red.bright", bg = "#2a0a0a" },
+				},
+			}
+
+			require("nightfox").setup({ palettes = palettes, groups = groups })
 
 			-- vim.cmd("colorscheme ayu-dark")
 			vim.cmd("colorscheme carbonfox")
