@@ -169,8 +169,8 @@ gwt_create() {
     read -r answer
     [[ "$answer" != [yY] ]] && return 1
   fi
-  local dir="worktrees/$branch"
-  git worktree add -b "$branch" "$dir" $base && cd "$dir"
+  local dir="${GWT_DIR:-worktrees}/$branch"
+  git worktree add -b "$branch" "$dir" "$base" && cd "$dir"
 }
 
 # List all worktrees

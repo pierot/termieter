@@ -12,16 +12,12 @@ return {
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"petertriho/cmp-git",
-		"zbirenbaum/copilot-cmp",
 		-- { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
 	},
-	after = { "copilot.lua" },
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
-
-		require("copilot_cmp").setup()
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
@@ -57,7 +53,6 @@ return {
 				{ name = "git" }, -- git, really??
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
-				{ name = "copilot", group_index = 2 },
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
