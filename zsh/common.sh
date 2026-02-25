@@ -163,7 +163,12 @@ gwt_find_dir() {
 gwt_create() {
   # Usage: gwt_create <branch> [<base-branch>]
   local branch="$1"
-  local base="${2:-main}"
+  local base="$2"
+  if [ -z "$base" ]; then
+    echo -n "No base branch specified. Use current branch? (y/n) "
+    read -r answer
+    [[ "$answer" != [yY] ]] && return 1
+  fi
   local dir="${GWT_DIR:-worktrees}/$branch"
   git worktree add -b "$branch" "$dir" "$base" && cd "$dir"
 }
