@@ -163,7 +163,12 @@ gwt_find_dir() {
 gwt_create() {
   # Usage: gwt_create <branch> [<base-branch>]
   local branch="$1"
-  local base="${2:-main}"
+  local base="$2"
+  if [ -z "$base" ]; then
+    echo -n "No base branch specified. Use current branch? (y/n) "
+    read -r answer
+    [[ "$answer" != [yY] ]] && return 1
+  fi
   local dir="${GWT_DIR:-worktrees}/$branch"
   git worktree add -b "$branch" "$dir" "$base" && cd "$dir"
 }
@@ -204,11 +209,37 @@ gwt_rm() {
   git branch -D "$branch"
 }
 
+# Create a worktree and set up a tmux layout (3 panes: left | right-top / right-bottom)
+gwt_tmux() {
+  # Usage: gwt_tmux <branch> [<base-branch>]
+  local branch="$1"
+  local base="${2:-main}"
+
+  if [ -z "$branch" ]; then
+    echo "Usage: gwt_tmux <branch> [<base-branch>]"
+    return 1
+  fi
+
+  local dir="${GWT_DIR:-worktrees}/$branch"
+  git worktree add -b "$branch" "$dir" "$base" || return 1
+  local worktree_path="$(cd "$dir" && pwd)"
+
+  tmux split-window -h -c "$worktree_path"
+  tmux split-window -v -c "$worktree_path"
+  tmux select-pane -t 0
+  tmux send-keys "cd $worktree_path" Enter
+}
+
 gwt_info() {
   cat <<'EOF'
 gwt_create <branch> [<base-branch>]
   Create a new worktree for <branch> (from <base-branch>, default: main) in worktrees/<branch> and cd into it.
   Example: gwtc feature/foo develop
+
+gwt_tmux <branch> [<base-branch>]
+  Create a worktree and split the current tmux window into 3 panes (50/50 vertical, right split horizontal).
+  All panes cd into the worktree directory.
+  Example: gwt_tmux feature/foo develop
 
 gwt_list
   List all git worktrees.
