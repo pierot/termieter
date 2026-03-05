@@ -57,6 +57,29 @@ opt.switchbuf = "usetab" -- Switch to existing tab then window
 opt.fsync = true -- Sync after write
 opt.confirm = true -- Ask whether to save changed files
 
+-- Diagnostics
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = "●",
+		spacing = 4,
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰠠 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		},
+	},
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		source = true,
+	},
+})
+
 -- Syntax (vim.opt.syntax doesn't exist, this is a command)
 vim.cmd("syntax enable")
 
