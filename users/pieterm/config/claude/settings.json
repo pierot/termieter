@@ -35,6 +35,7 @@
       "Bash(cut:*)",
       "Bash(tr:*)",
       "Bash(open:*)",
+      "Bash(source .env:*)",
       "WebSearch",
       "WebFetch"
     ],
