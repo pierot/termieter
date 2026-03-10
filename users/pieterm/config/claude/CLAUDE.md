@@ -5,6 +5,9 @@ Do not excessively use emojis.
 
 ## Code
 
+Always work with a plan of actions and present this plan to me before going into execution mode.
+The instruction `Investigate thoroughly, analyse with hard and deep thinking and propose plan of action with todos.` is a good starting point.
+
 ### About Me
 
 - Working primarily with Elixir/Phoenix, JavaScript/TypeScript, and shell scripting
