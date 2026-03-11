@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(make:*)",
+      "Bash(brew:*)",
+      "Bash(sed:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(echo:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(touch:*)",
+      "Bash(chmod:*)",
+      "Bash(pwd:*)",
+      "Bash(which:*)",
+      "Bash(whoami:*)",
+      "Bash(date:*)",
+      "Bash(wc:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(diff:*)",
+      "Bash(awk:*)",
+      "Bash(cut:*)",
+      "Bash(tr:*)",
+      "Bash(open:*)",
+      "Bash(source .env:*)",
+      "WebSearch",
+      "WebFetch"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c 'input=$(cat); cwd=$(echo \"$input\" | jq -r \".workspace.current_dir\"); cd \"$cwd\" 2>/dev/null || cd \"$HOME\"; dir=$(pwd); dir=\"${dir/#$HOME/\\~}\"; if [[ \"$dir\" == */* ]]; then IFS=\"/\" read -ra parts <<< \"$dir\"; if [ ${#parts[@]} -gt 2 ]; then dir=\"…/${parts[-2]}/${parts[-1]}\"; fi; fi; branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null); printf \"\\033[38;5;204m%s\\033[0m\" \"$dir\"; [ -n \"$branch\" ] && printf \"\\033[38;5;147m %s\\033[0m\" \"$branch\"'"
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "elixir-optimization@elixir-claude-optimization": true
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high"
+}
