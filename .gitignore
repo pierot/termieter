@@ -63,6 +63,9 @@ users/jeroenb/config/chromium
 users/jeroenb/config/ckb-next/**
 users/jeroenb/config/cmus
 users/jeroenb/config/claude
+!users/jeroenb/config/claude/CLAUDE.md
+!users/jeroenb/config/claude/settings.json
+!users/jeroenb/config/claude/settings.local.json
 users/jeroenb/config/pdfcpu
 users/jeroenb/config/composer
 users/jeroenb/config/tool_state
@@ -133,7 +136,6 @@ users/jeroenb/config/zsh/.zcompcache
 users/jeroenb/config/zsh/.zcompdump
 users/jeroenb/config/zsh/.zsh_history
 users/jeroenb/config/zsh/pure
-users/jeroenb/config/claude
 users/jeroenb/config/Deskreen
 users/jeroenb/config/pdfcpu
 users/jeroenb/config/tool_state

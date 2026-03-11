@@ -1,0 +1,9 @@
+{
+  "model": "opus",
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true,
+    "elixir-optimization@elixir-claude-optimization": true,
+    "frontend-design@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true
+}
