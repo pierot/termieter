@@ -93,7 +93,7 @@ source $TRM/zsh/common.sh
 
 # Atuin (kickoff here, must be done early - interactive shell only)
 if [ -d "${HOME}/.atuin/bin" ]; then
-  eval "$(atuin init zsh)"
+  eval "$(atuin init zsh --disable-ctrl-r)"
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.

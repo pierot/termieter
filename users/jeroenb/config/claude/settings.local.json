@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "WebSearch",
+      "WebFetch(domain:wiki.archlinux.org)",
+      "WebFetch(domain:man.archlinux.org)",
+      "Bash(op:*)",
+      "Bash(carddav-query:*)",
+      "Bash(cat:*)"
+    ]
+  }
+}
