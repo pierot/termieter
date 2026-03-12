@@ -253,6 +253,7 @@ wt_tmux() {
 
   local worktree_path="$(pwd)"
 
+  tmux rename-window "$branch"
   tmux split-window -h -c "$worktree_path"
   tmux split-window -v -c "$worktree_path"
   tmux select-pane -t 0
