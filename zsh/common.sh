@@ -230,6 +230,35 @@ gwt_tmux() {
   tmux send-keys "cd $worktree_path" Enter
 }
 
+# Switch to (or create) a worktree with worktrunk and set up a tmux layout (3 panes: left | right-top / right-bottom)
+wt_tmux() {
+  # Usage: wt_tmux <branch> [<base-branch>]
+  # If worktree exists, switches to it. If not, creates it.
+  local branch="$1"
+  local base="$2"
+
+  if [ -z "$branch" ]; then
+    echo "Usage: wt_tmux <branch> [<base-branch>]"
+    return 1
+  fi
+
+  # Try switching to existing worktree first, create if it doesn't exist
+  if ! wt switch "$branch" 2>/dev/null; then
+    if [ -n "$base" ]; then
+      wt switch --create "$branch" --base "$base" || return 1
+    else
+      wt switch --create "$branch" || return 1
+    fi
+  fi
+
+  local worktree_path="$(pwd)"
+
+  tmux split-window -h -c "$worktree_path"
+  tmux split-window -v -c "$worktree_path"
+  tmux select-pane -t 0
+  tmux send-keys "cd $worktree_path" Enter
+}
+
 gwt_info() {
   cat <<'EOF'
 gwt_create <branch> [<base-branch>]
@@ -258,6 +287,11 @@ gwt_rm <branch>
 
 gwt_info
   Show this help/documentation.
+
+wt_tmux <branch> [<base-branch>]
+  Create a worktree using worktrunk (wt) and split the current tmux window into 3 panes (50/50 vertical, right split horizontal).
+  All panes cd into the worktree directory.
+  Example: wt_tmux feat/sftp-integraties develop
 EOF
 }
 
