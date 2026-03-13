@@ -30,6 +30,14 @@ The instruction `Investigate thoroughly, analyse with hard and deep thinking and
 - Package managers: brew, asdf, mix
 - Neovim config: ~/.config/nvim (lazy.nvim, native LSP, treesitter)
 
+### Tools / CLI
+
+Use these tools extensively:
+
+- `jq` you can use it to inspect json files or parse/inspect json output of other tools.
+- `ripgrep` faster grep tool
+- `fd` faster than `find`
+
 ### MacOS
 
 On MacOS:
