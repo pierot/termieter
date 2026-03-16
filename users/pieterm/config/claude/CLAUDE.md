@@ -23,6 +23,7 @@ The instruction `Investigate thoroughly, analyse with hard and deep thinking and
 - Prefer using browser agent skill over using playwright directly.
 - Don't refactor code beyond what was asked
 - Don't create new files when editing existing ones will do
+- When using Playwright MCP, prefer Firefox (cfr self signed certs)
 
 ### Environment
 
