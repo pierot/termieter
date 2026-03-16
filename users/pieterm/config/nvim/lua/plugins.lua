@@ -722,8 +722,8 @@ return {
 
 			-- Color table
 			local colors = {
-				bg = "#202328",
-				fg = "#bbc2cf",
+				bg = "#181d24",
+				fg = "#e4e6e8",
 				yellow = "#ECBE7B",
 				cyan = "#008080",
 				darkblue = "#081633",
@@ -1076,6 +1076,12 @@ return {
 						comments = "italic",
 						keywords = "bold",
 						types = "italic,bold",
+					},
+				},
+				palettes = {
+					nightfox = {
+						bg1 = "#141d28",
+						fg1 = "#e4e6e8",
 					},
 				},
 			})

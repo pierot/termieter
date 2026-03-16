@@ -38,6 +38,7 @@
       "Bash(rg:*)",
       "Bash(jq:*)",
       "Bash(open:*)",
+      "Bash(source:*)",
       "Bash(source .env:*)",
       "WebSearch",
       "WebFetch"
