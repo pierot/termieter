@@ -33,6 +33,14 @@ The instruction `Investigate thoroughly, analyse with hard and deep thinking and
 - Neovim config: ~/.config/nvim (lazy.nvim, native LSP, treesitter)
 - arch so python is a pickle
 
+### Tools / CLI
+
+Use these tools extensively:
+
+- `jq` you can use it to inspect json files or parse/inspect json output of other tools.
+- `ripgrep` faster grep tool
+- `fd` faster than `find`
+
 ## Writing Context: Voice and Craft
 
 ### Word choice

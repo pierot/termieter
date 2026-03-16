@@ -7,3 +7,5 @@ source $HOME/.termieter/env
 
 # Load lean base configuration (replaces oh-my-zsh)
 [ -f $TRM/zsh/base-lean.sh ] && source $TRM/zsh/base-lean.sh
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi

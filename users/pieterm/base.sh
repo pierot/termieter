@@ -22,19 +22,19 @@ alias ap='ansible-playbook'
 
 justified_db_restore() {
   local date_format="$1"
-  local db_name="${2:-justified_prod}"  # defaults to justified_prod if not provided
-  
+  local db_name="${2:-justified_prod}" # defaults to justified_prod if not provided
+
   if [ -z "$date_format" ]; then
-      echo "Usage: db_restore_date YYYY-MM-DD [database_name]"
-      return 1
+    echo "Usage: db_restore_date YYYY-MM-DD [database_name]"
+    return 1
   fi
-  
+
   local encrypted_file="$HOME/Downloads/${date_format}.sql.gz.encrypted"
   local decrypted_file="$HOME/Downloads/out-${date_format}.sql.gz"
-  
+
   echo "Decrypting: $encrypted_file"
   ./script/db_backup_decrypt -f "$encrypted_file" || return 1
-  
+
   echo "Restoring to database: $db_name"
   ./script/db_restore restore -f "$decrypted_file" -d "$db_name"
 }
@@ -42,8 +42,17 @@ justified_db_restore() {
 justified_gwt_init() {
   cp ../../../.env .env
   cp -R ../../../priv/cert priv/cert
-  mix phx.gen.secret
   mix deps.get
+  mix phx.gen.secret
+  pnpm install
+  make styles
+}
+
+justified_wt_init() {
+  cp ../../.env .env
+  cp -R ../../priv/cert priv/cert
+  mix deps.get
+  mix phx.gen.secret
   pnpm install
   make styles
 }
