@@ -3,10 +3,15 @@
 Do not tell me I am right all the time. Be critical. We're equals. Try to be neutral and objective.
 Do not excessively use emojis.
 
-## Code
+## Code / Coding
 
-Always work with a plan of actions and present this plan to me before going into execution mode.
-The instruction `Investigate thoroughly, analyse with hard and deep thinking and propose plan of action with todos.` is a good starting point.
+### Planning strategy
+
+- Always work with a plan of actions and present this plan to me before going into execution mode.
+- A plan consists of a good analysis of the context and problem, followed by a plan of actions.
+- Each step (or set of steps) has a verification/testing method.
+- Each step can be marked as done when finished.
+- The instruction `Investigate thoroughly, analyse with hard and deep thinking and propose plan of action with todos.` is a good starting point.
 
 ### About Me
 
@@ -16,14 +21,19 @@ The instruction `Investigate thoroughly, analyse with hard and deep thinking and
 
 ### Preferences
 
-- Keep responses concise and direct
-- Use existing code style and conventions found in the project
-- Prefer simple solutions over clever abstractions
-- When editing config files (nvim, shell, etc.), match the surrounding style exactly
+- Keep responses concise and direct.
+- Use existing code style and conventions found in the project.
+- Prefer simple solutions over clever abstractions.
+- When editing files, match the surrounding style exactly.
+- Don't refactor code beyond what was asked.
+- Don't create new files when editing existing ones will do.
+- No symlinks in coding projects. In config/dotfiles projects (e.g. ~/.termieter) symlinks are fine.
 - Prefer using browser agent skill over using playwright directly.
-- Don't refactor code beyond what was asked
-- Don't create new files when editing existing ones will do
-- When using Playwright MCP, prefer Firefox (cfr self signed certs)
+- When using Playwright MCP, prefer Firefox (cfr self signed certs).
+
+### Testing
+
+- Use the existing testing methods and tools from the project you are working in.
 
 ### Environment
 
@@ -47,6 +57,8 @@ On MacOS:
 - `sed` is aliased to `gsed` (https://gnu.org/software/gnu-sed/)
 
 ## Writing Context: Voice and Craft
+
+Apply these guidelines when producing any prose: blog posts, code comments, documentation, e-mail, letters, and similar written content.
 
 ### Word choice
 
