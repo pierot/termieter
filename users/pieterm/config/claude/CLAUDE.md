@@ -30,6 +30,8 @@ Do not excessively use emojis.
 - No symlinks in coding projects. In config/dotfiles projects (e.g. ~/.termieter) symlinks are fine.
 - Prefer using browser agent skill over using playwright directly.
 - When using Playwright MCP, prefer Firefox (cfr self signed certs).
+- Fancy algorithms are buggier than simple ones, and they're much harder to implement. Use simple algorithms as well as simple data structures.
+- Data dominates. If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
 
 ### Testing
 
