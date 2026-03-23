@@ -142,3 +142,5 @@ Tone
 **Length matches substance.** A piece with one core insight is short. A piece with a complex argument and multiple lines of evidence is long. Word count tracks the amount of new information and reasoning, not the importance of the thesis. If a draft restates its core point more than twice, it is too long.
 
 **Track what you've already written.** Before writing a new paragraph, hold in mind what the previous paragraphs have established. Each paragraph should move the piece forward. If a new paragraph could be swapped with an earlier one without the reader noticing, one of them is redundant.
+
+@RTK.md
