@@ -147,89 +147,6 @@ git-status-all() {
   done
 }
 
-# Find worktree directory, checking both .worktrees and worktrees
-gwt_find_dir() {
-  local branch="$1"
-  if [ -d ".worktrees/$branch" ]; then
-    echo ".worktrees/$branch"
-  elif [ -d "worktrees/$branch" ]; then
-    echo "worktrees/$branch"
-  else
-    echo ""
-  fi
-}
-
-# Create a new worktree for a branch and cd into it
-gwt_create() {
-  # Usage: gwt_create <branch> [<base-branch>]
-  local branch="$1"
-  local base="$2"
-  if [ -z "$base" ]; then
-    echo -n "No base branch specified. Use current branch? (y/n) "
-    read -r answer
-    [[ "$answer" != [yY] ]] && return 1
-  fi
-  local dir="${GWT_DIR:-worktrees}/$branch"
-  git worktree add -b "$branch" "$dir" "$base" && cd "$dir"
-}
-
-# List all worktrees
-gwt_list() {
-  git worktree list
-}
-
-# Go to a worktree directory
-gwt_cd() {
-  # Usage: gwtg <branch>
-  cd "$(git worktree list | grep "/$1 " | awk '{print $1}')"
-}
-
-# Merge a worktree branch into a target branch, remove the worktree and branch
-gwt_merge() {
-  # Usage: gwtm <worktree-branch> <target-branch>
-  local src="$1"
-  local target="${2:-main}"
-  local dir="$(gwt_find_dir "$src")"
-  [ -z "$dir" ] && echo "Worktree not found" && return 1
-  cd "$(git rev-parse --show-toplevel)"
-  git checkout "$target" || return 1
-  git pull
-  git merge "$src"
-  git worktree remove "$dir"
-  git branch -d "$src"
-}
-
-# Remove a worktree and its branch
-gwt_rm() {
-  # Usage: gwtrm <branch>
-  local branch="$1"
-  local dir="$(gwt_find_dir "$branch")"
-  [ -z "$dir" ] && echo "Worktree not found" && return 1
-  git worktree remove "$dir"
-  git branch -D "$branch"
-}
-
-# Create a worktree and set up a tmux layout (3 panes: left | right-top / right-bottom)
-gwt_tmux() {
-  # Usage: gwt_tmux <branch> [<base-branch>]
-  local branch="$1"
-  local base="${2:-main}"
-
-  if [ -z "$branch" ]; then
-    echo "Usage: gwt_tmux <branch> [<base-branch>]"
-    return 1
-  fi
-
-  local dir="${GWT_DIR:-worktrees}/$branch"
-  git worktree add -b "$branch" "$dir" "$base" || return 1
-  local worktree_path="$(cd "$dir" && pwd)"
-
-  tmux split-window -h -c "$worktree_path"
-  tmux split-window -v -c "$worktree_path"
-  tmux select-pane -t 0
-  tmux send-keys "cd $worktree_path" Enter
-}
-
 # Switch to (or create) a worktree with worktrunk and set up a tmux layout (3 panes: left | right-top / right-bottom)
 wt_tmux() {
   # Usage: wt_tmux <branch> [<base-branch>]
@@ -258,42 +175,6 @@ wt_tmux() {
   tmux split-window -v -c "$worktree_path"
   tmux select-pane -t 0
   tmux send-keys "cd $worktree_path" Enter
-}
-
-gwt_info() {
-  cat <<'EOF'
-gwt_create <branch> [<base-branch>]
-  Create a new worktree for <branch> (from <base-branch>, default: main) in worktrees/<branch> and cd into it.
-  Example: gwtc feature/foo develop
-
-gwt_tmux <branch> [<base-branch>]
-  Create a worktree and split the current tmux window into 3 panes (50/50 vertical, right split horizontal).
-  All panes cd into the worktree directory.
-  Example: gwt_tmux feature/foo develop
-
-gwt_list
-  List all git worktrees.
-
-gwt_cd <branch>
-  cd into the worktree directory for <branch>.
-  Example: gwtg feature/foo
-
-gwt_merge <worktree-branch> [<target-branch>]
-  Merge <worktree-branch> into <target-branch> (default: main), remove the worktree and delete the branch.
-  Example: gwtm feature/foo develop
-
-gwt_rm <branch>
-  Remove the worktree and delete the branch for <branch>.
-  Example: gwtrm feature/foo
-
-gwt_info
-  Show this help/documentation.
-
-wt_tmux <branch> [<base-branch>]
-  Create a worktree using worktrunk (wt) and split the current tmux window into 3 panes (50/50 vertical, right split horizontal).
-  All panes cd into the worktree directory.
-  Example: wt_tmux feat/sftp-integraties develop
-EOF
 }
 
 ##########################################################

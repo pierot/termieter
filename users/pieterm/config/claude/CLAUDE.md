@@ -5,6 +5,8 @@ Do not excessively use emojis.
 
 ## Code / Coding
 
+Never start editing immediately. Always start with a plan and ask before execution.
+
 ### Planning strategy
 
 - Always work with a plan of actions and present this plan to me before going into execution mode.
