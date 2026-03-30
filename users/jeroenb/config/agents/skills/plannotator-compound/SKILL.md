@@ -1,13 +1,10 @@
 ---
 name: plannotator-compound
+disable-model-invocation: true
 description: >
   Analyze a user's Plannotator plan archive to extract denial patterns, feedback
   taxonomy, evolution over time, and actionable prompt improvements — then produce
-  a polished HTML dashboard report. Use this skill when the user says things like
-  "/compound-planning", "analyze my plans", "plan analysis", "what are my denial
-  patterns", "why do my plans get denied", "compound planning report", "plan
-  insights", or "analyze my planning data". This is a user-invoked skill only —
-  do not trigger automatically. The user must explicitly request it.
+  a polished HTML dashboard report.
 ---
 
 # Compound Planning Analysis
