@@ -124,6 +124,6 @@ Tone
 
 ## Worktrees
 
-When working with worktrees: 
-- ALWAYS create the worktree in `.worktrees` inside the project roots.
-- if the name of the worktree has slashes, the directories to create should be a tree (e.g. worktree 'feat/foo-bar' should create 'feat/foo-bar' inside .worktrees)
+When [working](working) with worktrees, use `wt` (https://worktrunk.dev/)
+
+@RTK.md
