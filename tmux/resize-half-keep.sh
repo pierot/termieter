@@ -24,8 +24,15 @@ if [ -z "$pane" ]; then
   exit 0
 fi
 
-# Gather pane info: id, top position, and height for each pane in the window
-panes="$(tmux list-panes -t "$pane" -F "#{pane_id} #{pane_top} #{pane_height}")"
+# Only consider panes in the same vertical column as the target pane.
+# Without this filter, sidebar panes (horizontal splits) skew the total
+# height and get resized on the wrong axis.
+active_left="$(tmux display -p -t "$pane" "#{pane_left}")"
+active_width="$(tmux display -p -t "$pane" "#{pane_width}")"
+panes="$(tmux list-panes -t "$pane" \
+  -F "#{pane_id} #{pane_top} #{pane_height} #{pane_left} #{pane_width}" |
+  awk -v al="$active_left" -v aw="$active_width" \
+    '$4 == al && $5 == aw { print $1, $2, $3 }')"
 count="$(printf "%s\n" "$panes" | wc -l | tr -d ' ')"
 
 # Only one pane — no resizing needed

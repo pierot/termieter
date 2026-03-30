@@ -39,16 +39,8 @@ justified_db_restore() {
   ./script/db_restore restore -f "$decrypted_file" -d "$db_name"
 }
 
-justified_gwt_init() {
-  cp ../../../.env .env
-  cp -R ../../../priv/cert priv/cert
-  mix deps.get
-  mix phx.gen.secret
-  pnpm install
-  make styles
-}
-
 justified_wt_init() {
+  cp ../../.claude .claude
   cp ../../.env .env
   cp -R ../../priv/cert priv/cert
   mix deps.get
