@@ -26,6 +26,8 @@ text/csv=libreoffice-calc.desktop
 application/zip=xarchiver.desktop
 x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
