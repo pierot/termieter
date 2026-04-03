@@ -1,0 +1,8 @@
+[projects."gitlab.com/justified-org/justified"]
+approved-commands = [
+    "wt step copy-ignored",
+    "mix deps.get",
+    "mix phx.gen.secret",
+    "pnpm install",
+    "make styles",
+]
