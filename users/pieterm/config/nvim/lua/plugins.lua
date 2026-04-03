@@ -383,6 +383,12 @@ return {
 				filetypes = { "html", "css", "eelixir", "heex" },
 			}
 
+			vim.lsp.config("expert", {
+				cmd = { "expert", "--stdio" },
+				root_markers = { "mix.exs", ".git" },
+				filetypes = { "elixir", "eelixir", "heex" },
+			})
+
 			-- LSP keymaps (set when LSP attaches to buffer)
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
