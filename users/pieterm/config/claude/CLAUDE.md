@@ -11,7 +11,7 @@
 
 ## Code / Coding
 
-Never start editing immediately. Always start with a plan and ask before execution.
+Important: never start editing or implementing immediately! Always start with a plan and ask before execution!
 
 ### Planning strategy
 
