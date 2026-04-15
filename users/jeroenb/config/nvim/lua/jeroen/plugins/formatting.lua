@@ -37,6 +37,11 @@ return {
 				terraform = { "tfmt" },
 			},
 			formatters = {
+				mix = {
+					command = "mix",
+					args = { "format", "--stdin-filename", "$FILENAME", "-" },
+					stderr = false,
+				},
 				tfmt = {
 					-- Specify the command and its arguments for formatting
 					command = "tofu",
