@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+#
+# trello-attachment - Download all attachments from a Trello card
+#
+# Usage:
+#   trello-attachment <card-url-or-id> [output-dir]
+#   trello-attachment -f <card-url-or-id> [output-dir]   # force overwrite
+#
+# Examples:
+#   trello-attachment UNixnIVp
+#   trello-attachment https://trello.com/c/UNixnIVp/12472-comms-geen-drie-puntjes ./tmp
+#
+# Credentials are pulled from 1Password (teamjustified.1password.com).
+
+set -euo pipefail
+
+FORCE=0
+if [[ "${1:-}" == "-f" || "${1:-}" == "--force" ]]; then
+  FORCE=1
+  shift
+fi
+
+if [[ $# -lt 1 || "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+  sed -n '3,14p' "$0" | sed 's/^# \{0,1\}//'
+  exit 1
+fi
+
+INPUT="$1"
+OUT_DIR="${2:-./tmp}"
+
+# Accept full URL (https://trello.com/c/<id>/...) or bare id
+if [[ "$INPUT" =~ trello\.com/c/([A-Za-z0-9]+) ]]; then
+  CARD_ID="${BASH_REMATCH[1]}"
+else
+  CARD_ID="$INPUT"
+fi
+
+OP_ACCOUNT="teamjustified.1password.com"
+API_KEY=$(op read "op://Justified IT/lolx7bb22iuyxxfpzc765r7qme/username" --account "$OP_ACCOUNT")
+TOKEN=$(op read "op://Justified IT/lolx7bb22iuyxxfpzc765r7qme/password" --account "$OP_ACCOUNT")
+
+if [[ -z "$API_KEY" || -z "$TOKEN" ]]; then
+  echo "error: failed to read Trello credentials from 1Password" >&2
+  exit 1
+fi
+
+mkdir -p "$OUT_DIR"
+
+echo "card:    $CARD_ID"
+echo "output:  $OUT_DIR"
+
+ATTACHMENTS=$(curl -sSf \
+  "https://api.trello.com/1/cards/${CARD_ID}/attachments?key=${API_KEY}&token=${TOKEN}")
+
+COUNT=$(jq 'length' <<<"$ATTACHMENTS")
+if [[ "$COUNT" == "0" ]]; then
+  echo "no attachments on this card"
+  exit 0
+fi
+
+echo "found:   $COUNT attachment(s)"
+echo
+
+# Iterate using jq -c to stream one JSON object per line
+jq -c '.[] | {id, name, url, isUpload}' <<<"$ATTACHMENTS" | while IFS= read -r row; do
+  ID=$(jq -r '.id' <<<"$row")
+  NAME=$(jq -r '.name' <<<"$row")
+  URL=$(jq -r '.url' <<<"$row")
+  IS_UPLOAD=$(jq -r '.isUpload' <<<"$row")
+
+  # Sanitize filename: strip path separators and collapse whitespace
+  SAFE_NAME=$(printf '%s' "$NAME" | tr '/\\' '__' | tr -s ' ')
+  [[ -z "$SAFE_NAME" || "$SAFE_NAME" == "null" ]] && SAFE_NAME="$ID"
+
+  DEST="$OUT_DIR/$SAFE_NAME"
+
+  if [[ -e "$DEST" && $FORCE -eq 0 ]]; then
+    echo "skip:    $SAFE_NAME (exists, use -f to overwrite)"
+    continue
+  fi
+
+  echo "fetch:   $SAFE_NAME"
+  if [[ "$IS_UPLOAD" == "true" ]]; then
+    # Trello-hosted uploads require OAuth1 header auth (query params return 401)
+    curl -sSfL -o "$DEST" \
+      -H "Authorization: OAuth oauth_consumer_key=\"${API_KEY}\", oauth_token=\"${TOKEN}\"" \
+      "$URL"
+  else
+    # External URL — fetch as-is
+    curl -sSfL -o "$DEST" "$URL"
+  fi
+done
+
+echo
+echo "done."
