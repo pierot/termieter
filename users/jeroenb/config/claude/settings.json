@@ -15,7 +15,8 @@
           }
         ]
       }
-    ]
+    ],
+    "SessionStart": []
   },
   "statusLine": {
     "type": "command",

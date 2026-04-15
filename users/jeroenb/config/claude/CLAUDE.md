@@ -40,6 +40,7 @@ Use these tools extensively:
 - `jq` you can use it to inspect json files or parse/inspect json output of other tools.
 - `ripgrep` faster grep tool
 - `fd` faster than `find`
+- `trello-attachment <card-url-or-id> [out-dir]` download Trello card attachments (1Password-authed).
 
 ## Writing Context: Voice and Craft
 
