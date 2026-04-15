@@ -1,0 +1,3 @@
+# Worktree path: inside the repository under .worktrees/
+# Preserves branch structure (feat/foo -> .worktrees/feat/foo)
+worktree-path = "{{ repo_path }}/.worktrees/{{ branch }}"

@@ -35,7 +35,8 @@ fi
 
 # keyboard repeat rate & compose key
 xset r rate 200 90
-setxkbmap -option compose:paus
+# setxkbmap -option compose:paus
+setxkbmap -option compose:ralt
 
 fehbg &         # bg
 snixembed &     # needed for the Dropbox App icon in the system tray...
@@ -55,6 +56,8 @@ sxhkd &         # Keyboard shortcut daemon
 udiskie &       # USB auto mounting
 slstatus &      # Status bar
 conky &         # Conky stats
+
+/usr/lib/tumbler-1/tumblerd & # tumbler / thunar thumbs
 
 # WM
 exec startdwm
