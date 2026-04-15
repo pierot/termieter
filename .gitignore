@@ -183,3 +183,4 @@ users/pieterm/config/zed/prompts/*mdb
 users/pieterm/config/nvim/lazy-lock.json
 users/pieterm/config/gh/hosts.yml
 users/pieterm/config/uv/**
+users/jeroenb/config/Claude
