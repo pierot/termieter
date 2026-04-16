@@ -4,7 +4,6 @@
 -- copy them to the local lsp folder.
 return {
 	"neovim/nvim-lspconfig",
-	-- enabled = false,
 	-- event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
@@ -24,10 +23,6 @@ return {
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
-
-		-- vim.lsp.config("*", {
-		-- 	root_markers = { ".git" },
-		-- })
 
 		vim.lsp.config("*", {
 			capabilities = capabilities,
@@ -63,6 +58,17 @@ return {
 			capabilities = capabilities,
 		}
 
+		vim.lsp.config("dexter", {
+			cmd = { "dexter", "lsp" },
+			root_markers = { ".dexter.db", ".git", "mix.exs" },
+			filetypes = { "elixir", "eelixir", "heex" },
+			init_options = {
+				followDelegates = true, -- jump through defdelegate to the target function
+				-- stdlibPath = "",      -- override Elixir stdlib path (auto-detected)
+				-- debug = false,        -- verbose logging to stderr (view with :LspLog)
+			},
+		})
+
 		-- LSP keymaps (set when LSP attaches to buffer)
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
@@ -95,7 +101,7 @@ return {
 				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
 			end,
 
-			vim.lsp.enable({ "html", "emmet_ls", "cssls", "tailwindcss", "ts_ls", "lua_ls", "expert" }),
+			vim.lsp.enable({ "html", "emmet_ls", "cssls", "tailwindcss", "ts_ls", "lua_ls", "dexter" }),
 		})
 	end,
 }
