@@ -64,7 +64,10 @@
       "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
       "mcp__plugin_context-mode_context-mode__ctx_execute",
       "mcp__plugin_context-mode_context-mode__ctx_execute_file",
-      "mcp__plugin_context-mode_context-mode__ctx_search"
+      "mcp__plugin_context-mode_context-mode__ctx_search",
+      "Bash(rtk find *)",
+      "Bash(rtk wc *)",
+      "Bash(rtk grep *)"
     ],
     "defaultMode": "acceptEdits"
   },
@@ -120,5 +123,8 @@
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "preferredNotifChannel": "terminal_bell"
 }
