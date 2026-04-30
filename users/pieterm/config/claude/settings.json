@@ -49,6 +49,7 @@
       "Bash(rg:*)",
       "Bash(rtk find *)",
       "Bash(rtk grep *)",
+      "Bash(rtk wc *)",
       "Bash(rtk mix *)",
       "Bash(sed:*)",
       "Bash(sort:*)",
