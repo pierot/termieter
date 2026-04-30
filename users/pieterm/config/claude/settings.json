@@ -13,6 +13,7 @@
       "Bash(docker-compose:*)",
       "Bash(docker:*)",
       "Bash(echo:*)",
+      "Bash(env)",
       "Bash(fd:*)",
       "Bash(fgrep:*)",
       "Bash(find:*)",
@@ -27,44 +28,61 @@
       "Bash(make test:*)",
       "Bash(make ts:*)",
       "Bash(make:*)",
-      "Bash(mix compile)",
+      "Bash(mix compile:*)",
       "Bash(mix ecto.gen.migration:*)",
       "Bash(mix ecto.migrate:*)",
       "Bash(mix format:*)",
+      "Bash(mix phx.routes:*)",
+      "Bash(mix precommit:*)",
       "Bash(mix test:*)",
       "Bash(mix:*)",
       "Bash(mkdir:*)",
+      "Bash(mt test:*)",
       "Bash(mv:*)",
       "Bash(npm:*)",
       "Bash(npx:*)",
       "Bash(open:*)",
       "Bash(pnpm:*)",
+      "Bash(printenv:*)",
       "Bash(psql -h localhost -U postgres justified -c *)",
       "Bash(pwd:*)",
       "Bash(rg:*)",
+      "Bash(rtk find *)",
+      "Bash(rtk grep *)",
+      "Bash(rtk mix *)",
       "Bash(sed:*)",
       "Bash(sort:*)",
       "Bash(source .env:*)",
       "Bash(source:*)",
       "Bash(tail:*)",
+      "Bash(timeout 60 mix test:*)",
+      "Bash(timeout 90 mix test:*)",
       "Bash(touch:*)",
       "Bash(tr:*)",
       "Bash(uniq:*)",
       "Bash(wc:*)",
       "Bash(which:*)",
       "Bash(whoami:*)",
+      "Skill(claude-hud:setup)",
+      "Skill(plannotator-annotate)",
+      "Skill(superpowers:systematic-debugging)",
       "WebFetch",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetchTool(domain:hexdocs.pm)",
       "WebSearch",
+      "mcp__cloudflare-api__execute",
+      "mcp__cloudflare-api__search",
       "mcp__pgedge-postgres__count_rows",
       "mcp__pgedge-postgres__execute_explain",
       "mcp__pgedge-postgres__get_schema_info",
       "mcp__pgedge-postgres__query_database",
       "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "mcp__plugin_context-mode_context-mode__ctx_doctor",
       "mcp__plugin_context-mode_context-mode__ctx_execute",
       "mcp__plugin_context-mode_context-mode__ctx_execute_file",
-      "mcp__plugin_context-mode_context-mode__ctx_search"
+      "mcp__plugin_context-mode_context-mode__ctx_search",
+      "mcp__sentry__get_sentry_resource"
     ],
     "defaultMode": "acceptEdits"
   },
@@ -91,7 +109,8 @@
     "frontend-design@claude-plugins-official": true,
     "context-mode@context-mode": true,
     "claude-hud@claude-hud": true,
-    "plannotator@plannotator": true
+    "plannotator@plannotator": true,
+    "unraid-mcp@claude-homelab": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -117,8 +136,18 @@
         "source": "github",
         "repo": "backnotprop/plannotator"
       }
+    },
+    "claude-homelab": {
+      "source": {
+        "source": "github",
+        "repo": "jmagar/claude-homelab"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high"
+  "effortLevel": "xhigh",
+  "skipAutoPermissionPrompt": true,
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "preferredNotifChannel": "terminal_bell"
 }
