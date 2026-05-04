@@ -45,6 +45,7 @@
       "Bash(sed:*)",
       "Bash(sort:*)",
       "Bash(source .env:*)",
+      "Bash(source .env.test && rtk:*)",
       "Bash(source:*)",
       "Bash(tail:*)",
       "Bash(touch:*)",
