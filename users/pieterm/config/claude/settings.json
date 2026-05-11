@@ -95,11 +95,12 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/pieterm/.claude/hooks/rtk-rewrite.sh"
+            "command": "rtk hook claude"
           }
         ]
       }
-    ]
+    ],
+    "SessionStart": []
   },
   "statusLine": {
     "type": "command",
@@ -107,12 +108,12 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
-    "elixir-optimization@elixir-claude-optimization": true,
     "frontend-design@claude-plugins-official": true,
     "context-mode@context-mode": true,
     "claude-hud@claude-hud": true,
     "plannotator@plannotator": true,
-    "unraid-mcp@claude-homelab": true
+    "unraid-mcp@claude-homelab": true,
+    "code-simplifier@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -148,8 +149,8 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
-  "skipAutoPermissionPrompt": true,
   "theme": "dark-daltonized",
   "editorMode": "vim",
-  "preferredNotifChannel": "terminal_bell"
+  "preferredNotifChannel": "terminal_bell",
+  "skipAutoPermissionPrompt": true
 }
