@@ -100,7 +100,16 @@
         ]
       }
     ],
-    "SessionStart": []
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/pieterm/.claude/hooks/context-mode-cache-heal.mjs\""
+          }
+        ]
+      }
+    ]
   },
   "statusLine": {
     "type": "command",

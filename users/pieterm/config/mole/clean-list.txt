@@ -1,0 +1,116 @@
+# Mole Cleanup Preview - 2026-05-18 09:10:33
+#
+# How to protect files:
+# 1. Copy any path below to ~/.config/mole/whitelist
+# 2. Run: mo clean --whitelist
+#
+# Example:
+#   /Users/*/Library/Caches/com.example.app
+#
+
+
+=== User essentials ===
+/Users/pieterm/Library/Caches  # 11.50GB, 80 items
+/Users/pieterm/Library/Logs  # 3.6MB, 21 items
+
+=== App caches ===
+/Users/pieterm/Library/Saved Application State  # 147KB, 8 items
+/Users/pieterm/Library/Containers/com.apple.wallpaper.agent/Data/Library/Caches/com.apple.wallpaper.caches  # 74.7MB
+/Users/pieterm/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches  # 1.89GB, 4 items
+/Users/pieterm/Library/Containers/com.apple.mediaanalysisd/Data/tmp  # 7.6MB, 2 items
+/Users/pieterm/Library/Containers/com.apple.AppStore/Data/Library/Caches  # 11.1MB, 2 items
+/Users/pieterm/Library/Containers/com.apple.geod/Data/tmp  # 102.1MB, 338 items
+/Users/pieterm/Library/Application Support/com.apple.wallpaper/aerials/thumbnails  # 8.0MB, 156 items
+/Users/pieterm/Library/Caches/com.apple.helpd  # 34.7MB, 8 items
+/Users/pieterm/Library/Caches/GeoServices  # 89.6MB, 12 items
+/Users/pieterm/Library/Caches/com.apple.AppleMediaServices  # 8.7MB, 7 items
+/Users/pieterm/Library/Caches/com.apple.parsecd  # 17.2MB, 16 items
+/Users/pieterm/Library/Caches/com.apple.python  # 2.9MB, 2 items
+
+=== Browsers ===
+/Users/pieterm/Library/Caches/Google/Chrome/Default  # 192.3MB
+/Users/pieterm/Library/Application Support/Google/Chrome/Default/GPUCache  # 1.6MB, 5 items
+/Users/pieterm/Library/Application Support/Google/Chrome/component_crx_cache  # 33.6MB, 14 items
+/Users/pieterm/Library/Application Support/Google/Chrome/ShaderCache  # 558KB, 5 items
+/Users/pieterm/Library/Application Support/Google/Chrome/GrShaderCache  # 6.2MB, 205 items
+/Users/pieterm/Library/Application Support/Google/Chrome/GraphiteDawnCache  # 5.9MB, 7 items
+/Users/pieterm/Library/Application Support/Google/Chrome/Default//Service Worker/ScriptCache  # 1.1MB, 17 items
+/Users/pieterm/Library/Application Support/Google/GoogleUpdater/crx_cache  # 716.0MB, 3 items
+/Users/pieterm/Library/Application Support/Google/GoogleUpdater  # 2.1MB, 2 items
+/Users/pieterm/Library/Caches/Chromium/Default  # 93.6MB
+/Users/pieterm/Library/Caches/Firefox/Profiles  # 2.39GB
+
+=== Cloud & Office ===
+/Users/pieterm/Library/Containers/com.microsoft.Excel/Data/Library/Caches  # 3.3MB, 3 items
+
+=== Developer tools ===
+/Users/pieterm/.npm/_cacache  # 9.04GB, 3 items
+/Users/pieterm/.npm/_npx  # 349.4MB, 5 items
+/Users/pieterm/.npm/_logs  # 227KB, 13 items
+/Users/pieterm/.npm/_prebuilds  # 46.3MB, 13 items
+/Users/pieterm/Library/Caches/Yarn/v6  # 882.3MB
+/Users/pieterm/.cache/uv  # 1.18GB, 9 items
+/Users/pieterm/.cargo/registry/cache/index.crates.io-1949cf8c6b5b557f  # 10.0MB
+/Users/pieterm/.cargo/git/CACHEDIR.TAG  # 1KB
+/Users/pieterm/.bundle/cache/compact_index  # 23.6MB
+/Users/pieterm/.cache/pre-commit  # 361.2MB, 11 items
+/Users/pieterm/.local/share/claude/versions/2.1.141  # 207.1MB
+/Users/pieterm/.local/share/claude/versions/2.1.138  # 205.1MB
+/Users/pieterm/.local/share/claude/versions/2.1.126  # 216.3MB
+/Users/pieterm/.local/share/claude/versions/2.1.119  # 213.4MB
+/Users/pieterm/Library/Caches/com.tinyapp.TablePlus  # 4.0MB, 4 items
+/Users/pieterm/Library/Caches/SentryCrash  # 8KB, 2 items
+/Users/pieterm/Library/Caches/com.crashlytics.data/com.readdle.PDFExpert-Mac  # 238KB
+/Users/pieterm/Library/Application Support/Claude/Cache  # 1.26GB, 2 items
+/Users/pieterm/Library/Application Support/Claude/Code Cache  # 83.3MB, 2 items
+/Users/pieterm/Library/Application Support/Claude/GPUCache  # 5.8MB, 5 items
+/Users/pieterm/Library/Application Support/Claude/DawnGraphiteCache  # 558KB, 5 items
+/Users/pieterm/Library/Application Support/Claude/DawnWebGPUCache  # 558KB, 5 items
+/Users/pieterm/Library/Application Support/Claude/sentry  # 26KB, 3 items
+/Users/pieterm/Library/Application Support/Code/logs  # 1.4MB, 4 items
+/Users/pieterm/Library/Application Support/Code/Cache/Cache_Data  # 39.1MB
+/Users/pieterm/Library/Application Support/Code/CachedData/848b80aeb52026648a8ff9f7c45a9b0a80641e2e  # 10.3MB
+/Users/pieterm/Library/Logs/Zed  # 36KB, 2 items
+/Users/pieterm/Library/Caches/Homebrew  # 1.38GB, 174 items
+
+=== Applications ===
+/Users/pieterm/Library/Application Support/Microsoft/Teams/Cache  # 46.6MB, 194 items
+/Users/pieterm/Library/Application Support/Microsoft/Teams/Code Cache  # 1.2MB, 2 items
+/Users/pieterm/Library/Application Support/Microsoft/Teams/GPUCache  # 558KB, 5 items
+/Users/pieterm/Library/Caches/com.anthropic.claudefordesktop  # 2.5MB, 3 items
+/Users/pieterm/Library/Logs/Claude  # 24.8MB, 19 items
+/Users/pieterm/Library/Logs/com.openai.codex/2026  # 29KB
+/Users/pieterm/Library/Application Support/Codex/Cache  # 16KB, 2 items
+/Users/pieterm/Library/Application Support/Codex/Code Cache  # 16KB, 2 items
+/Users/pieterm/Library/Application Support/Codex/GPUCache  # 558KB, 5 items
+/Users/pieterm/Library/Application Support/Codex/DawnGraphiteCache  # 558KB, 5 items
+/Users/pieterm/Library/Application Support/Codex/DawnWebGPUCache  # 558KB, 5 items
+/Users/pieterm  # 220KB, 3 items
+/Users/pieterm/.lesshst  # 1KB
+/Users/pieterm/.wget-hsts  # 1KB
+/Users/pieterm/Library/Caches/com.teamviewer.TeamViewer  # 82KB, 2 items
+
+=== Virtualization ===
+
+=== Application Support ===
+
+=== App leftovers ===
+
+=== Apple Silicon updates ===
+
+=== Device backups & firmware ===
+
+=== Time Machine ===
+
+=== Large files ===
+
+=== System Data clues ===
+
+=== Project artifacts ===
+
+# ============================================
+# Summary
+# ============================================
+# Potential cleanup: 34.24GB
+# Items: 3679
+# Categories: 77
