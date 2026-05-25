@@ -1,0 +1,186 @@
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m🚀  Stanley: provisioning bring-up[m
+[1m[34m────────────────────────────────────────────────────────────[m
+[34mℹ[m Host:    Linux 6.12.74+deb13+1-amd64 (Debian GNU/Linux 13 (trixie))
+[34mℹ[m User:    pieterm
+[34mℹ[m Logfile: /home/pieterm/.termieter/users/pieterm/stanley/logs/2026-05-25-191820.log
+[34mℹ[m Selected sections: 00-bootstrap 10-asdf 20-bun 30-rtk 40-postgres 50-claude-plugins 99-verify
+[34mℹ[m Caching sudo credentials (may prompt)...
+[2m⏭[m [00-bootstrap] already completed (use --force to re-run)
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m🧰  asdf + Erlang/Elixir/Node/pnpm[m
+[1m[34m────────────────────────────────────────────────────────────[m
+
+[1m[1/6][m [36m⚙[m Install asdf v0.14.1
+[2m⏭[m asdf already cloned at /home/pieterm/.asdf (v0.14.1)
+
+[1m[2/6][m [36m⚙[m Wire asdf into ~/.zshrc
+[32m✓[m Appended to /home/pieterm/.zshrc
+
+[1m[3/6][m [36m⚙[m Install erlang
+[2m⏭[m Plugin 'erlang' already added
+[34mℹ[m Attempt 1/4: erlang 29.0
+[32m✓[m Installing erlang 29.0
+[32m✓[m erlang 29.0 set as global default
+
+[1m[4/6][m [36m⚙[m Install elixir
+[2m⏭[m Plugin 'elixir' already added
+[34mℹ[m Attempt 1/4: elixir 1.19.5-otp-29
+[31m✗[m Installing elixir 1.19.5-otp-29 (exit 1)
+[33m⚠[m elixir 1.19.5-otp-29 failed — falling back to next candidate
+[34mℹ[m Attempt 2/4: elixir 1.19.5-otp-28
+[32m✓[m Installing elixir 1.19.5-otp-28
+[32m✓[m elixir 1.19.5-otp-28 set as global default
+
+[1m[5/6][m [36m⚙[m Install nodejs
+[32m✓[m Added plugin: nodejs
+[34mℹ[m Attempt 1/4: nodejs 26.2.0
+[32m✓[m Installing nodejs 26.2.0
+[32m✓[m nodejs 26.2.0 set as global default
+
+[1m[6/6][m [36m⚙[m Install pnpm globally
+[32m✓[m pnpm installed: 11.3.0
+[32m✓[m Section complete: 10-asdf
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m🥟  Bun runtime[m
+[1m[34m────────────────────────────────────────────────────────────[m
+
+[1m[1/2][m [36m⚙[m Install Bun
+[34mℹ[m Fetching official Bun installer from bun.sh...
+[32m✓[m Running Bun installer
+
+[1m[2/2][m [36m⚙[m Verify Bun
+[32m✓[m bun on PATH: 1.3.14
+[32m✓[m Section complete: 20-bun
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m🦀  RTK — Rust Token Killer[m
+[1m[34m────────────────────────────────────────────────────────────[m
+
+[1m[1/4][m [36m⚙[m Check existing rtk installation
+
+[1m[2/4][m [36m⚙[m Try cargo install --git https://github.com/rtk-ai/rtk
+[34mℹ[m cargo not on PATH — skipping to release-binary install
+
+[1m[3/4][m [36m⚙[m Download latest release binary
+[34mℹ[m Querying GitHub API: https://api.github.com/repos/rtk-ai/rtk/releases/latest
+[34mℹ[m Asset URL: https://github.com/rtk-ai/rtk/releases/download/v0.42.0/rtk-x86_64-unknown-linux-musl.tar.gz
+[32m✓[m Installed: ~/.local/bin/rtk
+
+[1m[4/4][m [36m⚙[m Verify rtk
+[32m✓[m rtk: rtk 0.42.0
+[32m✓[m 'rtk gain' works — confirmed rtk-ai/rtk
+[32m✓[m Section complete: 30-rtk
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m🐘  PostgreSQL client[m
+[1m[34m────────────────────────────────────────────────────────────[m
+
+[1m[1/2][m [36m⚙[m Install postgresql-client
+[2m⏭[m psql already installed: psql (PostgreSQL) 17.10 (Debian 17.10-0+deb13u1)
+
+[1m[2/2][m [36m⚙[m Verify
+[32m✓[m psql: psql (PostgreSQL) 17.10 (Debian 17.10-0+deb13u1)
+[32m✓[m Section complete: 40-postgres
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m🤖  Claude Code plugins (manual)[m
+[1m[34m────────────────────────────────────────────────────────────[m
+[34mℹ[m Local prerequisites for Claude plugins:
+[32m✓[m bun present — needed by claude-hud statusline
+[32m✓[m node present — needed by claude-hud statusline
+[33m⚠[m SessionStart hook missing on both macOS and Linux paths — context-mode cache won't auto-heal at session start
+[32m✓[m Section complete: 50-claude-plugins
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m🔍  Verification[m
+[1m[34m────────────────────────────────────────────────────────────[m
+
+[1m[1/17][m [36m⚙[m [core] git
+[32m✓[m git — git version 2.47.3
+
+[1m[2/17][m [36m⚙[m [core] make
+[32m✓[m make — GNU Make 4.4.1
+
+[1m[3/17][m [36m⚙[m [core] curl
+[32m✓[m curl — curl 8.14.1 (x86_64-pc-linux-gnu) libcurl/8.14.1 OpenSSL/3.5.6 zlib/1.3.1 brotli/1.1.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 libssh2/1.11.1 nghttp2/1.64.0 nghttp3/1.8.0 librtmp/2.3 OpenLDAP/2.6.10
+
+[1m[4/17][m [36m⚙[m [core] jq
+[32m✓[m jq — jq-1.7
+
+[1m[5/17][m [36m⚙[m [core] rg
+[32m✓[m rg — ripgrep 14.1.1
+
+[1m[6/17][m [36m⚙[m [core] fd
+[32m✓[m fd — fdfind 10.2.0
+
+[1m[7/17][m [36m⚙[m [core] docker
+[32m✓[m docker — Docker version 29.5.2, build 79eb04c
+
+[1m[8/17][m [36m⚙[m [editor] nvim
+[32m✓[m nvim — NVIM v0.10.4
+
+[1m[9/17][m [36m⚙[m [db] psql
+[32m✓[m psql — psql (PostgreSQL) 17.10 (Debian 17.10-0+deb13u1)
+
+[1m[10/17][m [36m⚙[m [toolchain] asdf
+[31m✗[m asdf not on PATH
+
+[1m[11/17][m [36m⚙[m [elixir] elixir
+[32m✓[m elixir — Erlang/OTP 29 [erts-17.0] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit:ns]
+
+[1m[12/17][m [36m⚙[m [elixir] mix
+[32m✓[m mix — Erlang/OTP 29 [erts-17.0] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit:ns]
+
+[1m[13/17][m [36m⚙[m [node] node
+[32m✓[m node — v26.2.0
+
+[1m[14/17][m [36m⚙[m [node] npm
+[32m✓[m npm — /home/pieterm/.asdf/plugins/nodejs/shims/npm: line 122: asdf: command not found
+
+[1m[15/17][m [36m⚙[m [node] pnpm
+[32m✓[m pnpm — 11.3.0
+
+[1m[16/17][m [36m⚙[m [node] bun
+[32m✓[m bun — 1.3.14
+
+[1m[17/17][m [36m⚙[m [rtk] rtk
+[32m✓[m rtk — rtk 0.42.0
+
+[34mℹ[m Cross-check: 'rtk gain' (rtk-ai/rtk only)
+[32m✓[m rtk gain works — confirmed rtk-ai/rtk
+
+[34mℹ[m PATH segments relevant to stanley installs:
+[32m✓[m on PATH: /home/pieterm/.local/bin
+[32m✓[m on PATH: /home/pieterm/.bun/bin
+[32m✓[m on PATH: /home/pieterm/.asdf/shims
+
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m📊  Summary[m
+[1m[34m────────────────────────────────────────────────────────────[m
+  [32mPassed: 16[m
+  [31mMissing: 1[m
+
+Missing: asdf
+
+[34mℹ[m To re-attempt the relevant section, e.g.:
+    [2m./install.sh --only=10 --force[m
+[31m✗[m Section 99-verify failed (exit 1) — stopping. Rerun with --resume to continue past completed sections.
+
+[1m[34m────────────────────────────────────────────────────────────[m
+[1m📊  Summary[m
+[1m[34m────────────────────────────────────────────────────────────[m
+  [32m✓[m 00-bootstrap           0m00s
+  [32m✓[m 10-asdf                0m12s
+  [32m✓[m 20-bun                 0m01s
+  [32m✓[m 30-rtk                 0m01s
+  [32m✓[m 40-postgres            0m00s
+  [32m✓[m 50-claude-plugins      0m00s
+  [31m✗[m 99-verify              0m01s (fail(1))
+
+[34mℹ[m Total elapsed: 0m15s
+[34mℹ[m Log:           /home/pieterm/.termieter/users/pieterm/stanley/logs/2026-05-25-191820.log
