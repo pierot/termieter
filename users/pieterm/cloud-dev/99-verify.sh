@@ -36,6 +36,7 @@ CHECKS=(
   "bun|node|--version"
   "uv|python|--version"
   "tree-sitter|editor|--version"
+  "op|secrets|--version"
   "rtk|rtk|--version"
 )
 

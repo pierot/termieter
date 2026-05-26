@@ -40,6 +40,7 @@ Sections:
   20-bun              Bun runtime
   30-rtk              RTK (rtk-ai/rtk) binary
   40-postgres         postgresql-client
+  45-1password        1Password CLI (op) via official apt repo
   50-claude-plugins   Print Claude Code plugin commands (manual)
   99-verify           Smoke-test every binary
 
@@ -91,6 +92,7 @@ ALL_SECTIONS=(
   20-bun
   30-rtk
   40-postgres
+  45-1password
   50-claude-plugins
   99-verify
 )
@@ -113,7 +115,7 @@ info "Selected sections: ${selected[*]}"
 # --- sudo keepalive (skip if dry-run or no sudo-needing section) ---
 needs_sudo=0
 for s in "${selected[@]}"; do
-  case $s in 00-bootstrap|40-postgres) needs_sudo=1 ;; esac
+  case $s in 00-bootstrap|40-postgres|45-1password) needs_sudo=1 ;; esac
 done
 if (( needs_sudo == 1 )) && [[ "$DRY_RUN" == 0 ]]; then
   info "Caching sudo credentials (may prompt)..."
