@@ -110,6 +110,17 @@ export PATH="$PATH:$HOME/.node/bin"
 alias n="npm"
 alias nr="npm run"
 
+# Worktrunk
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# BUN
+# bun completions
+[ -s "/Users/pieterm/.bun/_bun" ] && source "/Users/pieterm/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 ##########################################################
 
 # IC4C
