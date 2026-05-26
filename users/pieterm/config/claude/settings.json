@@ -52,6 +52,7 @@
       "Bash(rtk grep *)",
       "Bash(rtk wc *)",
       "Bash(rtk mix *)",
+      "Bash(rtk *)",
       "Bash(sed:*)",
       "Bash(sort:*)",
       "Bash(source .env:*)",
