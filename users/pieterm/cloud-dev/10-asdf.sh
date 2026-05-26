@@ -135,6 +135,7 @@ install_lang() {
 install_lang erlang
 install_lang elixir
 install_lang nodejs
+install_lang rust
 
 # --- step 6: pnpm ---
 step "Install pnpm globally"
