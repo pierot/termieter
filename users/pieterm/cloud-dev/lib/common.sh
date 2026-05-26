@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Shared helpers for stanley install scripts.
+# Shared helpers for install scripts.
 # Source from each section script: source "$(dirname "$0")/lib/common.sh"
 
 set -Eeuo pipefail
@@ -16,7 +16,7 @@ else
 fi
 
 ICON_OK="${GREEN}✓${RESET}"
-ICON_SKIP="${DIM}⏭${RESET}"
+ICON_SKIP="${DIM}⏭ ${RESET}"
 ICON_FAIL="${RED}✗${RESET}"
 ICON_WARN="${YELLOW}⚠${RESET}"
 ICON_INFO="${BLUE}ℹ${RESET}"
@@ -24,7 +24,7 @@ ICON_WORK="${CYAN}⚙${RESET}"
 
 # --- env defaults (overridable) ---
 : "${INSTALL_LOG:=/dev/null}"
-: "${STATE_FILE:=$HOME/.termieter/users/pieterm/stanley/.state}"
+: "${STATE_FILE:=$HOME/.termieter/users/pieterm/cloud-dev/.state}"
 : "${YES:=0}"
 : "${DRY_RUN:=0}"
 : "${FORCE:=0}"

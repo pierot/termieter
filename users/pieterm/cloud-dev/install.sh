@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stanley — provisioning orchestrator
+# Provisioning orchestrator
 # Runs section scripts in order with shared state, logging, dry-run, resume.
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -18,7 +18,7 @@ ONLY=""; SKIP=""
 
 usage() {
   cat <<EOF
-Stanley — install runtime, tools, plugins
+Cloud dev — install runtime, tools, plugins
 
 Usage: $(basename "$0") [flags]
 
@@ -35,6 +35,7 @@ Flags:
 
 Sections:
   00-bootstrap        apt packages, fd symlink
+  05-neovim           Neovim (official tarball, latest stable)
   10-asdf             asdf + Erlang + Elixir + Node + pnpm
   20-bun              Bun runtime
   30-rtk              RTK (rtk-ai/rtk) binary
@@ -70,7 +71,7 @@ done
 export YES DRY_RUN FORCE
 
 # --- header ---
-banner "Stanley: provisioning bring-up" "🚀"
+banner "Provisioning bring-up" "🚀"
 info "Host:    $(uname -s) $(uname -r) ($(. /etc/os-release && echo "$PRETTY_NAME" 2>/dev/null || echo unknown))"
 info "User:    $(whoami)"
 info "Logfile: $INSTALL_LOG"
@@ -85,6 +86,7 @@ fi
 # --- section list ---
 ALL_SECTIONS=(
   00-bootstrap
+  05-neovim
   10-asdf
   20-bun
   30-rtk

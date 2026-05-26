@@ -29,30 +29,6 @@ else
   fi
 fi
 
-# --- step 2: wire into shell rc ---
-step "Wire asdf into ~/.zshrc"
-RC="$HOME/.zshrc"
-ASDF_LINE='. "$HOME/.asdf/asdf.sh"'
-if [[ -f "$RC" ]] && grep -qF "$ASDF_LINE" "$RC" 2>/dev/null; then
-  skip "asdf already sourced in .zshrc"
-else
-  if confirm "Append asdf init lines to $RC?"; then
-    if [[ "$DRY_RUN" == 1 ]]; then
-      info "(dry-run) would append asdf init to $RC"
-    else
-      {
-        echo ''
-        echo '# asdf (added by stanley)'
-        echo "$ASDF_LINE"
-        echo 'fpath=(${ASDF_DIR}/completions $fpath)'
-      } >> "$RC"
-      ok "Appended to $RC"
-    fi
-  else
-    warn "Skipped — you must source asdf manually for future sessions"
-  fi
-fi
-
 # Source for this script so asdf commands work below
 if [[ -f "$ASDF_DIR/asdf.sh" ]] && [[ "$DRY_RUN" == 0 ]]; then
   # shellcheck disable=SC1091
@@ -136,6 +112,7 @@ install_lang erlang
 install_lang elixir
 install_lang nodejs
 install_lang rust
+install_lang uv
 
 # --- step 6: pnpm ---
 step "Install pnpm globally"
@@ -148,6 +125,19 @@ elif has_cmd npm; then
   ok "pnpm installed: $(pnpm --version 2>/dev/null || echo '?')"
 else
   warn "npm not on PATH — restart shell after asdf wires Node, then re-run with --force --only=10"
+fi
+
+# --- step 7: tree-sitter CLI (via cargo, for nvim-treesitter healthchecks) ---
+step "Install tree-sitter-cli (cargo)"
+if [[ "$DRY_RUN" == 1 ]]; then
+  info "(dry-run) would run: cargo install tree-sitter-cli"
+elif has_cmd tree-sitter; then
+  skip "tree-sitter already installed: $(tree-sitter --version)"
+elif has_cmd cargo; then
+  spin "cargo install tree-sitter-cli" cargo install tree-sitter-cli
+  ok "tree-sitter installed: $(tree-sitter --version 2>/dev/null || echo '?')"
+else
+  warn "cargo not on PATH — restart shell after asdf wires Rust, then re-run with --force --only=10"
 fi
 
 mark_done "$SECTION_ID"

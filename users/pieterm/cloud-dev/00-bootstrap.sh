@@ -49,6 +49,7 @@ PACKAGES=(
   ca-certificates
   unzip
   git
+  libclang-dev
 )
 
 missing=()

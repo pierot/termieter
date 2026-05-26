@@ -34,6 +34,8 @@ CHECKS=(
   "npm|node|--version"
   "pnpm|node|--version"
   "bun|node|--version"
+  "uv|python|--version"
+  "tree-sitter|editor|--version"
   "rtk|rtk|--version"
 )
 
@@ -97,7 +99,7 @@ fi
 
 # PATH hints
 log ""
-info "PATH segments relevant to stanley installs:"
+info "PATH segments relevant to installs:"
 for p in "$HOME/.local/bin" "$HOME/.bun/bin" "$HOME/.cargo/bin" "$HOME/.asdf/shims"; do
   if [[ ":$PATH:" == *":$p:"* ]]; then
     ok "on PATH: $p"

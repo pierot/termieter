@@ -121,6 +121,9 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# CARGO
+export PATH="$HOME/.cargo/bin:$PATH"
+
 ##########################################################
 
 # IC4C
