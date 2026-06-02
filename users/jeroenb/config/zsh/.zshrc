@@ -111,3 +111,5 @@ esac
 unset NPM_CONFIG_PREFIX
 
 . "$HOME/.config/local/share/../bin/env"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
