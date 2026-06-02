@@ -152,6 +152,9 @@ users/jeroenb/config/lazygit/state.yml
 users/jeroenb/config/tidewave
 users/jeroenb/config/Claude
 users/jeroenb/config/containers/systemd/smokeping
+users/jeroenb/config/autostart
+users/jeroenb/config/Claude-3p
+users/jeroenb/config/opencode/commands
 
 users/pieterm/config/lnav/configs/default/*.sample
 users/pieterm/config/psysh/**
