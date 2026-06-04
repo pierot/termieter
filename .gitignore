@@ -19,6 +19,7 @@ tmp
 
 tmux/tmux-resurrect
 tmux/tmux-resurrect-auto
+tmux/tmux-continuum
 
 users/jeroenb/config/0ad
 users/jeroenb/config/1Password
