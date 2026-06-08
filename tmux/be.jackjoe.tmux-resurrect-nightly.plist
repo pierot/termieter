@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>be.jackjoe.tmux-resurrect-nightly</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/pieterm/.termieter/tmux/resurrect-nightly-save.sh</string>
+    </array>
+
+    <!-- Run every night at 02:00. If the Mac was asleep, launchd runs the
+         missed job once on wake (unlike cron, which skips it). -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>2</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/pieterm/.tmux/resurrect/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/pieterm/.tmux/resurrect/launchd.err.log</string>
+</dict>
+</plist>
