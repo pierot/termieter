@@ -108,7 +108,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"/home/pieterm/.claude/hooks/context-mode-cache-heal.mjs\""
+            "command": "\"~/.claude/hooks/context-mode-cache-heal.mjs\""
           }
         ]
       }
