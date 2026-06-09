@@ -228,26 +228,13 @@ fi
 ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
 
 ##################################################
-# Install Claude Code config symlinks
+# Install agent config symlinks (claude, pi, ...)
 ##################################################
 
-if [[ -d "$HOME/.config/claude" ]]; then
-  _print_h1 "Claude Code"
-
-  mkdir -p "$HOME/.claude"
-
-  for claude_file in "$HOME/.config/claude"/*; do
-    local target="$HOME/.claude/$(basename "$claude_file")"
-
-    # Back up existing regular file (skip if already a symlink)
-    if [[ -f "$target" && ! -L "$target" ]]; then
-      mv "$target" "$HOME/.bash_backup/claude_$(basename "$claude_file")"
-      _print_info "Backed up $(basename "$claude_file")"
-    fi
-
-    ln -sf "$claude_file" "$target"
-    _print "Symlinked $(basename "$claude_file")"
-  done
+# Delegated to a dedicated script so it can also be run on its own.
+# Prompts per agent; see ./install-symlinks -h for flags.
+if [[ -f "$install_dir/install-symlinks" ]]; then
+  bash "$install_dir/install-symlinks"
 fi
 
 ##################################################

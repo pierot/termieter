@@ -164,5 +164,6 @@
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "preferredNotifChannel": "terminal_bell",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }
