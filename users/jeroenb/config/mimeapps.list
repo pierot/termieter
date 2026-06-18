@@ -58,3 +58,4 @@ application/gpx+xml=gvim.desktop;
 application/zip=userapp-unzip-1YHQD3.desktop;xarchiver.desktop;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;xarchiver.desktop;
 x-scheme-handler/chrome=firefox.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
