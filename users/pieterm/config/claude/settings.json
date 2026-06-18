@@ -108,7 +108,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"/home/pieterm/.claude/hooks/context-mode-cache-heal.mjs\""
+            "command": "\"$HOME/.claude/hooks/context-mode-cache-heal.mjs\""
           }
         ]
       }
@@ -164,5 +164,6 @@
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "preferredNotifChannel": "terminal_bell",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }

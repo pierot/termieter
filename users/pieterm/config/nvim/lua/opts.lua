@@ -149,5 +149,4 @@ vim.g.ackprg = "rg --vimgrep -i"
 
 -- Setup files (Ensure these files exist in lua/setup/)
 -- These should NOT contain 'vim.cmd' wrappers if possible.
-require("setup.ai-toggle")
 require("setup.theme-toggle")

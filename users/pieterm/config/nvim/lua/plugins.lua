@@ -474,7 +474,6 @@ return {
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
         }),
         sources = cmp.config.sources({
-          { name = "codeium" }, -- AI completions
           { name = "nvim_lsp" }, -- LSP
           { name = "luasnip" }, -- Snippets
           { name = "buffer" }, -- Buffer text
@@ -1107,29 +1106,31 @@ return {
 		event = "InsertEnter",
 	}, ]]
 
-  -- Codeium AI
+  -- Supermaven AI (inline completion)
   {
-    "Exafunction/codeium.nvim",
+    "supermaven-inc/supermaven-nvim",
     event = "InsertEnter",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
+    -- Also load on these commands so :Supermaven* exist before entering insert mode
+    cmd = {
+      "SupermavenStart",
+      "SupermavenStop",
+      "SupermavenRestart",
+      "SupermavenToggle",
+      "SupermavenStatus",
+      "SupermavenUseFree",
+      "SupermavenUsePro",
+      "SupermavenLogout",
+      "SupermavenShowLog",
+      "SupermavenClearLog",
     },
     config = function()
-      require("codeium").setup({
-        enable_chat = true,
-        virtual_text = {
-          enabled = true,
-          manual = false,
-          idle_delay = 75,
-          map_keys = true,
-          key_bindings = {
-            accept = "<Tab>",
-            next = "<M-]>",
-            prev = "<M-[>",
-            clear = "<C-]>",
-          },
+      require("supermaven-nvim").setup({
+        keymaps = {
+          accept_suggestion = "<Tab>", -- same as the old Codeium binding
+          clear_suggestion = "<C-]>",  -- same as the old Codeium binding
+          accept_word = "<C-l>",       -- not <C-j>: that's cmp select_next_item (see nvim-cmp mapping)
         },
+        log_level = "info",
       })
     end,
   },

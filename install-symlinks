@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+
+# install-symlinks — wire per-agent config into each agent's real home dir.
+#
+# Each agent keeps its tracked, non-secret config under ~/.config/<agent>
+# (this repo's users/<user>/config/<agent>). This script symlinks every file
+# from there into the agent's actual home (~/.claude, ~/.pi, ...), preserving
+# relative paths and backing up any pre-existing real file to ~/.bash_backup.
+# Secrets (e.g. ~/.pi/agent/auth.json) live only in the agent home, are never
+# tracked, and are never touched here.
+#
+# Run standalone to be prompted per agent, or with flags for automation:
+#   install-symlinks            prompt per agent (default yes)
+#   install-symlinks -y         install all agents, no prompts
+#   install-symlinks --pi       only the pi agent (repeatable, e.g. --claude --pi)
+#   install-symlinks -h         show help
+
+set -u
+
+# ANSI colours (repo has no shared helpers lib, so keep them local)
+COL_GREEN="\x1b[32;01m"
+COL_BLUE="\x1b[34;01m"
+COL_YELLOW="\x1b[33;01m"
+COL_RED="\x1b[31;01m"
+COL_RESET="\x1b[39;49;00m"
+
+_print_h1()   { printf "${COL_GREEN}\n🔗  %s\n${COL_RESET}" "$1"; }
+_print()      { printf "${COL_BLUE}%s\n${COL_RESET}" "$1"; }
+_print_info() { printf "${COL_YELLOW}× %s\n${COL_RESET}" "$1"; }
+_error()      { printf "${COL_RED}%s\n${COL_RESET}" "$1" >&2; }
+
+# Agent table: "name|source|dest", relative to $HOME. Add a row to onboard
+# another agent — no other change needed.
+AGENTS=(
+  "claude|.config/claude|.claude"
+  "pi|.config/pi|.pi"
+)
+
+backup_dir="$HOME/.bash_backup"
+
+# Symlink every file under the source tree into the dest, preserving the
+# relative path. Args: label, source (rel to $HOME), dest (rel to $HOME).
+_link_tree() {
+  local label="$1" src="$HOME/$2" dest="$HOME/$3"
+  local file rel target
+
+  mkdir -p "$backup_dir"
+  _print_h1 "$label"
+
+  while IFS= read -r file; do
+    rel="${file#"$src"/}"
+    target="$dest/$rel"
+
+    mkdir -p "$(dirname "$target")"
+
+    # Back up an existing regular file (skip if already a symlink)
+    if [[ -f "$target" && ! -L "$target" ]]; then
+      mv "$target" "$backup_dir/${label}_$(basename "$target")"
+      _print_info "backed up $rel"
+    fi
+
+    ln -sf "$file" "$target"
+    _print "symlinked $rel"
+  done < <(find "$src" -type f)
+}
+
+# Was this agent explicitly selected? No selection means "all".
+_selected() {
+  local want="$1" s
+  [[ ${#selected[@]} -eq 0 ]] && return 0
+  for s in "${selected[@]}"; do [[ "$s" == "$want" ]] && return 0; done
+  return 1
+}
+
+assume_yes=0
+selected=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -y|--yes) assume_yes=1 ;;
+    -h|--help)
+      sed -n '3,16p' "$0" | sed 's/^# \{0,1\}//'
+      exit 0 ;;
+    --*) selected+=("${1#--}") ;;
+    *)   _error "unknown argument: $1"; exit 1 ;;
+  esac
+  shift
+done
+
+for entry in "${AGENTS[@]}"; do
+  IFS="|" read -r name src dest <<< "$entry"
+
+  _selected "$name" || continue
+
+  # Nothing to link if the agent has no config in this repo
+  if [[ ! -d "$HOME/$src" ]]; then
+    [[ ${#selected[@]} -gt 0 ]] && _print_info "no config for $name at ~/$src, skipping"
+    continue
+  fi
+
+  if [[ "$assume_yes" -eq 1 ]]; then
+    _link_tree "$name" "$src" "$dest"
+    continue
+  fi
+
+  printf "${COL_YELLOW}Install %s config symlinks? [Y/n]: ${COL_RESET}" "$name"
+  read -r reply
+  if [[ -z "$reply" || "$reply" =~ ^[Yy]$ ]]; then
+    _link_tree "$name" "$src" "$dest"
+  else
+    _print "skipped $name"
+  fi
+done
