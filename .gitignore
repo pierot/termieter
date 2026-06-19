@@ -191,6 +191,14 @@ users/pieterm/config/pi/**
 !users/pieterm/config/pi/agent/extensions/
 !users/pieterm/config/pi/agent/extensions/pi-rtk-optimizer/
 
+# vibe agent: ignore everything, then allow only curated, non-secret config.
+# Guards against .env (MISTRAL_API_KEY) / history / logs ever being committed.
+users/pieterm/config/vibe/**
+!users/pieterm/config/vibe/config.toml
+!users/pieterm/config/vibe/instructions.md
+# '!' on a file is ignored if its parent dir is excluded, so re-include the dir
+!users/pieterm/config/vibe/
+
 .aider*
 ./.claude
 .expert/expert.log

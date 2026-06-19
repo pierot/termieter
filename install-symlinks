@@ -34,6 +34,7 @@ _error()      { printf "${COL_RED}%s\n${COL_RESET}" "$1" >&2; }
 AGENTS=(
   "claude|.config/claude|.claude"
   "pi|.config/pi|.pi"
+  "vibe|.config/vibe|.vibe"
 )
 
 backup_dir="$HOME/.bash_backup"
