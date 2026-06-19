@@ -27,6 +27,7 @@ tmux/tmux-continuum
 users/jeroenb/config/0ad
 users/jeroenb/config/1Password
 users/jeroenb/config/Ardour8
+users/jeroenb/config/opencode
 users/jeroenb/config/BraveSoftware
 users/jeroenb/config/Cardinal
 users/jeroenb/config/Claude
@@ -41,6 +42,7 @@ users/jeroenb/config/Ladybird
 users/jeroenb/config/LanguageTool
 users/jeroenb/config/Logseq/**
 users/jeroenb/config/Meltytech
+users/jeroenb/config/calibre
 users/jeroenb/config/Mousepad
 users/jeroenb/config/MuseScore
 users/jeroenb/config/Postman

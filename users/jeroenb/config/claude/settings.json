@@ -2,10 +2,9 @@
   "skillListingBudgetFraction": 0.05,
   "permissions": {
     "defaultMode": "auto",
-    "additionalDirectories": [
-      "/home/jeroen/.claude/projects"
-    ]
+    "additionalDirectories": ["/home/jeroen/.claude/projects"]
   },
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -35,7 +34,6 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "context-mode@context-mode": true,
     "claude-hud@claude-hud": true,
     "worktrunk@worktrunk": true,
     "elixir-lsp@claude-code-elixir": true,
@@ -44,7 +42,8 @@
     "mix-credo@claude-code-elixir": true,
     "elixir@claude-code-elixir": true,
     "plannotator@plannotator": true,
-    "agent-skills@addy-agent-skills": true
+    "agent-skills@addy-agent-skills": true,
+    "context-mode@context-mode": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -86,6 +85,7 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "ultracode": true,
   "editorMode": "vim",
   "skipAutoPermissionPrompt": true
 }
