@@ -1,9 +1,11 @@
 return {
 	"hrsh7th/nvim-cmp",
+	enabled = false, -- trying blink.cmp instead. Flip this + blink.lua to switch back.
 	-- event = "VeryLazy",
 	-- event = "InsertEnter",
 	lazy = false,
 	dependencies = {
+		"hrsh7th/cmp-nvim-lsp", -- LSP completion source (kept with nvim-cmp for the revert path)
 		"L3MON4D3/LuaSnip", -- snippet engine
 		"hrsh7th/cmp-buffer", -- source for text in buffer
 		"hrsh7th/cmp-cmdline",

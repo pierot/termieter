@@ -30,6 +30,7 @@ x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/jetbrains=jetbrainsd.desktop
 x-scheme-handler/slack=slack.desktop
 x-scheme-handler/claude=claude.desktop
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-E9TYQ3.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -59,3 +60,4 @@ application/zip=userapp-unzip-1YHQD3.desktop;xarchiver.desktop;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;xarchiver.desktop;
 x-scheme-handler/chrome=firefox.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-E9TYQ3.desktop;

@@ -2,7 +2,9 @@
   "skillListingBudgetFraction": 0.05,
   "permissions": {
     "defaultMode": "auto",
-    "additionalDirectories": ["/home/jeroen/.claude/projects"]
+    "additionalDirectories": [
+      "/home/jeroen/.claude/projects"
+    ]
   },
   "model": "opus[1m]",
   "hooks": {
@@ -43,7 +45,9 @@
     "elixir@claude-code-elixir": true,
     "plannotator@plannotator": true,
     "agent-skills@addy-agent-skills": true,
-    "context-mode@context-mode": true
+    "context-mode@context-mode": true,
+    "modern-web-guidance@googlechrome": true,
+    "chrome-devtools-mcp@chrome-devtools-plugins": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -81,10 +85,22 @@
         "source": "github",
         "repo": "addyosmani/agent-skills"
       }
+    },
+    "googlechrome": {
+      "source": {
+        "source": "github",
+        "repo": "GoogleChrome/modern-web-guidance"
+      }
+    },
+    "chrome-devtools-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "ChromeDevTools/chrome-devtools-mcp"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "ultracode": true,
   "editorMode": "vim",
   "skipAutoPermissionPrompt": true
