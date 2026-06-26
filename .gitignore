@@ -27,6 +27,7 @@ tmux/tmux-continuum
 users/jeroenb/config/0ad
 users/jeroenb/config/1Password
 users/jeroenb/config/Ardour8
+users/jeroenb/config/opencode
 users/jeroenb/config/BraveSoftware
 users/jeroenb/config/Cardinal
 users/jeroenb/config/Claude
@@ -41,6 +42,7 @@ users/jeroenb/config/Ladybird
 users/jeroenb/config/LanguageTool
 users/jeroenb/config/Logseq/**
 users/jeroenb/config/Meltytech
+users/jeroenb/config/calibre
 users/jeroenb/config/Mousepad
 users/jeroenb/config/MuseScore
 users/jeroenb/config/Postman
@@ -190,6 +192,14 @@ users/pieterm/config/pi/**
 !users/pieterm/config/pi/agent/
 !users/pieterm/config/pi/agent/extensions/
 !users/pieterm/config/pi/agent/extensions/pi-rtk-optimizer/
+
+# vibe agent: ignore everything, then allow only curated, non-secret config.
+# Guards against .env (MISTRAL_API_KEY) / history / logs ever being committed.
+users/pieterm/config/vibe/**
+!users/pieterm/config/vibe/config.toml
+!users/pieterm/config/vibe/instructions.md
+# '!' on a file is ignored if its parent dir is excluded, so re-include the dir
+!users/pieterm/config/vibe/
 
 .aider*
 ./.claude
