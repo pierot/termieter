@@ -20,7 +20,11 @@ tmp
 tmux/tmux-resurrect
 tmux/tmux-resurrect-auto
 
+.claude
+
 users/jeroenb/config/0ad
+users/jeroenb/config/opencode
+users/jeroenb/config/autostart
 users/jeroenb/config/1Password
 users/jeroenb/config/Ardour8
 users/jeroenb/config/BraveSoftware
@@ -29,6 +33,7 @@ users/jeroenb/config/Signal
 users/jeroenb/config/Code - OSS/
 users/jeroenb/config/Cypress
 users/jeroenb/config/GIMP
+users/jeroenb/config/Signal Beta
 users/jeroenb/config/Insomnia
 users/jeroenb/config/JetBrains
 users/jeroenb/config/LanguageTool

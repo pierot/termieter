@@ -28,6 +28,9 @@ x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/jetbrains=jetbrainsd.desktop
+x-scheme-handler/slack=slack_slack.desktop
+x-scheme-handler/claude=claude.desktop
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-RUTGR3.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -56,3 +59,4 @@ application/gpx+xml=gvim.desktop;
 application/zip=userapp-unzip-1YHQD3.desktop;xarchiver.desktop;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;xarchiver.desktop;
 x-scheme-handler/chrome=firefox.desktop;
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-RUTGR3.desktop;

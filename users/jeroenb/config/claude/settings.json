@@ -1,8 +1,6 @@
 {
   "permissions": {
-    "additionalDirectories": [
-      "/home/jeroen/.claude/projects"
-    ]
+    "additionalDirectories": ["/home/jeroen/.claude/projects"]
   },
   "hooks": {
     "PreToolUse": [
@@ -11,7 +9,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/home/jeroen/.claude/hooks/rtk-rewrite.sh"
+            "command": "rtk hook claude"
           }
         ]
       }
@@ -25,7 +23,7 @@
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": true,
     "frontend-design@claude-plugins-official": true,
-    "context-mode@context-mode": true,
+    "context-mode@context-mode": false,
     "claude-hud@claude-hud": true,
     "worktrunk@worktrunk": true,
     "elixir-lsp@claude-code-elixir": true,
@@ -68,5 +66,7 @@
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high"
+  "effortLevel": "xhigh",
+  "ultracode": true,
+  "model": "opus[1m]"
 }
