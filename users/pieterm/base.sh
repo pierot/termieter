@@ -2,8 +2,7 @@ export ICLOUD="~/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 if [ -d "$(eval echo ${ICLOUD//>/})" ]; then
   alias icloud="cd $ICLOUD"
-  alias repos="cd $ICLOUD/Work/repos/"
-  alias dev="cd $ICLOUD/Work/devel/"
+  alias work="cd $ICLOUD/Work/"
 fi
 
 export DROPBOX="$HOME/Dropbox"
