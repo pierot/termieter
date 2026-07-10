@@ -1,6 +1,14 @@
 super + o ; {w,t,m,f,s}
 	{firefox,thunderbird,spotify-launcher,thunar,slack}
 
+# swap project terminal set (zmx sessions) via dmenu
+super + o ; p
+	tt -m
+
+# add an extra window+session (scratch_<random>) to the current project
+super + o ; n
+	tt -n
+
 #super + o; s
 # slack &
 

@@ -156,6 +156,9 @@ users/jeroenb/config/zsh/.zsh_plugins.zsh
 users/jeroenb/config/zsh/pure
 users/jeroenb/mutt/cache/bodies/**
 users/jeroenb/mutt/cache/headers/**
+users/jeroenb/config/LM-Studio/**
+users/jeroenb/config/LM\ Studio/**
+users/jeroenb/config/herdr/**
 
 users/pieterm/cloud-dev/logs/*
 users/pieterm/config/bpytop
@@ -204,3 +207,4 @@ users/pieterm/config/vibe/**
 .aider*
 ./.claude
 .expert/expert.log
+.serena

@@ -1,0 +1,157 @@
+#!/bin/bash
+# tt - session swap: swap a project's terminal set on the current dwm tag.
+#
+# Each project gets three zmx sessions by default: <name>.nvim, <name>.shell,
+# <name>.server; extra ones can be added with -n. Swapping closes the current
+# tt-managed terminal windows (detach only; the sessions keep running) and
+# spawns terminals attached to the target's sessions.
+#
+# Usage:
+#   tt <name> [dir]   swap to project <name> (dir auto-resolved if omitted)
+#   tt -m             pick a project via dmenu
+#   tt -n [role]      add window+session <project>.<role> to the current
+#                     project (default role: scratch_<random>; respawns on
+#                     every swap; exit its shell with ctrl-d to remove it)
+#   tt -d             detach: close tt-managed windows, keep sessions running
+#   tt -k <name>      kill all of <name>'s sessions (their processes die!)
+#   tt -l             list active zmx sessions
+#
+# Note: spawn order matters for layout: nvim is spawned first (it ends up in
+# the master area here), extras last so they stack below the default three.
+
+WINCLASS="ttterm"
+
+# When run from inside a zmx session, ZMX_SESSION leaks into the spawned
+# terminals and `zmx attach` then switches the *current* session instead of
+# attaching (dropping the command args). Remember it for -n's project
+# detection, then always spawn with a clean slate.
+FROM_SESSION="$ZMX_SESSION"
+unset ZMX_SESSION
+
+# wt (worktrunk) creates worktrees at ~/Work/jackjoe/.worktrees/<repo>/<branch|sanitize>
+resolve_dir() {
+  local d
+  for d in \
+    "$HOME/Work/jackjoe/.worktrees/"*/"$1" \
+    "$HOME/Work/jackjoe/$1" \
+    "$HOME/Work/$1"; do
+    [ -d "$d" ] && { echo "$d"; return 0; }
+  done
+  return 1
+}
+
+candidates() {
+  {
+    find "$HOME/Work/jackjoe/.worktrees" -mindepth 2 -maxdepth 2 -type d -printf '%f\n' 2>/dev/null
+    ls -1 "$HOME/Work/jackjoe" 2>/dev/null
+    zmx list --short 2>/dev/null | sed -n 's/\..*//p'
+  } | sort -u
+}
+
+# windowkill (XKillClient), not windowclose (XDestroyWindow): alacritty
+# survives a destroyed window and lingers as a zombie client on the zmx
+# session (windowquit's WM_DELETE turned out to be a no-op under dwm)
+close_windows() {
+  xdotool search --classname "$WINCLASS" 2>/dev/null |
+    xargs -r -n1 xdotool windowkill
+}
+
+current_project() { # project of the session/window tt was invoked from
+  local t
+  [ -n "$FROM_SESSION" ] && { echo "${FROM_SESSION%%.*}"; return 0; }
+  t=$(xdotool search --classname "$WINCLASS" getwindowname %@ 2>/dev/null | head -1)
+  [ -n "$t" ] && { echo "${t%%.*}"; return 0; }
+  return 1
+}
+
+spawn() { # spawn <name> <dir> <role>
+  local name="$1" dir="$2" role="$3"
+  # setsid -f: fully detach so the window survives tt's parent (terminal or
+  # zmx session) being torn down right after tt exits
+  setsid -f alacritty --class "Alacritty,$WINCLASS" \
+    --working-directory "$dir" \
+    -T "$name.$role" \
+    -e zmx attach "$name.$role" >/dev/null 2>&1
+}
+
+# Spawn a plain shell session and, if the session is new, type <command...>
+# into it. Quitting the command (or ctrl-c) then drops to the prompt
+# (restart with arrow-up) instead of killing the session and window, which
+# is what happens when the command is the zmx session command itself.
+spawn_with_cmd() { # spawn_with_cmd <name> <dir> <role> <command...>
+  local name="$1" dir="$2" role="$3" is_new=1
+  shift 3
+  zmx list --short 2>/dev/null | grep -Fqx "$name.$role" && is_new=0
+  spawn "$name" "$dir" "$role"
+  if [ "$is_new" = 1 ]; then
+    # zmx buffers PTY input, so the command lands once zsh is up
+    for _ in $(seq 1 30); do
+      zmx list --short 2>/dev/null | grep -Fqx "$name.$role" && break
+      sleep 0.1
+    done
+    zmx send "$name.$role" "$*"$'\r'
+  fi
+}
+
+case "$1" in
+  -l)
+    zmx list
+    ;;
+  -d)
+    close_windows
+    ;;
+  -k)
+    [ -z "$2" ] && { echo "usage: tt -k <name>" >&2; exit 1; }
+    sessions=()
+    while IFS= read -r s; do
+      case "$s" in "$2".*) sessions+=("$s") ;; esac
+    done < <(zmx list --short 2>/dev/null)
+    [ "${#sessions[@]}" -eq 0 ] && { echo "tt: no sessions for '$2'" >&2; exit 1; }
+    zmx kill "${sessions[@]}"
+    ;;
+  -n)
+    role="${2:-scratch_$RANDOM}"
+    name=$(current_project) || { echo "tt: cannot detect current project" >&2; exit 1; }
+    dir=$(resolve_dir "$name") || dir="$PWD"
+    spawn "$name" "$dir" "$role"
+    ;;
+  -m)
+    name=$(candidates | dmenu -p "session swap:") || exit 0
+    [ -n "$name" ] && exec "$0" "$name"
+    ;;
+  -*|"")
+    sed -n '2,/^$/s/^# \{0,1\}//p' "$0"
+    exit 1
+    ;;
+  *)
+    name="$1"
+    dir="${2:-$(resolve_dir "$name")}"
+    [ -d "$dir" ] || { echo "tt: cannot resolve dir for '$name'" >&2; exit 1; }
+    close_windows
+    # NVIM_NOTTYFAST: zmx's vt layer doesn't answer nvim's startup DSR/OSC
+    # queries (E1568); skip them, at the cost of 'background' auto-detection
+    spawn_with_cmd "$name" "$dir" nvim NVIM_NOTTYFAST=1 nvim
+    sleep 0.3
+    spawn "$name" "$dir" shell
+    sleep 0.3
+    # worktrees get their own PORT so the server can run next to the main one
+    server_cmd="make run"
+    case "$dir" in
+      */.worktrees/*)
+        server_cmd="PORT=$((5100 + $(printf %s "$name" | cksum | cut -d' ' -f1) % 400)) make run"
+        ;;
+    esac
+    spawn_with_cmd "$name" "$dir" server $server_cmd
+    # extra windows added with -n: respawn their existing sessions last so
+    # they stack below the default three and leave nvim in the master area
+    while IFS= read -r s; do
+      case "$s" in
+        "$name".nvim | "$name".shell | "$name".server) ;;
+        "$name".*)
+          sleep 0.3
+          spawn "$name" "$dir" "${s#"$name".}"
+          ;;
+      esac
+    done < <(zmx list --short 2>/dev/null)
+    ;;
+esac
