@@ -6,7 +6,7 @@
       "/home/jeroen/.claude/projects"
     ]
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -100,8 +100,9 @@
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
-  "ultracode": true,
+  "effortLevel": "xhigh",
+  "ultracode": false,
+  "tui": "fullscreen",
   "editorMode": "vim",
   "skipAutoPermissionPrompt": true
 }
