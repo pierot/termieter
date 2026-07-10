@@ -21,3 +21,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
 
 fpath=(${ASDF_DIR}/completions $fpath)
+
+# Darkbloom
+export PATH="$HOME/.darkbloom/bin:$PATH"
