@@ -1,0 +1,14 @@
+[provider]
+name = "eigeninference-macbookpro18-3"
+memory_reserve_gb = 4
+auto_update = true
+
+[backend]
+port = 8100
+continuous_batching = true
+enabled_models = []
+idle_timeout_mins = 60
+
+[coordinator]
+url = "wss://api.darkbloom.dev/ws/provider"
+heartbeat_interval_secs = 5

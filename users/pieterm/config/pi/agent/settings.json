@@ -1,0 +1,25 @@
+{
+  "lastChangelogVersion": "0.79.0",
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-flash",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:pi-subagents",
+    "npm:pi-mcp-adapter",
+    "npm:context-mode",
+    "npm:pi-web-access",
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "skills": []
+    },
+    "npm:pi-lens",
+    "npm:@ryan_nookpi/pi-extension-cross-agent",
+    "npm:pi-rtk-optimizer",
+    "npm:pi-memory-md",
+    "npm:pi-autoresearch",
+    "npm:pi-simplify",
+    "npm:@juanibiapina/pi-powerbar",
+    "npm:@tmustier/pi-usage-extension",
+    "npm:pi-manage-todo-list"
+  ]
+}

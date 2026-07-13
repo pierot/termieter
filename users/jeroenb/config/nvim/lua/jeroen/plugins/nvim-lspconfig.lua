@@ -60,7 +60,7 @@ return {
 
 		vim.lsp.config("dexter", {
 			cmd = { "dexter", "lsp" },
-			root_markers = { ".dexter.db", ".git", "mix.exs" },
+			root_markers = { ".dexter/dexter.db", ".dexter.db", ".git", "mix.exs" },
 			filetypes = { "elixir", "eelixir", "heex" },
 			init_options = {
 				followDelegates = true, -- jump through defdelegate to the target function
@@ -99,6 +99,10 @@ return {
 				)
 				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = args.buf, desc = "Previous diagnostic" })
 				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
+
+				-- Show LSP document colors (e.g. tailwind classes) as a virtual
+				-- swatch next to the text instead of painting the background
+				vim.lsp.document_color.enable(true, { bufnr = args.buf }, { style = "virtual" })
 			end,
 
 			vim.lsp.enable({ "html", "emmet_ls", "cssls", "tailwindcss", "ts_ls", "lua_ls", "dexter" }),

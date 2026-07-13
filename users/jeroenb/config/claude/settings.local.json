@@ -7,7 +7,18 @@
       "WebFetch(domain:man.archlinux.org)",
       "Bash(op:*)",
       "Bash(carddav-query:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "Bash(podman inspect *)",
+      "Bash(podman image *)",
+      "Bash(podman volume *)",
+      "Bash(xargs -I{} ls -la {})",
+      "Bash(systemctl --user stop postgresql.service)",
+      "Bash(systemctl --user daemon-reload)",
+      "Bash(systemctl --user start postgresql.service)",
+      "Bash(systemctl --user is-active postgresql.service)",
+      "Bash(podman exec *)",
+      "Bash(systemctl --user restart postgresql.service)"
     ]
   }
 }

@@ -1,0 +1,59 @@
+#!/bin/bash
+# filezilla-pro-update — install/overwrite a FileZilla Pro release in place.
+#
+# FileZilla Pro is not in the package manager, so updates ship as a tarball:
+#     FileZilla_Pro_<ver>_x86_64-linux-gnu.tar.xz
+# which unpacks to a top-level FileZilla3/ (bin/ lib/ share/). This replaces
+# the install at /opt/FileZilla3, keeping the /usr/bin/filezilla symlink intact.
+#
+# Usage:
+#     filezilla-pro-update [path/to/FileZilla_Pro_x.y.z_*.tar.xz]
+#
+# With no argument it picks the newest FileZilla_Pro_*.tar.xz in ~/Downloads.
+
+set -euo pipefail
+
+INSTALL_DIR=/opt/FileZilla3
+DOWNLOADS="${HOME}/Downloads"
+
+die() { printf 'error: %s\n' "$*" >&2; exit 1; }
+
+# --- locate the tarball -----------------------------------------------------
+if [ "$#" -ge 1 ]; then
+	tarball=$1
+else
+	tarball=$(ls -t "$DOWNLOADS"/FileZilla_Pro_*_x86_64-linux-gnu.tar.xz 2>/dev/null | head -n1) || true
+	[ -n "${tarball:-}" ] || die "no FileZilla_Pro_*.tar.xz in $DOWNLOADS (pass one as an argument)"
+fi
+[ -f "$tarball" ] || die "not a file: $tarball"
+echo "Tarball:  $tarball"
+
+# --- pick up sudo only if /opt/FileZilla3 isn't user-writable ---------------
+if [ -d "$INSTALL_DIR" ] && [ -w "$INSTALL_DIR" ]; then
+	SUDO=""
+else
+	SUDO="sudo"
+fi
+run() { if [ -n "$SUDO" ]; then sudo "$@"; else "$@"; fi; }
+
+# --- current version (best effort) ------------------------------------------
+if [ -x "$INSTALL_DIR/bin/filezilla" ]; then
+	echo "Current:  $("$INSTALL_DIR/bin/filezilla" --version 2>/dev/null | head -n1)"
+fi
+
+# --- extract to a temp dir and sanity-check the layout ----------------------
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+echo "Extracting…"
+tar -xJf "$tarball" -C "$tmp"
+[ -d "$tmp/FileZilla3/bin" ] || die "unexpected tarball layout (no FileZilla3/bin/)"
+
+# --- replace the install (--delete clears stale libs like .so.48) -----------
+echo "Installing to $INSTALL_DIR …"
+run mkdir -p "$INSTALL_DIR"
+run rsync -a --delete "$tmp/FileZilla3/" "$INSTALL_DIR/"
+
+# --- verify -----------------------------------------------------------------
+echo "Updated:  $("$INSTALL_DIR/bin/filezilla" --version 2>/dev/null | head -n1)"
+echo "Symlink:  /usr/bin/filezilla -> $(readlink -f /usr/bin/filezilla 2>/dev/null || echo MISSING)"
+echo "Done."

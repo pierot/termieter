@@ -55,6 +55,7 @@ Important: never start editing or implementing immediately! Always start with a 
 
 Use these tools extensively:
 
+- `rtk` if available always use it to run other toolt
 - `jq` you can use it to inspect json files or parse/inspect json output of other tools.
 - `ripgrep` faster grep tool
 - `fd` faster than `find`
