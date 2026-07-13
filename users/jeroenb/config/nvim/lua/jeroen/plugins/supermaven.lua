@@ -1,5 +1,6 @@
 return {
 	"supermaven-inc/supermaven-nvim",
+	enabled = false, -- replaced by minuet-ai (local Ollama). Flip back to re-enable.
 	event = "InsertEnter",
 	config = function()
 		require("supermaven-nvim").setup({

@@ -45,7 +45,9 @@
     "elixir@claude-code-elixir": true,
     "plannotator@plannotator": true,
     "agent-skills@addy-agent-skills": true,
-    "context-mode@context-mode": true
+    "context-mode@context-mode": true,
+    "modern-web-guidance@googlechrome": true,
+    "chrome-devtools-mcp@chrome-devtools-plugins": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -82,6 +84,18 @@
       "source": {
         "source": "github",
         "repo": "addyosmani/agent-skills"
+      }
+    },
+    "googlechrome": {
+      "source": {
+        "source": "github",
+        "repo": "GoogleChrome/modern-web-guidance"
+      }
+    },
+    "chrome-devtools-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "ChromeDevTools/chrome-devtools-mcp"
       }
     }
   },

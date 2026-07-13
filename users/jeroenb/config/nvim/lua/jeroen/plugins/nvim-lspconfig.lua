@@ -6,15 +6,21 @@ return {
 	"neovim/nvim-lspconfig",
 	-- event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
 		-- { "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-		-- import cmp-nvim-lsp plugin
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		-- Completion capabilities — prefer blink.cmp, fall back to nvim-cmp,
+		-- so switching completion engines doesn't break LSP capabilities.
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		local ok_blink, blink = pcall(require, "blink.cmp")
+		if ok_blink then
+			capabilities = blink.get_lsp_capabilities(capabilities)
+		else
+			local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+			if ok_cmp then
+				capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+			end
+		end
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)

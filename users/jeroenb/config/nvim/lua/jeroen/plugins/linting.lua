@@ -1,12 +1,8 @@
 return {
 	"mfussenegger/nvim-lint",
-	dependencies = {
-		"rcarriga/nvim-notify",
-	},
 	-- lazy = true,
 	-- event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
 	config = function()
-		local notify = require("notify")
 		local nvimlint = require("lint")
 
 		nvimlint.linters_by_ft = {
@@ -25,7 +21,7 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>leu", function()
-			notify.notify("ESLint enabled", "info", { title = "Linters" })
+			vim.notify("ESLint enabled", vim.log.levels.INFO, { title = "Linters" })
 			nvimlint.linters_by_ft.javascript = { "eslint_d" }
 			nvimlint.linters_by_ft.javascriptreact = { "eslint_d" }
 			nvimlint.linters_by_ft.typescript = { "eslint_d" }
@@ -33,7 +29,7 @@ return {
 		end, { desc = "Enable ESLint" })
 
 		vim.keymap.set("n", "<leader>led", function()
-			notify.notify("ESLint disabled", "warn", { title = "Linters" })
+			vim.notify("ESLint disabled", vim.log.levels.WARN, { title = "Linters" })
 			nvimlint.linters_by_ft.javascript = {}
 			nvimlint.linters_by_ft.javascriptreact = {}
 			nvimlint.linters_by_ft.typescript = {}
@@ -43,12 +39,12 @@ return {
 		-- Restart eslint_d
 		local restartEsLintD = function()
 			vim.cmd("silent !eslint_d restart")
-			notify.notify("Restarted ESLint", "info", { title = "Linters" })
+			vim.notify("Restarted ESLint", vim.log.levels.INFO, { title = "Linters" })
 		end
 
 		local restartFlatConfigEsLintD = function()
 			vim.cmd("silent !env ESLINT_USE_FLAT_CONFIG=true eslint_d restart")
-			notify.notify("Restarted ESLint with flat config", "info", { title = "Linters" })
+			vim.notify("Restarted ESLint with flat config", vim.log.levels.INFO, { title = "Linters" })
 		end
 
 		vim.keymap.set("n", "<leader>re", restartEsLintD, { desc = "Restart ESLint_D" })

@@ -1,0 +1,59 @@
+#compdef zmx
+_zmx() {
+  local context state state_descr line
+  typeset -A opt_args
+
+  _arguments -C \
+    '1: :->commands' \
+    '2: :->args' \
+    '*: :->trailing' \
+    && return 0
+
+  case $state in
+    commands)
+      local -a commands
+      commands=(
+        'attach:Attach to session, creating if needed'
+        'run:Send command without attaching'
+        'send:Send raw input to session PTY'
+        'detach:Detach all clients from current session'
+        'list:List active sessions'
+        'completions:Shell completion scripts'
+        'kill:Kill a session'
+        'history:Output session scrollback'
+        'version:Show version'
+        'help:Show help message'
+      )
+      _describe 'command' commands
+      ;;
+    args)
+      case $words[2] in
+        attach|a|kill|k|run|r|send|s|history|hi)
+          _zmx_sessions
+          ;;
+        completions|c)
+          _values 'shell' 'bash' 'zsh' 'fish'
+          ;;
+        list|l)
+          _values 'options' '--short'
+          ;;
+      esac
+      ;;
+    trailing)
+      # Additional args for commands like 'attach' or 'run'
+      ;;
+  esac
+}
+
+_zmx_sessions() {
+  local -a sessions
+
+  local local_sessions=$(zmx list --short 2>/dev/null)
+  if [[ -n "$local_sessions" ]]; then
+    sessions+=(${(f)local_sessions})
+  fi
+
+  _describe 'local session' sessions
+}
+
+compdef _zmx zmx
