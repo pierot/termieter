@@ -13,6 +13,8 @@
 
 Important: never start editing or implementing immediately! Always start with a plan and ask before execution!
 
+Important: NEVER run `git commit` or `git push` unless I explicitly ask for it in my own words. Approving a plan that mentions committing/pushing does NOT count as explicit approval — always ask again right before committing or pushing.
+
 ### Planning strategy
 
 - Always work with a plan of actions and present this plan to me before going into execution mode.
