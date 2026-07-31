@@ -92,6 +92,11 @@
     "defaultMode": "acceptEdits"
   },
   "model": "claude-fable-5[1m]",
+  "skillOverrides": {
+    "plannotator-annotate": "off",
+    "plannotator-last": "off",
+    "plannotator-review": "off"
+  },
   "hooks": {
     "PreToolUse": [
       {
@@ -121,12 +126,12 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": false,
     "context-mode@context-mode": true,
     "claude-hud@claude-hud": true,
     "plannotator@plannotator": true,
     "unraid-mcp@claude-homelab": true,
-    "code-simplifier@claude-plugins-official": true
+    "code-simplifier@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
