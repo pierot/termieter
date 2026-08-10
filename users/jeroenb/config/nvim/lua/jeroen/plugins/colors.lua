@@ -14,7 +14,7 @@ return {
 	"folke/tokyonight.nvim",
 	"projekt0n/github-nvim-theme",
 	"EdenEast/nightfox.nvim",
-	"nyoom-engineering/oxocarbon.nvim",
+	{ "nyoom-engineering/oxocarbon.nvim", build = false },
 	{
 		"Shatur/neovim-ayu",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
