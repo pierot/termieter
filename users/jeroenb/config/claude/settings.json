@@ -6,7 +6,6 @@
       "/home/jeroen/.claude/projects"
     ]
   },
-  "model": "claude-fable-5[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -38,7 +37,7 @@
     "frontend-design@claude-plugins-official": true,
     "claude-hud@claude-hud": true,
     "worktrunk@worktrunk": true,
-    "elixir-lsp@claude-code-elixir": true,
+    "elixir-lsp@claude-code-elixir": false,
     "mix-format@claude-code-elixir": true,
     "mix-compile@claude-code-elixir": true,
     "mix-credo@claude-code-elixir": true,
@@ -47,7 +46,9 @@
     "agent-skills@addy-agent-skills": true,
     "context-mode@context-mode": true,
     "modern-web-guidance@googlechrome": true,
-    "chrome-devtools-mcp@chrome-devtools-plugins": true
+    "chrome-devtools-mcp@chrome-devtools-plugins": true,
+    "caveman@caveman": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -97,12 +98,19 @@
         "source": "github",
         "repo": "ChromeDevTools/chrome-devtools-mcp"
       }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "ultracode": false,
   "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
   "skipAutoPermissionPrompt": true
 }
