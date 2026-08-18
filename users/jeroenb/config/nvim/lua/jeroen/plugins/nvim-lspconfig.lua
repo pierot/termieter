@@ -73,6 +73,13 @@ return {
 				-- stdlibPath = "",      -- override Elixir stdlib path (auto-detected)
 				-- debug = false,        -- verbose logging to stderr (view with :LspLog)
 			},
+			-- dexter advertises hover and completion but returns nothing for them,
+			-- which just adds an empty source to the completion menu alongside
+			-- expert. Keep it to what it is actually good at: navigation.
+			on_attach = function(client)
+				client.server_capabilities.hoverProvider = false
+				client.server_capabilities.completionProvider = nil
+			end,
 		})
 
 		-- LSP keymaps (set when LSP attaches to buffer)
@@ -110,8 +117,20 @@ return {
 				-- swatch next to the text instead of painting the background
 				vim.lsp.document_color.enable(true, { bufnr = args.buf }, { style = "virtual" })
 			end,
+		})
 
-			vim.lsp.enable({ "html", "emmet_ls", "cssls", "tailwindcss", "ts_ls", "lua_ls", "dexter" }),
+		-- Elixir gets two servers on purpose:
+		--   expert — diagnostics, completion, hover, formatting
+		--   dexter — fast project-wide index for definitions and references
+		vim.lsp.enable({
+			"html",
+			"emmet_ls",
+			"cssls",
+			"tailwindcss",
+			"ts_ls",
+			"lua_ls",
+			"expert",
+			"dexter",
 		})
 	end,
 }
