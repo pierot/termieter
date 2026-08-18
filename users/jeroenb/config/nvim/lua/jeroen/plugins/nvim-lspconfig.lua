@@ -73,12 +73,18 @@ return {
 				-- stdlibPath = "",      -- override Elixir stdlib path (auto-detected)
 				-- debug = false,        -- verbose logging to stderr (view with :LspLog)
 			},
-			-- dexter advertises hover and completion but returns nothing for them,
-			-- which just adds an empty source to the completion menu alongside
-			-- expert. Keep it to what it is actually good at: navigation.
+			-- Running dexter next to expert needs its capabilities trimmed:
+			--   hover/completion — dexter advertises both but returns nothing,
+			--     which adds an empty source to the completion menu.
+			--   references — Neovim concatenates results per client and does not
+			--     dedup across them, so `gr` returned 10 entries for 4 real sites.
+			-- definition is left on: both servers return the identical location,
+			-- Neovim dedups that, and whichever answers first wins. That makes
+			-- dexter a latency hedge for when expert is still warming up.
 			on_attach = function(client)
 				client.server_capabilities.hoverProvider = false
 				client.server_capabilities.completionProvider = nil
+				client.server_capabilities.referencesProvider = false
 			end,
 		})
 
