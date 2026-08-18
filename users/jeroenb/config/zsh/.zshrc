@@ -109,7 +109,7 @@ function prompt_zmx() {
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=zmx
 
 # pnpm
-export PNPM_HOME="/home/jeroen/.config/local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -119,6 +119,6 @@ esac
 # Fix npm prefix issue (don't set to /nonexistent)
 unset NPM_CONFIG_PREFIX
 
-. "$HOME/.config/local/share/../bin/env"
+. "$HOME/.local/bin/env"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
