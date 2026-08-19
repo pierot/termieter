@@ -73,6 +73,19 @@ return {
 				-- stdlibPath = "",      -- override Elixir stdlib path (auto-detected)
 				-- debug = false,        -- verbose logging to stderr (view with :LspLog)
 			},
+			-- Running dexter next to expert needs its capabilities trimmed:
+			--   hover/completion — dexter advertises both but returns nothing,
+			--     which adds an empty source to the completion menu.
+			--   references — Neovim concatenates results per client and does not
+			--     dedup across them, so `gr` returned 10 entries for 4 real sites.
+			-- definition is left on: both servers return the identical location,
+			-- Neovim dedups that, and whichever answers first wins. That makes
+			-- dexter a latency hedge for when expert is still warming up.
+			on_attach = function(client)
+				client.server_capabilities.hoverProvider = false
+				client.server_capabilities.completionProvider = nil
+				client.server_capabilities.referencesProvider = false
+			end,
 		})
 
 		-- LSP keymaps (set when LSP attaches to buffer)
@@ -110,8 +123,20 @@ return {
 				-- swatch next to the text instead of painting the background
 				vim.lsp.document_color.enable(true, { bufnr = args.buf }, { style = "virtual" })
 			end,
+		})
 
-			vim.lsp.enable({ "html", "emmet_ls", "cssls", "tailwindcss", "ts_ls", "lua_ls", "dexter" }),
+		-- Elixir gets two servers on purpose:
+		--   expert — diagnostics, completion, hover, formatting
+		--   dexter — fast project-wide index for definitions and references
+		vim.lsp.enable({
+			"html",
+			"emmet_ls",
+			"cssls",
+			"tailwindcss",
+			"ts_ls",
+			"lua_ls",
+			"expert",
+			"dexter",
 		})
 	end,
 }
