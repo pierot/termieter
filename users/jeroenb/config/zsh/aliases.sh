@@ -95,8 +95,10 @@ alias bfg='java -jar ~/.termieter/users/jeroenb/bin/bfg.jar'
 
 # Upgrade Portainer
 alias upgrade_portainer='sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest'
-alias fixkb='xset r rate 200 90 && setxkbmap -option compose:paus && setxkbmap -option caps:escape_shift_capslock'
-alias kbfix='xset r rate 200 90 && setxkbmap -option compose:paus && setxkbmap -option caps:escape_shift_capslock'
+# XKB options live in /etc/X11/xorg.conf.d/00-keyboard.conf now, so these only
+# restore the repeat rate
+alias fixkb='xset r rate 200 90'
+alias kbfix='xset r rate 200 90'
 
 # my external ip
 alias myip='curl -s https://ipinfo.io/ip'

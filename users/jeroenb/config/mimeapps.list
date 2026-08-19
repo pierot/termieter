@@ -30,7 +30,10 @@ x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/jetbrains=jetbrainsd.desktop
 x-scheme-handler/slack=slack.desktop
 x-scheme-handler/claude=com.anthropic.Claude.desktop
-x-scheme-handler/net.thunderbird=userapp-Thunderbird-78ZOS3.desktop
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-E9TYQ3.desktop
+x-scheme-handler/rvmm=rvmm-scheme.desktop
+x-scheme-handler/discord-472158403830218762=discord-472158403830218762.desktop
+x-scheme-handler/insomnia=insomnia.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -59,4 +62,5 @@ application/gpx+xml=gvim.desktop;
 application/zip=userapp-unzip-1YHQD3.desktop;xarchiver.desktop;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;xarchiver.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
-x-scheme-handler/net.thunderbird=userapp-Thunderbird-78ZOS3.desktop;userapp-Thunderbird-E9TYQ3.desktop;
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-E9TYQ3.desktop;userapp-Thunderbird-78ZOS3.desktop;
+text/markdown=libreoffice-writer.desktop;emacsclient.desktop;
