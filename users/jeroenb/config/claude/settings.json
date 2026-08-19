@@ -35,7 +35,6 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "claude-hud@claude-hud": true,
     "worktrunk@worktrunk": true,
     "elixir-lsp@claude-code-elixir": false,
     "mix-format@claude-code-elixir": true,
