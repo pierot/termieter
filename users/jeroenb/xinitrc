@@ -47,12 +47,16 @@ dunst &         # Notifications
 sleep 0.5       # Let dunst initialize before starting network applet
 
 # Network applet + wireless (after dunst!)
-# Not on Archius, we need nothing fancy there
+# Skipped on Archius (nothing fancy needed) and on gerard (ethernet only, the
+# ath12k wifi card is blacklisted there because it hangs resume from suspend)
 host=$(hostname)
-if [ "$host" != "Archius" ]; then
-  [ -x /usr/bin/nm-applet ] && nm-applet &
-  [ -x /usr/bin/nmcli ] && nmcli r wifi on &
-fi
+case "$host" in
+  Archius|gerard) ;;
+  *)
+    [ -x /usr/bin/nm-applet ] && nm-applet &
+    [ -x /usr/bin/nmcli ] && nmcli r wifi on &
+    ;;
+esac
 
 sxhkd &         # Keyboard shortcut daemon
 udiskie &       # USB auto mounting
