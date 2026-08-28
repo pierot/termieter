@@ -121,5 +121,8 @@
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
-  "skipAutoPermissionPrompt": true
+  "verbose": true,
+  "preferredNotifChannel": "auto",
+  "skipAutoPermissionPrompt": true,
+  "agentPushNotifEnabled": true
 }
