@@ -61,6 +61,16 @@ Use these tools extensively:
 - `ripgrep` faster grep tool
 - `fd` faster than `find`
 
+### ctx (agent history search)
+
+`ctx` indexes all local coding-agent sessions (Claude Code, Codex, OpenCode) into a searchable store at `~/.ctx`.
+
+- At the start of a non-trivial task, investigation, or bug report: search prior sessions first with `ctx search "<topic>"`. Add `--term "<variant>"` terms when wording is uncertain, `--workspace <name>` to scope.
+- Inspect the best match before relying on it: `ctx show event <ctx-event-id> --window 3` or `ctx show session <ctx-session-id>`.
+- Cite the `ctx_event_id` / `ctx_session_id` when retrieved history influenced the answer.
+- Use `--refresh off` for strictly read-only queries.
+- Division of labor: ctx = verbatim recall of past sessions; file-based memory = curated decisions and preferences. Check both; do not copy into memory what ctx already holds.
+
 ### MacOS
 
 On MacOS:
