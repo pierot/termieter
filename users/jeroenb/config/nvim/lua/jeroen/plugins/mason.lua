@@ -1,6 +1,7 @@
+-- Maintenance moved from williamboman/* to mason-org/* (the old repos are archived).
 return {
-	"williamboman/mason.nvim",
-	dependencies = { "williamboman/mason-lspconfig.nvim" },
+	"mason-org/mason.nvim",
+	dependencies = { "mason-org/mason-lspconfig.nvim" },
 	event = "VeryLazy",
 	config = function()
 		local mason = require("mason")
@@ -10,11 +11,18 @@ return {
 
 		lspconfig.setup({
 			ensure_installed = {
-				"tailwindcss",
-				-- "elixirls" ,
+				"cssls",
 				"emmet_ls",
 				"html",
+				"lua_ls",
+				"tailwindcss",
+				"ts_ls",
 			},
+			-- Servers are started from the explicit vim.lsp.enable() list in
+			-- nvim-lspconfig.lua. Without this, mason-lspconfig also enables
+			-- everything it finds installed, so that list stops being the
+			-- single source of truth.
+			automatic_enable = false,
 		})
 	end,
 }

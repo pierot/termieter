@@ -34,9 +34,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # keyboard repeat rate & compose key
+# XKB options are also set persistently in /etc/X11/xorg.conf.d/00-keyboard.conf
+# (source: ~/.termieter/users/jeroenb/xorg/). These lines are the fallback for
+# machines where that file has not been installed yet.
 xset r rate 200 90
-# setxkbmap -option compose:paus
-setxkbmap -option compose:ralt
+setxkbmap -option compose:ralt -option caps:escape_shift_capslock
 
 fehbg &         # bg
 snixembed &     # needed for the Dropbox App icon in the system tray...
@@ -45,12 +47,16 @@ dunst &         # Notifications
 sleep 0.5       # Let dunst initialize before starting network applet
 
 # Network applet + wireless (after dunst!)
-# Not on Archius, we need nothing fancy there
+# Skipped on Archius (nothing fancy needed) and on gerard (ethernet only, the
+# ath12k wifi card is blacklisted there because it hangs resume from suspend)
 host=$(hostname)
-if [ "$host" != "Archius" ]; then
-  [ -x /usr/bin/nm-applet ] && nm-applet &
-  [ -x /usr/bin/nmcli ] && nmcli r wifi on &
-fi
+case "$host" in
+  Archius|gerard) ;;
+  *)
+    [ -x /usr/bin/nm-applet ] && nm-applet &
+    [ -x /usr/bin/nmcli ] && nmcli r wifi on &
+    ;;
+esac
 
 sxhkd &         # Keyboard shortcut daemon
 udiskie &       # USB auto mounting

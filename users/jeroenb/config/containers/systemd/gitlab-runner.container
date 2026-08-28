@@ -1,0 +1,21 @@
+[Unit]
+Description=GitLab Runner (rootless, docker executor via podman socket)
+Requires=podman.socket
+After=podman.socket
+
+[Container]
+Image=docker.io/gitlab/gitlab-runner:latest
+AutoUpdate=registry
+ContainerName=gitlab-runner
+
+# Runner reads/writes config.toml here; rootless maps container root -> jeroen
+Volume=%h/dev/tools/gitlab-runner/config:/etc/gitlab-runner:z
+# Docker executor talks to the rootless podman socket (%t = /run/user/1000)
+Volume=%t/podman/podman.sock:/var/run/docker.sock
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

@@ -5,4 +5,5 @@ approved-commands = [
     "mix phx.gen.secret",
     "pnpm install",
     "make styles",
+    ". ./.env && mix deps.get && mix compile",
 ]
