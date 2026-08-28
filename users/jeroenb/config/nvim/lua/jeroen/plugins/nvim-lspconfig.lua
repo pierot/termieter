@@ -44,7 +44,7 @@ return {
 		-- This tries: 1) project node_modules, 2) pnpm global, 3) asdf shim
 		local function get_tailwind_cmd()
 			local project_bin = vim.fn.getcwd() .. "/node_modules/.bin/tailwindcss-language-server"
-			local pnpm_bin = vim.fn.expand("~/.config/local/share/pnpm/tailwindcss-language-server")
+			local pnpm_bin = vim.fn.expand("~/.local/share/pnpm/tailwindcss-language-server")
 			local asdf_bin = vim.fn.expand("~/.asdf/shims/tailwindcss-language-server")
 
 			if vim.fn.executable(project_bin) == 1 then
