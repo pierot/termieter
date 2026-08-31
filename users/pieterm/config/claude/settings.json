@@ -91,7 +91,6 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "model": "claude-fable-5[1m]",
   "skillOverrides": {
     "plannotator-annotate": "off",
     "plannotator-last": "off",
@@ -168,12 +167,12 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
   "theme": "dark-daltonized",
   "editorMode": "vim",
-  "preferredNotifChannel": "terminal_bell",
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
   "verbose": true,
+  "preferredNotifChannel": "terminal_bell",
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "inputNeededNotifEnabled": true
+  "skipAutoPermissionPrompt": true
 }
