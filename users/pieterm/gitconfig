@@ -4,7 +4,6 @@
 
 [github]
 	user = pierot
-	token = c9a84078efdf44e6cb4e534786f6991e
 
 [gitlab]
   email = pieter@jackjoe.be
@@ -60,3 +59,7 @@
   prune = true
   pruneTags = true
   all = false
+
+[merge "mergiraf"]
+  name = mergiraf
+  driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
