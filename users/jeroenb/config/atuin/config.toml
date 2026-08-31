@@ -69,7 +69,7 @@ style = "compact"
 
 ## the maximum number of lines the interface should take up
 ## set it to 0 to always go full screen
-# inline_height = 0
+inline_height = 10
 
 ## the maximum number of lines the interface should take up
 ## when atuin is invoked from a shell up-key binding
@@ -102,7 +102,7 @@ style = "compact"
 
 ## Show numeric shortcuts (1..9) beside list items in the TUI
 ## set to false to hide the moving numbers if you find them distracting
-# show_numeric_shortcuts = true
+show_numeric_shortcuts = false
 
 ## default history list format - can also be specified with the --format arg
 # history_format = "{time}\t{command}\t{duration}"
@@ -129,12 +129,12 @@ style = "compact"
 ## Configure the maximum height of the preview to show.
 ## Useful when you have long scripts in your history that you want to distinguish
 ## by more than the first few lines.
-# max_preview_height = 4
+max_preview_height = 4
 
 ## Configure whether or not to show the help row, which includes the current Atuin
 ## version (and whether an update is available), a keymap hint, and the total
 ## amount of commands in your history.
-# show_help = true
+show_help = true
 
 ## Configure whether or not to show tabs for search and inspect
 # show_tabs = true

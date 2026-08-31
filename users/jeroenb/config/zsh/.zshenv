@@ -23,7 +23,10 @@ export FLYCTL_INSTALL="/home/jeroen/.fly"
 export PAGER="most"
 export NOTMUCH_CONFIG=$HOME/.config/notmuch/notmuch-config
 export XDG_CONFIG_HOME=$HOME/.config
-export XDG_DATA_HOME=$XDG_CONFIG_HOME/local/share
+# XDG_DATA_HOME intentionally unset: the spec default (~/.local/share) is what
+# systemd user units and the X session already use. Overriding it here only
+# applied to zsh, which split app data across two trees (podman, nvim, Trash).
+# Config portability comes from XDG_CONFIG_HOME above, not from this.
 # export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
 export LYNX_LSS=$XDG_CONFIG_HOME/lynx/lynx.lss
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -82,7 +85,7 @@ export NVM_DIR="$HOME/.config/nvm"
 . $TRMU/bin/z.sh
 
 # pnpm
-export PNPM_HOME="$HOME/.config/local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -116,9 +119,9 @@ if [ -d "/opt/intellij-idea-ultimate-edition/jbr" ]; then
 fi 
 
 # my own python venv
-if [ -d "${HOME}/.config/local/share/../bin" ]; then
+if [ -d "${HOME}/.local/bin" ]; then
   # uv
-  export PATH="$HOME/.config/local/share/../bin:$PATH"
+  export PATH="$HOME/.local/bin:$PATH"
 fi
 
 if [ -d "${HOME}/python/bin" ]; then

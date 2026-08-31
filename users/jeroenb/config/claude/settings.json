@@ -6,7 +6,6 @@
       "/home/jeroen/.claude/projects"
     ]
   },
-  "model": "claude-fable-5[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -14,7 +13,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/home/jeroen/.claude/hooks/rtk-rewrite.sh"
+            "command": "rtk hook claude"
           }
         ]
       }
@@ -27,18 +26,27 @@
             "command": "\"/home/jeroen/.claude/hooks/context-mode-cache-heal.mjs\""
           }
         ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/jeroen/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
       }
     ]
   },
   "statusLine": {
     "type": "command",
-    "command": "bash -c 'plugin_dir=$(ls -d \"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | awk -F/ '\"'\"'{ print $(NF-1) \"\\t\" $(0) }'\"'\"' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1 | cut -f2-); exec \"/home/jeroen/.bun/bin/bun\" --env-file /dev/null \"${plugin_dir}src/index.ts\"'"
+    "command": "/home/jeroen/.config/claude/statusline-with-dwmbar.sh"
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "claude-hud@claude-hud": true,
     "worktrunk@worktrunk": true,
-    "elixir-lsp@claude-code-elixir": true,
+    "elixir-lsp@claude-code-elixir": false,
     "mix-format@claude-code-elixir": true,
     "mix-compile@claude-code-elixir": true,
     "mix-credo@claude-code-elixir": true,
@@ -47,7 +55,10 @@
     "agent-skills@addy-agent-skills": true,
     "context-mode@context-mode": true,
     "modern-web-guidance@googlechrome": true,
-    "chrome-devtools-mcp@chrome-devtools-plugins": true
+    "chrome-devtools-mcp@chrome-devtools-plugins": true,
+    "caveman@caveman": true,
+    "superpowers@claude-plugins-official": true,
+    "claude-hud@claude-hud": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -97,12 +108,58 @@
         "source": "github",
         "repo": "ChromeDevTools/chrome-devtools-mcp"
       }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "ultracode": false,
   "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
-  "skipAutoPermissionPrompt": true
+  "verbose": true,
+  "preferredNotifChannel": "auto",
+  "skipAutoPermissionPrompt": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Bash(script/vault/*)",
+      "Write(config/prod.exs)",
+      "Bash(*deploy_production*)"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: justified-org (GitLab) — inferred from origin remote gitlab.com:justified-org/justified",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Not queryable (gh only supports github.com; origin is gitlab.com) — assume private per shipped default; no evidence of public visibility",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured — repo uses local .env-style files and config/*.secret.exs (gitignored), no external secrets manager evidenced",
+      "**Default / protected branches**: develop (default branch); protection/rulesets not queryable (non-GitHub host)",
+      "**CI/CD deploy targets**: Fly.io (flyctl referenced in README); Makefile targets deploy, deploy_features, deploy_production, deploy_production_hotfix, deploy_sales_demos suggest GitLab CI-driven deploys to named environments (features, production, sales_demos)",
+      "**Network posture**: None configured",
+      "**Source control**: GitLab — origin gitlab.com:justified-org/justified only",
+      "**Trusted internal domains**: app.justified.be, app.docdropper.be (the project's two production application domains, contacted in this project's transcripts)",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: registry.gitlab.com (container image registry used by this repo)",
+      "**Internal package registry**: registry.gitlab.com (container images); no separate internal package registry evidenced",
+      "**Sensitive data locations & audiences**: config/prod.exs, lib/doc_dropper/flows/pii_extracts.ex, priv/repo/migrations/*customer_pii*, priv/repo/migrations/*pii_lookups*, test/doc_dropper/flows/pii_extracts_test.exs, test/justified/kickstarters/backfill_pii_lookups_test.exs — customer PII handling code and migrations; .env, .env.production, .env.staging, .env.sandbox, .env.demo, .env.ci, .env.e2e*, .env.feature*, .env.test, config/*.secret.exs, script/vault/*.env, .env.sentry-build-plugin — credentials/secrets; share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: config/prod.exs, .env.production, deploy_production and deploy_production_hotfix Makefile targets, app.justified.be / app.docdropper.be production domains — any namespace/host/target carrying prod or production as a whole segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic (production Makefile targets and .env.production above)",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries prod or production as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (Elixir/Phoenix legal-case management platform)",
+      "**Trusted repo**: /home/jeroen/Work/jackjoe/justified and its origin remote gitlab.com:justified-org/justified only",
+      "**Org-specific CLIs**: rtk, wt (worktrunk), glab, mt, gcmm, gco, gb, gwt_cd, mpr, dockr, mdu — frequently used personal/dotfiles CLIs (per ~/.claude/CLAUDE.md and shell history); trello-attachment (1Password-authed Trello card downloader)",
+      "**routine under jeroenb/ prefix**: ~/.termieter dotfiles repo and ~/.config (symlinked to ~/.termieter/users/jeroenb/config) are routine personal-config editing targets",
+      "**Trusted repo**: /home/jeroen/Work/jackjoe/.worktrees/justified/feat-case-tabs-case-buttons and its origin remote gitlab.com:justified-org/justified only"
+    ]
+  }
 }
