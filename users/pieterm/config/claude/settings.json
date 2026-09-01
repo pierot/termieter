@@ -89,9 +89,8 @@
       "mcp__plugin_context-mode_context-mode__ctx_search",
       "mcp__sentry__get_sentry_resource"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
   "skillOverrides": {
     "plannotator-annotate": "off",
     "plannotator-last": "off",
@@ -171,5 +170,7 @@
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "preferredNotifChannel": "terminal_bell",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }
