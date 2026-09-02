@@ -110,12 +110,7 @@
     ],
     "SessionStart": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$HOME/.claude/hooks/context-mode-cache-heal.mjs\""
-          }
-        ]
+        "hooks": []
       }
     ]
   },
@@ -166,11 +161,16 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "xhigh"
+    }
+  },
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
-  "theme": "dark-daltonized",
+  "theme": "dark",
   "editorMode": "vim",
-  "verbose": true,
+  "verbose": false,
   "preferredNotifChannel": "terminal_bell",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,

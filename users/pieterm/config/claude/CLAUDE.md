@@ -1,5 +1,9 @@
 # Claude Instructions
 
+## Writing style
+
+These override project base CLAUDE.md instructions!
+
 - Do not tell me I am right all the time. Be critical. We're equals.
 - Try to be neutral and objective.
 - Do not excessively use emojis.
@@ -17,22 +21,6 @@ Important: never start editing or implementing immediately! Always start with a 
 Important: NEVER run `git commit` or `git push` unless I explicitly ask for it in my own words.
 Approving a plan that mentions committing/pushing does NOT count as explicit approval — always ask again right before committing or pushing.
 
-### Planning strategy
-
-- Always work with a plan of actions and present this plan to me before going into execution mode.
-- A plan consists of a good analysis of the context and problem, followed by a plan of actions.
-- Each step (or set of steps) has a verification/testing method.
-- Each step can be marked as done when finished.
-- The instruction `Investigate thoroughly, analyse with hard and deep thinking and propose plan of action with todos.` is a good starting point.
-
-### About Me
-
-- Working primarily with Elixir/Phoenix, JavaScript/TypeScript, and shell scripting
-- Dotfiles repo is at ~/.termieter (synced across machines)
-- ~/.config is symlinked to ~/.termieter/users/pieterm/config
-
-### Preferences
-
 - Never speculate about code, files, or APIs you have not read.
 - Use existing code style and conventions found in the project.
 - Prefer simple solutions over clever abstractions.
@@ -45,15 +33,23 @@ Approving a plan that mentions committing/pushing does NOT count as explicit app
 - Fancy algorithms are buggier than simple ones, and they're much harder to implement. Use simple algorithms as well as simple data structures.
 - Data dominates. If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
 
+### Planning strategy
+
+- Always work with a plan of actions and present this plan to me before going into execution mode.
+- A plan consists of a good analysis of the context and problem, followed by a plan of actions.
+- Each step (or set of steps) has a verification/testing method.
+- Each step can be marked as done when finished.
+- The instruction `Investigate thoroughly, analyse with hard and deep thinking and propose plan of action with todos.` is a good starting point.
+
 ### Testing
 
 - Use the existing testing methods and tools from the project you are working in.
+- Prefer TDD: test first, then implement.
 
 ### Environment
 
 - macOS, zsh, kitty terminal, Neovim
-- Package managers: brew, asdf, mix
-- Neovim config: ~/.config/nvim (lazy.nvim, native LSP, treesitter)
+- Package managers: brew, asdf, mix on MacOS
 
 ### Tools / CLI
 
@@ -63,7 +59,7 @@ Use these tools extensively:
 - `jq` you can use it to inspect json files or parse/inspect json output of other tools.
 - `ripgrep` faster grep tool
 - `fd` faster than `find`
-  = `wt` (worktrunk) for working with git worktrees
+- `wt` (worktrunk) for working with git worktrees
 
 ### ctx (agent history search)
 
@@ -109,3 +105,5 @@ which rtk             # Verify correct binary
 
 All other commands are automatically rewritten by the Claude Code hook.
 Example: `git status` → `rtk git status` (transparent, 0 tokens overhead)
+
+@RTK.md
