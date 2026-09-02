@@ -252,6 +252,15 @@ if [[ -d "$install_dir" ]]; then
   else
     git clone -q https://github.com/tmux-plugins/tmux-resurrect "$install_dir/tmux/tmux-resurrect"
   fi
+
+  _print_h1 "Init tmux-agent-switcher"
+
+  # Install tmux-agent-switcher plugin for the agent sidebar / window switcher
+  if [[ -d "$install_dir/tmux/tmux-agent-switcher" ]]; then
+    _print "tmux-agent-switcher is already installed"
+  else
+    git clone -q https://github.com/Ymirke/tmux-agent-switcher "$install_dir/tmux/tmux-agent-switcher"
+  fi
 fi
 
 ##################################################

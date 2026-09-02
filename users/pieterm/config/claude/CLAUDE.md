@@ -8,13 +8,14 @@
 - Structured output is preferred: bullets, tables, code blocks.
 - Compress responses. Every sentence must earn its place.
 - No long intros or transitions between sections.
-- Try to use `ASD-STE100 Simplified Technical English` as much as possible, but don't lose detail.
+- Use `ASD-STE100 Simplified Technical English` as much as possible without losing detail.
 
 ## Code / Coding
 
 Important: never start editing or implementing immediately! Always start with a plan and ask before execution!
 
-Important: NEVER run `git commit` or `git push` unless I explicitly ask for it in my own words. Approving a plan that mentions committing/pushing does NOT count as explicit approval — always ask again right before committing or pushing.
+Important: NEVER run `git commit` or `git push` unless I explicitly ask for it in my own words.
+Approving a plan that mentions committing/pushing does NOT count as explicit approval — always ask again right before committing or pushing.
 
 ### Planning strategy
 
@@ -62,6 +63,7 @@ Use these tools extensively:
 - `jq` you can use it to inspect json files or parse/inspect json output of other tools.
 - `ripgrep` faster grep tool
 - `fd` faster than `find`
+  = `wt` (worktrunk) for working with git worktrees
 
 ### ctx (agent history search)
 
@@ -80,4 +82,30 @@ On MacOS:
 - `grep` is aliased to `rg` (https://github.com/BurntSushi/ripgrep)
 - `sed` is aliased to `gsed` (https://gnu.org/software/gnu-sed/)
 
-@RTK.md
+### RTK - Rust Token Killer
+
+**Usage**: Token-optimized CLI proxy (60-90% savings on dev operations)
+
+#### Meta Commands (always use rtk directly)
+
+```bash
+rtk gain              # Show token savings analytics
+rtk gain --history    # Show command usage history with savings
+rtk discover          # Analyze Claude Code history for missed opportunities
+rtk proxy <cmd>       # Execute raw command without filtering (for debugging)
+```
+
+#### Installation Verification
+
+```bash
+rtk --version         # Should show: rtk X.Y.Z
+rtk gain              # Should work (not "command not found")
+which rtk             # Verify correct binary
+```
+
+⚠️ **Name collision**: If `rtk gain` fails, you may have reachingforthejack/rtk (Rust Type Kit) installed instead.
+
+#### Hook-Based Usage
+
+All other commands are automatically rewritten by the Claude Code hook.
+Example: `git status` → `rtk git status` (transparent, 0 tokens overhead)
