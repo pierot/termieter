@@ -91,6 +91,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5-1[1m]",
   "skillOverrides": {
     "plannotator-annotate": "off",
     "plannotator-last": "off",
@@ -164,6 +165,9 @@
   "modelSettings": {
     "claude-opus-5": {
       "effortLevel": "xhigh"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "high"
     }
   },
   "tui": "fullscreen",
