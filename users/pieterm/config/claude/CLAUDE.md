@@ -22,6 +22,7 @@ These override project base CLAUDE.md instructions!
 - Use the same word for the same thing. Do not use synonyms for variety.
 - Use a maximum of 3 nouns in sequence.
 - Do not use idioms, metaphors, or figurative language.
+- When writing in Dutch, use the same ideas as in English.
 
 ### Banned phrases
 
@@ -94,12 +95,14 @@ Use these tools extensively:
 
 ### ctx (agent history search)
 
-`ctx` indexes all local coding-agent sessions (Claude Code, Codex, OpenCode) into a searchable store at `~/.ctx`.
+`ctx` is the CLI at `~/.local/bin/ctx`. It indexes all local coding-agent sessions (Claude Code, Codex, Pi, OpenCode) into `~/.ctx`. It is not the context-mode plugin. The plugin's `ctx_search`, `ctx stats`, and `ctx purge` are different tools with a different store.
 
-- At the start of a non-trivial task, investigation, or bug report: search prior sessions first with `ctx search "<topic>"`. Add `--term "<variant>"` terms when wording is uncertain, `--workspace <name>` to scope.
-- Inspect the best match before relying on it: `ctx show event <ctx-event-id> --window 3` or `ctx show session <ctx-session-id>`.
+- At the start of a non-trivial task, investigation, or bug report: search prior sessions first with `ctx search "<topic>"`. Search is hybrid (lexical + semantic), so a paraphrase works. Add `--term "<variant>"` for extra keywords, `--workspace <name>` to scope to a project.
+- Narrow with `--since 30d`, `--file <path>`, `--provider claude|codex|pi|opencode`. Add `--include-subagents` when test output, review notes, or failure traces matter. Use `--events` for dense event hits, `--session <id>` to drill into one session.
+- Inspect the best match before relying on it: `ctx show event <ctx-event-id> --window 3` or `ctx show session <ctx-session-id>`. For a long transcript: `ctx show session <id> --format markdown --out <scratchpad-file>`, then read parts.
 - Cite the `ctx_event_id` / `ctx_session_id` when retrieved history influenced the answer.
-- Use `--refresh off` for strictly read-only queries.
+- `--refresh off` makes the query read-only but drops semantic ranking (lexical only). Use it only when the index must not change. Do not add `--json` unless a script consumes it.
+- Counts, joins, audits: `ctx sql "<select>"` over the views `ctx_sessions`, `ctx_events`, `ctx_files_touched`, `ctx_sources`. See `ctx docs show sql`.
 - Division of labor: ctx = verbatim recall of past sessions; file-based memory = curated decisions and preferences. Check both; do not copy into memory what ctx already holds.
 
 ### MacOS

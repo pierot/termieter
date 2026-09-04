@@ -111,6 +111,14 @@
     "SessionStart": [
       {
         "hooks": []
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/pieterm/.claude/hooks/context-mode-cache-heal.mjs\""
+          }
+        ]
       }
     ]
   },
@@ -177,5 +185,6 @@
   "preferredNotifChannel": "terminal_bell",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "model": "claude-fable-5-1[1m]"
 }

@@ -296,6 +296,30 @@ else
 fi
 
 ##################################################
+# Optional: Install ctx (agent history search)
+##################################################
+
+_print_h1 "ctx agent history search"
+
+if hash ctx 2>/dev/null; then
+  _print "ctx is already installed ✓"
+else
+  _print "Installing ctx..."
+  curl -fsSL https://ctx.rs/install | sh
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+if hash ctx 2>/dev/null; then
+  # Config lives in users/$USER/config/ctx and is symlinked by install-symlinks.
+  # setup is idempotent: it indexes discovered agent history and starts the daemon.
+  ctx setup --quiet
+  ctx integrations install skills --agent universal --agent claude-code --agent pi --quiet
+  _print "ctx set up; run 'ctx status' to inspect the index"
+else
+  _print_info "ctx not on PATH, skipping setup (install: curl -fsSL https://ctx.rs/install | sh)"
+fi
+
+##################################################
 # Installation complete
 ##################################################
 

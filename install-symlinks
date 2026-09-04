@@ -35,6 +35,7 @@ AGENTS=(
   "claude|.config/claude|.claude"
   "pi|.config/pi|.pi"
   "vibe|.config/vibe|.vibe"
+  "ctx|.config/ctx|.ctx"
 )
 
 backup_dir="$HOME/.bash_backup"
