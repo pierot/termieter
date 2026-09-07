@@ -8,3 +8,5 @@ path = ~/.gitconfig.local
 [credential "https://gitlab.com"]
 	helper = 
 	helper = !/usr/bin/glab auth git-credential
+[url "https://"]
+	insteadOf = git://

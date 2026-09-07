@@ -162,13 +162,15 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
-  "tui": "fullscreen",
-  "theme": "dark-daltonized",
-  "editorMode": "vim",
-  "preferredNotifChannel": "terminal_bell",
   "modelSettings": {
     "claude-fable-5-1": {
       "effortLevel": "high"
     }
-  }
+  },
+  "tui": "fullscreen",
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "preferredNotifChannel": "terminal_bell",
+  "agentPushNotifEnabled": true,
+  "inputNeededNotifEnabled": true
 }
