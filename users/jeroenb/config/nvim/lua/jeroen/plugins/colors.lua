@@ -1,69 +1,12 @@
-function ToggleTheme()
-	if vim.o.background == "dark" then
-		vim.o.background = "light"
-	else
-		vim.o.background = "dark"
-	end
-end
-
 return {
-	"rktjmp/lush.nvim",
-	"metalelf0/jellybeans-nvim",
-	"gruvbox-community/gruvbox",
-	"rebelot/kanagawa.nvim",
-	"folke/tokyonight.nvim",
-	"projekt0n/github-nvim-theme",
-	"EdenEast/nightfox.nvim",
-	"nyoom-engineering/oxocarbon.nvim",
+	-- kanagawa is kept as the light/alternate option and matches the herdr theme.
+	{ "rebelot/kanagawa.nvim", lazy = true },
+
 	{
-		"Shatur/neovim-ayu",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
+		"EdenEast/nightfox.nvim",
+		lazy = false, -- the active colorscheme, so load it at startup
+		priority = 1000, -- before all other start plugins
 		config = function()
-			-- local colors = require("ayu.colors")
-			-- colors.generate() -- Pass `true` to enable mirage
-			-- require("ayu").setup({
-			-- 	overrides = {
-			-- 		Normal = { bg = "None" },
-			-- 		NormalFloat = { bg = "none" },
-			-- 		ColorColumn = { bg = "#11151C" },
-			-- 		SignColumn = { bg = "None" },
-			-- 		Folded = { bg = "None" },
-			-- 		FoldColumn = { bg = "None" },
-			-- 		CursorLine = { bg = "#11151C" },
-			-- 		CursorColumn = { bg = "None" },
-			-- 		VertSplit = { bg = "None" },
-			-- 		Visual = { fg = colors.bg, bg = colors.special },
-			-- 		TelescopeMatching = { fg = "#0090ff" },
-			-- 	},
-			-- })
-
-			-- Default options:
-			-- require("kanagawa").setup({
-			-- 	compile = false, -- enable compiling the colorscheme
-			-- 	undercurl = true, -- enable undercurls
-			-- 	commentStyle = { italic = true },
-			-- 	functionStyle = {},
-			-- 	keywordStyle = { italic = true },
-			-- 	statementStyle = { bold = true },
-			-- 	typeStyle = {},
-			-- 	transparent = true, -- do not set background color
-			-- 	dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-			-- 	terminalColors = true, -- define vim.g.terminal_color_{0,17}
-			-- 	colors = { -- add/modify theme and palette colors
-			-- 		palette = {},
-			-- 		theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-			-- 	},
-			-- 	overrides = function(colors) -- add/modify highlights
-			-- 		return {}
-			-- 	end,
-			-- 	theme = "wave", -- Load "wave" theme
-			-- 	background = { -- map the value of 'background' option to a theme
-			-- 		dark = "dragon", -- try "dragon" !
-			-- 		light = "lotus",
-			-- 	},
-			-- })
-
 			-- Palettes are the base color defines of a colorscheme.
 			-- You can override these palettes for each colorscheme defined by nightfox.
 			local palettes = {
@@ -91,9 +34,7 @@ return {
 
 			require("nightfox").setup({ palettes = palettes, groups = groups })
 
-			-- vim.cmd("colorscheme ayu-dark")
 			vim.cmd("colorscheme carbonfox")
 		end,
 	},
 }
--- return {}

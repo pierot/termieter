@@ -52,8 +52,14 @@ vim.opt.iskeyword:append("-") -- Dashes are parts of words too
 -- correct title in kitty/terminal
 vim.opt.title = true
 
--- no ack, use ripgrep
-vim.g.ackprg = "rg -F -S --color=never --no-heading --with-filename --line-number --column -g !package-lock.json"
+-- filetype overrides (ported from the now-archived nathom/filetype.nvim)
+vim.filetype.add({
+	extension = {
+		tf = "terraform",
+		tfvars = "terraform",
+		tfstate = "json",
+	},
+})
 
 -- terminal is auto insert
 vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {

@@ -564,7 +564,7 @@ return {
 
 	-- Mason installer
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonUpdate" },
 		config = function()
 			local mason = require("mason")
@@ -574,9 +574,9 @@ return {
 
 	-- Mason LSP config integration
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "williamboman/mason.nvim" },
+		dependencies = { "mason-org/mason.nvim" },
 		config = function()
 			local lspconfig = require("mason-lspconfig")
 			lspconfig.setup({
@@ -595,6 +595,10 @@ return {
 					"tailwindcss",
 					"yamlls",
 				},
+				-- Servers are started from the explicit vim.lsp.enable() list.
+				-- Without this, mason-lspconfig also enables everything it finds
+				-- installed, so that list stops being the single source of truth.
+				automatic_enable = false,
 			})
 		end,
 	},

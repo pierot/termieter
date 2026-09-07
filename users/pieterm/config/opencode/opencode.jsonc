@@ -1,3 +1,26 @@
 {
-  "$schema": "https://opencode.ai/config.json"
+  "$schema": "https://opencode.ai/config.json",
+  "model": "z-ai/glm-5.3",
+  "small_model": "z-ai/glm-4.6",
+  "autoupdate": true,
+  "instructions": ["/Users/pieterm/.config/opencode/RTK.md"],
+  "plugin": ["./plugin/rtk.ts"],
+  "formatter": true,
+  "lsp": true,
+  // Elixir LSP: not installed yet. After `brew install elixir-ls`, replace
+  // "lsp": true with an object that adds:
+  //   "lsp": {
+  //     "typescript": true,
+  //     "elixir": { "command": ["elixir-ls"] }
+  //   }
+  "compaction": { "auto": true, "tail_turns": 15 },
+  "permission": {
+    "edit": "allow",
+    "bash": {
+      "*": "allow",
+      "*git commit*": "ask",
+      "*git push*": "ask",
+      "*rm -rf*": "deny"
+    }
+  }
 }

@@ -1,8 +1,5 @@
 return {
 	"stevearc/conform.nvim",
-	dependencies = {
-		{ "nathom/filetype.nvim", lazy = true },
-	},
 	event = { "BufNewFile", "BufReadPre", "BufWritePre" },
 	-- enabled = "false",
 	-- cmd = { "ConformInfo" },
@@ -11,7 +8,7 @@ return {
 			-- Customize or remove this keymap to your liking
 			"<leader>tt",
 			function()
-				require("conform").format({ async = false, timeout_ms = 500, lsp_fallback = true })
+				require("conform").format({ async = false, timeout_ms = 500, lsp_format = "fallback" })
 			end,
 			mode = "",
 			desc = "Format buffer",
@@ -50,17 +47,7 @@ return {
 				},
 			},
 			-- Set up format-on-save
-			format_on_save = { async = false, timeout_ms = 1500, lsp_fallback = true },
-		})
-		-- Setup overrides for file extensions
-		require("filetype").setup({
-			overrides = {
-				extensions = {
-					tf = "terraform",
-					tfvars = "terraform",
-					tfstate = "json",
-				},
-			},
+			format_on_save = { async = false, timeout_ms = 1500, lsp_format = "fallback" },
 		})
 	end,
 }

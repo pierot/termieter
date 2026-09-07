@@ -17,6 +17,9 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # For plugins, use Antidote: https://getantidote.github.io/install
 # yay -S zsh-antidote
 
+# Personal completions (e.g. _zmx); must be in fpath before antidote runs compinit
+fpath=(~/.config/zsh/completion $fpath)
+
 # <Antidote START>
 source '/usr/share/zsh-antidote/antidote.zsh'
 
@@ -99,8 +102,14 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
+# zmx session indicator (https://zmx.sh); must come after .p10k.zsh
+function prompt_zmx() {
+  [[ -n $ZMX_SESSION ]] && p10k segment -f 208 -t "$ZMX_SESSION"
+}
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=zmx
+
 # pnpm
-export PNPM_HOME="/home/jeroen/.config/local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -110,6 +119,6 @@ esac
 # Fix npm prefix issue (don't set to /nonexistent)
 unset NPM_CONFIG_PREFIX
 
-. "$HOME/.config/local/share/../bin/env"
+. "$HOME/.local/bin/env"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
