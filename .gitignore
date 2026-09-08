@@ -190,6 +190,9 @@ users/pieterm/config/uv/
 users/pieterm/config/uv/**
 users/pieterm/config/wireshark/**
 users/pieterm/config/zed/prompts/*mdb
+# ctx daemon units, written by `ctx setup` (machine state, not config)
+users/pieterm/config/systemd/user/ctx.service
+users/pieterm/config/systemd/user/default.target.wants/ctx.service
 
 # pi agent: ignore everything, then allow only curated, non-secret config.
 # Guards against auth.json / sessions / caches ever being committed.
