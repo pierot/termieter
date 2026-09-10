@@ -91,6 +91,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5-1[1m]",
   "skillOverrides": {
     "plannotator-annotate": "off",
     "plannotator-last": "off",
@@ -133,7 +134,8 @@
     "claude-hud@claude-hud": true,
     "plannotator@plannotator": true,
     "unraid-mcp@claude-homelab": true,
-    "code-simplifier@claude-plugins-official": false
+    "code-simplifier@claude-plugins-official": false,
+    "unifi-network@unifi-plugins": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -165,6 +167,12 @@
         "source": "github",
         "repo": "jmagar/claude-homelab"
       }
+    },
+    "unifi-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "sirkirby/unifi-mcp"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
@@ -185,6 +193,5 @@
   "preferredNotifChannel": "terminal_bell",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "model": "claude-fable-5-1[1m]"
+  "skipAutoPermissionPrompt": true
 }
