@@ -219,13 +219,18 @@ done
 # Install .config directory
 ##################################################
 
-# Replace existing .config directory with symlink to user-specific config
-if [[ -d "$HOME/.config" ]]; then
-  mv "$HOME/.config" "$HOME/.config.backup"
-  rm -rf "$HOME/.config"
-fi
+# Replace existing .config directory with symlink to user-specific config.
+# Skip when ~/.config already points at the repo: moving that symlink into a
+# .config.backup that is itself a symlink to the repo creates a loop link.
+user_config="$install_dir/users/$USER/config"
+if [[ "$(readlink -f "$HOME/.config")" != "$(readlink -f "$user_config")" ]]; then
+  if [[ -d "$HOME/.config" ]]; then
+    mv "$HOME/.config" "$HOME/.config.backup"
+    rm -rf "$HOME/.config"
+  fi
 
-ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
+  ln -sfn "$user_config" "$HOME/.config"
+fi
 
 ##################################################
 # Install agent config symlinks (claude, pi, ...)

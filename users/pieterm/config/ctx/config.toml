@@ -1,4 +1,5 @@
-# ctx (agent history search) config. Symlinked to ~/.ctx/config.toml by install-symlinks.
+# ctx (agent history search) config. Copied to ~/.ctx/config.toml by install-symlinks
+# (ctx rejects a symlinked config). Rerun `install -u` after editing this file.
 # Docs: ctx docs show storage
 
 [daemon]

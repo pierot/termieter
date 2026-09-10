@@ -1099,31 +1099,4 @@ return {
 			vim.cmd("colorscheme nightfox")
 		end,
 	},
-
-	-- ====================
-	-- AI ASSISTANTS
-	-- ====================
-
-	-- Supermaven AI (inline completion)
-	{
-		"supermaven-inc/supermaven-nvim",
-		event = "InsertEnter",
-		config = function()
-			require("supermaven-nvim").setup({
-				keymaps = {
-					accept_suggestion = "<Tab>", -- same as the old Codeium binding
-					clear_suggestion = "<C-]>", -- same as the old Codeium binding
-					accept_word = "<C-l>", -- not <C-j>: that's cmp select_next_item (see nvim-cmp mapping)
-				},
-				ignore_filetypes = { cpp = true },
-				color = {
-					suggestion_color = "#585858",
-					cterm = 244,
-				},
-				log_level = "info",
-				disable_inline_completion = false, -- set to true for manual-only
-				disable_keymaps = false,
-			})
-		end,
-	},
 }
