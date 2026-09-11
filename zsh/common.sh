@@ -44,6 +44,15 @@ alias myip='curl -s https://ipinfo.io/ip'
 alias sshe='cd ~/.ssh'
 alias sshconf='sudo vim ~/.ssh/config'
 
+# Restore the local terminal after ssh exits. A dropped link (lid close) leaves
+# mouse reporting and the alternate screen enabled by the remote tmux.
+function ssh() {
+  command ssh "$@"
+  local rc=$?
+  printf '\e[?1000l\e[?1002l\e[?1003l\e[?1006l\e[?2004l\e[?1049l\e[?25h'
+  return $rc
+}
+
 ##########################################################
 
 # TMUX
