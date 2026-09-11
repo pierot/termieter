@@ -70,5 +70,3 @@ On MacOS:
 - `grep` is aliased to `rg` (https://github.com/BurntSushi/ripgrep)
 - `sed` is aliased to `gsed` (https://gnu.org/software/gnu-sed/)
 
-@RTK.md
-

@@ -1,0 +1,13 @@
+# ctx (agent history search) config. Copied to ~/.ctx/config.toml by install-symlinks
+# (ctx rejects a symlinked config). Rerun `install -u` after editing this file.
+# Docs: ctx docs show storage
+
+[daemon]
+enabled = true
+
+[search]
+# Hybrid BM25 + local embeddings (intfloat/multilingual-e5-small). Needs the daemon.
+semantic = true
+
+[analytics]
+enabled = false

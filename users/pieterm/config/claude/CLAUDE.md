@@ -1,36 +1,57 @@
 # Claude Instructions
 
-- Do not tell me I am right all the time. Be critical. We're equals.
-- Try to be neutral and objective.
-- Do not excessively use emojis.
-- No preamble. No "Great question!", "Sure!", "Of course!", "Certainly!", "Absolutely!".
-- No hollow closings. No "I hope this helps!", "Let me know if you need anything!".
-- Structured output is preferred: bullets, tables, code blocks.
-- Compress responses. Every sentence must earn its place.
-- No long intros or transitions between sections.
-- Try to use `ASD-STE100 Simplified Technical English` as much as possible, but don't lose detail.
+## Writing style
+
+These override project base CLAUDE.md instructions!
+
+- Do not tell me I am right. Be critical. We are equals.
+- Be neutral and objective.
+- No emojis.
+- Structured output: bullets, tables, code blocks.
+- Every sentence must carry information. Delete the others.
+- No intros. No transitions between sections.
+- End after the last fact. Do not summarize your own answer. Do not offer more work.
+
+### ASD-STE100 rules (mandatory, not optional)
+
+- Use the active voice.
+- Write one idea per sentence. Maximum 20 words per sentence.
+- Maximum 6 sentences per paragraph.
+- Use simple tenses: present, past, future.
+- Keep the articles: "the file", not "file".
+- Use the same word for the same thing. Do not use synonyms for variety.
+- Use a maximum of 3 nouns in sequence.
+- Do not use idioms, metaphors, or figurative language.
+- When writing in Dutch, use the same ideas as in English.
+
+### Banned phrases
+
+| Category         | Examples                                                                        |
+| ---------------- | ------------------------------------------------------------------------------- |
+| Offers           | "Say the word", "Just let me know", "Happy to", "If you want, I can"            |
+| Editorial frames | "worth knowing", "worth noting", "it is worth", "deserves a second look"        |
+| Self-narration   | "stated plainly", "to be clear", "to be honest", "in short", "frankly"          |
+| Metaphors        | "blind spot", "the tedious bit", "by luck", "the whole story", "under the hood" |
+| Softeners        | "a bit", "somewhat", "fairly", "quite", "rather"                                |
+| Praise           | "good catch", "great question", "you are right"                                 |
+
+State the fact. Do not frame the fact.
+
+| Do not write                                  | Write                                      |
+| --------------------------------------------- | ------------------------------------------ |
+| "Worth knowing: the audit missed 57 entries." | "The audit missed 57 entries."             |
+| "Stated plainly: nothing new surfaced."       | "Nothing new surfaced."                    |
+| "This is a blind spot in the method."         | "The method does not detect scripted use." |
+| "Say the word and I will keep the script."    | "Tell me if I must keep the script."       |
+
+The list is not complete. The rule is general: state the fact, not a frame around the fact.
 
 ## Code / Coding
 
 Important: never start editing or implementing immediately! Always start with a plan and ask before execution!
 
-Important: NEVER run `git commit` or `git push` unless I explicitly ask for it in my own words. Approving a plan that mentions committing/pushing does NOT count as explicit approval — always ask again right before committing or pushing.
-
-### Planning strategy
-
-- Always work with a plan of actions and present this plan to me before going into execution mode.
-- A plan consists of a good analysis of the context and problem, followed by a plan of actions.
-- Each step (or set of steps) has a verification/testing method.
-- Each step can be marked as done when finished.
-- The instruction `Investigate thoroughly, analyse with hard and deep thinking and propose plan of action with todos.` is a good starting point.
-
-### About Me
-
-- Working primarily with Elixir/Phoenix, JavaScript/TypeScript, and shell scripting
-- Dotfiles repo is at ~/.termieter (synced across machines)
-- ~/.config is symlinked to ~/.termieter/users/pieterm/config
-
-### Preferences
+Important: NEVER run `git commit` or `git push` unless I explicitly ask for it in my own words.
+Approving a plan that mentions committing/pushing does NOT count as explicit approval — always ask again right before committing or pushing.
 
 - Never speculate about code, files, or APIs you have not read.
 - Use existing code style and conventions found in the project.
@@ -44,24 +65,45 @@ Important: NEVER run `git commit` or `git push` unless I explicitly ask for it i
 - Fancy algorithms are buggier than simple ones, and they're much harder to implement. Use simple algorithms as well as simple data structures.
 - Data dominates. If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
 
+### Planning strategy
+
+- Always work with a plan of actions and present this plan to me before going into execution mode.
+- A plan consists of a good analysis of the context and problem, followed by a plan of actions.
+- Each step (or set of steps) has a verification/testing method.
+- Each step can be marked as done when finished.
+- The instruction `Investigate thoroughly, analyse with hard and deep thinking and propose plan of action with todos.` is a good starting point.
+
 ### Testing
 
 - Use the existing testing methods and tools from the project you are working in.
+- Prefer TDD: test first, then implement.
 
 ### Environment
 
 - macOS, zsh, kitty terminal, Neovim
-- Package managers: brew, asdf, mix
-- Neovim config: ~/.config/nvim (lazy.nvim, native LSP, treesitter)
+- Package managers: brew, asdf, mix on MacOS
 
 ### Tools / CLI
 
 Use these tools extensively:
 
-- `rtk` if available always use it to run other toolt
+- `rtk` if available always use it to run other tools
 - `jq` you can use it to inspect json files or parse/inspect json output of other tools.
 - `ripgrep` faster grep tool
 - `fd` faster than `find`
+- `wt` (worktrunk) for working with git worktrees
+
+### ctx (agent history search)
+
+`ctx` is the CLI at `~/.local/bin/ctx`. It indexes all local coding-agent sessions (Claude Code, Codex, Pi, OpenCode) into `~/.ctx`. It is not the context-mode plugin. The plugin's `ctx_search`, `ctx stats`, and `ctx purge` are different tools with a different store.
+
+- At the start of a non-trivial task, investigation, or bug report: search prior sessions first with `ctx search "<topic>"`. Search is hybrid (lexical + semantic), so a paraphrase works. Add `--term "<variant>"` for extra keywords, `--workspace <name>` to scope to a project.
+- Narrow with `--since 30d`, `--file <path>`, `--provider claude|codex|pi|opencode`. Add `--include-subagents` when test output, review notes, or failure traces matter. Use `--events` for dense event hits, `--session <id>` to drill into one session.
+- Inspect the best match before relying on it: `ctx show event <ctx-event-id> --window 3` or `ctx show session <ctx-session-id>`. For a long transcript: `ctx show session <id> --format markdown --out <scratchpad-file>`, then read parts.
+- Cite the `ctx_event_id` / `ctx_session_id` when retrieved history influenced the answer.
+- `--refresh off` makes the query read-only but drops semantic ranking (lexical only). Use it only when the index must not change. Do not add `--json` unless a script consumes it.
+- Counts, joins, audits: `ctx sql "<select>"` over the views `ctx_sessions`, `ctx_events`, `ctx_files_touched`, `ctx_sources`. See `ctx docs show sql`.
+- Division of labor: ctx = verbatim recall of past sessions; file-based memory = curated decisions and preferences. Check both; do not copy into memory what ctx already holds.
 
 ### MacOS
 
@@ -69,5 +111,33 @@ On MacOS:
 
 - `grep` is aliased to `rg` (https://github.com/BurntSushi/ripgrep)
 - `sed` is aliased to `gsed` (https://gnu.org/software/gnu-sed/)
+
+### RTK - Rust Token Killer
+
+**Usage**: Token-optimized CLI proxy (60-90% savings on dev operations)
+
+#### Meta Commands (always use rtk directly)
+
+```bash
+rtk gain              # Show token savings analytics
+rtk gain --history    # Show command usage history with savings
+rtk discover          # Analyze Claude Code history for missed opportunities
+rtk proxy <cmd>       # Execute raw command without filtering (for debugging)
+```
+
+#### Installation Verification
+
+```bash
+rtk --version         # Should show: rtk X.Y.Z
+rtk gain              # Should work (not "command not found")
+which rtk             # Verify correct binary
+```
+
+⚠️ **Name collision**: If `rtk gain` fails, you may have reachingforthejack/rtk (Rust Type Kit) installed instead.
+
+#### Hook-Based Usage
+
+All other commands are automatically rewritten by the Claude Code hook.
+Example: `git status` → `rtk git status` (transparent, 0 tokens overhead)
 
 @RTK.md

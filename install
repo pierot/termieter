@@ -219,13 +219,18 @@ done
 # Install .config directory
 ##################################################
 
-# Replace existing .config directory with symlink to user-specific config
-if [[ -d "$HOME/.config" ]]; then
-  mv "$HOME/.config" "$HOME/.config.backup"
-  rm -rf "$HOME/.config"
-fi
+# Replace existing .config directory with symlink to user-specific config.
+# Skip when ~/.config already points at the repo: moving that symlink into a
+# .config.backup that is itself a symlink to the repo creates a loop link.
+user_config="$install_dir/users/$USER/config"
+if [[ "$(readlink -f "$HOME/.config")" != "$(readlink -f "$user_config")" ]]; then
+  if [[ -d "$HOME/.config" ]]; then
+    mv "$HOME/.config" "$HOME/.config.backup"
+    rm -rf "$HOME/.config"
+  fi
 
-ln -sf "$install_dir/users/$USER/config" "$HOME/.config"
+  ln -sfn "$user_config" "$HOME/.config"
+fi
 
 ##################################################
 # Install agent config symlinks (claude, pi, ...)
@@ -293,6 +298,30 @@ else
   else
     _print "Skipping starship installation (you can install it later with: brew install starship)"
   fi
+fi
+
+##################################################
+# Optional: Install ctx (agent history search)
+##################################################
+
+_print_h1 "ctx agent history search"
+
+if hash ctx 2>/dev/null; then
+  _print "ctx is already installed ✓"
+else
+  _print "Installing ctx..."
+  curl -fsSL https://ctx.rs/install | sh
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+if hash ctx 2>/dev/null; then
+  # Config lives in users/$USER/config/ctx and is symlinked by install-symlinks.
+  # setup is idempotent: it indexes discovered agent history and starts the daemon.
+  ctx setup --quiet
+  ctx integrations install skills --agent universal --agent claude-code --agent pi --quiet
+  _print "ctx set up; run 'ctx status' to inspect the index"
+else
+  _print_info "ctx not on PATH, skipping setup (install: curl -fsSL https://ctx.rs/install | sh)"
 fi
 
 ##################################################
