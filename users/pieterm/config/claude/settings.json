@@ -4,7 +4,6 @@
       "Bash(awk:*)",
       "Bash(brew:*)",
       "Bash(cat:*)",
-      "Bash(chmod:*)",
       "Bash(cp:*)",
       "Bash(curl:*)",
       "Bash(cut:*)",
@@ -13,7 +12,6 @@
       "Bash(docker-compose:*)",
       "Bash(docker:*)",
       "Bash(echo:*)",
-      "Bash(env)",
       "Bash(fd:*)",
       "Bash(fgrep:*)",
       "Bash(find:*)",
@@ -40,7 +38,6 @@
       "Bash(mt test:*)",
       "Bash(mv:*)",
       "Bash(npm:*)",
-      "Bash(npx:*)",
       "Bash(open:*)",
       "Bash(pnpm:*)",
       "Bash(printenv:*)",
@@ -89,9 +86,8 @@
       "mcp__plugin_context-mode_context-mode__ctx_search",
       "mcp__sentry__get_sentry_resource"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
-  "model": "claude-fable-5-1[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -121,13 +117,18 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
     "context-mode@context-mode": true,
     "claude-hud@claude-hud": true,
     "plannotator@plannotator": true,
     "unraid-mcp@claude-homelab": true,
-    "code-simplifier@claude-plugins-official": true,
-    "unifi-network@unifi-plugins": true
+    "unifi-network@unifi-plugins": true,
+    "data@synced": false,
+    "finance@synced": false,
+    "legal@synced": false,
+    "operations@synced": false,
+    "product-management@synced": false,
+    "productivity@synced": false,
+    "sales@synced": false
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -172,12 +173,56 @@
   "modelSettings": {
     "claude-fable-5-1": {
       "effortLevel": "high"
+    },
+    "claude-opus-5": {
+      "effortLevel": "xhigh"
     }
   },
   "tui": "fullscreen",
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "preferredNotifChannel": "terminal_bell",
+  "switchModelsOnFlag": false,
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "inputNeededNotifEnabled": true
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(rtk:*)",
+      "Bash(ctx:*)",
+      "Bash(fd:*)"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(mix run:*) in production-namespace or against config/prod.exs",
+      "make deploy_production / deploy_production_hotfix"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public — gitlab.com:justified-org/justified.git; visibility not queryable (non-github host), inferring private absent contrary evidence",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured — repo uses local .env / config/*.secret.exs / script/vault/*.env files gitignored, no external secrets manager identified",
+      "**Default / protected branches**: Default branch develop (gitlab.com:justified-org/justified.git); protected-branch/ruleset status not queryable (non-github host)",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine with open internet",
+      "**Source control**: The trusted repo (gitlab.com:justified-org/justified.git, origin) and its remote only",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: registry.gitlab.com (container image registry referenced in repo config)",
+      "**Sensitive data locations & audiences**: .env, .env.ci, .env.demo, .env.e2e, .env.e2e.local, .env.feature, .env.features, .env.production, .env.sandbox, .env.staging, .env.test, config/prod.exs, config/*.secret.exs, script/vault/*.env, .env.sentry-build-plugin, lib/doc_dropper/flows/pii_extracts.ex, priv/repo/migrations/20250610142609_update_partners_with_nkcn_secret.exs, priv/repo/migrations/20260114144902_create_customer_pii.exs, priv/repo/migrations/20260127061608_add_case_and_partner_to_customer_pii.exs, priv/repo/migrations/20260128125930_add_customer_language_to_customer_pii.exs, priv/repo/migrations/20260811094308_create_pii_lookups.exs, test/doc_dropper/flows/pii_extracts_test.exs — legal-case, invoice, client and customer PII data; share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries prod or production as a whole word or name segment; includes config/prod.exs, .env.production, deploy_production, deploy_production_hotfix Makefile targets",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic; note Makefile targets deploy_production, deploy_production_hotfix, deploy_features are deploy-related and should be treated as production-adjacent",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries prod or production as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (Elixir/Phoenix legal-case management application, per this repo's README)",
+      "**Trusted repo**: /Users/pieterm/Work/jackjoe/justified (gitlab.com:justified-org/justified.git, origin, branch develop)",
+      "**Org-specific CLIs**: rtk (Rust Token Killer CLI proxy, used 56× in this project's transcripts), ctx (agent history search, used 12× in this project's transcripts)",
+      "routine under /Users/pieterm/Work/jackjoe/justified/ prefix"
+    ]
+  }
 }

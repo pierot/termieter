@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# wsstall-watch — poll WindowServer CPU and run wsstall when it pegs.
+#
+# The stall makes the pointer unusable, so waiting for a typed command loses
+# most incidents. This captures on its own. It runs as a LaunchAgent and so
+# cannot use sudo; the unprivileged evidence names the tap on its own.
+#
+# Load:    launchctl bootstrap gui/$UID ~/Library/LaunchAgents/be.jackjoe.wsstall-watch.plist
+# Unload:  launchctl bootout gui/$UID/be.jackjoe.wsstall-watch
+
+set -uo pipefail
+
+interval=${WSSTALL_INTERVAL:-10}    # seconds between samples
+threshold=${WSSTALL_THRESHOLD:-60}  # percent of one core
+hits_needed=${WSSTALL_HITS:-3}      # consecutive samples above the threshold
+cooldown=${WSSTALL_COOLDOWN:-900}   # seconds to wait after a capture
+
+# Cumulative CPU seconds of a pid. ps prints [HH:]MM:SS.ss.
+cputime() {
+  ps -p "$1" -o time= 2>/dev/null | awk -F: '
+    {gsub(/ /, "")
+     if (NF == 3) print $1 * 3600 + $2 * 60 + $3
+     else if (NF == 2) print $1 * 60 + $2
+     else print 0}'
+}
+
+hits=0
+prev_pid=""
+prev_t=0
+
+while :; do
+  pid=$(pgrep -x WindowServer | head -1)
+  if [ -n "$pid" ]; then
+    t=$(cputime "$pid")
+    if [ "$pid" = "$prev_pid" ]; then
+      pct=$(awk -v a="$prev_t" -v b="$t" -v i="$interval" \
+            'BEGIN { printf "%d", (b - a) * 100 / i }')
+      if [ "$pct" -ge "$threshold" ]; then
+        hits=$((hits + 1))
+      else
+        hits=0
+      fi
+      if [ "$hits" -ge "$hits_needed" ]; then
+        echo "$(date '+%F %T') WindowServer at ${pct}% for $((hits * interval))s, capturing"
+        wsstall --no-sudo
+        osascript -e 'display notification "WindowServer stall captured" with title "wsstall"' 2>/dev/null
+        hits=0
+        sleep "$cooldown"
+        prev_pid=""   # force a fresh baseline after the cooldown
+        continue
+      fi
+    fi
+    prev_pid=$pid
+    prev_t=$t
+  else
+    prev_pid=""
+    hits=0
+  fi
+  sleep "$interval"
+done
