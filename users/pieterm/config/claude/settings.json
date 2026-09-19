@@ -89,9 +89,8 @@
       "mcp__plugin_context-mode_context-mode__ctx_search",
       "mcp__sentry__get_sentry_resource"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
-  "model": "claude-fable-5-1[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -178,6 +177,6 @@
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "preferredNotifChannel": "terminal_bell",
-  "agentPushNotifEnabled": true,
-  "inputNeededNotifEnabled": true
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }
