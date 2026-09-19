@@ -40,53 +40,12 @@ return {
 			-- filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "heex" },
 		}
 
-		-- Configure tailwindcss to use project-local or global installation
-		-- This tries: 1) project node_modules, 2) pnpm global, 3) asdf shim
-		local function get_tailwind_cmd()
-			local project_bin = vim.fn.getcwd() .. "/node_modules/.bin/tailwindcss-language-server"
-			local pnpm_bin = vim.fn.expand("~/.local/share/pnpm/tailwindcss-language-server")
-			local asdf_bin = vim.fn.expand("~/.asdf/shims/tailwindcss-language-server")
-
-			if vim.fn.executable(project_bin) == 1 then
-				return { project_bin, "--stdio" }
-			elseif vim.fn.executable(pnpm_bin) == 1 then
-				return { pnpm_bin, "--stdio" }
-			elseif vim.fn.executable(asdf_bin) == 1 then
-				return { asdf_bin, "--stdio" }
-			else
-				-- Fallback to command in PATH
-				return { "tailwindcss-language-server", "--stdio" }
-			end
-		end
-
 		vim.lsp.config.tailwindcss = {
-			cmd = get_tailwind_cmd(),
+			-- Pin to mason binary: PATH lookup hits the asdf shim, which fails on
+			-- node versions without the package installed.
+			cmd = { vim.fn.stdpath("data") .. "/mason/bin/tailwindcss-language-server", "--stdio" },
 			capabilities = capabilities,
 		}
-
-		vim.lsp.config("dexter", {
-			cmd = { "dexter", "lsp" },
-			root_markers = { ".dexter/dexter.db", ".dexter.db", ".git", "mix.exs" },
-			filetypes = { "elixir", "eelixir", "heex" },
-			init_options = {
-				followDelegates = true, -- jump through defdelegate to the target function
-				-- stdlibPath = "",      -- override Elixir stdlib path (auto-detected)
-				-- debug = false,        -- verbose logging to stderr (view with :LspLog)
-			},
-			-- Running dexter next to expert needs its capabilities trimmed:
-			--   hover/completion — dexter advertises both but returns nothing,
-			--     which adds an empty source to the completion menu.
-			--   references — Neovim concatenates results per client and does not
-			--     dedup across them, so `gr` returned 10 entries for 4 real sites.
-			-- definition is left on: both servers return the identical location,
-			-- Neovim dedups that, and whichever answers first wins. That makes
-			-- dexter a latency hedge for when expert is still warming up.
-			on_attach = function(client)
-				client.server_capabilities.hoverProvider = false
-				client.server_capabilities.completionProvider = nil
-				client.server_capabilities.referencesProvider = false
-			end,
-		})
 
 		-- LSP keymaps (set when LSP attaches to buffer)
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -125,9 +84,6 @@ return {
 			end,
 		})
 
-		-- Elixir gets two servers on purpose:
-		--   expert — diagnostics, completion, hover, formatting
-		--   dexter — fast project-wide index for definitions and references
 		vim.lsp.enable({
 			"html",
 			"emmet_ls",
@@ -136,7 +92,6 @@ return {
 			"ts_ls",
 			"lua_ls",
 			"expert",
-			"dexter",
 		})
 	end,
 }
