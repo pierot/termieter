@@ -512,6 +512,12 @@ return {
 		config = function()
 			local conform = require("conform")
 			conform.setup({
+				formatters = {
+					-- Projects that export MIX_DEBUG=1 make `mix format` print
+					-- its "-> Running mix ..." trace on stdout, which conform
+					-- then writes into the buffer around the formatted file.
+					mix = { env = { MIX_DEBUG = "0" } },
+				},
 				formatters_by_ft = {
 					javascript = { "prettierd" },
 					typescript = { "prettierd" },
@@ -527,7 +533,7 @@ return {
 					heex = { "mix" },
 				},
 				format_on_save = {
-					lsp_fallback = true,
+					lsp_format = "fallback",
 					async = false,
 					timeout_ms = 1500,
 				},
@@ -791,21 +797,27 @@ return {
 		end,
 	},
 
-	-- Color highlighter
+	-- Color highlighter.
+	-- norcalli's original stopped at 2021-04-28 and calls the removed
+	-- vim.tbl_flatten. catgoose maintains the fork and keeps the old
+	-- option names as aliases, so the settings below are unchanged.
 	{
-		"norcalli/nvim-colorizer.lua",
+		"catgoose/nvim-colorizer.lua",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local colorizer = require("colorizer")
-			colorizer.setup({ "*" }, {
-				RGB = true,
-				RRGGBB = true,
-				names = true,
-				RRGGBBAA = true,
-				rgb_fn = true,
-				hsl_fn = true,
-				css = true,
-				css_fn = true,
+			colorizer.setup({
+				filetypes = { "*" },
+				user_default_options = {
+					RGB = true,
+					RRGGBB = true,
+					names = true,
+					RRGGBBAA = true,
+					rgb_fn = true,
+					hsl_fn = true,
+					css = true,
+					css_fn = true,
+				},
 			})
 		end,
 	},
