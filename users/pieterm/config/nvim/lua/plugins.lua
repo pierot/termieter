@@ -12,14 +12,6 @@ return {
 	-- Async library
 	"nvim-lua/plenary.nvim",
 
-	-- Notification system
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			vim.notify = require("notify")
-		end,
-	},
-
 	-- UI component library
 	"MunifTanjim/nui.nvim",
 
@@ -105,9 +97,6 @@ return {
 			})
 		end,
 	},
-
-	-- Diagnostics UI
-	"folke/trouble.nvim",
 
 	-- Collection of small utilities
 	{
@@ -255,7 +244,7 @@ return {
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = { "elixir", "heex", "eelixir", "javascript", "typescript", "lua", "python" },
 				callback = function()
-					vim.bo.indentexpr = "nvim_treesitter#indent()"
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 				end,
 			})
 		end,
@@ -280,7 +269,6 @@ return {
 		"tpope/vim-fugitive",
 		lazy = true,
 		cmd = { "Git", "G" },
-		event = "BufReadPre",
 	},
 
 	-- Git signs in gutter
@@ -422,13 +410,12 @@ return {
 						vim.diagnostic.open_float,
 						{ buffer = args.buf, desc = "Line diagnostics" }
 					)
-					vim.keymap.set(
-						"n",
-						"[d",
-						vim.diagnostic.goto_prev,
-						{ buffer = args.buf, desc = "Previous diagnostic" }
-					)
-					vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
+					vim.keymap.set("n", "[d", function()
+						vim.diagnostic.jump({ count = -1 })
+					end, { buffer = args.buf, desc = "Previous diagnostic" })
+					vim.keymap.set("n", "]d", function()
+						vim.diagnostic.jump({ count = 1 })
+					end, { buffer = args.buf, desc = "Next diagnostic" })
 				end,
 			})
 
@@ -481,48 +468,38 @@ return {
 				}),
 				formatting = {
 					format = lspkind.cmp_format({
+						mode = "symbol_text",
+						preset = "codicons",
 						maxwidth = 50,
 						ellipsis_char = "...",
+						symbol_map = {
+							Text = "󰉿",
+							Method = "󰆧",
+							Function = "󰊕",
+							Constructor = "",
+							Field = "󰜢",
+							Variable = "󰀫",
+							Class = "󰠱",
+							Interface = "",
+							Module = "",
+							Property = "󰜢",
+							Unit = "󰑭",
+							Value = "󰎠",
+							Enum = "",
+							Keyword = "󰌋",
+							Snippet = "",
+							Color = "󰏘",
+							File = "󰈙",
+							Reference = "󰈇",
+							Folder = "󰉋",
+							EnumMember = "",
+							Constant = "󰏿",
+							Struct = "󰙅",
+							Event = "",
+							Operator = "󰆕",
+							TypeParameter = "",
+						},
 					}),
-				},
-			})
-		end,
-	},
-
-	-- VS-Code like icons for completion
-	{
-		"onsails/lspkind-nvim",
-		config = function()
-			local lspkind = require("lspkind")
-			lspkind.init({
-				mode = "symbol_text",
-				preset = "codicons",
-				symbol_map = {
-					Text = "󰉿",
-					Method = "󰆧",
-					Function = "󰊕",
-					Constructor = "",
-					Field = "󰜢",
-					Variable = "󰀫",
-					Class = "󰠱",
-					Interface = "",
-					Module = "",
-					Property = "󰜢",
-					Unit = "󰑭",
-					Value = "󰎠",
-					Enum = "",
-					Keyword = "󰌋",
-					Snippet = "",
-					Color = "󰏘",
-					File = "󰈙",
-					Reference = "󰈇",
-					Folder = "󰉋",
-					EnumMember = "",
-					Constant = "󰏿",
-					Struct = "󰙅",
-					Event = "",
-					Operator = "󰆕",
-					TypeParameter = "",
 				},
 			})
 		end,
@@ -580,20 +557,15 @@ return {
 		config = function()
 			local lspconfig = require("mason-lspconfig")
 			lspconfig.setup({
+				-- Only the servers that vim.lsp.enable() actually starts.
+				-- ts_ls is omitted on purpose: typescript-language-server is
+				-- already installed globally through yarn.
 				ensure_installed = {
-					"ansiblels",
-					"bashls",
 					"cssls",
-					"dockerls",
 					"emmet_ls",
-					"erlangls",
 					"html",
-					"intelephense",
-					"jinja_lsp",
 					"lua_ls",
-					"luau_lsp",
 					"tailwindcss",
-					"yamlls",
 				},
 				-- Servers are started from the explicit vim.lsp.enable() list.
 				-- Without this, mason-lspconfig also enables everything it finds
@@ -602,121 +574,6 @@ return {
 			})
 		end,
 	},
-
-	{
-		"nvimtools/none-ls.nvim", -- configure formatters & linters
-		lazy = true,
-		enabled = false,
-		-- event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
-		dependencies = {
-			"jay-babu/mason-null-ls.nvim",
-		},
-		config = function()
-			local mason_null_ls = require("mason-null-ls")
-			local null_ls = require("null-ls")
-			local null_ls_utils = require("null-ls.utils")
-
-			mason_null_ls.setup({
-				ensure_installed = {
-					"prettier", -- prettier formatter
-					"stylua", -- lua formatter
-					"eslint_d", -- js linter
-				},
-			})
-
-			-- for conciseness
-			local formatting = null_ls.builtins.formatting -- to setup formatters
-			local diagnostics = null_ls.builtins.diagnostics -- to setup linters
-
-			-- to setup format on save
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-			-- configure null_ls
-			null_ls.setup({
-				-- add package.json as identifier for root (for typescript monorepos)
-				root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
-				-- setup formatters & linters
-				sources = {
-					--  to disable file types use
-					--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-					formatting.prettier.with({
-						extra_filetypes = { "svelte" },
-					}), -- js/ts formatter
-					formatting.stylua, -- lua formatter
-					formatting.isort,
-					diagnostics.eslint_d.with({ -- js/ts linter
-						condition = function(utils)
-							return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs", "eslint.config.js" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
-						end,
-					}),
-				},
-				-- configure format on save
-				on_attach = function(current_client, bufnr)
-					if current_client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								vim.lsp.buf.format({
-									filter = function(client)
-										--  only use null-ls for formatting instead of lsp server
-										return client.name == "null-ls"
-									end,
-									bufnr = bufnr,
-								})
-							end,
-						})
-					end
-				end,
-			})
-		end,
-	},
-
-	--[[ {
-		"elixir-tools/elixir-tools.nvim",
-		lazy = true,
-		enabled = true,
-		version = "*",
-		ft = { "elixir", "eelixir", "heex", "surface" },
-		config = function()
-			local elixir = require("elixir")
-			-- Switching to ExpertLS
-			-- local elixirls = require("elixir.elixirls")
-
-			elixir.setup({
-				nextls = { enable = false },
-				credo = {},
-				elixirls = {
-					enable = false,
-					-- settings = elixirls.settings({
-					-- 	dialyzerEnabled = false,
-					-- 	enableTestLenses = false,
-					-- }),
-					-- on_attach = function(client, bufnr)
-					-- 	vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-					-- 	vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-					-- 	vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-					-- 	vim.keymap.set(
-					-- 		"n",
-					-- 		"gD",
-					-- 		"<cmd>lua vim.lsp.buf.declaration()<CR>",
-					-- 		{ noremap = true, silent = true }
-					-- 	)
-					-- 	vim.keymap.set(
-					-- 		"n",
-					-- 		"gd",
-					-- 		"<cmd>lua vim.lsp.buf.definition()<CR>",
-					-- 		{ noremap = true, silent = true }
-					-- 	)
-					-- end,
-				},
-			})
-		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	}, ]]
 
 	-- ====================
 	-- UI PLUGINS
@@ -1046,24 +903,13 @@ return {
 		end,
 	},
 
-	-- Telescope FZF extension
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-	},
-
 	-- Ack/ripgrep integration
 	{
 		"mileszs/ack.vim",
 		cmd = "Ack",
 	},
 
-	-- ====================
-	-- COMMENTS
-	-- ====================
-
-	-- Comment plugin
-	"b3nj5m1n/kommentary",
+	-- Commenting uses the built-in gc/gcc (Neovim 0.10+).
 
 	-- ====================
 	-- THEMES
