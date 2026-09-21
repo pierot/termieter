@@ -126,7 +126,15 @@
     "plannotator@plannotator": true,
     "unraid-mcp@claude-homelab": true,
     "code-simplifier@claude-plugins-official": true,
-    "unifi-network@unifi-plugins": true
+    "unifi-network@unifi-plugins": true,
+    "data@synced": false,
+    "finance@synced": false,
+    "legal@synced": false,
+    "operations@synced": false,
+    "product-management@synced": false,
+    "productivity@synced": false,
+    "sales@synced": false,
+    "cowork-plugin-management@synced": false
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
