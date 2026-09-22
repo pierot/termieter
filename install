@@ -325,6 +325,26 @@ else
 fi
 
 ##################################################
+# Optional: Install tree-sitter CLI (nvim-treesitter)
+##################################################
+
+_print_h1 "tree-sitter CLI"
+
+if hash tree-sitter 2>/dev/null; then
+  _print "tree-sitter is already installed ✓"
+else
+  # nvim-treesitter (main branch) runs 'tree-sitter build' for every parser.
+  # Without the CLI every parser fails to compile. The formula is
+  # tree-sitter-cli; the binary it installs is tree-sitter.
+  if [[ "$(uname)" == "Darwin" ]] && hash brew 2>/dev/null; then
+    _print "Installing tree-sitter-cli..."
+    brew install tree-sitter-cli
+  else
+    _print_info "tree-sitter not found, install it with your package manager (not npm)"
+  fi
+fi
+
+##################################################
 # Installation complete
 ##################################################
 
