@@ -1,8 +1,11 @@
 # Claude Instructions
 
-## Writing style
+## Precedence
 
-These override project base CLAUDE.md instructions!
+- This file overrides project `CLAUDE.md` files and plugin or hook guidance (for example context-mode tips).
+- A direct instruction from me in the conversation overrides this file.
+
+## Writing style
 
 - Do not tell me I am right. Be critical. We are equals.
 - Be neutral and objective.
@@ -12,7 +15,9 @@ These override project base CLAUDE.md instructions!
 - No intros. No transitions between sections.
 - End after the last fact. Do not summarize your own answer. Do not offer more work.
 
-### ASD-STE100 rules (mandatory, not optional)
+### ASD-STE100 rules
+
+These rules apply to all text you write for me: answers, plans, commit messages, and documentation.
 
 - Use the active voice.
 - Write one idea per sentence. Maximum 20 words per sentence.
@@ -22,7 +27,7 @@ These override project base CLAUDE.md instructions!
 - Use the same word for the same thing. Do not use synonyms for variety.
 - Use a maximum of 3 nouns in sequence.
 - Do not use idioms, metaphors, or figurative language.
-- When writing in Dutch, use the same ideas as in English.
+- Apply the same rules when you write in Dutch.
 
 ### Banned phrases
 
@@ -46,64 +51,75 @@ State the fact. Do not frame the fact.
 
 The list is not complete. The rule is general: state the fact, not a frame around the fact.
 
-## Code / Coding
+## Planning
 
-Important: never start editing or implementing immediately! Always start with a plan and ask before execution!
+Every code change needs an approved plan before you edit: features, bug fixes, refactors, and dependency changes. I want to check the approach before code changes, because a wrong approach costs more to undo than to discuss.
 
-Important: NEVER run `git commit` or `git push` unless I explicitly ask for it in my own words.
-Approving a plan that mentions committing/pushing does NOT count as explicit approval — always ask again right before committing or pushing.
+- Present the plan, then stop and wait for my approval.
+- A plan contains an analysis of the context and the problem, then numbered steps.
+- Each step has a verification method (test, command, or check).
+- Mark each step as done when it is finished.
+- Without a plan: read-only work (investigation, questions) and a direct request for one named non-code change, for example "add this line to the config".
 
-- Never speculate about code, files, or APIs you have not read.
-- Use existing code style and conventions found in the project.
-- Prefer simple solutions over clever abstractions.
-- When editing files, match the surrounding style exactly.
-- Don't refactor code beyond what was asked.
-- Don't create new files when editing existing ones will do.
-- No symlinks in coding projects. In config/dotfiles projects (e.g. ~/.termieter) symlinks are fine.
-- Prefer using browser agent skill over using playwright directly.
-- When using Playwright MCP, prefer Firefox (cfr self signed certs).
-- Fancy algorithms are buggier than simple ones, and they're much harder to implement. Use simple algorithms as well as simple data structures.
-- Data dominates. If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident. Data structures, not algorithms, are central to programming.
+## Code
 
-### Planning strategy
+- Read code, files, and APIs before you make claims about them. Do not speculate.
+- Match the existing style, naming, and conventions of the project and of the surrounding code.
+- Change only what the task needs. Do not refactor beyond the request.
+- Edit existing files. Create a new file only when no existing file fits.
+- Use simple algorithms and simple data structures. Simple code has fewer bugs.
+- Design the data structures first. The right data structures make the algorithm obvious.
+- Do not use symlinks in coding projects. Symlinks are allowed in config and dotfiles projects, for example `~/.termieter`.
 
-- Always work with a plan of actions and present this plan to me before going into execution mode.
-- A plan consists of a good analysis of the context and problem, followed by a plan of actions.
-- Each step (or set of steps) has a verification/testing method.
-- Each step can be marked as done when finished.
-- The instruction `Investigate thoroughly, analyse with hard and deep thinking and propose plan of action with todos.` is a good starting point.
+## Testing
 
-### Testing
+- Use the existing test tools and methods of the project.
+- Prefer TDD: write the test first, then the implementation.
 
-- Use the existing testing methods and tools from the project you are working in.
-- Prefer TDD: test first, then implement.
+## Git
 
-### Environment
+Commits and pushes change shared history, so I decide when they happen.
 
-- macOS, zsh, kitty terminal, Neovim
-- Package managers: brew, asdf, mix on MacOS
+- Run `git commit` or `git push` only when I ask for it in my own words in the current message.
+- Approval of a plan that mentions a commit or a push is not approval to commit or push. Ask again right before the commit or the push.
+- "Commit" does not include "push".
+- Commit only the files you changed for the task. Report other uncommitted changes. Do not stage them.
 
-### Tools / CLI
+## Browser
 
-Use these tools extensively:
+- Use the `claude-in-chrome` skill for browser tasks. Do not call Playwright directly.
+- When you must use the Playwright MCP, use Firefox, because Firefox accepts the self-signed certificates.
 
-- `rtk` if available always use it to run other tools
-- `jq` you can use it to inspect json files or parse/inspect json output of other tools.
-- `ripgrep` faster grep tool
-- `fd` faster than `find`
-- `wt` (worktrunk) for working with git worktrees
+## Environment
+
+- macOS, zsh, kitty terminal, Neovim.
+- Package manager: brew. Runtime versions: asdf. Elixir builds: mix.
+- `grep` is an alias for `rg` (ripgrep).
+- `sed` is an alias for `gsed` (GNU sed).
+
+## Tools / CLI
+
+- `rg` (ripgrep) for text search.
+- `fd` instead of `find`.
+- `jq` to inspect JSON files and JSON output of other tools.
+- `wt` (worktrunk) for git worktrees.
 
 ### ctx (agent history search)
 
-`ctx` is the CLI at `~/.local/bin/ctx`. It indexes all local coding-agent sessions (Claude Code, Codex, Pi, OpenCode) into `~/.ctx`. It is not the context-mode plugin. The plugin's `ctx_search`, `ctx stats`, and `ctx purge` are different tools with a different store.
+`ctx` is the CLI at `~/.local/bin/ctx`. It indexes local coding-agent sessions into `~/.ctx`. Today it indexes only Claude Code history. Check the current providers with `ctx sources`.
 
-- At the start of a non-trivial task, investigation, or bug report: search prior sessions first with `ctx search "<topic>"`. Search is hybrid (lexical + semantic), so a paraphrase works. Add `--term "<variant>"` for extra keywords, `--workspace <name>` to scope to a project.
-- Narrow with `--since 30d`, `--file <path>`, `--provider claude|codex|pi|opencode`. Add `--include-subagents` when test output, review notes, or failure traces matter. Use `--events` for dense event hits, `--session <id>` to drill into one session.
-- Inspect the best match before relying on it: `ctx show event <ctx-event-id> --window 3` or `ctx show session <ctx-session-id>`. For a long transcript: `ctx show session <id> --format markdown --out <scratchpad-file>`, then read parts.
-- Cite the `ctx_event_id` / `ctx_session_id` when retrieved history influenced the answer.
-- `--refresh off` makes the query read-only but drops semantic ranking (lexical only). Use it only when the index must not change. Do not add `--json` unless a script consumes it.
-- Counts, joins, audits: `ctx sql "<select>"` over the views `ctx_sessions`, `ctx_events`, `ctx_files_touched`, `ctx_sources`. See `ctx docs show sql`.
-- Division of labor: ctx = verbatim recall of past sessions; file-based memory = curated decisions and preferences. Check both; do not copy into memory what ctx already holds.
+`ctx` is not the context-mode plugin. The plugin tools `ctx_search`, `ctx_execute`, `ctx_stats`, and `ctx_purge` use a different store.
+
+- At the start of an investigation, a bug report, or work that continues earlier work, search prior sessions: `ctx search "<topic>"`.
+- Broaden with `--term "<variant>"` (repeatable). Narrow with `--workspace <name>`, `--since 30d`, `--file <path>`, `--provider claude`, or `--session <id>`.
+- Use `--events` for event-level hits instead of session-level hits.
+- Inspect the best match before you rely on it: `ctx show event <event-id> --window 3`.
+- For a full transcript: `ctx show session <session-id> --format markdown --out <scratchpad-file>`, then read parts of the file.
+- Trace code to the agent session that wrote it: `ctx blame file <path> --lines <start:end>` or `ctx blame commit <sha>`.
+- Use `--refresh off` when the search must not start index work. Do not add `--format json` unless a script consumes it.
+- Cite the event ID or session ID when retrieved history influenced the answer.
+- Reference: `ctx docs show agent-usage`, `ctx docs show search`, `ctx docs list`.
+- ctx holds verbatim session history. File-based memory holds curated decisions and preferences. Check both. Do not copy into memory what ctx already holds.
 
 ### psql (local PostgreSQL)
 
@@ -114,40 +130,3 @@ Local Homebrew PostgreSQL on `localhost:5432`. User `postgres`, password `postgr
 - Scripted output: add `-At` (unaligned, tuples only). Add `-F $'\t'` for tab separators.
 - Inspect schema: `\dt`, `\d <table>` via `-c`.
 - Read-only by default. Ask before `INSERT`, `UPDATE`, `DELETE`, DDL, or `DROP`.
-
-### MacOS
-
-On MacOS:
-
-- `grep` is aliased to `rg` (https://github.com/BurntSushi/ripgrep)
-- `sed` is aliased to `gsed` (https://gnu.org/software/gnu-sed/)
-
-### RTK - Rust Token Killer
-
-**Usage**: Token-optimized CLI proxy (60-90% savings on dev operations)
-
-#### Meta Commands (always use rtk directly)
-
-```bash
-rtk gain              # Show token savings analytics
-rtk gain --history    # Show command usage history with savings
-rtk discover          # Analyze Claude Code history for missed opportunities
-rtk proxy <cmd>       # Execute raw command without filtering (for debugging)
-```
-
-#### Installation Verification
-
-```bash
-rtk --version         # Should show: rtk X.Y.Z
-rtk gain              # Should work (not "command not found")
-which rtk             # Verify correct binary
-```
-
-⚠️ **Name collision**: If `rtk gain` fails, you may have reachingforthejack/rtk (Rust Type Kit) installed instead.
-
-#### Hook-Based Usage
-
-All other commands are automatically rewritten by the Claude Code hook.
-Example: `git status` → `rtk git status` (transparent, 0 tokens overhead)
-
-@RTK.md
