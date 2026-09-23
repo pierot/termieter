@@ -14,7 +14,6 @@
     },
     "npm:pi-lens",
     "npm:@ryan_nookpi/pi-extension-cross-agent",
-    "npm:pi-rtk-optimizer",
     "npm:pi-memory-md",
     "npm:pi-autoresearch",
     "npm:pi-simplify",

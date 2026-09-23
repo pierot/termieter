@@ -58,7 +58,6 @@ Important: NEVER run `git commit` or `git push` unless I explicitly ask for it i
 
 Use these tools extensively:
 
-- `rtk` if available always use it to run other toolt
 - `jq` you can use it to inspect json files or parse/inspect json output of other tools.
 - `ripgrep` faster grep tool
 - `fd` faster than `find`

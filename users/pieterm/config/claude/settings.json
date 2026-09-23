@@ -47,18 +47,10 @@
       "Bash(psql -h localhost -U postgres justified -c *)",
       "Bash(pwd:*)",
       "Bash(rg:*)",
-      "Bash(rtk find *)",
-      "Bash(rtk git *)",
-      "Bash(rtk grep *)",
-      "Bash(rtk wc *)",
-      "Bash(rtk mix *)",
-      "Bash(rtk *)",
       "Bash(sed:*)",
       "Bash(sort:*)",
       "Bash(source .env:*)",
-      "Bash(source .env.test && rtk:*)",
       "Bash(source:*)",
-      "Bash(source .env.test && rtk mix test *)",
       "Bash(tail:*)",
       "Bash(timeout 60 mix test:*)",
       "Bash(timeout 90 mix test:*)",
@@ -88,17 +80,6 @@
     "defaultMode": "auto"
   },
   "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "rtk hook claude"
-          }
-        ]
-      }
-    ],
     "SessionStart": [
       {
         "hooks": [
