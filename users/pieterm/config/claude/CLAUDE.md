@@ -105,6 +105,16 @@ Use these tools extensively:
 - Counts, joins, audits: `ctx sql "<select>"` over the views `ctx_sessions`, `ctx_events`, `ctx_files_touched`, `ctx_sources`. See `ctx docs show sql`.
 - Division of labor: ctx = verbatim recall of past sessions; file-based memory = curated decisions and preferences. Check both; do not copy into memory what ctx already holds.
 
+### psql (local PostgreSQL)
+
+Local Homebrew PostgreSQL on `localhost:5432`. User `postgres`, password `postgres`.
+
+- Query: `PGPASSWORD=postgres psql -h localhost -U postgres -d <db> -c "<sql>"`
+- List databases: `PGPASSWORD=postgres psql -h localhost -U postgres -l`
+- Scripted output: add `-At` (unaligned, tuples only). Add `-F $'\t'` for tab separators.
+- Inspect schema: `\dt`, `\d <table>` via `-c`.
+- Read-only by default. Ask before `INSERT`, `UPDATE`, `DELETE`, DDL, or `DROP`.
+
 ### MacOS
 
 On MacOS:
