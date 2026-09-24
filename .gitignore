@@ -23,9 +23,6 @@ tmux/tmux-continuum
 
 .claude
 
-!users/jeroenb/config/claude/CLAUDE.md
-!users/jeroenb/config/claude/settings.json
-!users/jeroenb/config/claude/settings.local.json
 users/jeroenb/config/0ad
 users/jeroenb/config/opencode
 users/jeroenb/config/autostart
@@ -79,7 +76,10 @@ users/jeroenb/config/cef_user_data
 users/jeroenb/config/chrome-remote-desktop
 users/jeroenb/config/chromium
 users/jeroenb/config/ckb-next/**
-users/jeroenb/config/claude
+users/jeroenb/config/claude/*
+!users/jeroenb/config/claude/CLAUDE.md
+!users/jeroenb/config/claude/settings.json
+!users/jeroenb/config/claude/statusline-with-dwmbar.sh
 users/jeroenb/config/cmus
 users/jeroenb/config/composer
 users/jeroenb/config/containers/systemd/smokeping

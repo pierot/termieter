@@ -48,8 +48,16 @@ _link_tree() {
   local label="$1" src="$HOME/$2" dest="$HOME/$3" mode="${4:-link}"
   local file rel target
 
-  mkdir -p "$backup_dir"
   _print_h1 "$label"
+
+  # Dest already is the source dir (e.g. ~/.claude -> ~/.config/claude): linking
+  # would back up every file and replace it with a symlink to itself
+  if [[ -d "$dest" && "$(cd "$dest" && pwd -P)" == "$(cd "$src" && pwd -P)" ]]; then
+    _print_info "~/$3 already resolves to ~/$2, skipping"
+    return
+  fi
+
+  mkdir -p "$backup_dir"
 
   while IFS= read -r file; do
     rel="${file#"$src"/}"
