@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# wsstall — capture evidence while WindowServer is pegged after a lid wake.
+#
+# Run this BEFORE force-quitting WindowServer. Force-quitting ends the login
+# session and destroys the evidence.
+#
+# The unprivileged captures run first, so there is always data even when the
+# sudo prompt goes unanswered.
+#
+#   wsstall              full capture, asks for sudo
+#   wsstall --no-sudo    skip sample and spindump
+
+set -uo pipefail
+
+nosudo=0
+[ "${1:-}" = "--no-sudo" ] && nosudo=1
+
+out="$HOME/Library/Logs/wsstall/$(date +%Y%m%d-%H%M%S)"
+mkdir -p "$out"
+
+# 1. Unprivileged and fast. The tap list names the jammed tap.
+taplist                                            > "$out/taplist.txt"    2>&1
+ps -Ao pcpu,pid,ppid,user,etime,comm -r | head -30  > "$out/top.txt"       2>&1
+pmset -g log | tail -80                            > "$out/pmset.txt"      2>&1
+pmset -g assertions                                > "$out/assertions.txt" 2>&1
+
+# 2. Root only. WindowServer runs as _windowserver, so sample needs sudo.
+#    spindump names every thread, which is how a tap thread gets identified
+#    when the tap itself is installed outside this login session.
+if [ "$nosudo" -eq 0 ]; then
+  if sudo -v; then
+    sudo sample WindowServer 5 -file "$out/sample-windowserver.txt" >/dev/null 2>&1
+    sudo spindump -notarget 5 -file "$out/spindump.txt"             >/dev/null 2>&1
+  fi
+fi
+
+# 3. Log slice, plus anything macOS captured on its own.
+/usr/bin/log show --last 5m --style compact \
+  --predicate 'process == "WindowServer"'          > "$out/windowserver.log" 2>&1
+find /Library/Logs/DiagnosticReports -name 'WindowServer*' -mmin -90 \
+  -exec cp {} "$out/" \; 2>/dev/null
+
+echo "capture: $out"
+echo
+cat "$out/taplist.txt"

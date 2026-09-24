@@ -29,20 +29,23 @@ _print()      { printf "${COL_BLUE}%s\n${COL_RESET}" "$1"; }
 _print_info() { printf "${COL_YELLOW}× %s\n${COL_RESET}" "$1"; }
 _error()      { printf "${COL_RED}%s\n${COL_RESET}" "$1" >&2; }
 
-# Agent table: "name|source|dest", relative to $HOME. Add a row to onboard
-# another agent — no other change needed.
+# Agent table: "name|source|dest[|mode]", relative to $HOME. Add a row to onboard
+# another agent — no other change needed. Mode is "link" (default) or "copy";
+# use "copy" for tools that refuse symlinked config (ctx opens with O_NOFOLLOW).
 AGENTS=(
   "claude|.config/claude|.claude"
   "pi|.config/pi|.pi"
   "vibe|.config/vibe|.vibe"
+  "ctx|.config/ctx|.ctx|copy"
 )
 
 backup_dir="$HOME/.bash_backup"
 
-# Symlink every file under the source tree into the dest, preserving the
-# relative path. Args: label, source (rel to $HOME), dest (rel to $HOME).
+# Symlink (or copy) every file under the source tree into the dest, preserving
+# the relative path. Args: label, source (rel to $HOME), dest (rel to $HOME),
+# mode ("link" or "copy").
 _link_tree() {
-  local label="$1" src="$HOME/$2" dest="$HOME/$3"
+  local label="$1" src="$HOME/$2" dest="$HOME/$3" mode="${4:-link}"
   local file rel target
 
   mkdir -p "$backup_dir"
@@ -54,14 +57,29 @@ _link_tree() {
 
     mkdir -p "$(dirname "$target")"
 
+    if [[ "$mode" == "copy" ]]; then
+      # An identical copy is already in place; nothing to do
+      if [[ -f "$target" && ! -L "$target" ]] && cmp -s "$file" "$target"; then
+        _print "copied $rel (unchanged)"
+        continue
+      fi
+    fi
+
     # Back up an existing regular file (skip if already a symlink)
     if [[ -f "$target" && ! -L "$target" ]]; then
       mv "$target" "$backup_dir/${label}_$(basename "$target")"
       _print_info "backed up $rel"
     fi
 
-    ln -sf "$file" "$target"
-    _print "symlinked $rel"
+    if [[ "$mode" == "copy" ]]; then
+      # cp would follow a stale symlink and write into the source; drop it first
+      rm -f "$target"
+      cp "$file" "$target"
+      _print "copied $rel"
+    else
+      ln -sf "$file" "$target"
+      _print "symlinked $rel"
+    fi
   done < <(find "$src" -type f)
 }
 
@@ -89,7 +107,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 for entry in "${AGENTS[@]}"; do
-  IFS="|" read -r name src dest <<< "$entry"
+  IFS="|" read -r name src dest mode <<< "$entry"
 
   _selected "$name" || continue
 
@@ -100,14 +118,14 @@ for entry in "${AGENTS[@]}"; do
   fi
 
   if [[ "$assume_yes" -eq 1 ]]; then
-    _link_tree "$name" "$src" "$dest"
+    _link_tree "$name" "$src" "$dest" "$mode"
     continue
   fi
 
   printf "${COL_YELLOW}Install %s config symlinks? [Y/n]: ${COL_RESET}" "$name"
   read -r reply
   if [[ -z "$reply" || "$reply" =~ ^[Yy]$ ]]; then
-    _link_tree "$name" "$src" "$dest"
+    _link_tree "$name" "$src" "$dest" "$mode"
   else
     _print "skipped $name"
   fi

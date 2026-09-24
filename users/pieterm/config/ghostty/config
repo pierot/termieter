@@ -1,0 +1,9 @@
+macos-titlebar-style = tabs
+macos-auto-secure-input = true
+
+font-size = 12
+
+# Send CSI sequences (ESC[1;3D / ESC[1;3C) for alt+arrow instead of ESC b / ESC f,
+# so tmux receives M-Left / M-Right over ssh.
+keybind = alt+left=unbind
+keybind = alt+right=unbind

@@ -28,7 +28,7 @@ These rules apply to all text you write for me: answers, plans, commit messages,
 - Use a maximum of 3 nouns in sequence.
 - Do not use idioms, metaphors, or figurative language.
 - Apply the same rules when you write in Dutch.
- 
+
 ### Banned phrases
 
 | Category         | Examples                                                                        |
@@ -87,14 +87,15 @@ Commits and pushes change shared history, so I decide when they happen.
 
 ## Browser
 
-- Use the chrome devtools for browser tasks. Do not call Playwright directly.
+- Use the `claude-in-chrome` skill for browser tasks. Do not call Playwright directly.
 - When you must use the Playwright MCP, use Firefox, because Firefox accepts the self-signed certificates.
 
 ## Environment
 
-- arch, zsh, alacritty terminal, Neovim.
-- Package manager: pacman and yay (aur). Runtime versions: asdf. Elixir builds: mix.
+- macOS, zsh, kitty terminal, Neovim.
+- Package manager: brew. Runtime versions: asdf. Elixir builds: mix.
 - `grep` is an alias for `rg` (ripgrep).
+- `sed` is an alias for `gsed` (GNU sed).
 
 ## Tools / CLI
 
@@ -122,7 +123,7 @@ Commits and pushes change shared history, so I decide when they happen.
 
 ### psql (local PostgreSQL)
 
-Local PostgreSQL running in docker (podman). User `postgres`, password `postgres`.
+Local Homebrew PostgreSQL on `localhost:5432`. User `postgres`, password `postgres`.
 
 - Query: `PGPASSWORD=postgres psql -h localhost -U postgres -d <db> -c "<sql>"`
 - List databases: `PGPASSWORD=postgres psql -h localhost -U postgres -l`

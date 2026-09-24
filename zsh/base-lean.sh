@@ -146,6 +146,10 @@ fi
 
 bindkey -e  # Use emacs keybindings
 
+# Alt+Left / Alt+Right as CSI sequences (Ghostty with alt+arrow unbound, kitty)
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+
 ###############################################################################
 # LOAD USER CUSTOMIZATIONS
 ###############################################################################

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>be.jackjoe.wsstall-watch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/pieterm/.termieter/bin/wsstall-watch</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/pieterm/.local/bin:/Users/pieterm/.termieter/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/pieterm/Library/Logs/wsstall/watch.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/pieterm/Library/Logs/wsstall/watch.log</string>
+</dict>
+</plist>

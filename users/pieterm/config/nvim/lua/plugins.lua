@@ -12,14 +12,6 @@ return {
 	-- Async library
 	"nvim-lua/plenary.nvim",
 
-	-- Notification system
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			vim.notify = require("notify")
-		end,
-	},
-
 	-- UI component library
 	"MunifTanjim/nui.nvim",
 
@@ -105,9 +97,6 @@ return {
 			})
 		end,
 	},
-
-	-- Diagnostics UI
-	"folke/trouble.nvim",
 
 	-- Collection of small utilities
 	{
@@ -255,7 +244,7 @@ return {
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = { "elixir", "heex", "eelixir", "javascript", "typescript", "lua", "python" },
 				callback = function()
-					vim.bo.indentexpr = "nvim_treesitter#indent()"
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 				end,
 			})
 		end,
@@ -280,7 +269,6 @@ return {
 		"tpope/vim-fugitive",
 		lazy = true,
 		cmd = { "Git", "G" },
-		event = "BufReadPre",
 	},
 
 	-- Git signs in gutter
@@ -422,13 +410,12 @@ return {
 						vim.diagnostic.open_float,
 						{ buffer = args.buf, desc = "Line diagnostics" }
 					)
-					vim.keymap.set(
-						"n",
-						"[d",
-						vim.diagnostic.goto_prev,
-						{ buffer = args.buf, desc = "Previous diagnostic" }
-					)
-					vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
+					vim.keymap.set("n", "[d", function()
+						vim.diagnostic.jump({ count = -1 })
+					end, { buffer = args.buf, desc = "Previous diagnostic" })
+					vim.keymap.set("n", "]d", function()
+						vim.diagnostic.jump({ count = 1 })
+					end, { buffer = args.buf, desc = "Next diagnostic" })
 				end,
 			})
 
@@ -481,48 +468,38 @@ return {
 				}),
 				formatting = {
 					format = lspkind.cmp_format({
+						mode = "symbol_text",
+						preset = "codicons",
 						maxwidth = 50,
 						ellipsis_char = "...",
+						symbol_map = {
+							Text = "󰉿",
+							Method = "󰆧",
+							Function = "󰊕",
+							Constructor = "",
+							Field = "󰜢",
+							Variable = "󰀫",
+							Class = "󰠱",
+							Interface = "",
+							Module = "",
+							Property = "󰜢",
+							Unit = "󰑭",
+							Value = "󰎠",
+							Enum = "",
+							Keyword = "󰌋",
+							Snippet = "",
+							Color = "󰏘",
+							File = "󰈙",
+							Reference = "󰈇",
+							Folder = "󰉋",
+							EnumMember = "",
+							Constant = "󰏿",
+							Struct = "󰙅",
+							Event = "",
+							Operator = "󰆕",
+							TypeParameter = "",
+						},
 					}),
-				},
-			})
-		end,
-	},
-
-	-- VS-Code like icons for completion
-	{
-		"onsails/lspkind-nvim",
-		config = function()
-			local lspkind = require("lspkind")
-			lspkind.init({
-				mode = "symbol_text",
-				preset = "codicons",
-				symbol_map = {
-					Text = "󰉿",
-					Method = "󰆧",
-					Function = "󰊕",
-					Constructor = "",
-					Field = "󰜢",
-					Variable = "󰀫",
-					Class = "󰠱",
-					Interface = "",
-					Module = "",
-					Property = "󰜢",
-					Unit = "󰑭",
-					Value = "󰎠",
-					Enum = "",
-					Keyword = "󰌋",
-					Snippet = "",
-					Color = "󰏘",
-					File = "󰈙",
-					Reference = "󰈇",
-					Folder = "󰉋",
-					EnumMember = "",
-					Constant = "󰏿",
-					Struct = "󰙅",
-					Event = "",
-					Operator = "󰆕",
-					TypeParameter = "",
 				},
 			})
 		end,
@@ -535,6 +512,12 @@ return {
 		config = function()
 			local conform = require("conform")
 			conform.setup({
+				formatters = {
+					-- Projects that export MIX_DEBUG=1 make `mix format` print
+					-- its "-> Running mix ..." trace on stdout, which conform
+					-- then writes into the buffer around the formatted file.
+					mix = { env = { MIX_DEBUG = "0" } },
+				},
 				formatters_by_ft = {
 					javascript = { "prettierd" },
 					typescript = { "prettierd" },
@@ -550,7 +533,7 @@ return {
 					heex = { "mix" },
 				},
 				format_on_save = {
-					lsp_fallback = true,
+					lsp_format = "fallback",
 					async = false,
 					timeout_ms = 1500,
 				},
@@ -564,7 +547,7 @@ return {
 
 	-- Mason installer
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonUpdate" },
 		config = function()
 			local mason = require("mason")
@@ -574,145 +557,29 @@ return {
 
 	-- Mason LSP config integration
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "williamboman/mason.nvim" },
+		dependencies = { "mason-org/mason.nvim" },
 		config = function()
 			local lspconfig = require("mason-lspconfig")
 			lspconfig.setup({
+				-- Only the servers that vim.lsp.enable() actually starts.
+				-- ts_ls is omitted on purpose: typescript-language-server is
+				-- already installed globally through yarn.
 				ensure_installed = {
-					"ansiblels",
-					"bashls",
 					"cssls",
-					"dockerls",
 					"emmet_ls",
-					"erlangls",
 					"html",
-					"intelephense",
-					"jinja_lsp",
 					"lua_ls",
-					"luau_lsp",
 					"tailwindcss",
-					"yamlls",
 				},
+				-- Servers are started from the explicit vim.lsp.enable() list.
+				-- Without this, mason-lspconfig also enables everything it finds
+				-- installed, so that list stops being the single source of truth.
+				automatic_enable = false,
 			})
 		end,
 	},
-
-	{
-		"nvimtools/none-ls.nvim", -- configure formatters & linters
-		lazy = true,
-		enabled = false,
-		-- event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
-		dependencies = {
-			"jay-babu/mason-null-ls.nvim",
-		},
-		config = function()
-			local mason_null_ls = require("mason-null-ls")
-			local null_ls = require("null-ls")
-			local null_ls_utils = require("null-ls.utils")
-
-			mason_null_ls.setup({
-				ensure_installed = {
-					"prettier", -- prettier formatter
-					"stylua", -- lua formatter
-					"eslint_d", -- js linter
-				},
-			})
-
-			-- for conciseness
-			local formatting = null_ls.builtins.formatting -- to setup formatters
-			local diagnostics = null_ls.builtins.diagnostics -- to setup linters
-
-			-- to setup format on save
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-			-- configure null_ls
-			null_ls.setup({
-				-- add package.json as identifier for root (for typescript monorepos)
-				root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
-				-- setup formatters & linters
-				sources = {
-					--  to disable file types use
-					--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-					formatting.prettier.with({
-						extra_filetypes = { "svelte" },
-					}), -- js/ts formatter
-					formatting.stylua, -- lua formatter
-					formatting.isort,
-					diagnostics.eslint_d.with({ -- js/ts linter
-						condition = function(utils)
-							return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs", "eslint.config.js" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
-						end,
-					}),
-				},
-				-- configure format on save
-				on_attach = function(current_client, bufnr)
-					if current_client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								vim.lsp.buf.format({
-									filter = function(client)
-										--  only use null-ls for formatting instead of lsp server
-										return client.name == "null-ls"
-									end,
-									bufnr = bufnr,
-								})
-							end,
-						})
-					end
-				end,
-			})
-		end,
-	},
-
-	--[[ {
-		"elixir-tools/elixir-tools.nvim",
-		lazy = true,
-		enabled = true,
-		version = "*",
-		ft = { "elixir", "eelixir", "heex", "surface" },
-		config = function()
-			local elixir = require("elixir")
-			-- Switching to ExpertLS
-			-- local elixirls = require("elixir.elixirls")
-
-			elixir.setup({
-				nextls = { enable = false },
-				credo = {},
-				elixirls = {
-					enable = false,
-					-- settings = elixirls.settings({
-					-- 	dialyzerEnabled = false,
-					-- 	enableTestLenses = false,
-					-- }),
-					-- on_attach = function(client, bufnr)
-					-- 	vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-					-- 	vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-					-- 	vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-					-- 	vim.keymap.set(
-					-- 		"n",
-					-- 		"gD",
-					-- 		"<cmd>lua vim.lsp.buf.declaration()<CR>",
-					-- 		{ noremap = true, silent = true }
-					-- 	)
-					-- 	vim.keymap.set(
-					-- 		"n",
-					-- 		"gd",
-					-- 		"<cmd>lua vim.lsp.buf.definition()<CR>",
-					-- 		{ noremap = true, silent = true }
-					-- 	)
-					-- end,
-				},
-			})
-		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	}, ]]
 
 	-- ====================
 	-- UI PLUGINS
@@ -930,21 +797,27 @@ return {
 		end,
 	},
 
-	-- Color highlighter
+	-- Color highlighter.
+	-- norcalli's original stopped at 2021-04-28 and calls the removed
+	-- vim.tbl_flatten. catgoose maintains the fork and keeps the old
+	-- option names as aliases, so the settings below are unchanged.
 	{
-		"norcalli/nvim-colorizer.lua",
+		"catgoose/nvim-colorizer.lua",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local colorizer = require("colorizer")
-			colorizer.setup({ "*" }, {
-				RGB = true,
-				RRGGBB = true,
-				names = true,
-				RRGGBBAA = true,
-				rgb_fn = true,
-				hsl_fn = true,
-				css = true,
-				css_fn = true,
+			colorizer.setup({
+				filetypes = { "*" },
+				user_default_options = {
+					RGB = true,
+					RRGGBB = true,
+					names = true,
+					RRGGBBAA = true,
+					rgb_fn = true,
+					hsl_fn = true,
+					css = true,
+					css_fn = true,
+				},
 			})
 		end,
 	},
@@ -1042,24 +915,13 @@ return {
 		end,
 	},
 
-	-- Telescope FZF extension
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-	},
-
 	-- Ack/ripgrep integration
 	{
 		"mileszs/ack.vim",
 		cmd = "Ack",
 	},
 
-	-- ====================
-	-- COMMENTS
-	-- ====================
-
-	-- Comment plugin
-	"b3nj5m1n/kommentary",
+	-- Commenting uses the built-in gc/gcc (Neovim 0.10+).
 
 	-- ====================
 	-- THEMES
@@ -1093,33 +955,6 @@ return {
 
 			-- Set colorscheme to nightfox (dark variant)
 			vim.cmd("colorscheme nightfox")
-		end,
-	},
-
-	-- ====================
-	-- AI ASSISTANTS
-	-- ====================
-
-	-- Supermaven AI (inline completion)
-	{
-		"supermaven-inc/supermaven-nvim",
-		event = "InsertEnter",
-		config = function()
-			require("supermaven-nvim").setup({
-				keymaps = {
-					accept_suggestion = "<Tab>", -- same as the old Codeium binding
-					clear_suggestion = "<C-]>", -- same as the old Codeium binding
-					accept_word = "<C-l>", -- not <C-j>: that's cmp select_next_item (see nvim-cmp mapping)
-				},
-				ignore_filetypes = { cpp = true },
-				color = {
-					suggestion_color = "#585858",
-					cterm = 244,
-				},
-				log_level = "info",
-				disable_inline_completion = false, -- set to true for manual-only
-				disable_keymaps = false,
-			})
 		end,
 	},
 }
