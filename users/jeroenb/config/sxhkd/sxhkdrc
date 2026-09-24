@@ -9,6 +9,10 @@ super + o ; p
 super + o ; n
 	tt -n
 
+# toggle the Advantage360 keymap cheat sheet overlay
+super + o ; k
+	keymapsheet
+
 #super + o; s
 # slack &
 

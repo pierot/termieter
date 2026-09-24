@@ -1,0 +1,17 @@
+#!/bin/sh
+# Toggle the Advantage360 keymap cheat sheet as a fullscreen overlay.
+# Bound to super + o ; k in sxhkdrc.
+#
+# Regenerate the image after changing the keymap:
+#   cd ~/dev/tools/Adv360-Pro-ZMK/tools/keymap-cheatsheet && ./build.sh
+
+sheet="$HOME/Dropbox/Photos/wallpapers/adv360-cheatsheet.png"
+
+if pgrep -f "feh --title keymapsheet" > /dev/null; then
+	pkill -f "feh --title keymapsheet"
+	exit 0
+fi
+
+[ -f "$sheet" ] || { notify-send 'keymapsheet' "missing $sheet"; exit 1; }
+
+exec feh --title keymapsheet --fullscreen --auto-zoom --hide-pointer --no-menus "$sheet"
