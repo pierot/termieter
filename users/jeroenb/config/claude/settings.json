@@ -2,9 +2,7 @@
   "skillListingBudgetFraction": 0.05,
   "permissions": {
     "defaultMode": "auto",
-    "additionalDirectories": [
-      "/home/jeroen/.claude/projects"
-    ]
+    "additionalDirectories": ["/home/jeroen/.claude/projects"]
   },
   "hooks": {
     "PreToolUse": [
@@ -34,20 +32,13 @@
     "command": "/home/jeroen/.config/claude/statusline-with-dwmbar.sh"
   },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": false,
     "worktrunk@worktrunk": true,
-    "elixir-lsp@claude-code-elixir": false,
-    "mix-format@claude-code-elixir": true,
-    "mix-compile@claude-code-elixir": true,
-    "mix-credo@claude-code-elixir": true,
-    "elixir@claude-code-elixir": true,
-    "plannotator@plannotator": true,
-    "agent-skills@addy-agent-skills": true,
     "context-mode@context-mode": true,
-    "modern-web-guidance@googlechrome": true,
+    "modern-web-guidance@googlechrome": false,
     "chrome-devtools-mcp@chrome-devtools-plugins": true,
-    "caveman@caveman": true,
-    "superpowers@claude-plugins-official": true,
+    "caveman@caveman": false,
+    "superpowers@claude-plugins-official": false,
     "claude-hud@claude-hud": true
   },
   "extraKnownMarketplaces": {
@@ -67,24 +58,6 @@
       "source": {
         "source": "github",
         "repo": "max-sixty/worktrunk"
-      }
-    },
-    "claude-code-elixir": {
-      "source": {
-        "source": "github",
-        "repo": "georgeguimaraes/claude-code-elixir"
-      }
-    },
-    "plannotator": {
-      "source": {
-        "source": "github",
-        "repo": "backnotprop/plannotator"
-      }
-    },
-    "addy-agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "addyosmani/agent-skills"
       }
     },
     "googlechrome": {
@@ -108,10 +81,23 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
   "ultracode": false,
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "autoMode": {
     "soft_deny": [
@@ -126,7 +112,7 @@
       "**Cloud provider(s)**: None configured",
       "**Repository visibility**: Not queryable (gh only supports github.com; origin is gitlab.com) — assume private per shipped default; no evidence of public visibility",
       "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
-      "**Secrets management**: None configured — repo uses local .env-style files and config/*.secret.exs (gitignored), no external secrets manager evidenced",
+      "**Secrets management**: Hashicorp Vault (script/vault, used by GitLab CI); locally .env-style files and config/*.secret.exs (gitignored)",
       "**Default / protected branches**: develop (default branch); protection/rulesets not queryable (non-GitHub host)",
       "**CI/CD deploy targets**: Fly.io (flyctl referenced in README); Makefile targets deploy, deploy_features, deploy_production, deploy_production_hotfix, deploy_sales_demos suggest GitLab CI-driven deploys to named environments (features, production, sales_demos)",
       "**Network posture**: None configured",
@@ -145,7 +131,7 @@
       "**Trusted repo**: /home/jeroen/Work/jackjoe/justified and its origin remote gitlab.com:justified-org/justified only",
       "**Org-specific CLIs**: rtk, wt (worktrunk), glab, mt, gcmm, gco, gb, gwt_cd, mpr, dockr, mdu — frequently used personal/dotfiles CLIs (per ~/.claude/CLAUDE.md and shell history); trello-attachment (1Password-authed Trello card downloader)",
       "**routine under jeroenb/ prefix**: ~/.termieter dotfiles repo and ~/.config (symlinked to ~/.termieter/users/jeroenb/config) are routine personal-config editing targets",
-      "**Trusted repo**: /home/jeroen/Work/jackjoe/.worktrees/justified/feat-case-tabs-case-buttons and its origin remote gitlab.com:justified-org/justified only"
+      "**Trusted repo**: every worktree under /home/jeroen/Work/jackjoe/.worktrees/justified/ (created with wt)"
     ]
   }
 }

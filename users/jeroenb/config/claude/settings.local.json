@@ -5,7 +5,6 @@
       "WebSearch",
       "WebFetch(domain:wiki.archlinux.org)",
       "WebFetch(domain:man.archlinux.org)",
-      "Bash(op:*)",
       "Bash(carddav-query:*)",
       "Bash(cat:*)",
       "mcp__plugin_context-mode_context-mode__ctx_batch_execute",

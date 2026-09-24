@@ -16,15 +16,13 @@ The instruction `Investigate thoroughly, analyse with hard and deep thinking and
 
 ### Preferences
 
-- Keep responses concise and direct
+- Keep responses concise and direct: no filler, no preamble, no recap of what the reply already says
 - Use existing code style and conventions found in the project
 - Prefer simple solutions over clever abstractions
 - When editing config files (nvim, shell, etc.), match the surrounding style exactly
-- Prefer using browser agent skill over using playwright directly.
 - Don't refactor code beyond what was asked
 - Don't create new files when editing existing ones will do
-- Prefer Serena MCP tools for code investigation over Agent/Explore subagents
-- When using Playwright MCP, prefer Firefox (cfr self signed certs)
+- Browser: Playwright MCP (Firefox, cfr self signed certs) for UI flows; chrome-devtools MCP only for performance, Lighthouse and heap work
 
 ### Environment
 
@@ -32,6 +30,14 @@ The instruction `Investigate thoroughly, analyse with hard and deep thinking and
 - Package managers: pacman, yay, asdf, mix
 - Neovim config: ~/.config/nvim (lazy.nvim, native LSP, treesitter)
 - arch so python is a pickle
+
+### Local Postgres
+
+- Postgres runs in the podman container `postgres` (quadlet `~/.config/containers/systemd/postgresql.container`). There is no `psql`/`pg_dump` on the host; never call them bare.
+- Query: `podman exec -i postgres psql -U postgres -d <db> -X -v ON_ERROR_STOP=1 <<'SQL' ... SQL`. One-liners: `podman exec postgres psql -U postgres -d <db> -XAtc "select ..."`.
+- `justified_prod` is the local Justified dev DB (a restored prod dump, not production). Tests use `justified_test*`. List DBs with `-XAtc "select datname from pg_database"`.
+- Keep output small: select only needed columns, use `limit`, `-x` for wide rows, `--csv` for piping.
+- Writes to the local container are fine. Staging and prod are a different host and stay read-only.
 
 ### Tools / CLI
 
