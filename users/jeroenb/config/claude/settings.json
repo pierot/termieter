@@ -2,7 +2,9 @@
   "skillListingBudgetFraction": 0.05,
   "permissions": {
     "defaultMode": "auto",
-    "additionalDirectories": ["/home/jeroen/.claude/projects"]
+    "additionalDirectories": [
+      "/home/jeroen/.claude/projects"
+    ]
   },
   "hooks": {
     "PreToolUse": [
@@ -106,9 +108,9 @@
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
-  "verbose": true,
-  "remoteControlAtStartup": true,
+  "verbose": false,
   "preferredNotifChannel": "auto",
+  "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "autoMode": {
