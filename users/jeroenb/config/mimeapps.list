@@ -73,4 +73,3 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoff
 x-scheme-handler/net.thunderbird=userapp-Thunderbird-CNM6U3.desktop;userapp-Thunderbird-E9TYQ3.desktop;userapp-Thunderbird-78ZOS3.desktop;
 text/markdown=libreoffice-writer.desktop;emacsclient.desktop;
 application/x-zerosize=chromium.desktop;
-x-scheme-handler/slack=slack.desktop;
