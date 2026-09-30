@@ -1,0 +1,92 @@
+#!/bin/sh
+# Push-to-talk dictation with a local Whisper model (whisper.cpp).
+# Records the microphone, transcribes it on the GPU and types the text
+# into the focused window. It never presses Enter.
+#
+# Usage: dictate start|stop
+#     start   start recording (does nothing when a recording runs)
+#     stop    stop recording, transcribe and type the text
+#
+# Bound in sxhkdrc:
+#     super + v       -> dictate start
+#     super + @v      -> dictate stop
+#
+# Needs: whisper-cpp, ggml-vulkan, alsa-utils (arecord), xdotool, dzen2.
+# Models in ~/.local/share/whisper (from huggingface.co):
+#     ggerganov/whisper.cpp  ggml-large-v3-turbo.bin
+#     ggml-org/whisper-vad   ggml-silero-v6.2.0.bin
+
+model_dir="$HOME/.local/share/whisper"
+model="$model_dir/ggml-large-v3-turbo.bin"
+vad_model="$model_dir/ggml-silero-v6.2.0.bin"
+
+run_dir="${XDG_RUNTIME_DIR:-/tmp}"
+pid_file="$run_dir/dictate.pid"
+osd_pid_file="$run_dir/dictate-osd.pid"
+wav_file="$run_dir/dictate.wav"
+
+# Status bar at the bottom center of the screen
+osd_font="JetBrainsMono Nerd Font Mono:size=16:style=Bold"
+osd_width=480
+osd_height=56
+osd_bottom=200 # distance from the bottom of the screen
+
+recording() {
+  [ -f "$pid_file" ] && kill -0 "$(cat "$pid_file")" 2>/dev/null
+}
+
+# Usage: osd <background color> <text>
+osd() {
+  osd_close
+  geometry=$(xdotool getdisplaygeometry)
+  screen_width=${geometry% *}
+  screen_height=${geometry#* }
+  x=$(( (screen_width - osd_width) / 2 ))
+  y=$(( screen_height - osd_bottom - osd_height ))
+  printf '%s\n' "$2" | dzen2 -p -x "$x" -y "$y" -w "$osd_width" \
+    -h "$osd_height" -ta c -bg "$1" -fg '#ffffff' -fn "$osd_font" \
+    >/dev/null 2>&1 &
+  echo $! > "$osd_pid_file"
+}
+
+osd_close() {
+  [ -f "$osd_pid_file" ] && kill "$(cat "$osd_pid_file")" 2>/dev/null
+  rm -f "$osd_pid_file"
+}
+
+start() {
+  recording && exit 0
+  arecord -q -f S16_LE -r 16000 -c 1 "$wav_file" </dev/null >/dev/null 2>&1 &
+  echo $! > "$pid_file"
+  osd '#dc2626' '● Recording'
+}
+
+stop() {
+  recording || exit 0
+  pid=$(cat "$pid_file")
+  kill -INT "$pid"
+  # arecord writes the WAV header on exit, so wait for it
+  while kill -0 "$pid" 2>/dev/null; do sleep 0.05; done
+  rm -f "$pid_file"
+
+  # Move the audio away, so a new recording cannot overwrite it
+  audio="$run_dir/dictate-$pid.wav"
+  mv "$wav_file" "$audio"
+
+  osd '#7C3AED' 'Transcribing...'
+  text=$(whisper-cli -m "$model" -f "$audio" -l auto -nt -np \
+    --vad -vm "$vad_model" 2>/dev/null |
+    tr '\n' ' ' | tr -s ' ' | sed 's/^ //; s/ $//')
+  rm -f "$audio"
+  osd_close
+
+  if [ -n "$text" ]; then
+    xdotool type --clearmodifiers -- "$text"
+  fi
+}
+
+case "$1" in
+  start) start ;;
+  stop) stop ;;
+  *) echo "Usage: dictate start|stop" >&2; exit 1 ;;
+esac

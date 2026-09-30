@@ -95,6 +95,13 @@ super + shift + d
 super + shift + F5
   toggletd
 
+# dictation (local whisper): hold super + v to record, let go of v first to type the text
+super + v
+  dictate start
+
+super + @v
+  dictate stop
+
 # Reload sxhkdrc
 super + shift + r
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
