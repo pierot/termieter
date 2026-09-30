@@ -7,14 +7,52 @@
 #     start   start recording (does nothing when a recording runs)
 #     stop    stop recording, transcribe and type the text
 #
-# Bound in sxhkdrc:
+# Bound in sxhkdrc (~/.config/sxhkd/sxhkdrc, in termieter):
 #     super + v       -> dictate start
 #     super + @v      -> dictate stop
+# Let go of v before super. If you let go of super first, sxhkd does not
+# see the release and the recording keeps running (the red bar stays).
+# Press and release super + v again to stop it.
 #
-# Needs: whisper-cpp, ggml-vulkan, alsa-utils (arecord), xdotool, dzen2.
-# Models in ~/.local/share/whisper (from huggingface.co):
-#     ggerganov/whisper.cpp  ggml-large-v3-turbo.bin
-#     ggml-org/whisper-vad   ggml-silero-v6.2.0.bin
+# Setup after a reinstall (Arch Linux, X11):
+#
+# 1. Packages
+#        sudo pacman -S --needed whisper-cpp ggml-vulkan alsa-utils \
+#          pipewire-alsa xdotool dzen2 sxhkd
+#    whisper-cpp   whisper-cli, the speech-to-text program
+#    ggml-vulkan   GPU backend for whisper-cli. Without it, whisper-cli
+#                  runs on the CPU (slower, but it works).
+#    alsa-utils    arecord, records the microphone
+#    pipewire-alsa sends arecord to the PipeWire default source
+#                  (pactl get-default-source shows it)
+#    xdotool       types the text and reads the screen size
+#    dzen2         the status bar at the bottom center
+#
+# 2. Models (not in git, 1.6 GB and 885 KB)
+#        mkdir -p ~/.local/share/whisper && cd ~/.local/share/whisper
+#        curl -LO https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3-turbo.bin
+#        curl -LO https://huggingface.co/ggml-org/whisper-vad/resolve/main/ggml-silero-v6.2.0.bin
+#        sha256sum ggml-*.bin
+#    Expected SHA-256:
+#        1fc70f774d38eb169993ac391eea357ef47c88757ef72ee5943879b7e8e2bc69  ggml-large-v3-turbo.bin
+#        2aa269b785eeb53a82983a20501ddf7c1d9c48e33ab63a41391ac6c9f7fb6987  ggml-silero-v6.2.0.bin
+#    large-v3-turbo does Dutch and English well. The VAD (voice activity
+#    detection) model removes silence. Without it, whisper invents text
+#    such as "you" for a silent recording.
+#
+# 3. Reload sxhkd: pkill -USR1 -x sxhkd (or super + shift + r)
+#
+# 4. Check the GPU
+#        arecord -q -f S16_LE -r 16000 -c 1 -d 5 /tmp/test.wav
+#        whisper-cli -m ~/.local/share/whisper/ggml-large-v3-turbo.bin \
+#          -f /tmp/test.wav -l auto
+#    The log must show "using Vulkan0 backend", and Vulkan device 0 must
+#    be the real GPU (Radeon RX 6600 in 2026), not the graphics in the
+#    CPU. If device 0 is the wrong GPU, add "-dev 1" to whisper-cli below.
+#    A 5 s recording takes about 1.3 s to transcribe on the RX 6600.
+#
+# Language: "-l auto" detects the language per recording (about 0.4 s
+# extra). Use "-l nl" or "-l en" to force one language.
 
 model_dir="$HOME/.local/share/whisper"
 model="$model_dir/ggml-large-v3-turbo.bin"
