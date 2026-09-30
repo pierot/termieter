@@ -147,5 +147,10 @@
       "**routine under jeroenb/ prefix**: ~/.termieter dotfiles repo and ~/.config (symlinked to ~/.termieter/users/jeroenb/config) are routine personal-config editing targets",
       "**Trusted repo**: every worktree under /home/jeroen/Work/jackjoe/.worktrees/justified/ (created with wt)"
     ]
+  },
+  "voiceEnabled": true,
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
   }
 }
