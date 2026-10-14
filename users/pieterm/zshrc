@@ -4,6 +4,9 @@ PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 prmptcmd() { eval "$PROMPT_COMMAND" }
 precmd_functions=(prmptcmd)
 
+# LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+
 # User configuration
 # Always work in a tmux session if tmux is installed
 # https://github.com/chrishunt/dot-files/blob/master/.zshrc
