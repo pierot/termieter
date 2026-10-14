@@ -35,6 +35,8 @@
       "*git commit*": "ask",
       "*git push*": "ask",
       "*rm -rf*": "deny"
-    }
+    },
+    // ctx is for Claude Code only. OpenCode also finds ~/.claude/skills/ctx.
+    "skill": { "ctx": "deny" }
   }
 }

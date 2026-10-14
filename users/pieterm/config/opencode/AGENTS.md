@@ -103,20 +103,6 @@ Commits and pushes change shared history, so I decide when they happen.
 - `jq` to inspect JSON files and JSON output of other tools.
 - `wt` (worktrunk) for git worktrees.
 
-### ctx (agent history search)
-
-`ctx` is the CLI at `~/.local/bin/ctx`. It indexes local coding-agent sessions into `~/.ctx`. Today it indexes Claude Code and OpenCode history. Check the current providers with `ctx sources`.
-
-- At the start of an investigation, a bug report, or work that continues earlier work, search prior sessions: `ctx search "<topic>"`.
-- Broaden with `--term "<variant>"` (repeatable). Narrow with `--workspace <name>`, `--since 30d`, `--file <path>`, `--provider claude`, `--provider opencode`, or `--session <id>`.
-- Use `--events` for event-level hits instead of session-level hits.
-- Inspect the best match before you rely on it: `ctx show event <event-id> --window 3`.
-- For a full transcript: `ctx show session <session-id> --format markdown --out <file>`, then read parts of the file.
-- Trace code to the agent session that wrote it: `ctx blame file <path> --lines <start:end>` or `ctx blame commit <sha>`.
-- Use `--refresh off` when the search must not start index work. Do not add `--format json` unless a script consumes it.
-- Cite the event ID or session ID when retrieved history influenced the answer.
-- Reference: `ctx docs show agent-usage`, `ctx docs show search`, `ctx docs list`.
-
 ### psql (local PostgreSQL)
 
 Local Homebrew PostgreSQL on `localhost:5432`. User `postgres`, password `postgres`.
