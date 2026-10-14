@@ -5,11 +5,12 @@
 [daemon]
 
 [search]
-# Hybrid BM25 + local embeddings (intfloat/multilingual-e5-small). Needs the daemon.
-semantic = true
+# Keyword search only. Semantic search needs the daemon and a 1.3 GB model.
+semantic = false
 
 [analytics]
 enabled = false
 
 [indexing]
-mode = "auto"
+# No daemon. `ctx search --refresh wait` updates the index on demand.
+mode = "manual"
