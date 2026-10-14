@@ -6,6 +6,7 @@
       "/home/jeroen/.claude/projects"
     ]
   },
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -51,7 +52,8 @@
     "chrome-devtools-mcp@chrome-devtools-plugins": true,
     "caveman@caveman": false,
     "superpowers@claude-plugins-official": false,
-    "claude-hud@claude-hud": true
+    "claude-hud@claude-hud": true,
+    "cc-plugin-you-should-know@builtin": false
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -106,6 +108,10 @@
   },
   "ultracode": false,
   "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
   "verbose": false,
@@ -148,9 +154,5 @@
       "**Trusted repo**: every worktree under /home/jeroen/Work/jackjoe/.worktrees/justified/ (created with wt)"
     ]
   },
-  "voiceEnabled": true,
-  "voice": {
-    "enabled": true,
-    "mode": "hold"
-  }
+  "voiceEnabled": true
 }
