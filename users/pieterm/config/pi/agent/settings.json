@@ -2,8 +2,13 @@
   "lastChangelogVersion": "1.2.0",
   "defaultProvider": "lmstudio",
   "defaultModel": "qwen3.8-27b-ud-single",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "xhigh",
   "quietStartup": true,
+  "compaction": {
+    "modelOverrides": {
+      "lmstudio/qwen3.8-27b-ud-single": { "reserveTokens": 31072 }
+    }
+  },
   "packages": [
     "npm:pi-subagents",
     "npm:pi-web-access",
