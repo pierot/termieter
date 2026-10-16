@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "lmstudio/qwen3.8-27b-ud-single",
-  "small_model": "lmstudio/qwen3.8-27b-ud-single",
   "autoupdate": true,
   "formatter": true,
   "lsp": true,
@@ -11,23 +10,29 @@
   //     "typescript": true,
   //     "elixir": { "command": ["elixir-ls"] }
   //   }
-  "compaction": { "auto": true, "keep": { "tokens": 15000 } },
-  "provider": {
+  // OpenCode compacts when the context passes limit.context - buffer:
+  // 131072 - 31072 = 100000 tokens.
+  "compaction": { "auto": true, "keep": { "tokens": 15000 }, "buffer": 31072 },
+  "providers": {
     "lmstudio": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "lmstudio",
-      "options": { "baseURL": "http://127.0.0.1:1234/v1" },
+      "settings": { "baseURL": "http://127.0.0.1:1234/v1" },
       "models": {
         "qwen3.8-27b-ud-single": {
           "name": "qwen3.8-27b-ud-single",
-          "modalities": { "input": ["text", "image"], "output": ["text"] },
-          "attachment": true,
-          // LM Studio loads this model with a 124928-token context (`lms ps`).
-          "limit": { "context": 124928, "output": 32000 }
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text"] },
+          // LM Studio loads this model with a 131072-token context (`lms ps`).
+          "limit": { "context": 131072, "output": 32000 },
+          // The LM Studio Inference tab values, sent in every request.
+          "body": { "temperature": 1.0, "top_p": 0.95, "top_k": 20, "min_p": 0, "repeat_penalty": 1.0 },
+          // LM Studio ignores reasoning_effort, except "none" (thinking off).
+          // Without "none", the chat template uses xhigh.
+          "variants": [{ "id": "nothink", "settings": { "reasoningEffort": "none" } }]
         }
       }
     }
   },
+  // Titles do not need reasoning.
+  "agents": { "title": { "model": "lmstudio/qwen3.8-27b-ud-single#nothink" } },
   "permission": {
     "edit": "allow",
     "bash": {
