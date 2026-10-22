@@ -71,6 +71,15 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
 	end,
 })
 
+-- continue elixir comments on <CR> and o/O; the builtin ftplugin does not
+-- set this (the removed vim-elixir plugin did)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "elixir" },
+	callback = function()
+		vim.opt_local.formatoptions:append("ro")
+	end,
+})
+
 -- inline diagnostics
 vim.diagnostic.config({
 	virtual_text = true,
@@ -86,4 +95,10 @@ vim.diagnostic.config({
 	},
 	update_in_insert = false,
 	severity_sort = true,
+	-- open the float after a jump with the default [d / ]d
+	jump = {
+		on_jump = function(_, bufnr)
+			vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+		end,
+	},
 })

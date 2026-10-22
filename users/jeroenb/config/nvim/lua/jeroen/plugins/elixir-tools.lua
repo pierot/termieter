@@ -8,7 +8,6 @@ return {
 		elixir.setup({
 			-- Switching to ExpertLS
 			nextls = { enable = false },
-			credo = {},
 			elixirls = { enable = false },
 		})
 	end,

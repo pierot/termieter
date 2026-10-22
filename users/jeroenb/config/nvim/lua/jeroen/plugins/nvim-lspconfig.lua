@@ -47,7 +47,6 @@ return {
 
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = args.buf, desc = "Go to definition" })
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = args.buf, desc = "Go to declaration" })
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = args.buf, desc = "Show references" })
 				vim.keymap.set(
 					"n",
 					"gi",
@@ -68,8 +67,6 @@ return {
 					vim.diagnostic.open_float,
 					{ buffer = args.buf, desc = "Line diagnostics" }
 				)
-				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = args.buf, desc = "Previous diagnostic" })
-				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
 
 				-- Show LSP document colors (e.g. tailwind classes) as a virtual
 				-- swatch next to the text instead of painting the background
