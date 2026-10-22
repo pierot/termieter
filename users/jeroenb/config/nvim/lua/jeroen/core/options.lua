@@ -75,7 +75,15 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
 vim.diagnostic.config({
 	virtual_text = true,
 	underline = true,
-	signs = true,
+	-- Nvim 0.12 ignores sign_define() for diagnostic signs; set the icons here.
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰠠 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		},
+	},
 	update_in_insert = false,
 	severity_sort = true,
 })

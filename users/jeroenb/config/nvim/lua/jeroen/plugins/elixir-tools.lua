@@ -2,7 +2,7 @@ return {
 	"elixir-tools/elixir-tools.nvim",
 	enabled = "true",
 	version = "*",
-	event = { "BufReadPre", "BufNewFile" },
+	ft = { "elixir", "eelixir", "heex", "surface" },
 	config = function()
 		local elixir = require("elixir")
 		elixir.setup({
