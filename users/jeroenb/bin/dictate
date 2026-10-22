@@ -1,7 +1,7 @@
 #!/bin/sh
-# Push-to-talk dictation with a local Whisper model (whisper.cpp).
-# Records the microphone, transcribes it on the GPU and types the text
-# into the focused window. It never presses Enter.
+# Push-to-talk dictation with a local Parakeet model (parakeet-cli from
+# whisper.cpp). Records the microphone, transcribes it on the CPU and
+# types the text into the focused window. It never presses Enter.
 #
 # Usage: dictate start|stop
 #     start   start recording (does nothing when a recording runs)
@@ -17,46 +17,45 @@
 # Setup after a reinstall (Arch Linux, X11):
 #
 # 1. Packages
-#        sudo pacman -S --needed whisper-cpp ggml-vulkan alsa-utils \
-#          pipewire-alsa xdotool dzen2 sxhkd
-#    whisper-cpp   whisper-cli, the speech-to-text program
-#    ggml-vulkan   GPU backend for whisper-cli. Without it, whisper-cli
-#                  runs on the CPU (slower, but it works).
+#        sudo pacman -S --needed whisper-cpp alsa-utils pipewire-alsa \
+#          xdotool dzen2 sxhkd
+#    whisper-cpp   parakeet-cli, the speech-to-text program (in
+#                  whisper.cpp since 1.9.0)
 #    alsa-utils    arecord, records the microphone
 #    pipewire-alsa sends arecord to the PipeWire default source
 #                  (pactl get-default-source shows it)
 #    xdotool       types the text and reads the screen size
 #    dzen2         the status bar at the bottom center
 #
-# 2. Models (not in git, 1.6 GB and 885 KB)
+# 2. Model (not in git, 668 MB)
 #        mkdir -p ~/.local/share/whisper && cd ~/.local/share/whisper
-#        curl -LO https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3-turbo.bin
-#        curl -LO https://huggingface.co/ggml-org/whisper-vad/resolve/main/ggml-silero-v6.2.0.bin
-#        sha256sum ggml-*.bin
+#        curl -LO https://huggingface.co/ggml-org/parakeet-GGUF/resolve/main/ggml-parakeet-tdt-0.6b-v3-q8_0.bin
+#        sha256sum ggml-parakeet-tdt-0.6b-v3-q8_0.bin
 #    Expected SHA-256:
-#        1fc70f774d38eb169993ac391eea357ef47c88757ef72ee5943879b7e8e2bc69  ggml-large-v3-turbo.bin
-#        2aa269b785eeb53a82983a20501ddf7c1d9c48e33ab63a41391ac6c9f7fb6987  ggml-silero-v6.2.0.bin
-#    large-v3-turbo does Dutch and English well. The VAD (voice activity
-#    detection) model removes silence. Without it, whisper invents text
-#    such as "you" for a silent recording.
+#        4d64e9e96c2792186d072fde0034df0ad670cf680a2f53069052ead827fd600e  ggml-parakeet-tdt-0.6b-v3-q8_0.bin
+#    Parakeet TDT 0.6B v3 does 25 European languages, Dutch and English
+#    included. It detects the language per recording, so there is no
+#    language flag. It types nothing for a silent recording, so it needs
+#    no VAD (voice activity detection) model.
+#    q8_0 is as accurate as f16 and about 0.1 s faster.
+#    Dutch has more errors than with Whisper large-v3-turbo (FLEURS WER
+#    7.7% against 6.0%). English is equal. The Whisper version of this
+#    script is in the git history.
 #
 # 3. Reload sxhkd: pkill -USR1 -x sxhkd (or super + shift + r)
 #
-# 4. Check the GPU
+# 4. Check the model
 #        arecord -q -f S16_LE -r 16000 -c 1 -d 5 /tmp/test.wav
-#        whisper-cli -m ~/.local/share/whisper/ggml-large-v3-turbo.bin \
-#          -f /tmp/test.wav -l auto
-#    The log must show "using Vulkan0 backend", and Vulkan device 0 must
-#    be the real GPU (Radeon RX 6600 in 2026), not the graphics in the
-#    CPU. If device 0 is the wrong GPU, add "-dev 1" to whisper-cli below.
-#    A 5 s recording takes about 1.3 s to transcribe on the RX 6600.
-#
-# Language: "-l auto" detects the language per recording (about 0.4 s
-# extra). Use "-l nl" or "-l en" to force one language.
+#        parakeet-cli -m ~/.local/share/whisper/ggml-parakeet-tdt-0.6b-v3-q8_0.bin \
+#          -f /tmp/test.wav -np -ng -t 16
+#    A 5 s recording takes about 0.3 s to transcribe on the CPU (Ryzen 9
+#    9950X in 2026). Set -t to the number of CPU cores.
+#    "-ng" (no GPU) is intentional. On the Radeon RX 6600 (Vulkan) a 5 s
+#    recording takes about 0.6 s: the GPU setup and the model upload take
+#    longer than the transcription.
 
 model_dir="$HOME/.local/share/whisper"
-model="$model_dir/ggml-large-v3-turbo.bin"
-vad_model="$model_dir/ggml-silero-v6.2.0.bin"
+model="$model_dir/ggml-parakeet-tdt-0.6b-v3-q8_0.bin"
 
 run_dir="${XDG_RUNTIME_DIR:-/tmp}"
 pid_file="$run_dir/dictate.pid"
@@ -112,8 +111,7 @@ stop() {
   mv "$wav_file" "$audio"
 
   osd '#7C3AED' 'Transcribing...'
-  text=$(whisper-cli -m "$model" -f "$audio" -l auto -nt -np \
-    --vad -vm "$vad_model" 2>/dev/null |
+  text=$(parakeet-cli -m "$model" -f "$audio" -np -ng -t 16 2>/dev/null |
     tr '\n' ' ' | tr -s ' ' | sed 's/^ //; s/ $//')
   rm -f "$audio"
   osd_close
