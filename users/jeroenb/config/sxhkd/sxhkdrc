@@ -95,7 +95,7 @@ super + shift + d
 super + shift + F5
   toggletd
 
-# dictation (local whisper): hold super + v to record, let go of v first to type the text
+# dictation (local parakeet): hold super + v to record, let go of v first to type the text
 super + v
   dictate start
 
