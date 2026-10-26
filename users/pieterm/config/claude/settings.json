@@ -178,35 +178,41 @@
   "autoMode": {
     "environment": [
       "### Org-wide",
-      "**Organization**: None configured",
+      "**Organization**: justified-org (GitLab) — inferred from remote `gitlab.com:justified-org/justin.git`; no further org context configured",
       "**Cloud provider(s)**: None configured",
-      "**Repository visibility**: Not queryable here (origin is gitlab.com, not github.com — gh cannot check). Remote is gitlab.com:justified-org/justified.git; organization name and app domains (app.justified.be, app.docdropper.be) suggest a private commercial SaaS product — treat as private but unverified; do not publish contents elsewhere without confirmation",
+      "**Repository visibility**: assume private (gh check not queryable — origin is gitlab.com, not github.com; inferred from remote and repo naming, not confirmed)",
       "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
-      "**Secrets management**: 1Password CLI (`op`) is used for `script/db2dev_pg`, per README",
-      "**Default / protected branches**: develop (default branch, per repo facts). Protected-branch/ruleset status not queryable here (non-GitHub host) — treat develop as protected by convention",
-      "**CI/CD deploy targets**: Fly.io (flyctl in README); container registry registry.gitlab.com; Makefile targets `deploy`, `deploy_features`, `db2dev_pg_staging` suggest staging/features deploy environments for this repo",
+      "**Secrets management**: Vault, read at boot by the release (`justin/production` KV v2 mount); local dev secrets via `.env` (gitignored); never write a secret to a file per CLAUDE.md",
+      "**Default / protected branches**: unknown — origin/HEAD unset, branch-protection API not queryable on this host; treat `main` as the deploy branch per CLAUDE.md (every commit on `main` goes to production)",
+      "**CI/CD deploy targets**: GitLab CI builds and pushes Docker images (`make docker_build_prod`, `make docker_setup_prod`); deploy runs on host `erin` (tailscale 100.84.148.123, path `/app/justin.justified.be`) behind traefik; single production environment, no staging",
       "**Network posture**: None configured",
-      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine (macOS per user CLAUDE.md) with open internet",
-      "**Source control**: GitLab remote origin gitlab.com:justified-org/justified.git — this repo and its remote only",
-      "**Trusted internal domains**: app.justified.be, app.docdropper.be (product domains named in README for this repo)",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine with open internet",
+      "**Source control**: The trusted repo (`gitlab.com:justified-org/justin.git`) and its remote only",
+      "**Trusted internal domains**: None configured",
       "**Trusted cloud buckets**: None configured",
-      "**Key internal services**: registry.gitlab.com (container image registry, from config scan)",
-      "**Internal package registry**: None configured",
-      "**Sensitive data locations & audiences**: .env, .env.ci, .env.demo, .env.e2e, .env.e2e.local, .env.feature, .env.features, .env.production, .env.sandbox, .env.staging, .env.test, config/prod.exs, config/*.secret.exs, script/vault/*.env, .env.sentry-build-plugin (gitignored secrets); lib/doc_dropper/flows/pii_extracts.ex, test/doc_dropper/flows/pii_extracts_test.exs, and migrations create_customer_pii/add_case_and_partner_to_customer_pii/add_customer_language_to_customer_pii/create_pii_lookups (customer PII — regulated data, share only with audiences cleared for PII handling)",
+      "**Key internal services**: Vault at boot-configured `VLT_ADDR`; Sentry (DSN-gated, quiet in dev/test); production host `erin` via tailscale (100.84.148.123); private GitLab container registry (`registry.gitlab.com/justified-org/justin`)",
+      "**Internal package registry**: GitLab container registry at `registry.gitlab.com/justified-org/justin` (private, no login on the app side)",
+      "**Sensitive data locations & audiences**: `.env`, `.env.local`, `.claude-key`, `.env.production`, `.env.ci` (gitignored/sensitive-named); Vault-held secrets at `justin/production`; `ANTHROPIC_API_KEY`, `GIT_TOKEN`, `SENTRY_TOKEN`, `SENTRY_DSN`; database role credentials for `justin_reader` — share only with audiences cleared at the [named+specifics] bar",
       "**Data retention / declassification**: None configured",
-      "**Sensitive remote targets**: any namespace/host/container with `prod` or `production` as a whole word/segment — includes config/prod.exs, .env.production, and Makefile's `_build_production_js`/`_build_production_styles` targets",
-      "**Protected deployment namespaces / environments**: production namespaces/environments (prod/production segment rule); Fly.io production app distinct from `db2dev_pg_staging`/`_features` targets",
-      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or segment",
+      "**Sensitive remote targets**: production host `erin` (100.84.148.123, `/app/justin.justified.be`); Vault path `justin/production`; database `justified_prod`; any namespace/host with `prod`/`production` as a whole word or segment",
+      "**Protected deployment namespaces / environments**: production on `erin` — the sole deploy environment (no staging exists)",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything tagged `prod`/`production`; Ansible-managed cron on `erin` (docker prune) — changes by hand are reverted",
       "### User-specific",
-      "**Primary use of Claude Code**: software development (Elixir/Phoenix application 'Justified' for legal case management)",
-      "**Trusted repo**: /Users/pieterm/Work/jackjoe/justified/.worktrees/chore-rerender-rechtbank-at-settings and its remote origin gitlab.com:justified-org/justified.git",
-      "**Org-specific CLIs**: None configured",
-      "routine under this repo's worktree prefix (/Users/pieterm/Work/jackjoe/justified/) is this user's normal working area"
+      "**Primary use of Claude Code**: software development (Elixir/Phoenix)",
+      "**Trusted repo**: this repo, `/home/pieterm/work/justin/.worktrees/feat-non-claude`, and its remote `gitlab.com:justified-org/justin.git`",
+      "**Org-specific CLIs**: `mix` (Elixir/Phoenix build tool, used routinely in this repo); `wt`/`wt_tmux` (worktrunk, git worktree helper, used routinely)",
+      "**routine under this repo prefix**: `mix setup`, `mix phx.server`, `mix test`, `mix precommit` are routine dev commands in this repo"
+    ],
+    "allow": [
+      "$defaults",
+      "Bash(mix test:*) in /home/pieterm/work/justin/.worktrees/feat-non-claude",
+      "Bash(mix precommit) in /home/pieterm/work/justin/.worktrees/feat-non-claude",
+      "Bash(fd:*) in /home/pieterm/work/justin/.worktrees/feat-non-claude"
     ],
     "soft_deny": [
       "$defaults",
-      "Bash(mix ecto.drop:*) in this repo",
-      "Bash(rm -rf:*) in this repo's priv/repo/migrations or config/prod.exs"
+      "Bash(make deploy) — deploys to production host erin",
+      "Bash(make docker_setup_prod) — moves prod-latest tag to production registry"
     ]
   }
 }
