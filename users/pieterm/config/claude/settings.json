@@ -172,7 +172,41 @@
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "preferredNotifChannel": "terminal_bell",
+  "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "remoteControlAtStartup": true
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Not queryable here (origin is gitlab.com, not github.com — gh cannot check). Remote is gitlab.com:justified-org/justified.git; organization name and app domains (app.justified.be, app.docdropper.be) suggest a private commercial SaaS product — treat as private but unverified; do not publish contents elsewhere without confirmation",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: 1Password CLI (`op`) is used for `script/db2dev_pg`, per README",
+      "**Default / protected branches**: develop (default branch, per repo facts). Protected-branch/ruleset status not queryable here (non-GitHub host) — treat develop as protected by convention",
+      "**CI/CD deploy targets**: Fly.io (flyctl in README); container registry registry.gitlab.com; Makefile targets `deploy`, `deploy_features`, `db2dev_pg_staging` suggest staging/features deploy environments for this repo",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine (macOS per user CLAUDE.md) with open internet",
+      "**Source control**: GitLab remote origin gitlab.com:justified-org/justified.git — this repo and its remote only",
+      "**Trusted internal domains**: app.justified.be, app.docdropper.be (product domains named in README for this repo)",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: registry.gitlab.com (container image registry, from config scan)",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: .env, .env.ci, .env.demo, .env.e2e, .env.e2e.local, .env.feature, .env.features, .env.production, .env.sandbox, .env.staging, .env.test, config/prod.exs, config/*.secret.exs, script/vault/*.env, .env.sentry-build-plugin (gitignored secrets); lib/doc_dropper/flows/pii_extracts.ex, test/doc_dropper/flows/pii_extracts_test.exs, and migrations create_customer_pii/add_case_and_partner_to_customer_pii/add_customer_language_to_customer_pii/create_pii_lookups (customer PII — regulated data, share only with audiences cleared for PII handling)",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace/host/container with `prod` or `production` as a whole word/segment — includes config/prod.exs, .env.production, and Makefile's `_build_production_js`/`_build_production_styles` targets",
+      "**Protected deployment namespaces / environments**: production namespaces/environments (prod/production segment rule); Fly.io production app distinct from `db2dev_pg_staging`/`_features` targets",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (Elixir/Phoenix application 'Justified' for legal case management)",
+      "**Trusted repo**: /Users/pieterm/Work/jackjoe/justified/.worktrees/chore-rerender-rechtbank-at-settings and its remote origin gitlab.com:justified-org/justified.git",
+      "**Org-specific CLIs**: None configured",
+      "routine under this repo's worktree prefix (/Users/pieterm/Work/jackjoe/justified/) is this user's normal working area"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(mix ecto.drop:*) in this repo",
+      "Bash(rm -rf:*) in this repo's priv/repo/migrations or config/prod.exs"
+    ]
+  }
 }
