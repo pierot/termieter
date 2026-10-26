@@ -106,17 +106,17 @@ Commits and pushes change shared history, so I decide when they happen.
 
 ### ctx (agent history search)
 
-`ctx` is the CLI at `~/.local/bin/ctx`. It indexes local coding-agent sessions into `~/.ctx`. Today it indexes only Claude Code history. Check the current providers with `ctx sources`.
+`ctx` is the CLI at `~/.local/bin/ctx`. It indexes local Claude Code, pi, and OpenCode sessions into `~/.ctx`. Check the current providers with `ctx sources`.
 
 `ctx` is not the context-mode plugin. The plugin tools `ctx_search`, `ctx_execute`, `ctx_stats`, and `ctx_purge` use a different store.
 
-- At the start of an investigation, a bug report, or work that continues earlier work, search prior sessions: `ctx search "<topic>"`.
+- When the task continues earlier work, search prior sessions: `ctx search "<topic>" --refresh wait`. Do not search at the start of every investigation.
 - Broaden with `--term "<variant>"` (repeatable). Narrow with `--workspace <name>`, `--since 30d`, `--file <path>`, `--provider claude`, or `--session <id>`.
 - Use `--events` for event-level hits instead of session-level hits.
 - Inspect the best match before you rely on it: `ctx show event <event-id> --window 3`.
 - For a full transcript: `ctx show session <session-id> --format markdown --out <scratchpad-file>`, then read parts of the file.
-- Trace code to the agent session that wrote it: `ctx blame file <path> --lines <start:end>` or `ctx blame commit <sha>`.
-- Use `--refresh off` when the search must not start index work. Do not add `--format json` unless a script consumes it.
+- Trace code to the agent session that wrote it: `ctx blame file <path> --lines <start:end>` or `ctx blame commit <sha>`. Run `ctx import --all` first, because manual mode does not update blame data.
+- ctx runs in manual mode, without a daemon. Use `--refresh wait` on the first search of a session: it adds new sessions to the index. Later searches in the same session can use `--refresh off`. Do not add `--format json` unless a script consumes it.
 - Cite the event ID or session ID when retrieved history influenced the answer.
 - Reference: `ctx docs show agent-usage`, `ctx docs show search`, `ctx docs list`.
 - ctx holds verbatim session history. File-based memory holds curated decisions and preferences. Check both. Do not copy into memory what ctx already holds.

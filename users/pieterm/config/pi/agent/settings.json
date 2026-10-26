@@ -1,12 +1,16 @@
 {
-  "lastChangelogVersion": "0.84.4",
-  "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4-flash",
-  "defaultThinkingLevel": "medium",
+  "lastChangelogVersion": "1.2.0",
+  "defaultProvider": "lmstudio",
+  "defaultModel": "qwen3.8-27b-ud-single",
+  "defaultThinkingLevel": "xhigh",
+  "quietStartup": true,
+  "compaction": {
+    "modelOverrides": {
+      "lmstudio/qwen3.8-27b-ud-single": { "reserveTokens": 31072 }
+    }
+  },
   "packages": [
     "npm:pi-subagents",
-    "npm:pi-mcp-adapter",
-    "npm:context-mode",
     "npm:pi-web-access",
     {
       "source": "npm:@plannotator/pi-extension",
@@ -14,12 +18,19 @@
     },
     "npm:pi-lens",
     "npm:@ryan_nookpi/pi-extension-cross-agent",
-    "npm:pi-memory-md",
-    "npm:pi-autoresearch",
     "npm:pi-simplify",
-    "npm:@juanibiapina/pi-powerbar",
+    {
+      "source": "npm:@juanibiapina/pi-powerbar",
+      "extensions": [
+        "+node_modules/@juanibiapina/pi-usage/index.ts"
+      ]
+    },
     "npm:@tmustier/pi-usage-extension",
     "npm:pi-manage-todo-list"
   ],
-  "theme": "dark"
+  "theme": "dark",
+  "extensions": [
+    "+builtin:mcp",
+    "+builtin:tool-search"
+  ]
 }

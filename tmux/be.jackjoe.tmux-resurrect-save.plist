@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>be.jackjoe.tmux-resurrect-save</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/pieterm/.termieter/tmux/resurrect-save.sh</string>
+    </array>
+
+    <!-- Run every 6 hours: 00:00, 06:00, 12:00, 18:00. If the Mac was asleep,
+         launchd runs the missed job once on wake (unlike cron, which skips it). -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>0</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>6</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>12</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>18</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/pieterm/.local/share/tmux/resurrect/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/pieterm/.local/share/tmux/resurrect/launchd.err.log</string>
+</dict>
+</plist>

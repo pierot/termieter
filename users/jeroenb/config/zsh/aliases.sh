@@ -46,7 +46,7 @@ alias gdb="cd $DROPBOX"
 alias tss="sudo tailscale status"
 alias tsj="sudo tailscale switch justified.be"
 alias tsjj="sudo tailscale switch jackjoe"
-alias tsa="sudo tailscale switch accurat"
+alias tsdd="sudo tailscale switch docdropper.be"
 #alias ssh="kitty +kitten ssh"
 alias df="df -h"
 alias free="free -m"
@@ -65,6 +65,7 @@ alias pacman="sudo pacman --color=auto"
 alias diff="diff --color=auto"
 alias ip="ip -color=auto"
 alias perfmode="cat /sys/firmware/acpi/platform_profile"
+alias cc="claude"
 
 # Git stuff
 alias gap='git add -p'

@@ -1,0 +1,128 @@
+#!/bin/sh
+# Push-to-talk dictation with a local Parakeet model (parakeet-cli from
+# whisper.cpp). Records the microphone, transcribes it on the CPU and
+# types the text into the focused window. It never presses Enter.
+#
+# Usage: dictate start|stop
+#     start   start recording (does nothing when a recording runs)
+#     stop    stop recording, transcribe and type the text
+#
+# Bound in sxhkdrc (~/.config/sxhkd/sxhkdrc, in termieter):
+#     super + v       -> dictate start
+#     super + @v      -> dictate stop
+# Let go of v before super. If you let go of super first, sxhkd does not
+# see the release and the recording keeps running (the red bar stays).
+# Press and release super + v again to stop it.
+#
+# Setup after a reinstall (Arch Linux, X11):
+#
+# 1. Packages
+#        sudo pacman -S --needed whisper-cpp alsa-utils pipewire-alsa \
+#          xdotool dzen2 sxhkd
+#    whisper-cpp   parakeet-cli, the speech-to-text program (in
+#                  whisper.cpp since 1.9.0)
+#    alsa-utils    arecord, records the microphone
+#    pipewire-alsa sends arecord to the PipeWire default source
+#                  (pactl get-default-source shows it)
+#    xdotool       types the text and reads the screen size
+#    dzen2         the status bar at the bottom center
+#
+# 2. Model (not in git, 668 MB)
+#        mkdir -p ~/.local/share/whisper && cd ~/.local/share/whisper
+#        curl -LO https://huggingface.co/ggml-org/parakeet-GGUF/resolve/main/ggml-parakeet-tdt-0.6b-v3-q8_0.bin
+#        sha256sum ggml-parakeet-tdt-0.6b-v3-q8_0.bin
+#    Expected SHA-256:
+#        4d64e9e96c2792186d072fde0034df0ad670cf680a2f53069052ead827fd600e  ggml-parakeet-tdt-0.6b-v3-q8_0.bin
+#    Parakeet TDT 0.6B v3 does 25 European languages, Dutch and English
+#    included. It detects the language per recording, so there is no
+#    language flag. It types nothing for a silent recording, so it needs
+#    no VAD (voice activity detection) model.
+#    q8_0 is as accurate as f16 and about 0.1 s faster.
+#    Dutch has more errors than with Whisper large-v3-turbo (FLEURS WER
+#    7.7% against 6.0%). English is equal. The Whisper version of this
+#    script is in the git history.
+#
+# 3. Reload sxhkd: pkill -USR1 -x sxhkd (or super + shift + r)
+#
+# 4. Check the model
+#        arecord -q -f S16_LE -r 16000 -c 1 -d 5 /tmp/test.wav
+#        parakeet-cli -m ~/.local/share/whisper/ggml-parakeet-tdt-0.6b-v3-q8_0.bin \
+#          -f /tmp/test.wav -np -ng -t 16
+#    A 5 s recording takes about 0.3 s to transcribe on the CPU (Ryzen 9
+#    9950X in 2026). Set -t to the number of CPU cores.
+#    "-ng" (no GPU) is intentional. On the Radeon RX 6600 (Vulkan) a 5 s
+#    recording takes about 0.6 s: the GPU setup and the model upload take
+#    longer than the transcription.
+
+model_dir="$HOME/.local/share/whisper"
+model="$model_dir/ggml-parakeet-tdt-0.6b-v3-q8_0.bin"
+
+run_dir="${XDG_RUNTIME_DIR:-/tmp}"
+pid_file="$run_dir/dictate.pid"
+osd_pid_file="$run_dir/dictate-osd.pid"
+wav_file="$run_dir/dictate.wav"
+
+# Status bar at the bottom center of the screen
+osd_font="JetBrainsMono Nerd Font Mono:size=16:style=Bold"
+osd_width=480
+osd_height=56
+osd_bottom=200 # distance from the bottom of the screen
+
+recording() {
+  [ -f "$pid_file" ] && kill -0 "$(cat "$pid_file")" 2>/dev/null
+}
+
+# Usage: osd <background color> <text>
+osd() {
+  osd_close
+  geometry=$(xdotool getdisplaygeometry)
+  screen_width=${geometry% *}
+  screen_height=${geometry#* }
+  x=$(( (screen_width - osd_width) / 2 ))
+  y=$(( screen_height - osd_bottom - osd_height ))
+  printf '%s\n' "$2" | dzen2 -p -x "$x" -y "$y" -w "$osd_width" \
+    -h "$osd_height" -ta c -bg "$1" -fg '#ffffff' -fn "$osd_font" \
+    >/dev/null 2>&1 &
+  echo $! > "$osd_pid_file"
+}
+
+osd_close() {
+  [ -f "$osd_pid_file" ] && kill "$(cat "$osd_pid_file")" 2>/dev/null
+  rm -f "$osd_pid_file"
+}
+
+start() {
+  recording && exit 0
+  arecord -q -f S16_LE -r 16000 -c 1 "$wav_file" </dev/null >/dev/null 2>&1 &
+  echo $! > "$pid_file"
+  osd '#dc2626' '● Recording'
+}
+
+stop() {
+  recording || exit 0
+  pid=$(cat "$pid_file")
+  kill -INT "$pid"
+  # arecord writes the WAV header on exit, so wait for it
+  while kill -0 "$pid" 2>/dev/null; do sleep 0.05; done
+  rm -f "$pid_file"
+
+  # Move the audio away, so a new recording cannot overwrite it
+  audio="$run_dir/dictate-$pid.wav"
+  mv "$wav_file" "$audio"
+
+  osd '#7C3AED' 'Transcribing...'
+  text=$(parakeet-cli -m "$model" -f "$audio" -np -ng -t 16 2>/dev/null |
+    tr '\n' ' ' | tr -s ' ' | sed 's/^ //; s/ $//')
+  rm -f "$audio"
+  osd_close
+
+  if [ -n "$text" ]; then
+    xdotool type --clearmodifiers -- "$text"
+  fi
+}
+
+case "$1" in
+  start) start ;;
+  stop) stop ;;
+  *) echo "Usage: dictate start|stop" >&2; exit 1 ;;
+esac
