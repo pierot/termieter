@@ -20,6 +20,7 @@ tmp
 tmux/tmux-resurrect
 tmux/tmux-resurrect-auto
 tmux/tmux-continuum
+tmux/tmux-agent-switcher
 
 .claude
 
