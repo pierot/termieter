@@ -203,6 +203,8 @@ users/pieterm/config/systemd/user/default.target.wants/ctx.service
 # Guards against auth.json / sessions / caches ever being committed.
 users/pieterm/config/pi/**
 !users/pieterm/config/pi/agent/settings.json
+# Custom providers. Use $NAME or !command for API keys, never a literal key.
+!users/pieterm/config/pi/agent/models.json
 # '!' on a file is ignored if its parent dir is excluded, so re-include the dirs
 !users/pieterm/config/pi/
 !users/pieterm/config/pi/agent/
