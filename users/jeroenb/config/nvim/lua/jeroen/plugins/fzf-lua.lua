@@ -1,10 +1,27 @@
 return {
 	"ibhagwan/fzf-lua",
 	dependencies = { "echasnovski/mini.nvim" },
+	cmd = "FzfLua",
+	keys = {
+		{ "<c-p>", "<cmd>FzfLua files<cr>", desc = "Find files" },
+		{ "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+		{ "<leader>fc", "<cmd>FzfLua grep_cword<cr>", desc = "Grep word under cursor" },
+		{ "<leader>gc", "<cmd>FzfLua git_commits<cr>", desc = "Git commits" },
+		{
+			"<leader>fg",
+			function()
+				require("fzf-lua").live_grep({
+					rg_opts = [[--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --glob '!test/**' -e]],
+				})
+			end,
+			desc = "Live grep (exclude test)",
+		},
+		{ "<leader>ft", "<cmd>FzfLua live_grep<cr>", desc = "Live grep" },
+		{ "<leader>fr", "<cmd>FzfLua lsp_references<cr>", desc = "LSP references" },
+		{ "<leader>fs", "<cmd>FzfLua colorschemes<cr>", desc = "Find colorscheme" },
+	},
 	config = function()
-		local fzf = require("fzf-lua")
-
-		fzf.setup({
+		require("fzf-lua").setup({
 			"default",
 			keymap = {
 				fzf = {
@@ -12,18 +29,5 @@ return {
 				},
 			},
 		})
-
-		local keymap = vim.keymap
-		keymap.set("n", "<c-p>", fzf.files, { desc = "Find files" })
-		keymap.set("n", "<leader>b", fzf.buffers, { desc = "Buffers" })
-		keymap.set("n", "<leader>fc", fzf.grep_cword, { desc = "Grep word under cursor" })
-		keymap.set("n", "<leader>gc", fzf.git_commits, { desc = "Git commits" })
-		keymap.set("n", "<leader>fg", function()
-			fzf.live_grep({
-				rg_opts = [[--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --glob '!test/**' -e]],
-			})
-		end, { desc = "Live grep (exclude test)" })
-		keymap.set("n", "<leader>ft", fzf.live_grep, { desc = "Live grep" })
-		keymap.set("n", "<leader>fr", fzf.lsp_references, { desc = "LSP references" })
 	end,
 }

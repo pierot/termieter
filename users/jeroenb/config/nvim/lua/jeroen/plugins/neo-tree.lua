@@ -1,6 +1,22 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
+	cmd = "Neotree",
+	keys = {
+		{ "<c-n>", "<cmd>Neotree toggle<CR>", desc = "Toggle file explorer" },
+	},
+	init = function()
+		-- hijack_netrw_behavior needs neo-tree loaded when nvim starts with a directory
+		vim.api.nvim_create_autocmd("BufEnter", {
+			once = true,
+			callback = function()
+				local stat = vim.uv.fs_stat(vim.fn.argv(0))
+				if stat and stat.type == "directory" then
+					require("neo-tree")
+				end
+			end,
+		})
+	end,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"echasnovski/mini.nvim", -- icons via MiniIcons.mock_nvim_web_devicons()
@@ -317,8 +333,5 @@ return {
 				},
 			},
 		})
-
-		-- set keymaps
-		vim.keymap.set("n", "<c-n>", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
 	end,
 }

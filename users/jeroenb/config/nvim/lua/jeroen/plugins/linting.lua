@@ -12,7 +12,14 @@ return {
 			typescriptreact = { "eslint_d" },
 			json = { "jsonlint" },
 			jsonc = { "jsonlint" },
+			elixir = { "credo" },
 		}
+
+		-- mix must run in the project root, not in the nvim cwd
+		local credo = nvimlint.linters.credo
+		nvimlint.linters.credo = function()
+			return vim.tbl_extend("force", credo, { cwd = vim.fs.root(0, "mix.exs") })
+		end
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			callback = function()

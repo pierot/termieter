@@ -71,11 +71,34 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
 	end,
 })
 
+-- continue elixir comments on <CR> and o/O; the builtin ftplugin does not
+-- set this (the removed vim-elixir plugin did)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "elixir" },
+	callback = function()
+		vim.opt_local.formatoptions:append("ro")
+	end,
+})
+
 -- inline diagnostics
 vim.diagnostic.config({
 	virtual_text = true,
 	underline = true,
-	signs = true,
+	-- Nvim 0.12 ignores sign_define() for diagnostic signs; set the icons here.
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰠠 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		},
+	},
 	update_in_insert = false,
 	severity_sort = true,
+	-- open the float after a jump with the default [d / ]d
+	jump = {
+		on_jump = function(_, bufnr)
+			vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+		end,
+	},
 })

@@ -34,7 +34,7 @@ return {
 
 			require("nightfox").setup({ palettes = palettes, groups = groups })
 
-			vim.cmd("colorscheme carbonfox")
+			require("jeroen.core.colorscheme").restore()
 		end,
 	},
 }

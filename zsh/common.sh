@@ -186,6 +186,35 @@ wt_tmux() {
   tmux send-keys "cd $worktree_path" Enter
 }
 
+# Switch to (or create) a worktree with worktrunk, set up a tmux layout (2 panes: left | right) and start claude in the left pane
+wt_claude() {
+  # Usage: wt_claude <branch> [<base-branch>]
+  # If worktree exists, switches to it. If not, creates it.
+  local branch="$1"
+  local base="$2"
+
+  if [ -z "$branch" ]; then
+    echo "Usage: wt_claude <branch> [<base-branch>]"
+    return 1
+  fi
+
+  # Try switching to existing worktree first, create if it doesn't exist
+  if ! wt switch "$branch" 2>/dev/null; then
+    if [ -n "$base" ]; then
+      wt switch --create "$branch" --base "$base" || return 1
+    else
+      wt switch --create "$branch" || return 1
+    fi
+  fi
+
+  local worktree_path="$(pwd)"
+
+  tmux rename-window "$branch"
+  # -d keeps this (left) pane active, so claude starts in the active pane
+  tmux split-window -h -d -c "$worktree_path"
+  claude
+}
+
 ##########################################################
 
 # Erlang / Elixir

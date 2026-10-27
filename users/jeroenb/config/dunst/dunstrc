@@ -23,8 +23,8 @@
 
     # dynamic width from 0 to 300
     # width = (0, 300)
-    # constant width of 300
-    width = (0, 300)
+    # constant width of 428
+    width = 428
 
     # The maximum height of a single notification, excluding the frame.
     height = (0, 300)
@@ -32,11 +32,13 @@
     # Position the notification in the top right corner
     origin = top-right
 
-    # Offset from the origin
-    offset = (10,50)
+    # Offset from the origin: 11px from the screen edge and from the 23px dwm bar
+    offset = (11,34)
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 0
+    # The auto value (Xft.dpi 108 / 96 = 1.125) rounds the window height down
+    # and cuts off the bottom frame line, so all sizes here are in real pixels.
+    scale = 1
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 0
@@ -49,16 +51,16 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 4
 
     # Set the frame width of the progress bar
-    progress_bar_frame_width = 1
+    progress_bar_frame_width = 0
 
     # Set the minimum width for the progress bar
     progress_bar_min_width = 150
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
+    progress_bar_max_width = 400
 
 
     # Show how many messages are currently hidden (because of
@@ -73,13 +75,13 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 1
 
     # Padding between text and separator.
-    padding = 8
+    padding = 11
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 14
 
     # Padding between text and icon.
     text_icon_padding = 0
@@ -97,7 +99,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = auto
+    separator_color = frame
 
     # Sort messages by urgency.
     sort = yes
@@ -111,11 +113,11 @@
 
     ### Text ###
 
-    font = JetbrainsMono NF 12
+    font = JetBrainsMono Nerd Font 11
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
-    line_height = 5
+    line_height = 2
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -151,7 +153,8 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    # The urgency foreground colors the body, the summary is always white
+    format = "<span foreground='#ffffff'><b>%s</b></span> %p\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -180,12 +183,12 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     ### Icons ###
 
     # Align icons left/right/off
-    icon_position = left
+    icon_position = off
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
@@ -293,24 +296,27 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#000000"
-    foreground = "#c0caf5"
-    frame_color = "#111111"
-    timeout = 8
+    foreground = "#8a8a8a"
+    frame_color = "#444444"
+    highlight = "#444444"
+    timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #new_icon = /path/to/icon
 
 [urgency_normal]
     background = "#000000"
-    foreground = "#c0caf5"
-    frame_color = "#111111"
+    foreground = "#8a8a8a"
+    frame_color = "#7c3aed"
+    highlight = "#2f2fff, #7c3aed"
     timeout = 8
     # Icon for notifications with normal urgency, uncomment to enable
     #new_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#db4b4b"
-    foreground = "#ffffff"
-    frame_color = "#f7768e"
+    background = "#000000"
+    foreground = "#8a8a8a"
+    frame_color = "#fe0100"
+    highlight = "#fe0100"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #new_icon = /path/to/icon

@@ -6,6 +6,7 @@ return {
 	"neovim/nvim-lspconfig",
 	-- event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
+		"mason-org/mason.nvim", -- puts the mason-installed servers on PATH
 		-- { "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
@@ -20,14 +21,6 @@ return {
 			if ok_cmp then
 				capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 			end
-		end
-
-		-- Change the Diagnostic symbols in the sign column (gutter)
-		-- (not in youtube nvim video)
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
 		vim.lsp.config("*", {
@@ -54,7 +47,6 @@ return {
 
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = args.buf, desc = "Go to definition" })
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = args.buf, desc = "Go to declaration" })
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = args.buf, desc = "Show references" })
 				vim.keymap.set(
 					"n",
 					"gi",
@@ -75,8 +67,6 @@ return {
 					vim.diagnostic.open_float,
 					{ buffer = args.buf, desc = "Line diagnostics" }
 				)
-				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = args.buf, desc = "Previous diagnostic" })
-				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = args.buf, desc = "Next diagnostic" })
 
 				-- Show LSP document colors (e.g. tailwind classes) as a virtual
 				-- swatch next to the text instead of painting the background
