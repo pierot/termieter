@@ -61,12 +61,36 @@ Every code change needs an approved plan before you edit: features, bug fixes, r
 - Mark each step as done when it is finished.
 - Without a plan: read-only work (investigation, questions) and a direct request for one named non-code change, for example "add this line to the config".
 
+Before you make a plan or a change:
+
+- State your assumptions. If you are not sure, ask.
+- When a request has more than one interpretation, present all interpretations. Do not select one silently.
+- When a simpler approach exists, say so.
+- When something is not clear, stop. Name the unclear item and ask.
+
+Make each task a verifiable goal. After approval, repeat the change and the verification until the verification passes.
+
+| Request          | Verifiable goal                                                |
+| ---------------- | -------------------------------------------------------------- |
+| "Add validation" | Write tests for invalid inputs, then make the tests pass.      |
+| "Fix the bug"    | Write a test that reproduces the bug, then make the test pass. |
+| "Refactor X"     | The tests pass before and after the refactor.                  |
+
 ## Code
 
 - Read code, files, and APIs before you make claims about them. Do not speculate.
 - Match the existing style, naming, and conventions of the project and of the surrounding code.
 - Change only what the task needs. Do not refactor beyond the request.
+- Every changed line must trace directly to the request. Do not change adjacent code, comments, or formatting.
+- Report unrelated dead code. Do not delete it.
+- Remove the imports, variables, and functions that your change made unused.
 - Edit existing files. Create a new file only when no existing file fits.
+- Write the minimum code that solves the problem. Do not add features beyond the request.
+- Do not add an abstraction for code with a single use.
+- Do not add flexibility or configuration options that I did not request.
+- Do not add error handling for scenarios that cannot occur.
+- When a shorter implementation does the same work, rewrite the code. For example, rewrite 200 lines that can be 50 lines.
+- Ask: "Does a senior engineer say this code is overcomplicated?" If yes, simplify the code.
 - Use simple algorithms and simple data structures. Simple code has fewer bugs.
 - Design the data structures first. The right data structures make the algorithm obvious.
 - Do not use symlinks in coding projects. Symlinks are allowed in config and dotfiles projects, for example `~/.termieter`.
