@@ -154,3 +154,12 @@ Local Homebrew PostgreSQL on `localhost:5432`. User `postgres`, password `postgr
 - Scripted output: add `-At` (unaligned, tuples only). Add `-F $'\t'` for tab separators.
 - Inspect schema: `\dt`, `\d <table>` via `-c`.
 - Read-only by default. Ask before `INSERT`, `UPDATE`, `DELETE`, DDL, or `DROP`.
+
+## Shared memory
+
+@~/Library/Mobile\ Documents/com~apple~CloudDocs/Pieter/claude-memory/MEMORY.md
+
+- The list above is the index of `~/Library/Mobile Documents/com~apple~CloudDocs/Pieter/claude-memory/`. Read a note when the task needs it.
+- Project memory holds facts for one project. Shared memory holds facts for more than one project: hosts, network, Mac hardware, and local setup.
+- Write a fact for more than one project to `~/Library/Mobile Documents/com~apple~CloudDocs/Pieter/claude-memory/`. Use the project memory file format. Add the pointer to the `MEMORY.md` of that directory.
+- A note about one machine names that machine.
