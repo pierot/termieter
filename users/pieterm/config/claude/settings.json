@@ -79,6 +79,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "fable",
   "hooks": {
     "SessionStart": [
       {
@@ -169,6 +170,9 @@
     },
     "claude-sonnet-5-5": {
       "effortLevel": "xhigh"
+    },
+    "claude-fable-5-2": {
+      "effortLevel": "xhigh"
     }
   },
   "tui": "fullscreen",
@@ -179,8 +183,18 @@
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "model": "opus",
   "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(mix test:*) in /home/pieterm/work/justin/.worktrees/feat-non-claude",
+      "Bash(mix precommit) in /home/pieterm/work/justin/.worktrees/feat-non-claude",
+      "Bash(fd:*) in /home/pieterm/work/justin/.worktrees/feat-non-claude"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(make deploy) — deploys to production host erin",
+      "Bash(make docker_setup_prod) — moves prod-latest tag to production registry"
+    ],
     "environment": [
       "### Org-wide",
       "**Organization**: justified-org (GitLab) — inferred from remote `gitlab.com:justified-org/justin.git`; no further org context configured",
@@ -207,17 +221,6 @@
       "**Trusted repo**: this repo, `/home/pieterm/work/justin/.worktrees/feat-non-claude`, and its remote `gitlab.com:justified-org/justin.git`",
       "**Org-specific CLIs**: `mix` (Elixir/Phoenix build tool, used routinely in this repo); `wt`/`wt_tmux` (worktrunk, git worktree helper, used routinely)",
       "**routine under this repo prefix**: `mix setup`, `mix phx.server`, `mix test`, `mix precommit` are routine dev commands in this repo"
-    ],
-    "allow": [
-      "$defaults",
-      "Bash(mix test:*) in /home/pieterm/work/justin/.worktrees/feat-non-claude",
-      "Bash(mix precommit) in /home/pieterm/work/justin/.worktrees/feat-non-claude",
-      "Bash(fd:*) in /home/pieterm/work/justin/.worktrees/feat-non-claude"
-    ],
-    "soft_deny": [
-      "$defaults",
-      "Bash(make deploy) — deploys to production host erin",
-      "Bash(make docker_setup_prod) — moves prod-latest tag to production registry"
     ]
   }
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "lmstudio/qwen3.8-27b-ud-single",
+  "model": "omlx/Qwen3.8-27B-oQ4e-mtp",
   "autoupdate": true,
   "formatter": true,
   "lsp": true,
@@ -11,28 +11,32 @@
   //     "elixir": { "command": ["elixir-ls"] }
   //   }
   // OpenCode compacts when the context passes limit.context - buffer:
-  // 131072 - 31072 = 100000 tokens.
+  // 95072 - 31072 = 64000 tokens.
   "compaction": { "auto": true, "keep": { "tokens": 15000 }, "buffer": 31072 },
   "providers": {
-    "lmstudio": {
-      "settings": { "baseURL": "http://127.0.0.1:1234/v1" },
+    "omlx": {
+      "name": "oMLX",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:9000/v1",
+        // Inference-only oMLX sub key. The file is outside the dotfiles repo.
+        "apiKey": "{file:~/.omlx/opencode.key}"
+      },
       "models": {
-        "qwen3.8-27b-ud-single": {
-          "name": "qwen3.8-27b-ud-single",
-          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text"] },
-          // LM Studio loads this model with a 131072-token context (`lms ps`).
-          "limit": { "context": 131072, "output": 32000 },
-          // The LM Studio Inference tab values, sent in every request.
-          "body": { "temperature": 1.0, "top_p": 0.95, "top_k": 20, "min_p": 0, "repeat_penalty": 1.0 },
-          // LM Studio ignores reasoning_effort, except "none" (thinking off).
-          // Without "none", the chat template uses xhigh.
-          "variants": [{ "id": "nothink", "settings": { "reasoningEffort": "none" } }]
+        "Qwen3.8-27B-oQ4e-mtp": {
+          "name": "Qwen3.8-27B-oQ4e-mtp",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text"] },
+          // Equal to max_context_window of this model in oMLX.
+          "limit": { "context": 95072, "output": 32000 },
+          "body": { "temperature": 1.0, "top_p": 0.95, "top_k": 20 },
+          // The chat template rejects reasoning_effort "none".
+          "variants": [{ "id": "nothink", "body": { "enable_thinking": false } }]
         }
       }
     }
   },
   // Titles do not need reasoning.
-  "agents": { "title": { "model": "lmstudio/qwen3.8-27b-ud-single#nothink" } },
+  "agents": { "title": { "model": "omlx/Qwen3.8-27B-oQ4e-mtp#nothink" } },
   "permission": {
     "edit": "allow",
     "bash": {
