@@ -6,7 +6,6 @@
       "/home/jeroen/.claude/projects"
     ]
   },
-  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -103,7 +102,7 @@
       "effortLevel": "high"
     },
     "claude-opus-5-5": {
-      "effortLevel": "xhigh"
+      "effortLevel": "medium"
     }
   },
   "ultracode": false,
