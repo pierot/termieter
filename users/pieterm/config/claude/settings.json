@@ -79,19 +79,24 @@
     ],
     "defaultMode": "auto"
   },
+<<<<<<< HEAD
   "model": "opus",
+||||||| 442ee79
+=======
+  "model": "fable",
+>>>>>>> 8fbfe6483f463569523cb42da091ca9be6e48acf
   "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$HOME/.claude/hooks/context-mode-cache-heal.mjs\""
-          }
-        ]
-      }
-    ]
-  },
+  "SessionStart": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "\"$HOME/.claude/hooks/context-mode-cache-heal.mjs\""
+        }
+      ]
+    }
+  ]
+},
   "statusLine": {
     "type": "command",
     "command": "/Users/pieterm/.config/claude/statusline.sh"
@@ -169,6 +174,9 @@
       "effortLevel": "xhigh"
     },
     "claude-sonnet-5-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-fable-5-2": {
       "effortLevel": "xhigh"
     }
   },
