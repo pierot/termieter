@@ -78,6 +78,12 @@ vim.diagnostic.config({
 		border = "rounded",
 		source = true,
 	},
+	-- Open the float after a jump with the default [d / ]d
+	jump = {
+		on_jump = function(_, bufnr)
+			vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+		end,
+	},
 })
 
 -- Syntax (vim.opt.syntax doesn't exist, this is a command)

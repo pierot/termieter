@@ -31,7 +31,6 @@ return {
 					override = {
 						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 					},
 				},
 				-- you can enable a preset for easier configuration
@@ -161,11 +160,6 @@ return {
 					javascript = { "string", "template_string" },
 				},
 			})
-
-			-- Integration with nvim-cmp
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			local cmp = require("cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
 
@@ -187,9 +181,12 @@ return {
 				"bash",
 				"c",
 				"css",
+				"diff",
 				"dockerfile",
 				"eex",
 				"elixir",
+				"git_rebase",
+				"gitcommit",
 				"gitignore",
 				"haskell",
 				"heex",
@@ -202,7 +199,9 @@ return {
 				"markdown_inline",
 				"php",
 				"query",
+				"regex",
 				"scss",
+				"sql",
 				"toml",
 				"tsx",
 				"typescript",
@@ -210,39 +209,17 @@ return {
 				"yaml",
 			})
 
-			-- Enable treesitter highlighting for filetypes
+			-- Enable treesitter highlighting for every filetype with an installed parser
+			-- (vim.treesitter.start raises an error when there is none)
 			vim.api.nvim_create_autocmd("FileType", {
-				pattern = {
-					"bash",
-					"c",
-					"css",
-					"dockerfile",
-					"eelixir",
-					"elixir",
-					"gitignore",
-					"haskell",
-					"heex",
-					"html",
-					"javascript",
-					"json",
-					"lua",
-					"markdown",
-					"php",
-					"scss",
-					"toml",
-					"typescript",
-					"typescriptreact",
-					"vim",
-					"yaml",
-				},
-				callback = function()
-					vim.treesitter.start()
+				callback = function(args)
+					pcall(vim.treesitter.start, args.buf)
 				end,
 			})
 
 			-- Enable treesitter-based indentation
 			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "elixir", "heex", "eelixir", "javascript", "typescript", "lua", "python" },
+				pattern = { "elixir", "heex", "eelixir", "javascript", "typescript", "lua" },
 				callback = function()
 					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 				end,
@@ -312,20 +289,13 @@ return {
 	{
 		"kyazdani42/nvim-tree.lua",
 		lazy = true,
-		priority = 1000,
 		keys = {
 			{ "<c-n>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file tree" },
 			{ "R", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh file tree" },
 		},
-		config = function()
-			local nvimtree = require("nvim-tree")
-			nvimtree.setup({
-				hijack_directories = { enable = true, auto_open = true },
-				diagnostics = { enable = true },
-				view = { width = 43 },
-			})
-
-			-- Auto-open nvim-tree when opening a directory
+		init = function()
+			-- Auto-open nvim-tree when opening a directory.
+			-- In init, not config: config only runs once the plugin is loaded.
 			vim.api.nvim_create_autocmd("VimEnter", {
 				callback = function(data)
 					local directory = vim.fn.isdirectory(data.file) == 1
@@ -334,6 +304,14 @@ return {
 						require("nvim-tree.api").tree.open()
 					end
 				end,
+			})
+		end,
+		config = function()
+			local nvimtree = require("nvim-tree")
+			nvimtree.setup({
+				hijack_directories = { enable = true, auto_open = true },
+				diagnostics = { enable = true },
+				view = { width = 43 },
 			})
 		end,
 	},
@@ -348,15 +326,12 @@ return {
 		-- enabled = false,
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
+			"saghen/blink.cmp",
 			-- { "antosha417/nvim-lsp-file-operations", config = true },
 		},
 		config = function()
-			-- import cmp-nvim-lsp plugin
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 			-- used to enable autocompletion (assign to every lsp server config)
-			local capabilities = cmp_nvim_lsp.default_capabilities()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			-- vim.lsp.config("*", {
 			-- 	root_markers = { ".git" },
@@ -389,7 +364,6 @@ return {
 						vim.lsp.buf.declaration,
 						{ buffer = args.buf, desc = "Go to declaration" }
 					)
-					vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = args.buf, desc = "Show references" })
 					vim.keymap.set(
 						"n",
 						"gi",
@@ -410,12 +384,10 @@ return {
 						vim.diagnostic.open_float,
 						{ buffer = args.buf, desc = "Line diagnostics" }
 					)
-					vim.keymap.set("n", "[d", function()
-						vim.diagnostic.jump({ count = -1 })
-					end, { buffer = args.buf, desc = "Previous diagnostic" })
-					vim.keymap.set("n", "]d", function()
-						vim.diagnostic.jump({ count = 1 })
-					end, { buffer = args.buf, desc = "Next diagnostic" })
+
+					-- Show LSP document colors (e.g. tailwind classes) as a virtual
+					-- swatch next to the text instead of painting the background
+					vim.lsp.document_color.enable(true, { bufnr = args.buf }, { style = "virtual" })
 				end,
 			})
 
@@ -423,86 +395,55 @@ return {
 		end,
 	},
 
-	-- Completion engine
+	-- Snippet engine.
+	-- Not a blink.cmp dependency, so it stays out of startup: blink's luasnip
+	-- preset requires it on the first completion, and lazy.nvim loads it then.
 	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"onsails/lspkind-nvim",
-		},
+		"L3MON4D3/LuaSnip",
+		lazy = true,
 		config = function()
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			local lspkind = require("lspkind")
-
 			-- Load VSCode-style snippets
 			require("luasnip/loaders/from_vscode").lazy_load()
-
-			vim.opt.completeopt = "menu,menuone,noselect"
-
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-k>"] = cmp.mapping.select_prev_item(),
-					["<C-j>"] = cmp.mapping.select_next_item(),
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" }, -- LSP
-					{ name = "luasnip" }, -- Snippets
-					{ name = "buffer" }, -- Buffer text
-					{ name = "path" }, -- File paths
-				}),
-				formatting = {
-					format = lspkind.cmp_format({
-						mode = "symbol_text",
-						preset = "codicons",
-						maxwidth = 50,
-						ellipsis_char = "...",
-						symbol_map = {
-							Text = "󰉿",
-							Method = "󰆧",
-							Function = "󰊕",
-							Constructor = "",
-							Field = "󰜢",
-							Variable = "󰀫",
-							Class = "󰠱",
-							Interface = "",
-							Module = "",
-							Property = "󰜢",
-							Unit = "󰑭",
-							Value = "󰎠",
-							Enum = "",
-							Keyword = "󰌋",
-							Snippet = "",
-							Color = "󰏘",
-							File = "󰈙",
-							Reference = "󰈇",
-							Folder = "󰉋",
-							EnumMember = "",
-							Constant = "󰏿",
-							Struct = "󰙅",
-							Event = "",
-							Operator = "󰆕",
-							TypeParameter = "",
-						},
-					}),
-				},
-			})
 		end,
+	},
+
+	-- Completion engine
+	{
+		"saghen/blink.cmp",
+		-- v1 is the stable line; v2 has breaking changes.
+		version = "1.*",
+		opts = {
+			-- Keymap mirrors the old nvim-cmp binds. preset "none" = fully explicit.
+			keymap = {
+				preset = "none",
+				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-e>"] = { "hide", "fallback" },
+				["<CR>"] = { "accept", "fallback" },
+				["<C-y>"] = { "accept", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-n>"] = { "select_next", "fallback" },
+				["<C-p>"] = { "select_prev", "fallback" },
+				["<Tab>"] = { "select_next", "fallback" },
+				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<C-b>"] = { "scroll_documentation_up", "fallback" },
+				["<C-f>"] = { "scroll_documentation_down", "fallback" },
+			},
+			appearance = { nerd_font_variant = "mono" },
+			snippets = { preset = "luasnip" },
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
+			},
+			completion = {
+				-- No preselect: <CR> only accepts an item you selected (nvim-cmp select = false)
+				list = { selection = { preselect = false } },
+				documentation = { auto_show = true, auto_show_delay_ms = 200 },
+			},
+			-- The command line keeps the native wildmenu
+			cmdline = { enabled = false },
+			-- Signature help stays with noice (blink's signature is off by default)
+		},
+		opts_extend = { "sources.default" },
 	},
 
 	-- Formatting
@@ -591,209 +532,26 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local lualine = require("lualine")
+			local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
-			-- Color table
-			local colors = {
-				bg = "#181d24",
-				fg = "#e4e6e8",
-				yellow = "#ECBE7B",
-				cyan = "#008080",
-				darkblue = "#081633",
-				green = "#98be65",
-				orange = "#FF8800",
-				violet = "#a9a1e1",
-				magenta = "#c678dd",
-				blue = "#51afef",
-				red = "#ec5f67",
-			}
-
-			local conditions = {
-				buffer_not_empty = function()
-					return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
-				end,
-				hide_in_width = function()
-					return vim.fn.winwidth(0) > 80
-				end,
-				check_git_workspace = function()
-					local filepath = vim.fn.expand("%:p:h")
-					local gitdir = vim.fn.finddir(".git", filepath .. ";")
-					return gitdir and #gitdir > 0 and #gitdir < #filepath
-				end,
-			}
-
-			local config = {
+			lualine.setup({
 				options = {
-					component_separators = "",
-					section_separators = "",
-					theme = {
-						normal = { c = { fg = colors.fg, bg = colors.bg } },
-						inactive = { c = { fg = colors.fg, bg = colors.bg } },
-					},
+					-- follow the active colorscheme, so the F5 toggle also restyles the statusline
+					theme = "auto",
 				},
 				sections = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_y = {},
-					lualine_z = {},
-					lualine_c = {},
-					lualine_x = {},
-				},
-				inactive_sections = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_y = {},
-					lualine_z = {},
-					lualine_c = {},
-					lualine_x = {},
-				},
-			}
-
-			local function ins_left(component)
-				table.insert(config.sections.lualine_c, component)
-			end
-
-			local function ins_right(component)
-				table.insert(config.sections.lualine_x, component)
-			end
-
-			local function removeDuplicates(tbl)
-				local unique = {}
-				local result = {}
-				for _, v in ipairs(tbl) do
-					if not unique[v] then
-						table.insert(result, v)
-						unique[v] = true
-					end
-				end
-				return result
-			end
-
-			ins_left({
-				function()
-					return "▊"
-				end,
-				color = { fg = colors.blue },
-				padding = { left = 0, right = 1 },
-			})
-
-			ins_left({
-				function()
-					return ""
-				end,
-				color = function()
-					local mode_color = {
-						n = colors.red,
-						i = colors.green,
-						v = colors.blue,
-						[""] = colors.blue,
-						V = colors.blue,
-						c = colors.magenta,
-						no = colors.red,
-						s = colors.orange,
-						S = colors.orange,
-						[""] = colors.orange,
-						ic = colors.yellow,
-						R = colors.violet,
-						Rv = colors.violet,
-						cv = colors.red,
-						ce = colors.red,
-						r = colors.cyan,
-						rm = colors.cyan,
-						["r?"] = colors.cyan,
-						["!"] = colors.red,
-						t = colors.red,
-					}
-					return { fg = mode_color[vim.fn.mode()] }
-				end,
-				padding = { right = 1 },
-			})
-
-			ins_left({ "filesize", cond = conditions.buffer_not_empty })
-			ins_left({
-				"filename",
-				cond = conditions.buffer_not_empty,
-				color = { fg = colors.magenta, gui = "bold" },
-			})
-			ins_left({ "location" })
-			ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
-			ins_left({
-				"diagnostics",
-				sources = { "nvim_diagnostic" },
-				symbols = { error = " ", warn = " ", info = " " },
-				diagnostics_color = {
-					error = { fg = colors.red },
-					warn = { fg = colors.yellow },
-					info = { fg = colors.cyan },
+					lualine_x = {
+						{
+							lazy_status.updates,
+							cond = lazy_status.has_updates,
+							color = { fg = "#ff9e64" },
+						},
+						{ "encoding" },
+						{ "fileformat" },
+						{ "filetype" },
+					},
 				},
 			})
-
-			ins_left({
-				function()
-					return "%="
-				end,
-			})
-
-			ins_left({
-				function()
-					local msg = "No Active Lsp"
-					local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-					local clients = vim.lsp.get_clients()
-					if next(clients) == nil then
-						return msg
-					end
-					local all = {}
-					for _, client in ipairs(clients) do
-						local filetypes = client.config.filetypes
-						if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-							table.insert(all, client.name)
-						end
-					end
-					if next(all) == nil then
-						return msg
-					end
-					all = removeDuplicates(all)
-					return table.concat(all, ", ")
-				end,
-				icon = " LSP:",
-				color = { fg = "#ffffff", gui = "bold" },
-			})
-
-			ins_right({
-				"o:encoding",
-				fmt = string.upper,
-				cond = conditions.hide_in_width,
-				color = { fg = colors.green, gui = "bold" },
-			})
-			ins_right({
-				"fileformat",
-				fmt = string.upper,
-				icons_enabled = false,
-				color = { fg = colors.green, gui = "bold" },
-			})
-			ins_right({
-				"branch",
-				icon = "",
-				color = { fg = colors.violet, gui = "bold" },
-			})
-			ins_right({
-				"diff",
-				symbols = { added = " ", modified = "󰝤 ", removed = " " },
-				diff_color = {
-					added = { fg = colors.green },
-					modified = { fg = colors.orange },
-					removed = { fg = colors.red },
-				},
-				cond = conditions.hide_in_width,
-			})
-			ins_right({
-				function()
-					return "▊"
-				end,
-				color = { fg = colors.blue },
-				padding = { left = 1 },
-			})
-
-			lualine.setup(config)
 		end,
 	},
 

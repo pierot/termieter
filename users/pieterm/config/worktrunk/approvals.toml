@@ -7,3 +7,9 @@ approved-commands = [
     "make styles",
     ". ./.env && mix deps.get && mix compile",
 ]
+
+[projects."gitlab.com/justified-org/justin"]
+approved-commands = [
+    "wt step copy-ignored",
+    ". ./.env && mix deps.get && mix compile",
+]
