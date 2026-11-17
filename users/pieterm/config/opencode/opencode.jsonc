@@ -1,6 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "omlx/Qwen3.8-27B-oQ4e-mtp",
+  // Local model only. This hides the hosted models of the built-in "opencode" provider.
+  "enabled_providers": ["omlx"],
   "autoupdate": true,
   "formatter": true,
   "lsp": true,
@@ -43,7 +45,9 @@
       "*": "allow",
       "*git commit*": "ask",
       "*git push*": "ask",
-      "*rm -rf*": "deny"
+      "*rm -rf*": "deny",
+      // `opencode service` commands stop the server that runs the agent.
+      "*opencode service*": "deny"
     },
     // ctx is for Claude Code only. OpenCode also finds ~/.claude/skills/ctx.
     "skill": { "ctx": "deny" }
