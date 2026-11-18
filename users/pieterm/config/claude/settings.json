@@ -37,7 +37,6 @@
       "Bash(mix test:*)",
       "Bash(mix:*)",
       "Bash(mkdir:*)",
-      "Bash(mt test:*)",
       "Bash(mv:*)",
       "Bash(npm:*)",
       "Bash(npx:*)",
@@ -79,19 +78,19 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "fable",
+  "model": "opus",
   "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$HOME/.claude/hooks/context-mode-cache-heal.mjs\""
-          }
-        ]
-      }
-    ]
-  },
+  "SessionStart": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "\"$HOME/.claude/hooks/context-mode-cache-heal.mjs\""
+        }
+      ]
+    }
+  ]
+},
   "statusLine": {
     "type": "command",
     "command": "/Users/pieterm/.config/claude/statusline.sh"
