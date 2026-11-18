@@ -315,7 +315,9 @@ fi
 
 _print_h1 "ctx agent history search"
 
-if hash ctx 2>/dev/null; then
+# Check with "ctx sources", not "hash ctx": other programs are also named ctx
+# (for example Context Generator).
+if ctx sources >/dev/null 2>&1; then
   _print "ctx is already installed ✓"
 else
   _print "Installing ctx..."
@@ -323,7 +325,7 @@ else
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-if hash ctx 2>/dev/null; then
+if ctx sources >/dev/null 2>&1; then
   # Config lives in users/$USER/config/ctx and is symlinked by install-symlinks.
   # setup is idempotent: it indexes discovered agent history and starts the daemon.
   ctx setup --quiet
