@@ -27,6 +27,13 @@
 #    xdotool       types the text and reads the screen size
 #    dzen2         the status bar at the bottom center
 #
+#    whisper-cpp 1.9.5-1 does not work with ggml 0.29.0: parakeet-cli
+#    aborts at model init (GGML_ASSERT in ggml_view_3d). whisper-cpp
+#    1.9.5-1 was built against ggml 0.26.0. Until Arch rebuilds
+#    whisper-cpp, keep ggml at 0.26.0-2:
+#        sudo pacman -U https://archive.archlinux.org/packages/g/ggml/ggml-0.26.0-2-x86_64.pkg.tar.zst
+#    and set "IgnorePkg = ggml" in /etc/pacman.conf.
+#
 # 2. Model (not in git, 668 MB)
 #        mkdir -p ~/.local/share/whisper && cd ~/.local/share/whisper
 #        curl -LO https://huggingface.co/ggml-org/parakeet-GGUF/resolve/main/ggml-parakeet-tdt-0.6b-v3-q8_0.bin
@@ -49,7 +56,9 @@
 #        parakeet-cli -m ~/.local/share/whisper/ggml-parakeet-tdt-0.6b-v3-q8_0.bin \
 #          -f /tmp/test.wav -np -ng -t 16
 #    A 5 s recording takes about 0.3 s to transcribe on the CPU (Ryzen 9
-#    9950X in 2026). Set -t to the number of CPU cores.
+#    9950X in 2026) and about 1.2 s on the laptop (i7-1260P, 16 threads).
+#    Set -t to the number of CPU threads. On the i7-1260P, -t 16 is
+#    faster than -t 4, 8 or 12.
 #    "-ng" (no GPU) is intentional. On the Radeon RX 6600 (Vulkan) a 5 s
 #    recording takes about 0.6 s: the GPU setup and the model upload take
 #    longer than the transcription.
@@ -111,10 +120,17 @@ stop() {
   mv "$wav_file" "$audio"
 
   osd '#7C3AED' 'Transcribing...'
-  text=$(parakeet-cli -m "$model" -f "$audio" -np -ng -t 16 2>/dev/null |
-    tr '\n' ' ' | tr -s ' ' | sed 's/^ //; s/ $//')
+  # On a crash, ggml writes a gdb backtrace to stdout. Type nothing then.
+  if ! output=$(parakeet-cli -m "$model" -f "$audio" -np -ng -t 16 2>/dev/null); then
+    rm -f "$audio"
+    osd '#dc2626' 'Transcription failed'
+    sleep 2
+    osd_close
+    exit 1
+  fi
   rm -f "$audio"
   osd_close
+  text=$(printf '%s' "$output" | tr '\n' ' ' | tr -s ' ' | sed 's/^ //; s/ $//')
 
   if [ -n "$text" ]; then
     xdotool type --clearmodifiers -- "$text"
