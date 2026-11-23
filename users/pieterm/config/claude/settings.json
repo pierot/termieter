@@ -37,7 +37,6 @@
       "Bash(mix test:*)",
       "Bash(mix:*)",
       "Bash(mkdir:*)",
-      "Bash(mt test:*)",
       "Bash(mv:*)",
       "Bash(npm:*)",
       "Bash(npx:*)",
