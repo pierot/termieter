@@ -79,12 +79,7 @@
     ],
     "defaultMode": "auto"
   },
-<<<<<<< HEAD
   "model": "opus",
-||||||| 442ee79
-=======
-  "model": "fable",
->>>>>>> 8fbfe6483f463569523cb42da091ca9be6e48acf
   "hooks": {
   "SessionStart": [
     {
