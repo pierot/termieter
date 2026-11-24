@@ -178,6 +178,7 @@ users/pieterm/config/com.corsair
 users/pieterm/config/containers/containers.conf
 users/pieterm/config/containers/podman-connections.json*
 users/pieterm/config/containers/podman/machine*
+users/pieterm/config/containers/enable-rosetta
 users/pieterm/config/gh/hosts.yml
 users/pieterm/config/github-copilot
 users/pieterm/config/lnav/*history
@@ -186,6 +187,9 @@ users/pieterm/config/lnav/configs/default/*.sample
 users/pieterm/config/lnav/crash/
 users/pieterm/config/lnav/log_metadata.db
 users/pieterm/config/lnav/view-info-*.json
+# machine-local state files
+users/pieterm/config/hunk/state.json
+users/pieterm/config/worktrunk/approvals.toml.lock
 users/pieterm/config/lvim/**
 users/pieterm/config/memos.json
 users/pieterm/config/nvim/lazy-lock.json
