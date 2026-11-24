@@ -1,12 +1,14 @@
 {
-  "lastChangelogVersion": "1.2.0",
+  "lastChangelogVersion": "1.5.2",
   "defaultProvider": "lmstudio",
   "defaultModel": "qwen3.8-27b-ud-single",
   "defaultThinkingLevel": "xhigh",
   "quietStartup": true,
   "compaction": {
     "modelOverrides": {
-      "lmstudio/qwen3.8-27b-ud-single": { "reserveTokens": 31072 }
+      "lmstudio/qwen3.8-27b-ud-single": {
+        "reserveTokens": 31072
+      }
     }
   },
   "packages": [
@@ -32,5 +34,12 @@
   "extensions": [
     "+builtin:mcp",
     "+builtin:tool-search"
-  ]
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.78.0",
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.40.0",
+    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.4.3",
+    "{\"source\":\"npm:@tmustier/pi-usage-extension\",\"scope\":\"user\"}": "0.9.5",
+    "{\"source\":\"npm:pi-manage-todo-list\",\"scope\":\"user\"}": "0.4.0"
+  }
 }
