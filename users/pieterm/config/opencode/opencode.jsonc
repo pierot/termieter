@@ -30,6 +30,8 @@
           "capabilities": { "tools": true, "input": ["text"], "output": ["text"] },
           // Equal to max_context_window of this model in oMLX.
           "limit": { "context": 95072, "output": 32000 },
+          // The TUI model dialog lists a local model only when the model has a cost of 0.
+          "cost": { "input": 0, "output": 0 },
           "body": { "temperature": 1.0, "top_p": 0.95, "top_k": 20 },
           // The chat template rejects reasoning_effort "none".
           "variants": [{ "id": "nothink", "body": { "enable_thinking": false } }]

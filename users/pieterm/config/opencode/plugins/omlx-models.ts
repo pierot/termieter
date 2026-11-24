@@ -31,6 +31,8 @@ export default Plugin.define({
         editor.update("omlx", model.id, (draft) => {
           draft.capabilities.input = model.model_type === "vlm" ? ["text", "image"] : ["text"]
           if (model.max_model_len) draft.limit.context = model.max_model_len
+          // The TUI model dialog lists a local model only when the model has a cost of 0.
+          draft.cost = [{ input: 0, output: 0, cache: { read: 0, write: 0 } }]
         })
       }
     })
